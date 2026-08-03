@@ -1,0 +1,40 @@
+{
+  "description": "POST payloads for Workflow 3",
+  "samples": [
+    {
+      "scenario": "Standard completion \u2014 single-visit client",
+      "expected_result": "Post-treatment check-in immediately, review request scheduled +24hr, NO referral ask (< 2 visits)",
+      "payload": {
+        "clientName": "Sarah Kowalski",
+        "clientEmail": "sarah.kowalski@gmail.com",
+        "appointmentDate": "2026-07-28",
+        "service": "Botox (40 units)",
+        "provider": "Dr. Priya Patel",
+        "isReturningClient": false
+      }
+    },
+    {
+      "scenario": "Completion \u2014 returning client (2+ visits)",
+      "expected_result": "Post-treatment check-in + review request +24hr + referral ask +24hr",
+      "payload": {
+        "clientName": "Rachel Foster",
+        "clientEmail": "rachel.foster@gmail.com",
+        "appointmentDate": "2026-07-28",
+        "service": "Botox (30 units)",
+        "provider": "Nurse Jamie Chen",
+        "isReturningClient": true
+      }
+    },
+    {
+      "scenario": "Completion for opted-out client (edge)",
+      "expected_result": "Post-treatment care still sent (transactional). Review/referral SKIPPED.",
+      "payload": {
+        "clientName": "Kayla Anderson",
+        "clientEmail": "kayla.anderson@yahoo.com",
+        "appointmentDate": "2026-07-28",
+        "service": "Botox",
+        "provider": "Dr. Sarah Kim"
+      }
+    }
+  ]
+}

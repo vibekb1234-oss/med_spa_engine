@@ -1,0 +1,165 @@
+# AI Client DFY And DWY System
+
+MedSpa Growth Engine should be done-for-you for the clinic owner, but it should still include done-with-you moments where the clinic provides access, confirms preferences, and approves sensitive communication.
+
+This file defines what the AI operator handles for clients after they buy.
+
+## Client Experience Promise
+
+The clinic should feel:
+
+- They are not buying another dashboard to manage.
+- They are getting a recovery operator installed around their existing process.
+- They know what is happening every week.
+- They only get asked for decisions when needed.
+- Their team does not have to learn a complicated platform.
+
+## DFY vs DWY Split
+
+| Area | DFY - we do it | DWY - client helps/approves |
+|---|---|---|
+| Intake | Create checklist, chase missing items, organize assets | Provide clinic info, tools, branding, access |
+| Workflow setup | Configure workflows, dashboard, Sheets, reports | Approve workflow timing and contact rules |
+| Messaging | Draft review, referral, no-show, and reactivation copy | Approve voice, restricted phrases, and offer details |
+| Testing | Run internal QA and error checks | Confirm test messages and booking flow |
+| Launch | Prepare handoff and weekly reporting | Approve go-live |
+| Monitoring | Watch errors, reporting, recovery signals, churn risk | Respond to escalations |
+| Improvement | Suggest campaigns and retention ideas | Approve campaigns and any client-facing changes |
+
+## Client AI Operator Roles
+
+### Onboarding Assistant
+
+Output:
+
+- Access checklist.
+- Missing information reminders.
+- Kickoff summary.
+- Client success metric.
+- Scope confirmation.
+
+### Workflow QA Assistant
+
+Output:
+
+- Workflow test plan.
+- Error handling check.
+- Dashboard status check.
+- Report status check.
+- Go-live blocker list.
+
+### Recovery Monitor
+
+Output:
+
+- Missed inquiry status.
+- No-show recovery status.
+- Lapsed VIP movement.
+- Review/referral workflow activity.
+- Weekly report status.
+
+### Client Success Assistant
+
+Output:
+
+- Weekly client update.
+- Monthly health score.
+- Churn-risk signals.
+- Next improvement idea.
+- Renewal or upsell timing.
+
+## Client Autopilot Loops
+
+| Loop | Trigger | AI action | Client/owner handoff |
+|---|---|---|---|
+| Missing access | Intake item missing after 24 hours | Draft reminder and update blocker list | Owner sends or approves |
+| Workflow error | Error handler fires | Summarize issue and severity | Owner fixes or escalates |
+| Weekly report | Weekly report due | Draft wins and recovery summary | Owner reviews before sending if needed |
+| Low activity | No meaningful system movement | Suggest campaign or client check-in | Owner/client approves |
+| Churn risk | Errors, silence, or low visibility | Create save-plan note | Owner handles relationship |
+| Upsell trigger | Stable client plus extra opportunity | Draft improvement recommendation | Owner decides offer |
+
+## Client Weekly Report Standard
+
+```text
+Subject: Weekly recovery system update for [Clinic]
+
+Hi [Name],
+
+Here is what the recovery system checked this week:
+
+Wins:
+- [Win]
+- [Win]
+
+Recovery areas monitored:
+- New inquiries:
+- Booking confirmations:
+- No-show recovery:
+- Reviews/referrals:
+- VIP/lapsed clients:
+
+System health:
+- Workflow status:
+- Dashboard/reporting:
+- Errors/blockers:
+
+Next useful move:
+- [One recommendation]
+
+Owner action needed:
+- [Only include when needed]
+```
+
+## Client Health Score
+
+Score each live client weekly.
+
+| Signal | Healthy | Watch | Risk |
+|---|---|---|---|
+| Weekly report | Sent | Late once | Missing |
+| Workflow errors | None | One unresolved | Repeated |
+| Client response | Engaged | Quiet | Avoiding |
+| Recovery activity | Visible movement | Low movement | No movement |
+| Blockers | None | Waiting client | Blocking launch/results |
+| Sentiment | Positive | Neutral | Frustrated |
+
+Risk response:
+
+- Watch: send helpful update and one improvement.
+- Risk: owner creates save plan and speaks with client.
+
+## Client Boundaries
+
+Included:
+
+- Installed recovery workflows.
+- Dashboard visibility.
+- Weekly report.
+- Light copy edits for installed flows.
+- Error checks.
+- Monthly improvement recommendation.
+
+Not included without paid scope:
+
+- New booking platform integration.
+- SMS provider setup if not sold.
+- Paid ads management.
+- Custom analytics.
+- Multi-location reporting.
+- Medical/legal/compliance consulting.
+- New workflows outside the sold recovery system.
+
+## Client Handoff Rule
+
+Clients should never feel abandoned after go-live.
+
+Minimum post-launch cadence:
+
+- Day 1: launch confirmation.
+- Day 3: system health check.
+- Day 7: first weekly report.
+- Day 14: friction check.
+- Day 30: monthly recovery review.
+
+The AI prepares these. The owner sends or approves relationship-sensitive messages.

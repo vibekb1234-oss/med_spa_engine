@@ -1,0 +1,33 @@
+area,task,status,owner,priority,cadence,trigger,done_definition
+Sales,Build qualified medspa lead list,Backlog,Owner,P1,Weekly,Monday lead block,50-100 qualified leads added with contact route and pain note
+Sales,Send first-touch outbound,Backlog,Owner,P1,Weekly,New lead list ready,First email DM or website form message sent
+Sales,Send follow-up 1,Backlog,Owner,P1,Daily,24 hours after first touch,Follow-up sent or lead marked disqualified
+Sales,Send follow-up 2,Backlog,Owner,P1,Daily,72 hours after first touch,Follow-up sent or lead marked nurture
+Sales,Send follow-up 3,Backlog,Owner,P2,Weekly,7 days after first touch,Final direct follow-up sent
+Sales,Book demo,Backlog,Owner,P0,Daily,Prospect replies or engages,Demo time agreed and confirmation sent
+Sales,Run discovery call,Backlog,Owner,P0,Per call,Demo attended,Pain volume tools and decision process captured
+Sales,Run dashboard demo,Backlog,Owner,P0,Per call,Discovery confirms fit,Dashboard and workflow map shown
+Sales,Send proposal,Backlog,Owner,P0,Same day,Demo completed,One recommended package and next step sent
+Sales,Close deal,Backlog,Owner,P0,Per opportunity,Proposal accepted,Setup fee paid and delivery start date scheduled
+Delivery,Sales handoff,Backlog,Owner,P0,Per client,Deal closed,Scope price pain exclusions and launch target captured
+Delivery,Client intake,Backlog,Owner/Client,P0,Per client,Setup fee paid,Google n8n review link timezone services and owner email received
+Delivery,Create Google Sheet,Backlog,Owner,P0,Per client,Intake complete,Sheet schema created and owned by client workspace
+Delivery,Install Apps Script,Backlog,Owner,P0,Per client,Sheet ready,MedSpa Engine script installed and constants configured
+Delivery,Generate webhook secret,Backlog,Owner,P0,Per client,Setup started,Unique secret saved across workflow configurator Apps Script dashboard and intake URL
+Delivery,Configure workflows,Backlog,Owner,P0,Per client,Credentials available,All placeholders replaced for all 8 workflows
+Delivery,Import workflows,Backlog,Owner,P0,Per client,Configured files downloaded,All workflows imported into n8n
+Delivery,Connect credentials,Backlog,Owner/Client,P0,Per client,n8n workflows imported,Google Sheets and Gmail OAuth connected
+Delivery,Wire error handler,Backlog,Owner,P0,Per client,Workflows imported,Workflow 7 assigned as error handler
+Delivery,Configure dashboard,Backlog,Owner,P0,Per client,Sheet API and webhooks ready,API key Sheet ID webhook URLs secret and clinic details saved
+Delivery,Run system check,Backlog,Owner,P0,Per client,Dashboard configured,System check passes or blockers are logged
+Delivery,Run functional QA,Backlog,Owner,P0,Per client,System check complete,Intake mark complete status update booking confirmation and error handler tested
+Delivery,Export dashboard backup,Backlog,Owner,P1,Per client,QA passed,Backup JSON downloaded and stored
+Delivery,Client handoff walkthrough,Backlog,Owner,P0,Per client,QA passed,Owner shown overview pipeline clients analytics settings and support rules
+Retention,Confirm weekly report,Backlog,Owner,P1,Weekly,Monday/weekly report time,Workflow 5 sent report or issue logged
+Retention,Scan workflow errors,Backlog,Owner,P0,Weekly,Weekly maintenance block,Workflow 7 errors resolved or escalated
+Retention,Send monthly owner summary,Backlog,Owner,P1,Monthly,Month end,Wins leaks next action and support notes sent
+Retention,Review churn risk,Backlog,Owner,P1,Monthly,Monthly success review,Usage errors and client sentiment checked
+Retention,Propose improvement,Backlog,Owner,P2,Monthly,Monthly report sent,One useful improvement or campaign recommended
+Ops,Review owner scorecard,Backlog,Owner,P1,Weekly,Friday ops review,Sales delivery and retention metrics updated
+Ops,Update SOP after friction,Backlog,Owner,P2,As needed,Repeated issue appears,SOP or checklist updated so issue does not repeat
+Ops,Review launch blockers,Backlog,Owner,P0,Before public launch,Go-live decision,Domain email security legal and hosting gates confirmed

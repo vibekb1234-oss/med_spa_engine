@@ -1,0 +1,51 @@
+lead_id,business_name,city,website,email,phone,enrichment_method,confidence_score
+MS-0329,Wellness Code MedSpa,Dallas,https://wellnesscode.com,info@wellnesscode.com,(972) 961-1141,websearch_snippet,75
+MS-0352,L'Atelier MedSpa,Detroit,https://www.andrewcomptonmd.com/,info@andrewcomptonmd.com,(248) 289-7300,pattern_inferred_domain,65
+MS-1222,The Hive Medspa El Paso,El Paso,https://thehivemedspa.com,,(915) 455-6655,no_email_found,0
+MS-1223,Adi MedSpa,El Paso,https://adimedspa.com,,(915) 474-3239,no_email_found,0
+MS-0364,Enid Live Well,Enid,https://enidlivewell.com,,(580) 233-4300,no_email_found,0
+MS-0365,Ziba Medical Spa Eugene,Eugene,https://www.zibamedspaeugene.com,,(541) 686-8700,no_email_found,0
+MS-0366,Brighter Smiles Med Spa,Eugene,https://4brightersmiles.com,,(541) 342-7483,no_email_found,0
+MS-0367,Jewell Aesthetic Med Spa,Eugene,https://www.jewellaestheticmedspa.com,info@jewellaestheticmedspa.com,(541) 683-3238,websearch_snippet,80
+MS-0368,Alora Wellness Spa,Eugene,https://alorawellnessspa.com,answers@alorawellnessspa.com,(541) 228-9595,websearch_snippet,82
+MS-0369,Revive Skin Health,Eugene,https://www.reviveskinhealth.com,info@reviveskinhealth.com,(541) 484-3305,websearch_snippet,80
+MS-0370,Nova Concierge Medicine & Aesthetics,Fairfax,https://novaconciergemed.com,info@novacma.com,(703) 891-2182,websearch_snippet,78
+MS-0371,Facette Medical Spa,Fort Collins,https://www.facettemedicalspa.com/,,(970) 223-1211,no_email_found,0
+MS-0372,Neve Aesthetics Wellness,Fort Collins,https://www.nevewithin.com/,info@nevewithin.com,(970) 636-3086,websearch_snippet,82
+MS-0373,Premier Skin Clinic FoCo,Fort Collins,https://premierskinclinic.com/,,(970) 221-1285,no_email_found,0
+MS-0374,Femme Med and Spa,Fort Wayne,https://femmemedandspa.com,,(260) 252-4080,no_email_found,0
+MS-1196,SkinSculpt Aesthetics,Fresno,https://www.skinsculpt-aesthetics.com,mepflorez@skinsculpt-aesthetics.com,(559) 470-2125,websearch_snippet,85
+MS-1197,Revay Aesthetics,Fresno,https://revayaesthetics.com,info@revayaesthetics.com,(559) 547-6949,websearch_snippet,85
+MS-1198,Avante Medical Aesthetics,Fresno,https://www.amafresno.com,info@amafresno.com,(559) 326-8867,websearch_snippet,85
+MS-1199,REFYNED Aesthetics,Fresno,https://refynedaesthetics.com,info@refynedaesthetics.com,(559) 570-1400,websearch_snippet,85
+MS-1200,Mystique Medical Spa,Fresno,https://mystiquemedicalspa.com,questions@mystiquemedicalspa.com,(559) 447-5273,websearch_snippet,78
+MS-1201,BUDDIGA Skin Aesthetics Med Spa,Fresno,https://www.buddiga.com,info@buddiga.com,(559) 421-9009,websearch_snippet,88
+MS-0375,Wellworx Clinic,Frisco,https://wellworxclinic.com,,(972) 645-1677,no_email_found,0
+MS-1131,Golden Diamond Medical Spa,Garland,https://goldendiamondmed-spa.com,goldendiamondmedspa@gmail.com,(469) 777-9199,websearch_snippet,70
+MS-0376,ElevateRx Med Spa GJ,Grand Junction,https://elevaterxmedspa.com/,,(970) 200-4417,no_email_found,0
+MS-0377,Amadika Aesthetics,Grand Junction,https://www.amadikaaesthetics.com/,amber@amadikaaesthetics.com,(970) 683-8798,websearch_snippet,88
+MS-0378,Just Wellness (formerly Cryo-X),Grapevine,https://www.just-wellness.com,info@cryo-x.com,(817) 733-0116,websearch_snippet,80
+MS-0379,MedSpa of DFW,Grapevine,https://medspaofdfw.com,frontdesk@dfwmsa.com,(817) 546-6772,websearch_snippet,85
+MS-0380,Bliss Beauty Aesthetics Greenville,Greenville,https://www.blissbeautyaesthetics.com,hello@blissbeautyaesthetics.com,(864) 777-9868,websearch_snippet,85
+MS-0381,Back to 30 Greenville,Greenville,https://backto30.com,info@backto30.com,(864) 372-3003,websearch_snippet,85
+MS-0382,The Med Spa on Augusta,Greenville,https://www.themedspaonaugusta.com,,(864) 203-3415,no_email_found,0
+MS-0383,Elevate Aesthetic Medicine,Greenville,https://www.elevateaestheticmedicine.com,,(no phone found),no_email_found,0
+MS-0384,Siffria Aesthetics,Greenville,https://siffriaesthetics.com,heather@heathersiffri.com,(864) 764-5591,websearch_snippet,85
+MS-0385,PUSH Med,Greenville,https://www.thepushmed.com,info@thepushmed.com,(864) 520-8799,websearch_snippet,85
+MS-0386,NaturallYou Med Spa,Greenwich,https://naturallyou.net/,,(203) 340-9998,no_email_found,0
+MS-0387,Greenwich Medical Spa,Greenwich,https://www.greenwichmedicalspa.com/,yourskinspecialist@greenwichmedicalspa.com,(203) 637-0662,websearch_snippet,85
+MS-0388,ArtMed Cosmetic Medicine,Guelph,https://www.artmed.ca/,info@artmed.ca,(519) 824-4567,websearch_snippet,88
+MS-0389,Breathe Medical Spa,Guelph,https://www.breathemedspa.ca/,info@breathemedspa.ca,(519) 822-2221,websearch_snippet,88
+MS-0390,Gold & Bloom Medispa,Guelph,https://gbmedispa.com/,info@gbmedispa.com,(519) 830-1322,websearch_snippet,85
+MS-0391,Natalie Maaden Boutique Med Spa,Guelph,https://nataliemaaden.com/,info@nataliemaaden.com,(519) 767-3331,websearch_snippet,78
+MS-0397,Nova Scotia Medical Aesthetics,Halifax,https://www.novascotiamedicalaesthetics.com/,,(902) 648-7980,no_email_found,0
+MS-0398,This Is Sundays Halifax,Halifax,https://www.sundaysinc.com/,halifax@sundaysinc.com,(902) 200-5274,websearch_snippet,88
+MS-0399,Vitality Medi-Spa Halifax,Halifax,https://vitalitymedispa.ca/,,(902) 422-4475,no_email_found,0
+MS-0400,Embellish Medical Aesthetics,Halifax,https://www.embellishmedical.com/,info@embellishmedical.com,(902) 240-5750,websearch_snippet,88
+MS-1278,DerMedical Esthetics Dartmouth,Halifax,https://www.dermedicalesthetics.ca,,,no_email_found,0
+MS-0404,Glam Nurse Neda,Hamilton,https://glamnurseneda.ca/,glamnurseneda@gmail.com,(289) 442-1419,websearch_snippet,70
+MS-0410,Bella Republic Med Spa,Hartford,https://bellarepublicmedspa.com,info@bellarepublicmedspa.com,(959) 257-1804,websearch_snippet,85
+MS-0411,Radiance Medspa Avon,Hartford,https://www.radianceavon.com,info@radianceavon.com,(860) 409-9000,websearch_snippet,82
+MS-0412,Magnolia Med Spa CT,Hartford,https://magnoliamedspact.com,,(860) 604-9769,no_email_found,0
+MS-0413,Vivesse Med Spa,Hartford,https://vivesse.net,contact@vivesse.net,(860) 761-1339,websearch_snippet,85
+MS-0414,Blush Med Spa CT,Hartford,https://blushmedspact.com,,(860) 606-6879,no_email_found,0

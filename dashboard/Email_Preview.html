@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>MedSpa Growth Engine — Email Preview</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f1f5f9; color: #1f2937; display: flex; height: 100vh; overflow: hidden; }
+
+    /* SIDEBAR */
+    .sidebar { width: 280px; background: #1e1b4b; color: white; display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
+    .sidebar-header { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .sidebar-header h1 { font-size: 14px; font-weight: 700; }
+    .sidebar-header p  { font-size: 11px; opacity: 0.6; margin-top: 4px; }
+    .workflow-group { padding: 12px 0 4px; }
+    .workflow-label { padding: 6px 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5; }
+    .email-item { padding: 9px 20px 9px 24px; cursor: pointer; font-size: 13px; border-left: 3px solid transparent; transition: background 0.1s; line-height: 1.3; }
+    .email-item:hover { background: rgba(255,255,255,0.08); }
+    .email-item.active { background: rgba(255,255,255,0.12); border-left-color: #a78bfa; }
+    .email-item .recipient { font-size: 10px; opacity: 0.5; margin-top: 2px; }
+    .email-item .timing { font-size: 10px; color: #a78bfa; margin-top: 1px; }
+
+    /* MAIN */
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .top-bar { background: white; border-bottom: 1px solid #e5e7eb; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+    .top-bar h2 { font-size: 15px; font-weight: 700; }
+    .meta-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
+    .pill-purple { background: #ede9fe; color: #7c3aed; }
+    .pill-green  { background: #dcfce7; color: #166534; }
+    .pill-orange { background: #fff7ed; color: #c2410c; }
+    .pill-blue   { background: #dbeafe; color: #1e40af; }
+    .pill-rose   { background: #fce7f3; color: #9d174d; }
+    .pill-yellow { background: #fef9c3; color: #854d0e; }
+    .pill-owner  { background: #f3f4f6; color: #374151; }
+
+    /* PREVIEW AREA */
+    .preview-area { flex: 1; overflow-y: auto; padding: 24px; display: flex; gap: 24px; }
+    .context-panel { width: 260px; flex-shrink: 0; }
+    .context-card { background: white; border-radius: 10px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+    .context-card h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; margin-bottom: 10px; }
+    .context-card p  { font-size: 13px; color: #374151; line-height: 1.5; }
+    .context-card ul { font-size: 13px; color: #374151; line-height: 1.7; padding-left: 16px; }
+    .email-frame-wrap { flex: 1; min-width: 0; }
+    .email-frame-wrap iframe { width: 100%; height: 100%; min-height: 600px; border: none; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); background: white; }
+    .subject-bar { background: white; border-radius: 10px 10px 0 0; padding: 12px 16px; border-bottom: 1px solid #f3f4f6; margin-bottom: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+    .subject-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #9ca3af; }
+    .subject-text  { font-size: 14px; font-weight: 700; color: #1f2937; margin-top: 3px; }
+    .email-wrap { border-radius: 0 0 10px 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .email-render { background: white; padding: 0; }
+
+    @media (max-width: 900px) {
+      .context-panel { display: none; }
+      .sidebar { width: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h1>💎 Email Preview</h1>
+    <p>All emails your system sends — exactly as clients see them.</p>
+  </div>
+
+  <div class="workflow-group">
+    <div class="workflow-label">Workflow 1 — Lead Intake</div>
+    <div class="email-item active" data-id="w1-service" onclick="show('w1-service')">
+      ✉️ Service Info (to client)
+      <div class="recipient">To: new inquiry</div>
+      <div class="timing">Fires: immediately on inquiry</div>
+    </div>
+    <div class="email-item" data-id="w1-alert" onclick="show('w1-alert')">
+      🔔 New Inquiry Alert
+      <div class="recipient">To: clinic owner</div>
+      <div class="timing">Fires: immediately on inquiry</div>
+    </div>
+  </div>
+
+  <div class="workflow-group">
+    <div class="workflow-label">Workflow 2 — Follow-Up Engine</div>
+    <div class="email-item" data-id="w2-48h" onclick="show('w2-48h')">
+      ⏰ 48-Hour Reminder
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: 48hrs before appointment</div>
+    </div>
+    <div class="email-item" data-id="w2-24h" onclick="show('w2-24h')">
+      🌟 24-Hour Reminder
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: 24hrs before appointment</div>
+    </div>
+    <div class="email-item" data-id="w2-noshow" onclick="show('w2-noshow')">
+      😢 No-Show Recovery
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: day after no-show</div>
+    </div>
+    <div class="email-item" data-id="w2-inquiry" onclick="show('w2-inquiry')">
+      💬 Inquiry Follow-Up
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: 3 days after inquiry (no booking)</div>
+    </div>
+    <div class="email-item" data-id="w2-postcheckin" onclick="show('w2-postcheckin')">
+      💚 Post-Treatment Check-In
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: morning after appointment</div>
+    </div>
+  </div>
+
+  <div class="workflow-group">
+    <div class="workflow-label">Workflow 3 — Review & Referral</div>
+    <div class="email-item" data-id="w3-review" onclick="show('w3-review')">
+      ⭐ Review Request
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: 24hrs after appointment</div>
+    </div>
+    <div class="email-item" data-id="w3-referral" onclick="show('w3-referral')">
+      💌 Referral Ask
+      <div class="recipient">To: returning client (2+ visits)</div>
+      <div class="timing">Fires: 24hrs after appointment</div>
+    </div>
+  </div>
+
+  <div class="workflow-group">
+    <div class="workflow-label">Workflow 4 — VIP Retention</div>
+    <div class="email-item" data-id="w4-60" onclick="show('w4-60')">
+      ✨ 60-Day Rebook Nudge
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: monthly, 60-90 days lapsed</div>
+    </div>
+    <div class="email-item" data-id="w4-90" onclick="show('w4-90')">
+      💜 90-Day "We Miss You"
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: monthly, 90-180 days lapsed</div>
+    </div>
+    <div class="email-item" data-id="w4-180" onclick="show('w4-180')">
+      🤝 180-Day Win-Back
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: monthly, 180+ days lapsed</div>
+    </div>
+    <div class="email-item" data-id="w4-seasonal" onclick="show('w4-seasonal')">
+      🌸 Seasonal Promo
+      <div class="recipient">To: all active clients</div>
+      <div class="timing">Fires: monthly to active clients</div>
+    </div>
+  </div>
+
+  <div class="workflow-group">
+    <div class="workflow-label">Workflow 5 — Weekly Report</div>
+    <div class="email-item" data-id="w5-report" onclick="show('w5-report')">
+      📊 Weekly Performance Report
+      <div class="recipient">To: clinic owner</div>
+      <div class="timing">Fires: every Monday 8am</div>
+    </div>
+  </div>
+
+  <div class="workflow-group">
+    <div class="workflow-label">Workflow 6 — Booking Confirmation</div>
+    <div class="email-item" data-id="w6-booking" onclick="show('w6-booking')">
+      ✅ Booking Confirmation
+      <div class="recipient">To: client</div>
+      <div class="timing">Fires: when 📧 Confirm clicked in dashboard</div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+  <div class="top-bar">
+    <h2 id="email-title">Service Info Email — New Inquiry</h2>
+    <div class="meta-pills" id="meta-pills">
+      <span class="pill pill-purple">Workflow 1</span>
+      <span class="pill pill-green">To: Client</span>
+      <span class="pill pill-orange">Fires: immediately</span>
+    </div>
+  </div>
+  <div class="preview-area">
+    <div class="context-panel">
+      <div class="context-card">
+        <h3>What this does</h3>
+        <p id="context-what">Sent instantly when a new inquiry comes in. Personalised to the exact service they enquired about — Botox, Filler, Laser Hair Removal, HydraFacial, or Microneedling.</p>
+      </div>
+      <div class="context-card">
+        <h3>Why it matters</h3>
+        <p id="context-why">Most clinics take 24-48 hours to respond to enquiries. This sends a comprehensive, professional response in under 30 seconds — before the prospect has time to contact a competitor.</p>
+      </div>
+      <div class="context-card">
+        <h3>Customise</h3>
+        <ul id="context-customise">
+          <li>Service pricing per treatment</li>
+          <li>CTA button link</li>
+          <li>Tagline per service</li>
+          <li>Clinic name in footer</li>
+        </ul>
+      </div>
+    </div>
+    <div class="email-frame-wrap">
+      <div class="subject-bar">
+        <div class="subject-label">Subject line</div>
+        <div class="subject-text" id="subject-line">Thanks for your inquiry — here's everything about Botox</div>
+      </div>
+      <div class="email-wrap">
+        <div class="email-render" id="email-render"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CLINIC = 'Luxe Aesthetics';
+const PROVIDER = 'Dr. Sarah Chen';
+const CLIENT = 'Emma';
+
+const emails = {
+
+  'w1-service': {
+    title: 'Service Info Email — New Inquiry',
+    pills: [['Workflow 1','rose'],['To: Client','green'],['Fires instantly','orange']],
+    subject: 'Thanks for your inquiry — here\'s everything about Botox',
+    what: 'Sent instantly when a new inquiry arrives. Personalised to the exact service — Botox, Filler, Laser, HydraFacial, or Microneedling.',
+    why: 'Most clinics take 24–48 hours to respond. This sends a comprehensive response in under 30 seconds — before the prospect contacts a competitor.',
+    customise: ['Service pricing per treatment', 'CTA button link', 'Tagline per service', 'Clinic name in footer'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:32px;border-radius:8px 8px 0 0;">
+  <h2 style="margin:0;">✨ Natural results that last 3–4 months</h2>
+  <p style="margin:8px 0 0;opacity:0.9;">Thank you for reaching out, ${CLIENT}.</p>
+</div>
+<div style="background:#fdf4ff;padding:28px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>We're so glad you reached out about <strong>Botox</strong>. Here's everything you need to know:</p>
+  <div style="background:white;padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;">
+    <strong style="color:#be185d;">About Botox</strong><br/><br/>
+    Botox treatments take just 15–20 minutes with zero downtime. Results begin appearing within 3–7 days and last 3–4 months. Perfect for forehead lines, crow's feet, and frown lines.
+  </div>
+  <div style="background:white;padding:16px;border-radius:8px;margin:20px 0;border:1px solid #f0abfc;">
+    <strong>💰 Investment:</strong> Starting from $10–$14/unit
+  </div>
+  <div style="background:linear-gradient(135deg,#fdf4ff,#fce7f3);padding:20px;border-radius:8px;margin:20px 0;text-align:center;">
+    <strong style="color:#be185d;">📅 Ready for the next step?</strong><br/>
+    <p>Book a free 15-minute consultation and we'll map out exactly what you need.</p>
+    <a href="#" style="background:#be185d;color:white;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px;">Book Your Consultation →</a>
+  </div>
+  <p>If you have any questions before booking, just reply — I personally read every message.</p>
+  <p>Looking forward to meeting you!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w1-alert': {
+    title: 'New Inquiry Alert — Clinic Owner',
+    pills: [['Workflow 1','rose'],['To: Clinic Owner','owner'],['Fires instantly','orange']],
+    subject: '💎 New Inquiry: Emma Thompson — Botox (via Instagram)',
+    what: 'Sent to the clinic owner\'s Gmail the moment a new inquiry is captured. Shows all client details.',
+    why: 'Owner knows immediately — name, service, source, phone number. No digging through a CRM. If they want to call within the hour, they have everything they need.',
+    customise: ['Clinic email address', 'Reply instructions in footer'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+<div style="background:#1e1b4b;color:white;padding:20px;border-radius:8px 8px 0 0;">
+  <h2 style="margin:0;">💎 New Client Inquiry</h2>
+</div>
+<div style="background:#f8fafc;padding:20px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;">
+  <table style="width:100%;border-collapse:collapse;">
+    <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:10px;font-weight:bold;color:#6b7280;">Name</td><td style="padding:10px;">Emma Thompson</td></tr>
+    <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:10px;font-weight:bold;color:#6b7280;">Email</td><td style="padding:10px;">emma.t@email.com</td></tr>
+    <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:10px;font-weight:bold;color:#6b7280;">Phone</td><td style="padding:10px;">416-555-0101</td></tr>
+    <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:10px;font-weight:bold;color:#6b7280;">Service</td><td style="padding:10px;"><strong>Botox</strong></td></tr>
+    <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:10px;font-weight:bold;color:#6b7280;">Lead Source</td><td style="padding:10px;">Instagram</td></tr>
+    <tr><td style="padding:10px;font-weight:bold;color:#6b7280;">Referred By</td><td style="padding:10px;">Direct</td></tr>
+  </table>
+  <div style="background:#fdf4ff;padding:12px;border-radius:6px;margin-top:16px;border:1px solid #f0abfc;">
+    ✅ Service info email sent to client automatically.
+  </div>
+  <p style="margin-top:16px;color:#6b7280;font-size:13px;">If they don't book within 3 days, the Follow-Up Engine will send an automated nudge.</p>
+</div></div>`
+  },
+
+  'w2-confirm': {
+    title: 'Booking Confirmation',
+    pills: [['Apps Script','owner'],['To: Client','green'],['Fires: on booking','blue']],
+    subject: '✅ Confirmed: Your Botox appointment',
+    what: 'Sent immediately when the clinic adds the appointment to the sheet and clicks "Send Booking Confirmation" from the MedSpa ⚡ menu.',
+    why: 'The gap between inquiry and first reminder was 48 hours of silence. This email closes that gap — client feels confirmed and looked after from day one.',
+    customise: ['Pre-arrival instructions', 'Clinic address', 'Cancellation policy window'],
+    html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:600px;margin:0 auto;color:#1f2937;">
+<div style="background:linear-gradient(135deg,#9d174d,#7c3aed);color:white;padding:28px 32px;border-radius:10px 10px 0 0;">
+  <h2 style="margin:0;font-size:20px;">✅ You're Booked!</h2>
+  <p style="margin:8px 0 0;opacity:0.9;font-size:14px;">We're looking forward to seeing you.</p>
+</div>
+<div style="background:#fdf4ff;border:1px solid #f0abfc;border-top:none;padding:28px 32px;">
+  <p style="font-size:15px;">Hi ${CLIENT},</p>
+  <p style="font-size:15px;">Your appointment is confirmed. Here are your details:</p>
+  <div style="background:white;border-radius:10px;padding:20px;margin:20px 0;border-left:4px solid #be185d;">
+    <table style="width:100%;border-collapse:collapse;">
+      <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;width:130px;">Service</td><td style="padding:8px 0;font-size:15px;font-weight:700;">Botox</td></tr>
+      <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;">Date</td><td style="padding:8px 0;font-size:15px;font-weight:700;">April 15, 2026</td></tr>
+      <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;">Time</td><td style="padding:8px 0;font-size:15px;font-weight:700;">2:00pm</td></tr>
+      <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;">Provider</td><td style="padding:8px 0;font-size:15px;">${PROVIDER}</td></tr>
+    </table>
+  </div>
+  <p style="font-size:14px;"><strong>A few things to know before you arrive:</strong></p>
+  <ul style="font-size:14px;line-height:1.9;color:#374151;">
+    <li>Arrive 5–10 minutes early to complete any intake forms</li>
+    <li>Come with a clean face if receiving a facial treatment</li>
+    <li>Stay well hydrated — it helps with treatment results</li>
+    <li>If you need to reschedule, please give us at least 24 hours' notice</li>
+  </ul>
+  <p style="font-size:14px;margin-top:20px;">Need to change anything? Just reply — we'll sort it out quickly.</p>
+  <p style="font-size:14px;">We'll also send you a reminder closer to your appointment.<br><br>Can't wait to see you!<br><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w2-48h': {
+    title: '48-Hour Appointment Reminder',
+    pills: [['Workflow 2','rose'],['To: Client','green'],['Fires: 48hrs before','blue']],
+    subject: '⏰ Reminder: Your Botox appointment is in 2 days',
+    what: 'Fires automatically at 9am when an appointment is exactly 44–52 hours away.',
+    why: 'The #1 driver of no-shows is forgetting. This reminder reduces no-show rates by 60–80% on its own. It also sets expectations so clients arrive prepared.',
+    customise: ['Pre-arrival checklist items', 'Reschedule window (currently 24hrs)', 'Clinic phone number'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:#be185d;color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">⏰ Appointment Reminder</h2></div>
+<div style="background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>Just a friendly reminder that your <strong>Botox</strong> appointment is coming up!</p>
+  <div style="background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;">
+    <strong>📅 Appointment Details:</strong><br/><br/>
+    Service: Botox<br/>Date: April 17, 2026<br/>Time: 2:00pm<br/>Provider: ${PROVIDER}
+  </div>
+  <p><strong>Before your appointment:</strong></p>
+  <ul style="line-height:1.8;">
+    <li>Arrive 5–10 minutes early to complete any forms</li>
+    <li>Come with a clean face (no heavy makeup if receiving facial treatments)</li>
+    <li>Stay hydrated — it helps with results</li>
+  </ul>
+  <p>If you need to reschedule, please reply to this email or call us at least 24 hours in advance.</p>
+  <p>We're looking forward to seeing you!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w2-24h': {
+    title: '24-Hour Final Reminder',
+    pills: [['Workflow 2','rose'],['To: Client','green'],['Fires: 24hrs before','blue']],
+    subject: '🌟 See you tomorrow! Botox — 2:00pm',
+    what: 'Fires at 9am when an appointment is 20–28 hours away and the 48hr reminder was already sent.',
+    why: 'A second reminder the day before converts hesitant clients who were already considering cancelling. The tone is warmer — "looking forward to seeing you" — not just a reminder.',
+    customise: ['Tone of the message', 'Waitlist mention (if applicable)'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:#9333ea;color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">🌟 See You Tomorrow!</h2></div>
+<div style="background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>Your <strong>Botox</strong> appointment is <strong>tomorrow</strong> — we're looking forward to it!</p>
+  <div style="background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #9333ea;">
+    🕐 <strong>2:00pm</strong> tomorrow, April 17<br/>
+    ✨ Service: Botox<br/>
+    👤 Provider: ${PROVIDER}
+  </div>
+  <p>If anything comes up and you need to reschedule, please reply ASAP — this helps us offer your slot to someone on our waitlist. We appreciate the notice!</p>
+  <p>See you tomorrow!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w2-noshow': {
+    title: 'No-Show Recovery Email',
+    pills: [['Workflow 2','rose'],['To: Client','green'],['Fires: next morning','orange']],
+    subject: 'We missed you today, Emma — let\'s reschedule',
+    what: 'Fires the morning after a missed appointment. Warm and human in tone — not accusatory.',
+    why: 'Recovering even 20–30% of no-shows directly recovers $1,000–$3,000/month in lost revenue. The tone matters — clients who feel judged won\'t rebook. This email makes it easy.',
+    customise: ['Offer a discount to incentivise rebooking', 'Mention their specific treatment goal'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:#dc2626;color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">We Missed You Today</h2></div>
+<div style="background:#fff5f5;padding:24px;border:1px solid #fecaca;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>We noticed you weren't able to make your <strong>Botox</strong> appointment today. We hope everything is okay!</p>
+  <p>Life gets busy — we completely understand. Your goal is still achievable and we'd love to help you get there.</p>
+  <div style="background:white;padding:16px;border-radius:8px;margin:20px 0;text-align:center;border:1px solid #fecaca;">
+    <strong>Ready to rebook?</strong><br/>
+    <a href="#" style="background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:10px;">Reply to Reschedule →</a>
+  </div>
+  <p>If there's anything that put you off — concerns about the treatment, pricing, or anything else — please just reply. I'm happy to answer any questions honestly.</p>
+  <p>Hope to see you soon!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w2-inquiry': {
+    title: 'Inquiry Follow-Up (No Booking)',
+    pills: [['Workflow 2','rose'],['To: Client','green'],['Fires: day 3, 6, 9','blue']],
+    subject: 'Still thinking about Botox, Emma?',
+    what: 'Fires 3 days after an inquiry when the client still hasn\'t booked. Repeats every 3 days up to 3 times.',
+    why: 'Most enquiries don\'t convert on the first email — people research, compare, forget. A gentle 3-touch follow-up sequence keeps the clinic top of mind without being pushy.',
+    customise: ['FAQ answers specific to your most common objections', 'Consultation link'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">✨ Just Checking In</h2></div>
+<div style="background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>It's been a few days since you reached out about <strong>Botox</strong>. I just wanted to check in and see if you had any questions.</p>
+  <p>Completely no pressure — I just want to make sure you have everything you need to feel confident about taking the next step.</p>
+  <div style="background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;">
+    <strong>What most people ask before booking:</strong><br/><br/>
+    ❓ <em>"Does it hurt?"</em> — Most clients describe a mild pinch. Pain is minimal and temporary.<br/><br/>
+    ❓ <em>"How long until I see results?"</em> — Results appear within 3–7 days and last 3–4 months.<br/><br/>
+    ❓ <em>"What's the downtime?"</em> — Zero downtime. You can go straight back to your day.
+  </div>
+  <a href="#" style="background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;">Book a Free Consultation →</a>
+  <p style="margin-top:20px;">Looking forward to helping you reach your goals!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w2-postcheckin': {
+    title: 'Post-Treatment Check-In',
+    pills: [['Workflow 2','rose'],['To: Client','green'],['Fires: next morning','blue']],
+    subject: 'How are you feeling after your Botox yesterday?',
+    what: 'Fires the morning after a completed appointment. Sends aftercare instructions and opens the door to rebook.',
+    why: 'Most clinics never follow up after a treatment. This email makes clients feel genuinely cared for — which is the #1 driver of rebooking and referrals.',
+    customise: ['Aftercare instructions per service type', 'Provider name personalisation'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:linear-gradient(135deg,#059669,#0891b2);color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">💚 Post-Treatment Check-In</h2></div>
+<div style="background:#f0fdf4;padding:24px;border:1px solid #bbf7d0;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>How are you feeling after your <strong>Botox</strong> yesterday? I hope you're already loving the results!</p>
+  <div style="background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #059669;">
+    <strong>A few aftercare reminders:</strong><br/><br/>
+    ✅ Stay hydrated — drink plenty of water today<br/>
+    ✅ Avoid strenuous exercise for 24 hours<br/>
+    ✅ Avoid touching or rubbing the treated area<br/>
+    ✅ If you experience any unexpected reactions, contact us immediately
+  </div>
+  <p>If you have any questions or anything feels off, just reply — I'm always here.</p>
+  <p>We'd also love to see you for your next visit when you're ready. Reply "book" and we'll find a time that works.</p>
+  <p>Thank you for trusting us with your care!<br/><strong>${PROVIDER} &amp; the team at ${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w3-review': {
+    title: 'Google Review Request',
+    pills: [['Workflow 3','rose'],['To: Client','green'],['Fires: 24hrs post-appt','yellow']],
+    subject: '⭐ How was your Botox experience?',
+    what: 'Fires automatically 24 hours after every completed appointment. One button tap goes straight to your Google review page.',
+    why: '30 treatments/week × 30% conversion = 9 new Google reviews per week. 400+ per year. That\'s top-of-local-search dominance without a single ad dollar spent.',
+    customise: ['Google review link (must be set per clinic)', 'Provider name', 'Tone'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:linear-gradient(135deg,#f59e0b,#d97706);color:white;padding:28px;border-radius:8px 8px 0 0;">
+  <h2 style="margin:0;">⭐ We'd Love Your Feedback</h2>
+</div>
+<div style="background:#fffbeb;padding:28px;border:1px solid #fde68a;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>It was a pleasure having you in yesterday for your <strong>Botox</strong>. We hope you're already loving the results!</p>
+  <div style="background:white;padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid #f59e0b;text-align:center;">
+    <p style="margin:0 0 12px;"><strong>If you had a great experience, would you mind leaving us a Google review?</strong></p>
+    <p style="color:#6b7280;font-size:14px;margin:0 0 16px;">It takes about 60 seconds and means the world to a small clinic like ours.</p>
+    <a href="#" style="background:#f59e0b;color:white;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:16px;display:inline-block;">⭐ Leave a Google Review →</a>
+  </div>
+  <p>Not completely satisfied? Please reply directly — I personally read every message and would love the chance to make it right.</p>
+  <p>Thank you for choosing us!<br/><strong>${PROVIDER} &amp; the team at ${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w3-referral': {
+    title: 'Referral Ask (Returning Clients)',
+    pills: [['Workflow 3','rose'],['To: Client (2+ visits)','green'],['Fires: 24hrs post-appt','yellow']],
+    subject: '💌 A little thank-you — and a favour to ask',
+    what: 'Only fires for clients on their 2nd visit or beyond. Combined with the review request — so returning clients get both.',
+    why: 'Clients on their 2nd+ visit have already decided they trust the clinic. This is exactly when they\'re most likely to refer someone. The 15% discount for their friend + $50 credit for them creates a compelling, trackable referral loop.',
+    customise: ['Referral discount % (currently 15%)', 'Credit amount (currently $50)', 'Referral tracking method'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:28px;border-radius:8px 8px 0 0;">
+  <h2 style="margin:0;">💌 Thank You for Being a Loyal Client</h2>
+</div>
+<div style="background:#fdf4ff;padding:28px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>This is your third visit with us, and we genuinely love having you as a client. Thank you for your continued trust.</p>
+  <div style="background:white;padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;">
+    <strong style="color:#be185d;">💜 A small favour:</strong><br/><br/>
+    If you have friends, family, or colleagues who've mentioned wanting to try <strong>Botox</strong> (or any of our treatments), we'd love the introduction.
+    <br/><br/>
+    As a thank-you, <strong>anyone you refer gets 15% off their first treatment</strong> — and you get a <strong>$50 credit</strong> toward your next visit for each friend who books.
+  </div>
+  <div style="background:#fce7f3;padding:16px;border-radius:8px;margin:20px 0;text-align:center;">
+    <strong>To refer a friend:</strong><br/>
+    Simply forward this email to them, or have them mention your name when they book.<br/><br/>
+    <a href="#" style="background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;">Refer a Friend →</a>
+  </div>
+  <p>Thank you again for being part of our community!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w4-60': {
+    title: '60-Day Rebook Nudge',
+    pills: [['Workflow 4','purple'],['To: Client','green'],['Fires: monthly, 60-90d lapsed','blue']],
+    subject: 'Time for your Botox top-up, Emma?',
+    what: 'Fires on the 1st of each month for clients whose last visit was 60–90 days ago.',
+    why: 'Botox clients naturally need to come back every 3–4 months. This email meets them exactly at the right moment — when their results are fading and they\'re already thinking about it.',
+    customise: ['Service-specific cycle mentions (Botox = 3-4 months, filler = 12-18 months)', 'Booking link'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">✨ Time for a Top-Up?</h2></div>
+<div style="background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>It's been about 2 months since your last visit, and depending on the treatment, it might be the perfect time to come back in for a top-up or your next session.</p>
+  <div style="background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;">
+    <strong>Your last treatment:</strong> Botox<br/>
+    <strong>Last visit:</strong> February 5, 2026
+  </div>
+  <p>Ready to book? Just reply to this email and we'll find a time that works for you. We'd love to see you!</p>
+  <a href="#" style="background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;">Book My Next Visit →</a>
+  <p style="margin-top:20px;">See you soon!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w4-90': {
+    title: '90-Day "We Miss You"',
+    pills: [['Workflow 4','purple'],['To: Client','green'],['Fires: monthly, 90-180d lapsed','blue']],
+    subject: 'We miss you, Emma — it\'s been a while',
+    what: 'Fires for clients 90–180 days since their last visit. Includes a 10% loyalty discount.',
+    why: 'By 90 days the client has drifted. A discount removes the "I\'ll do it later" friction. The emotional tone ("we miss you") has meaningfully higher open and conversion rates than generic promotions.',
+    customise: ['Discount % (currently 10%)', 'Mention specific treatment they last had'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:#7c3aed;color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">💜 We Miss You</h2></div>
+<div style="background:#fdf4ff;padding:24px;border:1px solid #ddd6fe;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>It's been about 3 months since we last saw you, and we genuinely wanted to reach out. We hope everything is going well!</p>
+  <p>We know life gets busy. If you've been thinking about coming back but haven't had the chance to book, we'd love to make it easy for you.</p>
+  <div style="background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #7c3aed;">
+    <strong>💝 A little gift for you:</strong><br/>
+    Mention this email when you book and receive <strong>10% off your next treatment</strong>. Our way of saying we appreciate you.
+  </div>
+  <a href="#" style="background:#7c3aed;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;">Claim My 10% Off →</a>
+  <p style="margin-top:20px;">We'd love to see your name on our schedule again!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w4-180': {
+    title: '180-Day Personal Win-Back',
+    pills: [['Workflow 4','purple'],['To: Client','green'],['Fires: monthly, 180d+ lapsed','orange']],
+    subject: 'Is everything okay, Emma? We haven\'t seen you in a while',
+    what: 'Fires for clients 180+ days since last visit. Personal, direct tone — written as if from the owner.',
+    why: 'At 6+ months, generic promotional emails don\'t work. This email sounds like a genuine personal message. It\'s the last attempt before the client is considered permanently churned — worth the extra effort.',
+    customise: ['Owner\'s first name in sign-off', 'Specific offer ("best available rate")'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:#0f172a;color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">A Personal Note</h2></div>
+<div style="background:#f8fafc;padding:24px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>I'm writing personally because it's been quite a while since your last visit, and I just wanted to make sure everything is okay on your end.</p>
+  <p>If there's anything that put you off — whether it was the experience, the results, the pricing, or something else entirely — I genuinely want to know. Your feedback helps me improve.</p>
+  <div style="background:#dbeafe;padding:16px;border-radius:8px;margin:20px 0;">
+    <strong>If you'd like to come back:</strong><br/>
+    Reply to this email and I'll personally take care of your booking. As a returning client, I'll make sure you receive our best available rate.
+  </div>
+  <p>And if life has just taken you in a different direction — no hard feelings at all. I'm just glad we had the chance to help you when we did.</p>
+  <p>Warmly,<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w4-seasonal': {
+    title: 'Monthly Seasonal Promo',
+    pills: [['Workflow 4','purple'],['To: All active clients','green'],['Fires: monthly, 1st','blue']],
+    subject: '🌸 Spring refresh — exclusive offer for you',
+    what: 'Fires every month to all active clients (visited in last 180 days). The offer and copy automatically adjusts by season — Spring, Summer, Fall, or New Year.',
+    why: 'Seasonal promotions are one of the highest-ROI retention tactics in aesthetics — but most clinic owners never send them because they forget or don\'t have time. This sends itself.',
+    customise: ['Seasonal offer per season', 'Discount % per season', 'Featured services'],
+    html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;">
+<div style="background:#ec4899;color:white;padding:24px;border-radius:8px 8px 0 0;"><h2 style="margin:0;">✨ Spring refresh — exclusive offer for you</h2></div>
+<div style="background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;">
+  <p>Hi ${CLIENT},</p>
+  <p>Hope you're doing well! We have something special for you this month:</p>
+  <div style="background:white;padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid #ec4899;">
+    <strong>🎁 20% off HydraFacial or Chemical Peel this month — the perfect spring skin reset.</strong>
+  </div>
+  <p>This offer is exclusively for our existing clients as a thank-you for your loyalty.</p>
+  <p>Spots are limited — reply to this email or book directly to claim your offer.</p>
+  <a href="#" style="background:#ec4899;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;">Book My Spot →</a>
+  <p style="margin-top:20px;">Talk soon!<br/><strong>${CLINIC}</strong></p>
+</div></div>`
+  },
+
+  'w5-report': {
+    title: 'Weekly Performance Report',
+    pills: [['Workflow 5','owner'],['To: Clinic Owner','owner'],['Fires: Monday 8am','blue']],
+    subject: '📊 Your Weekly Report — Apr 5 – Apr 11, 2026',
+    what: 'Sent every Monday morning to the clinic owner. Shows last week\'s performance vs the prior week.',
+    why: 'This is how you justify the $1,000/month retainer. Every Monday the client sees the system working — revenue recovered, no-shows handled, clients at risk identified. It makes the system visible.',
+    customise: ['Clinic branding in header', 'Which metrics to highlight', 'Recipient email address'],
+    html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:640px;margin:0 auto;color:#1f2937;">
+<div style="background:linear-gradient(135deg,#9d174d,#7c3aed);color:white;padding:28px 32px;border-radius:10px 10px 0 0;">
+  <div style="font-size:13px;opacity:0.8;margin-bottom:6px;">${CLINIC}</div>
+  <h1 style="margin:0;font-size:22px;font-weight:800;">📊 Weekly Performance Report</h1>
+  <div style="margin-top:8px;font-size:14px;opacity:0.85;">Apr 5 – Apr 11, 2026</div>
+</div>
+<div style="background:#fdf4ff;border:1px solid #f0abfc;border-top:none;padding:20px 32px;">
+  <table style="width:100%;border-collapse:collapse;">
+    <tr>
+      <td style="text-align:center;padding:12px 8px;">
+        <div style="font-size:32px;font-weight:800;color:#be185d;">8</div>
+        <div style="font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;">Treatments Done</div>
+      </td>
+      <td style="text-align:center;padding:12px 8px;border-left:1px solid #f0abfc;">
+        <div style="font-size:32px;font-weight:800;color:#be185d;">$2,840</div>
+        <div style="font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;">Revenue Collected</div>
+        <div style="font-size:12px;margin-top:4px;color:#059669;">▲ +12% vs last week</div>
+      </td>
+      <td style="text-align:center;padding:12px 8px;border-left:1px solid #f0abfc;">
+        <div style="font-size:32px;font-weight:800;color:#059669;">0</div>
+        <div style="font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;">No-Shows (0%)</div>
+      </td>
+      <td style="text-align:center;padding:12px 8px;border-left:1px solid #f0abfc;">
+        <div style="font-size:32px;font-weight:800;color:#7c3aed;">3</div>
+        <div style="font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;">New Clients</div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div style="background:white;border:1px solid #f0abfc;border-top:none;padding:20px 32px;">
+  <h3 style="margin:0 0 14px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;">Clinic Health Snapshot</h3>
+  <table style="width:100%;border-collapse:collapse;">
+    <tr style="border-bottom:1px solid #f9fafb;"><td style="padding:10px 0;color:#374151;">Total Active Clients</td><td style="padding:10px 0;font-weight:700;text-align:right;">47</td></tr>
+    <tr style="border-bottom:1px solid #f9fafb;"><td style="padding:10px 0;color:#374151;">VIP Clients</td><td style="padding:10px 0;font-weight:700;text-align:right;color:#f59e0b;">⭐ 8</td></tr>
+    <tr style="border-bottom:1px solid #f9fafb;"><td style="padding:10px 0;color:#374151;">Pending Inquiries (not yet booked)</td><td style="padding:10px 0;font-weight:700;text-align:right;color:#f97316;">4</td></tr>
+    <tr style="border-bottom:1px solid #f9fafb;"><td style="padding:10px 0;color:#374151;">Review Collection Rate</td><td style="padding:10px 0;font-weight:700;text-align:right;">34 reviews left (72% rate)</td></tr>
+    <tr><td style="padding:10px 0;color:#374151;">Due for Re-booking (60–90 days)</td><td style="padding:10px 0;font-weight:700;text-align:right;color:#f97316;">3</td></tr>
+  </table>
+</div>
+<div style="background:#fff5f5;border:1px solid #fecaca;border-top:none;padding:16px 32px;">
+  <strong style="color:#991b1b;">🔴 Lapsed Clients (90+ days without visit): 2</strong>
+  <span style="font-size:12px;color:#6b7280;margin-left:8px;">Win-back sequence running automatically.</span>
+</div>
+<div style="background:#f9fafb;border:1px solid #f0abfc;border-top:none;padding:16px 32px;border-radius:0 0 10px 10px;">
+  <p style="margin:0;font-size:12px;color:#6b7280;text-align:center;">This report was generated automatically by your MedSpa Growth Engine.<br/>
+  All follow-up sequences are running. No action required unless noted above.<br/><br/>
+  <strong style="color:#be185d;">MedSpa Growth Engine</strong> — Built with n8n + Google Sheets + AI</p>
+</div></div>`
+  },
+
+  'w6-booking': {
+    title: 'Booking Confirmation Email',
+    pills: [['Workflow 6','rose'],['To: Client','green'],['Fires: on 📧 Confirm click','orange']],
+    subject: '✅ Confirmed: Your HydraFacial appointment',
+    what: 'Sent immediately when the clinic owner clicks "📧 Confirm" in the dashboard Appointments table. Confirms the booking and gives the client their appointment details. Fallback: also triggerable from MedSpa ⚡ → Daily Operations → Send Booking Confirmation in Google Sheets.',
+    why: 'Clients expect instant confirmation when they book. This fires in seconds via webhook — no manual email writing. Arrive-prep tips reduce no-shows and set expectations before they even walk in.',
+    customise: ['Clinic name in sign-off', 'Pre-arrival tips (e.g. remove "clean face" tip for non-facial treatments)', 'Reply-to email address', 'Add clinic address or parking info'],
+    html: `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:600px;margin:0 auto;color:#1f2937;">
+<div style="background:linear-gradient(135deg,#9d174d,#7c3aed);color:white;padding:28px 32px;border-radius:10px 10px 0 0;">
+  <h2 style="margin:0;font-size:20px;">✅ You're Booked!</h2>
+  <p style="margin:8px 0 0;opacity:0.9;font-size:14px;">We're looking forward to seeing you.</p>
+</div>
+<div style="background:#fdf4ff;border:1px solid #f0abfc;border-top:none;padding:28px 32px;border-radius:0 0 10px 10px;">
+  <p style="font-size:15px;">Hi Emma,</p>
+  <p style="font-size:15px;">Your appointment is confirmed. Here are your details:</p>
+  <div style="background:white;border-radius:10px;padding:20px;margin:20px 0;border-left:4px solid #be185d;">
+    <table style="width:100%;border-collapse:collapse;">
+      <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;width:130px;">Service</td><td style="padding:8px 0;font-size:15px;font-weight:700;">HydraFacial</td></tr>
+      <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;">Date</td><td style="padding:8px 0;font-size:15px;font-weight:700;">April 22, 2026</td></tr>
+      <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;">Time</td><td style="padding:8px 0;font-size:15px;font-weight:700;">2:00 PM</td></tr>
+      <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;">Provider</td><td style="padding:8px 0;font-size:15px;">Luxe Aesthetics</td></tr>
+    </table>
+  </div>
+  <p style="font-size:14px;"><strong>A few things to know before you arrive:</strong></p>
+  <ul style="font-size:14px;line-height:1.9;color:#374151;">
+    <li>Arrive 5–10 minutes early to complete any intake forms</li>
+    <li>Come with a clean face if you're receiving a facial treatment</li>
+    <li>Stay well hydrated — it helps with treatment results</li>
+    <li>If you need to reschedule, please give us at least 24 hours' notice</li>
+  </ul>
+  <p style="font-size:14px;margin-top:20px;">Need to change anything? Just reply to this email — we'll sort it out quickly.</p>
+  <p style="font-size:14px;">We'll also send you a reminder closer to your appointment.<br><br>Can't wait to see you!<br><strong>Luxe Aesthetics</strong></p>
+</div>
+<p style="color:#9ca3af;font-size:11px;text-align:center;padding:12px;">Reply to this email to get in touch.</p>
+</div>`
+  }
+
+};
+
+function show(id) {
+  // Update active nav item
+  document.querySelectorAll('.email-item').forEach(el => el.classList.remove('active'));
+  document.querySelector(`[data-id="${id}"]`).classList.add('active');
+
+  const e = emails[id];
+
+  // Title
+  document.getElementById('email-title').textContent = e.title;
+
+  // Pills
+  const pillColors = { rose:'pill-rose', green:'pill-green', orange:'pill-orange', blue:'pill-blue', purple:'pill-purple', yellow:'pill-yellow', owner:'pill-owner' };
+  document.getElementById('meta-pills').innerHTML = e.pills.map(([text,color]) =>
+    `<span class="pill ${pillColors[color]||'pill-owner'}">${text}</span>`
+  ).join('');
+
+  // Subject
+  document.getElementById('subject-line').textContent = e.subject;
+
+  // Context
+  document.getElementById('context-what').textContent = e.what;
+  document.getElementById('context-why').textContent = e.why;
+  document.getElementById('context-customise').innerHTML = e.customise.map(c => `<li>${c}</li>`).join('');
+
+  // Email render
+  document.getElementById('email-render').innerHTML = e.html;
+}
+
+// Load first email on startup
+show('w1-service');
+</script>
+</body>
+</html>

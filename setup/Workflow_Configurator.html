@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>MedSpa Growth Engine — Workflow Configurator</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 760px; margin: 0 auto; }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #be185d, #9333ea);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .card h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card h2 .step-num {
+      background: linear-gradient(135deg, #be185d, #9333ea);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .card-desc {
+      color: #64748b;
+      font-size: 13px;
+      margin-bottom: 20px;
+      padding-left: 32px;
+    }
+    .field-group { margin-bottom: 18px; }
+    .field-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .field-label span {
+      color: #64748b;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .field-input {
+      width: 100%;
+      background: #0f172a;
+      border: 1.5px solid #334155;
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-size: 14px;
+      color: #e2e8f0;
+      font-family: 'Courier New', monospace;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .field-input::placeholder { color: #475569; }
+    .field-input:focus { border-color: #be185d; }
+    .field-input.filled { border-color: #10b981; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .file-drop {
+      border: 2px dashed #334155;
+      border-radius: 10px;
+      padding: 32px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      position: relative;
+    }
+    .file-drop:hover, .file-drop.drag-over {
+      border-color: #be185d;
+      background: #1a0a2e;
+    }
+    .file-drop input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .file-drop-icon { font-size: 36px; margin-bottom: 10px; }
+    .file-drop p { color: #64748b; font-size: 14px; }
+    .file-drop strong { color: #94a3b8; }
+    .file-list { margin-top: 16px; }
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .file-item .file-status {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .file-status.ok { background: #064e3b; color: #34d399; }
+    .file-status.warn { background: #451a03; color: #fb923c; }
+    .file-name { flex: 1; color: #cbd5e1; font-family: monospace; }
+    .file-placeholders { color: #64748b; font-size: 12px; }
+    .process-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #be185d, #9333ea);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      margin-top: 4px;
+    }
+    .process-btn:hover { opacity: 0.9; }
+    .process-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .downloads { display: none; }
+    .downloads.visible { display: block; }
+    .download-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .download-item {
+      background: #064e3b;
+      border: 1px solid #065f46;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .download-item .wf-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #34d399;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .download-item .wf-desc {
+      font-size: 12px;
+      color: #6ee7b7;
+      line-height: 1.4;
+    }
+    .download-btn {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: #059669; }
+    .download-all {
+      width: 100%;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.15s;
+    }
+    .download-all:hover { background: #059669; }
+    .success-banner {
+      background: #064e3b;
+      border: 1px solid #065f46;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .success-banner .icon { font-size: 28px; flex-shrink: 0; }
+    .success-banner h3 { color: #34d399; font-size: 16px; margin-bottom: 4px; }
+    .success-banner p { color: #6ee7b7; font-size: 13px; line-height: 1.5; }
+    .info-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+    .info-box strong { color: #94a3b8; }
+    .placeholder-tag {
+      display: inline-block;
+      background: #0f172a;
+      border: 1px solid #7c3aed;
+      color: #a78bfa;
+      font-family: monospace;
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .warning {
+      background: #1c1917;
+      border: 1px solid #44403c;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #a8a29e;
+      margin-top: 12px;
+    }
+    .warning strong { color: #fb923c; }
+    @media (max-width: 540px) {
+      .two-col { grid-template-columns: 1fr; }
+      .download-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="badge">MedSpa Growth Engine</div>
+    <h1>Workflow Configurator</h1>
+    <p>Enter your 8 values below, load all 8 workflow files, and download them<br>ready to import into n8n — no manual find & replace needed.</p>
+  </div>
+
+  <!-- STEP 1: Enter values -->
+  <div class="card">
+    <h2><span class="step-num">1</span> Enter Your Configuration Values</h2>
+    <p class="card-desc">These 8 values will be substituted into all 8 workflow files automatically.</p>
+
+    <div class="field-group">
+      <label class="field-label" for="sheet-id">Google Sheet ID <span>— from the URL of your sheet</span></label>
+      <input class="field-input" id="sheet-id" type="text" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms" autocomplete="off">
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label class="field-label" for="gsheets-cred">Google Sheets Credential ID <span>— from n8n Settings → Credentials</span></label>
+        <input class="field-input" id="gsheets-cred" type="text" placeholder="abc123" autocomplete="off">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="gmail-cred">Gmail Credential ID <span>— from n8n Settings → Credentials</span></label>
+        <input class="field-input" id="gmail-cred" type="text" placeholder="xyz789" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label class="field-label" for="clinic-email">Clinic Gmail Address</label>
+        <input class="field-input" id="clinic-email" type="email" placeholder="hello@yourclinic.com" autocomplete="off">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="clinic-name">Clinic Name</label>
+        <input class="field-input" id="clinic-name" type="text" placeholder="Luxe Aesthetics" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="review-link">Google Review Link <span>— from your Google Business Profile</span></label>
+      <input class="field-input" id="review-link" type="url" placeholder="https://g.page/r/XXXX/review" autocomplete="off">
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label class="field-label" for="webhook-secret">Webhook Secret <span>— any random string, 24+ chars</span></label>
+        <input class="field-input" id="webhook-secret" type="text" placeholder="click Generate →" autocomplete="off">
+        <button type="button" id="gen-secret-btn" style="margin-top:6px;background:#334155;color:#e2e8f0;border:none;border-radius:6px;padding:6px 12px;font-size:12px;cursor:pointer;">🔐 Generate random secret</button>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="clinic-tz">Clinic Timezone <span>— IANA timezone, e.g. America/New_York</span></label>
+        <input class="field-input" id="clinic-tz" type="text" placeholder="America/New_York" autocomplete="off" value="America/New_York">
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>Where is each value?</strong><br>
+      <strong>Sheet ID</strong> — the long string between <code>/d/</code> and <code>/edit</code> in your Google Sheet URL.<br>
+      <strong>Credential IDs</strong> — in n8n, go to Settings → Credentials → click each credential → the ID is in the URL.<br>
+      <strong>Review Link</strong> — in Google Business Profile → "Get more reviews" → copy the link.<br>
+      <strong>Webhook Secret</strong> — click Generate. Use the same value in the dashboard Settings and intake-form URL.<br>
+      <strong>Timezone</strong> — <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" style="color:#a78bfa;">IANA timezone list</a>. Examples: America/Los_Angeles, America/Chicago, Europe/London.
+    </div>
+  </div>
+
+  <!-- STEP 2: Load files -->
+  <div class="card">
+    <h2><span class="step-num">2</span> Load Your Workflow Files</h2>
+    <p class="card-desc">Select all 8 workflow JSON files from the <strong>workflows/</strong> folder. You can select them all at once.</p>
+
+    <div class="file-drop" id="file-drop">
+      <input type="file" id="file-input" accept=".json" multiple>
+      <div class="file-drop-icon">📂</div>
+      <p><strong>Click to select files</strong> or drag and drop</p>
+      <p style="margin-top:6px;font-size:12px;">Select all 8 files: 1_MSG_Lead_Inquiry_Intake.json through 8_MSG_Status_Update.json</p>
+    </div>
+
+    <div class="file-list" id="file-list"></div>
+  </div>
+
+  <!-- STEP 3: Generate -->
+  <div class="card">
+    <h2><span class="step-num">3</span> Generate & Download</h2>
+    <p class="card-desc">Review the preview above, then generate your configured workflow files.</p>
+
+    <button class="process-btn" id="process-btn" disabled>Configure & Download All 8 Workflows →</button>
+
+    <div class="warning" id="validation-msg" style="display:none;"></div>
+  </div>
+
+  <!-- Downloads -->
+  <div class="downloads" id="downloads-section">
+    <div class="success-banner">
+      <div class="icon">✅</div>
+      <div>
+        <h3>Workflows configured successfully!</h3>
+        <p>All 8 placeholders have been replaced in each file. Download them below and import into n8n in order (1 → 8). Activate Workflows 1, 3, 6, and 8 first to get their webhook URLs. Wire each of Workflows 1–6 + 8 to use Workflow 7 as their Error Workflow. <strong style="color:#fbbf24;">Save your Webhook Secret — you'll paste it into the dashboard Settings and the intake-form URL.</strong></p>
+      </div>
+    </div>
+    <div class="download-grid" id="download-grid"></div>
+    <button class="download-all" id="download-all-btn">⬇ Download All 8 Workflows</button>
+  </div>
+
+</div>
+
+<script>
+  const PLACEHOLDERS = {
+    'YOUR_MEDSPA_SHEET_ID':        () => document.getElementById('sheet-id').value.trim(),
+    'YOUR_GSHEETS_CREDENTIAL_ID':  () => document.getElementById('gsheets-cred').value.trim(),
+    'YOUR_GMAIL_CREDENTIAL_ID':    () => document.getElementById('gmail-cred').value.trim(),
+    'YOUR_CLINIC_EMAIL@gmail.com': () => document.getElementById('clinic-email').value.trim(),
+    'YOUR_CLINIC_NAME':            () => document.getElementById('clinic-name').value.trim(),
+    'YOUR_GOOGLE_REVIEW_LINK':     () => document.getElementById('review-link').value.trim(),
+    'YOUR_WEBHOOK_SECRET':         () => document.getElementById('webhook-secret').value.trim(),
+    'YOUR_CLINIC_TIMEZONE':        () => document.getElementById('clinic-tz').value.trim()
+  };
+
+  const WORKFLOW_DESCS = {
+    '1_MSG_Lead_Inquiry_Intake':        { label: 'Workflow 1', desc: 'Lead intake + CRM + instant service email', webhook: true },
+    '2_MSG_Appointment_Follow_Up':      { label: 'Workflow 2', desc: 'Daily reminders, no-show recovery, inquiry follow-ups', webhook: false },
+    '3_MSG_Review_Referral':            { label: 'Workflow 3', desc: 'Post-appointment review + referral ask', webhook: true },
+    '4_MSG_VIP_Retention':              { label: 'Workflow 4', desc: 'Monthly re-engagement + seasonal promos', webhook: false },
+    '5_MSG_Weekly_Performance_Report':  { label: 'Workflow 5', desc: 'Weekly performance report to clinic owner', webhook: false },
+    '6_MSG_Booking_Confirmation':       { label: 'Workflow 6', desc: 'Booking confirmation email sent when appointment is booked', webhook: true },
+    '7_MSG_Error_Handler':              { label: 'Workflow 7', desc: 'Catches errors from any other workflow and emails the clinic owner', webhook: false },
+    '8_MSG_Status_Update':              { label: 'Workflow 8', desc: 'Persists kanban drag-drop + bulk Mark VIP from the dashboard', webhook: true }
+  };
+
+  let loadedFiles = {};  // filename → file content string
+
+  // File input
+  const fileInput = document.getElementById('file-input');
+  const fileDrop  = document.getElementById('file-drop');
+
+  fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+  fileDrop.addEventListener('dragover', e => { e.preventDefault(); fileDrop.classList.add('drag-over'); });
+  fileDrop.addEventListener('dragleave', () => fileDrop.classList.remove('drag-over'));
+  fileDrop.addEventListener('drop', e => {
+    e.preventDefault();
+    fileDrop.classList.remove('drag-over');
+    handleFiles(e.dataTransfer.files);
+  });
+
+  function handleFiles(fileList) {
+    const promises = [];
+    for (const file of fileList) {
+      if (!file.name.endsWith('.json')) continue;
+      promises.push(new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          loadedFiles[file.name] = e.target.result;
+          resolve();
+        };
+        reader.readAsText(file);
+      }));
+    }
+    Promise.all(promises).then(renderFileList);
+  }
+
+  function renderFileList() {
+    const list = document.getElementById('file-list');
+    list.innerHTML = '';
+
+    if (Object.keys(loadedFiles).length === 0) return;
+
+    for (const [filename, content] of Object.entries(loadedFiles)) {
+      const foundPlaceholders = Object.keys(PLACEHOLDERS).filter(p => content.includes(p));
+      const hasSome = foundPlaceholders.length > 0;
+
+      const item = document.createElement('div');
+      item.className = 'file-item';
+      item.innerHTML = `
+        <div class="file-status ${hasSome ? 'ok' : 'warn'}">${hasSome ? '✓' : '?'}</div>
+        <div class="file-name">${filename}</div>
+        <div class="file-placeholders">${hasSome ? foundPlaceholders.length + ' placeholder' + (foundPlaceholders.length > 1 ? 's' : '') + ' found' : 'No placeholders — may already be configured'}</div>
+      `;
+      list.appendChild(item);
+    }
+
+    updateButtonState();
+  }
+
+  // Live update field styling
+  const FIELD_IDS = ['sheet-id','gsheets-cred','gmail-cred','clinic-email','clinic-name','review-link','webhook-secret','clinic-tz'];
+  FIELD_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (el.value.trim().length > 0) el.classList.add('filled');
+    el.addEventListener('input', () => {
+      el.classList.toggle('filled', el.value.trim().length > 0);
+      updateButtonState();
+    });
+  });
+
+  // Generate a strong random webhook secret
+  document.getElementById('gen-secret-btn').addEventListener('click', () => {
+    const bytes = new Uint8Array(24);
+    crypto.getRandomValues(bytes);
+    const secret = Array.from(bytes).map(b => b.toString(16).padStart(2,'0')).join('');
+    const el = document.getElementById('webhook-secret');
+    el.value = secret;
+    el.classList.add('filled');
+    updateButtonState();
+  });
+
+  function getValues() {
+    return {
+      'YOUR_MEDSPA_SHEET_ID':        document.getElementById('sheet-id').value.trim(),
+      'YOUR_GSHEETS_CREDENTIAL_ID':  document.getElementById('gsheets-cred').value.trim(),
+      'YOUR_GMAIL_CREDENTIAL_ID':    document.getElementById('gmail-cred').value.trim(),
+      'YOUR_CLINIC_EMAIL@gmail.com': document.getElementById('clinic-email').value.trim(),
+      'YOUR_CLINIC_NAME':            document.getElementById('clinic-name').value.trim(),
+      'YOUR_GOOGLE_REVIEW_LINK':     document.getElementById('review-link').value.trim(),
+      'YOUR_WEBHOOK_SECRET':         document.getElementById('webhook-secret').value.trim(),
+      'YOUR_CLINIC_TIMEZONE':        document.getElementById('clinic-tz').value.trim()
+    };
+  }
+
+  function validate() {
+    const vals = getValues();
+    const missing = Object.entries(vals).filter(([k, v]) => !v).map(([k]) => k);
+    const noFiles = Object.keys(loadedFiles).length === 0;
+    return { missing, noFiles };
+  }
+
+  function updateButtonState() {
+    const { missing, noFiles } = validate();
+    const btn = document.getElementById('process-btn');
+    btn.disabled = missing.length > 0 || noFiles;
+  }
+
+  document.getElementById('process-btn').addEventListener('click', () => {
+    const { missing, noFiles } = validate();
+    const msgEl = document.getElementById('validation-msg');
+
+    if (noFiles) {
+      msgEl.style.display = 'block';
+      msgEl.innerHTML = '<strong>No files loaded.</strong> Please select your workflow JSON files in Step 2 first.';
+      return;
+    }
+    if (missing.length > 0) {
+      msgEl.style.display = 'block';
+      msgEl.innerHTML = `<strong>Missing values:</strong> Please fill in: ${missing.map(m => `<span class="placeholder-tag">${m}</span>`).join(', ')}`;
+      return;
+    }
+
+    msgEl.style.display = 'none';
+    processFiles();
+  });
+
+  let configuredFiles = {};  // filename → configured content
+
+  function processFiles() {
+    const vals = getValues();
+    configuredFiles = {};
+    const grid = document.getElementById('download-grid');
+    grid.innerHTML = '';
+
+    for (const [filename, content] of Object.entries(loadedFiles)) {
+      let configured = content;
+      for (const [placeholder, value] of Object.entries(vals)) {
+        // Global replace — all occurrences
+        configured = configured.split(placeholder).join(value);
+      }
+      configuredFiles[filename] = configured;
+    }
+
+    // Sort files by name for consistent display order
+    const sortedFiles = Object.keys(configuredFiles).sort();
+
+    for (const filename of sortedFiles) {
+      // Match to known workflow descriptions
+      const baseKey = Object.keys(WORKFLOW_DESCS).find(k => filename.includes(k));
+      const meta = WORKFLOW_DESCS[baseKey] || { label: filename.replace('.json',''), desc: 'Workflow', webhook: false };
+
+      const blob = new Blob([configuredFiles[filename]], { type: 'application/json' });
+      const url  = URL.createObjectURL(blob);
+
+      const item = document.createElement('div');
+      item.className = 'download-item';
+      item.innerHTML = `
+        <div class="wf-name">${meta.label}</div>
+        <div class="wf-desc">${meta.desc}${meta.webhook ? '<br><strong style="color:#fbbf24;">⚠ Copy webhook URL after activating</strong>' : ''}</div>
+        <a class="download-btn" href="${url}" download="${filename}">⬇ Download</a>
+      `;
+      grid.appendChild(item);
+    }
+
+    const section = document.getElementById('downloads-section');
+    section.classList.add('visible');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.getElementById('download-all-btn').addEventListener('click', () => {
+    // Stagger downloads slightly to avoid browser blocking multiple simultaneous downloads
+    const files = Object.entries(configuredFiles);
+    files.forEach(([filename, content], i) => {
+      setTimeout(() => {
+        const blob = new Blob([content], { type: 'application/json' });
+        const url  = URL.createObjectURL(blob);
+        const a    = document.createElement('a');
+        a.href     = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }, i * 300);
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+lead_id,clinic_name,city_state,website,instagram,google_profile,owner_or_contact,contact_route,services,review_count,review_recency,booking_method,suspected_leak,fit_score,urgency_score,status,next_action,last_touch_at,next_follow_up_at,notes
+MGE-0001,,,,,,,,,,,,,0,0,New,Research clinic,,,Template row - replace with real lead data
+MGE-0002,,,,,,,,,,,,,0,0,Approved,Generate first touch,,,Template row - approved lead example
+MGE-0003,,,,,,,,,,,,,0,0,Contacted,Wait for follow-up date,,,Template row - contacted lead example
+MGE-0004,,,,,,,,,,,,,0,0,Replied,Triage reply,,,Template row - replied lead example
+MGE-0005,,,,,,,,,,,,,0,0,Demo Booked,Create call brief,,,Template row - booked lead example

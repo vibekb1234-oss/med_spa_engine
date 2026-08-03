@@ -1,0 +1,281 @@
+# AI Growth Operator OS
+
+This is the operating layer for getting MedSpa Growth Engine clients, closing them, delivering the system, and retaining them with as much AI leverage as possible.
+
+The goal is not a complicated SaaS platform. The goal is a lean, AI-operated agency machine where the AI does the research, writing, tracking, follow-up prep, monitoring, and reporting, while the owner steps in for sales calls, approvals, trust moments, and final decisions.
+
+## North Star
+
+MedSpa Growth Engine sells one clear mechanism:
+
+**Lost Revenue Recovery OS for MedSpas**
+
+Everything in the growth machine should point to this:
+
+- Missed consults
+- Slow inquiry follow-up
+- No-shows and late cancels
+- Cold leads
+- Lapsed VIP clients
+- Inconsistent review and referral asks
+- Weak owner visibility
+
+Do not lead with "AI automations", "chatbots", "CRM", or "we automate anything". Those phrases make the offer sound like every other agency.
+
+## Operating Model
+
+| Area | AI handles | Owner handles |
+|---|---|---|
+| Lead finding | Finds, enriches, scores, and organizes prospects | Approves source markets and lead quality standard |
+| Outreach | Drafts messages, follow-ups, reply responses, and campaign variants | Approves first campaigns and any sensitive response |
+| Sales | Builds call briefs, objection prep, ROI prompts, and recap emails | Takes the call, builds trust, decides offer and price |
+| Ads | Drafts angles, creatives, targeting notes, and test plans | Approves spend, claims, and final ads |
+| Onboarding | Creates access checklists, kickoff notes, and missing-info follow-up | Handles payment, legal terms, and client trust |
+| Delivery | Turns scope into tasks, checks QA steps, drafts updates | Performs credential-sensitive setup and go-live approval |
+| Monitoring | Watches reports, errors, task slippage, and client health signals | Handles escalations and important client conversations |
+| Retention | Drafts weekly wins, monthly summaries, upsell ideas, churn flags | Runs success calls and renewal decisions |
+
+## Human Approval Rules
+
+AI can move fast, but it should not move recklessly.
+
+Human approval is required before:
+
+- Sending the first version of a new outbound campaign.
+- Sending high-volume outreach from a live mailbox.
+- Launching paid ads or increasing ad spend.
+- Making revenue, legal, compliance, medical, or guarantee claims.
+- Offering a discount, custom build, or custom integration.
+- Handling passwords, OAuth credentials, API keys, or client secrets.
+- Finalizing contracts, invoices, refunds, or payment terms.
+- Marking a client install as live.
+
+AI should never:
+
+- Ask for patient health information.
+- Store patient information in generic prompts or documents.
+- Invent testimonials, results, case studies, or client names.
+- Promise revenue, reviews, appointments, medical results, or compliance outcomes.
+- Expose dashboard links, Sheet IDs, webhook URLs, or secrets in public docs.
+
+## Autopilot Mode
+
+Autopilot means the machine keeps working without waiting for the owner to remember every task. It does not mean the AI gets to ignore trust, compliance, or account safety.
+
+Default operating level:
+
+| Level | Mode | Meaning |
+|---|---|---|
+| 1 | Draft autopilot | AI researches, writes, scores, queues, and briefs. Owner approves sends. |
+| 2 | Controlled send | AI sends approved campaigns within limits and stops on replies, bounces, and opt-outs. |
+| 3 | Sales assist | AI triages replies, prepares calls, drafts recaps, and runs follow-up. Owner takes calls. |
+| 4 | Delivery assist | AI creates delivery tasks, monitors blockers, drafts updates, and prepares QA. |
+| 5 | Retention monitor | AI watches client health, reports, errors, churn risk, and upsell timing. |
+
+Move up one level only after the previous level is proven with real data.
+
+Always-on queues:
+
+- Research Needed
+- Message Waiting Approval
+- Follow-Up Due
+- Reply Needs Triage
+- Owner Needed
+- Call Brief Needed
+- Proposal Follow-Up Due
+- Delivery Blocked
+- Client Risk
+
+The AI should clear or escalate these queues daily.
+
+## Growth Machine Stages
+
+| Stage | Trigger | AI output | Owner decision |
+|---|---|---|---|
+| Market selected | Weekly growth block starts | City list, clinic search angles, lead volume target | Pick market |
+| Lead found | Clinic discovered | Lead row with source and fit notes | Keep or discard |
+| Lead enriched | Website/social/review check done | Leak hypothesis and fit score | Pursue now or nurture |
+| Outreach queued | Lead approved | Email/DM sequence and first message | Approve/send |
+| Follow-up due | No reply after touch | Next message and status update | Send, pause, or disqualify |
+| Reply received | Prospect responds | Reply classification and suggested response | Owner or AI-assisted response |
+| Call booked | Prospect agrees to time | Call brief and demo route | Take call |
+| Proposal needed | Call completed | Recap, proposal notes, package recommendation | Finalize terms |
+| Client paid | Setup fee paid | Delivery board, onboarding checklist, kickoff email | Start delivery |
+| Client live | QA passed | Handoff notes, first report plan, support boundaries | Approve launch |
+| Retention active | Weekly report cycle starts | Wins report, risk flags, improvement idea | Send/update client |
+
+## AI Roles
+
+### Lead Finder
+
+Builds lead lists from Google Maps, Instagram, directories, Meta Ads Library, LinkedIn, and existing CSVs.
+
+Output:
+
+- 50 to 100 qualified leads per weekly block.
+- Each row has a contact route and suspected recovery leak.
+
+### Lead Researcher
+
+Creates a short clinic brief.
+
+Output:
+
+- Services
+- Review count and recency
+- Booking path
+- Social activity
+- Owner or manager route
+- Revenue leak hypothesis
+- Fit score
+
+### Offer Copywriter
+
+Writes short, specific outbound and ad copy using the offer bible.
+
+Output:
+
+- First-touch email
+- DM
+- Follow-ups
+- Ad hooks
+- VSL bullets
+- Landing-page test copy
+
+### Outreach Manager
+
+Keeps the follow-up machine moving.
+
+Output:
+
+- Next-touch queue
+- Reply status
+- Unsubscribe list
+- Call booking prompts
+- Daily outreach summary
+
+### Reply Triage Agent
+
+Classifies prospect replies.
+
+Output:
+
+- Hot lead
+- Warm lead
+- Objection
+- Not now
+- Referral
+- Unsubscribe
+- Bad fit
+- Suggested response
+- Owner-needed flag
+
+### Call Prep Analyst
+
+Prepares you to take the call like you already know the business.
+
+Output:
+
+- Clinic snapshot
+- Most likely leak
+- Questions to ask
+- Numbers to collect
+- Objections expected
+- Demo path
+- Recommended offer
+- Close next step
+
+### Delivery Coordinator
+
+Turns a paid client into a clean install.
+
+Output:
+
+- Delivery task board
+- Missing access list
+- Client kickoff message
+- QA checklist
+- Handoff summary
+
+### Client Success Operator
+
+Keeps retention visible.
+
+Output:
+
+- Weekly wins report
+- Workflow error summary
+- Recovery activity notes
+- Churn-risk flag
+- Suggested improvement
+- Upsell timing signal
+
+## Daily AI Brief
+
+Create one daily owner brief with:
+
+- Hot replies needing your response.
+- Calls booked and call briefs needed.
+- Follow-ups due today.
+- Leads added yesterday.
+- Delivery blockers.
+- Client errors or reporting issues.
+- One highest-leverage action for the day.
+
+Format:
+
+```text
+Date:
+Revenue priority:
+Calls today:
+Hot replies:
+Follow-ups due:
+New leads ready:
+Delivery blockers:
+Client health risks:
+Owner action needed:
+```
+
+## Weekly AI Brief
+
+Create one weekly growth brief with:
+
+- Leads sourced
+- Leads approved
+- First touches sent
+- Follow-ups sent
+- Replies
+- Calls booked
+- Proposals sent
+- Closed revenue
+- Delivery status
+- Client health status
+- What to fix next week
+
+## Key Metrics
+
+| Metric | Target |
+|---|---|
+| Qualified leads added | 50 to 100 per week |
+| First-touch sends | 40 to 80 per week |
+| Follow-up completion | 90 percent+ |
+| Reply classification time | Same day |
+| Call brief readiness | Before every call |
+| Proposal send time | Same day after fit call |
+| Delivery blocker age | Under 48 hours |
+| Client weekly report sent | Every week |
+| Workflow errors unresolved | Zero at weekly review |
+
+## First Build Priority
+
+Build the system in this order:
+
+1. Lead tracker and scoring.
+2. Outreach and follow-up queue.
+3. Reply triage and call prep.
+4. Sales handoff and proposal follow-up.
+5. Onboarding and delivery task board.
+6. Weekly client reporting and retention monitor.
+7. Ads funnel once organic/outbound messaging proves the angles.
+
+This order keeps the business focused on cash first.

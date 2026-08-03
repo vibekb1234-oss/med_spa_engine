@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow"><meta http-equiv="Cache-Control" content="no-store">
+<title>Reset access - MedSpa Growth Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap"><link rel="stylesheet" href="/auth/auth.css">
+</head>
+<body>
+<button class="mode-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+<main class="auth-wrap"><section class="auth-card">
+  <div class="auth-top"><a class="logo" href="/"><span class="logo-mark"><img src="/assets/medspa-growth-engine-mark.png" alt="" /></span><span>MedSpa Growth Engine</span></a><a class="back" href="/">Back to site</a></div>
+  <p class="eyebrow">Account recovery</p><h1>Reset your passcode.</h1><p class="copy">Enter the email used for your MedSpa Growth Engine dashboard access.</p>
+  <form class="form" onsubmit="MGEAuth.sendReset(event)">
+    <label>Email<input id="email" type="email" autocomplete="email" required></label>
+    <button class="btn primary" data-auth-action type="submit">Send reset link</button>
+  </form>
+  <div id="auth-status" class="status"></div>
+  <div class="row"><span>Remembered it? <a href="/login">Sign in</a></span></div>
+</section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/auth/auth.js"></script>
+</body></html>

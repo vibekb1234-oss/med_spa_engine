@@ -1,0 +1,289 @@
+Client Name,Client Email,Phone,Appointment Date,Appointment Time,Service,Provider,Status,Revenue,Pre-Appt Reminder Sent,24hr Reminder Sent,Post-Appt Follow-Up Sent,Booked Date,Notes
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,2024-08-30,4:30 PM,Consultation,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2024-08-05,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2024-11-27,9:15 AM,Dermaplaning,Dr. Priya Patel,Completed,125,Yes,Yes,Yes,2024-11-22,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-01-17,3:30 PM,Sculptra (2 vials),Nurse Jamie Chen,Completed,2200,Yes,Yes,Yes,2025-01-03,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-01-17,9:45 AM,IV Therapy - Immunity,Dr. Priya Patel,Completed,225,Yes,Yes,Yes,2024-12-29,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2025-01-18,11:45 AM,Botox (40 units),Nurse Jamie Chen,Completed,682,Yes,Yes,Yes,2025-01-08,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2025-01-19,9:45 AM,Dermal Filler - Jawline (2 syringes),Dr. Priya Patel,Completed,1980,Yes,Yes,Yes,2024-12-21,
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,2025-02-09,4:45 PM,Botox (40 units),Dr. Priya Patel,Completed,620,Yes,Yes,Yes,2025-02-03,
+Aiden Reyes,aiden.reyes@protonmail.com,(399) 315-8355,2025-02-12,10:45 AM,Morpheus8 - Face + Neck,Dr. Priya Patel,Completed,2860,Yes,Yes,Yes,2025-02-06,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2025-02-16,3:00 PM,Chemical Peel - Medium,Nurse Jamie Chen,Completed,450,Yes,Yes,Yes,2025-01-19,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2025-02-25,10:00 AM,Botox (40 units),Dr. Priya Patel,Completed,620,Yes,Yes,Yes,2025-02-18,Cross-provider referral (aesth→injector)
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2025-03-06,11:30 AM,Laser Hair Removal - Face,Dr. Priya Patel,Completed,175,Yes,Yes,Yes,2025-02-13,
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,2025-03-10,11:00 AM,Laser Hair Removal - Face,Nurse Jamie Chen,Completed,175,Yes,Yes,Yes,2025-03-02,
+Liam Aziz,liam.aziz@outlook.com,(327) 451-1908,2025-03-12,4:15 PM,Microneedling,Dr. Priya Patel,Completed,500,Yes,Yes,Yes,2025-03-06,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-03-13,2:30 PM,Laser Hair Removal - Face,Nurse Jamie Chen,Completed,158,Yes,Yes,Yes,2025-02-21,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2025-03-16,5:15 PM,Laser Hair Removal - Bikini,Nurse Jamie Chen,Completed,250,Yes,Yes,Yes,2025-03-13,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2025-03-18,11:15 AM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2025-03-03,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2025-03-24,10:15 AM,Microneedling + PRP,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2025-03-21,
+Sofía Costa,sofía78@hotmail.com,(907) 352-9938,2025-04-12,3:00 PM,Dysport touch-up,Nurse Jamie Chen,Completed,240,Yes,Yes,Yes,2025-08-28,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-04-18,3:00 PM,Sculptra (1 vial),Dr. Priya Patel,Completed,1320,Yes,Yes,Yes,2025-03-31,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-04-28,2:45 PM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2025-04-06,
+Alexis Van Der Berg,alexis930@icloud.com,(252) 294-7939,2025-05-03,10:00 AM,Microneedling,Dr. Priya Patel,Completed,500,Yes,Yes,Yes,2025-11-19,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-05-07,4:15 PM,Dermaplaning,Dr. Priya Patel,Completed,125,Yes,Yes,Yes,2025-04-24,
+Liam Aziz,liam.aziz@outlook.com,(327) 451-1908,2025-05-08,5:45 PM,Laser Hair Removal - Face,Dr. Priya Patel,Completed,175,Yes,Yes,Yes,2025-04-19,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2025-05-10,10:00 AM,Dermal Filler - Cheek (1 syringe),Dr. Priya Patel,Completed,990,Yes,Yes,Yes,2025-05-01,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-05-13,2:45 PM,Laser Hair Removal - Full Legs,Nurse Jamie Chen,Completed,382,Yes,Yes,Yes,2025-04-17,
+Alexis Van Der Berg,alexis930@icloud.com,(252) 294-7939,2025-05-15,3:00 PM,CoolSculpting (1 cycle),Dr. Priya Patel,Completed,1200,Yes,Yes,Yes,2025-11-19,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-05-17,2:00 PM,Botox (30 units),Nurse Jamie Chen,Completed,480,Yes,Yes,Yes,2025-05-10,Cross-provider referral (aesth→injector)
+Sofía Costa,sofía78@hotmail.com,(907) 352-9938,2025-05-18,1:00 PM,HydraFacial + LED,Nurse Jamie Chen,Completed,325,Yes,Yes,Yes,2025-08-28,
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,2025-05-20,2:45 PM,CoolSculpting (4 cycles),Nurse Jamie Chen,Completed,3800,Yes,Yes,Yes,2025-04-24,
+Bella Mehta,bmehta@outlook.com,(293) 380-1344,2025-05-25,5:30 PM,Laser Hair Removal - Bikini,Dr. Priya Patel,Completed,250,Yes,Yes,Yes,2025-05-21,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-06-02,4:00 PM,Botox (40 units),Dr. Priya Patel,Completed,620,Yes,Yes,Yes,2025-05-26,Cross-provider referral (aesth→injector)
+Sofía Costa,sofía78@hotmail.com,(907) 352-9938,2025-06-08,3:00 PM,Laser Hair Removal - Face,Dr. Priya Patel,Completed,175,Yes,Yes,Yes,2025-08-28,
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,2025-06-20,3:45 PM,Consultation,Nurse Jamie Chen,Completed,0,Yes,Yes,Yes,2025-06-17,
+Liam Aziz,liam.aziz@outlook.com,(327) 451-1908,2025-06-20,4:45 PM,Botox (20 units),Nurse Jamie Chen,Completed,352,Yes,Yes,Yes,2025-06-05,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-06-23,1:30 PM,Dysport touch-up,Nurse Jamie Chen,Completed,216,Yes,Yes,Yes,2025-06-05,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-06-24,2:30 PM,HydraFacial + LED,Nurse Jamie Chen,Completed,325,Yes,Yes,Yes,2025-05-30,
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2025-06-25,11:00 AM,Microneedling,Nurse Jamie Chen,Completed,500,Yes,Yes,Yes,2025-05-03,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2025-06-26,9:00 AM,IV Therapy - Recovery,Nurse Jamie Chen,Completed,245,Yes,Yes,Yes,2025-06-15,
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,2025-06-30,2:00 PM,IV Therapy - Glow Drip,Nurse Jamie Chen,Completed,275,Yes,Yes,Yes,2025-06-26,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,2025-07-01,4:30 PM,PRP Hair Restoration,Nurse Jamie Chen,Completed,1045,Yes,Yes,Yes,2025-06-12,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-07-08,11:30 AM,Botox (30 units),Dr. Priya Patel,Completed,480,Yes,Yes,Yes,2025-07-05,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2025-07-08,9:00 AM,Follow-up Consult,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2025-06-27,
+Aiden Reyes,aiden.reyes@protonmail.com,(399) 315-8355,2025-07-12,5:00 PM,EMSculpt (4 sessions),Nurse Jamie Chen,Completed,3780,Yes,Yes,Yes,2025-07-08,
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,2025-07-19,2:00 PM,Laser Hair Removal - Brazilian,Dr. Priya Patel,Completed,300,Yes,Yes,Yes,2025-06-26,
+David Ibrahim,david.ibrahim@hotmail.com,(957) 438-3238,2025-07-20,10:30 AM,IV Therapy - Recovery,Nurse Jamie Chen,Completed,245,Yes,Yes,Yes,2025-07-06,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2025-07-20,11:15 AM,Kybella (1 session),Dr. Priya Patel,Completed,1500,Yes,Yes,Yes,2025-07-16,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2025-07-23,10:45 AM,Brow Lamination,Nurse Jamie Chen,Completed,145,Yes,Yes,Yes,2025-07-19,
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,2025-07-25,5:30 PM,Sculptra (2 vials),Dr. Priya Patel,Completed,2200,Yes,Yes,Yes,2025-07-04,
+Sarah Aziz,sarah.aziz@protonmail.com,(512) 512-9054,2025-07-27,3:45 PM,Laser Hair Removal - Bikini,Dr. Priya Patel,Completed,225,Yes,Yes,Yes,2025-07-11,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2025-07-29,11:30 AM,Sculptra (3 vials),Dr. Priya Patel,Completed,3100,Yes,Yes,Yes,2025-06-30,
+Bella Mehta,bmehta@outlook.com,(293) 380-1344,2025-08-01,10:00 AM,Skin Analysis,Dr. Priya Patel,Completed,100,Yes,Yes,Yes,2025-07-09,
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,2025-08-02,11:30 AM,Dermal Filler - Under-Eye,Dr. Priya Patel,Completed,1200,Yes,Yes,Yes,2025-07-04,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2025-08-02,4:45 PM,Microneedling - Full Face + Neck,Nurse Jamie Chen,Completed,800,Yes,Yes,Yes,2025-07-17,
+Kaia Butler,kaia.butler@icloud.com,(568) 985-2069,2025-08-03,4:30 PM,Dysport (40 units),Nurse Jamie Chen,Completed,378,Yes,Yes,Yes,2025-07-09,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-08-06,10:00 AM,Botox (20 units),Nurse Jamie Chen,Completed,320,Yes,Yes,Yes,2025-07-23,
+Liam Aziz,liam.aziz@outlook.com,(327) 451-1908,2025-08-06,11:00 AM,Follow-up Consult,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2025-07-22,
+Kaia Butler,kaia.butler@icloud.com,(568) 985-2069,2025-08-09,10:45 AM,Ultherapy - Face,Dr. Priya Patel,Completed,3060,Yes,Yes,Yes,2025-07-13,
+Kaia Butler,kaia.butler@icloud.com,(568) 985-2069,2025-08-15,5:30 PM,Ultherapy - Neck,Dr. Priya Patel,Cancelled,0,Yes,Yes,Yes,2025-08-03,
+Kaia Butler,kaia.butler@icloud.com,(568) 985-2069,2025-08-17,5:30 PM,HydraFacial + LED,Dr. Priya Patel,Completed,292,Yes,Yes,Yes,2025-07-19,
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,2025-08-17,9:15 AM,HydraFacial + Booster,Nurse Jamie Chen,Completed,400,Yes,Yes,Yes,2025-07-26,
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,2025-08-18,1:15 PM,Kybella (1 session),Dr. Priya Patel,Completed,1350,Yes,Yes,Yes,2025-08-12,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2025-08-19,10:15 AM,HydraFacial - Deluxe,Dr. Priya Patel,Completed,275,Yes,Yes,Yes,2025-07-21,
+Savannah Bell,savannah.bell@icloud.com,(645) 902-6525,2025-08-25,9:45 AM,Dermaplaning,Nurse Jamie Chen,Completed,125,Yes,Yes,Yes,2025-08-17,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2025-08-27,2:15 PM,Botox (30 units),Dr. Priya Patel,Completed,480,Yes,Yes,Yes,2025-07-29,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-08-31,4:30 PM,Botox (40 units),Dr. Priya Patel,Completed,620,Yes,Yes,Yes,2025-08-11,
+David Ibrahim,david.ibrahim@hotmail.com,(957) 438-3238,2025-09-06,2:00 PM,HydraFacial - Deluxe,Nurse Jamie Chen,Completed,275,Yes,Yes,Yes,2025-08-21,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,2025-09-08,11:30 AM,Brow Lamination,Dr. Priya Patel,Completed,145,Yes,Yes,Yes,2025-08-24,
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2025-09-11,3:00 PM,Ultherapy,Nurse Jamie Chen,Completed,3400,Yes,Yes,Yes,2025-05-03,
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,2025-09-11,9:15 AM,Kybella (2 sessions),Dr. Priya Patel,Completed,2800,Yes,Yes,Yes,2025-08-20,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2025-09-12,4:45 PM,Morpheus8 - Face,Nurse Jamie Chen,Completed,1800,Yes,Yes,Yes,2025-09-04,
+David Ibrahim,david.ibrahim@hotmail.com,(957) 438-3238,2025-09-24,1:15 PM,Dermaplaning,Nurse Jamie Chen,Completed,125,Yes,Yes,Yes,2025-09-10,
+Victoria Kamal,victoria.kamal@protonmail.com,(634) 464-6971,2025-09-24,2:15 PM,Dermal Filler - Under-Eye,Nurse Jamie Chen,No-Show,0,Yes,Yes,Yes,2025-09-07,
+Alexis Van Der Berg,alexis930@icloud.com,(252) 294-7939,2025-09-29,3:00 PM,Microneedling + PRP,Dr. Priya Patel,Completed,950,Yes,Yes,Yes,2025-11-19,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2025-10-03,10:15 AM,Follow-up Consult,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2025-09-25,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-10-04,3:45 PM,Chemical Peel - Light,Nurse Jamie Chen,Completed,195,Yes,Yes,Yes,2025-09-27,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2025-10-04,4:00 PM,Consultation,Nurse Jamie Chen,Completed,0,Yes,Yes,Yes,2025-09-11,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2025-10-05,4:30 PM,Ultherapy - Face,Nurse Jamie Chen,Completed,3740,Yes,Yes,Yes,2025-09-10,
+Kaia Butler,kaia.butler@icloud.com,(568) 985-2069,2025-10-14,10:00 AM,Botox (60 units),Nurse Jamie Chen,Completed,890,Yes,Yes,Yes,2025-10-09,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2025-10-17,3:15 PM,Consultation,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2025-09-29,
+Renata Suarez,renata.suarez296@yahoo.com,(723) 856-2053,2025-10-21,10:00 AM,HydraFacial - Deluxe,Nurse Jamie Chen,Completed,275,Yes,Yes,Yes,2025-09-29,Q4 holiday prep
+Bella Mehta,bmehta@outlook.com,(293) 380-1344,2025-10-21,2:15 PM,Sculptra (1 vial),Dr. Priya Patel,Completed,1200,Yes,Yes,Yes,2025-09-24,
+Bella Mehta,bmehta@outlook.com,(293) 380-1344,2025-10-23,1:30 PM,Morpheus8 - Face + Neck,Nurse Jamie Chen,Completed,2600,Yes,Yes,Yes,2025-10-04,
+Zoe Jaeger,zoe.jaeger402@icloud.com,(276) 226-5952,2025-10-23,2:00 PM,HydraFacial - Deluxe,Nurse Jamie Chen,Completed,275,Yes,Yes,Yes,2025-09-25,Q4 holiday prep
+Alexis Van Der Berg,alexis930@icloud.com,(252) 294-7939,2025-10-24,1:00 PM,Consultation,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2025-11-19,
+Sarah Aziz,sarah.aziz@protonmail.com,(512) 512-9054,2025-10-24,9:15 AM,BBL / IPL - Full Face + Neck,Dr. Priya Patel,Completed,850,Yes,Yes,Yes,2025-10-09,
+Renata Suarez,renata.suarez296@yahoo.com,(217) 743-9862,2025-10-29,10:00 AM,Botox (50 units),Dr. Priya Patel,Completed,750,Yes,Yes,Yes,2025-09-30,Q4 holiday prep
+Ruby Ortiz,ruby.ortiz855@gmail.com,(322) 405-3391,2025-10-29,4:00 PM,Botox (30 units),Nurse Jamie Chen,Completed,480,Yes,Yes,Yes,2025-10-02,Q4 holiday prep
+Alexis Van Der Berg,alexis930@icloud.com,(252) 294-7939,2025-10-30,3:00 PM,Dysport touch-up,Nurse Jamie Chen,Completed,240,Yes,Yes,Yes,2025-11-19,
+Ella Aguilar,ella.aguilar38@yahoo.com,(914) 641-8566,2025-10-30,3:00 PM,HydraFacial - Deluxe,Nurse Jamie Chen,Completed,275,Yes,Yes,Yes,2025-09-27,Q4 holiday prep
+Sofía Nakamura,sofía.nakamura@outlook.com,(211) 896-2876,2025-10-31,2:15 PM,Chemical Peel - Light,Nurse Jamie Chen,No-Show,0,Yes,Yes,Yes,2025-10-18,
+Zoe Jaeger,zoe.jaeger402@icloud.com,(833) 252-5835,2025-10-31,4:00 PM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2025-10-12,Q4 holiday prep
+Ethan Long,ethan.long@outlook.com,(652) 226-9411,2025-11-03,2:00 PM,HydraFacial - Platinum,Dr. Priya Patel,Completed,375,Yes,Yes,Yes,2025-10-10,
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,2025-11-05,1:00 PM,Microneedling + PRP,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2025-10-26,
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2025-11-05,3:00 PM,Dysport (40 units),Dr. Priya Patel,Completed,420,Yes,Yes,Yes,2025-05-03,
+Ella Aguilar,ella.aguilar38@yahoo.com,(778) 646-7154,2025-11-05,4:00 PM,Botox (50 units),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2025-10-02,Q4 holiday prep
+Alba Knox,alba.knox438@outlook.com,(970) 853-9919,2025-11-06,3:00 PM,Botox (50 units),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2025-10-05,Q4 holiday prep
+Savannah Bell,savannah.bell@icloud.com,(645) 902-6525,2025-11-06,5:15 PM,CoolSculpting (1 cycle),Nurse Jamie Chen,Completed,1200,Yes,Yes,Yes,2025-10-24,
+Tessa Suarez,tessa.suarez114@icloud.com,(884) 897-8038,2025-11-07,11:00 AM,HydraFacial - Deluxe,Dr. Priya Patel,Completed,275,Yes,Yes,Yes,2025-10-19,Q4 holiday prep
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-11-08,2:15 PM,Botox (50 units),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2025-10-09,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-11-10,5:45 PM,Microneedling + PRP,Dr. Priya Patel,Completed,950,Yes,Yes,Yes,2025-11-01,
+Ariana Sullivan,ariana.sullivan@hotmail.com,(419) 816-4632,2025-11-11,10:30 AM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2025-11-08,
+Renata Suarez,renata.suarez296@yahoo.com,(611) 918-9563,2025-11-13,10:00 AM,HydraFacial - Platinum,Nurse Jamie Chen,Completed,375,Yes,Yes,Yes,2025-10-15,Q4 holiday prep
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,2025-11-13,10:45 AM,Laser Hair Removal - Bikini,Nurse Jamie Chen,Completed,250,Yes,Yes,Yes,2025-10-27,
+Isabela Grant,isabela.grant483@gmail.com,(536) 527-5839,2025-11-14,4:00 PM,Dermal Filler - Lip (1 syringe),Dr. Priya Patel,Completed,750,Yes,Yes,Yes,2025-10-14,Q4 holiday prep
+Madison Ross,madison.ross@yahoo.com,(602) 650-6673,2025-11-17,10:00 AM,Dysport touch-up,Nurse Jamie Chen,Completed,240,Yes,Yes,Yes,2025-11-03,
+Willa Owens,willa.owens646@icloud.com,(931) 565-1636,2025-11-17,2:00 PM,Botox (50 units),Dr. Priya Patel,Completed,750,Yes,Yes,Yes,2025-10-20,Q4 holiday prep
+Andrea Solis,andrea.solis730@outlook.com,(630) 837-9543,2025-11-18,3:00 PM,HydraFacial - Platinum,Dr. Priya Patel,Completed,375,Yes,Yes,Yes,2025-11-04,Q4 holiday prep
+Andrea Solis,andrea.solis730@outlook.com,(669) 322-1827,2025-11-20,10:00 AM,Botox (30 units),Dr. Priya Patel,Completed,480,Yes,Yes,Yes,2025-10-31,Q4 holiday prep
+Sofía Costa,sofía78@hotmail.com,(907) 352-9938,2025-11-22,10:00 AM,Chemical Peel - Medium,Dr. Priya Patel,Completed,450,Yes,Yes,Yes,2025-08-28,
+Andrea Solis,andrea.solis730@outlook.com,(279) 481-6906,2025-11-23,11:00 AM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2025-11-04,Q4 holiday prep
+Alexis Van Der Berg,alexis930@icloud.com,(252) 294-7939,2025-11-24,10:00 AM,Vampire Facial (PRP),Dr. Priya Patel,Completed,800,Yes,Yes,Yes,2025-11-19,
+Madison Ross,madison.ross@yahoo.com,(602) 650-6673,2025-11-24,2:00 PM,Sculptra (1 vial),Nurse Jamie Chen,No-Show,0,Yes,Yes,Yes,2025-11-05,
+Ruby Ortiz,ruby.ortiz855@gmail.com,(218) 252-1927,2025-11-25,10:00 AM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2025-10-31,Q4 holiday prep
+Ariana Sullivan,ariana.sullivan@hotmail.com,(419) 816-4632,2025-11-25,10:45 AM,BBL / IPL - Chest,Nurse Jamie Chen,Completed,450,Yes,Yes,Yes,2025-11-16,
+Tessa Suarez,tessa.suarez114@icloud.com,(523) 980-5582,2025-11-26,2:00 PM,Dermal Filler - Cheek (1 syringe),Dr. Priya Patel,Completed,900,Yes,Yes,Yes,2025-11-02,Q4 holiday prep
+Ariana Sullivan,ariana.sullivan@hotmail.com,(419) 816-4632,2025-11-28,4:15 PM,Dermal Filler - Lip (0.5 syringe),Nurse Jamie Chen,Completed,450,Yes,Yes,Yes,2025-11-16,
+Zoe Jaeger,zoe.jaeger402@icloud.com,(441) 763-8610,2025-11-30,2:00 PM,Dermal Filler - Lip (1 syringe),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2025-11-11,Q4 holiday prep
+David Ibrahim,david.ibrahim@hotmail.com,(957) 438-3238,2025-11-30,5:30 PM,Microneedling,Nurse Jamie Chen,Completed,500,Yes,Yes,Yes,2025-11-08,
+Alba Knox,alba.knox438@outlook.com,(679) 808-7833,2025-12-05,11:00 AM,Dermal Filler - Cheek (1 syringe),Dr. Priya Patel,Completed,900,Yes,Yes,Yes,2025-11-10,Q4 holiday prep
+Sofía Costa,sofía78@hotmail.com,(907) 352-9938,2025-12-06,3:00 PM,BBL / IPL,Dr. Priya Patel,Completed,550,Yes,Yes,Yes,2025-08-28,
+Ruby Ortiz,ruby.ortiz855@gmail.com,(908) 250-5444,2025-12-16,3:00 PM,Botox (40 units),Dr. Priya Patel,Completed,620,Yes,Yes,Yes,2025-12-02,Q4 holiday prep
+David Fisher,david.fisher@yahoo.com,(616) 843-4056,2025-12-20,9:00 AM,Ultherapy - Neck,Dr. Priya Patel,Completed,2420,Yes,Yes,Yes,2025-12-13,
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,2025-12-21,9:30 AM,Chemical Peel - TCA,Nurse Jamie Chen,Completed,675,Yes,Yes,Yes,2025-12-02,
+Ariana Sullivan,ariana.sullivan@hotmail.com,(419) 816-4632,2025-12-22,10:30 AM,CoolSculpting (2 cycles),Nurse Jamie Chen,Completed,2200,Yes,Yes,Yes,2025-12-12,
+Liam Aziz,liam.aziz@outlook.com,(327) 451-1908,2025-12-23,1:15 PM,BBL / IPL - Chest,Nurse Jamie Chen,Completed,450,Yes,Yes,Yes,2025-11-27,
+Sarah Aziz,sarah.aziz@protonmail.com,(512) 512-9054,2025-12-23,5:15 PM,Consultation,Nurse Jamie Chen,Completed,0,Yes,Yes,Yes,2025-12-12,
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,2025-12-24,1:00 PM,Consultation,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2025-06-26,
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,2025-12-26,4:00 PM,Dermal Filler - Cheek (2 syringes),Dr. Priya Patel,Completed,1800,Yes,Yes,Yes,2025-06-26,
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,2025-12-27,3:00 PM,HydraFacial,Nurse Jamie Chen,Completed,275,Yes,Yes,Yes,2025-06-26,
+Sarah Aziz,sarah.aziz@protonmail.com,(512) 512-9054,2025-12-29,10:00 AM,Dermal Filler - Lip (1 syringe),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2025-12-25,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2025-12-31,2:30 PM,BBL / IPL - Full Face + Neck,Dr. Priya Patel,Completed,850,Yes,Yes,Yes,2025-12-06,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2025-12-31,9:00 AM,Vampire Facial (PRP),Dr. Priya Patel,Completed,800,Yes,Yes,Yes,2025-12-07,
+Sofía Costa,sofía78@hotmail.com,(907) 352-9938,2026-01-03,1:00 PM,Microneedling,Nurse Jamie Chen,Completed,500,Yes,Yes,Yes,2025-08-28,
+Alexis Van Der Berg,alexis930@icloud.com,(252) 294-7939,2026-01-05,10:00 AM,Laser Hair Removal - Full Legs,Nurse Jamie Chen,Completed,425,Yes,Yes,Yes,2025-11-19,
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,2026-01-05,4:00 PM,Botox (50 units),Dr. Priya Patel,Completed,750,Yes,Yes,Yes,2025-06-26,
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,2026-01-10,9:15 AM,Chemical Peel - Light,Nurse Jamie Chen,Completed,195,Yes,Yes,Yes,2025-12-21,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2026-01-15,4:45 PM,HydraFacial - Platinum,Nurse Jamie Chen,Completed,375,Yes,Yes,Yes,2025-12-28,
+Savannah Watanabe,savannah632@protonmail.com,(965) 851-2008,2026-01-16,10:45 AM,NAD+ Drip,Nurse Jamie Chen,Completed,495,Yes,Yes,Yes,2026-01-09,
+Savannah Watanabe,savannah632@protonmail.com,(965) 851-2008,2026-01-16,5:45 PM,Dermal Filler - Jawline (2 syringes),Nurse Jamie Chen,Completed,1800,Yes,Yes,Yes,2026-01-06,
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,2026-01-17,1:00 PM,NAD+ Drip,Dr. Priya Patel,Completed,450,Yes,Yes,Yes,2026-01-02,
+Ethan Long,ethan.long@outlook.com,(652) 226-9411,2026-01-17,1:30 PM,PRP Hair Restoration,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2025-12-18,
+Ariana Sullivan,ariana.sullivan@hotmail.com,(419) 816-4632,2026-01-19,3:15 PM,Consultation,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2025-12-27,
+Sarah Aziz,sarah.aziz@protonmail.com,(512) 512-9054,2026-01-20,11:15 AM,IV Therapy - Recovery,Dr. Priya Patel,Completed,270,Yes,Yes,Yes,2025-12-23,
+Madison Ross,madison.ross@yahoo.com,(602) 650-6673,2026-01-20,1:45 PM,HydraFacial - Platinum,Dr. Priya Patel,Completed,375,Yes,Yes,Yes,2026-01-15,
+Victoria Kamal,victoria.kamal@protonmail.com,(634) 464-6971,2026-01-23,11:00 AM,IV Therapy - Wellness,Dr. Priya Patel,Completed,176,Yes,Yes,Yes,2026-01-11,
+Victoria Kamal,victoria.kamal@protonmail.com,(634) 464-6971,2026-01-23,4:00 PM,CoolSculpting (1 cycle),Nurse Jamie Chen,Completed,1320,Yes,Yes,Yes,2026-01-20,
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,2026-01-29,3:30 PM,IV Therapy - Wellness,Nurse Jamie Chen,Completed,215,Yes,Yes,Yes,2026-01-06,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2026-01-30,5:30 PM,Dermal Filler - Cheek (2 syringes),Dr. Priya Patel,Completed,1620,Yes,Yes,Yes,2026-01-09,
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,2026-02-02,10:30 AM,Botox (60 units),Dr. Priya Patel,Completed,890,Yes,Yes,Yes,2026-01-15,
+Kai Yamamoto,kyamamoto@icloud.com,(926) 989-3391,2026-02-02,5:15 PM,Botox (50 units),Nurse Jamie Chen,No-Show,0,Yes,Yes,Yes,2026-01-21,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2026-02-06,11:45 AM,Laser Hair Removal - Full Legs,Dr. Priya Patel,Completed,382,Yes,Yes,Yes,2026-01-24,
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,2026-02-10,10:30 AM,Skin Analysis,Dr. Priya Patel,No-Show,0,Yes,Yes,Yes,2026-01-27,
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,2026-02-14,1:00 PM,Sculptra (3 vials),Dr. Priya Patel,No-Show,0,Yes,Yes,Yes,2026-01-25,
+Sarah Aziz,sarah.aziz@protonmail.com,(512) 512-9054,2026-02-15,10:15 AM,HydraFacial + LED,Dr. Priya Patel,Completed,358,Yes,Yes,Yes,2026-02-04,
+Naomi Scott,naomi.scott@hotmail.com,(906) 405-6107,2026-02-15,2:00 PM,HydraFacial - Platinum,Dr. Priya Patel,No-Show,0,Yes,Yes,Yes,2026-02-01,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2026-02-16,11:00 AM,Dermal Filler - Cheek (1 syringe),Dr. Priya Patel,Completed,900,Yes,Yes,Yes,2026-01-20,
+Malik Al-Rashid,malik.al@protonmail.com,(403) 356-7126,2026-02-22,5:30 PM,Botox (30 units),Nurse Jamie Chen,Cancelled,0,Yes,Yes,Yes,2026-02-12,
+Liam Aziz,liam.aziz@outlook.com,(327) 451-1908,2026-02-23,2:30 PM,HydraFacial - Deluxe,Nurse Jamie Chen,Completed,275,Yes,Yes,Yes,2026-01-30,
+Poppy Cortez,poppy.cortez724@outlook.com,(580) 220-5779,2026-02-25,4:15 PM,Laser Hair Removal - Underarms,Nurse Jamie Chen,Completed,195,Yes,Yes,Yes,2026-02-06,Wedding prep — pre-wedding visit 1/2
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,2026-03-08,1:30 PM,BBL / IPL - Chest,Dr. Priya Patel,Completed,405,Yes,Yes,Yes,2026-02-28,
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2026-03-09,11:00 AM,Dermal Filler - Jawline (3 syringes),Dr. Priya Patel,Completed,2700,Yes,Yes,Yes,2025-05-03,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2026-03-10,3:45 PM,Laser Hair Removal - Underarms,Nurse Jamie Chen,Completed,215,Yes,Yes,Yes,2026-03-01,
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,2026-03-16,2:30 PM,Dermal Filler - Nasolabial,Dr. Priya Patel,No-Show,0,Yes,Yes,Yes,2026-02-27,
+Elena Aguilar,elena.aguilar844@gmail.com,(432) 680-2348,2026-03-18,3:30 PM,Laser Hair Removal - Underarms,Nurse Jamie Chen,Completed,195,Yes,Yes,Yes,2026-02-21,Wedding prep — pre-wedding visit 1/4
+Tessa North,tessa.north217@outlook.com,(916) 505-8101,2026-03-18,4:30 PM,Chemical Peel - Medium,Dr. Priya Patel,Completed,450,Yes,Yes,Yes,2026-03-02,Wedding prep — pre-wedding visit 1/4
+Elena Aguilar,elena.aguilar844@gmail.com,(840) 236-8893,2026-03-20,11:30 AM,Botox (50 units),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2026-02-13,Wedding prep — pre-wedding visit 2/4
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2026-03-20,3:30 PM,Morpheus8 - Face,Nurse Jamie Chen,Completed,1800,Yes,Yes,Yes,2026-02-27,
+Chloe Iyer,chloe.iyer@hotmail.com,(287) 376-7560,2026-03-21,9:45 AM,Kybella (1 session),Nurse Jamie Chen,Completed,1350,Yes,Yes,Yes,2026-03-07,
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,2026-03-22,2:30 PM,Consultation,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2026-03-02,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2026-03-24,11:15 AM,Lash Lift + Tint,Nurse Jamie Chen,Completed,165,Yes,Yes,Yes,2026-02-24,
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,2026-03-24,2:45 PM,Laser Hair Removal - Full Body,Dr. Priya Patel,Completed,715,Yes,Yes,Yes,2026-02-22,
+Poppy Cortez,poppy.cortez724@outlook.com,(238) 830-5120,2026-03-24,4:00 PM,HydraFacial - Platinum,Nurse Jamie Chen,Completed,375,Yes,Yes,Yes,2026-02-14,Wedding prep — pre-wedding visit 2/2
+Ava Beck,ava.beck467@gmail.com,(319) 440-9659,2026-03-28,10:30 AM,Botox (40 units),Dr. Priya Patel,Completed,620,Yes,Yes,Yes,2026-02-23,Wedding prep — pre-wedding visit 1/2
+Tessa North,tessa.north217@outlook.com,(400) 724-4724,2026-04-04,10:00 AM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2026-03-20,Wedding prep — pre-wedding visit 2/4
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,2026-04-09,4:45 PM,Chemical Peel - Light,Dr. Priya Patel,Completed,195,Yes,Yes,Yes,2026-04-04,
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2026-04-10,2:00 PM,Microneedling,Nurse Jamie Chen,Completed,500,Yes,Yes,Yes,2025-05-03,
+Mia Ives,mia.ives288@outlook.com,(939) 301-6462,2026-04-10,4:30 PM,HydraFacial - Platinum,Dr. Priya Patel,Completed,375,Yes,Yes,Yes,2026-03-12,Wedding prep — pre-wedding visit 1/3
+Genesis Watanabe,genesis742@outlook.com,(801) 649-8483,2026-04-13,4:15 PM,Botox (20 units),Nurse Jamie Chen,Completed,320,Yes,Yes,Yes,2026-03-27,
+Chloe Iyer,chloe.iyer@hotmail.com,(287) 376-7560,2026-04-13,5:15 PM,Dermal Filler - Lip (0.5 syringe),Dr. Priya Patel,Completed,495,Yes,Yes,Yes,2026-03-26,
+Wren Knox,wren.knox514@gmail.com,(979) 808-6170,2026-04-16,2:15 PM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2026-03-11,Wedding prep — pre-wedding visit 1/4
+Mia Ives,mia.ives288@outlook.com,(498) 519-5040,2026-04-17,10:15 AM,Dermal Filler - Lip (1 syringe),Dr. Priya Patel,Completed,750,Yes,Yes,Yes,2026-03-23,Wedding prep — pre-wedding visit 3/3
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,2026-04-18,10:45 AM,Follow-up Consult,Dr. Priya Patel,Completed,0,Yes,Yes,Yes,2026-03-27,
+Dmitri Chen-Smith,dmitri854@outlook.com,(756) 920-5956,2026-04-24,10:00 AM,Vampire Facial (PRP),Nurse Jamie Chen,Completed,800,Yes,Yes,Yes,2025-12-17,
+Zoe Vargas,zoe.vargas561@icloud.com,(915) 579-4525,2026-04-24,10:15 AM,Laser Hair Removal - Underarms,Nurse Jamie Chen,Completed,195,Yes,Yes,Yes,2026-04-05,Wedding prep — pre-wedding visit 3/4
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,2026-04-26,4:15 PM,Botox (30 units),Nurse Jamie Chen,Completed,528,Yes,Yes,Yes,2026-04-10,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2026-04-27,11:45 AM,Chemical Peel - Medium,Dr. Priya Patel,Completed,450,Yes,Yes,Yes,2026-03-31,
+Zoe Vargas,zoe.vargas561@icloud.com,(463) 562-6025,2026-04-30,3:00 PM,Laser Hair Removal - Underarms,Dr. Priya Patel,Completed,195,Yes,Yes,Yes,2026-04-12,Wedding prep — pre-wedding visit 2/4
+Bella Mehta,bmehta@outlook.com,(293) 380-1344,2026-04-30,4:00 PM,Chemical Peel - TCA,Dr. Priya Patel,Completed,675,Yes,Yes,Yes,2026-04-19,
+Chloe Perry,cperry@gmail.com,(648) 716-8096,2026-05-02,11:00 AM,Dermal Filler - Jawline (2 syringes),Dr. Priya Patel,Completed,1800,Yes,Yes,Yes,2026-04-27,
+Camila Suarez,camila.suarez395@yahoo.com,(942) 738-5259,2026-05-02,3:30 PM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2026-03-31,Wedding prep — pre-wedding visit 1/2
+Tessa North,tessa.north217@outlook.com,(474) 246-1612,2026-05-03,11:00 AM,Dermal Filler - Lip (1 syringe),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2026-03-27,Wedding prep — pre-wedding visit 3/4
+Ava Beck,ava.beck467@gmail.com,(413) 412-8400,2026-05-03,2:15 PM,Chemical Peel - Medium,Dr. Priya Patel,Completed,450,Yes,Yes,Yes,2026-03-28,Wedding prep — pre-wedding visit 2/2
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2026-05-04,11:30 AM,Dermal Filler - Lip (1 syringe),Dr. Priya Patel,Completed,825,Yes,Yes,Yes,2026-04-26,
+Maya Coleman,maya732@yahoo.com,(390) 238-2572,2026-05-04,5:45 PM,Vampire Facial (PRP),Nurse Jamie Chen,Completed,720,Yes,Yes,Yes,2026-04-24,
+Wren Knox,wren.knox514@gmail.com,(768) 606-8758,2026-05-05,4:00 PM,Botox (50 units),Dr. Priya Patel,Completed,750,Yes,Yes,Yes,2026-04-04,Wedding prep — pre-wedding visit 2/4
+Wren Cortez,wren.cortez124@outlook.com,(964) 719-5538,2026-05-06,2:15 PM,Chemical Peel - Medium,Dr. Priya Patel,Completed,450,Yes,Yes,Yes,2026-03-24,Wedding prep — pre-wedding visit 1/4
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,2026-05-08,4:15 PM,Lash Lift + Tint,Dr. Priya Patel,Completed,182,Yes,Yes,Yes,2026-04-20,
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,2026-05-09,2:45 PM,Dermal Filler - Nasolabial,Dr. Priya Patel,Completed,950,Yes,Yes,Yes,2026-04-12,
+Elena Aguilar,elena.aguilar844@gmail.com,(733) 533-1289,2026-05-10,11:15 AM,Botox (50 units),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2026-04-20,Wedding prep — pre-wedding visit 3/4
+Mia Ives,mia.ives288@outlook.com,(347) 418-2999,2026-05-12,10:15 AM,Dermal Filler - Lip (1 syringe),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2026-04-11,Wedding prep — pre-wedding visit 2/3
+Victoria Choi,victoria.choi@aol.com,(437) 355-3857,2026-05-12,2:00 PM,Skin Analysis,Dr. Priya Patel,Completed,100,Yes,Yes,Yes,2026-04-12,
+Elena Aguilar,elena.aguilar844@gmail.com,(347) 955-6663,2026-05-13,2:30 PM,Microneedling + PRP,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2026-04-19,Wedding prep — pre-wedding visit 4/4
+Victoria Aziz,victoria.aziz@protonmail.com,(217) 652-3256,2026-05-14,10:00 AM,Microneedling - Full Face + Neck,Dr. Priya Patel,Completed,800,Yes,Yes,Yes,2026-05-05,
+Zoe Vargas,zoe.vargas561@icloud.com,(532) 489-2449,2026-05-14,3:15 PM,Botox (50 units),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2026-04-01,Wedding prep — pre-wedding visit 1/4
+Tessa North,tessa.north217@outlook.com,(976) 393-5925,2026-05-15,4:15 PM,Microneedling + PRP,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2026-05-01,Wedding prep — pre-wedding visit 4/4
+Victoria Aziz,victoria.aziz@protonmail.com,(217) 652-3256,2026-05-16,5:15 PM,HydraFacial + Booster,Nurse Jamie Chen,Completed,440,Yes,Yes,Yes,2026-05-05,
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2026-05-19,3:00 PM,CoolSculpting (1 cycle),Dr. Priya Patel,Completed,1200,Yes,Yes,Yes,2025-05-03,
+Elena Yamamoto,elena827@outlook.com,(473) 788-7786,2026-05-19,4:15 PM,Sculptra (1 vial),Dr. Priya Patel,Completed,1320,Yes,Yes,Yes,2026-04-19,
+Elena Yamamoto,elena827@outlook.com,(473) 788-7786,2026-05-19,4:45 PM,Kybella (2 sessions),Nurse Jamie Chen,Completed,2520,Yes,Yes,Yes,2026-05-03,
+Elena Yamamoto,elena827@outlook.com,(473) 788-7786,2026-05-19,9:30 AM,Dermal Filler - Cheek (2 syringes),Nurse Jamie Chen,Completed,1800,Yes,Yes,Yes,2026-05-13,
+Zoe Vargas,zoe.vargas561@icloud.com,(956) 938-9827,2026-05-20,3:30 PM,Botox (50 units),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2026-04-17,Wedding prep — pre-wedding visit 4/4
+Wren Cortez,wren.cortez124@outlook.com,(652) 798-4457,2026-05-23,2:00 PM,Botox (50 units),Nurse Jamie Chen,Completed,750,Yes,Yes,Yes,2026-04-13,Wedding prep — pre-wedding visit 3/4
+Mason Choi,mason985@icloud.com,(763) 505-7955,2026-05-25,1:30 PM,Botox (60 units),Nurse Jamie Chen,Completed,801,Yes,Yes,Yes,2026-05-12,
+Rachel Patel,rachel.patel@protonmail.com,(965) 521-1936,2026-05-26,3:00 PM,Microneedling + PRP,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2026-02-14,
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,2026-05-26,3:15 PM,Dysport touch-up,Nurse Jamie Chen,Completed,240,Yes,Yes,Yes,2026-05-22,
+Wren Cortez,wren.cortez124@outlook.com,(346) 306-3489,2026-05-27,10:15 AM,Laser Hair Removal - Underarms,Nurse Jamie Chen,Completed,195,Yes,Yes,Yes,2026-04-14,Wedding prep — pre-wedding visit 2/4
+Genesis Watanabe,genesis742@outlook.com,(801) 649-8483,2026-05-28,2:15 PM,PRP Hair Restoration,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2026-05-13,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2026-05-29,2:15 PM,HydraFacial - Signature,Dr. Priya Patel,Completed,248,Yes,Yes,Yes,2026-05-25,
+Genesis Watanabe,genesis742@outlook.com,(801) 649-8483,2026-05-30,1:45 PM,Botox (30 units),Dr. Priya Patel,Completed,480,Yes,Yes,Yes,2026-05-20,
+Maya Coleman,maya732@yahoo.com,(390) 238-2572,2026-05-31,4:00 PM,Ultherapy - Full,Nurse Jamie Chen,Completed,4500,Yes,Yes,Yes,2026-05-19,
+Rachel Nguyen,rachel.nguyen@protonmail.com,(633) 620-8651,2026-06-02,1:30 PM,Ultherapy - Full,Nurse Jamie Chen,No-Show,0,Yes,Yes,Yes,2026-05-28,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2026-06-03,11:00 AM,Morpheus8 - Face,Dr. Priya Patel,Completed,1800,Yes,Yes,Yes,2026-05-06,
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,2026-06-04,11:00 AM,IV Therapy - Glow Drip,Dr. Priya Patel,Completed,275,Yes,Yes,Yes,2025-06-26,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,2026-06-04,11:15 AM,EMSculpt (4 sessions),Nurse Jamie Chen,Completed,4620,Yes,Yes,Yes,2026-05-15,
+Wren Knox,wren.knox514@gmail.com,(574) 980-6821,2026-06-05,10:15 AM,Dermal Filler - Lip (1 syringe),Dr. Priya Patel,Completed,750,Yes,Yes,Yes,2026-05-12,Wedding prep — pre-wedding visit 3/4
+Camila Suarez,camila.suarez395@yahoo.com,(449) 757-6231,2026-06-05,10:30 AM,Microneedling + PRP,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2026-04-22,Wedding prep — pre-wedding visit 2/2
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2026-06-06,10:30 AM,Botox (30 units),Nurse Jamie Chen,Completed,480,Yes,Yes,Yes,2025-05-03,
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,2026-06-06,10:30 AM,Dysport (40 units),Dr. Priya Patel,Completed,420,Yes,Yes,Yes,2026-05-30,
+Marcus Bennett,marcus.bennett@gmail.com,(740) 951-8321,2026-06-06,10:30 AM,B12 Injection,Nurse Jamie Chen,Completed,55,Yes,Yes,Yes,2026-05-30,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2026-06-06,9:00 AM,Dermal Filler - Jawline (3 syringes),Dr. Priya Patel,Completed,2700,Yes,Yes,Yes,2026-05-31,
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2026-06-07,10:00 AM,Sculptra (1 vial),Nurse Jamie Chen,No-Show,0,Yes,Yes,Yes,2025-05-03,Historical no-show for rate metric
+Marcus Bennett,marcus.bennett@gmail.com,(740) 951-8321,2026-06-08,1:45 PM,Morpheus8 - Face,Nurse Jamie Chen,Completed,1800,Yes,Yes,Yes,2026-05-19,
+Genesis Watanabe,genesis742@outlook.com,(801) 649-8483,2026-06-09,10:00 AM,Laser Hair Removal - Bikini,Dr. Priya Patel,Completed,275,Yes,Yes,Yes,2026-05-17,
+Maya Coleman,maya732@yahoo.com,(390) 238-2572,2026-06-10,11:00 AM,Botox (20 units),Dr. Priya Patel,Completed,320,Yes,Yes,Yes,2026-05-30,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,2026-06-12,10:45 AM,IV Therapy - Immunity,Dr. Priya Patel,Completed,225,Yes,Yes,Yes,2026-06-06,
+Chloe Perry,cperry@gmail.com,(648) 716-8096,2026-06-12,3:00 PM,Ultherapy - Face,Dr. Priya Patel,Completed,3400,Yes,Yes,Yes,2026-05-13,
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,2026-06-12,5:00 PM,Dermaplaning,Nurse Jamie Chen,Completed,138,Yes,Yes,Yes,2026-05-18,
+Anna Yoon,anna.yoon@aol.com,(789) 782-4923,2026-06-13,11:30 AM,Laser Hair Removal - Bikini,Dr. Priya Patel,Completed,225,Yes,Yes,Yes,2026-05-30,
+Marcus Powell,marcus688@icloud.com,(959) 894-7270,2026-06-13,9:00 AM,Dermaplaning,Nurse Jamie Chen,Completed,125,Yes,Yes,Yes,2026-05-31,
+Wren Knox,wren.knox514@gmail.com,(392) 276-7814,2026-06-14,11:00 AM,HydraFacial - Platinum,Nurse Jamie Chen,Completed,375,Yes,Yes,Yes,2026-05-22,Wedding prep — pre-wedding visit 4/4
+Maya Coleman,maya732@yahoo.com,(390) 238-2572,2026-06-15,3:15 PM,Brow Lamination,Dr. Priya Patel,Completed,160,Yes,Yes,Yes,2026-05-31,
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,2026-06-17,1:30 PM,Sculptra (3 vials),Nurse Jamie Chen,Completed,3100,Yes,Yes,Yes,2026-06-10,
+Maya Coleman,maya732@yahoo.com,(390) 238-2572,2026-06-18,10:00 AM,Microneedling + PRP,Nurse Jamie Chen,Completed,950,Yes,Yes,Yes,2026-05-19,
+Kai Yamamoto,kyamamoto@icloud.com,(926) 989-3391,2026-06-19,1:00 PM,Sculptra (3 vials),Nurse Jamie Chen,Completed,3100,Yes,Yes,Yes,2026-06-09,
+Victoria Choi,victoria.choi@aol.com,(437) 355-3857,2026-06-19,4:30 PM,B12 Injection,Dr. Priya Patel,Completed,55,Yes,Yes,Yes,2026-06-02,
+Marcus Bennett,marcus.bennett@gmail.com,(740) 951-8321,2026-06-20,9:00 AM,HydraFacial - Signature,Dr. Priya Patel,Completed,225,Yes,Yes,Yes,2026-06-01,
+Victoria Aziz,victoria.aziz@protonmail.com,(217) 652-3256,2026-06-24,9:15 AM,Sculptra (3 vials),Nurse Jamie Chen,Completed,3410,Yes,Yes,Yes,2026-06-19,
+Victoria Aziz,victoria.aziz@protonmail.com,(217) 652-3256,2026-06-28,10:15 AM,Kybella (1 session),Nurse Jamie Chen,Completed,1500,Yes,Yes,Yes,2026-06-14,
+Wren Cortez,wren.cortez124@outlook.com,(940) 287-3939,2026-06-29,4:00 PM,Microneedling + PRP,Dr. Priya Patel,Completed,950,Yes,Yes,Yes,2026-06-03,Wedding prep — pre-wedding visit 4/4
+Victoria Choi,victoria.choi@aol.com,(437) 355-3857,2026-06-30,10:15 AM,Dysport (30 units),Dr. Priya Patel,Completed,320,Yes,Yes,Yes,2026-06-07,
+Chloe Iyer,chloe.iyer@hotmail.com,(287) 376-7560,2026-07-01,9:15 AM,HydraFacial + Booster,Dr. Priya Patel,Completed,360,Yes,Yes,Yes,2026-06-15,
+Marcus Bennett,marcus.bennett@gmail.com,(740) 951-8321,2026-07-03,4:30 PM,Kybella (2 sessions),Nurse Jamie Chen,Completed,3080,Yes,Yes,Yes,2026-06-06,
+Kai Yamamoto,kyamamoto@icloud.com,(926) 989-3391,2026-07-07,4:45 PM,Dermal Filler - Cheek (2 syringes),Dr. Priya Patel,Completed,1800,Yes,Yes,Yes,2026-07-02,
+Victoria Choi,victoria.choi@aol.com,(437) 355-3857,2026-07-08,5:30 PM,Morpheus8 - Body,Nurse Jamie Chen,Completed,2200,Yes,Yes,Yes,2026-06-20,
+Lauren Taylor,lauren568@outlook.com,(435) 802-4608,2026-07-11,11:00 AM,HydraFacial,Dr. Priya Patel,No-Show,0,Yes,Yes,Yes,2026-06-19,Historical no-show for rate metric
+Layla Rao,layla639@hotmail.com,(547) 955-9262,2026-07-11,9:30 AM,CoolSculpting (1 cycle),Dr. Priya Patel,Completed,1080,Yes,Yes,Yes,2026-06-30,
+Sofía Nakamura,sofía.nakamura@outlook.com,(211) 896-2876,2026-07-13,3:00 PM,Dysport (40 units),Nurse Jamie Chen,Cancelled,0,Yes,,,2026-07-08,Client cancelled — dashboard should count separately from no-show
+Madison Ross,madison.ross@yahoo.com,(602) 650-6673,2026-07-13,3:45 PM,Dermal Filler - Lip (1 syringe),Dr. Priya Patel,Completed,750,Yes,Yes,Yes,2026-07-05,
+Maya Coleman,maya732@yahoo.com,(390) 238-2572,2026-07-15,11:15 PM,HydraFacial - Signature,Nurse Jamie Chen,Completed,225,Yes,Yes,Yes,2026-07-12,Historical — prev week for trend calc
+Victoria Choi,victoria.choi@aol.com,(437) 355-3857,2026-07-15,7:00 PM,Dermaplaning,Dr. Priya Patel,Completed,125,Yes,Yes,Yes,2026-07-03,Historical — prev week for trend calc
+Genesis Watanabe,genesis742@outlook.com,(801) 649-8483,2026-07-17,10:00 AM,Dermal Filler - Jawline (2 syringes),Nurse Jamie Chen,Completed,1800,Yes,Yes,Yes,2026-07-01,
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,2026-07-17,1:45 AM,Dermal Filler - Cheek (2 syringes),Dr. Priya Patel,Completed,1800,Yes,Yes,Yes,2026-07-14,Historical — prev week for trend calc
+David Fisher,david.fisher@yahoo.com,(616) 843-4056,2026-07-17,2:30 PM,Ultherapy - Face,Nurse Jamie Chen,Completed,3400,Yes,Yes,Yes,2026-06-26,
+Victoria Aziz,victoria.aziz@protonmail.com,(217) 652-3256,2026-07-18,1:45 AM,HydraFacial - Platinum,Dr. Priya Patel,Completed,375,Yes,Yes,Yes,2026-06-29,Historical — prev week for trend calc
+Yuki Nakamura,yuki.nakamura@icloud.com,+81 90-1234-5678,2026-07-18,3:30 AM,B12 Injection,Nurse Jamie Chen,Completed,55,Yes,Yes,Yes,2026-07-11,Historical — prev week for trend calc
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2026-07-18,4:00 PM,Dysport (40 units),Nurse Jamie Chen,Completed,420,Yes,Yes,Yes,2025-05-03,
+Mason Choi,mason985@icloud.com,(763) 505-7955,2026-07-18,4:45 PM,CoolSculpting (1 cycle),Nurse Jamie Chen,Completed,1320,Yes,Yes,Yes,2026-06-24,
+Kayla Anderson,kayla.anderson@yahoo.com,(696) 841-4919,2026-07-18,7:45 PM,Vampire Facial (PRP),Nurse Jamie Chen,Completed,800,Yes,Yes,Yes,2026-07-11,Historical — prev week for trend calc
+Rachel Patel,rachel.patel@protonmail.com,(965) 521-1936,2026-07-18,9:30 AM,Morpheus8,Dr. Priya Patel,Cancelled,0,Yes,,,2026-02-14,Client cancelled — dashboard should count separately from no-show
+Anna Yoon,anna.yoon@aol.com,(789) 782-4923,2026-07-20,2:15 AM,Dermal Filler - Jawline (3 syringes),Dr. Priya Patel,Completed,2700,Yes,Yes,Yes,2026-07-08,Historical — prev week for trend calc
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,2026-07-20,9:30 PM,PRP Hair Restoration,Dr. Priya Patel,Completed,950,Yes,Yes,Yes,2026-07-10,Historical — prev week for trend calc
+Alexis Costa,alexis.costa@gmail.com,(753) 215-2528,2026-07-23,3:00 PM,CoolSculpting (1 cycle),Nurse Jamie Chen,Completed,1200,Yes,Yes,Yes,2026-06-07,
+Layla Rao,layla639@hotmail.com,(547) 955-9262,2026-07-24,3:00 PM,B12 Injection,Nurse Jamie Chen,Completed,55,Yes,Yes,Yes,2026-07-12,
+Alexis Costa,alexis.costa@gmail.com,(753) 215-2528,2026-07-25,11:30 AM,Laser Hair Removal - Face,Nurse Jamie Chen,Completed,175,Yes,Yes,Yes,2026-06-07,
+Rachel Patel,rachel.patel@protonmail.com,(965) 521-1936,2026-07-25,11:30 AM,Botox (40 units),Nurse Jamie Chen,Completed,620,Yes,Yes,Yes,2026-02-14,
+Naomi Scott,naomi.scott@hotmail.com,(906) 405-6107,2026-07-26,10:00 AM,Botox (30 units),Nurse Jamie Chen,Completed,480,Yes,Yes,Yes,2026-04-04,Same day: consult then treatment
+Naomi Scott,naomi.scott@hotmail.com,(906) 405-6107,2026-07-26,9:00 AM,Consultation,Nurse Jamie Chen,Completed,0,Yes,Yes,Yes,2026-04-04,Consult before treatment
+Rachel Nguyen,rachel.nguyen@protonmail.com,(633) 620-8651,2026-07-27,10:00 AM,CoolSculpting (4 cycles),Dr. Priya Patel,Completed,3800,Yes,Yes,,2026-06-22,"CASE F: completed yesterday, post-appt follow-up due"
+Naomi Scott,naomi.scott@hotmail.com,(906) 405-6107,2026-07-27,1:00 PM,HydraFacial,Nurse Jamie Chen,No-Show,0,Yes,Yes,,2026-04-04,"CASE E: no-show yesterday, should fire recovery today"
+Lauren Taylor,lauren568@outlook.com,(435) 802-4608,2026-07-27,4:00 PM,IV Therapy - Wellness Drip,Dr. Priya Patel,Completed,195,Yes,Yes,,2026-06-19,"CASE F: completed yesterday, post-appt follow-up due"
+Emma Robinson,emma686@hotmail.com,(697) 419-9834,2026-07-27,4:00 PM,Laser Hair Removal - Face,Nurse Jamie Chen,Completed,175,Yes,Yes,,2026-04-16,"CASE F: completed yesterday, post-appt follow-up due"
+Malik Al-Rashid,malik.al@protonmail.com,(403) 356-7126,2026-07-29,8:00 AM,Dermal Filler - Lip (1 syringe),Nurse Jamie Chen,Scheduled,0,Yes,,,2026-07-08,"CASE B: 48hr sent already, 24hr should fire now"
+Sofía Nakamura,sofía.nakamura@outlook.com,(211) 896-2876,2026-07-30,11:00 AM,Botox (40 units),Nurse Jamie Chen,Scheduled,0,,,,2026-07-08,CASE A: should fire 48hr reminder today
+Sofía Nakamura,sofía.nakamura@outlook.com,(211) 896-2876,2026-07-31,11:00 AM,HydraFacial,Dr. Priya Patel,Scheduled,0,,,,2026-07-08,EDGE: Saturday appointment
+Camila Powell,camila.powell@yahoo.com,(380) 589-9623,2026-07-31,4:15 PM,HydraFacial + LED,Nurse Jamie Chen,Scheduled,0,,,,2026-07-27,
+Elena Yamamoto,elena827@outlook.com,(473) 788-7786,2026-08-11,3:30 PM,Dermal Filler - Cheek (1 syringe),Nurse Jamie Chen,Scheduled,0,,,,2026-07-27,
+Victoria Kamal,victoria.kamal@protonmail.com,(634) 464-6971,2026-08-11,5:30 PM,Dermal Filler - Cheek (1 syringe),Dr. Priya Patel,Scheduled,0,,,,2026-07-26,
+Savannah Watanabe,savannah632@protonmail.com,(965) 851-2008,2026-08-21,1:00 PM,Botox (30 units),Nurse Jamie Chen,Scheduled,0,,,,2026-07-27,

@@ -1,0 +1,78 @@
+﻿<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Reactivation Audit - MedSpa Growth Engine</title>
+  <meta name="description" content="A focused client reactivation audit for established med spas with inactive clients, membership renewals, and treatment return opportunities already inside the database." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#fffaf7; --panel:#ffffff; --text:#181017; --muted:#6b5963; --accent:#ad2e69; --accent-2:#2b8a80; --border:#ead8cd; --shadow:0 24px 80px rgba(82,45,62,.12); }
+    [data-theme="dark"] { --bg:#0d0910; --panel:#17111b; --text:#fff7fb; --muted:#c6b5bf; --accent:#ff69a7; --accent-2:#88d8cc; --border:#322636; --shadow:0 24px 80px rgba(0,0,0,.45); }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; font-family:Inter,system-ui,sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
+body::before, body::after { content:''; position:fixed; width:46vw; height:46vw; min-width:340px; min-height:340px; border-radius:999px; pointer-events:none; z-index:0; filter:blur(26px); opacity:.36; animation:spaMist 24s ease-in-out infinite; }
+body::before { left:-12vw; bottom:6vh; background:radial-gradient(circle, color-mix(in srgb, var(--accent) 13%, transparent), transparent 70%); }
+body::after { right:-14vw; top:10vh; background:radial-gradient(circle, color-mix(in srgb, var(--accent-2) 13%, transparent), transparent 70%); animation-delay:-9s; } a { color:inherit; text-decoration:none; }
+    .nav { position:sticky; top:0; z-index:20; backdrop-filter:blur(18px); background:color-mix(in srgb, var(--bg) 86%, transparent); border-bottom:1px solid var(--border); }
+    .nav-inner { width:min(1180px, calc(100% - 32px)); margin:auto; min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:900; color:var(--accent); } .brand img { width:34px; height:34px; object-fit:contain; }
+    .nav-actions { display:flex; align-items:center; gap:12px; } .nav-actions a { font-weight:700; font-size:14px; color:var(--muted); }
+    .theme-toggle { width:44px; height:44px; border:1px solid var(--border); border-radius:14px; background:var(--panel); cursor:pointer; }
+    .theme-toggle:before { content:'☀'; color:var(--text); } [data-theme="dark"] .theme-toggle:before { content:'☾'; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:0 24px; border-radius:14px; background:var(--accent); color:white; font-weight:900; box-shadow:0 16px 36px color-mix(in srgb, var(--accent) 26%, transparent); }
+    main, .nav { position:relative; z-index:1; }
+    .hero { width:min(1180px, calc(100% - 32px)); margin:0 auto; padding:84px 0 54px; display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; }
+    .badge { display:inline-flex; gap:10px; align-items:center; border:1px solid color-mix(in srgb, var(--accent) 28%, var(--border)); color:var(--accent); background:color-mix(in srgb, var(--accent) 8%, transparent); border-radius:999px; padding:12px 16px; font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .badge span { width:8px; height:8px; border-radius:50%; background:var(--accent-2); }
+    h1 { margin:28px 0 22px; font-size:clamp(46px, 7vw, 86px); line-height:.96; letter-spacing:0; } h1 em { font-style:normal; color:var(--accent); }
+    .lead { font-size:clamp(18px,2vw,22px); line-height:1.65; color:var(--muted); max-width:690px; }
+    .chips { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:28px; } .chip { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:14px 16px; color:var(--muted); font-weight:700; }
+    .panel { background:var(--panel); border:1px solid var(--border); border-radius:28px; box-shadow:var(--shadow); padding:26px; } .panel h2 { margin:0 0 18px; font-size:22px; }
+    .action-list { display:grid; gap:14px; } .action { border:1px solid var(--border); border-radius:18px; padding:18px; background:color-mix(in srgb, var(--panel) 94%, var(--accent) 6%); }
+    .label { display:inline-flex; color:var(--accent); font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px; } .action strong { display:block; font-size:22px; margin-bottom:6px; } .action p { margin:0; color:var(--muted); line-height:1.55; }
+    section { width:min(1180px, calc(100% - 32px)); margin:0 auto; padding:54px 0; } .section-head { max-width:760px; margin-bottom:26px; } .eyebrow { color:var(--accent); font-weight:900; letter-spacing:.1em; text-transform:uppercase; font-size:12px; } h2 { font-size:clamp(34px,5vw,58px); line-height:1.02; margin:12px 0 14px; }
+    .grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; } .card { background:var(--panel); border:1px solid var(--border); border-radius:22px; padding:22px; min-height:190px; box-shadow:0 14px 40px rgba(82,45,62,.08); } .card h3 { margin:0 0 10px; font-size:20px; } .card p { color:var(--muted); line-height:1.6; margin:0; }
+    .cta { padding-bottom:84px; } .cta-box { background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 13%, var(--panel)), var(--panel)); border:1px solid var(--border); border-radius:28px; padding:34px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+    .fade { opacity:.14; transform:translate3d(0,var(--reveal-y,18px),0) scale(.994); transition:opacity .56s cubic-bezier(.16,1,.3,1), transform .76s cubic-bezier(.16,1,.3,1); }
+.fade.reveal-from-top { --reveal-y:-18px; }
+.fade.is-visible { opacity:1; transform:translate3d(0,0,0) scale(1); }
+.panel, .card, .chip, .cta-box { transition:transform .34s cubic-bezier(.22,1,.36,1), box-shadow .34s cubic-bezier(.22,1,.36,1), border-color .34s cubic-bezier(.22,1,.36,1); }
+.panel:hover, .card:hover, .chip:hover { transform:translateY(-3px); box-shadow:0 22px 70px color-mix(in srgb, var(--accent) 14%, transparent); border-color:color-mix(in srgb, var(--accent) 34%, var(--border)); }
+.btn { transition:transform .24s cubic-bezier(.22,1,.36,1), box-shadow .24s cubic-bezier(.22,1,.36,1), background .24s cubic-bezier(.22,1,.36,1); }
+.btn:hover { transform:translateY(-2px); box-shadow:0 20px 46px color-mix(in srgb, var(--accent) 30%, transparent); }
+@keyframes spaMist { 0%,100%{transform:translate3d(0,0,0) scale(1);} 48%{transform:translate3d(7vw,-5vh,0) scale(1.08);} 76%{transform:translate3d(2vw,4vh,0) scale(.96);} }
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} body::before,body::after,.fade,.panel,.card,.chip,.btn{animation:none!important;transition:none!important;transform:none!important;opacity:1!important;} }
+    @media (max-width:900px){ .hero{grid-template-columns:1fr; padding-top:46px;} .grid{grid-template-columns:1fr 1fr;} .cta-box{display:block;} .cta-box .btn{margin-top:18px;} }
+    @media (max-width:620px){ .nav-inner{width:min(100% - 20px,1180px); min-height:66px;} .brand{font-size:14px;} .nav-actions a:not(.btn){display:none;} .btn{width:100%;} .hero, section{width:min(100% - 20px,1180px);} .chips,.grid{grid-template-columns:1fr;} h1{font-size:44px;} .panel{padding:18px; border-radius:22px;} }
+  </style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-inner"><a class="brand" href="../landing/index.html"><img src="../assets/medspa-growth-engine-mark.png" alt="" />MedSpa Growth Engine</a><div class="nav-actions"><a href="../landing/index.html">Main site</a><a href="../booking/index.html" class="btn">Book Audit</a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"></button></div></div></nav>
+  <main>
+    <section class="hero fade">
+      <div><div class="badge"><span></span> Client reactivation audit</div><h1>Your Next Treatment Booking Is Probably Already <em>In Your Database</em></h1><p class="lead">Most med spas spend thousands generating new leads while past clients quietly become inactive. We identify who may be ready to return and help turn those opportunities into booked treatments.</p><div class="chips"><div class="chip">Inactive clients</div><div class="chip">Membership renewals</div><div class="chip">Treatment return windows</div><div class="chip">Consultation follow-up</div></div><p style="margin-top:26px"><a class="btn" href="../booking/index.html">Book A Client Reactivation Audit</a></p></div>
+      <div class="panel"><h2>This Week's Client Action List</h2><div class="action-list"><div class="action"><span class="label">High Priority</span><strong>Ava Carter</strong><p>Hydrafacial client inactive for 143 days. Recommended action: seasonal return message.</p></div><div class="action"><span class="label">High Priority</span><strong>Lena Ortiz</strong><p>Botox client last treated 5.5 months ago. Recommended action: SMS + staff call.</p></div><div class="action"><span class="label">Renewal Window</span><strong>Nora Patel</strong><p>Membership expires in 17 days. Recommended action: renewal reminder and offer review.</p></div></div></div>
+    </section>
+    <section class="fade"><div class="section-head"><div class="eyebrow">What gets recovered</div><h2>Not more dashboards. More useful next steps.</h2><p class="lead">The reactivation system sits around the tools you already use and gives the team a short list of clients worth contacting now.</p></div><div class="grid"><div class="card"><h3>Past clients</h3><p>Find clients who have not returned within their normal treatment window.</p></div><div class="card"><h3>Memberships</h3><p>Flag clients close to renewal before the membership quietly expires.</p></div><div class="card"><h3>Treatment timing</h3><p>Organize seasonal services, injectable cycles, and planned follow-ups.</p></div><div class="card"><h3>Staff prompts</h3><p>Show who needs an automated message and who deserves a personal call.</p></div></div></section>
+    <section class="cta fade"><div class="cta-box"><div><div class="eyebrow">Calm first step</div><h2>Start with the audit.</h2><p class="lead">We review the database, identify the highest-value inactive-client opportunities, and recommend the first recovery campaign.</p></div><a class="btn" href="../booking/index.html">Book A Client Reactivation Audit</a></div></section>
+  </main>
+  <script src="../assets/theme.js"></script>
+  <script>
+let lastScrollY = window.scrollY;
+const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const goingUp = window.scrollY < lastScrollY;
+    entry.target.classList.toggle('reveal-from-top', goingUp);
+    entry.target.classList.toggle('is-visible', entry.isIntersecting);
+  });
+  lastScrollY = window.scrollY;
+}, { threshold: .04, rootMargin: '24% 0px 24% 0px' }) : null;
+document.querySelectorAll('.fade').forEach(el => io ? io.observe(el) : el.classList.add('is-visible'));
+</script>
+</body>
+</html>
+
+
+

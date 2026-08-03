@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Onboarding wizard - MedSpa Growth Engine</title>
+<meta name="description" content="Step-by-step client onboarding wizard for MedSpa Growth Engine. Walks through Google Sheet setup, n8n credentials, workflow import, dashboard config, and smoke test." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/brand-tokens.css" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg-0); color: var(--text); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+.mono { font-family: var(--font-mono); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-bright); }
+button { font-family: inherit; cursor: pointer; }
+
+.shell { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+
+.sidebar { background: var(--bg-1); border-right: 1px solid var(--border); padding: 28px 22px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+.brand-mark { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--teal)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #fff; font-size: 14px; box-shadow: 0 4px 14px var(--accent-glow); }
+.brand-text { font-size: 14px; font-weight: 700; color: var(--text-strong); line-height: 1.1; }
+.brand-meta { font-family: var(--font-mono); font-size: 9px; color: var(--text-faint); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 2px; }
+
+.progress { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-faint); text-transform: uppercase; margin-bottom: 12px; }
+.progress-bar { height: 4px; background: var(--bg-3); border-radius: 999px; overflow: hidden; margin-bottom: 22px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--teal)); width: 0%; transition: width 0.3s ease; }
+
+.step-nav { list-style: none; padding: 0; }
+.step-nav-item { padding: 11px 12px; border-radius: 8px; margin-bottom: 4px; font-size: 13px; color: var(--text-dim); display: flex; align-items: center; gap: 10px; cursor: pointer; transition: background 0.15s, color 0.15s; }
+.step-nav-item:hover { background: var(--bg-2); color: var(--text); }
+.step-nav-item.active { background: var(--accent-soft); color: var(--text-strong); border: 1px solid var(--accent-deep); padding: 10px 11px; }
+.step-nav-item .num { font-family: var(--font-mono); font-size: 11px; font-weight: 600; min-width: 22px; height: 22px; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--text-dim); }
+.step-nav-item.active .num { background: var(--accent); color: #fff; border-color: var(--accent); }
+.step-nav-item.done .num { background: var(--success); color: var(--inverse); border-color: var(--success); }
+.step-nav-item.done .num::before { content: '✓'; font-size: 11px; }
+.step-nav-item.done .num span { display: none; }
+
+.sidebar-foot { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-faint); font-family: var(--font-mono); letter-spacing: 0.08em; }
+.sidebar-foot a { font-size: 11px; color: var(--text-dim); display: block; padding: 6px 0; }
+
+.main { padding: 48px 56px 80px; max-width: 880px; }
+.step-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--accent-bright); text-transform: uppercase; font-weight: 600; margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; }
+.step-eyebrow::before { content: ''; width: 16px; height: 1px; background: var(--accent-deep); }
+.step-title { font-size: 32px; font-weight: 700; color: var(--text-strong); line-height: 1.15; margin-bottom: 12px; }
+.step-sub { font-size: 16px; color: var(--text-dim); margin-bottom: 36px; }
+
+.step { display: none; }
+.step.active { display: block; }
+
+.card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+.card h3 { font-size: 17px; font-weight: 700; color: var(--text-strong); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.card h3 .num { font-family: var(--font-mono); font-size: 11px; padding: 3px 8px; background: var(--accent-soft); color: var(--accent-bright); border: 1px solid var(--accent-deep); border-radius: 5px; letter-spacing: 0.1em; }
+.card p { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
+.card code, .card .copy { font-family: var(--font-mono); font-size: 13px; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 6px; padding: 2px 7px; color: var(--accent-bright); }
+.card ol, .card ul { padding-left: 22px; font-size: 14px; color: var(--text); margin-bottom: 12px; }
+.card li { margin-bottom: 6px; line-height: 1.6; }
+.card .link-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border: 1px solid var(--border-bright); border-radius: 8px; font-size: 13px; color: var(--text); margin-top: 8px; transition: all 0.15s; }
+.card .link-btn:hover { border-color: var(--accent-deep); color: var(--accent-bright); background: var(--accent-soft); }
+.card .link-btn svg { width: 12px; height: 12px; }
+.card .field { margin-top: 16px; }
+.card label { display: block; font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.card input { width: 100%; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 8px; padding: 10px 12px; font-family: inherit; font-size: 14px; color: var(--text); }
+.card input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
+
+.callout { background: var(--accent-soft); border: 1px solid var(--accent-deep); border-radius: 10px; padding: 16px 20px; margin: 16px 0; font-size: 13px; color: var(--text); line-height: 1.6; }
+.callout strong { color: var(--accent-bright); }
+
+.checklist { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin: 12px 0; }
+.checklist-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 14px; color: var(--text); border-bottom: 1px solid var(--border); }
+.checklist-item:last-child { border-bottom: 0; }
+.checklist-item input[type=checkbox] { margin-top: 4px; flex-shrink: 0; width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+.checklist-item label { font-size: 14px; color: var(--text); cursor: pointer; line-height: 1.5; flex: 1; }
+.checklist-item label .hint { display: block; font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+.checklist-item.checked label { color: var(--text-dim); text-decoration: line-through; }
+
+.nav-row { display: flex; justify-content: space-between; gap: 12px; padding-top: 24px; border-top: 1px solid var(--border); margin-top: 32px; }
+.btn { padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; border: 1px solid var(--border-bright); background: var(--bg-2); color: var(--text); display: inline-flex; align-items: center; gap: 7px; transition: all 0.15s; }
+.btn:hover { border-color: var(--accent-deep); color: var(--accent-bright); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn.primary:hover { background: var(--accent-bright); border-color: var(--accent-bright); color: #fff; box-shadow: 0 8px 24px var(--accent-glow); }
+.btn svg { width: 14px; height: 14px; }
+
+.complete-state { text-align: center; padding: 56px 24px; }
+.complete-state .check { width: 80px; height: 80px; margin: 0 auto 22px; border-radius: 50%; background: var(--success); display: flex; align-items: center; justify-content: center; color: var(--inverse); }
+.complete-state h2 { font-size: 28px; color: var(--text-strong); margin-bottom: 12px; font-weight: 700; }
+.complete-state p { font-size: 15px; color: var(--text-dim); max-width: 560px; margin: 0 auto 24px; }
+
+@media (max-width: 900px) {
+  .shell { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--border); }
+  .main { padding: 32px 22px 64px; }
+  .step-title { font-size: 24px; }
+}
+@media (max-width: 640px) {
+  .sidebar { padding: 16px; position: sticky; top: 0; z-index: 20; }
+  .brand { margin-bottom: 14px; }
+  .brand-text { font-size: 13px; }
+  .brand-meta { display: none; }
+  .sidebar .theme-toggle { width: 100% !important; margin: 0 0 14px !important; }
+  .progress { margin-bottom: 8px; }
+  .progress-bar { margin-bottom: 12px; }
+  .step-nav { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .step-nav-item { flex: 0 0 178px; margin-bottom: 0; scroll-snap-align: start; }
+  .sidebar-foot { display: none; }
+  .main { padding: 28px 18px 56px; }
+  .step-eyebrow { font-size: 10px; letter-spacing: 0.16em; }
+  .step-title { font-size: 27px; line-height: 1.12; }
+  .step-sub { font-size: 15px; margin-bottom: 26px; }
+  .card { padding: 20px; border-radius: 10px; }
+  .card code, .card .copy { word-break: break-word; }
+  .nav-row { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <div>
+        <div class="brand-text">MedSpa Growth Engine</div>
+        <div class="brand-meta">Onboarding</div>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme" style="width:100%;margin:-16px 0 24px;"></button>
+    <div class="progress"><span id="progress-text">Step 1 of 7</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <ul class="step-nav" id="step-nav">
+      <li class="step-nav-item active" data-step="0"><span class="num"><span>1</span></span>Welcome</li>
+      <li class="step-nav-item" data-step="1"><span class="num"><span>2</span></span>Pre-flight checklist</li>
+      <li class="step-nav-item" data-step="2"><span class="num"><span>3</span></span>Google Sheet + Apps Script</li>
+      <li class="step-nav-item" data-step="3"><span class="num"><span>4</span></span>n8n credentials</li>
+      <li class="step-nav-item" data-step="4"><span class="num"><span>5</span></span>Configure + import workflows</li>
+      <li class="step-nav-item" data-step="5"><span class="num"><span>6</span></span>Dashboard setup</li>
+      <li class="step-nav-item" data-step="6"><span class="num"><span>7</span></span>Smoke test + go live</li>
+    </ul>
+    <div class="sidebar-foot">
+      Progress saved locally
+      <a href="../setup/Setup_Guide.md">Open full Setup Guide</a>
+      <a href="../tools/system-check.html">Run system check</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- STEP 1 - Welcome -->
+    <section class="step active" data-step="0">
+      <div class="step-eyebrow">Welcome</div>
+      <h1 class="step-title">You are about to set up MedSpa Growth Engine.</h1>
+      <p class="step-sub">This wizard walks through the install in about 25 minutes. Take it one step at a time - each step is independently saved, so you can close this tab and pick back up later.</p>
+
+      <div class="card">
+        <h3>What you will end with</h3>
+        <ul>
+          <li>A configured Google Sheet that holds clients, appointments, and activity log</li>
+          <li>Eight n8n workflows running 24/7 with Gmail and Google Sheets credentials wired</li>
+          <li>A self-hosted dashboard with first-run admin account and signed kanban</li>
+          <li>A weekly performance report scheduled to the clinic owner</li>
+          <li>One webhook secret shared correctly across n8n, the dashboard, Apps Script, and the intake form</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>What you need before starting</h3>
+        <ul>
+          <li>Access to the clinic's <strong>Google Workspace</strong> account (for Sheets + Gmail OAuth)</li>
+          <li>An <strong>n8n cloud</strong> account, or a self-hosted n8n instance (~$20/month tier is fine)</li>
+          <li>The clinic's <strong>Google Maps review link</strong></li>
+          <li>The clinic's <strong>IANA timezone</strong> (e.g. America/New_York)</li>
+          <li>A modern browser - Chrome, Safari, Edge, or Firefox</li>
+        </ul>
+        <div class="callout">
+          <strong>Heads up:</strong> the OAuth steps in n8n require the clinic's Google login. Most operators do this on a 10-minute screen share with the clinic owner.
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <div></div>
+        <button class="btn primary" onclick="next()">Start setup <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </section>
+
+    <!-- STEP 2 - Pre-flight checklist -->
+    <section class="step" data-step="1">
+      <div class="step-eyebrow">Step 2 of 7</div>
+      <h1 class="step-title">Pre-flight checklist</h1>
+      <p class="step-sub">Confirm the basics before we touch anything. Tick each item as you verify it.</p>
+
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="pf-1" />
+          <label for="pf-1">I have the clinic's Google Workspace login
+            <span class="hint">Required for Sheets + Gmail OAuth and to host the Apps Script</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pf-2" />
+          <label for="pf-2">I have created an n8n cloud account (or have a self-hosted n8n URL ready)
+            <span class="hint">Sign up at n8n.cloud if you have not - the Starter plan is sufficient</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pf-3" />
+          <label for="pf-3">I have the clinic's Google Maps review link
+            <span class="hint">From Google Business Profile - "Get more reviews" share link</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pf-4" />
+          <label for="pf-4">I have the clinic's IANA timezone
+            <span class="hint">Example: America/Los_Angeles, America/New_York, Europe/London</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pf-5" />
+          <label for="pf-5">I have the clinic owner's email address (where reports and error alerts will go)
+            <span class="hint">Usually the owner's personal or business email - not a shared mailbox</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pf-6" />
+          <label for="pf-6">The clinic has approved the email copy in <code>outreach/Treatment_Copy_Library.md</code>
+            <span class="hint">Wording for reminders, reviews, and referral offers should match what the clinic agreed to</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn" onclick="prev()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</button>
+        <button class="btn primary" onclick="next()">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </section>
+
+    <!-- STEP 3 - Sheet + Apps Script -->
+    <section class="step" data-step="2">
+      <div class="step-eyebrow">Step 3 of 7</div>
+      <h1 class="step-title">Google Sheet + Apps Script</h1>
+      <p class="step-sub">This creates the CRM and activity log that every workflow reads from.</p>
+
+      <div class="card">
+        <h3><span class="num">3.1</span> Create a new Google Sheet</h3>
+        <ol>
+          <li>While signed in to the clinic's Google account, open <a href="https://sheets.new" target="_blank" rel="noopener">sheets.new</a></li>
+          <li>Rename it: <code>[Clinic Name] - MedSpa Growth Engine</code></li>
+          <li>Copy the Sheet ID from the URL (the long string between <code>/d/</code> and <code>/edit</code>)</li>
+        </ol>
+        <div class="field">
+          <label for="sheet-id">Save the Sheet ID here</label>
+          <input id="sheet-id" data-save type="text" placeholder="1A2b3C4d5E6f7G8h9I0jK..." />
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3.2</span> Paste the Apps Script</h3>
+        <ol>
+          <li>In the new Sheet, go to <strong>Extensions → Apps Script</strong></li>
+          <li>Delete the default <code>function myFunction()</code> stub</li>
+          <li>Open <code>setup/MedSpa_Engine.gs</code> in this repo, copy the entire contents, and paste them in</li>
+          <li>At the top, set <code>WEBHOOK_SECRET</code> and <code>CLINIC_TIMEZONE</code> to the values you will use in n8n</li>
+          <li>Save (the floppy disk icon), then run the function <code>setupMedSpaEngine</code></li>
+          <li>Authorize the script when prompted - this is a one-time consent</li>
+        </ol>
+        <div class="callout">
+          <strong>What this does:</strong> creates the three tabs (Clients, Appointments, Activity Log) with correct headers, seeds demo data, and installs a custom menu. Safe to re-run.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">3.3</span> Generate the webhook secret</h3>
+        <p>This is the shared password between n8n, the dashboard, and the Apps Script. Same value used in all three places.</p>
+        <div class="field">
+          <label for="webhook-secret">Save the webhook secret here</label>
+          <input id="webhook-secret" data-save type="text" placeholder="Generate a random 48-character string" />
+        </div>
+        <a class="link-btn" href="../setup/Workflow_Configurator.html" target="_blank">
+          Open Workflow Configurator (has a generator)
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn" onclick="prev()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</button>
+        <button class="btn primary" onclick="next()">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </section>
+
+    <!-- STEP 4 - n8n credentials -->
+    <section class="step" data-step="3">
+      <div class="step-eyebrow">Step 4 of 7</div>
+      <h1 class="step-title">n8n credentials</h1>
+      <p class="step-sub">Connect Gmail and Google Sheets to the clinic's n8n instance. Both use OAuth2 and require the clinic's Google login - this is the step that usually needs a screen share.</p>
+
+      <div class="card">
+        <h3><span class="num">4.1</span> Sign in to n8n</h3>
+        <ol>
+          <li>Open the clinic's n8n instance (e.g. <code>https://[clinic].app.n8n.cloud</code>)</li>
+          <li>Go to <strong>Credentials</strong> in the sidebar</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4.2</span> Add Google Sheets OAuth2</h3>
+        <ol>
+          <li>Click <strong>Add credential → Google Sheets OAuth2 API</strong></li>
+          <li>Click <strong>Sign in with Google</strong> and authorize with the clinic's Google account</li>
+          <li>Save the credential - copy its <strong>ID</strong> from the URL (the part after <code>/credentials/</code>)</li>
+        </ol>
+        <div class="field">
+          <label for="gsheets-cred-id">Google Sheets credential ID</label>
+          <input id="gsheets-cred-id" data-save type="text" placeholder="e.g. uVa6vGdRk2J3LpM4" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">4.3</span> Add Gmail OAuth2</h3>
+        <ol>
+          <li>Click <strong>Add credential → Gmail OAuth2</strong></li>
+          <li>Sign in with the <strong>same clinic Google account</strong> so all outgoing email is from the clinic, not from you</li>
+          <li>Save and copy the credential ID</li>
+        </ol>
+        <div class="field">
+          <label for="gmail-cred-id">Gmail credential ID</label>
+          <input id="gmail-cred-id" data-save type="text" placeholder="e.g. xRa9bN3kP7QvL8Mw" />
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Important:</strong> emails will be sent <em>as</em> the Google account you signed in with. Use the clinic's actual reply-to address, not yours.
+      </div>
+
+      <div class="nav-row">
+        <button class="btn" onclick="prev()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</button>
+        <button class="btn primary" onclick="next()">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </section>
+
+    <!-- STEP 5 - Configure + import -->
+    <section class="step" data-step="4">
+      <div class="step-eyebrow">Step 5 of 7</div>
+      <h1 class="step-title">Configure + import all 8 workflows</h1>
+      <p class="step-sub">The configurator takes your 8 values and produces 8 ready-to-import JSON files.</p>
+
+      <div class="card">
+        <h3><span class="num">5.1</span> Open the configurator</h3>
+        <p>Fill in the values from the previous steps and download each configured workflow.</p>
+        <a class="link-btn" href="../setup/Workflow_Configurator.html" target="_blank">
+          Open Workflow Configurator
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <div class="callout">Required: Sheet ID, Sheets credential ID, Gmail credential ID, clinic email, clinic name, review link, webhook secret, IANA timezone.</div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5.2</span> Import each workflow</h3>
+        <ol>
+          <li>In n8n, click <strong>Workflows → Import from File</strong></li>
+          <li>Import all 8 configured files one at a time</li>
+          <li>Open each, click <strong>Activate</strong> in the top right</li>
+        </ol>
+        <div class="checklist">
+          <div class="checklist-item"><input type="checkbox" id="w1" /><label for="w1">1_MSG_Lead_Inquiry_Intake imported and active</label></div>
+          <div class="checklist-item"><input type="checkbox" id="w2" /><label for="w2">2_MSG_Appointment_Follow_Up imported and active</label></div>
+          <div class="checklist-item"><input type="checkbox" id="w3" /><label for="w3">3_MSG_Review_Referral imported and active</label></div>
+          <div class="checklist-item"><input type="checkbox" id="w4" /><label for="w4">4_MSG_VIP_Retention imported and active</label></div>
+          <div class="checklist-item"><input type="checkbox" id="w5" /><label for="w5">5_MSG_Weekly_Performance_Report imported and active</label></div>
+          <div class="checklist-item"><input type="checkbox" id="w6" /><label for="w6">6_MSG_Booking_Confirmation imported and active</label></div>
+          <div class="checklist-item"><input type="checkbox" id="w7" /><label for="w7">7_MSG_Error_Handler imported and active</label></div>
+          <div class="checklist-item"><input type="checkbox" id="w8" /><label for="w8">8_MSG_Status_Update imported and active</label></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">5.3</span> Copy the 4 webhook URLs</h3>
+        <p>Open workflows 1, 3, 6, and 8 in n8n. Each starts with a <strong>Webhook</strong> node - copy its <em>Production URL</em>. Paste them here so you have them for the dashboard step.</p>
+        <div class="field">
+          <label for="wf-1-url">Workflow 1 (Lead Inquiry Intake)</label>
+          <input id="wf-1-url" data-save type="url" placeholder="https://n8n.../webhook/lead-intake" />
+        </div>
+        <div class="field">
+          <label for="wf-3-url">Workflow 3 (Review &amp; Referral)</label>
+          <input id="wf-3-url" data-save type="url" placeholder="https://n8n.../webhook/review-referral" />
+        </div>
+        <div class="field">
+          <label for="wf-6-url">Workflow 6 (Booking Confirmation)</label>
+          <input id="wf-6-url" data-save type="url" placeholder="https://n8n.../webhook/booking-confirmation" />
+        </div>
+        <div class="field">
+          <label for="wf-8-url">Workflow 8 (Status Update)</label>
+          <input id="wf-8-url" data-save type="url" placeholder="https://n8n.../webhook/msg-status-update" />
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn" onclick="prev()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</button>
+        <button class="btn primary" onclick="next()">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </section>
+
+    <!-- STEP 6 - Dashboard setup -->
+    <section class="step" data-step="5">
+      <div class="step-eyebrow">Step 6 of 7</div>
+      <h1 class="step-title">Dashboard first-run setup</h1>
+      <p class="step-sub">The dashboard creates the admin account on first load and pulls all client data from the Sheet.</p>
+
+      <div class="card">
+        <h3><span class="num">6.1</span> Open the dashboard</h3>
+        <ol>
+          <li>Host <code>dashboard/index.html</code> somewhere the clinic team can reach (e.g. Netlify, Vercel, or even a local file)</li>
+          <li>Open it in Chrome</li>
+          <li>The first-run setup creates the ADMIN account - set a passcode the owner remembers</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">6.2</span> Connect to the Sheet</h3>
+        <ol>
+          <li>Log in to the dashboard as ADMIN</li>
+          <li>Go to <strong>Settings → System</strong></li>
+          <li>Paste your Google API key, Sheet ID, and webhook secret</li>
+          <li>Paste the 4 webhook URLs from Step 5.3</li>
+          <li>Click <strong>Test connection</strong> - you should see "Connected ✓"</li>
+        </ol>
+        <div class="callout">
+          <strong>API key restrictions:</strong> create the API key in Google Cloud Console, restrict to the Sheets API only, and add the dashboard's domain as an HTTP referrer. Never use an unrestricted key.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">6.3</span> Back up the config</h3>
+        <p>Settings → System → <strong>Export config</strong>. This downloads a JSON file with your dashboard configuration. Keep it somewhere safe - if the browser localStorage gets cleared you can restore from this file.</p>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn" onclick="prev()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</button>
+        <button class="btn primary" onclick="next()">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </section>
+
+    <!-- STEP 7 - Smoke test + go live -->
+    <section class="step" data-step="6">
+      <div class="step-eyebrow">Step 7 of 7</div>
+      <h1 class="step-title">Smoke test + go live</h1>
+      <p class="step-sub">Run synthetic data through every workflow before any real client sees an email.</p>
+
+      <div class="card">
+        <h3><span class="num">7.1</span> Run the system check</h3>
+        <p>Open <code>tools/system-check.html</code> and click <strong>Run all checks</strong>. Every row should turn green.</p>
+        <a class="link-btn" href="../tools/system-check.html" target="_blank">
+          Open system check
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">7.2</span> Fire test events</h3>
+        <div class="checklist">
+          <div class="checklist-item"><input type="checkbox" id="t1" /><label for="t1">Submitted a test intake form → received service info email</label></div>
+          <div class="checklist-item"><input type="checkbox" id="t2" /><label for="t2">Clicked Confirm in dashboard → received booking confirmation</label></div>
+          <div class="checklist-item"><input type="checkbox" id="t3" /><label for="t3">Manually triggered Workflow 2 → reminder emails went to test addresses</label></div>
+          <div class="checklist-item"><input type="checkbox" id="t4" /><label for="t4">Clicked Complete in dashboard → review request email fired</label></div>
+          <div class="checklist-item"><input type="checkbox" id="t5" /><label for="t5">Manually triggered Workflow 5 → weekly report arrived in owner's inbox</label></div>
+          <div class="checklist-item"><input type="checkbox" id="t6" /><label for="t6">Forced an error in any workflow → error alert arrived from Workflow 7</label></div>
+          <div class="checklist-item"><input type="checkbox" id="t7" /><label for="t7">Dragged a kanban card → status update persisted to Sheet via Workflow 8</label></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="num">7.3</span> Send the handoff email</h3>
+        <p>Open <code>setup/Client_Handoff_Email.html</code>, fill in the clinic-specific values, and send it to the owner. They are now live.</p>
+        <a class="link-btn" href="../setup/Client_Handoff_Email.html" target="_blank">
+          Open handoff email
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn" onclick="prev()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</button>
+        <button class="btn primary" onclick="complete()">Mark setup complete <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></button>
+      </div>
+    </section>
+
+    <!-- COMPLETE -->
+    <section class="step" data-step="7">
+      <div class="complete-state">
+        <div class="check"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h2>System is live.</h2>
+        <p>The clinic now has a fully automated client follow-up engine. Watch the activity log for the first 48 hours and check the first weekly report on Monday at 8am clinic time.</p>
+        <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="../dashboard/index.html" class="btn primary">Open dashboard</a>
+          <a href="../setup/Setup_Guide.md" class="btn">Open full Setup Guide</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+var TOTAL_STEPS = 7;
+var current = 0;
+
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  var target = document.querySelector('.step[data-step="' + n + '"]');
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('.step-nav-item').forEach(li => {
+    var stepNum = +li.dataset.step;
+    li.classList.toggle('active', stepNum === n);
+    li.classList.toggle('done', stepNum < n);
+  });
+
+  var pct = Math.min(100, Math.round((n / TOTAL_STEPS) * 100));
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = n >= TOTAL_STEPS ? 'Complete' : ('Step ' + (n + 1) + ' of ' + TOTAL_STEPS);
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  current = n;
+  try { localStorage.setItem('mge_onboarding_step', n); } catch (e) {}
+}
+
+function next() { if (current < TOTAL_STEPS) showStep(current + 1); }
+function prev() { if (current > 0) showStep(current - 1); }
+function complete() { showStep(TOTAL_STEPS); }
+
+// Sidebar clicks
+document.querySelectorAll('.step-nav-item').forEach(li => {
+  li.addEventListener('click', () => showStep(+li.dataset.step));
+});
+
+// Persist inputs
+document.querySelectorAll('input[data-save]').forEach(inp => {
+  var key = 'mge_onb_' + inp.id;
+  try { var v = localStorage.getItem(key); if (v) inp.value = v; } catch (e) {}
+  inp.addEventListener('input', () => {
+    try { localStorage.setItem(key, inp.value); } catch (e) {}
+  });
+});
+
+// Persist checkboxes
+document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+  var key = 'mge_onb_cb_' + cb.id;
+  try {
+    var v = localStorage.getItem(key);
+    if (v === '1') {
+      cb.checked = true;
+      cb.closest('.checklist-item').classList.add('checked');
+    }
+  } catch (e) {}
+  cb.addEventListener('change', () => {
+    try { localStorage.setItem(key, cb.checked ? '1' : '0'); } catch (e) {}
+    cb.closest('.checklist-item').classList.toggle('checked', cb.checked);
+  });
+});
+
+// Restore step on reload
+try {
+  var saved = +localStorage.getItem('mge_onboarding_step');
+  if (saved > 0 && saved <= TOTAL_STEPS) showStep(saved);
+} catch (e) {}
+  </script>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

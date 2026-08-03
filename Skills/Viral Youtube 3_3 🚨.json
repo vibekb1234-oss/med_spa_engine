@@ -1,0 +1,822 @@
+{
+    "name": "Integration Airtable, Tools, Anthropic Claude",
+    "flow": [
+        {
+            "id": 1,
+            "module": "airtable:ActionSearchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 1532818
+            },
+            "mapper": {
+                "base": "appULeELnhGD9CmQg",
+                "useColumnId": false,
+                "table": "tblFe2KGrVrhziBif",
+                "maxRecords": "20",
+                "fields": [
+                    "URL 🔗",
+                    "Date 📅",
+                    "Transcript 💎",
+                    "Title 🧐",
+                    "Views 👀",
+                    "Duration ⏰",
+                    "YouTube TN Link 🔗",
+                    "TN Description 🍿",
+                    "Channel 👀",
+                    "Created Time 🕰️",
+                    "Last Modified Time"
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Airtable OAuth connection (User ID: usrWHZndszJIS5AWQ)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "Viral Youtube 🚨"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Data 📊"
+                        },
+                        "sort": {
+                            "mode": "chose"
+                        },
+                        "view": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "fields": {
+                            "mode": "chose",
+                            "label": [
+                                "URL 🔗",
+                                "Date 📅",
+                                "Transcript 💎",
+                                "Title 🧐",
+                                "Views 👀",
+                                "Duration ⏰",
+                                "YouTube TN Link 🔗",
+                                "TN Description 🍿",
+                                "Channel 👀",
+                                "Created Time 🕰️",
+                                "Last Modified Time"
+                            ]
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "sort",
+                        "type": "array",
+                        "label": "Sort",
+                        "spec": [
+                            {
+                                "name": "field",
+                                "type": "select",
+                                "label": "Field",
+                                "options": [],
+                                "dynamic": true
+                            },
+                            {
+                                "name": "direction",
+                                "type": "select",
+                                "label": "Direction",
+                                "options": [
+                                    {
+                                        "label": "Descending",
+                                        "value": "desc"
+                                    },
+                                    {
+                                        "label": "Ascending",
+                                        "value": "asc"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Output Fields",
+                        "multiple": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "label": "Total number of bundles",
+                        "type": "uinteger"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "label": "Bundle order position",
+                        "type": "uinteger"
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "URL 🔗",
+                        "label": "URL 🔗",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Date 📅",
+                        "label": "Date 📅",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Transcript 💎",
+                        "label": "Transcript 💎",
+                        "type": "text",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Title 🧐",
+                        "label": "Title 🧐",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Views 👀",
+                        "label": "Views 👀",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Duration ⏰",
+                        "label": "Duration ⏰",
+                        "type": "text"
+                    },
+                    {
+                        "name": "YouTube TN Link 🔗",
+                        "label": "YouTube TN Link 🔗",
+                        "type": "text"
+                    },
+                    {
+                        "name": "TN Description 🍿",
+                        "label": "TN Description 🍿",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Channel 👀",
+                        "label": "Channel 👀",
+                        "type": "text",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Created Time 🕰️",
+                        "label": "Created Time 🕰️",
+                        "type": "date"
+                    },
+                    {
+                        "name": "Last Modified Time",
+                        "label": "Last Modified Time",
+                        "type": "date"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "util:TextAggregator",
+            "version": 1,
+            "parameters": {
+                "rowSeparator": "",
+                "feeder": 1
+            },
+            "mapper": {
+                "value": "Date: {{1.`Date 📅`}}\nTitle: {{1.`Title 🧐`}}\nViews: {{1.`Views 👀`}}\nDuration: {{1.`Duration ⏰`}}\nThumbnail Description: {{1.`TN Description 🍿`}}\nTranscript: {{1.`Transcript 💎`}}\n"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "rowSeparator": {
+                            "label": "Empty"
+                        }
+                    },
+                    "extra": {
+                        "feeder": {
+                            "label": "Airtable - Search Records [1]"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "rowSeparator",
+                        "type": "select",
+                        "label": "Row separator",
+                        "validate": {
+                            "enum": [
+                                "\n",
+                                "\t",
+                                "other"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "anthropic-claude:createAMessage",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1528134
+            },
+            "mapper": {
+                "model": "claude-3-5-sonnet-20240620",
+                "max_tokens": "4000",
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "🤖 Video Metrics Analysis and Suggestion Bot\n\nYou are an AI bot designed to analyze video metrics and generate insights and suggestions for future content. Your task is to examine the provided data, identify trends, and offer recommendations for new videos.\n\n## 📊 Data Inputs\n\nFor each video, you will receive the following information:\n\n1. Date Posted\n2. Transcript\n3. Title\n4. Views\n5. Duration\n6. Thumbnail Description\n\n## 🔍 Analysis Instructions\n\n1. Time Relevance:\n   - Consider more recent videos as more relevant.\n   - Apply a decay factor to older videos' relevance.\n   - Example: A 1-month-old video is more relevant than a 12-month-old video.\n\n2. View Performance:\n   - Identify videos with the highest view counts.\n   - Look for common factors among high-performing videos.\n\n3. Content Analysis:\n   - Analyze transcripts and titles for recurring themes, keywords, or topics.\n   - Identify any correlation between content themes and view counts.\n\n4. Duration Impact:\n   - Examine if there's a relationship between video duration and view count.\n   - Determine if certain length ranges perform better than others.\n\n5. Thumbnail Effectiveness:\n   - Analyze thumbnail descriptions of high-performing videos.\n   - Identify common visual elements or styles in successful thumbnails.\n\n6. Trend Identification:\n   - Look for any patterns in view counts over time.\n   - Identify any seasonal trends or topic-based fluctuations.\n\n7. Outlier Analysis:\n   - Identify any videos that significantly outperform or underperform the average.\n   - Analyze what makes these outliers unique.\n\n## 💎 Required Outputs\n\n1. Trend Summary and Analysis (70 words):\n   - Summarize the main trends you've identified.\n   - Explain what's working well and why.\n   - Mention any outliers and their unique characteristics.\n   - Comment on the consistency of performance across videos.\n   - Note if there's a trend of declining or increasing views over time.\n\n2. 5 Suggested Videos:\n   For each suggested video, provide:\n   a. 3 Suggested Titles\n   b. Suggested Length Range\n   c. 3 Suggested Thumbnail Ideas\n\n## 🥇 Output Format\n\nPresent your analysis and suggestions in the following format:\n\n```\nTrend Summary and Analysis:\n[Your 70-word summary here]\n\n🚀 Suggested Videos\n\n1. Video Suggestion:\n   - 🧐 Titles:\n     a) [Title 1]\n     b) [Title 2]\n     c) [Title 3]\n   - ⏱️ Length Range: [X-Y minutes]\n   - 🍿 Thumbnail Ideas:\n     a) [Thumbnail idea 1]\n     b) [Thumbnail idea 2]\n     c) [Thumbnail idea 3]\n\n[Repeat for all 5 suggested videos]\n\nRemember to base your suggestions on the trends and patterns you've identified in the data. Your recommendations should aim to maximize view potential based on the historical performance of similar content.\n\nThe data: {{2.text}}"
+                            }
+                        ]
+                    }
+                ],
+                "metadata": {},
+                "temperature": "1"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Anthropic Claude connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "anthropic-claude"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "model": {
+                            "mode": "edit"
+                        },
+                        "messages": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "role": {
+                                        "mode": "chose",
+                                        "label": "User"
+                                    },
+                                    "content": {
+                                        "mode": "chose",
+                                        "items": [
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "stop_sequences": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:anthropic-claude",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model",
+                        "required": true
+                    },
+                    {
+                        "name": "max_tokens",
+                        "type": "uinteger",
+                        "label": "Max Tokens",
+                        "required": true
+                    },
+                    {
+                        "name": "messages",
+                        "type": "array",
+                        "label": "Messages",
+                        "required": true,
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "role",
+                                    "type": "select",
+                                    "label": "Role",
+                                    "options": [
+                                        {
+                                            "label": "User",
+                                            "value": "user",
+                                            "nested": [
+                                                {
+                                                    "name": "content",
+                                                    "spec": {
+                                                        "spec": [
+                                                            {
+                                                                "help": "You can send image content blocks starting with Claude 3 models.",
+                                                                "name": "type",
+                                                                "type": "select",
+                                                                "label": "Type",
+                                                                "options": [
+                                                                    {
+                                                                        "label": "Text",
+                                                                        "value": "text",
+                                                                        "nested": [
+                                                                            {
+                                                                                "help": "Content of the message on behalf of the selected **Role** .",
+                                                                                "name": "text",
+                                                                                "type": "text",
+                                                                                "label": "Text",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "label": "Image",
+                                                                        "value": "image",
+                                                                        "nested": [
+                                                                            {
+                                                                                "name": "source",
+                                                                                "spec": [
+                                                                                    {
+                                                                                        "help": "File name, including the extension, for example, `image.jpg`.",
+                                                                                        "name": "filename",
+                                                                                        "type": "filename",
+                                                                                        "label": "Filename",
+                                                                                        "required": true,
+                                                                                        "semantic": "file:name",
+                                                                                        "extension": [
+                                                                                            "jpeg",
+                                                                                            "jpg",
+                                                                                            "png",
+                                                                                            "gif",
+                                                                                            "webp"
+                                                                                        ]
+                                                                                    },
+                                                                                    {
+                                                                                        "help": "Binary data of the image. For example, you can retrieve the binary data of your image using the **HTTP: Get a file** module.",
+                                                                                        "name": "data",
+                                                                                        "type": "buffer",
+                                                                                        "label": "Data",
+                                                                                        "required": true,
+                                                                                        "semantic": "file:data"
+                                                                                    }
+                                                                                ],
+                                                                                "type": "collection",
+                                                                                "label": "Source",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "required": true
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Content"
+                                                    },
+                                                    "type": "array",
+                                                    "label": "Content",
+                                                    "labels": {
+                                                        "add": "Add content"
+                                                    },
+                                                    "required": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Assistant",
+                                            "value": "assistant",
+                                            "nested": [
+                                                {
+                                                    "help": "If the request ends with an assistant turn, then the response content will continue directly from that last turn.",
+                                                    "name": "content",
+                                                    "type": "text",
+                                                    "label": "Content",
+                                                    "required": true
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": true
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Message",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "system",
+                        "type": "text",
+                        "label": "System Prompt"
+                    },
+                    {
+                        "name": "metadata",
+                        "type": "collection",
+                        "label": "Metadata",
+                        "spec": [
+                            {
+                                "name": "user_id",
+                                "type": "text",
+                                "label": "User ID"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "stop_sequences",
+                        "type": "array",
+                        "label": "Stop Sequences",
+                        "spec": {
+                            "type": "text",
+                            "label": "Stop Sequence",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "temperature",
+                        "type": "number",
+                        "label": "Temperature",
+                        "validate": {
+                            "max": 1,
+                            "min": 0
+                        }
+                    },
+                    {
+                        "name": "top_p",
+                        "type": "number",
+                        "label": "Top P",
+                        "validate": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "name": "top_k",
+                        "type": "uinteger",
+                        "label": "Top K"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "airtable:ActionCreateRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 1532818
+            },
+            "mapper": {
+                "base": "appULeELnhGD9CmQg",
+                "typecast": false,
+                "useColumnId": false,
+                "table": "tbl2NR2u4K2QOag0p",
+                "record": {
+                    "fldX97zp9NoSHXDZI": "{{3.textResponse}}",
+                    "fldJcKjBzfcWGfK2S": {}
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Airtable OAuth connection (User ID: usrWHZndszJIS5AWQ)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "base": {
+                            "label": "Viral Youtube 🚨"
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "nested": [
+                                {
+                                    "name": "record",
+                                    "spec": [
+                                        {
+                                            "name": "fld8hwiIQyMu5QSoD",
+                                            "label": "Channel 👀",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fldX97zp9NoSHXDZI",
+                                            "label": "Analysis 💎",
+                                            "type": "text",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldJcKjBzfcWGfK2S",
+                                            "label": "Assignee",
+                                            "type": "collection",
+                                            "spec": [
+                                                {
+                                                    "name": "id",
+                                                    "type": "text",
+                                                    "label": "ID",
+                                                    "help": "Unique user id"
+                                                },
+                                                {
+                                                    "name": "email",
+                                                    "type": "email",
+                                                    "label": "Email",
+                                                    "help": "User's email address"
+                                                },
+                                                {
+                                                    "name": "name",
+                                                    "type": "text",
+                                                    "label": "Name",
+                                                    "help": "User's display name (may be empty if the user hasn't created an account)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "flduuyuANb2Frp1pB",
+                                            "label": "Status",
+                                            "type": "select",
+                                            "mode": "edit",
+                                            "dynamic": true,
+                                            "validate": false,
+                                            "options": [
+                                                {
+                                                    "label": "Todo",
+                                                    "value": "Todo"
+                                                },
+                                                {
+                                                    "label": "In progress",
+                                                    "value": "In progress"
+                                                },
+                                                {
+                                                    "label": "Done",
+                                                    "value": "Done"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Record"
+                                }
+                            ],
+                            "label": "Suggestions 💎"
+                        },
+                        "record": {
+                            "nested": {
+                                "flduuyuANb2Frp1pB": {
+                                    "mode": "edit"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "type": "collection",
+                        "label": "Record",
+                        "spec": [
+                            {
+                                "name": "fld8hwiIQyMu5QSoD",
+                                "type": "text",
+                                "label": "Channel 👀"
+                            },
+                            {
+                                "name": "fldX97zp9NoSHXDZI",
+                                "type": "text",
+                                "label": "Analysis 💎"
+                            },
+                            {
+                                "name": "fldJcKjBzfcWGfK2S",
+                                "type": "collection",
+                                "label": "Assignee",
+                                "spec": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "email",
+                                        "type": "email",
+                                        "label": "Email"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "flduuyuANb2Frp1pB",
+                                "type": "select",
+                                "label": "Status",
+                                "mode": "edit"
+                            }
+                        ]
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Channel 👀",
+                        "label": "Channel 👀",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Analysis 💎",
+                        "label": "Analysis 💎",
+                        "type": "text",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Assignee",
+                        "label": "Assignee",
+                        "type": "collection",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "email",
+                                "type": "email",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Status",
+                        "label": "Status",
+                        "type": "text"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com"
+    }
+}

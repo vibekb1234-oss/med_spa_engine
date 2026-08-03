@@ -1,0 +1,95 @@
+{
+  "name": "6 — MSG Booking Confirmation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "msg-booking-confirmation",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "ms6000000-0000-0000-0000-000000000001",
+      "name": "Webhook — Booking Confirmation",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "msg-booking-confirmation-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// --- Webhook auth ---\nconst headers = $input.first().json.headers || {};\nconst secret = headers['x-webhook-secret'] || headers['X-Webhook-Secret'] || '';\nif (secret !== 'YOUR_WEBHOOK_SECRET') {\n  throw new Error('Unauthorized: invalid or missing X-Webhook-Secret header');\n}\n\nconst data = $input.first().json.body || $input.first().json;\nconst now  = new Date().toISOString();\n\n// Dashboard or Apps Script sends:\n// { clientEmail, clientName, service, provider, apptDate, apptTime }\nconst clientEmail = (data.clientEmail || '').trim();\nconst clientName  = (data.clientName  || 'there').trim();\nconst service     = (data.service     || 'your appointment').trim();\nconst provider    = (data.provider    || 'YOUR_CLINIC_NAME').trim();\nconst apptDate    = (data.apptDate    || data.appointmentDate || '').trim();\nconst apptTime    = (data.apptTime    || data.appointmentTime || '').trim();\nconst firstName   = clientName.split(' ')[0];\n\nif (!clientEmail) throw new Error('clientEmail is required');\n\nreturn [{ json: { clientEmail, clientName, firstName, service, provider, apptDate, apptTime, nowIso: now } }];"
+      },
+      "id": "ms6000000-0000-0000-0000-000000000002",
+      "name": "Parse Booking Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=✅ Confirmed: Your {{ $json.service }} appointment",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:system-ui,-apple-system,sans-serif;max-width:600px;margin:0 auto;color:#1f2937;\">\n<div style=\"background:linear-gradient(135deg,#9d174d,#7c3aed);color:white;padding:28px 32px;border-radius:10px 10px 0 0;\">\n  <h2 style=\"margin:0;font-size:20px;\">✅ You're Booked!</h2>\n  <p style=\"margin:8px 0 0;opacity:0.9;font-size:14px;\">We're looking forward to seeing you.</p>\n</div>\n<div style=\"background:#fdf4ff;border:1px solid #f0abfc;border-top:none;padding:28px 32px;border-radius:0 0 10px 10px;\">\n  <p style=\"font-size:15px;\">Hi {{ $json.firstName }},</p>\n  <p style=\"font-size:15px;\">Your appointment is confirmed. Here are your details:</p>\n\n  <div style=\"background:white;border-radius:10px;padding:20px;margin:20px 0;border-left:4px solid #be185d;\">\n    <table style=\"width:100%;border-collapse:collapse;\">\n      <tr><td style=\"padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;width:130px;\">Service</td><td style=\"padding:8px 0;font-size:15px;font-weight:700;\">{{ $json.service }}</td></tr>\n      <tr><td style=\"padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;\">Date</td><td style=\"padding:8px 0;font-size:15px;font-weight:700;\">{{ $json.apptDate }}</td></tr>\n      <tr><td style=\"padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;\">Time</td><td style=\"padding:8px 0;font-size:15px;font-weight:700;\">{{ $json.apptTime || 'To be confirmed' }}</td></tr>\n      <tr><td style=\"padding:8px 0;color:#6b7280;font-size:13px;font-weight:600;\">Provider</td><td style=\"padding:8px 0;font-size:15px;\">{{ $json.provider }}</td></tr>\n    </table>\n  </div>\n\n  <p style=\"font-size:14px;\"><strong>A few things to know before you arrive:</strong></p>\n  <ul style=\"font-size:14px;line-height:1.9;color:#374151;\">\n    <li>Arrive 5–10 minutes early to complete any intake forms</li>\n    <li>Come with a clean face if you're receiving a facial treatment</li>\n    <li>Stay well hydrated — it helps with treatment results</li>\n    <li>If you need to reschedule, please give us at least 24 hours' notice</li>\n  </ul>\n\n  <p style=\"font-size:14px;margin-top:20px;\">Need to change anything? Just reply to this email — we'll sort it out quickly.</p>\n  <p style=\"font-size:14px;\">We'll also send you a reminder closer to your appointment.<br><br>Can't wait to see you!<br><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n<p style=\"color:#9ca3af;font-size:11px;text-align:center;padding:12px;\">Reply to this email to get in touch.</p>\n</body></html>",
+        "options": { "replyTo": "YOUR_CLINIC_EMAIL@gmail.com" }
+      },
+      "id": "ms6000000-0000-0000-0000-000000000003",
+      "name": "Send Booking Confirmation",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [440, -100],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Action Type":  "Booking Confirmation",
+            "Details":      "=Booking confirmation sent for {{ $json.service }} on {{ $json.apptDate }} at {{ $json.apptTime }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms6000000-0000-0000-0000-000000000004",
+      "name": "Log to Activity Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [660, -100],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"message\": \"Booking confirmation sent\", \"client\": \"{{ $('Parse Booking Data').first().json.clientName }}\" }"
+      },
+      "id": "ms6000000-0000-0000-0000-000000000005",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [220, 200]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook — Booking Confirmation": { "main": [[{ "node": "Parse Booking Data",   "type": "main", "index": 0 }]] },
+    "Parse Booking Data": {
+      "main": [[
+        { "node": "Webhook Response",         "type": "main", "index": 0 },
+        { "node": "Send Booking Confirmation", "type": "main", "index": 0 }
+      ]]
+    },
+    "Send Booking Confirmation": { "main": [[{ "node": "Log to Activity Sheet", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "ms6000000-0000-0000-0000-000000000099",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "MSG-BOOKING-006",
+  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Production Ready" }]
+}

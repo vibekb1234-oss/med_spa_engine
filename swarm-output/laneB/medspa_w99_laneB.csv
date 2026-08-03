@@ -1,0 +1,56 @@
+lead_id,business_name,city,state_province,country,website,domain,phone,email,specialty,niche,quality_tier,confidence,source,source_wave,enrichment_method,enrichment_confidence
+LANEB-MS-001,West Asheville Aesthetics & Wellness,Asheville,NC,USA,https://westashevilleaesthetics.com,westashevilleaesthetics.com,+18284230645,,injectables,MedSpa,B,75,websearch,W99-LaneB,websearch,75
+LANEB-MS-002,SkinOvation Advanced Aesthetics,Asheville,NC,USA,https://skinovationnc.com,skinovationnc.com,+18285512442,info@skinovationnc.com,injectables,MedSpa,A,88,websearch,W99-LaneB,websearch,88
+LANEB-MS-003,Lush Injectables,Sarasota,FL,USA,https://lushinjectables.com,lushinjectables.com,+19412165115,info@lushinjectables.com,injectables,MedSpa,A,92,websearch,W99-LaneB,websearch,92
+LANEB-MS-004,Vita Aesthetics,Sarasota,FL,USA,https://vita-aestheticsfl.com,vita-aestheticsfl.com,+19412290039,info@vita-aesthetics.com,skin,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-005,Foothills Med Spa,Boise,ID,USA,https://foothillsmedspa.com,foothillsmedspa.com,+12082862327,,injectables,MedSpa,B,80,websearch,W99-LaneB,websearch,80
+LANEB-MS-006,OM Med Spa,Boise,ID,USA,https://ommedspa.com,ommedspa.com,+12089172782,info@ommedspa.com,skin,MedSpa,A,85,websearch,W99-LaneB,websearch,85
+LANEB-MS-007,Nuance Aesthetics,Salt Lake City,UT,USA,https://nuanceaesthetics.com,nuanceaesthetics.com,+18015575200,,injectables,MedSpa,B,78,websearch,W99-LaneB,websearch,78
+LANEB-MS-008,Flawless Aesthetics Med Spa,Chattanooga,TN,USA,https://flawlesschattanooga.com,flawlesschattanooga.com,+14232069500,flawlessofchattanooga@gmail.com,injectables,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-009,Self Skin Studio,Wilmington,NC,USA,https://selfskinstudio.com,selfskinstudio.com,+19109450123,,skin,MedSpa,B,80,websearch,W99-LaneB,websearch,80
+LANEB-MS-010,Sarah Hitchcox Aesthetics,Knoxville,TN,USA,https://hitchcoxaesthetics.com,hitchcoxaesthetics.com,+18652147238,sarah@hitchcoxaesthetics.com,injectables,MedSpa,A,93,websearch,W99-LaneB,websearch,93
+LANEB-MS-011,Tonique MedSpa,Tucson,AZ,USA,https://toniquemedspa.com,toniquemedspa.com,+15203084824,info@toniquemedspa.com,injectables,MedSpa,A,92,websearch,W99-LaneB,websearch,92
+LANEB-MS-012,Crafted Beauty Med Spa,Spokane,WA,USA,https://craftedbeauty.com,craftedbeauty.com,+15094433594,info@craftedbeautyspokane.com,skin,MedSpa,A,91,websearch,W99-LaneB,websearch,91
+LANEB-MS-013,The Aesthetic Company,Knoxville,TN,USA,https://theaecompany.com,theaecompany.com,+18657488337,,injectables,MedSpa,B,77,websearch,W99-LaneB,websearch,77
+LANEB-MS-014,Mirror Mirror Aesthetics and Wellness,Tucson,AZ,USA,https://mmspatucson.com,mmspatucson.com,,,IV-therapy,MedSpa,B,76,websearch,W99-LaneB,websearch,76
+LANEB-MS-015,Glow Medical Aesthetics,Tulsa,OK,USA,https://glowmedicaltulsa.com,glowmedicaltulsa.com,+19189272618,glowmedicaltulsa@gmail.com,injectables,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-016,Blush Medical Spa,Albuquerque,NM,USA,https://theblushmedspa.com,theblushmedspa.com,+15054208344,contact@theblushmedspa.com,skin,MedSpa,A,89,websearch,W99-LaneB,websearch,89
+LANEB-MS-017,Luma Clinic,Halifax,NS,Canada,https://luma.clinic,luma.clinic,+19024252956,hello@luma.clinic,injectables,MedSpa,A,92,websearch,W99-LaneB,websearch,92
+LANEB-MS-018,NuYou MedSpa & Laser Clinic,Halifax,NS,Canada,https://nuyoumedspa.ca,nuyoumedspa.ca,+19024227327,info@nuyoumedspa.ca,laser,MedSpa,A,88,websearch,W99-LaneB,websearch,88
+LANEB-MS-019,Face to Face Medical Aesthetics,Bristol,,UK,https://facetofacemed.com,facetofacemed.com,,,injectables,MedSpa,B,76,websearch,W99-LaneB,websearch,76
+LANEB-MS-020,Yorkshire Skin Centre,Leeds,,UK,https://yorkshireskincentre.co.uk,yorkshireskincentre.co.uk,+441138872272,,skin,MedSpa,B,80,websearch,W99-LaneB,websearch,80
+LANEB-MS-021,Adelaide Cosmetic Medicine & Laser,Adelaide,SA,Australia,https://acml.com.au,acml.com.au,,,injectables,MedSpa,B,72,websearch,W99-LaneB,websearch,72
+LANEB-MS-022,Jennifer Carly Aesthetic Medicine,Adelaide,SA,Australia,https://jennifercarlyaestheticmedicine.com.au,jennifercarlyaestheticmedicine.com.au,+61415823112,jennifercarlycosmetics@gmail.com,facial-aesthetics,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-023,Bellissimo Clinic,Glasgow,,UK,https://bellissimoclinic.com,bellissimoclinic.com,+447532803623,info@bellissimoclinic.com,injectables,MedSpa,A,91,websearch,W99-LaneB,websearch,91
+LANEB-MS-024,Samara Aesthetics,Perth,WA,Australia,https://samaraaesthetics.com.au,samaraaesthetics.com.au,+611300726272,info@1300samara.com.au,facial-aesthetics,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-025,Uplift Aesthetics,Winnipeg,MB,Canada,https://upliftaesthetics.ca,upliftaesthetics.ca,+14319985438,info@upliftaesthetics.ca,injectables,MedSpa,A,92,websearch,W99-LaneB,websearch,92
+LANEB-MS-026,Bella Donna Injectables & Skin,Gold Coast,QLD,Australia,https://bella-donna.com.au,bella-donna.com.au,+61435525810,belladonnainjectables@outlook.com,injectables,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-027,Aesthetically You,Liverpool,,UK,https://aestheticallyyou.co.uk,aestheticallyyou.co.uk,+441517090011,info@aestheticallyyou.co.uk,injectables,MedSpa,A,91,websearch,W99-LaneB,websearch,91
+LANEB-MS-028,Pure Aesthetics Nottingham,Nottingham,,UK,https://pureaesthetics.co.uk,pureaesthetics.co.uk,+441159502020,info@pureaesthetics.co.uk,skin,MedSpa,A,88,websearch,W99-LaneB,websearch,88
+LANEB-MS-029,The Face Aesthetics Clinic,Cardiff,,UK,https://face-clinic.co.uk,face-clinic.co.uk,+447470386169,hello@face-clinic.co.uk,injectables,MedSpa,A,89,websearch,W99-LaneB,websearch,89
+LANEB-MS-030,Eterno Aesthetics,Sheffield,,UK,https://eternoaesthetics.co.uk,eternoaesthetics.co.uk,+441142218838,info@eternoaesthetics.co.uk,skin,MedSpa,A,91,websearch,W99-LaneB,websearch,91
+LANEB-MS-031,Cosmedica Laser Centre,Victoria,BC,Canada,https://cosmedica.ca,cosmedica.ca,+12505983300,,laser,MedSpa,B,79,websearch,W99-LaneB,websearch,79
+LANEB-MS-032,Cassie Lane Med Spa,Richmond,VA,USA,https://cassielane.com,cassielane.com,+18042565115,,injectables,MedSpa,B,73,websearch,W99-LaneB,websearch,73
+LANEB-MS-033,Rêvée Aesthetics,Richmond,VA,USA,https://myrevee.com,myrevee.com,,,injectables,MedSpa,B,75,websearch,W99-LaneB,websearch,75
+LANEB-MS-034,Novellus Aesthetics,Newcastle,,UK,https://novellusaesthetics.co.uk,novellusaesthetics.co.uk,+441916950450,info@novellusaesthetics.co.uk,injectables,MedSpa,A,92,websearch,W99-LaneB,websearch,92
+LANEB-MS-035,Aspire Aesthetics NI,Belfast,,UK,https://aspire-aesthetics.com,aspire-aesthetics.com,+447452949448,info@aspire-aesthetics.com,injectables,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-036,Lucia Medspa,Saskatoon,SK,Canada,https://luciamedspa.com,luciamedspa.com,,,injectables,MedSpa,B,73,websearch,W99-LaneB,websearch,73
+LANEB-MS-037,The Curated Aesthetic,Greensboro,NC,USA,https://thecuratedaesthetic.com,thecuratedaesthetic.com,+13366765583,,injectables,MedSpa,B,78,websearch,W99-LaneB,websearch,78
+LANEB-MS-038,CC Aesthetics,Lexington,KY,USA,https://ccaesthetics.net,ccaesthetics.net,+18593037694,cnorsworthy@ccaesthetics.net,injectables,MedSpa,A,91,websearch,W99-LaneB,websearch,91
+LANEB-MS-039,New Radiance Medical & Aesthetics,Birmingham,AL,USA,https://newradiancemedical.com,newradiancemedical.com,,,IV-therapy,MedSpa,B,74,websearch,W99-LaneB,websearch,74
+LANEB-MS-040,Vida Aesthetics,Madison,WI,USA,https://vidaaestheticsmadison.com,vidaaestheticsmadison.com,+16087204011,,injectables,MedSpa,B,77,websearch,W99-LaneB,websearch,77
+LANEB-MS-041,Urban Effects MedSpa,Des Moines,IA,USA,https://urbaneffectsmedspa.com,urbaneffectsmedspa.com,+15159875188,,skin,MedSpa,B,76,websearch,W99-LaneB,websearch,76
+LANEB-MS-042,The Injectionist & Aesthetics,Edmonton,AB,Canada,https://theinjectionist.ca,theinjectionist.ca,+15876356477,edmonton@theinjectionist.ca,injectables,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-043,Aesthetic Harmony,Canberra,ACT,Australia,https://aestheticharmony.com.au,aestheticharmony.com.au,+61262396388,info@aestheticharmony.com.au,skin,MedSpa,A,91,websearch,W99-LaneB,websearch,91
+LANEB-MS-044,Dre Cynthia Clinique Médico-Esthétique,Quebec City,QC,Canada,https://drecynthia.com,drecynthia.com,+14189296262,info@drecynthia.com,injectables,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-045,Nouvelle Cosmetics,Newcastle,NSW,Australia,https://nouvellecosmetics.com.au,nouvellecosmetics.com.au,+61488999968,hello@nouvellecosmetics.com.au,injectables,MedSpa,A,92,websearch,W99-LaneB,websearch,92
+LANEB-MS-046,Skin Ambitions Medical Spa,Tulsa,OK,USA,https://skinambitionstulsa.com,skinambitionstulsa.com,+19189944668,info@skinambitionstulsa.com,injectables,MedSpa,A,93,websearch,W99-LaneB,websearch,93
+LANEB-MS-047,The LAB Aesthetics & Wellness,Spokane,WA,USA,https://thelabaw.com,thelabaw.com,+15092553840,info@thelabaw.com,wellness,MedSpa,A,90,websearch,W99-LaneB,websearch,90
+LANEB-MS-048,Sanctum Medical Aesthetics,Hobart,TAS,Australia,https://sanctummedical.com.au,sanctummedical.com.au,+61362238998,,skin,MedSpa,B,79,websearch,W99-LaneB,websearch,79
+LANEB-MS-049,Bowtique Med Spa,Sarasota,FL,USA,https://bowtiquemedspa.com,bowtiquemedspa.com,+19412891125,happyface@bowtoxboutique.com,injectables,MedSpa,A,89,websearch,W99-LaneB,websearch,89
+LANEB-MS-050,Perth Aesthetics,Perth,WA,Australia,https://perthaesthetics.com,perthaesthetics.com,+61861112212,info@perthaesthetics.com,facial-aesthetics,MedSpa,A,92,websearch,W99-LaneB,websearch,92
+LANEB-MS-051,Estella Aesthetics,Madison,WI,USA,https://estellaaesthetics.com,estellaaesthetics.com,+16086200288,,injectables,MedSpa,B,77,websearch,W99-LaneB,websearch,77
+LANEB-MS-052,Glo Skin & Medspa,Edmonton,AB,Canada,https://gloskinmedspa.com,gloskinmedspa.com,,,injectables,MedSpa,B,72,websearch,W99-LaneB,websearch,72
+LANEB-MS-053,Sarasota Premier Aesthetics,Sarasota,FL,USA,https://sarasotapremieraesthetics.com,sarasotapremieraesthetics.com,,,injectables,MedSpa,B,74,websearch,W99-LaneB,websearch,74
+LANEB-MS-054,Asheville Beauty Co,Asheville,NC,USA,https://ashevillebeauty.com,ashevillebeauty.com,+18285051197,,injectables,MedSpa,B,76,websearch,W99-LaneB,websearch,76
+LANEB-MS-055,Rejuven8 Cosmetix,Gold Coast,QLD,Australia,https://rejuven8cosmetix.com.au,rejuven8cosmetix.com.au,,,injectables,MedSpa,B,74,websearch,W99-LaneB,websearch,74

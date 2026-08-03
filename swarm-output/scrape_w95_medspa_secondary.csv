@@ -1,0 +1,83 @@
+lead_id,business_name,city,state,country,niche,website,phone,email,quality_tier
+MS-W95-001,Kanata Skin Clinic,Ottawa,ON,Canada,MedSpa,http://www.kanataskinclinic.ca,,,B
+MS-W95-002,Reflet Clinique Quebec City,Quebec City,QC,Canada,MedSpa,https://www.refletclinique.com,,,B
+MS-W95-003,DermaEnvy Skincare Halifax,Halifax,NS,Canada,MedSpa,https://www.dermaenvy.com/halifax,,,B
+MS-W95-004,Dr. SashAesthetics Moncton,Moncton,NB,Canada,MedSpa,https://www.drsashaesthetics.ca,,,B
+MS-W95-005,Kennedy Eye Spa Medical Aesthetics,Saskatoon,SK,Canada,MedSpa,https://www.kennedyeyespa.com,(306) 952-6464,,A
+MS-W95-006,ReBalance Medical Saskatoon,Saskatoon,SK,Canada,MedSpa,https://www.rebalancemedical.com,,,B
+MS-W95-007,Bella Sante MD Saskatoon,Saskatoon,SK,Canada,MedSpa,https://www.bellasanteclinic.com,,,B
+MS-W95-008,Midwest Laser Centre Saskatoon,Saskatoon,SK,Canada,MedSpa,https://www.midwestlasercentre.com,,,B
+MS-W95-009,Simply Radiant Aesthetics Winnipeg,Winnipeg,MB,Canada,MedSpa,https://simplyradiantaesthetics.ca,,,B
+MS-W95-010,Enhance Medical Aesthetics Winnipeg,Winnipeg,MB,Canada,MedSpa,https://www.enhanceaesthetics.ca,,,B
+MS-W95-011,City Looks MediSpa Winnipeg,Winnipeg,MB,Canada,MedSpa,https://www.citylooks.ca,,,B
+MS-W95-012,First Glance Aesthetic Clinic Winnipeg,Winnipeg,MB,Canada,MedSpa,https://thefirstglance.ca,,,B
+MS-W95-013,Esteva MedSpa Hamilton,Hamilton,ON,Canada,MedSpa,https://estevaspa.ca,,,B
+MS-W95-014,DDG Med Spa Hamilton,Hamilton,ON,Canada,MedSpa,https://ddgmedspa.com,,,B
+MS-W95-015,YourSkinRN Kitchener,Kitchener,ON,Canada,MedSpa,https://yourskinrn.ca,,,B
+MS-W95-016,3D Lifestyle Kitchener,Kitchener,ON,Canada,MedSpa,https://3dlifestylekitchener.ca,,,B
+MS-W95-017,Kontour Medical Aesthetics London ON,London,ON,Canada,MedSpa,https://www.kntr.ca,,,B
+MS-W95-018,bespoke by SkinAlchemy London ON,London,ON,Canada,MedSpa,https://www.soniavilos.com,,,B
+MS-W95-019,Modern Aesthetics London ON,London,ON,Canada,MedSpa,https://www.modernaestheticsca.com,,,B
+MS-W95-020,Beauty Within London ON,London,ON,Canada,MedSpa,https://beautywithin.ca,,,B
+MS-W95-021,Mediskin Victoria,Victoria,BC,Canada,MedSpa,https://www.mediskin.ca,,,B
+MS-W95-022,BC Orchard Aesthetic Burnaby,Burnaby,BC,Canada,MedSpa,https://bcorchardaesthetics.com,,,B
+MS-W95-023,Mediworks Rejuvenation Centre Surrey,Surrey,BC,Canada,MedSpa,https://www.mediworks.ca,(604) 757-6420,,A
+MS-W95-024,BC Laser and Skin Care Surrey,Surrey,BC,Canada,MedSpa,https://www.bclaserandskincare.com,,,B
+MS-W95-025,Bella Dea Medspa Spokane,Spokane,WA,USA,MedSpa,https://belladeaspokane.com,,,B
+MS-W95-026,Willow Health and Aesthetics Eugene,Eugene,OR,USA,MedSpa,https://www.willowhealthandaesthetics.com,,,B
+MS-W95-027,Refine Medical Center Eugene,Eugene,OR,USA,MedSpa,https://www.refinemedicalcl.com,,,B
+MS-W95-028,Absolute Laser MD Eugene,Eugene,OR,USA,MedSpa,https://www.absolutelasermd.com,,,B
+MS-W95-029,Ascend MedSpa Boise,Boise,ID,USA,MedSpa,https://www.ascendmedspa.net,,,B
+MS-W95-030,B'tox Babe Meridian ID,Meridian,ID,USA,MedSpa,https://www.btoxbabe.com,,,B
+MS-W95-031,Harmony Skin and Wellness Fort Collins,Fort Collins,CO,USA,MedSpa,https://harmonyskin.com,,,B
+MS-W95-032,Miramont MedSpa Fort Collins,Fort Collins,CO,USA,MedSpa,https://www.miramontmedspa.us,,,B
+MS-W95-033,FASE Skin Laser Studio Fort Collins,Fort Collins,CO,USA,MedSpa,https://fasemedspa.com,,,B
+MS-W95-034,Xanadu Med Spa Fort Collins,Fort Collins,CO,USA,MedSpa,https://www.xanadumedspa.com,,,B
+MS-W95-035,Salt Aesthetics Bend OR,Bend,OR,USA,MedSpa,https://www.saltbend.com,,,B
+MS-W95-036,Bloom Aesthetics Bend OR,Bend,OR,USA,MedSpa,https://mybloomaesthetics.com,,,B
+MS-W95-037,Cascade Medical Spa Bend OR,Bend,OR,USA,MedSpa,https://medicalspabend.com,,,B
+MS-W95-038,Uesthetics Indianapolis,Indianapolis,IN,USA,MedSpa,https://uestheticsindy.com,,,B
+MS-W95-039,Nina Deep MD Aesthetics Columbus,Columbus,OH,USA,MedSpa,https://www.ninadeep.com,,,B
+MS-W95-040,Boss Gal Beauty Bar Columbus,Columbus,OH,USA,MedSpa,https://www.bossgalbeautybar.com,,,B
+MS-W95-041,Astria Aesthetics Columbus,Columbus,OH,USA,MedSpa,https://astriaaesthetics.com,,,B
+MS-W95-042,fillir Pittsburgh,Pittsburgh,PA,USA,MedSpa,https://www.fillir.com,,,B
+MS-W95-043,Atalo Aesthetics MedSpa Cincinnati,Cincinnati,OH,USA,MedSpa,https://ataloaesthetics.com,,,B
+MS-W95-044,Unmasked Aesthetics Cincinnati,Cincinnati,OH,USA,MedSpa,https://www.unmaskedaesthetics.com,,,B
+MS-W95-045,Livio Med Spa Cincinnati,Cincinnati,OH,USA,MedSpa,https://www.liviospa.com,,,B
+MS-W95-046,Victory Wellness Medspa Cincinnati,Cincinnati,OH,USA,MedSpa,https://victorywellness.com,,,B
+MS-W95-047,La Miel Aesthetics Raleigh,Raleigh,NC,USA,MedSpa,https://www.lamielaesthetics.com,,,B
+MS-W95-048,Blossum Aesthetics Co Raleigh,Raleigh,NC,USA,MedSpa,https://www.blossumaesthetics.com,,,B
+MS-W95-049,Hello Beautiful Raleigh,Raleigh,NC,USA,MedSpa,https://www.hellobeautifulraleigh.com,,,B
+MS-W95-050,The MedSpa Raleigh,Raleigh,NC,USA,MedSpa,https://themedsparaleigh.com,,,B
+MS-W95-051,BeautyCO Raleigh,Raleigh,NC,USA,MedSpa,https://btyco.com,,,B
+MS-W95-052,Synergy Face Body Raleigh,Raleigh,NC,USA,MedSpa,https://feelsynergy.com,,,B
+MS-W95-053,Scarlett Hawkins Medspa Charleston,Charleston,SC,USA,MedSpa,https://scarletthawkinsmedspa.com,,,B
+MS-W95-054,Access Aesthetics Charleston,Charleston,SC,USA,MedSpa,https://accesshealthcarecharleston.com,,,B
+MS-W95-055,Totality MediSpa Charleston,Charleston,SC,USA,MedSpa,https://www.totalitymed.com,,,B
+MS-W95-056,Alma Rose Greenville SC,Greenville,SC,USA,MedSpa,https://almarose.com,,,B
+MS-W95-057,OptimalSelf MD Greenville,Greenville,SC,USA,MedSpa,https://www.optimalselfmd.com,,,B
+MS-W95-058,Diverse Aesthetics Richmond VA,Richmond,VA,USA,MedSpa,https://www.diverseaesthetics.com,,,B
+MS-W95-059,Moke Aesthetics Richmond VA,Richmond,VA,USA,MedSpa,https://www.mokeaesthetics.com,,,B
+MS-W95-060,Graceful Glow Medspa Redmond WA,Redmond,WA,USA,MedSpa,https://www.gracefulglowmedspa.org,,,B
+MS-W95-061,Eastside Aesthetics by Lena Redmond,Redmond,WA,USA,MedSpa,https://eastsideaestheticsbylena.com,,,B
+MS-W95-062,Aura Boulder Med Spa,Boulder,CO,USA,MedSpa,https://auraboulder.com,,,B
+MS-W95-063,Unity Beauty Hamilton ON,Hamilton,ON,Canada,MedSpa,https://unitybeauty.ca,,,B
+MS-W95-064,All About Aesthetics Raleigh,Raleigh,NC,USA,MedSpa,https://www.allaboutaesthetics.com,,,B
+MS-W95-065,Amelia Medspa Raleigh,Raleigh,NC,USA,MedSpa,https://www.askamelia.com,,,B
+MS-W95-066,Elysian Medspa Indianapolis,Indianapolis,IN,USA,MedSpa,https://elysianmedirejuv.com,,,B
+MS-W95-067,Aeterna Aesthetics Cincinnati,Cincinnati,OH,USA,MedSpa,https://www.aeterna-aesthetics.com,,,B
+MS-W95-068,Dermlounge Richmond VA,Richmond,VA,USA,MedSpa,https://www.dermlounge.com,,,B
+MS-W95-069,YSK Aesthetics Saskatoon,Saskatoon,SK,Canada,MedSpa,https://yskaesthetics.com,,,B
+MS-W95-070,CüR Laser and Skin Surrey BC,Surrey,BC,Canada,MedSpa,https://www.curlaserandskin.com,,,B
+MS-W95-071,Nu Reflections Medspa Loveland CO,Loveland,CO,USA,MedSpa,https://www.nrmedspa.com,,,B
+MS-W95-072,Renewed You Med Spa Bend OR,Bend,OR,USA,MedSpa,https://www.renewed-you.com,,,B
+MS-W95-073,Elite Medi Spa Bend OR,Bend,OR,USA,MedSpa,https://elitemedispabend.com,,,B
+MS-W95-074,Central Oregon Aesthetics Bend OR,Bend,OR,USA,MedSpa,https://centraloregonaesthetics.com,,,B
+MS-W95-075,Boise Botox Beauty Meridian ID,Meridian,ID,USA,MedSpa,https://www.boisebotoxbeauty.com,,,B
+MS-W95-076,Augusta Road Aesthetics Greenville,Greenville,SC,USA,MedSpa,https://www.augustaroadaesthetics.com,,,B
+MS-W95-077,Galen Healthcare Aesthetics Greenville,Greenville,SC,USA,MedSpa,https://galenhealthcaresc.com,,,B
+MS-W95-078,Hope Cosmetics London ON,London,ON,Canada,MedSpa,https://hopecosmetics.ca,,,B
+MS-W95-079,Morali Medical Aesthetics Hamilton,Hamilton,ON,Canada,MedSpa,https://www.moralimedical.ca,,,B
+MS-W95-080,Visage Cosmetic Clinic Winnipeg,Winnipeg,MB,Canada,MedSpa,https://www.visagecosmeticclinic.com,,,B
+MS-W95-081,Pacific Plastic Surgery Group Burnaby,Burnaby,BC,Canada,MedSpa,https://www.pacificplasticsurgerygroup.ca,,,B
+MS-W95-082,Aesthetic Center of Richmond Glen Allen,Glen Allen,VA,USA,MedSpa,https://aestheticcenterofrichmonddermatology.com,,,B

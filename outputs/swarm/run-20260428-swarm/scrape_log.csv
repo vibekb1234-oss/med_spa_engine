@@ -1,0 +1,167 @@
+timestamp,source,query,place_name,placeId,url,decision,reason
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Great Many Buckhead,ChIJ9YpaWjMF9YgRndBqu5pC_6E,https://greatmany.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Flawless Skin Boutique Med Spa - Fillers - Skin Tightening,ChIJ9z7PTFcF9YgRd1xM2y7PxY8,https://flawless-skin-boutique.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,SkynBar,ChIJOx9qzmAP9YgRbdG7imrm7FQ,https://skynbaratlanta.com/?utm_source=gbp&utm_medium=organic&utm_campaign=gbp-listing&utm_content=atlanta,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Skin Pharm,ChIJcRhgPWEF9YgR_St2rnaTxAY,https://skinpharm.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Hebe Aesthetics and Vitality,ChIJfRbP3xR19YgR1B5KMcNcbsY,https://hebeaestheticsandvitality.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Artisan Beauté - Buckhead,ChIJ9zQ0EzsF9YgRnOHGmMkcnQE,https://artisanplasticsurgery.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,VivaMD Clinic,ChIJAYZS5lwT9YgRFrZjXrHOIPc,https://www.vivamd.org/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,National Hair Loss Medical Aesthetics,ChIJQQD1Jz91K4cR46STHfIzmf8,https://nhlma.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Estetica Cosmetic Surgery,ChIJAQBwUUZ1K4cR365Y0cvriRM,http://anewbeautifulyou.com/about/contact-us/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,"Christine M. Law, MD",ChIJN7qUv1kF9YgRErZ-FWXwkh4,https://peachtreedermatology.com/about/dr-law/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Icebox Cryotherapy Buckhead,ChIJt72fM28P9YgR5xqW5oQ8YGc,https://iceboxtherapy.com/buckhead-ga/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,FIT9 Wellness,ChIJ4Z4-Z4kF9YgRcSKu_n1QBTI,http://www.fit9atl.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,skintherapy,ChIJcYnCI4kF9YgRviAWK8NuH_g,https://skintherapybuckhead.com/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Vida-Flo Buckhead,ChIJ_8_0BaYF9YgRhyOCEjsNlY4,http://govidaflo.com/buckhead,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Conqr Aesthetics & Wellness,ChIJE-_mnpQF9YgRIh2kcjgsbOI,https://www.conqraesthetics.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,OBNoxious Beauty MedSpa,ChIJMybaVYwF9YgR0ePCO3DvUKg,https://obnoxiousbeauty.zoca.com/?utm_source=googlemaps&utm_medium=googlemaps&utm_campaign=googlemaps,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Majestic Medical Touch Spa,ChIJ6VH3RpJ09YgR63cVnxCgS7Y,https://majestictouchspa.com/buckhead-couples-massage/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Spa Sydell Integrative Aesthetics,ChIJZ9Gr54oF9YgRnMF4tMx5ufQ,https://spasydell.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,The K Spa,ChIJm5O94DQJ9YgRJ_BUWlwd3gs,https://www.thekspa.com/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Heyday Skincare Buckhead,ChIJiZMVq0gF9YgRxfjuw8oxt4Q,https://www.heydayskincare.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Abraza Skin Studio,ChIJX5HOmOgF9YgR4iAiYTOchIg,http://www.abrazaskinstudio.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,OVME,ChIJpaSPuYwF9YgRNdwMAf8gaag,https://ovme.com/pages/buckhead-atlanta-ga,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Atlanta MediSpa & Surgery Center - Buckhead,ChIJO46TZPYF9YgR8lJo6TUU9aM,https://www.atlantamedispa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Slim Studio FACE & BODY,ChIJQyIJhxkP9YgRH_SxnMgaEgo,https://slimstudioatlanta.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Blue Divine Aesthetics,ChIJE_EaM48F9YgR1arRiFD0tiE,https://www.bluedivine.com/?utm_source=google&utm_medium=organic&utm_campaign=google_business_profile,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Dynamic 3 Med Spa,ChIJD4HALDIF9YgRMXNEZms1ckw,https://skincareclinicatlanta.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Facial Aesthetics,ChIJwfiqahAF9YgRUTEE6BRyQJg,https://www.facialaestheticsbuckhead.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Health and Beauty Boutique,ChIJzbg9UmQP9YgRrLok0I18NTc,http://healthandbeautyboutique.com/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Derm Clinic M.D.,ChIJo1r7sWgP9YgRpuWEQKTQ3fw,https://www.dermclinicmd.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,dermani MEDSPA® Buckhead,ChIJO2nwaPUF9YgRc3EfkcahrqA,https://dermanimedspa.com/buckhead-atlanta-ga/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Bella Medspa,ChIJn1WpWxQP9YgRjl26U3CwDqI,https://bellamedspaatl.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Regen RX Therapy Medical Clinic,ChIJ___zRPMF9YgRor9ZZ6ahTRQ,https://regenrxtherapy.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,SLM Medspa,ChIJ6-uzHRAF9YgRJYqIHQ1MCB8,https://www.slmmedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Restore Wellness and MedSpa,ChIJL2SlensH9YgR06WFJpFVK38,http://www.restorewellnessmd.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Ecobel Med Spa,ChIJsxT5sWgP9YgRA-I95wHd5GI,http://www.ecobelmedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,BLUE Med Center & Spa,ChIJHZx-I0IE9YgRni9jd9SWfcg,https://lumivita.com/location/midtown,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Asiyaa Emerii Aesthetics,ChIJz3-7ttAD9YgRVXZKpv-gphI,https://asiyaaemeriiskin.glossgenius.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Skin IQ,ChIJWb1lIYkF9YgRd-uSK3bnnv0,http://www.skiniqmedspa.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Muse Atlanta Skin Health & Aesthetics,ChIJkxXCLtgF9YgRdQS0tI-qz_g,https://www.museatl.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Skinship | Atlanta Skincare and Medical Aesthetics,ChIJkxRZf-0MMUMRruL9UB9K8yg,https://skinshipaesthetics.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Inspire Wellness & Aesthetics,ChIJaXoYCosF9YgR0T2xeO011Vk,https://inspirewellnessaesthetics.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Natural Body Spa + Med Spa | Morningside,ChIJLR8l8YIG9YgR0Kv81DUZVLk,https://www.naturalbody.com/spa-locations/georgia-morningside,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Alé Aesthetics,ChIJNTwd_wsF9YgRCPN8LZWoYcE,https://www.aleaesthetics.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,IVUSE,ChIJJys69EED9YgR779TJ8yf3Xs,http://www.ivuseiv.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,beauty Bar Med Spa at Southern Surgical Arts,ChIJNU3YQowF9YgRWJQf-F48F44,https://www.southernsurgicalarts.com/atlanta/medspa/?utm_source=GMBlisting&utm_medium=organic&utm_campaign=inman-park,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Glo'Up Body Spa,ChIJc0Evkt0F9YgRCmrt6XZZnXI,https://gloupbodyspa.zoca.com/?utm_source=googlemaps&utm_medium=googlemapsprofile&utm_campaign=googlemaps,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Truffles Aesthetics,ChIJq6raCaYF9YgRzYsAqNsjtt8,http://www.trufflesaesthetics.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Luminaire Skin and Wellness,ChIJwYhbL6IF9YgR1eU8qb7I-bM,https://www.luminaireskin.com/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,Regenerative MedSpa of Buckhead,ChIJ60GYmuIF9YgRBcg0S2_roes,https://www.regenmedspabuckhead.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,SkinCeuticals SkinLab Atlanta,ChIJ7Si81tAF9YgRMeOaXqJRzfA,https://www.skinatl.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,A Bless Beauty Medspa and Clinic,ChIJ0foLY9kF9YgRxqWcDuqUqCo,https://ablessbeauty.com/?utm_source=google&utm_medium=organic&utm_campaign=google_my_business,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,iNatural Aesthetics,ChIJQUKG78UE9YgRihpX6kpQDxI,http://inaturalaesthetics.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,The House of Wellness Med Spa,ChIJF-6OQWQD9YgRIn_9-FY4GtA,https://thowmedspa.org/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Atlanta,4Ever Young Med Spa & Wellness Center - Atlanta Midtown,ChIJbXmEZoMF9YgRWkatsCKRd5Y,https://4everyoungantiaging.com/atlanta-midtown/?utm_source=google&utm_medium=organic&utm_campaign=gbp-atlanta-midtown,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Laser Aesthetics,ChIJyxW-gs11K4cRVSb-bHuYWzk,http://laseraestheticsaz.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,KB SkinCure,ChIJAXsH6jELK4cR94wMlbzwnA4,https://kaitlinbarttelt.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,"BelleSante by Kristine Romine, MD",ChIJhZQ9nfAMK4cRJTGQJ5xDraY,https://www.bellesantecare.com/?dlmtrk_referrer=www.bellesantecare.com&dlmtrk_landing=https://www.bellesantecare.com/&dlmtrk_source=direct,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,VeliCutis,ChIJ1ZnywUYNK4cRMEmZm8sPKw4,https://velicutis.com/medical-spa-scottsdale/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Face Lounge Aesthetics,ChIJI6WCa6ALK4cRUwceZ5VoQoM,http://www.faceloungeaz.com/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=13921560461022364188,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Prana IV Therapy,ChIJAZivirl1K4cRw5-P6BvM3Ls,https://pranaivtherapy.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Med-Surg Aesthetics and Laser Academy,ChIJJ0Drtk8LK4cRiJKho1uLiIc,https://www.medsurgacademy.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Profile Aesthetics,ChIJW5Q_5ewLK4cRue58QddU1hE,https://profileaesthetics.com/?UTM_source=GBP_listing&UTM_medium=organic&source=gmb,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,ReNu Wellness Clinic,ChIJj35Jxd50K4cRkZ6bqj8Zspk,https://renuwellnessclinic.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,"Institute of Aesthetics, Beauty & Wellness",ChIJpcGkDGp1K4cRJ1Gj9m5amAs,http://instituteofaesthetics.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,DOCosmetics,ChIJuVCReUB1K4cRaVk9cMBzY_4,https://docosmeticsaz.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Amplified Beauty,ChIJ0bTtHFELK4cR7N6jc8uy7Vo,http://amplified-beauty.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,KORA Aesthetics,ChIJee6LqHNy9asRsBXDBO3P5Xg,https://koraaesthetics.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Gerrish MedEsthetics,ChIJc_lbTPF1K4cRDw_apM3R0cA,https://gerrishmedspa.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Source Of Health,ChIJOeDxWDd1K4cR4xUYhSLHH9A,https://mysourceofhealth.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,VIDA Skin & Wellness,ChIJVdBx0QB1K4cRJ9-C6_yrz1s,https://viidamed.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa ,Wilson MD Aesthetics + Wellness,ChIJV0LGyJh1K4cRed59Fv4tF_Q,,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,The Medi Spa at Guyette Facial & Oral Surgery Center,ChIJcXB7ySJ1K4cRTTHMz0kumS4,https://www.guyettesurgery.com/medi-spa-treatments/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Derma Health Skin & Laser,ChIJy7LwNYF1K4cRQZe_Nx6HlP8,https://www.dhiskin.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Scottsdale Sculpt,ChIJRWnhv0V1K4cRoK4sttNeya0,http://scottsdalesculpt.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Skin Deep Beauty AZ,ChIJjdDN_rN1K4cRTolu-RksGC8,http://www.skindeepbeautyaz.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Ultra Smooth Skin,ChIJQR2ms7Z1K4cR9uP-6RcuhVw,https://www.ultrasmoothskin.com/?utm_source=GMBlisting&utm_medium=organic&utm_campaign=gmb,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Soko Skin Med Spa,ChIJ4ziS0-J1K4cRw8wP-SU-ORA,https://www.soko-skin.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Elixir Medical Spa,ChIJLfqdBmh1K4cRf_RQkh_cYM4,https://elixirmedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,BODYMD,ChIJb0WKFG91K4cRD3w8QT5cdAQ,https://www.yourbodymd.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,DermaPrecision,ChIJOXBKst51K4cRH0MYOCvIxcs,https://dermaprecision.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Ageless Beauty and Wellness,ChIJz1O_oipxK4cR-X3d2U0SO84,http://agelessbeautyaz.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,J`adore Med Spa,ChIJmd4UxpZ1K4cRBvGuIhv4Lkg,http://jadoremedspa.aestheticgenerator.com/home--fashion-beauty-bar,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,The Flawless Lab - Medspa,ChIJj4M5Wtl1K4cRszC5SHIMXmI,https://theflawlesslab.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Blume Skin & Body,ChIJ5eZqUtZ1K4cRQKD2rnyiX1c,https://blumeskintreatment.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Skindale Medspa,ChIJV20phrALK4cRm8X7XnWOPDo,http://www.skindalemedspa.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Inside Out Aesthetics,ChIJL6hYI-10K4cRRHL6cIwrUpw,https://insideoutaesthetics.com/?y_source=1_MTAwMzE4MTc2NS03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Renew Wellness Medspa A Touch Of Thailand,ChIJC3HmKoh1K4cRJ0CFvQ7-NKA,https://www.renewwellnessmedspa.com/book-online,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Lé Nour Aesthetics & Wellness,ChIJ72yayW0HK4cRCYDVPeFbeHI,https://lenourmedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Glo Medspa,ChIJIctMAet0K4cRD_xPeVGs5sY,http://www.glomedspas.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Moderne Medical Aesthetics,ChIJ1crMr5t1K4cRLBvisIXatXc,http://www.modernemedical.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Collab Medspa - Scottsdale,ChIJHxF5Wux0K4cR-Egq2NZtYvo,https://collabmedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Esthetic Solutions Med Spa,ChIJUcI8UqILK4cRxvZNBdV6bmQ,https://estheticsolutions.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,ZONA MED SPA,ChIJjxdkLbF1K4cRNnlutvnLeNo,http://www.zonamedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Skin Savvy Aesthetics Med Spa,ChIJ01Su-CF1K4cRBgGtu9YFKNA,https://skinsavvyscottsdale.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Lumier Medical Spa,ChIJ1crMr5t1K4cRD-p7RfWQeY8,http://www.lumiermedicalspa.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Uptown Medispa Scottsdale,ChIJy-XXxnx1K4cRQsvreDdojgE,http://www.uptownmedispa.com/Scottsdale,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,MDSkin Lounge,ChIJJWT-J3R2K4cRIgpX3TB0iQc,http://www.mdskinlounge.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Joliet Aesthetics Med Spa Scottsdale,ChIJL3wlCiyfK4cRcv4Lg0yaWrU,https://www.jolietaestheticsmedspa.com/?utm_source=GBP,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Melt Aesthetics and Liposuction,ChIJyVfqq751K4cRjWvHjNovU50,https://www.meltlipoaz.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,DHH Med Spa,ChIJC_aI4DV1K4cR4eOEGguL0Qo,https://dhhmedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,"Scottsdale Esthetician, Oksana",ChIJPTvSm_B1K4cRWHJbOR-ouNY,http://www.scottsdaleesthetician.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Hydrafacial and Chemical Peels by Kapri Skin,ChIJ6a1FoFl1K4cR40dtumXFEbs,https://kapriskinbar.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Desert Bloom Skin Care,ChIJt4Hnjj11K4cRP_lrpKgB78M,https://www.desertbloomskincare.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Real Results Medical & Aesthetics,ChIJTcewqnl1K4cRtenHKf3b6Ag,http://www.realresultsmedical.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Love Aesthetics & Wellness,ChIJKdp6UTR1K4cR2Z0nhP4jPVM,https://www.loveaestheticswellness.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,PHX Aesthetics -,ChIJG07n2ll1K4cROVEZ_bS8ER0,http://www.phxaesthetics.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Habit Aesthetics and Wellness,ChIJUTrgjdd1K4cRzrot4t4immQ,https://habitaesthetics.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Skin With Bea Esthetics,ChIJCf8LSS91K4cRWKq0rcO4G4U,https://www.skinwithbea.com/?utm_source=GBP,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Aesthetic Revival,ChIJf6MMLa91K4cRYSPToEUXN5o,https://www.aestheticrevival.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Aesthetic IQ Clinic,ChIJXQ22LDZ1K4cR7R6-iVr2SYM,http://www.aestheticiqclinic.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,Taut Haute Skin Clinic,ChIJT8guGYl1K4cRCxOE7ZhVfsA,https://tauthaute.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Scottsdale,The Skin Shop Medspa Scottsdale,ChIJQYJc0Ad1K4cRhXIiwkUfSKE,https://theskinshopmedspascottsdale.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,the L.A.B. med spa Dallas,ChIJ0bxiXQ2ZToYRy4ujD-js68I,https://www.thelabmedspa.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,Aurum Health,ChIJD8LET6GZToYRSleYd2kkdPw,http://www.aurumhealth.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,Unicorn MedSpa,ChIJa7NV2NGZToYR1iFNR_gVwS0,http://www.unicornmedspa.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,Alchemy Face Bar Lower Greenville Dallas,ChIJcTofFd-fToYRiVRFjFOMR9U,http://alchemyfacebar.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,UPKEEP Med Spa,ChIJAR_dnRWfToYR5ElZ5LxdzTg,https://www.upkeepmedspa.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,Mara's Med Spa,ChIJVTgC-i-ZToYRnhM8bs_V0V8,https://www.marasmedspa.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,InjectCo MedSpa Dallas,ChIJSWOzaeifToYRvJrkXYkPrAQ,https://injectco.com/services/med-spa-dallas-tx/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,Calypso Aesthetic Lab,ChIJTTvaCtqdToYRYdiL9GnoJuk,http://www.calypsoaestheticlab.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,The Science of Beauty,ChIJlRYFrG-ZToYR8Q7o9DDXScI,https://www.thescienceofbeauty.co/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,Laser Bar Medspa,ChIJl24puqabToYRb0znVZ8xETA,https://laserbarandaesthetics.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,Pbeautylab,ChIJv5isXwGdToYROVqM2mEa3ig,http://pbeautylab.glossgenius.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,The Brow Project,ChIJa_k-9_ShToYRu7GmwIQSJg8,http://www.thebrowproject.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Dallas,SureMED Aesthetics,ChIJOzkP0yudToYR7-UxH1rdwFI,https://www.suremedaes.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Skin Deep Med Spa,ChIJRWkr7A5644kRoMZtsOyrFo4,https://www.skindeepmedspa.com/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Sound Shapes Med Spa,ChIJSc4kt4lw44kRS5mbn6BhzPI,http://www.sound-shapes.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Glamour Med Spa and Beauty Bar,ChIJKVrqX-dx44kRQ2KprLxtloA,http://www.glamourmedspaandbeautybar.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Dorchester,Dam Medspa,ChIJ8w6oUyp744kRUKvjPf-heKM,https://www.dammedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Vega Vitality MedSpa Seaport Boston,ChIJmZak_E5744kRSLs696ckbfI,https://vegavitality.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Shah Wellness and Medspa,ChIJl4G9TnF744kRcHoZPh27Ihc,http://www.shahmedspa.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Boston Medical Aesthetics,ChIJjTbKeYZw44kRU9CMg4IAhoE,https://www.bostonmedicalaesthetics.net/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,SEAPORT MEDSPA South Boston,ChIJH51FQnZx44kRZU__r_jmAl0,http://seaportmedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa East Boston,Venus Spa,ChIJJ8yER0Nw44kRHVbqAHM_VPs,https://venusbestspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,SIMMETRIA MedSpa,ChIJcQjMEmV744kRBIPSGALBOWw,https://simmetria.us/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Spruce Skin,ChIJP8HQbNV744kRT2yQXoUT_5s,https://spruce-skin.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,DeluxeBar Medical Aesthetics,ChIJy_GVIil744kR9YRYZoHKkZk,http://www.thedeluxebar.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Recharge on Clarendon Medspa,ChIJIcFKb4N744kRV5pcNMC3z8I,http://rechargemedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Highstyle,ChIJof-xO4dw44kRic7qJOie1XM,https://www.highstylelaser.net/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Boston,Bella Sante Day Spa Med Spa,ChIJH0wd2HR644kRHH-UBNOCKKA,https://bellasante.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Webster,Feta Candles & Massage,ChIJ199rvb2dQIYRn80fsNTYh_o,http://www.fetacandlesandmassage.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Houston,Gemini Urgent Care - Clear Lake,ChIJtQcQ_jecQIYReJPSQ_E1LIg,https://www.geminiurgentcare.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Houston,6 Senses Dermacare & Massage,ChIJ67Q0mgGdQIYRgrUgnW5-L50,http://www.6sensesdermacare.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Houston,Renew You Esthetics,ChIJaaNCGuybQIYRbHJj_PRHOTs,http://www.renewyouesthetics.org/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Houston,PS Medical Spa,ChIJ_0d6Y_ebQIYRujbsjMLdpTA,https://www.psmedspa.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Friendswood,Health Fusion Drip Spa,ChIJd4GUIIebQIYRbEY_TaR05k8,http://www.healthfusiondripspa.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,"Late Night Medspa, Chicago",ChIJ75qWLPXTD4gRbXI3bLT9kp8,https://latenightmedspa.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,SHAPERZ ELITE WELLNESS & AESTHETICS,ChIJeQtbOrU7DogR-lKYfWNhDVg,https://www.shaperzwellness.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,MEDTA Immediate Care Clinic,ChIJ-WxNcsQtDogRfHY_AbP-IBg,http://www.medtaclinic.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,Therahaus Wellness Med Spa,ChIJx01tJb4tDogRj9CWQ-seL8s,https://therahauswellness.com/,INCLUDED,bucket=B score=7
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,Dose Of Beauty Aesthetics,ChIJx--dFOMxDogRTeUO-kXN2YY,https://www.doseofbeautyaesthetics.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,Dvida Med Spa | Med Spa Services 60654,ChIJ3c__BbQsDogR33xP9EeDYFw,http://www.dvidaspa.com/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,Tres Jolie Medical Spa and Wellness Center,ChIJ65sc9B0tDogRPdTZhhNJdJ4,https://tresjoliemedicalspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,Radiant Beauty Med Spa,ChIJe4gepEIrDogRlUdKWaGfMp0,https://radiantbeautymedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,Luxura Med Spa,ChIJhZYHXa8tDogRoR9dejc-13E,https://luxuramedspa.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Chicago,Reflections Med Spa,ChIJTbtn1n03DogRf96qaJrnZ4A,https://www.reflectionsmedspa.com/?utm_source=GBP,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa ,"Katie Duncan, San Diego Aesthetics",ChIJYUXyqfN4aiQRzcdfzkHimrw,https://sandiegoaesthetics.com/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa San Diego,"Brittney Aesthetics, A Nursing Corp.",ChIJwet28ND724ARMs08pjjGXjA,http://www.brittneyaesthetics.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa Del Mar,Del Mar Aesthetic Clinic,ChIJ09A4yqMI3IARQLuSgl4rWL8,http://www.delmaraesthetic.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa Del Mar,"Love To Live, MD",ChIJhY-3APsI3IARf1DGT2v_neU,https://lovetolivespa.com/,INCLUDED,bucket=B score=6
+2026-04-29T06:15:27Z,apify_compass,medspa San Diego,Neu Look Med Spa & Skin Center,ChIJb0H_TRn424ARxxbc4kogOhE,https://neulookskin.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa San Diego,Be Youthful Aesthetics,ChIJLQCzpdDx24AR4RwdAnvbntk,http://beyouthfulaesthetics.com/,INCLUDED,bucket=A score=10
+2026-04-29T06:15:27Z,apify_compass,medspa San Diego,Coastal Medical Aesthetics,ChIJhz1hzJwI3IARmAAtTwU8VBg,https://coastalmedi.com/?y_source=1_MTA4NDg5MjI3Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa San Diego,ALCHEME Medical Spa Del Mar,ChIJRyICfUEJ3IAR7ow1mgX-VCE,https://www.medspa-delmar.alchemehealth.com/,INCLUDED,bucket=A score=9
+2026-04-29T06:15:27Z,apify_compass,medspa San Diego,"Dermacare Medical Aesthetics, Rancho Bernardo",ChIJ8aQdcNPw24ARvwdAfi6irQo,https://www.dermacaresandiego.com/,INCLUDED,bucket=A score=8
+2026-04-29T06:15:27Z,apify_compass,medspa San Diego,Lounge MedSpa Aesthetics and Wellness,ChIJO9sUqMsH3IAREB3YwB2NxkI,https://www.loungemedspa.com/,INCLUDED,bucket=A score=8

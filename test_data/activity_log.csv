@@ -1,0 +1,346 @@
+Timestamp,Workflow,Action Type,Client Email,Status,Details
+2026-07-28 08:00:00,8_Status_Update,Status updated (kanban drag),aisha.robinson@protonmail.com,Success,Moved to VIP
+2026-07-28 07:00:00,2_Follow_Up,48hr reminder sent,lauren568@outlook.com,Success,Pre-appointment reminder delivered
+2026-07-28 06:00:00,6_Booking_Confirmation,Booking confirmation sent,genesis.yamamoto@aol.com,Success,Owner clicked Confirm in dashboard
+2026-07-28 05:00:00,2_Follow_Up,48hr reminder sent,mason985@icloud.com,Success,Pre-appointment reminder delivered
+2026-07-28 05:00:00,3_Review_Referral,Referral ask sent,maya732@yahoo.com,Success,Referral ask sent to 2+ visit client
+2026-07-28 04:00:00,8_Status_Update,Status updated (kanban drag),zoey848@yahoo.com,Success,Moved to VIP
+2026-07-28 02:00:00,2_Follow_Up,48hr reminder sent,malik.taylor@gmail.com,Success,Pre-appointment reminder delivered
+2026-07-28 02:00:00,2_Follow_Up,24hr reminder sent,isabella412@protonmail.com,Success,Final reminder
+2026-07-28 00:00:00,2_Follow_Up,24hr reminder sent,morgan.hernandez@yahoo.com,Success,Final reminder
+2026-07-27 23:00:00,2_Follow_Up,24hr reminder sent,kayla.anderson@yahoo.com,Success,Final reminder
+2026-07-27 23:00:00,2_Follow_Up,24hr reminder sent,emma.brown@icloud.com,Success,Final reminder
+2026-07-27 23:00:00,2_Follow_Up,24hr reminder sent,stanaka@protonmail.com,Success,Final reminder
+2026-07-27 22:00:00,2_Follow_Up,No-show recovery sent,evelyn203@icloud.com,Success,Post no-show reschedule offer
+2026-07-27 20:00:00,2_Follow_Up,48hr reminder sent,bella845@aol.com,Success,Pre-appointment reminder delivered
+2026-07-27 20:00:00,8_Status_Update,Status updated (kanban drag),alexis930@icloud.com,Success,Moved to Lapsed
+2026-07-27 19:00:00,2_Follow_Up,24hr reminder sent,noah.henderson@gmail.com,Success,Final reminder
+2026-07-27 17:00:00,2_Follow_Up,48hr reminder sent,llong@icloud.com,Success,Pre-appointment reminder delivered
+2026-07-27 17:00:00,2_Follow_Up,24hr reminder sent,aiden.reyes@protonmail.com,Success,Final reminder
+2026-07-27 17:00:00,2_Follow_Up,Inquiry follow-up sent,sarah105@yahoo.com,Success,Follow-up nudge (attempt 3)
+2026-07-27 17:00:00,6_Booking_Confirmation,Booking confirmation sent,naomi.scott@hotmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-27 17:00:00,8_Status_Update,Status updated (kanban drag),kaia652@icloud.com,Success,Moved to Completed
+2026-07-27 13:00:00,2_Follow_Up,Post-appt check-in sent,michelle.kim@hotmail.com,Success,24hr after treatment care check-in
+2026-07-27 13:00:00,2_Follow_Up,Inquiry follow-up sent,jenn.foster@gmail.com,Success,Follow-up nudge (attempt 2)
+2026-07-27 10:00:00,2_Follow_Up,No-show recovery sent,emily.sims@gmail.com,Success,Post no-show reschedule offer
+2026-07-27 09:00:00,2_Follow_Up,Post-appt check-in sent,evelyn.hughes@yahoo.com,Success,24hr after treatment care check-in
+2026-07-27 07:00:00,2_Follow_Up,24hr reminder sent,genesis.yamamoto@aol.com,Success,Final reminder
+2026-07-27 07:00:00,5_Weekly_Report,Weekly report generated,bibek@medspa-demo.com,Success,Week of 2026-07-21 → 2026-07-27 delivered to owner
+2026-07-27 06:00:00,2_Follow_Up,48hr reminder sent,jessica.brown@hotmail.com,Success,Pre-appointment reminder delivered
+2026-07-27 06:00:00,2_Follow_Up,24hr reminder sent,megan.johnson@protonmail.com,Success,Final reminder
+2026-07-27 04:00:00,2_Follow_Up,48hr reminder sent,skylar544@aol.com,Success,Pre-appointment reminder delivered
+2026-07-27 04:00:00,2_Follow_Up,24hr reminder sent,sarah.choi@aol.com,Success,Final reminder
+2026-07-27 04:00:00,2_Follow_Up,Post-appt check-in sent,yuki.fitzgerald@hotmail.com,Success,24hr after treatment care check-in
+2026-07-27 03:00:00,1_Lead_Intake,Lead intake,elijah.malhotra@hotmail.com,Success,New inquiry via Referral
+2026-07-27 01:00:00,1_Lead_Intake,Lead intake,hannah.costa@yahoo.com,Success,New inquiry via Instagram
+2026-07-27 01:00:00,2_Follow_Up,48hr reminder sent,malik.taylor@gmail.com,Success,Pre-appointment reminder delivered
+2026-07-27 00:00:00,2_Follow_Up,24hr reminder sent,amelia.coleman@protonmail.com,Success,Final reminder
+2026-07-27 00:00:00,2_Follow_Up,No-show recovery sent,morgan.hernandez@yahoo.com,Success,Post no-show reschedule offer
+2026-07-26 22:00:00,3_Review_Referral,Review request sent,emily.suzuki@outlook.com,Success,Google review request delivered
+2026-07-26 20:00:00,3_Review_Referral,Referral ask sent,bmehta@outlook.com,Success,Referral ask sent to 2+ visit client
+2026-07-26 19:00:00,2_Follow_Up,48hr reminder sent,michelle110@outlook.com,Success,Pre-appointment reminder delivered
+2026-07-26 19:00:00,2_Follow_Up,Post-appt check-in sent,kai.mehta@gmail.com,Success,24hr after treatment care check-in
+2026-07-26 18:00:00,2_Follow_Up,Post-appt check-in sent,ashley45@hotmail.com,Success,24hr after treatment care check-in
+2026-07-26 17:00:00,1_Lead_Intake,Service info email sent,hannah.costa@yahoo.com,Success,Personalized service info delivered
+2026-07-26 17:00:00,1_Lead_Intake,Service info email sent,elijah.malhotra@hotmail.com,Success,Personalized service info delivered
+2026-07-26 17:00:00,2_Follow_Up,Post-appt check-in sent,brussell@yahoo.com,Success,24hr after treatment care check-in
+2026-07-26 16:00:00,2_Follow_Up,No-show recovery sent,aiden.reyes@protonmail.com,Success,Post no-show reschedule offer
+2026-07-26 15:00:00,2_Follow_Up,No-show recovery sent,kai.mehta@gmail.com,Success,Post no-show reschedule offer
+2026-07-26 14:00:00,2_Follow_Up,Post-appt check-in sent,elena685@hotmail.com,Success,24hr after treatment care check-in
+2026-07-26 14:00:00,3_Review_Referral,Referral ask sent,anastasia.chen@gmail.com,Success,Referral ask sent to 2+ visit client
+2026-07-26 11:00:00,1_Lead_Intake,Clinic alert sent,hannah.costa@yahoo.com,Success,Owner notified
+2026-07-26 11:00:00,2_Follow_Up,24hr reminder sent,liam.aziz@outlook.com,Success,Final reminder
+2026-07-26 11:00:00,2_Follow_Up,No-show recovery sent,jessica.brown@hotmail.com,Success,Post no-show reschedule offer
+2026-07-26 11:00:00,3_Review_Referral,Referral ask sent,nora564@gmail.com,Success,Referral ask sent to 2+ visit client
+2026-07-26 10:00:00,1_Lead_Intake,Clinic alert sent,elijah.malhotra@hotmail.com,Success,Owner notified
+2026-07-26 10:00:00,2_Follow_Up,24hr reminder sent,layla.rao@aol.com,Success,Final reminder
+2026-07-26 09:00:00,1_Lead_Intake,Service info email sent,mason985@icloud.com,Success,Personalized service info delivered
+2026-07-26 08:00:00,2_Follow_Up,24hr reminder sent,liam.russell@outlook.com,Success,Final reminder
+2026-07-26 06:00:00,1_Lead_Intake,Clinic alert sent,cperry@gmail.com,Success,Owner notified
+2026-07-26 06:00:00,3_Review_Referral,Review request sent,spatel@icloud.com,Success,Google review request delivered
+2026-07-26 05:00:00,1_Lead_Intake,Service info email sent,cperry@gmail.com,Success,Personalized service info delivered
+2026-07-26 04:00:00,1_Lead_Intake,Lead intake,aurora37@outlook.com,Success,New inquiry via Instagram
+2026-07-26 04:00:00,8_Status_Update,Status updated (kanban drag),brussell@yahoo.com,Success,Moved to Booked
+2026-07-26 03:00:00,3_Review_Referral,Review request sent,michelle.kim@hotmail.com,Success,Google review request delivered
+2026-07-26 01:00:00,1_Lead_Intake,Lead intake,cperry@gmail.com,Success,New inquiry via TikTok
+2026-07-26 01:00:00,1_Lead_Intake,Lead intake,malik.foster@icloud.com,Success,New inquiry via Instagram
+2026-07-26 01:00:00,2_Follow_Up,48hr reminder sent,genesis.rao@protonmail.com,Success,Pre-appointment reminder delivered
+2026-07-26 01:00:00,2_Follow_Up,Post-appt check-in sent,kyamamoto@icloud.com,Success,24hr after treatment care check-in
+2026-07-26 01:00:00,7_Error_Handler,Workflow error,system,Error,Workflow 8 - status update rejected (invalid enum value). Client dropped.
+2026-07-26 00:00:00,1_Lead_Intake,Clinic alert sent,aurora37@outlook.com,Success,Owner notified
+2026-07-25 21:00:00,2_Follow_Up,48hr reminder sent,kaia652@icloud.com,Success,Pre-appointment reminder delivered
+2026-07-25 21:00:00,2_Follow_Up,48hr reminder sent,genesis.rao@protonmail.com,Success,Pre-appointment reminder delivered
+2026-07-25 21:00:00,6_Booking_Confirmation,Booking confirmation sent,kaia.butler@icloud.com,Success,Owner clicked Confirm in dashboard
+2026-07-25 20:00:00,8_Status_Update,Status updated (kanban drag),llong@icloud.com,Success,Moved to Booked
+2026-07-25 19:00:00,2_Follow_Up,48hr reminder sent,noah.henderson@gmail.com,Success,Pre-appointment reminder delivered
+2026-07-25 19:00:00,2_Follow_Up,Post-appt check-in sent,victoria.choi@aol.com,Success,24hr after treatment care check-in
+2026-07-25 18:00:00,1_Lead_Intake,Lead intake,mason985@icloud.com,Success,New inquiry via Google Ads
+2026-07-25 18:00:00,6_Booking_Confirmation,Booking confirmation sent,skylar544@aol.com,Success,Owner clicked Confirm in dashboard
+2026-07-25 17:00:00,2_Follow_Up,24hr reminder sent,ethan.long@outlook.com,Success,Final reminder
+2026-07-25 15:00:00,1_Lead_Intake,Service info email sent,aurora37@outlook.com,Success,Personalized service info delivered
+2026-07-25 15:00:00,2_Follow_Up,No-show recovery sent,brussell@yahoo.com,Success,Post no-show reschedule offer
+2026-07-25 15:00:00,3_Review_Referral,Review request sent,aiden.price@yahoo.com,Success,Google review request delivered
+2026-07-25 14:00:00,1_Lead_Intake,Clinic alert sent,mason985@icloud.com,Success,Owner notified
+2026-07-25 14:00:00,2_Follow_Up,24hr reminder sent,naomi.scott@hotmail.com,Success,Final reminder
+2026-07-25 14:00:00,2_Follow_Up,Inquiry follow-up sent,layla.foster@yahoo.com,Success,Follow-up nudge (attempt 1)
+2026-07-25 13:00:00,1_Lead_Intake,Service info email sent,malik.foster@icloud.com,Success,Personalized service info delivered
+2026-07-25 12:00:00,1_Lead_Intake,Clinic alert sent,malik.foster@icloud.com,Success,Owner notified
+2026-07-25 12:00:00,2_Follow_Up,48hr reminder sent,michelle110@outlook.com,Success,Pre-appointment reminder delivered
+2026-07-25 12:00:00,2_Follow_Up,24hr reminder sent,liam694@outlook.com,Success,Final reminder
+2026-07-25 11:00:00,2_Follow_Up,48hr reminder sent,david.bell@aol.com,Success,Pre-appointment reminder delivered
+2026-07-25 11:00:00,2_Follow_Up,48hr reminder sent,malik.foster@icloud.com,Success,Pre-appointment reminder delivered
+2026-07-25 09:00:00,2_Follow_Up,48hr reminder sent,kaia652@icloud.com,Success,Pre-appointment reminder delivered
+2026-07-25 08:00:00,2_Follow_Up,48hr reminder sent,victoria.choi@aol.com,Success,Pre-appointment reminder delivered
+2026-07-25 07:00:00,1_Lead_Intake,Service info email sent,aisha966@gmail.com,Success,Personalized service info delivered
+2026-07-25 06:00:00,2_Follow_Up,48hr reminder sent,emma.brown@icloud.com,Success,Pre-appointment reminder delivered
+2026-07-25 05:00:00,1_Lead_Intake,Clinic alert sent,bmehta@outlook.com,Success,Owner notified
+2026-07-25 02:00:00,2_Follow_Up,Inquiry follow-up sent,victoria.kamal@protonmail.com,Success,Follow-up nudge (attempt 1)
+2026-07-25 01:00:00,1_Lead_Intake,Service info email sent,kai.kamal@outlook.com,Success,Personalized service info delivered
+2026-07-25 01:00:00,1_Lead_Intake,Clinic alert sent,kai.kamal@outlook.com,Success,Owner notified
+2026-07-25 01:00:00,2_Follow_Up,24hr reminder sent,genesis.powell@protonmail.com,Success,Final reminder
+2026-07-25 01:00:00,2_Follow_Up,Post-appt check-in sent,david.perry@yahoo.com,Success,24hr after treatment care check-in
+2026-07-25 00:00:00,2_Follow_Up,24hr reminder sent,genesis742@outlook.com,Success,Final reminder
+2026-07-25 00:00:00,8_Status_Update,Bulk mark VIP,stanaka@protonmail.com,Success,Owner-initiated bulk VIP promotion
+2026-07-24 23:00:00,1_Lead_Intake,Lead intake,bmehta@outlook.com,Success,New inquiry via Google Ads
+2026-07-24 23:00:00,2_Follow_Up,48hr reminder sent,lily641@icloud.com,Success,Pre-appointment reminder delivered
+2026-07-24 23:00:00,2_Follow_Up,Post-appt check-in sent,lauren568@outlook.com,Success,24hr after treatment care check-in
+2026-07-24 23:00:00,6_Booking_Confirmation,Booking confirmation sent,emma686@hotmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-24 23:00:00,8_Status_Update,Bulk mark VIP,bella845@aol.com,Success,Owner-initiated bulk VIP promotion
+2026-07-24 20:00:00,2_Follow_Up,24hr reminder sent,hannah.costa@yahoo.com,Success,Final reminder
+2026-07-24 19:00:00,2_Follow_Up,48hr reminder sent,elena827@outlook.com,Success,Pre-appointment reminder delivered
+2026-07-24 19:00:00,2_Follow_Up,48hr reminder sent,genesis.yamamoto@aol.com,Success,Pre-appointment reminder delivered
+2026-07-24 19:00:00,6_Booking_Confirmation,Booking confirmation sent,abigail104@protonmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-24 19:00:00,7_Error_Handler,Workflow error,system,Warning,Workflow 2 - Gmail rate limit hit at 87 sends. Retried at +30min. Success.
+2026-07-24 19:00:00,8_Status_Update,Bulk mark VIP,evelyn.choi@yahoo.com,Success,Owner-initiated bulk VIP promotion
+2026-07-24 19:00:00,8_Status_Update,Bulk mark VIP,kenji.rodriguez@yahoo.com,Success,Owner-initiated bulk VIP promotion
+2026-07-24 17:00:00,1_Lead_Intake,Service info email sent,bmehta@outlook.com,Success,Personalized service info delivered
+2026-07-24 17:00:00,2_Follow_Up,48hr reminder sent,sofía.brown@hotmail.com,Success,Pre-appointment reminder delivered
+2026-07-24 15:00:00,1_Lead_Intake,Clinic alert sent,aisha966@gmail.com,Success,Owner notified
+2026-07-24 15:00:00,2_Follow_Up,Inquiry follow-up sent,bella845@aol.com,Success,Follow-up nudge (attempt 2)
+2026-07-24 15:00:00,3_Review_Referral,Review request sent,aisha425@protonmail.com,Success,Google review request delivered
+2026-07-24 14:00:00,8_Status_Update,Status updated (kanban drag),maria.obrien@gmail.com,Success,Moved to Booked
+2026-07-24 12:00:00,3_Review_Referral,Review request sent,brooklyn.verma@hotmail.com,Success,Google review request delivered
+2026-07-24 10:00:00,1_Lead_Intake,Lead intake,aisha966@gmail.com,Success,New inquiry via Instagram
+2026-07-24 10:00:00,1_Lead_Intake,Lead intake,kai.kamal@outlook.com,Success,New inquiry via Website
+2026-07-24 10:00:00,2_Follow_Up,24hr reminder sent,aaliyah.reyes@outlook.com,Success,Final reminder
+2026-07-24 10:00:00,6_Booking_Confirmation,Booking confirmation sent,david.ibrahim@hotmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-24 08:00:00,2_Follow_Up,48hr reminder sent,maya.kamal@aol.com,Success,Pre-appointment reminder delivered
+2026-07-24 05:00:00,2_Follow_Up,24hr reminder sent,abigail104@protonmail.com,Success,Final reminder
+2026-07-24 05:00:00,8_Status_Update,Status updated (kanban drag),kayla.anderson@yahoo.com,Success,Moved to Booked
+2026-07-24 04:00:00,2_Follow_Up,Inquiry follow-up sent,david.ibrahim@hotmail.com,Success,Follow-up nudge (attempt 1)
+2026-07-24 03:00:00,1_Lead_Intake,Clinic alert sent,evelyn.choi@yahoo.com,Success,Owner notified
+2026-07-24 02:00:00,1_Lead_Intake,Service info email sent,evelyn.choi@yahoo.com,Success,Personalized service info delivered
+2026-07-24 02:00:00,3_Review_Referral,Referral ask sent,aiden904@protonmail.com,Success,Referral ask sent to 2+ visit client
+2026-07-24 02:00:00,6_Booking_Confirmation,Booking confirmation sent,maya732@yahoo.com,Success,Owner clicked Confirm in dashboard
+2026-07-24 01:00:00,2_Follow_Up,48hr reminder sent,rachel.nguyen@protonmail.com,Success,Pre-appointment reminder delivered
+2026-07-23 23:00:00,3_Review_Referral,Review request sent,jennifer.johnson@gmail.com,Success,Google review request delivered
+2026-07-23 22:00:00,2_Follow_Up,Post-appt check-in sent,sarah863@aol.com,Success,24hr after treatment care check-in
+2026-07-23 20:00:00,2_Follow_Up,48hr reminder sent,aaliyah.reyes@outlook.com,Success,Pre-appointment reminder delivered
+2026-07-23 17:00:00,2_Follow_Up,48hr reminder sent,ethan.long@outlook.com,Success,Pre-appointment reminder delivered
+2026-07-23 17:00:00,2_Follow_Up,No-show recovery sent,dmitri.green@hotmail.com,Success,Post no-show reschedule offer
+2026-07-23 17:00:00,2_Follow_Up,Post-appt check-in sent,jessica.kowalski@hotmail.com,Success,24hr after treatment care check-in
+2026-07-23 14:00:00,2_Follow_Up,48hr reminder sent,kai.iyer@yahoo.com,Success,Pre-appointment reminder delivered
+2026-07-23 11:00:00,1_Lead_Intake,Lead intake,evelyn.choi@yahoo.com,Success,New inquiry via Website
+2026-07-23 11:00:00,2_Follow_Up,24hr reminder sent,bmehta@outlook.com,Success,Final reminder
+2026-07-23 10:00:00,2_Follow_Up,Post-appt check-in sent,sarah.aziz@protonmail.com,Success,24hr after treatment care check-in
+2026-07-23 10:00:00,2_Follow_Up,Inquiry follow-up sent,maria.obrien@gmail.com,Success,Follow-up nudge (attempt 3)
+2026-07-23 10:00:00,3_Review_Referral,Referral ask sent,evelyn.hughes@yahoo.com,Success,Referral ask sent to 2+ visit client
+2026-07-23 09:00:00,2_Follow_Up,24hr reminder sent,brussell@yahoo.com,Success,Final reminder
+2026-07-23 08:00:00,1_Lead_Intake,Service info email sent,nora564@gmail.com,Success,Personalized service info delivered
+2026-07-23 06:00:00,3_Review_Referral,Review request sent,genesis742@outlook.com,Success,Google review request delivered
+2026-07-23 05:00:00,2_Follow_Up,48hr reminder sent,sofía78@hotmail.com,Success,Pre-appointment reminder delivered
+2026-07-23 04:00:00,2_Follow_Up,Post-appt check-in sent,layla.rao@aol.com,Success,24hr after treatment care check-in
+2026-07-23 03:00:00,2_Follow_Up,24hr reminder sent,savannah632@protonmail.com,Success,Final reminder
+2026-07-23 02:00:00,2_Follow_Up,Inquiry follow-up sent,sofía.brown@hotmail.com,Success,Follow-up nudge (attempt 2)
+2026-07-23 01:00:00,2_Follow_Up,48hr reminder sent,evelyn.hughes@yahoo.com,Success,Pre-appointment reminder delivered
+2026-07-23 00:00:00,2_Follow_Up,Inquiry follow-up sent,elena827@outlook.com,Success,Follow-up nudge (attempt 1)
+2026-07-22 23:00:00,8_Status_Update,Status updated (kanban drag),bella845@aol.com,Success,Moved to Completed
+2026-07-22 21:00:00,2_Follow_Up,48hr reminder sent,david.bell@aol.com,Success,Pre-appointment reminder delivered
+2026-07-22 21:00:00,3_Review_Referral,Review request sent,bmehta@outlook.com,Success,Google review request delivered
+2026-07-22 20:00:00,3_Review_Referral,Review request sent,nyoon@aol.com,Success,Google review request delivered
+2026-07-22 20:00:00,8_Status_Update,Bulk mark VIP,liam499@outlook.com,Success,Owner-initiated bulk VIP promotion
+2026-07-22 19:00:00,1_Lead_Intake,Lead intake,nora564@gmail.com,Success,New inquiry via Google Ads
+2026-07-22 19:00:00,2_Follow_Up,48hr reminder sent,brooklyn.verma@hotmail.com,Success,Pre-appointment reminder delivered
+2026-07-22 19:00:00,2_Follow_Up,No-show recovery sent,jessica.brown@hotmail.com,Success,Post no-show reschedule offer
+2026-07-22 19:00:00,2_Follow_Up,Inquiry follow-up sent,aisha.rodriguez@hotmail.com,Success,Follow-up nudge (attempt 1)
+2026-07-22 18:00:00,2_Follow_Up,48hr reminder sent,jessica328@yahoo.com,Success,Pre-appointment reminder delivered
+2026-07-22 17:00:00,2_Follow_Up,Inquiry follow-up sent,savannah632@protonmail.com,Success,Follow-up nudge (attempt 3)
+2026-07-22 16:00:00,2_Follow_Up,48hr reminder sent,liam694@outlook.com,Success,Pre-appointment reminder delivered
+2026-07-22 16:00:00,2_Follow_Up,Post-appt check-in sent,isabella412@protonmail.com,Success,24hr after treatment care check-in
+2026-07-22 16:00:00,8_Status_Update,Status updated (kanban drag),chris.garcia@protonmail.com,Success,Moved to Completed
+2026-07-22 15:00:00,1_Lead_Intake,Clinic alert sent,nora564@gmail.com,Success,Owner notified
+2026-07-22 14:00:00,2_Follow_Up,48hr reminder sent,sarah.choi@aol.com,Success,Pre-appointment reminder delivered
+2026-07-22 13:00:00,2_Follow_Up,48hr reminder sent,mason19@yahoo.com,Success,Pre-appointment reminder delivered
+2026-07-22 12:00:00,2_Follow_Up,No-show recovery sent,elena897@protonmail.com,Success,Post no-show reschedule offer
+2026-07-22 11:00:00,2_Follow_Up,48hr reminder sent,nyoon@aol.com,Success,Pre-appointment reminder delivered
+2026-07-22 11:00:00,3_Review_Referral,Review request sent,kayla256@outlook.com,Success,Google review request delivered
+2026-07-22 11:00:00,8_Status_Update,Status updated (kanban drag),ethan401@outlook.com,Success,Moved to Lapsed
+2026-07-22 09:00:00,1_Lead_Intake,Lead intake,victoria.kamal@protonmail.com,Success,New inquiry via TikTok
+2026-07-22 09:00:00,2_Follow_Up,24hr reminder sent,kayla256@outlook.com,Success,Final reminder
+2026-07-22 07:00:00,2_Follow_Up,48hr reminder sent,anastasia.chen@gmail.com,Success,Pre-appointment reminder delivered
+2026-07-22 06:00:00,3_Review_Referral,Referral ask sent,jennifer.johnson@gmail.com,Success,Referral ask sent to 2+ visit client
+2026-07-22 06:00:00,7_Error_Handler,Workflow error,system,Warning,Workflow 1 - webhook timeout after 30s. Retried once. Success.
+2026-07-22 05:00:00,1_Lead_Intake,Lead intake,nyoon@aol.com,Success,New inquiry via Instagram
+2026-07-22 05:00:00,2_Follow_Up,Inquiry follow-up sent,bella845@aol.com,Success,Follow-up nudge (attempt 2)
+2026-07-22 04:00:00,2_Follow_Up,48hr reminder sent,amelia.coleman@protonmail.com,Success,Pre-appointment reminder delivered
+2026-07-22 00:00:00,1_Lead_Intake,Service info email sent,victoria.kamal@protonmail.com,Success,Personalized service info delivered
+2026-07-21 23:00:00,2_Follow_Up,48hr reminder sent,sarah899@aol.com,Success,Pre-appointment reminder delivered
+2026-07-21 21:00:00,1_Lead_Intake,Clinic alert sent,victoria.kamal@protonmail.com,Success,Owner notified
+2026-07-21 21:00:00,2_Follow_Up,48hr reminder sent,rachel.nguyen@protonmail.com,Success,Pre-appointment reminder delivered
+2026-07-21 19:00:00,1_Lead_Intake,Clinic alert sent,nyoon@aol.com,Success,Owner notified
+2026-07-21 18:00:00,6_Booking_Confirmation,Booking confirmation sent,justin.walker@yahoo.com,Success,Owner clicked Confirm in dashboard
+2026-07-21 17:00:00,1_Lead_Intake,Service info email sent,nyoon@aol.com,Success,Personalized service info delivered
+2026-07-21 17:00:00,2_Follow_Up,24hr reminder sent,sarah899@aol.com,Success,Final reminder
+2026-07-21 16:00:00,2_Follow_Up,24hr reminder sent,elena897@protonmail.com,Success,Final reminder
+2026-07-21 15:00:00,2_Follow_Up,No-show recovery sent,genesis.yamamoto@aol.com,Success,Post no-show reschedule offer
+2026-07-21 15:00:00,6_Booking_Confirmation,Booking confirmation sent,mia.fisher@protonmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-21 13:00:00,2_Follow_Up,24hr reminder sent,david.fisher@yahoo.com,Success,Final reminder
+2026-07-21 13:00:00,6_Booking_Confirmation,Booking confirmation sent,kayla.anderson@yahoo.com,Success,Owner clicked Confirm in dashboard
+2026-07-21 10:00:00,2_Follow_Up,Post-appt check-in sent,sarah105@yahoo.com,Success,24hr after treatment care check-in
+2026-07-21 09:00:00,2_Follow_Up,24hr reminder sent,isabella.price@aol.com,Success,Final reminder
+2026-07-21 08:00:00,1_Lead_Intake,Clinic alert sent,maria.obrien@gmail.com,Success,Owner notified
+2026-07-21 08:00:00,2_Follow_Up,Post-appt check-in sent,jenn.foster@gmail.com,Success,24hr after treatment care check-in
+2026-07-21 07:00:00,1_Lead_Intake,Lead intake,maria.obrien@gmail.com,Success,New inquiry via Instagram
+2026-07-21 06:00:00,2_Follow_Up,Post-appt check-in sent,liam499@outlook.com,Success,24hr after treatment care check-in
+2026-07-21 05:00:00,2_Follow_Up,48hr reminder sent,kai.mehta@gmail.com,Success,Pre-appointment reminder delivered
+2026-07-21 04:00:00,2_Follow_Up,48hr reminder sent,chloé.williams@gmail.com,Success,Pre-appointment reminder delivered
+2026-07-21 04:00:00,2_Follow_Up,24hr reminder sent,aiden.reyes@protonmail.com,Success,Final reminder
+2026-07-21 04:00:00,3_Review_Referral,Review request sent,layla.foster@yahoo.com,Success,Google review request delivered
+2026-07-21 03:00:00,2_Follow_Up,No-show recovery sent,david.fisher@yahoo.com,Success,Post no-show reschedule offer
+2026-07-21 01:00:00,2_Follow_Up,24hr reminder sent,maria.obrien@gmail.com,Success,Final reminder
+2026-07-21 01:00:00,2_Follow_Up,24hr reminder sent,megan.johnson@protonmail.com,Success,Final reminder
+2026-07-21 00:00:00,2_Follow_Up,48hr reminder sent,emma686@hotmail.com,Success,Pre-appointment reminder delivered
+2026-07-20 21:00:00,1_Lead_Intake,Service info email sent,maria.obrien@gmail.com,Success,Personalized service info delivered
+2026-07-20 20:00:00,8_Status_Update,Status updated (kanban drag),yuki.nakamura@icloud.com,Success,Moved to Completed
+2026-07-20 17:00:00,2_Follow_Up,48hr reminder sent,victoria.kamal@protonmail.com,Success,Pre-appointment reminder delivered
+2026-07-20 17:00:00,2_Follow_Up,24hr reminder sent,kyamamoto@icloud.com,Success,Final reminder
+2026-07-20 16:00:00,2_Follow_Up,Inquiry follow-up sent,maria.obrien@gmail.com,Success,Follow-up nudge (attempt 2)
+2026-07-20 12:00:00,2_Follow_Up,Inquiry follow-up sent,isabella412@protonmail.com,Success,Follow-up nudge (attempt 1)
+2026-07-20 11:00:00,2_Follow_Up,Inquiry follow-up sent,genesis742@outlook.com,Success,Follow-up nudge (attempt 1)
+2026-07-20 10:00:00,2_Follow_Up,24hr reminder sent,mason985@icloud.com,Success,Final reminder
+2026-07-20 10:00:00,2_Follow_Up,Post-appt check-in sent,rachel.patel@protonmail.com,Success,24hr after treatment care check-in
+2026-07-20 08:00:00,1_Lead_Intake,Service info email sent,genesis742@outlook.com,Success,Personalized service info delivered
+2026-07-20 08:00:00,8_Status_Update,Status updated (kanban drag),maya.nguyen@yahoo.com,Success,Moved to Completed
+2026-07-20 07:00:00,3_Review_Referral,Review request sent,kai.mehta@gmail.com,Success,Google review request delivered
+2026-07-20 07:00:00,5_Weekly_Report,Weekly report generated,bibek@medspa-demo.com,Success,Week of 2026-07-14 → 2026-07-20 delivered to owner
+2026-07-20 06:00:00,8_Status_Update,Status updated (kanban drag),ariana.sullivan@hotmail.com,Success,Moved to VIP
+2026-07-20 02:00:00,6_Booking_Confirmation,Booking confirmation sent,victoria991@gmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-19 22:00:00,6_Booking_Confirmation,Booking confirmation sent,maya.nguyen@yahoo.com,Success,Owner clicked Confirm in dashboard
+2026-07-19 20:00:00,1_Lead_Intake,Lead intake,genesis742@outlook.com,Success,New inquiry via Google Ads
+2026-07-19 18:00:00,1_Lead_Intake,Clinic alert sent,genesis742@outlook.com,Success,Owner notified
+2026-07-19 17:00:00,3_Review_Referral,Review request sent,layla639@hotmail.com,Success,Google review request delivered
+2026-07-19 16:00:00,8_Status_Update,Status updated (kanban drag),elena897@protonmail.com,Success,Moved to Completed
+2026-07-19 07:00:00,1_Lead_Intake,Service info email sent,aisha.rodriguez@hotmail.com,Success,Personalized service info delivered
+2026-07-19 07:00:00,1_Lead_Intake,Clinic alert sent,aisha.rodriguez@hotmail.com,Success,Owner notified
+2026-07-19 04:00:00,1_Lead_Intake,Service info email sent,abigail104@protonmail.com,Success,Personalized service info delivered
+2026-07-19 04:00:00,1_Lead_Intake,Service info email sent,naomi.foster@protonmail.com,Success,Personalized service info delivered
+2026-07-19 04:00:00,1_Lead_Intake,Lead intake,aisha.rodriguez@hotmail.com,Success,New inquiry via TikTok
+2026-07-19 03:00:00,3_Review_Referral,Review request sent,michelle110@outlook.com,Success,Google review request delivered
+2026-07-19 01:00:00,1_Lead_Intake,Service info email sent,megan.obrien@hotmail.com,Success,Personalized service info delivered
+2026-07-18 21:00:00,8_Status_Update,Status updated (kanban drag),aiden904@protonmail.com,Success,Moved to Booked
+2026-07-18 20:00:00,1_Lead_Intake,Clinic alert sent,abigail104@protonmail.com,Success,Owner notified
+2026-07-18 17:00:00,1_Lead_Intake,Lead intake,abigail104@protonmail.com,Success,New inquiry via Referral
+2026-07-18 17:00:00,1_Lead_Intake,Lead intake,megan.obrien@hotmail.com,Success,New inquiry via Website
+2026-07-18 16:00:00,1_Lead_Intake,Clinic alert sent,megan.obrien@hotmail.com,Success,Owner notified
+2026-07-18 13:00:00,1_Lead_Intake,Lead intake,naomi.foster@protonmail.com,Success,New inquiry via Instagram
+2026-07-18 11:00:00,1_Lead_Intake,Clinic alert sent,naomi.foster@protonmail.com,Success,Owner notified
+2026-07-18 09:00:00,6_Booking_Confirmation,Booking confirmation sent,aiden.price@yahoo.com,Success,Owner clicked Confirm in dashboard
+2026-07-18 09:00:00,6_Booking_Confirmation,Booking confirmation sent,aisha425@protonmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-18 07:00:00,1_Lead_Intake,Lead intake,camila.hassan@aol.com,Success,New inquiry via Google Ads
+2026-07-18 06:00:00,8_Status_Update,Status updated (kanban drag),megan.obrien@hotmail.com,Success,Moved to Completed
+2026-07-18 05:00:00,1_Lead_Intake,Clinic alert sent,camila.hassan@aol.com,Success,Owner notified
+2026-07-18 05:00:00,8_Status_Update,Status updated (kanban drag),mason.nguyen@gmail.com,Success,Moved to Completed
+2026-07-18 03:00:00,3_Review_Referral,Review request sent,savannah.kamal@yahoo.com,Success,Google review request delivered
+2026-07-17 21:00:00,1_Lead_Intake,Lead intake,yuki.nakamura@icloud.com,Success,New inquiry via Website
+2026-07-17 18:00:00,1_Lead_Intake,Service info email sent,yuki.nakamura@icloud.com,Success,Personalized service info delivered
+2026-07-17 17:00:00,1_Lead_Intake,Clinic alert sent,yuki.nakamura@icloud.com,Success,Owner notified
+2026-07-17 12:00:00,1_Lead_Intake,Service info email sent,camila.hassan@aol.com,Success,Personalized service info delivered
+2026-07-17 12:00:00,3_Review_Referral,Review request sent,liam694@outlook.com,Success,Google review request delivered
+2026-07-17 11:00:00,3_Review_Referral,Referral ask sent,luna36@aol.com,Success,Referral ask sent to 2+ visit client
+2026-07-17 11:00:00,3_Review_Referral,Referral ask sent,kai.iyer@yahoo.com,Success,Referral ask sent to 2+ visit client
+2026-07-17 11:00:00,6_Booking_Confirmation,Booking confirmation sent,mason985@icloud.com,Success,Owner clicked Confirm in dashboard
+2026-07-17 11:00:00,8_Status_Update,Status updated (kanban drag),aurora37@outlook.com,Success,Moved to Booked
+2026-07-17 06:00:00,1_Lead_Intake,Service info email sent,lauren568@outlook.com,Success,Personalized service info delivered
+2026-07-17 02:00:00,1_Lead_Intake,Lead intake,hannah.obrien@icloud.com,Success,New inquiry via TikTok
+2026-07-17 01:00:00,1_Lead_Intake,Clinic alert sent,hannah.obrien@icloud.com,Success,Owner notified
+2026-07-16 23:00:00,1_Lead_Intake,Clinic alert sent,lauren568@outlook.com,Success,Owner notified
+2026-07-16 23:00:00,3_Review_Referral,Review request sent,jessica328@yahoo.com,Success,Google review request delivered
+2026-07-16 20:00:00,1_Lead_Intake,Lead intake,lauren568@outlook.com,Success,New inquiry via Website
+2026-07-16 18:00:00,6_Booking_Confirmation,Booking confirmation sent,malik.al@protonmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-16 13:00:00,1_Lead_Intake,Service info email sent,hannah.obrien@icloud.com,Success,Personalized service info delivered
+2026-07-16 13:00:00,7_Error_Handler,Workflow error,system,Warning,Workflow 3 - Sheet append failed (quota temporarily hit). Auto-retried. Success.
+2026-07-16 08:00:00,3_Review_Referral,Referral ask sent,kenji.rodriguez@yahoo.com,Success,Referral ask sent to 2+ visit client
+2026-07-16 07:00:00,1_Lead_Intake,Service info email sent,kayla256@outlook.com,Success,Personalized service info delivered
+2026-07-16 07:00:00,8_Status_Update,Status updated (kanban drag),aisha425@protonmail.com,Success,Moved to Completed
+2026-07-16 07:00:00,8_Status_Update,Status updated (kanban drag),abigail104@protonmail.com,Success,Moved to VIP
+2026-07-16 06:00:00,1_Lead_Intake,Clinic alert sent,kaia145@icloud.com,Success,Owner notified
+2026-07-16 02:00:00,8_Status_Update,Status updated (kanban drag),mia.fisher@protonmail.com,Success,Moved to VIP
+2026-07-16 01:00:00,1_Lead_Intake,Service info email sent,ethan.long@outlook.com,Success,Personalized service info delivered
+2026-07-16 01:00:00,3_Review_Referral,Review request sent,megan.johnson@protonmail.com,Success,Google review request delivered
+2026-07-16 00:00:00,3_Review_Referral,Review request sent,aisha.rodriguez@hotmail.com,Success,Google review request delivered
+2026-07-15 23:00:00,1_Lead_Intake,Lead intake,michelle.kim@hotmail.com,Success,New inquiry via Google Ads
+2026-07-15 23:00:00,1_Lead_Intake,Clinic alert sent,michelle.kim@hotmail.com,Success,Owner notified
+2026-07-15 21:00:00,3_Review_Referral,Review request sent,aaliyah.reyes@outlook.com,Success,Google review request delivered
+2026-07-15 17:00:00,1_Lead_Intake,Clinic alert sent,ethan.long@outlook.com,Success,Owner notified
+2026-07-15 15:00:00,1_Lead_Intake,Lead intake,ethan.long@outlook.com,Success,New inquiry via Website
+2026-07-15 14:00:00,1_Lead_Intake,Service info email sent,kaia145@icloud.com,Success,Personalized service info delivered
+2026-07-15 13:00:00,1_Lead_Intake,Clinic alert sent,kayla256@outlook.com,Success,Owner notified
+2026-07-15 13:00:00,1_Lead_Intake,Service info email sent,michelle.kim@hotmail.com,Success,Personalized service info delivered
+2026-07-15 12:00:00,1_Lead_Intake,Lead intake,kaia145@icloud.com,Success,New inquiry via Website
+2026-07-15 10:00:00,1_Lead_Intake,Lead intake,kayla256@outlook.com,Success,New inquiry via Google Ads
+2026-07-15 07:00:00,3_Review_Referral,Review request sent,kayla.dubois@outlook.com,Success,Google review request delivered
+2026-07-15 07:00:00,8_Status_Update,Status updated (kanban drag),madison.ross@yahoo.com,Success,Moved to VIP
+2026-07-15 07:00:00,8_Status_Update,Status updated (kanban drag),victoria991@gmail.com,Success,Moved to VIP
+2026-07-15 04:00:00,8_Status_Update,Status updated (kanban drag),chloé.williams@gmail.com,Success,Moved to Lapsed
+2026-07-14 19:00:00,8_Status_Update,Status updated (kanban drag),kaia652@icloud.com,Success,Moved to Completed
+2026-07-14 07:00:00,6_Booking_Confirmation,Booking confirmation sent,jenn.foster@gmail.com,Success,Owner clicked Confirm in dashboard
+2026-07-14 02:00:00,3_Review_Referral,Review request sent,anastasia.chen@gmail.com,Success,Google review request delivered
+2026-07-14 01:00:00,8_Status_Update,Status updated (kanban drag),michelle.kim@hotmail.com,Success,Moved to Lapsed
+2026-07-14 00:00:00,8_Status_Update,Status updated (kanban drag),ariana.sullivan@hotmail.com,Success,Moved to VIP
+2026-07-13 23:00:00,1_Lead_Intake,Lead intake,sofía.brown@hotmail.com,Success,New inquiry via TikTok
+2026-07-13 23:00:00,3_Review_Referral,Review request sent,brittany.chen@protonmail.com,Success,Google review request delivered
+2026-07-13 22:00:00,8_Status_Update,Status updated (kanban drag),kenji.rodriguez@yahoo.com,Success,Moved to Booked
+2026-07-13 18:00:00,1_Lead_Intake,Clinic alert sent,sofía.brown@hotmail.com,Success,Owner notified
+2026-07-13 16:00:00,1_Lead_Intake,Service info email sent,sofía.brown@hotmail.com,Success,Personalized service info delivered
+2026-07-13 16:00:00,6_Booking_Confirmation,Booking confirmation sent,evelyn.hughes@yahoo.com,Success,Owner clicked Confirm in dashboard
+2026-07-13 14:00:00,3_Review_Referral,Review request sent,savannah.kamal@yahoo.com,Success,Google review request delivered
+2026-07-13 14:00:00,6_Booking_Confirmation,Booking confirmation sent,hannah.costa@yahoo.com,Success,Owner clicked Confirm in dashboard
+2026-07-13 10:00:00,8_Status_Update,Status updated (kanban drag),brooklyn.price@aol.com,Success,Moved to VIP
+2026-07-13 07:00:00,5_Weekly_Report,Weekly report generated,bibek@medspa-demo.com,Success,Week of 2026-07-07 → 2026-07-13 delivered to owner
+2026-07-06 07:00:00,5_Weekly_Report,Weekly report generated,bibek@medspa-demo.com,Success,Week of 2026-06-30 → 2026-07-06 delivered to owner
+2026-06-30 01:00:00,4_VIP_Retention,60-day re-engagement sent,david.bell@aol.com,Success,60-day lapsed re-engagement
+2026-06-30 01:00:00,4_VIP_Retention,90-day re-engagement sent,kayla256@outlook.com,Success,90-day winback
+2026-06-30 01:00:00,4_VIP_Retention,180-day winback sent,david.bell@aol.com,Success,180-day deep winback with incentive
+2026-06-30 01:00:00,4_VIP_Retention,180-day winback sent,evelyn203@icloud.com,Success,180-day deep winback with incentive
+2026-06-30 00:00:00,4_VIP_Retention,60-day re-engagement sent,jessica328@yahoo.com,Success,60-day lapsed re-engagement
+2026-06-30 00:00:00,4_VIP_Retention,60-day re-engagement sent,yuki.nakamura@icloud.com,Success,60-day lapsed re-engagement
+2026-06-30 00:00:00,4_VIP_Retention,Seasonal promo sent,victoria991@gmail.com,Success,Summer promotion
+2026-06-29 23:00:00,4_VIP_Retention,60-day re-engagement sent,aisha425@protonmail.com,Success,60-day lapsed re-engagement
+2026-06-29 23:00:00,4_VIP_Retention,90-day re-engagement sent,abigail104@protonmail.com,Success,90-day winback
+2026-06-29 23:00:00,4_VIP_Retention,180-day winback sent,camila.hassan@aol.com,Success,180-day deep winback with incentive
+2026-06-29 23:00:00,4_VIP_Retention,180-day winback sent,kaia145@icloud.com,Success,180-day deep winback with incentive
+2026-06-29 23:00:00,4_VIP_Retention,Seasonal promo sent,naomi.foster@protonmail.com,Success,Summer promotion
+2026-06-29 23:00:00,4_VIP_Retention,Seasonal promo sent,ethan.long@outlook.com,Success,Summer promotion
+2026-06-29 22:00:00,4_VIP_Retention,60-day re-engagement sent,aurora.iyer@aol.com,Success,60-day lapsed re-engagement
+2026-06-29 21:00:00,4_VIP_Retention,Seasonal promo sent,aurora553@outlook.com,Success,Summer promotion
+2026-06-29 20:00:00,4_VIP_Retention,60-day re-engagement sent,chloé.williams@gmail.com,Success,60-day lapsed re-engagement
+2026-06-29 20:00:00,4_VIP_Retention,Seasonal promo sent,marcus688@icloud.com,Success,Summer promotion
+2026-06-29 19:00:00,4_VIP_Retention,60-day re-engagement sent,genesis.powell@protonmail.com,Success,60-day lapsed re-engagement
+2026-06-29 19:00:00,4_VIP_Retention,90-day re-engagement sent,amelia.coleman@protonmail.com,Success,90-day winback
+2026-06-29 19:00:00,4_VIP_Retention,180-day winback sent,kenji.rodriguez@yahoo.com,Success,180-day deep winback with incentive
+2026-06-29 19:00:00,4_VIP_Retention,Seasonal promo sent,layla.foster@yahoo.com,Success,Summer promotion
+2026-06-29 18:00:00,4_VIP_Retention,90-day re-engagement sent,hannah253@yahoo.com,Success,90-day winback
+2026-06-29 18:00:00,4_VIP_Retention,Seasonal promo sent,sarah863@aol.com,Success,Summer promotion
+2026-06-29 17:00:00,4_VIP_Retention,Seasonal promo sent,elijah.malhotra@hotmail.com,Success,Summer promotion
+2026-06-29 17:00:00,4_VIP_Retention,Seasonal promo sent,evelyn203@icloud.com,Success,Summer promotion
+2026-06-29 16:00:00,4_VIP_Retention,60-day re-engagement sent,ryan.hall@icloud.com,Success,60-day lapsed re-engagement
+2026-06-29 16:00:00,4_VIP_Retention,90-day re-engagement sent,david.fisher@yahoo.com,Success,90-day winback
+2026-06-29 16:00:00,4_VIP_Retention,Seasonal promo sent,genesis.yamamoto@aol.com,Success,Summer promotion
+2026-06-29 16:00:00,4_VIP_Retention,Seasonal promo sent,kai.kamal@outlook.com,Success,Summer promotion
+2026-06-29 16:00:00,4_VIP_Retention,Seasonal promo sent,kyamamoto@icloud.com,Success,Summer promotion
+2026-06-29 16:00:00,4_VIP_Retention,Seasonal promo sent,cperry@gmail.com,Success,Summer promotion
+2026-06-29 16:00:00,4_VIP_Retention,Seasonal promo sent,abigail104@protonmail.com,Success,Summer promotion
+2026-06-29 16:00:00,4_VIP_Retention,Seasonal promo sent,aisha.robinson@protonmail.com,Success,Summer promotion
+2026-06-29 15:00:00,4_VIP_Retention,60-day re-engagement sent,isabella.price@aol.com,Success,60-day lapsed re-engagement
+2026-06-29 15:00:00,4_VIP_Retention,60-day re-engagement sent,kyamamoto@icloud.com,Success,60-day lapsed re-engagement
+2026-06-29 15:00:00,4_VIP_Retention,90-day re-engagement sent,savannah.bell@icloud.com,Success,90-day winback

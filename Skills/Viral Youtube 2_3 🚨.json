@@ -1,0 +1,911 @@
+{
+    "name": "Viral Youtube 2/3 🚨",
+    "flow": [
+        {
+            "id": 1,
+            "module": "apify:finishedActorRuns",
+            "version": 1,
+            "parameters": {
+                "__IMTHOOK__": 703779
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 48,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTHOOK__": {
+                            "label": "My Finished Actor Run webhook",
+                            "data": {
+                                "editable": "false"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTHOOK__",
+                        "type": "hook:apify",
+                        "label": "Webhook",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "apify:fetchDatasetItems",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1624764
+            },
+            "mapper": {
+                "datasetId": "{{1.defaultDatasetId}}",
+                "type": "clean",
+                "format": "json",
+                "limit": "100"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 378,
+                    "y": 5
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Apify connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "apify"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "type": {
+                            "mode": "chose",
+                            "label": "Clean"
+                        },
+                        "format": {
+                            "mode": "chose",
+                            "label": "JSON"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:apify",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "datasetId",
+                        "type": "text",
+                        "label": "Dataset ID",
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Data transformation",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "clean",
+                                "simplified",
+                                "none"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "type": "select",
+                        "label": "Format",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "json",
+                                "csv",
+                                "html",
+                                "xml",
+                                "rss",
+                                "xlsx"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "validate": {
+                            "max": 100000,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "type": "uinteger",
+                        "label": "Offset",
+                        "validate": {
+                            "min": 0
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "onesaas:codepython",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 1545688
+            },
+            "mapper": {
+                "pythonCode": "from youtube_transcript_api import YouTubeTranscriptApi\n\n\ndef fetch_video_transcript(video_url):\n    # Extracting Video ID from URL\n    if \"youtu.be\" in video_url:\n        video_id = video_url.split('/')[-1]\n    else:\n        video_id = video_url.split('v=')[-1].split('&')[0]\n     \n    # Attempt to fetch the video transcript\n    try:\n        transcript_list = YouTubeTranscriptApi.get_transcript(video_id)\n        full_transcript = '\\n'.join([item['text'] for item in transcript_list])\n        return full_transcript\n    except Exception as e:\n        return f\"Failed to fetch transcript: {str(e)}\"\n\n\n# Main block to set the 'result' variable, as expected by the platform\nvideo_url = \"{{2.url}}\"\nresult = fetch_video_transcript(video_url)"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 707,
+                    "y": 5
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My 0-CodeKit connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "onesaas2"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "otherInputParameters": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:onesaas2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "otherInputParameters",
+                        "type": "array",
+                        "label": "Other Input Parameters",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "any",
+                                "label": "Value"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "pythonCode",
+                        "type": "text",
+                        "label": "Your Python Code",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "anthropic-claude:createAMessage",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1528134
+            },
+            "mapper": {
+                "model": "claude-3-5-sonnet-20240620",
+                "max_tokens": "4000",
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "You will be provided with the transcript of a YouTube video. Your task is to carefully read and comprehend the content of the transcript. After analyzing the transcript, generate a concise summary of the key points and main ideas discussed in the video. The summary should be informative, helpful, and to the point, with a maximum length of 35 words.\nWhen creating the summary, focus on the following aspects:\n\nIdentify the core message or theme of the video.\nHighlight the most important facts, statistics, or examples that support the main points.\nIf applicable, briefly mention any significant conclusions or recommendations made in the video.\n\nAvoid using unnecessary fluff or filler phrases, and do not include introductory phrases like \"this video is about.\" Instead, concentrate on directly communicating the essential information in a clear and efficient manner.\nTo ensure your summary is effective, consider the following tips:\n\nUse concise and precise language to convey the key ideas.\nPrioritize information based on its relevance to the main message.\nEnsure that the summary can be easily understood by someone who hasn't watched the video.\nRead through your summary to check for clarity, coherence, and adherence to the 100-word limit.\n\nRemember, your goal is to provide a comprehensive yet succinct overview of the video's content, enabling readers to quickly grasp the core message and main takeaways. Do not repeat the title.\n\nThe youtube video transcript: {{3.result}}"
+                            }
+                        ]
+                    }
+                ],
+                "metadata": {},
+                "temperature": "1"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1036,
+                    "y": 4,
+                    "name": "Summarise Video 👀"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Anthropic Claude connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "anthropic-claude"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "model": {
+                            "mode": "edit"
+                        },
+                        "messages": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "role": {
+                                        "mode": "chose",
+                                        "label": "User"
+                                    },
+                                    "content": {
+                                        "mode": "chose",
+                                        "items": [
+                                            {
+                                                "type": {
+                                                    "mode": "chose",
+                                                    "label": "Text"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "stop_sequences": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:anthropic-claude",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model",
+                        "required": true
+                    },
+                    {
+                        "name": "max_tokens",
+                        "type": "uinteger",
+                        "label": "Max Tokens",
+                        "required": true
+                    },
+                    {
+                        "name": "messages",
+                        "type": "array",
+                        "label": "Messages",
+                        "required": true,
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "role",
+                                    "type": "select",
+                                    "label": "Role",
+                                    "options": [
+                                        {
+                                            "label": "User",
+                                            "value": "user",
+                                            "nested": [
+                                                {
+                                                    "name": "content",
+                                                    "spec": {
+                                                        "spec": [
+                                                            {
+                                                                "help": "You can send image content blocks starting with Claude 3 models.",
+                                                                "name": "type",
+                                                                "type": "select",
+                                                                "label": "Type",
+                                                                "options": [
+                                                                    {
+                                                                        "label": "Text",
+                                                                        "value": "text",
+                                                                        "nested": [
+                                                                            {
+                                                                                "help": "Content of the message on behalf of the selected **Role** .",
+                                                                                "name": "text",
+                                                                                "type": "text",
+                                                                                "label": "Text",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "label": "Image",
+                                                                        "value": "image",
+                                                                        "nested": [
+                                                                            {
+                                                                                "name": "source",
+                                                                                "spec": [
+                                                                                    {
+                                                                                        "help": "File name, including the extension, for example, `image.jpg`.",
+                                                                                        "name": "filename",
+                                                                                        "type": "filename",
+                                                                                        "label": "Filename",
+                                                                                        "required": true,
+                                                                                        "semantic": "file:name",
+                                                                                        "extension": [
+                                                                                            "jpeg",
+                                                                                            "jpg",
+                                                                                            "png",
+                                                                                            "gif",
+                                                                                            "webp"
+                                                                                        ]
+                                                                                    },
+                                                                                    {
+                                                                                        "help": "Binary data of the image. For example, you can retrieve the binary data of your image using the **HTTP: Get a file** module.",
+                                                                                        "name": "data",
+                                                                                        "type": "buffer",
+                                                                                        "label": "Data",
+                                                                                        "required": true,
+                                                                                        "semantic": "file:data"
+                                                                                    }
+                                                                                ],
+                                                                                "type": "collection",
+                                                                                "label": "Source",
+                                                                                "required": true
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "required": true
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Content"
+                                                    },
+                                                    "type": "array",
+                                                    "label": "Content",
+                                                    "labels": {
+                                                        "add": "Add content"
+                                                    },
+                                                    "required": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Assistant",
+                                            "value": "assistant",
+                                            "nested": [
+                                                {
+                                                    "help": "If the request ends with an assistant turn, then the response content will continue directly from that last turn.",
+                                                    "name": "content",
+                                                    "type": "text",
+                                                    "label": "Content",
+                                                    "required": true
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": true
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Message",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "system",
+                        "type": "text",
+                        "label": "System Prompt"
+                    },
+                    {
+                        "name": "metadata",
+                        "type": "collection",
+                        "label": "Metadata",
+                        "spec": [
+                            {
+                                "name": "user_id",
+                                "type": "text",
+                                "label": "User ID"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "stop_sequences",
+                        "type": "array",
+                        "label": "Stop Sequences",
+                        "spec": {
+                            "type": "text",
+                            "label": "Stop Sequence",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "temperature",
+                        "type": "number",
+                        "label": "Temperature",
+                        "validate": {
+                            "max": 1,
+                            "min": 0
+                        }
+                    },
+                    {
+                        "name": "top_p",
+                        "type": "number",
+                        "label": "Top P",
+                        "validate": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "name": "top_k",
+                        "type": "uinteger",
+                        "label": "Top K"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "openai-gpt-3:analyzeImages",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1425946
+            },
+            "mapper": {
+                "prompt": "You are a YouTube Thumbnail analysis bot.Analyze the attached YouTube thumbnail. Consider everything you see, including non-obvious insights. We are thinking about this from a prospective viewers perspective.  Here are some additional considerations you may wish to consider in your analysis (the list is not exahusativie).Visual QualityImage resolution and clarityProfessional appearanceDesign ElementsSimplicity and lack of clutterUse of contrasting colorsIncorporation of brand elementsPresence of graphic elements (arrows, circles, icons)Text UsagePresence and length of textFont size, style, and readabilityComplementary relationship with video titleHuman ElementsPresence of faces or peopleEmotional expressions depictedUse of close-up shotsContent RepresentationAccuracy in representing video contentUse of before-and-after comparisons or transformationsPresence of intriguing questions or conceptsCompositionIdentification of a clear focal pointApplication of the rule of thirdsStrategic placement of elements to avoid platform overlaysColor PsychologyUse of attention-grabbing colors (e.g., red, yellow, orange)Color choices evoking specific emotions or aligning with brandUniquenessOriginality compared to similar contentUse of humor, satire, or distinctive visual storytellingMobile OptimizationClarity and impact when viewed on small screensEmotional ImpactAbility to evoke curiosity, surprise, or other strong emotionsConsistencyAlignment with channel branding and video content style",
+                "images": [
+                    {
+                        "imageUploadType": "url",
+                        "imageUrl": "{{2.thumbnailUrl}}"
+                    }
+                ],
+                "model": "gpt-4o",
+                "max_tokens": "300",
+                "temperature": "1",
+                "top_p": "1",
+                "n_completions": "1"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1424,
+                    "y": 8,
+                    "name": "Describe Image 🍿"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My OpenAI connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "openai-gpt-3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "images": {
+                            "mode": "chose",
+                            "items": [
+                                {
+                                    "imageUploadType": {
+                                        "mode": "chose",
+                                        "label": "Image URL"
+                                    }
+                                }
+                            ]
+                        },
+                        "model": {
+                            "mode": "chose",
+                            "label": "gpt-4o"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:openai-gpt-3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "prompt",
+                        "type": "text",
+                        "label": "Prompt",
+                        "required": true
+                    },
+                    {
+                        "name": "images",
+                        "type": "array",
+                        "label": "Images",
+                        "required": true,
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "imageUploadType",
+                                    "type": "select",
+                                    "label": "How would you like to specify an image?",
+                                    "options": [
+                                        {
+                                            "label": "Image URL",
+                                            "value": "url",
+                                            "nested": [
+                                                {
+                                                    "help": "Public URL of the image. For example, `https://getmyimage.com/myimage.png`.",
+                                                    "mode": "edit",
+                                                    "name": "imageUrl",
+                                                    "type": "url",
+                                                    "label": "Image URL",
+                                                    "mappable": {
+                                                        "help": "Public URL of the image. For example, `https://getmyimage.com/myimage.png`."
+                                                    },
+                                                    "required": true
+                                                }
+                                            ],
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Image File",
+                                            "value": "imageFile",
+                                            "nested": [
+                                                {
+                                                    "help": "Binary data of the image. For example, you can retrieve the binary data of your image using the __HTTP: Get a file__ module.",
+                                                    "name": "imageFileData",
+                                                    "type": "buffer",
+                                                    "label": "Image File",
+                                                    "required": true,
+                                                    "semantic": "file:data"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "required": true
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Image",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model",
+                        "required": true
+                    },
+                    {
+                        "name": "max_tokens",
+                        "type": "number",
+                        "label": "Max Tokens"
+                    },
+                    {
+                        "name": "temperature",
+                        "type": "number",
+                        "label": "Temperature",
+                        "validate": {
+                            "max": 2,
+                            "min": 0
+                        }
+                    },
+                    {
+                        "name": "top_p",
+                        "type": "number",
+                        "label": "Top P",
+                        "validate": {
+                            "max": 1,
+                            "min": 0
+                        }
+                    },
+                    {
+                        "name": "n_completions",
+                        "type": "number",
+                        "label": "Number"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "airtable:ActionCreateRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 1532818
+            },
+            "mapper": {
+                "base": "appULeELnhGD9CmQg",
+                "typecast": false,
+                "useColumnId": false,
+                "table": "tblFe2KGrVrhziBif",
+                "record": {
+                    "fld6IweInUnKrdWFg": "{{2.url}}",
+                    "fldvghi5hC0cVaZmQ": "{{2.date}}",
+                    "fldaRbA9714p51hBM": "{{4.textResponse}}",
+                    "fldtXpYbtbsL7xbMv": "{{2.title}}",
+                    "fld3DKlo4f3L2npGm": "{{2.viewCount}}",
+                    "fld5KgjXSugXlyoa8": "{{2.duration}}",
+                    "fldOtKhyupuf4F0Uy": "{{2.thumbnailUrl}}",
+                    "fldEVpLR1LAgu2G8o": "{{5.result}}"
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1786,
+                    "y": 6
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Airtable OAuth connection (User ID: usrWHZndszJIS5AWQ)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "base": {
+                            "label": "Viral Youtube 🚨"
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        },
+                        "table": {
+                            "nested": [
+                                {
+                                    "name": "record",
+                                    "spec": [
+                                        {
+                                            "name": "fld6IweInUnKrdWFg",
+                                            "label": "URL 🔗",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fldvghi5hC0cVaZmQ",
+                                            "label": "Date 📅",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fldaRbA9714p51hBM",
+                                            "label": "Transcript 💎",
+                                            "type": "text",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldtXpYbtbsL7xbMv",
+                                            "label": "Title 🧐",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fld3DKlo4f3L2npGm",
+                                            "label": "Views 👀",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fld5KgjXSugXlyoa8",
+                                            "label": "Duration ⏰",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fldOtKhyupuf4F0Uy",
+                                            "label": "YouTube TN Link 🔗",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fldEVpLR1LAgu2G8o",
+                                            "label": "TN Description 🍿",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "fld3RD91fAoGtT7pO",
+                                            "label": "Channel 👀",
+                                            "type": "text",
+                                            "multiline": true
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Record"
+                                }
+                            ],
+                            "label": "Data 📊"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "type": "collection",
+                        "label": "Record",
+                        "spec": [
+                            {
+                                "name": "fld6IweInUnKrdWFg",
+                                "type": "text",
+                                "label": "URL 🔗"
+                            },
+                            {
+                                "name": "fldvghi5hC0cVaZmQ",
+                                "type": "text",
+                                "label": "Date 📅"
+                            },
+                            {
+                                "name": "fldaRbA9714p51hBM",
+                                "type": "text",
+                                "label": "Transcript 💎"
+                            },
+                            {
+                                "name": "fldtXpYbtbsL7xbMv",
+                                "type": "text",
+                                "label": "Title 🧐"
+                            },
+                            {
+                                "name": "fld3DKlo4f3L2npGm",
+                                "type": "text",
+                                "label": "Views 👀"
+                            },
+                            {
+                                "name": "fld5KgjXSugXlyoa8",
+                                "type": "text",
+                                "label": "Duration ⏰"
+                            },
+                            {
+                                "name": "fldOtKhyupuf4F0Uy",
+                                "type": "text",
+                                "label": "YouTube TN Link 🔗"
+                            },
+                            {
+                                "name": "fldEVpLR1LAgu2G8o",
+                                "type": "text",
+                                "label": "TN Description 🍿"
+                            },
+                            {
+                                "name": "fld3RD91fAoGtT7pO",
+                                "type": "text",
+                                "label": "Channel 👀"
+                            }
+                        ]
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "URL 🔗",
+                        "label": "URL 🔗",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Date 📅",
+                        "label": "Date 📅",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Transcript 💎",
+                        "label": "Transcript 💎",
+                        "type": "text",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Title 🧐",
+                        "label": "Title 🧐",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Views 👀",
+                        "label": "Views 👀",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Duration ⏰",
+                        "label": "Duration ⏰",
+                        "type": "text"
+                    },
+                    {
+                        "name": "YouTube TN Link 🔗",
+                        "label": "YouTube TN Link 🔗",
+                        "type": "text"
+                    },
+                    {
+                        "name": "TN Description 🍿",
+                        "label": "TN Description 🍿",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Channel 👀",
+                        "label": "Channel 👀",
+                        "type": "text",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Created Time 🕰️",
+                        "label": "Created Time 🕰️",
+                        "type": "date"
+                    },
+                    {
+                        "name": "Last Modified Time",
+                        "label": "Last Modified Time",
+                        "type": "date"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com"
+    }
+}

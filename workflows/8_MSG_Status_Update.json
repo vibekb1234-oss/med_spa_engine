@@ -1,0 +1,101 @@
+{
+  "name": "8 — MSG Status Update",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "msg-status-update",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "ms8000000-0000-0000-0000-000000000001",
+      "name": "Webhook — Status Update",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "msg-status-update-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// --- Webhook auth ---\nconst headers = $input.first().json.headers || {};\nconst secret = headers['x-webhook-secret'] || headers['X-Webhook-Secret'] || '';\nif (secret !== 'YOUR_WEBHOOK_SECRET') {\n  throw new Error('Unauthorized: invalid or missing X-Webhook-Secret header');\n}\n\nconst data = $input.first().json.body || $input.first().json;\nconst now  = new Date().toISOString();\n\n// Required: clientEmail + at least one of (newStatus, vipStatus)\nconst clientEmail = (data.clientEmail || '').trim();\nif (!clientEmail) throw new Error('clientEmail is required');\n\nconst newStatus = (data.newStatus || '').trim();\nconst vipStatus = (data.vipStatus || '').trim();\nconst reason    = (data.reason    || 'dashboard update').trim();\n\nif (!newStatus && !vipStatus) {\n  throw new Error('Provide at least one of: newStatus, vipStatus');\n}\n\n// Validate enums\nconst VALID_STATUS = ['New Inquiry','Booked','Completed','No-Show','Lapsed','VIP'];\nconst VALID_VIP    = ['Standard','VIP','Lapsed'];\nif (newStatus && !VALID_STATUS.includes(newStatus)) {\n  throw new Error(`Invalid newStatus '${newStatus}'. Must be one of: ${VALID_STATUS.join(', ')}`);\n}\nif (vipStatus && !VALID_VIP.includes(vipStatus)) {\n  throw new Error(`Invalid vipStatus '${vipStatus}'. Must be one of: ${VALID_VIP.join(', ')}`);\n}\n\nreturn [{ json: { clientEmail, newStatus, vipStatus, reason, nowIso: now } }];"
+      },
+      "id": "ms8000000-0000-0000-0000-000000000002",
+      "name": "Validate + Parse",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Email": "={{ $json.clientEmail }}",
+            "Status":       "={{ $json.newStatus || $json.existingStatus || '' }}",
+            "VIP Status":   "={{ $json.vipStatus || $json.existingVipStatus || '' }}"
+          },
+          "matchingColumns": ["Client Email"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms8000000-0000-0000-0000-000000000003",
+      "name": "Update Client Row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [440, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Action Type":  "Status Update",
+            "Details":      "=Status update via dashboard. {{ $json.newStatus ? 'New status: ' + $json.newStatus + '. ' : '' }}{{ $json.vipStatus ? 'VIP: ' + $json.vipStatus + '. ' : '' }}Reason: {{ $json.reason }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms8000000-0000-0000-0000-000000000004",
+      "name": "Log Status Change",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [660, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"clientEmail\": \"{{ $('Validate + Parse').first().json.clientEmail }}\", \"newStatus\": \"{{ $('Validate + Parse').first().json.newStatus }}\", \"vipStatus\": \"{{ $('Validate + Parse').first().json.vipStatus }}\" }"
+      },
+      "id": "ms8000000-0000-0000-0000-000000000005",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [880, 0]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook — Status Update": { "main": [[{ "node": "Validate + Parse", "type": "main", "index": 0 }]] },
+    "Validate + Parse":        { "main": [[{ "node": "Update Client Row", "type": "main", "index": 0 }]] },
+    "Update Client Row":       { "main": [[{ "node": "Log Status Change", "type": "main", "index": 0 }]] },
+    "Log Status Change":       { "main": [[{ "node": "Webhook Response", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "ms8000000-0000-0000-0000-000000000099",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "MSG-STATUS-008",
+  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Production Ready" }]
+}

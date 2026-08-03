@@ -1,0 +1,19 @@
+# Cloudflare Pages ignore — keeps operator-only files out of the public build
+dashboard/legacy/
+README.md
+LAUNCH_CHECKLIST.md
+LAUNCH_READINESS_REPORT.md
+ARCHITECTURE.md
+MANAGED_OS_PACKAGE.md
+GTM_LAUNCH_GUARDRAILS.md
+design/
+outputs/
+outreach/
+setup/
+workflows/
+Skills/
+operations/
+
+# Stray READMEs in subfolders are operator docs only
+landing/README.md
+**/README.md

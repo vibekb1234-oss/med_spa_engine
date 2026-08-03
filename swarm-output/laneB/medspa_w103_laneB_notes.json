@@ -1,0 +1,141 @@
+{
+  "wave": "W103-LaneB",
+  "generated": "2026-05-23",
+  "top_15_leads": [
+    {
+      "lead_id": "LANEB-MS-W103-050",
+      "business_name": "Face First Medical Aesthetics & Wellness",
+      "city": "Orillia",
+      "country": "CAN",
+      "tier": "A",
+      "pain_hook": "Only NP-led clinic in Orillia serving a market with no local competition. Emily Greb NP is doing the work of a 3-person growth team alone. Appointment slots likely scarce, no-show risk high, retention purely manual.",
+      "feature_hit": "90-day-reactivation + consult-to-booking: automated post-consult follow-up sequence and reactivation cadence for lapsed clients frees Emily from manual CRM while protecting her booked-out calendar."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-039",
+      "business_name": "MedicSPA Gatineau",
+      "city": "Gatineau",
+      "country": "CAN",
+      "tier": "A",
+      "pain_hook": "Dr. Berbari runs adjacent surgical practice and full medspa with two revenue streams but one admin team. High-value bilingual clientele. Referral partner opportunities enormous and untapped.",
+      "feature_hit": "referral-prompt + review-collection: automated post-treatment bilingual referral ask and Google/RateMDs review request tied to procedure completion. High-AOV clients means each review is worth more."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-036",
+      "business_name": "Aspen Aesthetics + Wellness",
+      "city": "Colorado Springs",
+      "country": "USA",
+      "tier": "A",
+      "pain_hook": "Veteran-owned full-spectrum longevity clinic (IV/NAD+/cryotherapy + injectables + laser). Diverse menu means clients get one treatment and never return for the others they do not know about.",
+      "feature_hit": "consult-to-booking + 90-day-reactivation: automated cross-sell nudge after each service ('you got Botox, did you know we do NAD+ drips?') plus 90-day reactivation for IV/wellness clients who disappear."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-016",
+      "business_name": "Radiant Esthetics",
+      "city": "Newport",
+      "country": "USA",
+      "tier": "A",
+      "pain_hook": "Owner Jana Magarian APRN FNP MSCP is a menopause specialist + injector. Rare dual-credential solo practitioner with premium pricing but relies entirely on word-of-mouth and manual follow-up.",
+      "feature_hit": "referral-prompt + review-collection: post-treatment referral ask framed around 'do you know another woman navigating menopause?' with Google review ask captures Jana's best testimonials before they disappear to DMs."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-049",
+      "business_name": "Radiant Reflections Weight Loss Clinic & MedSpa",
+      "city": "Hattiesburg",
+      "country": "USA",
+      "tier": "A",
+      "pain_hook": "Physician-led medspa with weight loss program. Two distinct client journeys (aesthetics vs weight loss) that never cross-sell each other. 12+ years in market with a large dormant client base.",
+      "feature_hit": "90-day-reactivation + consult-to-booking: weight loss completers are the warmest aesthetic leads. Reactivation at 12-week post-program mark converts them into injectable and laser clients."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-035",
+      "business_name": "LYFT Medical Aesthetics",
+      "city": "Collingwood",
+      "country": "CAN",
+      "tier": "A",
+      "pain_hook": "Cottage-country seasonal market. Summer/ski influxes create feast-or-famine booking cycles. Offering Morpheus8 + PRP + men's services but likely losing off-season clients to Toronto clinics.",
+      "feature_hit": "no-show + 90-day-reactivation: seasonal reactivation sequence targeting cottage-country clients in shoulder seasons (spring before summer, fall before ski). Automated deposit/reminder flow reduces resort-town no-shows."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-021",
+      "business_name": "Aesthetic Creator",
+      "city": "Mankato",
+      "country": "USA",
+      "tier": "A",
+      "pain_hook": "Owner Leslie Lee in mid-sized Minnesota city. Established brand but likely managing all follow-up manually. Limited competition for a clinic with this service depth in the Mankato market.",
+      "feature_hit": "consult-to-booking + referral-prompt: automated 24-48hr post-consultation follow-up with booking link dramatically increases show-to-sale rate. Referral ask after positive appointment turns Leslie's loyal base into active growth."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-033",
+      "business_name": "Gloucestershire Medical Aesthetics",
+      "city": "Gloucester",
+      "country": "UK",
+      "tier": "A",
+      "pain_hook": "Founder Kate Stewart RN in a historically underserved UK county town. Built brand on clinical credibility not marketing. Likely spending zero on follow-up automation.",
+      "feature_hit": "review-collection + referral-prompt: UK patients rarely leave reviews unprompted. Automated Google/Trustpilot ask at 48hrs post-appointment rapidly builds Kate's digital authority in a trust-sensitive UK market."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-040",
+      "business_name": "Sorgente MedSpa",
+      "city": "Hyannis",
+      "country": "USA",
+      "tier": "A",
+      "pain_hook": "Dr. Cagnes solo-runs a medspa AND gynecology practice. Two appointment calendars, two patient populations that almost never cross over. Written a book on wellness but has no time for marketing automation.",
+      "feature_hit": "90-day-reactivation + consult-to-booking: gynecology patients who have not booked a medspa treatment in 12+ months are the warmest possible aesthetic leads. Automated reactivation sequence positioned around her wellness-first brand."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-029",
+      "business_name": "Skin Redefined",
+      "city": "Cheltenham",
+      "country": "UK",
+      "tier": "A",
+      "pain_hook": "Solo nurse prescriber in a competitive Cheltenham/Cotswolds market. Differentiation in a saturated town depends entirely on retention and reviews, not clinical credentials alone.",
+      "feature_hit": "review-collection + no-show: automated review ask (Google + Treatwell) at 48hrs post-treatment. SMS reminder + deposit flow protects Kelly's calendar from last-minute cancellations that kill a solo-practitioner schedule."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-046",
+      "business_name": "Adorned Aesthetics",
+      "city": "Toowoomba",
+      "country": "AUS",
+      "tier": "A",
+      "pain_hook": "Regional QLD clinic with SkinCeuticals retail and membership offering. The membership model likely leaks clients who lapse between monthly treatments with no automated win-back.",
+      "feature_hit": "90-day-reactivation + referral-prompt: automated lapsed-membership win-back at 45/90/120 days. Referral prompt post-treatment framed around the Toowoomba community ('introduce a friend in the Darling Downs')."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-043",
+      "business_name": "Skin Aesthetics by Andrea",
+      "city": "Huskisson (Nowra)",
+      "country": "AUS",
+      "tier": "A",
+      "pain_hook": "Solo RN practitioner in coastal tourist area. Clients visit once on holiday and never rebook because there is no follow-up system. Full-time solo with zero marketing infrastructure.",
+      "feature_hit": "consult-to-booking + 90-day-reactivation: post-consult automated booking link follow-up captures the 'I'll think about it' visitor. 90-day reactivation targets holiday clients from the summer Jervis Bay influx."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-041",
+      "business_name": "CNL Aesthetics",
+      "city": "Cheltenham",
+      "country": "UK",
+      "tier": "A",
+      "pain_hook": "Nurse Prescriber Cheryl offers IV drip + injectables with at-home visits. At-home IV clients are high-LTV but entirely reliant on Cheryl texting them directly to rebook.",
+      "feature_hit": "90-day-reactivation + no-show: automated rebooking sequence for IV therapy clients (optimal dosing intervals = built-in return reason every 4-8 weeks). At-home confirmation + reminder flow reduces Cheryl's coordination overhead."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-007",
+      "business_name": "Mangata Medical Spa",
+      "city": "Grand Forks",
+      "country": "USA",
+      "tier": "A",
+      "pain_hook": "Early mover in Grand Forks ND with direct email and phone. Growth ceiling is entirely determined by how well they convert consultations and retain clients in a low-competition market.",
+      "feature_hit": "consult-to-booking + referral-prompt: automated 24/72hr/7-day post-consultation follow-up with booking link. After first appointment, automated referral prompt offering a small credit for each friend booked."
+    },
+    {
+      "lead_id": "LANEB-MS-W103-047",
+      "business_name": "Ject Medical Aesthetics",
+      "city": "Toowoomba",
+      "country": "AUS",
+      "tier": "A",
+      "pain_hook": "Two experienced RN co-founders running a regional QLD clinic with a retail skincare line. Strong clinical brand but dual-owner structure means marketing decisions often stall in agreement loops with no automation in place.",
+      "feature_hit": "review-collection + no-show: automated Google review ask post-treatment builds Ject's digital reputation in a regional market where trust is the purchase driver. Parallel SMS no-show deposit flow protects their time."
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+# Netlify deploy config for MedSpa Growth Engine
+# Publishes the public marketing/booking site; private operator and client
+# surfaces are blocked on the public deployment.
+
+[build]
+  publish = "."
+  command = ""
+
+# Private dashboard and operator/client surfaces
+[[redirects]]
+  from = "/dashboard/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tools/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/onboarding/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/system/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/operations/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/workflows/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/swarm-output/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/design/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outputs/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/setup/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/Skills/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+# Operator-only root files
+[[redirects]]
+  from = "/LAUNCH_CHECKLIST.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/LAUNCH_READINESS_REPORT.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/ARCHITECTURE.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/MANAGED_OS_PACKAGE.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/GTM_LAUNCH_GUARDRAILS.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/System_Description.html"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/MASTER_email_campaign.xlsx"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/landing/README.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+# Internal sales docs are blocked, while polished HTML sales pages remain public.
+[[redirects]]
+  from = "/outreach/Cold_Email_Sequence.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/Demo_Walkthrough.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/Discovery_Call_Script.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/LinkedIn_DM_Sequence.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/Offer_And_Copy_Bible.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/Offer_Tiers.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/One_Pager.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/Post_Call_Follow_Up.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/Seasonal_Campaign_Calendar.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/outreach/Treatment_Copy_Library.md"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+# Public routes
+[[redirects]]
+  from = "/"
+  to = "/landing/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/one-pager"
+  to = "/outreach/One_Pager.html"
+  status = 301
+
+[[redirects]]
+  from = "/case-study"
+  to = "/outreach/Case_Study.html"
+  status = 301
+
+[[redirects]]
+  from = "/roi-calculator"
+  to = "/outreach/ROI_Calculator.html"
+  status = 301
+
+[[redirects]]
+  from = "/book"
+  to = "/booking/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/legal/privacy.html"
+  status = 301
+
+[[redirects]]
+  from = "/terms"
+  to = "/legal/terms.html"
+  status = 301
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://sheets.googleapis.com https://*.googleapis.com; form-action 'self' mailto:; upgrade-insecure-requests"

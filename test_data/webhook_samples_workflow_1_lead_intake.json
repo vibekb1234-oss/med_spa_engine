@@ -1,0 +1,121 @@
+{
+  "description": "POST payloads for Workflow 1 (X-Webhook-Secret header required unless noted)",
+  "samples": [
+    {
+      "scenario": "Standard Botox inquiry via website",
+      "expected_result": "Client added, personalized Botox info email sent, clinic alerted",
+      "payload": {
+        "clientName": "Emma Rodriguez",
+        "clientEmail": "emma.rodriguez@gmail.com",
+        "phone": "(415) 555-0132",
+        "serviceInterest": "Botox",
+        "leadSource": "Website",
+        "message": "Hi, I'm interested in Botox for the first time. What does a consultation involve?"
+      }
+    },
+    {
+      "scenario": "Multi-service package inquiry via Instagram",
+      "expected_result": "Client added with multi-service note, generic package email sent",
+      "payload": {
+        "clientName": "Chlo\u00e9 Martin",
+        "clientEmail": "chloem@icloud.com",
+        "phone": "(510) 555-8814",
+        "serviceInterest": "Botox + Fillers package",
+        "leadSource": "Instagram",
+        "message": "Saw your reel on the summer glow-up bundle. What's included and pricing?"
+      }
+    },
+    {
+      "scenario": "Referral submission",
+      "expected_result": "Client added with referral source, referral bonus flow triggered if configured",
+      "payload": {
+        "clientName": "Priya Sharma",
+        "clientEmail": "psharma@yahoo.com",
+        "phone": "(650) 555-2274",
+        "serviceInterest": "HydraFacial",
+        "leadSource": "Referral",
+        "referralName": "Emma Johnson",
+        "message": "Emma Johnson referred me. She said you'd take care of me."
+      }
+    },
+    {
+      "scenario": "Consultation-only (undecided) inquiry",
+      "expected_result": "Client added with Consultation status, generic 'let's talk' email sent",
+      "payload": {
+        "clientName": "Michael Chen",
+        "clientEmail": "mchen@outlook.com",
+        "phone": "(408) 555-4471",
+        "serviceInterest": "Not sure yet \u2014 consultation",
+        "leadSource": "Google Ads",
+        "message": "I'd like to explore options for anti-aging. Not sure what I need."
+      }
+    },
+    {
+      "scenario": "EDGE \u2014 missing optional fields",
+      "expected_result": "Client added, phone stored as blank",
+      "payload": {
+        "clientName": "Fatima Al-Rashid",
+        "clientEmail": "fatima.ar@protonmail.com",
+        "serviceInterest": "Laser Hair Removal - Face",
+        "leadSource": "Walk-in"
+      }
+    },
+    {
+      "scenario": "EDGE \u2014 special characters in name",
+      "expected_result": "Sheet writes UTF-8 correctly, email addresses client by first name",
+      "payload": {
+        "clientName": "Mar\u00eda O'Brien-Gonz\u00e1lez",
+        "clientEmail": "maria.obrien@gmail.com",
+        "phone": "(415) 555-0192",
+        "serviceInterest": "Chemical Peel - Medium",
+        "leadSource": "Instagram",
+        "message": "Interested in a medium peel for pigmentation."
+      }
+    },
+    {
+      "scenario": "EDGE \u2014 duplicate email (existing client)",
+      "expected_result": "Should NOT create duplicate; should update existing row instead (appendOrUpdate)",
+      "payload": {
+        "clientName": "Kayla Anderson",
+        "clientEmail": "kayla.anderson@yahoo.com",
+        "phone": "(310) 555-9887",
+        "serviceInterest": "Botox",
+        "leadSource": "Website",
+        "message": "Coming back after a while \u2014 want to book Botox again."
+      }
+    },
+    {
+      "scenario": "EDGE \u2014 missing webhook secret (SHOULD BE REJECTED)",
+      "expected_result": "401/403 response, nothing written to Sheet",
+      "headers_missing_secret": true,
+      "payload": {
+        "clientName": "Test Attacker",
+        "clientEmail": "attacker@evil.com",
+        "serviceInterest": "Botox"
+      }
+    },
+    {
+      "scenario": "EDGE \u2014 SQL injection attempt in name field",
+      "expected_result": "Text stored as-is (Sheets doesn't execute SQL), no impact",
+      "payload": {
+        "clientName": "'; DROP TABLE clients;--",
+        "clientEmail": "attacker@evil.com",
+        "phone": "(555) 555-5555",
+        "serviceInterest": "Botox",
+        "leadSource": "Website"
+      }
+    },
+    {
+      "scenario": "EDGE \u2014 XSS attempt in message field",
+      "expected_result": "Text stored raw. Dashboard escapes on render (verified via escapeHtml).",
+      "payload": {
+        "clientName": "XSS Tester",
+        "clientEmail": "xss.test@example.com",
+        "phone": "(555) 555-1234",
+        "serviceInterest": "Botox",
+        "leadSource": "Website",
+        "message": "<script>alert('xss')</script>"
+      }
+    }
+  ]
+}

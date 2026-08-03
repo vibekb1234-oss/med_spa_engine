@@ -1,0 +1,167 @@
+{
+  "skinovationadvancedaesthetics": {
+    "business_name": "SkinOvation Advanced Aesthetics",
+    "website": "https://skinovationnc.com",
+    "email": "info@skinovationnc.com",
+    "city_country": "Asheville, USA",
+    "specialty_focus": "Injector-led practice in Asheville aging-skin market",
+    "recent_signal": "Promotes seasonal membership program — active retention focus",
+    "leadership": "Owner-operator nurse injector",
+    "pain_hook": "Membership renewals chased manually means missed reactivations every time a client doesn't book within 60 days",
+    "feature_hit": "90-day-reactivation + review-collection"
+  },
+  "lushinjectables": {
+    "business_name": "Lush Injectables",
+    "website": "https://lushinjectables.com",
+    "email": "info@lushinjectables.com",
+    "city_country": "Sarasota, USA",
+    "specialty_focus": "Pure injector boutique — Botox/fillers/Sculptra only",
+    "recent_signal": "Tight specialty + boutique brand = high LTV per client",
+    "leadership": "Owner nurse injector",
+    "pain_hook": "Sarasota seasonal market = snowbird clients who lose track of treatment cycles between Nov-Apr moves",
+    "feature_hit": "no-show + consult-to-booking + 90-day-reactivation"
+  },
+  "vitaaesthetics": {
+    "business_name": "Vita Aesthetics",
+    "website": "https://vita-aesthetics.com",
+    "email": "info@vita-aesthetics.com",
+    "city_country": "Sarasota, USA",
+    "specialty_focus": "Full-service medspa with aesthetic medicine + hormone optimization",
+    "recent_signal": "Multi-service offering = complex booking flows + cross-sell they likely miss",
+    "leadership": "Physician-led practice",
+    "pain_hook": "Cross-sell from injectables to hormones happens face-to-face only — no automated 48hr post-treatment prompt",
+    "feature_hit": "referral-prompt + consult-to-booking"
+  },
+  "ommedspa": {
+    "business_name": "OM Med Spa",
+    "website": "https://ommedspa.com",
+    "email": "info@ommedspa.com",
+    "city_country": "Boise, USA",
+    "specialty_focus": "Wellness-positioned medspa — yoga aesthetic crossed with aesthetic services",
+    "recent_signal": "Boise tech-money inflow growing affluent client base year-over-year",
+    "leadership": "Owner-operator",
+    "pain_hook": "Wellness positioning attracts referral-prone clients who never get asked",
+    "feature_hit": "referral-prompt + review-collection"
+  },
+  "flawlessaestheticsmedspa": {
+    "business_name": "Flawless Aesthetics Med Spa",
+    "website": "https://flawlessofchattanooga.com",
+    "email": "flawlessofchattanooga@gmail.com",
+    "city_country": "Chattanooga, USA",
+    "specialty_focus": "Body contouring + injectables in growing TN secondary market",
+    "recent_signal": "Gmail business address signals zero ops infrastructure — greenfield",
+    "leadership": "Independent owner",
+    "pain_hook": "Booking via DMs and text = no record of who needs reactivation",
+    "feature_hit": "consult-to-booking + 90-day-reactivation"
+  },
+  "sarahhitchcoxaesthetics": {
+    "business_name": "Sarah Hitchcox Aesthetics",
+    "website": "https://hitchcoxaesthetics.com",
+    "email": "sarah@hitchcoxaesthetics.com",
+    "city_country": "Knoxville, USA",
+    "specialty_focus": "Solo nurse-injector practice — Sarah's name is the brand",
+    "recent_signal": "Personal-brand practice: every admin hour is an hour not injecting at $400+/hr",
+    "leadership": "Sarah Hitchcox, owner/injector",
+    "pain_hook": "Single injector practices live or die by referrals — without a referral-prompt automation she leaves money on every visit",
+    "feature_hit": "referral-prompt + no-show"
+  },
+  "toniquemedspa": {
+    "business_name": "Tonique MedSpa",
+    "website": "https://toniquemedspa.com",
+    "email": "info@toniquemedspa.com",
+    "city_country": "Tucson, USA",
+    "specialty_focus": "Full-service medspa, Tucson market underserved by chains",
+    "recent_signal": "Independent vs. Ideal Image/LaserAway = differentiation through service automation",
+    "leadership": "Owner",
+    "pain_hook": "Has to outwork the chains' marketing budget with retention loops the chains don't build",
+    "feature_hit": "review-collection + 90-day-reactivation"
+  },
+  "craftedbeautymedspa": {
+    "business_name": "Crafted Beauty Med Spa",
+    "website": "https://craftedbeautyspokane.com",
+    "email": "info@craftedbeautyspokane.com",
+    "city_country": "Spokane, USA",
+    "specialty_focus": "Aesthetic-forward independent in PNW secondary market",
+    "recent_signal": "Spokane growing as Seattle overflow market — affluent transplants need providers",
+    "leadership": "Independent owner",
+    "pain_hook": "Capturing transplant clients requires fast booking turnaround — manual phone tag loses them",
+    "feature_hit": "consult-to-booking + no-show"
+  },
+  "lumaclinic": {
+    "business_name": "Luma Clinic",
+    "website": "https://luma.clinic",
+    "email": "hello@luma.clinic",
+    "city_country": "Halifax, Canada",
+    "specialty_focus": "Premium Halifax aesthetic destination, design-led brand",
+    "recent_signal": "Premium positioning + Atlantic Canada underserved = high LTV per client",
+    "leadership": "Owner-led",
+    "pain_hook": "Premium clients expect concierge-level rebooking — manual process undercuts the brand",
+    "feature_hit": "consult-to-booking + review-collection"
+  },
+  "bellissimoclinic": {
+    "business_name": "Bellissimo Clinic",
+    "website": "https://bellissimoclinic.com",
+    "email": "info@bellissimoclinic.com",
+    "city_country": "Glasgow, UK",
+    "specialty_focus": "Established Glasgow aesthetic clinic — injectables, skin, body",
+    "recent_signal": "Scotland aesthetic market growing as JCCP regulation tightens",
+    "leadership": "Owner-clinician",
+    "pain_hook": "JCCP regulation increases admin burden per treatment — automation frees up nurse time for billable work",
+    "feature_hit": "consult-to-booking + 90-day-reactivation"
+  },
+  "samaraaesthetics": {
+    "business_name": "Samara Aesthetics",
+    "website": "https://samaraaesthetics.com.au",
+    "email": "info@1300samara.com.au",
+    "city_country": "Perth, Australia",
+    "specialty_focus": "Perth aesthetic clinic with national 1300 phone — multi-location ambitions",
+    "recent_signal": "1300 number = built for scale; ops layer needs to match the marketing intent",
+    "leadership": "Owner-clinician",
+    "pain_hook": "Scale-ready brand running on manual booking = the bottleneck is operations, not demand",
+    "feature_hit": "consult-to-booking + no-show + review-collection"
+  },
+  "upliftaesthetics": {
+    "business_name": "Uplift Aesthetics",
+    "website": "https://upliftaesthetics.ca",
+    "email": "info@upliftaesthetics.ca",
+    "city_country": "Winnipeg, Canada",
+    "specialty_focus": "Winnipeg independent — body contouring + injectables, Prairie market",
+    "recent_signal": "Prairie market = lower per-treatment ticket but high loyalty",
+    "leadership": "Owner-operator",
+    "pain_hook": "Loyalty-driven market means the 90-day reactivation is the single biggest revenue lever they're not pulling",
+    "feature_hit": "90-day-reactivation + referral-prompt"
+  },
+  "aestheticallyyou": {
+    "business_name": "Aesthetically You",
+    "website": "https://aestheticallyyou.co.uk",
+    "email": "info@aestheticallyyou.co.uk",
+    "city_country": "Liverpool, UK",
+    "specialty_focus": "Independent Liverpool aesthetic clinic — injectables and skin",
+    "recent_signal": "Liverpool aesthetics market competitive — differentiation through experience required",
+    "leadership": "Owner-led",
+    "pain_hook": "In a saturated market the clinic that texts back fastest wins the booking — manual = lost lead",
+    "feature_hit": "consult-to-booking + no-show"
+  },
+  "pureaestheticsnottingham": {
+    "business_name": "Pure Aesthetics Nottingham",
+    "website": "https://pureaesthetics.co.uk",
+    "email": "info@pureaesthetics.co.uk",
+    "city_country": "Nottingham, UK",
+    "specialty_focus": "Established Nottingham aesthetic clinic — injectables, skin, laser",
+    "recent_signal": "Multi-treatment menu = cross-sell opportunities currently missed without post-treatment automation",
+    "leadership": "Owner-clinician",
+    "pain_hook": "Multi-service medspas without a 48hr post-treatment touch lose 60% of natural cross-sell opportunities",
+    "feature_hit": "referral-prompt + consult-to-booking"
+  },
+  "thefaceaestheticsclinic": {
+    "business_name": "The Face Aesthetics Clinic",
+    "website": "https://face-clinic.co.uk",
+    "email": "hello@face-clinic.co.uk",
+    "city_country": "Cardiff, UK",
+    "specialty_focus": "Cardiff-based facial aesthetics clinic — single-focus positioning",
+    "recent_signal": "'hello@' email + face-focused brand = premium boutique positioning",
+    "leadership": "Owner-clinician",
+    "pain_hook": "Premium boutique brand needs concierge automation to match the in-clinic experience tier",
+    "feature_hit": "consult-to-booking + 90-day-reactivation + review-collection"
+  }
+}

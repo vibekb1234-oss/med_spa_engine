@@ -1,0 +1,114 @@
+{
+  "name": "5 — MSG Weekly Performance Report",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 8 * * 1" }]
+        }
+      },
+      "id": "ms5000000-0000-0000-0000-000000000001",
+      "name": "Schedule — Every Monday 8am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "filters": {},
+        "options": {}
+      },
+      "id": "ms5000000-0000-0000-0000-000000000002",
+      "name": "Get All Clients",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [220, -100],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Appointments", "mode": "name" },
+        "filters": {},
+        "options": {}
+      },
+      "id": "ms5000000-0000-0000-0000-000000000003",
+      "name": "Get All Appointments",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [220, 100],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "jsCode": "const TZ = 'YOUR_CLINIC_TIMEZONE';\n\nconst clients      = $('Get All Clients').all().map(i => i.json);\nconst appointments = $('Get All Appointments').all().map(i => i.json);\nconst now          = new Date();\nconst nowIso       = now.toISOString();\n\n// Time windows\nconst days7ago  = new Date(now); days7ago.setDate(days7ago.getDate() - 7);\nconst days14ago = new Date(now); days14ago.setDate(days14ago.getDate() - 14);\nconst days60ago = new Date(now); days60ago.setDate(days60ago.getDate() - 60);\nconst days90ago = new Date(now); days90ago.setDate(days90ago.getDate() - 90);\n\nconst weekLabel = days7ago.toLocaleDateString('en-US', { timeZone: TZ, month: 'short', day: 'numeric' })\n  + ' – ' + now.toLocaleDateString('en-US', { timeZone: TZ, month: 'short', day: 'numeric', year: 'numeric' });\n\n// --- LAST WEEK APPOINTMENTS ---\nconst lastWeekAppts = appointments.filter(a => {\n  const d = a['Appointment Date'] ? new Date(a['Appointment Date']) : null;\n  return d && !isNaN(d) && d >= days7ago && d <= now;\n});\nconst prevWeekAppts = appointments.filter(a => {\n  const d = a['Appointment Date'] ? new Date(a['Appointment Date']) : null;\n  return d && !isNaN(d) && d >= days14ago && d < days7ago;\n});\n\nconst completed    = lastWeekAppts.filter(a => a['Status'] === 'Completed');\nconst noShows      = lastWeekAppts.filter(a => a['Status'] === 'No-Show');\nconst prevCompleted = prevWeekAppts.filter(a => a['Status'] === 'Completed');\n\nconst revenue      = completed.reduce((s, a) => s + (parseFloat(a['Revenue']) || 0), 0);\nconst prevRevenue  = prevCompleted.reduce((s, a) => s + (parseFloat(a['Revenue']) || 0), 0);\nconst noShowRate   = lastWeekAppts.length > 0 ? Math.round(noShows.length / lastWeekAppts.length * 100) : 0;\n\n// Revenue trend arrow\nconst revTrend = revenue >= prevRevenue\n  ? `<span style=\"color:#059669\">▲ ${revenue >= prevRevenue ? '+' : ''}${prevRevenue > 0 ? Math.round((revenue - prevRevenue)/prevRevenue*100) : '—'}% vs last week</span>`\n  : `<span style=\"color:#ef4444\">▼ ${Math.round((revenue - prevRevenue)/prevRevenue*100)}% vs last week</span>`;\n\n// --- NEW CLIENTS THIS WEEK ---\nconst newClients = clients.filter(c => {\n  const d = c['Created Date'] ? new Date(c['Created Date']) : null;\n  return d && !isNaN(d) && d >= days7ago;\n});\n\n// --- ACTIVE CLIENTS TOTAL ---\nconst activeClients = clients.filter(c => ['Booked','Completed','VIP'].includes(c['Status'])).length;\nconst vipClients    = clients.filter(c => c['VIP Status'] === 'VIP').length;\n\n// --- AT-RISK (60–90 days) ---\nconst atRisk = clients.filter(c => {\n  if (!c['Last Visit Date'] || (c['Opted Out']||'').toLowerCase() === 'yes') return false;\n  const lv = new Date(c['Last Visit Date']);\n  if (isNaN(lv)) return false;\n  return lv <= days60ago && lv > days90ago && c['Status'] !== 'Lapsed' && c['Status'] !== 'New Inquiry';\n});\n\n// --- LAPSED (90+ days) ---\nconst lapsed = clients.filter(c => {\n  if (!c['Last Visit Date'] || (c['Opted Out']||'').toLowerCase() === 'yes') return false;\n  const lv = new Date(c['Last Visit Date']);\n  if (isNaN(lv)) return false;\n  return (lv <= days90ago || c['Status'] === 'Lapsed') && c['Status'] !== 'New Inquiry';\n});\n\n// --- REVIEWS THIS WEEK ---\nconst reviewsRequested = clients.filter(c => {\n  // Clients who had review requested recently (approximation from Review Requested = Yes)\n  return c['Review Requested'] === 'Yes';\n}).length;\nconst reviewsLeft = clients.filter(c => c['Review Left'] === 'Yes').length;\nconst reviewRate  = reviewsRequested > 0 ? Math.round(reviewsLeft / reviewsRequested * 100) : 0;\n\n// --- PENDING INQUIRIES (New Inquiry, never booked) ---\nconst pendingInquiries = clients.filter(c => c['Status'] === 'New Inquiry').length;\n\n// --- NO-SHOW NAMES ---\nconst noShowRows = noShows.map(a =>\n  `<tr style=\"background:#fff5f5;\"><td style=\"padding:8px 12px;\">${a['Client Name']||'—'}</td><td style=\"padding:8px 12px;\">${a['Service']||'—'}</td><td style=\"padding:8px 12px;\">${a['Appointment Date']||'—'}</td><td style=\"padding:8px 12px;color:#ef4444;\">${(a['Post-Appt Follow-Up Sent']||'').toLowerCase()==='yes'?'✅ Sent':'⚠️ Pending'}</td></tr>`\n).join('');\n\n// --- AT-RISK NAMES ---\nconst atRiskRows = atRisk.slice(0, 8).map(c => {\n  const d = new Date(c['Last Visit Date']);\n  const days = Math.floor((now - d) / 86400000);\n  return `<tr><td style=\"padding:8px 12px;\">${c['Client Name']||'—'}</td><td style=\"padding:8px 12px;\">${c['Service Interest']||'—'}</td><td style=\"padding:8px 12px;\"><strong style=\"color:#f97316\">${days}d ago</strong></td></tr>`;\n}).join('');\nconst atRiskMore = atRisk.length > 8 ? `<tr><td colspan=\"3\" style=\"padding:8px 12px;color:#6b7280;font-style:italic;\">+${atRisk.length - 8} more — check dashboard</td></tr>` : '';\n\nreturn [{\n  json: {\n    nowIso,\n    weekLabel,\n    completedCount:    completed.length,\n    noShowCount:       noShows.length,\n    noShowRate,\n    revenueFormatted:  '$' + revenue.toLocaleString('en-US', { maximumFractionDigits: 0 }),\n    revTrend,\n    newClientsCount:   newClients.length,\n    activeClients,\n    vipClients,\n    pendingInquiries,\n    atRiskCount:       atRisk.length,\n    lapsedCount:       lapsed.length,\n    reviewsRequested,\n    reviewsLeft,\n    reviewRate,\n    noShowRows:        noShowRows || '<tr><td colspan=\"4\" style=\"padding:12px;color:#059669;text-align:center;\">✅ Zero no-shows this week</td></tr>',\n    atRiskRows:        (atRiskRows + atRiskMore) || '<tr><td colspan=\"3\" style=\"padding:12px;color:#059669;text-align:center;\">✅ No clients due for re-booking</td></tr>'\n  }\n}];"
+      },
+      "id": "ms5000000-0000-0000-0000-000000000004",
+      "name": "Calculate Weekly Stats",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {
+        "sendTo": "YOUR_CLINIC_EMAIL@gmail.com",
+        "subject": "=📊 Your Weekly Report — {{ $json.weekLabel }}",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:system-ui,-apple-system,sans-serif;max-width:640px;margin:0 auto;color:#1f2937;\">\n\n<!-- HEADER -->\n<div style=\"background:linear-gradient(135deg,#9d174d,#7c3aed);color:white;padding:28px 32px;border-radius:10px 10px 0 0;\">\n  <div style=\"font-size:13px;opacity:0.8;margin-bottom:6px;\">YOUR_CLINIC_NAME</div>\n  <h1 style=\"margin:0;font-size:22px;font-weight:800;\">📊 Weekly Performance Report</h1>\n  <div style=\"margin-top:8px;font-size:14px;opacity:0.85;\">{{ $json.weekLabel }}</div>\n</div>\n\n<!-- KPI STRIP -->\n<div style=\"background:#fdf4ff;border:1px solid #f0abfc;border-top:none;padding:20px 32px;\">\n  <table style=\"width:100%;border-collapse:collapse;\">\n    <tr>\n      <td style=\"text-align:center;padding:12px 8px;\">\n        <div style=\"font-size:32px;font-weight:800;color:#be185d;\">{{ $json.completedCount }}</div>\n        <div style=\"font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;\">Treatments Done</div>\n      </td>\n      <td style=\"text-align:center;padding:12px 8px;border-left:1px solid #f0abfc;\">\n        <div style=\"font-size:32px;font-weight:800;color:#be185d;\">{{ $json.revenueFormatted }}</div>\n        <div style=\"font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;\">Revenue Collected</div>\n        <div style=\"font-size:12px;margin-top:4px;\">{{ $json.revTrend }}</div>\n      </td>\n      <td style=\"text-align:center;padding:12px 8px;border-left:1px solid #f0abfc;\">\n        <div style=\"font-size:32px;font-weight:800;color:{{ $json.noShowCount > 0 ? '#ef4444' : '#059669' }};\">{{ $json.noShowCount }}</div>\n        <div style=\"font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;\">No-Shows ({{ $json.noShowRate }}%)</div>\n      </td>\n      <td style=\"text-align:center;padding:12px 8px;border-left:1px solid #f0abfc;\">\n        <div style=\"font-size:32px;font-weight:800;color:#7c3aed;\">{{ $json.newClientsCount }}</div>\n        <div style=\"font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;\">New Clients</div>\n      </td>\n    </tr>\n  </table>\n</div>\n\n<!-- CLINIC HEALTH -->\n<div style=\"background:white;border:1px solid #f0abfc;border-top:none;padding:20px 32px;\">\n  <h3 style=\"margin:0 0 14px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;\">Clinic Health Snapshot</h3>\n  <table style=\"width:100%;border-collapse:collapse;\">\n    <tr style=\"border-bottom:1px solid #f9fafb;\">\n      <td style=\"padding:10px 0;color:#374151;\">Total Active Clients</td>\n      <td style=\"padding:10px 0;font-weight:700;text-align:right;\">{{ $json.activeClients }}</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid #f9fafb;\">\n      <td style=\"padding:10px 0;color:#374151;\">VIP Clients</td>\n      <td style=\"padding:10px 0;font-weight:700;text-align:right;color:#f59e0b;\">⭐ {{ $json.vipClients }}</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid #f9fafb;\">\n      <td style=\"padding:10px 0;color:#374151;\">Pending Inquiries (not yet booked)</td>\n      <td style=\"padding:10px 0;font-weight:700;text-align:right;color:{{ $json.pendingInquiries > 0 ? '#f97316' : '#374151' }};\">{{ $json.pendingInquiries }}</td>\n    </tr>\n    <tr style=\"border-bottom:1px solid #f9fafb;\">\n      <td style=\"padding:10px 0;color:#374151;\">Review Collection Rate</td>\n      <td style=\"padding:10px 0;font-weight:700;text-align:right;\">{{ $json.reviewsLeft }} reviews left ({{ $json.reviewRate }}% rate)</td>\n    </tr>\n    <tr>\n      <td style=\"padding:10px 0;color:#374151;\">Due for Re-booking (60–90 days)</td>\n      <td style=\"padding:10px 0;font-weight:700;text-align:right;color:{{ $json.atRiskCount > 0 ? '#f97316' : '#059669' }};\">{{ $json.atRiskCount }}</td>\n    </tr>\n  </table>\n</div>\n\n<!-- NO-SHOWS -->\n<div style=\"background:white;border:1px solid #f0abfc;border-top:none;padding:20px 32px;\">\n  <h3 style=\"margin:0 0 14px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;\">🚨 No-Shows This Week</h3>\n  <table style=\"width:100%;border-collapse:collapse;font-size:13px;\">\n    <thead>\n      <tr style=\"background:#f9fafb;\">\n        <th style=\"padding:8px 12px;text-align:left;font-size:11px;color:#6b7280;\">Client</th>\n        <th style=\"padding:8px 12px;text-align:left;font-size:11px;color:#6b7280;\">Service</th>\n        <th style=\"padding:8px 12px;text-align:left;font-size:11px;color:#6b7280;\">Date</th>\n        <th style=\"padding:8px 12px;text-align:left;font-size:11px;color:#6b7280;\">Recovery Email</th>\n      </tr>\n    </thead>\n    <tbody>{{ $json.noShowRows }}</tbody>\n  </table>\n</div>\n\n<!-- AT-RISK CLIENTS -->\n<div style=\"background:white;border:1px solid #f0abfc;border-top:none;padding:20px 32px;\">\n  <h3 style=\"margin:0 0 6px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;\">⚠️ Due for Re-Booking (60–90 Days)</h3>\n  <p style=\"font-size:12px;color:#6b7280;margin:0 0 12px;\">The VIP Retention Engine will reach out to these clients automatically on the 1st. Here's who they are:</p>\n  <table style=\"width:100%;border-collapse:collapse;font-size:13px;\">\n    <thead>\n      <tr style=\"background:#f9fafb;\">\n        <th style=\"padding:8px 12px;text-align:left;font-size:11px;color:#6b7280;\">Client</th>\n        <th style=\"padding:8px 12px;text-align:left;font-size:11px;color:#6b7280;\">Service</th>\n        <th style=\"padding:8px 12px;text-align:left;font-size:11px;color:#6b7280;\">Last Visit</th>\n      </tr>\n    </thead>\n    <tbody>{{ $json.atRiskRows }}</tbody>\n  </table>\n</div>\n\n<!-- LAPSED -->\n<div style=\"background:#fff5f5;border:1px solid #fecaca;border-top:none;padding:16px 32px;\">\n  <strong style=\"color:#991b1b;\">🔴 Lapsed Clients (90+ days without visit): {{ $json.lapsedCount }}</strong>\n  <span style=\"font-size:12px;color:#6b7280;margin-left:8px;\">Win-back sequence running automatically.</span>\n</div>\n\n<!-- FOOTER -->\n<div style=\"background:#f9fafb;border:1px solid #f0abfc;border-top:none;padding:16px 32px;border-radius:0 0 10px 10px;\">\n  <p style=\"margin:0;font-size:12px;color:#6b7280;text-align:center;\">\n    This report was generated automatically by your MedSpa Growth Engine.<br/>\n    All follow-up sequences are running. No action required unless noted above.<br/><br/>\n    <strong style=\"color:#be185d;\">MedSpa Growth Engine</strong> — Built with n8n + Google Sheets + AI\n  </p>\n</div>\n\n</body></html>",
+        "options": {}
+      },
+      "id": "ms5000000-0000-0000-0000-000000000005",
+      "name": "Send Weekly Report Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [660, 0],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "system",
+            "Action Type":  "Weekly Report",
+            "Details":      "=Weekly report sent for {{ $json.weekLabel }}. Completed: {{ $json.completedCount }}, Revenue: {{ $json.revenueFormatted }}, No-shows: {{ $json.noShowCount }}, New clients: {{ $json.newClientsCount }}, At-risk: {{ $json.atRiskCount }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms5000000-0000-0000-0000-000000000006",
+      "name": "Log Report Sent",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [880, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule — Every Monday 8am": {
+      "main": [[
+        { "node": "Get All Clients",      "type": "main", "index": 0 },
+        { "node": "Get All Appointments", "type": "main", "index": 0 }
+      ]]
+    },
+    "Get All Clients":      { "main": [[{ "node": "Calculate Weekly Stats", "type": "main", "index": 0 }]] },
+    "Get All Appointments": { "main": [[{ "node": "Calculate Weekly Stats", "type": "main", "index": 0 }]] },
+    "Calculate Weekly Stats":  { "main": [[{ "node": "Send Weekly Report Email", "type": "main", "index": 0 }]] },
+    "Send Weekly Report Email": { "main": [[{ "node": "Log Report Sent",          "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "ms5000000-0000-0000-0000-000000000099",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "MSG-WEEKLY-005",
+  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Production Ready" }]
+}

@@ -1,0 +1,140 @@
+/* MedSpa Growth Engine - shared brand tokens
+   Used by landing/, booking/, onboarding/, legal/.
+   Dashboard ships its own scoped tokens inside dashboard/index.html (deeper burgundy for app surfaces).
+   Both palettes are intentional: marketing leans brighter (bedded pink-magenta), app leans warmer (burgundy).
+*/
+:root {
+  color-scheme: dark;
+  /* Surfaces - dark theme (default for public pages) */
+  --bg-0: #0c0b12;
+  --bg-1: #15131d;
+  --bg-2: #201b29;
+  --bg-3: #2b2336;
+  --bg-4: #352b42;
+
+  --border: #252030;
+  --border-bright: #3a3048;
+  --border-soft: #1b1723;
+
+  /* Text */
+  --text: #f0eaf0;
+  --text-strong: #fff7fb;
+  --text-dim: #a89ca8;
+  --text-faint: #766b77;
+  --text-mute: #463d47;
+
+  /* Brand - marketing palette (bright pink-magenta for hero impact) */
+  --accent: #d94d85;
+  --accent-bright: #f07ab0;
+  --accent-deep: #9d2f5d;
+  --accent-glow: rgba(217, 77, 133, 0.32);
+  --accent-soft: rgba(217, 77, 133, 0.10);
+
+  /* Status */
+  --success: #7fd1bf;
+  --warning: #f0b86a;
+  --danger: #e7798f;
+  --info: #93c5fd;
+  --teal: #55c7b1;
+  --inverse: #180914;
+  --button-text: #ffffff;
+
+  /* Page-level surfaces */
+  --page-bg: linear-gradient(180deg, var(--bg-0) 0%, #11101a 42%, var(--bg-0) 100%);
+  --nav-bg: rgba(12, 11, 18, 0.88);
+  --mockup-bg: #090811;
+
+  /* Type */
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Spacing (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-pill: 999px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-0: #fbf7f2;
+  --bg-1: #fffdf9;
+  --bg-2: #f8f0e8;
+  --bg-3: #efe4da;
+  --bg-4: #e8d8ca;
+
+  --border: #eadfd6;
+  --border-bright: #d7c4b8;
+  --border-soft: #f2e8df;
+
+  --text: #271b22;
+  --text-strong: #130b10;
+  --text-dim: #675760;
+  --text-faint: #94858d;
+  --text-mute: #c4b7bd;
+
+  --accent: #9d2f5d;
+  --accent-bright: #bd3f73;
+  --accent-deep: #742244;
+  --accent-glow: rgba(157, 47, 93, 0.16);
+  --accent-soft: rgba(157, 47, 93, 0.09);
+
+  --success: #287d6a;
+  --warning: #9a6821;
+  --danger: #a24458;
+  --info: #356fa3;
+  --teal: #167c6d;
+  --inverse: #fffaf4;
+  --button-text: #ffffff;
+
+  --page-bg: linear-gradient(180deg, #fbf7f2 0%, #fffdf9 46%, #f8f0e8 100%);
+  --nav-bg: rgba(255, 253, 249, 0.90);
+  --mockup-bg: #fffaf4;
+}
+
+.theme-toggle {
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-bright);
+  background: var(--bg-1);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease, transform 80ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-deep);
+  color: var(--accent-bright);
+  background: var(--accent-soft);
+}
+
+.theme-toggle:active { transform: translateY(1px); }
+.theme-toggle svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+@media (max-width: 560px) {
+  .theme-toggle {
+    min-width: 36px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+}

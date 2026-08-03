@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0c0b12" />
+<title>Book Your Growth Audit - MedSpa Growth Engine</title>
+<meta name="description" content="Book a 15-minute MedSpa Growth Engine audit to map inquiry, booking, no-show, review, and reactivation leaks in your med spa." />
+<meta name="robots" content="index,follow" />
+<link rel="icon" type="image/png" href="../assets/medspa-growth-engine-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/brand-tokens.css" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; max-width: 100%; background: var(--bg-0); color: var(--text); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { background: var(--page-bg); min-height: 100vh; padding-top: var(--fixed-nav-h); }
+.mono { font-family: var(--font-mono); font-feature-settings: 'tnum'; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-bright); }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 50; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.brand-text { font-size: 16px; font-weight: 800; color: var(--accent); line-height: 1; }
+.brand-meta { font-family: var(--font-mono); font-size: 9px; color: var(--text-faint); letter-spacing: 0.22em; margin-top: 2px; text-transform: uppercase; }
+.back-link { color: var(--text-dim); font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+.back-link:hover { color: var(--accent); }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 56px 28px 96px; }
+.page-tag { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--accent-bright); text-transform: uppercase; padding: 8px 16px; border: 1px solid var(--accent-deep); border-radius: 999px; background: var(--accent-soft); margin-bottom: 24px; }
+.page-tag .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px rgba(85, 199, 177, 0.55); }
+h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: var(--text-strong); line-height: 1.08; margin-bottom: 20px; max-width: 720px; overflow-wrap: anywhere; text-wrap: balance; }
+h1 .accent { background: linear-gradient(135deg, var(--accent-bright), var(--teal)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.lead { font-size: 17px; color: var(--text-dim); max-width: 680px; margin-bottom: 56px; }
+
+.grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: flex-start; }
+
+.panel { background: var(--bg-1); border: 1px solid var(--border); border-radius: 14px; padding: 32px; }
+.panel-head { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.panel-h { font-size: 18px; font-weight: 700; color: var(--text-strong); }
+.panel-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--accent-bright); text-transform: uppercase; font-weight: 600; }
+
+.request-frame { background: var(--bg-2); border: 1px dashed var(--border-bright); border-radius: 10px; padding: 56px 32px; text-align: center; margin-bottom: 24px; }
+.request-frame .icon { width: 56px; height: 56px; margin: 0 auto 20px; background: var(--accent-soft); border: 1px solid var(--accent-deep); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--accent-bright); }
+.request-frame .icon svg { width: 26px; height: 26px; }
+.request-frame h3 { font-size: 18px; font-weight: 600; color: var(--text-strong); margin-bottom: 8px; }
+.request-frame p { font-size: 14px; color: var(--text-dim); }
+.request-frame .note { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-faint); text-transform: uppercase; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); }
+
+.divider-row { display: flex; align-items: center; gap: 12px; margin: 28px 0 22px; color: var(--text-faint); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+.divider-row::before, .divider-row::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+form .field { margin-bottom: 16px; }
+form label { display: block; font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 6px; letter-spacing: 0.04em; }
+form .req { color: var(--accent); }
+form input, form select, form textarea {
+  width: 100%; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 8px;
+  padding: 10px 12px; font-family: inherit; font-size: 14px; color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+form input:focus, form select:focus, form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
+form textarea { resize: vertical; min-height: 80px; }
+form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.btn-submit {
+  width: 100%; background: var(--accent); color: var(--button-text) !important; -webkit-text-fill-color: var(--button-text); border: none; border-radius: 10px;
+  padding: 14px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.08s;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.18);
+}
+.btn-submit:hover { background: var(--accent-bright); color: var(--button-text); box-shadow: 0 12px 32px var(--accent-glow); }
+.btn-submit:active { transform: translateY(1px); }
+.btn-submit:disabled { opacity: 0.72; cursor: wait; }
+.btn-submit svg { width: 14px; height: 14px; color: currentColor; stroke: currentColor; }
+.btn-submit,
+.btn-submit:hover,
+.btn-submit:active {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.btn-submit svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+[data-theme="light"] .btn-submit {
+  background: #84234d;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: 0 12px 28px rgba(132, 35, 77, 0.20);
+}
+[data-theme="light"] .btn-submit:hover {
+  background: #6f1d42;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.form-hint { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--text-faint); margin-top: 12px; text-transform: uppercase; text-align: center; }
+.form-error { display: none; margin-bottom: 16px; padding: 11px 12px; border: 1px solid rgba(231, 121, 143, 0.38); border-radius: 10px; background: rgba(231, 121, 143, 0.10); color: var(--danger); font-size: 13px; line-height: 1.5; }
+.form-error.shown { display: block; }
+.bot-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.aside { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 90px; }
+.aside-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.aside-card h4 { font-size: 14px; font-weight: 700; color: var(--text-strong); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.aside-card h4::before { content: ''; width: 4px; height: 14px; background: var(--accent); border-radius: 2px; }
+.aside-card ul { list-style: none; padding: 0; }
+.aside-card li { display: flex; gap: 10px; padding: 8px 0; font-size: 13px; color: var(--text-dim); line-height: 1.6; border-bottom: 1px solid var(--border); }
+.aside-card li:last-child { border-bottom: 0; }
+.aside-card li .step-num { flex-shrink: 0; width: 22px; height: 22px; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--accent-bright); }
+.aside-card li .step-body { flex: 1; }
+.aside-card li .step-body strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 2px; font-size: 13px; }
+
+.who { background: var(--bg-1); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.who-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.who-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--teal)); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 6px 24px var(--accent-glow); }
+.who-name { font-size: 16px; font-weight: 700; color: var(--text-strong); }
+.who-role { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-top: 2px; }
+.who-bio { font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+
+.trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
+.trust-item { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.trust-item .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
+.trust-item .val { font-size: 17px; font-weight: 700; color: var(--text-strong); line-height: 1.3; }
+.trust-item .sub { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+
+.footer { padding: 26px 28px; background: var(--bg-0); border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.footer-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: var(--text-dim); }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .aside { position: static; }
+  .trust-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  :root { --fixed-nav-h: 62px; }
+  body, main, .wrap, .nav, .footer { width: 100%; max-width: 100%; overflow-x: hidden; }
+  .nav-inner { padding: 12px 16px; gap: 10px; }
+  .brand { min-width: 0; gap: 10px; }
+  .brand-text { font-size: 16px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .brand-meta { display: none; }
+  .back-link { font-size: 12px; max-width: 76px; line-height: 1.25; }
+  .theme-toggle { flex-shrink: 0; }
+  .wrap { width: min(100%, 390px); max-width: 390px; margin-left: 0; margin-right: auto; padding: 34px 18px 64px; overflow: hidden; }
+  .page-tag { display: flex; width: 100%; max-width: 100%; justify-content: center; text-align: center; font-size: 9px; letter-spacing: 0.1em; line-height: 1.45; white-space: normal; overflow-wrap: anywhere; }
+  h1 { font-size: 25px; line-height: 1.2; margin-bottom: 18px; max-width: 100%; }
+  .lead { font-size: 16px; line-height: 1.55; margin-bottom: 38px; max-width: 100%; overflow-wrap: break-word; }
+  .panel { padding: 22px; border-radius: 12px; }
+  .panel-head { margin-bottom: 18px; }
+  .request-frame { padding: 38px 18px; }
+  .divider-row { letter-spacing: 0.14em; }
+  form .row { grid-template-columns: 1fr; }
+  .aside-card, .who, .trust-item { padding: 20px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+.success-state { display: none; text-align: center; padding: 48px 24px; }
+.success-state.shown { display: block; }
+.success-state .check { width: 64px; height: 64px; border-radius: 50%; background: var(--success); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: var(--bg-0); }
+.success-state h3 { font-size: 22px; color: var(--text-strong); margin-bottom: 10px; font-weight: 700; }
+.success-state p { font-size: 15px; color: var(--text-dim); max-width: 480px; margin: 0 auto; }
+form.hidden { display: none; }
+
+/* Softer premium accent typography + motion */
+:root { --motion-ease: cubic-bezier(.22, 1, .36, 1); --motion-ease-soft: cubic-bezier(.16, 1, .3, 1); --fixed-nav-h: 72px; }
+.nav { transition: background 280ms var(--motion-ease), border-color 280ms var(--motion-ease), box-shadow 280ms var(--motion-ease); }
+.nav.is-scrolled { background: color-mix(in srgb, var(--nav-bg) 88%, var(--bg-1)); border-color: color-mix(in srgb, var(--border-bright) 70%, transparent); box-shadow: 0 18px 54px rgba(0,0,0,.18); }
+.brand-meta,
+.page-tag,
+.divider-row,
+.audit-badge,
+.proof-pill,
+.footer-meta {
+  font-family: var(--font-sans);
+  letter-spacing: .075em;
+  font-weight: 750;
+}
+.panel, .aside-card, .who, .trust-item { transition: transform 360ms var(--motion-ease), box-shadow 360ms var(--motion-ease), border-color 360ms var(--motion-ease); transform: translateZ(0); }
+.panel:hover, .aside-card:hover, .who:hover, .trust-item:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 40%, var(--border-bright)); box-shadow: 0 22px 70px rgba(0,0,0,.18); }
+.motion-ready .wrap > * { opacity: 0; transform: translateY(22px) scale(.988); transition: opacity 680ms var(--motion-ease-soft), transform 680ms var(--motion-ease-soft); }
+.motion-ready .wrap.is-visible > * { opacity: 1; transform: translateY(0) scale(1); }
+.motion-ready .wrap.is-visible > *:nth-child(2) { transition-delay: 70ms; }
+.motion-ready .wrap.is-visible > *:nth-child(3) { transition-delay: 140ms; }
+@media (prefers-reduced-motion: reduce) { .nav, .panel, .aside-card, .who, .trust-item, .motion-ready .wrap > * { transition: none !important; transform: none !important; opacity: 1 !important; } }
+
+@media (max-width: 560px) { :root { --fixed-nav-h: 62px; } }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../landing/index.html">
+      <div class="brand-mark"><img src="../assets/medspa-growth-engine-mark.png" alt="" /></div>
+      <div>
+        <div class="brand-text">MedSpa Growth Engine</div>
+        
+      </div>
+    </a>
+    <a href="../landing/index.html" class="back-link">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to overview
+    </a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="page-tag"><span class="pulse"></span> Free patient growth audit</div>
+  <h1>Find the patient leaks costing your clinic <span class="accent">booked treatments</span></h1>
+  <p class="lead">In 15 minutes, we map where high-value patients are dropping between inquiry, consult, treatment, review, and reactivation, then decide whether the MedSpa Growth Engine is a fit. No deck. No pressure.</p>
+
+  <div class="grid">
+    <div>
+      <div class="panel" id="booking-panel">
+        <div class="panel-head">
+          <div>
+            <div class="panel-eyebrow">Step 1 of 1</div>
+            <div class="panel-h">Request your growth audit</div>
+          </div>
+        </div>
+
+        <div class="request-frame" id="leak-snapshot-request">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Request growth audit times</h3>
+          <p>Fill the short form below and Bibek will reply with three time options within 24 hours. If the hosted form is not active yet, it opens a prefilled email draft as backup.</p>
+          <div class="note">Built for established clinics that want better patient acquisition economics, not another generic agency pitch.</div>
+        </div>
+
+        <div class="divider-row">Send your details</div>
+
+        <form id="contact-form" name="demo-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="demo-request" />
+          <div class="bot-field" aria-hidden="true">
+            <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <div class="form-error" id="form-error" role="alert"></div>
+          <div class="row">
+            <div class="field">
+              <label for="name">Your name <span class="req">*</span></label>
+              <input id="name" name="name" type="text" required autocomplete="name" placeholder="Dr. Jane Smith" />
+            </div>
+            <div class="field">
+              <label for="clinic">Clinic name <span class="req">*</span></label>
+              <input id="clinic" name="clinic" type="text" required autocomplete="organization" placeholder="Luxe Aesthetics" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="email">Work email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@clinic.com" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 123-4567" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" placeholder="Miami, FL" />
+            </div>
+            <div class="field">
+              <label for="services">Primary services</label>
+              <select id="services" name="services">
+                <option value="">Pick one</option>
+                <option>Botox / Dysport</option>
+                <option>Dermal fillers</option>
+                <option>Laser hair removal</option>
+                <option>HydraFacial</option>
+                <option>Microneedling</option>
+                <option>Full aesthetic menu</option>
+                <option>Other / mixed</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="volume">Roughly how many appointments per week?</label>
+            <select id="volume" name="volume">
+              <option value="">Pick a range</option>
+              <option>Under 20</option>
+              <option>20 - 40</option>
+              <option>40 - 80</option>
+              <option>80+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="biggest-pain">What is the single biggest patient-growth leak you would fix first?</label>
+            <textarea id="biggest-pain" name="biggest-pain" placeholder="Slow inquiry response, missed calls, no-shows, low consult conversion, missing reviews, lapsed VIPs..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            Request growth audit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <div class="form-hint">Protected by spam trap. I personally reply within 24 hours - Bibek</div>
+        </form>
+
+        <div class="success-state" id="success-state">
+          <div class="check">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Request received</h3>
+          <p id="success-message">Bibek will reply with three growth audit time options within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <aside class="aside">
+      <div class="who">
+        <div class="who-row">
+          <div class="who-avatar">BB</div>
+          <div>
+            <div class="who-name">Bibek Bhandari</div>
+            <div class="who-role">Independent operator</div>
+          </div>
+        </div>
+        <p class="who-bio">I built MedSpa Growth Engine end-to-end and run every install personally. You will not get handed to an account manager. Audits are 15 minutes max and run against your real inquiry, appointment, and treatment volume.</p>
+      </div>
+
+      <div class="aside-card">
+        <h4>What the walkthrough covers</h4>
+        <ul>
+          <li>
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <strong>Patient Growth System walkthrough</strong>
+              The live dashboard, pipeline, follow-up layer, and weekly report - exactly what your team will see after install.
+            </div>
+          </li>
+          <li>
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <strong>Leak map on your numbers</strong>
+              We plug your inquiry volume, appointment count, average ticket, and follow-up gaps into a conservative model.
+            </div>
+          </li>
+          <li>
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <strong>Honest fit check</strong>
+              If the math does not work, your clinic is too early, or your booking setup is unusual, I will tell you. No forced sale.
+            </div>
+          </li>
+          <li>
+            <div class="step-num">04</div>
+            <div class="step-body">
+              <strong>Next-step plan</strong>
+              If it is a fit, you get a 14-day install path and a clear list of what you need to provide.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="aside-card">
+        <h4>What I will not do</h4>
+        <ul style="font-size:13px;color:var(--text-dim);line-height:1.7">
+          <li style="border:0;padding:6px 0">- Sell you a generic ad package</li>
+          <li style="border:0;padding:6px 0">- Push you onto a contract on the walkthrough itself</li>
+          <li style="border:0;padding:6px 0">- Promise revenue, ad results, or medical outcomes</li>
+          <li style="border:0;padding:6px 0">- Replace your booking system or touch medical records</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <div class="trust-row">
+    <div class="trust-item">
+      <div class="label">Install path</div>
+      <div class="val">14 days</div>
+      <div class="sub">Leak map to monitored launch</div>
+    </div>
+    <div class="trust-item">
+      <div class="label">Best-fit clinic</div>
+      <div class="val">2-10 practitioners</div>
+      <div class="sub">Established clinic with proven demand</div>
+    </div>
+    <div class="trust-item">
+      <div class="label">Cancellation</div>
+      <div class="val">30-day notice</div>
+      <div class="sub">Month-to-month - no annual lock-in</div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-meta">&copy; MedSpa Growth Engine - Patient Growth System audit</div>
+    <div class="footer-links">
+      <a href="../landing/index.html">Overview</a>
+      <a href="../landing/index.html#pricing">Pricing</a>
+      <a href="../legal/privacy.html">Privacy</a>
+      <a href="../legal/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/theme.js"></script>
+<script>
+const BOOKING_EMAIL = 'vibekb.1234@gmail.com';
+
+function isLocalPreview() {
+  return ['localhost', '127.0.0.1', ''].includes(location.hostname) || location.protocol === 'file:';
+}
+
+function setFormError(message) {
+  var el = document.getElementById('form-error');
+  el.textContent = message;
+  el.classList.add('shown');
+}
+
+function clearFormError() {
+  var el = document.getElementById('form-error');
+  el.textContent = '';
+  el.classList.remove('shown');
+}
+
+function collectBookingPayload() {
+  var name = document.getElementById('name').value.trim();
+  var clinic = document.getElementById('clinic').value.trim();
+  var email = document.getElementById('email').value.trim();
+  if (!name || !clinic || !email) {
+    setFormError('Fill out name, clinic, and email so I know who to reply to.');
+    return null;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setFormError('Use a valid work email so the walkthrough times can reach you.');
+    return null;
+  }
+  clearFormError();
+  var phone = document.getElementById('phone').value.trim() || 'Not provided';
+  var city = document.getElementById('city').value.trim() || 'Not provided';
+  var services = document.getElementById('services').value || 'Not provided';
+  var volume = document.getElementById('volume').value || 'Not provided';
+  var pain = document.getElementById('biggest-pain').value.trim() || 'Not provided';
+  return { name, clinic, email, phone, city, services, volume, pain };
+}
+
+function mailtoUrl(payload) {
+  var subject = `MedSpa Growth Engine growth audit request - ${payload.clinic}`;
+  var body = [
+    'Hi Bibek,',
+    '',
+    'I want to see the MedSpa Growth Engine Patient Growth System live and map my clinic revenue leaks.',
+    '',
+    `Name: ${payload.name}`,
+    `Clinic: ${payload.clinic}`,
+    `Email: ${payload.email}`,
+    `Phone: ${payload.phone}`,
+    `City: ${payload.city}`,
+    `Primary services: ${payload.services}`,
+    `Appointments per week: ${payload.volume}`,
+    `Biggest leak to fix first: ${payload.pain}`,
+    '',
+    'Please send me three walkthrough time options.',
+    ''
+  ].join('\n');
+  return `mailto:${BOOKING_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function showSuccess(message) {
+  document.getElementById('success-message').textContent = message;
+  document.getElementById('contact-form').classList.add('hidden');
+  document.getElementById('success-state').classList.add('shown');
+  document.getElementById('booking-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+async function submitHostedForm(form, payload) {
+  var formData = new FormData(form);
+  formData.set('form-name', 'demo-request');
+  formData.set('name', payload.name);
+  formData.set('clinic', payload.clinic);
+  formData.set('email', payload.email);
+  formData.set('phone', payload.phone);
+  formData.set('city', payload.city);
+  formData.set('services', payload.services);
+  formData.set('volume', payload.volume);
+  formData.set('biggest-pain', payload.pain);
+  var res = await fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  });
+  if (!res.ok) throw new Error('Hosted form did not accept the request.');
+}
+
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var payload = collectBookingPayload();
+  if (!payload) return;
+  var button = this.querySelector('.btn-submit');
+  button.disabled = true;
+  button.textContent = 'Sending...';
+  if (isLocalPreview()) {
+    window.location.href = mailtoUrl(payload);
+    showSuccess('Email draft opened. Send it from your mail app and Bibek will reply with three time options within 24 hours.');
+    return;
+  }
+  try {
+    await submitHostedForm(this, payload);
+    showSuccess('Your request is in. Bibek will reply with three walkthrough time options within 24 hours.');
+  } catch (err) {
+    window.location.href = mailtoUrl(payload);
+    showSuccess('Hosted form fallback opened an email draft. Send it from your mail app and Bibek will reply with three growth audit time options within 24 hours.');
+  }
+});
+</script>
+<script>
+(function () {
+  const nav = document.querySelector('.nav');
+  const wrap = document.querySelector('.wrap');
+  document.documentElement.classList.add('motion-ready');
+  const updateNav = () => nav && nav.classList.toggle('is-scrolled', window.scrollY > 10);
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+  if (wrap && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.target.classList.toggle('is-visible', entry.isIntersecting));
+    }, { threshold: 0.14, rootMargin: '-8% 0px -12% 0px' });
+    observer.observe(wrap);
+  } else {
+    requestAnimationFrame(() => wrap && wrap.classList.add('is-visible'));
+  }
+})();
+</script>
+</body>
+</html>

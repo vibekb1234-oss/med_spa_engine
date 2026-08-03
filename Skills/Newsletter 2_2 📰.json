@@ -1,0 +1,879 @@
+{
+    "name": "Newsletter 2/2 📰",
+    "flow": [
+        {
+            "id": 1,
+            "module": "airtable:TriggerWatchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 1532818,
+                "base": "appIvspi2WxegLNdo",
+                "useColumnId": false,
+                "table": "tblY2cF45pWbbuBae",
+                "config": {
+                    "triggerField": "Last modified time",
+                    "labelField": "Status"
+                },
+                "maxRecords": 10,
+                "view": "",
+                "formula": ""
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Airtable OAuth connection (User ID: usrWHZndszJIS5AWQ)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            }
+                        },
+                        "base": {
+                            "label": "AI Automation News Letter 🚀"
+                        },
+                        "table": {
+                            "label": "News Review 👀"
+                        },
+                        "config": {
+                            "nested": {
+                                "triggerField": {
+                                    "label": "Last modified time"
+                                },
+                                "labelField": {
+                                    "label": "Status"
+                                }
+                            }
+                        },
+                        "view": {
+                            "label": "Empty"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "config",
+                        "type": "collection",
+                        "label": "Trigger configuration",
+                        "spec": [
+                            {
+                                "name": "triggerField",
+                                "type": "select",
+                                "label": "Trigger field",
+                                "required": true
+                            },
+                            {
+                                "name": "triggerField",
+                                "type": "hidden"
+                            },
+                            {
+                                "name": "labelField",
+                                "type": "select",
+                                "label": "Label field",
+                                "required": true
+                            }
+                        ]
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "URL",
+                        "label": "URL",
+                        "type": "text"
+                    },
+                    {
+                        "name": "One liner 🥇",
+                        "label": "One liner 🥇",
+                        "type": "text",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Status",
+                        "label": "Status",
+                        "type": "text"
+                    },
+                    {
+                        "name": "created time",
+                        "label": "created time",
+                        "type": "date"
+                    },
+                    {
+                        "name": "Last modified time",
+                        "label": "Last modified time",
+                        "type": "date"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "openai-gpt-3:sendMessageToAssistant",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1425946
+            },
+            "filter": {
+                "name": "approval",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{1.Status}}",
+                            "o": "text:contain:ci",
+                            "b": "add to newsletter"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "message": "{{1.Summary}}",
+                "role": "user",
+                "assistantId": "asst_8wM7GHMPIjHeQfCuFjbDP7KP"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "Bullet Point 🎯"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My OpenAI connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "openai-gpt-3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "assistantId": {
+                            "mode": "chose",
+                            "label": "Bullet Point Agent 🎯 (gpt-4-turbo)"
+                        },
+                        "model": {
+                            "mode": "chose"
+                        },
+                        "fileIds": {
+                            "mode": "chose"
+                        },
+                        "tools": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:openai-gpt-3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "message",
+                        "type": "text",
+                        "label": "Message",
+                        "required": true
+                    },
+                    {
+                        "name": "role",
+                        "type": "hidden",
+                        "label": "Role"
+                    },
+                    {
+                        "name": "assistantId",
+                        "type": "select",
+                        "label": "Assistant",
+                        "required": true
+                    },
+                    {
+                        "name": "threadId",
+                        "type": "text",
+                        "label": "Thread ID"
+                    },
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model"
+                    },
+                    {
+                        "name": "fileIds",
+                        "type": "array",
+                        "label": "File IDs",
+                        "validate": {
+                            "maxItems": 10
+                        },
+                        "spec": {
+                            "type": "select",
+                            "label": "File ID",
+                            "options": [],
+                            "name": "value",
+                            "dynamic": true
+                        }
+                    },
+                    {
+                        "name": "tools",
+                        "type": "select",
+                        "label": "Tools",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "retrieval",
+                                "code_interpreter"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "instructions",
+                        "type": "text",
+                        "label": "Instructions"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "openai-gpt-3:sendMessageToAssistant",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1425946
+            },
+            "mapper": {
+                "message": "{{2.result}}{{1.Summary}}",
+                "role": "user",
+                "assistantId": "asst_77i0VSuUQYuS3N19pHF1moVy"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "Key Takeaway 🔥"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My OpenAI connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "openai-gpt-3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "assistantId": {
+                            "mode": "chose",
+                            "label": "Key Summariser Agent 🤖 (gpt-4o)"
+                        },
+                        "model": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "fileIds": {
+                            "mode": "chose"
+                        },
+                        "tools": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:openai-gpt-3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "message",
+                        "type": "text",
+                        "label": "Message",
+                        "required": true
+                    },
+                    {
+                        "name": "role",
+                        "type": "hidden",
+                        "label": "Role"
+                    },
+                    {
+                        "name": "assistantId",
+                        "type": "select",
+                        "label": "Assistant",
+                        "required": true
+                    },
+                    {
+                        "name": "threadId",
+                        "type": "text",
+                        "label": "Thread ID"
+                    },
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model"
+                    },
+                    {
+                        "name": "fileIds",
+                        "type": "array",
+                        "label": "File IDs",
+                        "validate": {
+                            "maxItems": 10
+                        },
+                        "spec": {
+                            "type": "select",
+                            "label": "File ID",
+                            "options": [],
+                            "name": "value",
+                            "dynamic": true
+                        }
+                    },
+                    {
+                        "name": "tools",
+                        "type": "select",
+                        "label": "Tools",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "retrieval",
+                                "code_interpreter"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "instructions",
+                        "type": "text",
+                        "label": "Instructions"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "openai-gpt-3:sendMessageToAssistant",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1425946
+            },
+            "mapper": {
+                "message": "{{2.result}}{{1.Summary}}",
+                "role": "user",
+                "assistantId": "asst_xrMdXhvzmYesoriuQWrftLtR"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0,
+                    "name": "TL'DR Bot 🤖"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My OpenAI connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "openai-gpt-3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "assistantId": {
+                            "mode": "chose",
+                            "label": "TL;DR Bot 🤷 (gpt-4-turbo)"
+                        },
+                        "model": {
+                            "mode": "chose"
+                        },
+                        "fileIds": {
+                            "mode": "chose"
+                        },
+                        "tools": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:openai-gpt-3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "message",
+                        "type": "text",
+                        "label": "Message",
+                        "required": true
+                    },
+                    {
+                        "name": "role",
+                        "type": "hidden",
+                        "label": "Role"
+                    },
+                    {
+                        "name": "assistantId",
+                        "type": "select",
+                        "label": "Assistant",
+                        "required": true
+                    },
+                    {
+                        "name": "threadId",
+                        "type": "text",
+                        "label": "Thread ID"
+                    },
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model"
+                    },
+                    {
+                        "name": "fileIds",
+                        "type": "array",
+                        "label": "File IDs",
+                        "validate": {
+                            "maxItems": 10
+                        },
+                        "spec": {
+                            "type": "select",
+                            "label": "File ID",
+                            "options": [],
+                            "name": "value",
+                            "dynamic": true
+                        }
+                    },
+                    {
+                        "name": "tools",
+                        "type": "select",
+                        "label": "Tools",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "retrieval",
+                                "code_interpreter"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "instructions",
+                        "type": "text",
+                        "label": "Instructions"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "openai-gpt-3:sendMessageToAssistant",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1425946
+            },
+            "mapper": {
+                "message": "{{2.result}}{{1.Summary}}",
+                "role": "user",
+                "assistantId": "asst_GKWHdJDW0pddT6mhM3hhU5dm"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0,
+                    "name": "Title Bot 🫡"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My OpenAI connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "openai-gpt-3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "assistantId": {
+                            "mode": "chose",
+                            "label": "Title Bot 🫡 (gpt-4-turbo)"
+                        },
+                        "model": {
+                            "mode": "chose"
+                        },
+                        "fileIds": {
+                            "mode": "chose"
+                        },
+                        "tools": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:openai-gpt-3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "message",
+                        "type": "text",
+                        "label": "Message",
+                        "required": true
+                    },
+                    {
+                        "name": "role",
+                        "type": "hidden",
+                        "label": "Role"
+                    },
+                    {
+                        "name": "assistantId",
+                        "type": "select",
+                        "label": "Assistant",
+                        "required": true
+                    },
+                    {
+                        "name": "threadId",
+                        "type": "text",
+                        "label": "Thread ID"
+                    },
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model"
+                    },
+                    {
+                        "name": "fileIds",
+                        "type": "array",
+                        "label": "File IDs",
+                        "validate": {
+                            "maxItems": 10
+                        },
+                        "spec": {
+                            "type": "select",
+                            "label": "File ID",
+                            "options": [],
+                            "name": "value",
+                            "dynamic": true
+                        }
+                    },
+                    {
+                        "name": "tools",
+                        "type": "select",
+                        "label": "Tools",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "retrieval",
+                                "code_interpreter"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "instructions",
+                        "type": "text",
+                        "label": "Instructions"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "module": "openai-gpt-3:sendMessageToAssistant",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1425946
+            },
+            "mapper": {
+                "message": "{{2.result}}{{1.Summary}}",
+                "role": "user",
+                "assistantId": "asst_26vx5igB553sZs5kHeVNnA58"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1547,
+                    "y": 4,
+                    "name": "Midjourney Bot 🎇"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My OpenAI connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "openai-gpt-3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "assistantId": {
+                            "mode": "chose",
+                            "label": "Midjourney Bot 🎆 (gpt-4-turbo)"
+                        },
+                        "model": {
+                            "mode": "chose"
+                        },
+                        "fileIds": {
+                            "mode": "chose"
+                        },
+                        "tools": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:openai-gpt-3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "message",
+                        "type": "text",
+                        "label": "Message",
+                        "required": true
+                    },
+                    {
+                        "name": "role",
+                        "type": "hidden",
+                        "label": "Role"
+                    },
+                    {
+                        "name": "assistantId",
+                        "type": "select",
+                        "label": "Assistant",
+                        "required": true
+                    },
+                    {
+                        "name": "threadId",
+                        "type": "text",
+                        "label": "Thread ID"
+                    },
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model"
+                    },
+                    {
+                        "name": "fileIds",
+                        "type": "array",
+                        "label": "File IDs",
+                        "validate": {
+                            "maxItems": 10
+                        },
+                        "spec": {
+                            "type": "select",
+                            "label": "File ID",
+                            "options": [],
+                            "name": "value",
+                            "dynamic": true
+                        }
+                    },
+                    {
+                        "name": "tools",
+                        "type": "select",
+                        "label": "Tools",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "retrieval",
+                                "code_interpreter"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "instructions",
+                        "type": "text",
+                        "label": "Instructions"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 11,
+            "module": "google-docs:appendADocument",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1416296
+            },
+            "mapper": {
+                "choose": "dropdown",
+                "destination": "drive",
+                "document": "/1L_TqYP2AnpEL5O4LVvHBpGRTrmMXFM6MdZ48YUmXrM4",
+                "select": "document",
+                "text": "{{7.result}}{{13.result}}{{4.result}}{{2.result}}{{3.result}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1841,
+                    "y": 5
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "Google Connection (itssssjaaaack@gmail.com)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "choose": {
+                            "label": "By Dropdown"
+                        },
+                        "destination": {
+                            "label": "My Drive"
+                        },
+                        "document": {
+                            "path": [
+                                "Productivity Assistant 😊 "
+                            ]
+                        },
+                        "select": {
+                            "label": "By appending to the body of document"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "choose",
+                        "type": "select",
+                        "label": "Select a Document",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "mapping",
+                                "dropdown"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "destination",
+                        "type": "select",
+                        "label": "Choose a Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "document",
+                        "type": "file",
+                        "label": "Document ID",
+                        "required": true
+                    },
+                    {
+                        "name": "select",
+                        "type": "select",
+                        "label": "Insert a Paragraph",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "location",
+                                "document",
+                                "segment"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "type": "text",
+                        "label": "Appended Text",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com"
+    }
+}

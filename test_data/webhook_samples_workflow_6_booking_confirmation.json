@@ -1,0 +1,30 @@
+{
+  "description": "POST payloads for Workflow 6",
+  "samples": [
+    {
+      "scenario": "Standard confirmation click from dashboard",
+      "expected_result": "Booking confirmation email sent to client with date/time/provider/prep instructions",
+      "payload": {
+        "clientName": "Emma Rodriguez",
+        "clientEmail": "emma.rodriguez@gmail.com",
+        "appointmentDate": "2026-08-05",
+        "appointmentTime": "2:00 PM",
+        "service": "Botox (40 units)",
+        "provider": "Dr. Priya Patel",
+        "prepInstructions": "Avoid blood thinners 24h before. Come with clean skin, no makeup."
+      }
+    },
+    {
+      "scenario": "Same-day booking confirmation",
+      "expected_result": "Confirmation includes 'we're excited to see you TODAY' language",
+      "payload": {
+        "clientName": "Kayla Dubois",
+        "clientEmail": "kayla.dubois@icloud.com",
+        "appointmentDate": "2026-07-28",
+        "appointmentTime": "3:30 PM",
+        "service": "HydraFacial",
+        "provider": "Aesth. Lila Sanchez"
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+lead_id,business_name,city,state_province,country,website,domain,phone,email,specialty,niche,quality_tier,confidence,source,source_wave,enrichment_method,enrichment_confidence
+LANEB-MS-W101-001,Renewal Skin Spa,Grand Rapids,MI,USA,https://www.renewalskinspa.com,renewalskinspa.com,(616) 940-1177,,laser,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-002,Welltopix Med Spa,Grand Rapids,MI,USA,https://welltopixmedspa.com,welltopixmedspa.com,(616) 516-6230,info@welltopixmedspa.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-003,Medical Aesthetics Ann Arbor,Ann Arbor,MI,USA,,medicalaestheticsannarbor.com,(734) 997-5170,,facial-aesthetics,MedSpa,A,medium,web-search,W101-LaneB,yelp,medium
+LANEB-MS-W101-004,RevivajENNZ Medical Aesthetics,Ann Arbor,MI,USA,,revivajennz.com,(734) 407-7997,,injectables,MedSpa,A,medium,web-search,W101-LaneB,yelp,medium
+LANEB-MS-W101-005,TEJMEEL Medical Spa,Ann Arbor,MI,USA,,tejmeel.com,(734) 999-0208,,anti-aging,MedSpa,A,medium,web-search,W101-LaneB,yelp,medium
+LANEB-MS-W101-006,Pure Aesthetics Medical Spa,Dayton,OH,USA,,pureaestheticsmedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-007,Jiva Med Spa,Beavercreek,OH,USA,,jivabeauty.com,,,laser,MedSpa,B,medium,web-search,W101-LaneB,yelp,medium
+LANEB-MS-W101-008,Spa Medicca,Dayton,OH,USA,,spamedicca.com,,,skin,MedSpa,B,medium,web-search,W101-LaneB,yelp,medium
+LANEB-MS-W101-009,Belle Sante Med Spa,Fort Wayne,IN,USA,,bellesante.com,,,injectables,MedSpa,A,medium,web-search,W101-LaneB,yelp,medium
+LANEB-MS-W101-010,Rejuva Medspa,Fort Wayne,IN,USA,,rejuvamedspa.com,,,laser,MedSpa,B,medium,web-search,W101-LaneB,facebook,medium
+LANEB-MS-W101-011,Evolutions Medical & Day Spa,Santa Barbara,CA,USA,https://www.evolutionsmedicalspa.com,evolutionsmedicalspa.com,(805) 687-0212,info@evolutionsmedicalspa.com,laser,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-012,MiraMed and Day Spa,Santa Barbara,CA,USA,https://miramedanddayspa.com,miramedanddayspa.com,,,anti-aging,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-013,Monterey Aesthetics & Medical Spa,Monterey,CA,USA,,montereyaesthetics.com,(831) 705-3010,,injectables,MedSpa,A,medium,web-search,W101-LaneB,yelp,medium
+LANEB-MS-W101-014,Taylor Med Spa,Corpus Christi,TX,USA,https://taylormedspa.com,taylormedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-015,Oceana Luxe Medspa,Corpus Christi,TX,USA,https://oceanaluxemedspa.com,oceanaluxemedspa.com,(361) 994-7500,office@oceanaluxemedspa.com,anti-aging,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-016,Coastal Glo Med Spa,Corpus Christi,TX,USA,https://www.coastalglo.com,coastalglo.com,(361) 273-5005,sammi@coastal-glo.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-017,Halcyon Med Spa,Corpus Christi,TX,USA,https://www.halcyonmedspa.com,halcyonmedspa.com,(361) 452-2637,,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-018,EsthetixMD Spa & Laser Center,Bend,OR,USA,https://www.esthetixmd.com,esthetixmd.com,(541) 330-5551,exhale@esthetixmd.com,laser,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-019,Pure MedSpa,Medford,OR,USA,https://puremedspamedford.com,puremedspamedford.com,(541) 200-2444,,laser,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-020,The District Aesthetic Medspa,Medford,OR,USA,https://aesthetic-district.com,aesthetic-district.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-021,Summit MedAesthetics,Akron,OH,USA,https://summitmedaesthetics.com,summitmedaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-022,ReLux Medical Spa,Akron,OH,USA,https://reluxmedspa.com,reluxmedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-023,Face Forward Aesthetics,Toledo,OH,USA,https://faceforwardaesthetics.com,faceforwardaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-024,MOBO Med Spa,Sylvania,OH,USA,https://northwestohio.mobomedspa.com,mobomedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-025,Ambiance MD Medical Spa,Green Bay,WI,USA,https://ambiancemd.com,ambiancemd.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-026,Indiglo Med Spa,Green Bay,WI,USA,https://indiglomedspa.com,indiglomedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-027,Fine Lines Aesthetics and Wellness,Appleton,WI,USA,https://www.finelinesaestheticsandwellness.com,finelinesaestheticsandwellness.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-028,WishLane Aesthetics & Wellness,Appleton,WI,USA,https://wishlaneaesthetics.com,wishlaneaesthetics.com,(920) 512-8822,Contact@wishlanemedical.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-029,Augusta Facial Aesthetics,Augusta,GA,USA,https://augustafa.com,augustafa.com,(706) 514-2442,,facial-aesthetics,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-030,Studio G Aesthetics Medical Spa,Columbia,SC,USA,https://www.studiogaesthetics.com,studiogaesthetics.com,,,body-contouring,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-031,Vivid Aesthetics,Columbia,SC,USA,https://vividaesthetics.com,vividaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-032,The Medi Spa at Ridgewood Hill,Salem,VA,USA,https://medispava.com,medispava.com,(540) 384-5248,,laser,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-033,Magnolia Medspa,Lynchburg,VA,USA,https://www.magnoliamedspa.org,magnoliamedspa.org,(434) 303-5990,info@medspamagnolia.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-034,Wyndhurst Medical Aesthetics,Lynchburg,VA,USA,https://www.wyndhurstaesthetics.com,wyndhurstaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-035,Agenacare Aesthetics,Roanoke,VA,USA,https://www.agenacareaesthetics.com,agenacareaesthetics.com,,,wellness,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-036,Transformed Aesthetic and Wellness,Frederick,MD,USA,https://www.transformedmedspamd.com,transformedmedspamd.com,(240) 215-0454,info@transformedmedspa.net,anti-aging,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-037,417 Refine,Springfield,MO,USA,https://www.417-refine.com,417-refine.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-038,La Boussole Medical Spa,Joplin,MO,USA,https://laboussolejoplin.com,laboussolejoplin.com,(417) 434-4449,,wellness,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-039,Rejuvenated Medical Spa,Fayetteville,AR,USA,https://rejuvenatedmedspa.com,rejuvenatedmedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-040,Ageless Aesthetics MediSpa,Santa Fe,NM,USA,https://www.agelesssantafe.com,agelesssantafe.com,(505) 473-7546,info@agelesssantafe.com,anti-aging,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-041,Prescott Medical Aesthetics,Prescott,AZ,USA,https://prescottbotox.com,prescottbotox.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-042,Aphrodite Aesthetics & Wellness,Prescott,AZ,USA,https://aphroditeaestheticsaz.com,aphroditeaestheticsaz.com,,,wellness,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-043,Rich Medical Aesthetics,Midland,TX,USA,https://richmedicalaesthetics.com,richmedicalaesthetics.com,(432) 233-1965,richmedicalaesthetics@gmail.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-044,D'vine Beauty Clinic,McAllen,TX,USA,https://www.dvinebeautyclinic.com,dvinebeautyclinic.com,(956) 867-3525,dvinebeautystudio@gmail.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-045,The LC Aesthetics,McAllen,TX,USA,https://www.thelcaesthetics.com,thelcaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-046,Boheme Aesthetics & Wellness,Bellingham,WA,USA,https://www.bohemeaestheticsandwellness.com,bohemeaestheticsandwellness.com,(360) 788-4112,,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-047,Synergy MedAesthetics,Yakima,WA,USA,https://synergymedaesthetics.com,synergymedaesthetics.com,(509) 504-3477,yakima@synergymedaesthetics.com,body-contouring,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-048,Just Aesthetic Nursing,Allentown,PA,USA,https://www.justaestheticnursing.com,justaestheticnursing.com,(610) 400-5100,info@justaestheticnursing.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-049,Valley MedSpa,Allentown,PA,USA,https://www.thevalleymedspa.com,thevalleymedspa.com,(610) 437-5433,,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-050,Reimagine Beauty Med Spa,Lancaster,PA,USA,https://reimaginebeautypa.com,reimaginebeautypa.com,(717) 316-0169,info@reimaginebeauty.com,skin,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-051,Royal Medical Spa,Guelph,ON,Canada,https://www.royalmedicalspa.ca,royalmedicalspa.ca,(226) 501-5884,info@royalmedicalspa.ca,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-052,ArtMed Guelph,Guelph,ON,Canada,https://www.artmed.ca,artmed.ca,,,cosmetic-dermatology,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-053,Revive Medical Spa Barrie,Barrie,ON,Canada,https://revivemedspa.ca,revivemedspa.ca,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-054,North Valley Medical Aesthetics,Barrie,ON,Canada,https://www.northvalleybarrie.com,northvalleybarrie.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-055,Revery Medical Aesthetics,Windsor,ON,Canada,https://www.reverymed.com,reverymed.com,(519) 978-9323,info@reverymed.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-056,SKIN MediSpa Sudbury,Sudbury,ON,Canada,https://skinmedispa.ca,skinmedispa.ca,,,skin,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-057,Jenesis Medical Aesthetics,Sault Ste Marie,ON,Canada,https://www.jenesismedicalaesthetics.ca,jenesismedicalaesthetics.ca,(705) 206-0961,jenesisaesthetics@outlook.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-058,North Okanagan Skin & Laser,Vernon,BC,Canada,https://nosl.ca,nosl.ca,(250) 542-2721,info@nosl.ca,laser,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-059,SO Laser & Skin (South Okanagan),Penticton,BC,Canada,https://www.solaserandskin.ca,solaserandskin.ca,,,laser,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-060,Rise Medical Aesthetics,Nanaimo,BC,Canada,https://www.risemedaesthetics.com,risemedaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-061,Verse Medical Aesthetics,Guildford,Surrey,UK,https://www.versemedicalaesthetics.com,versemedicalaesthetics.com,+44 7476 695696,marta@versemedicalaesthetics.com,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-062,The Nightingale Wellness Clinic,Ipswich,Suffolk,UK,https://nightingalewellnessclinic.co.uk,nightingalewellnessclinic.co.uk,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-063,AB Clinical,Warrington,Cheshire,UK,https://abclinical.co.uk,abclinical.co.uk,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-064,Enhance Clinispa,Bolton,Greater Manchester,UK,https://enhanceclinispa.com,enhanceclinispa.com,,,skin,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-065,Edinburgh Medical Aesthetics,Edinburgh,Scotland,UK,https://www.emaclinic.co.uk,emaclinic.co.uk,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-066,DRVICTORIA Aesthetics,Edinburgh,Scotland,UK,https://drvictoria.co.uk,drvictoria.co.uk,,,anti-aging,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-067,The Stockbridge Clinic,Edinburgh,Scotland,UK,https://stockbridgeclinic.com,stockbridgeclinic.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-068,The Aesthetic Clinic by Fiona Sutherland,Stirling,Scotland,UK,https://www.aestheticclinicbyfiona.co.uk,aestheticclinicbyfiona.co.uk,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-069,CQ Aesthetics,Rockhampton,QLD,Australia,http://cqaesthetics.com.au,cqaesthetics.com.au,,info@cqaesthetics.com.au,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-070,Allure Laser and Skin Studio,Mackay,QLD,Australia,https://www.allureclinic.com.au,allureclinic.com.au,,,laser,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-071,ANO Cosmetics & Skin,Shepparton,VIC,Australia,https://anocosmeticsandskin.com.au,anocosmeticsandskin.com.au,0411 586 424,info@anocosmeticsandskin.com.au,skin,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-072,Pure Aesthetics Clinic,Mandurah,WA,Australia,https://www.pureaestheticsclinic.com.au,pureaestheticsclinic.com.au,+61 481 200 486,Pureaestheticsmandurah@gmail.com,skin,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-073,Amour Medical Aesthetics,Chico,CA,USA,https://amourmedicalaesthetics.com,amourmedicalaesthetics.com,(530) 862-6000,,injectables,MedSpa,A,high,web-search,W101-LaneB,direct-search,high
+LANEB-MS-W101-074,Santa Cruz Med Spa,Santa Cruz,CA,USA,https://www.santacruzmedspa.com,santacruzmedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-075,Pacific Coast Aesthetics,Aptos,CA,USA,https://www.pacificcoastaesthetics.com,pacificcoastaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-076,Aesthetic Med Studio,Springfield,MO,USA,https://aestheticmedstudio.com,aestheticmedstudio.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-077,Bloom Aesthetics,Bend,OR,USA,https://mybloomaesthetics.com,mybloomaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-078,Gemma Wellness Medical Spa,Akron,OH,USA,https://www.gemmawellnessmedicalspa.com,gemmawellnessmedicalspa.com,,,wellness,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-079,Define Aesthetics Chico,Chico,CA,USA,https://www.defineaestheticschico.com,defineaestheticschico.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-080,Nanaimo Botox Clinic,Nanaimo,BC,Canada,https://nanaimobotoxclinic.com,nanaimobotoxclinic.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-081,Vitality Med Spa,Akron,OH,USA,https://www.vitalitymed-spa.com,vitalitymed-spa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-082,Aesthetics of Santa Fe,Santa Fe,NM,USA,https://aestheticsofsantafe.com,aestheticsofsantafe.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-083,Coastal Spa MD,Corpus Christi,TX,USA,https://www.coastalspamd.com,coastalspamd.com,,,wellness,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-084,Best Aesthetics Medspa,Lynchburg,VA,USA,https://www.bestaestheticsmedspa.com,bestaestheticsmedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-085,NW MedAesthetics,Bellingham,WA,USA,https://nwmedaesthetics.com,nwmedaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-086,Ola'nani Medspa,Bellingham,WA,USA,https://olananimedspa.com,olananimedspa.com,,,wellness,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-087,REN Rejuvenation Bar,Green Bay,WI,USA,https://www.renrejuvenationbar.com,renrejuvenationbar.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-088,Breathe Medical Spa,Guelph,ON,Canada,https://www.breathemedspa.ca,breathemedspa.ca,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-089,West End Wellness and Medical Aesthetics,Sudbury,ON,Canada,https://westendaesthetics.ca,westendaesthetics.ca,,,wellness,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-090,Skin Specialists of Fayetteville,Fayetteville,NC,USA,,skinspecialistsoffayetteville.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,facebook,medium
+LANEB-MS-W101-091,Mariposa Med Spa,Santa Fe,NM,USA,https://mariposamedspasf.com,mariposamedspasf.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-092,Bare Alchemy Spa,Springfield,MO,USA,https://www.bare417.com,bare417.com,,,skin,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-093,Eden Aesthetics & Med Spa,Abilene,TX,USA,https://edenmedspatexas.com,edenmedspatexas.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-094,The Glow Medspa,Midland,TX,USA,https://www.theglowmedspa.com,theglowmedspa.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-095,Central Oregon Aesthetics,Bend,OR,USA,https://centraloregonaesthetics.com,centraloregonaesthetics.com,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-096,Renew Medical Spa,Medford,OR,USA,https://www.thespamedford.com,thespamedford.com,,,skin,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-097,First Aesthetics Guildford,Guildford,Surrey,UK,https://firstaesthetics.co.uk,firstaesthetics.co.uk,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-098,Surface Beauty Aesthetics,Edinburgh,Scotland,UK,https://www.surfacebeauty.co.uk,surfacebeauty.co.uk,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-099,Fusion Aesthetics,Bunbury,WA,Australia,https://fusionaesthetics.com.au,fusionaesthetics.com.au,,,injectables,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium
+LANEB-MS-W101-100,Allure Laser & Skin Studio Mackay,Mackay,QLD,Australia,https://www.allureclinic.com.au,allureclinic.com.au,,,laser,MedSpa,B,medium,web-search,W101-LaneB,direct-search,medium

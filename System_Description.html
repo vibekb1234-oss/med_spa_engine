@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedSpa Growth Engine — System Description</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #080e1a;
+      color: #cbd5e1;
+      line-height: 1.75;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1a0a2e 60%, #0f172a 100%);
+      border-bottom: 1px solid #1e293b;
+      padding: 56px 40px 48px;
+    }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .doc-label {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+      color: #be185d; border: 1px solid rgba(190,24,93,0.3);
+      background: rgba(190,24,93,0.08);
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 38px; font-weight: 900; color: #f8fafc; line-height: 1.15; margin-bottom: 16px;
+    }
+    .header h1 span { color: #f472b6; }
+    .header .tagline {
+      font-size: 16px; color: #94a3b8; line-height: 1.75; max-width: 640px; margin-bottom: 28px;
+    }
+    .header-meta {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .meta-tag {
+      background: rgba(255,255,255,0.05); border: 1px solid #1e293b;
+      color: #64748b; font-size: 12px; font-weight: 600;
+      padding: 5px 13px; border-radius: 20px;
+    }
+
+    /* ─── LAYOUT ─── */
+    .body-wrap { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
+
+    /* ─── SECTION ─── */
+    .section { padding: 52px 0; border-bottom: 1px solid #111827; }
+    .section:last-child { border-bottom: none; }
+
+    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+    .section-num {
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+      color: #be185d; min-width: 28px;
+    }
+    .section h2 {
+      font-size: 24px; font-weight: 800; color: #f1f5f9; line-height: 1.2;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    p {
+      font-size: 15px; color: #94a3b8; line-height: 1.85; margin-bottom: 16px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: #e2e8f0; }
+
+    ul, ol {
+      margin: 14px 0 18px 0; padding-left: 0; list-style: none;
+    }
+    ul li, ol li {
+      font-size: 15px; color: #94a3b8; line-height: 1.8;
+      padding: 5px 0 5px 22px; position: relative;
+      border-bottom: 1px solid #0d1424;
+    }
+    ul li:last-child, ol li:last-child { border-bottom: none; }
+    ul li::before {
+      content: '—'; position: absolute; left: 0;
+      color: #be185d; font-weight: 700;
+    }
+    ol { counter-reset: step; }
+    ol li { counter-increment: step; }
+    ol li::before {
+      content: counter(step); position: absolute; left: 0;
+      color: #be185d; font-weight: 800; font-size: 13px;
+    }
+
+    /* ─── SUBHEADING ─── */
+    h3 {
+      font-size: 15px; font-weight: 700; color: #f1f5f9;
+      margin: 28px 0 10px;
+      padding-left: 12px; border-left: 3px solid #be185d;
+    }
+
+    /* ─── PROBLEM BLOCKS ─── */
+    .problem-block {
+      background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
+      padding: 24px 28px; margin-bottom: 16px;
+    }
+    .problem-block:last-of-type { margin-bottom: 0; }
+    .problem-label {
+      font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+      color: #be185d; margin-bottom: 6px;
+    }
+    .problem-title {
+      font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 10px;
+    }
+    .problem-body { font-size: 14px; color: #64748b; line-height: 1.75; }
+
+    /* ─── HOW IT WORKS BLOCKS ─── */
+    .how-block {
+      display: flex; gap: 20px; padding: 24px 0;
+      border-bottom: 1px solid #111827;
+    }
+    .how-block:last-child { border-bottom: none; }
+    .how-icon {
+      font-size: 26px; min-width: 48px; height: 48px;
+      background: #0f172a; border: 1px solid #1e293b; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .how-num {
+      font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #be185d; margin-bottom: 4px;
+    }
+    .how-title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+    .how-body { font-size: 14px; color: #64748b; line-height: 1.75; }
+
+    /* ─── TABLES ─── */
+    .tbl-wrap { overflow-x: auto; margin: 8px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead th {
+      text-align: left; padding: 11px 16px;
+      background: #0f172a; color: #475569;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      border-bottom: 1px solid #1e293b;
+    }
+    tbody td {
+      padding: 13px 16px; border-bottom: 1px solid #0d1424;
+      color: #94a3b8; vertical-align: top; line-height: 1.65;
+    }
+    tbody td:first-child { color: #e2e8f0; font-weight: 600; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: rgba(255,255,255,0.015); }
+    .wf-num-cell {
+      font-size: 12px; font-weight: 800; color: #be185d;
+      background: rgba(190,24,93,0.1); border: 1px solid rgba(190,24,93,0.2);
+      border-radius: 6px; padding: 2px 8px; display: inline-block;
+    }
+    .trigger-badge {
+      font-size: 11px; font-weight: 600; color: #64748b;
+      background: #0f172a; border: 1px solid #1e293b;
+      border-radius: 20px; padding: 2px 10px; white-space: nowrap;
+    }
+
+    /* ─── HIGHLIGHT BOX ─── */
+    .highlight {
+      background: linear-gradient(135deg, #0f1729, #160d2a);
+      border: 1px solid #312e81; border-left: 4px solid #7c3aed;
+      border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 24px 0;
+    }
+    .highlight p { color: #c4b5fd; font-size: 15px; margin: 0; }
+
+    /* ─── CALLOUT ─── */
+    .callout {
+      background: #0f172a; border: 1px solid #1e293b; border-left: 4px solid #be185d;
+      border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 24px 0;
+    }
+    .callout p { color: #cbd5e1; font-size: 15px; margin: 0; }
+    .callout.green {
+      border-left-color: #059669; background: #051510;
+    }
+    .callout.green p { color: #6ee7b7; }
+
+    /* ─── INCLUDES GRID ─── */
+    .includes-group { margin-bottom: 28px; }
+    .includes-group:last-child { margin-bottom: 0; }
+    .includes-group-title {
+      font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;
+      color: #475569; margin-bottom: 10px; padding-bottom: 8px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .includes-item {
+      display: flex; gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid #0d1424;
+    }
+    .includes-item:last-child { border-bottom: none; }
+    .includes-check { color: #34d399; font-size: 14px; flex-shrink: 0; padding-top: 1px; }
+    .includes-name { font-size: 14px; font-weight: 700; color: #e2e8f0; margin-bottom: 2px; }
+    .includes-desc { font-size: 13px; color: #475569; line-height: 1.6; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #050a12; border-top: 1px solid #111827;
+      padding: 28px 40px; text-align: center;
+    }
+    .footer p { font-size: 13px; color: #334155; }
+
+    @media (max-width: 640px) {
+      .header, .body-wrap, .footer { padding-left: 20px; padding-right: 20px; }
+      .header h1 { font-size: 28px; }
+      .how-block { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-inner">
+    <div class="doc-label">System Description Document</div>
+    <h1>MedSpa Growth Engine<br><span>— Complete System Overview</span></h1>
+    <p class="tagline">
+      A done-for-you automation system built specifically for independent MedSpas and aesthetic clinics. Connects Gmail, Google Sheets, and a lightweight automation engine to run client communication, appointment follow-up, review collection, and VIP retention — automatically, in the background, while the clinic owner focuses on treatments.
+    </p>
+    <div class="header-meta">
+      <span class="meta-tag">6 Automated Workflows</span>
+      <span class="meta-tag">17 Automated Actions</span>
+      <span class="meta-tag">Live Dashboard</span>
+      <span class="meta-tag">Google Sheets CRM</span>
+      <span class="meta-tag">Done-For-You Setup</span>
+      <span class="meta-tag">~$20/month to operate</span>
+    </div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+<!-- ═══════════════════════════════════════════
+     01 — WHAT IS IT
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <h2>What Is It?</h2>
+  </div>
+
+  <p>The MedSpa Growth Engine (MGE) is a fully automated client operating system built for independent aesthetic clinics. It handles every client touchpoint a MedSpa needs to run — from the moment a prospect first submits an inquiry, through booking confirmation, appointment reminders, no-show recovery, post-treatment follow-up, review collection, referral asks, long-term retention, and weekly performance reporting — without requiring any ongoing effort from the clinic owner.</p>
+
+  <p>The system runs on three tools: <strong>n8n</strong> (the automation engine, ~$20/month), <strong>Gmail</strong> (the email channel, free), and <strong>Google Sheets</strong> (the CRM and database, free). There is no proprietary software, no per-client seat fee, and no platform lock-in. The clinic owns their own data in their own Google Sheet. The entire system costs approximately $20 per month to operate.</p>
+
+  <div class="highlight">
+    <p>The clinic owner's day-to-day interaction with the system is two button clicks per appointment — one when a booking is confirmed, one when a treatment is completed. Everything else happens automatically.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     02 — THE PROBLEM
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <h2>The Problem It Solves</h2>
+  </div>
+
+  <p>Independent MedSpas lose revenue in four specific, predictable ways. Most owners know the problems exist. None of them have time to fix them manually.</p>
+
+  <div class="problem-block">
+    <div class="problem-label">Problem 1</div>
+    <div class="problem-title">No-shows that never get recovered</div>
+    <div class="problem-body">The average independent MedSpa has an 18–22% no-show rate. At $300–$600 per appointment slot, that is $600–$2,000 in lost revenue every single week. Without automated reminders, clients forget. Without a same-day recovery email, no-shows disappear permanently. Most clinics have neither.</div>
+  </div>
+
+  <div class="problem-block">
+    <div class="problem-label">Problem 2</div>
+    <div class="problem-title">New clients who never come back</div>
+    <div class="problem-body">60–70% of new MedSpa clients never return after their first visit — not because the treatment was poor, but because nobody followed up. There was no rebook nudge at 60 days, no win-back offer at 90 days, no seasonal promotion to stay top of mind. The clinic spent $300–$500 acquiring that client and then never heard from them again.</div>
+  </div>
+
+  <div class="problem-block">
+    <div class="problem-label">Problem 3</div>
+    <div class="problem-title">Almost no Google reviews despite hundreds of satisfied clients</div>
+    <div class="problem-body">Google reviews are how new clients choose a MedSpa. Most independent clinics have 20–40 reviews despite treating thousands of satisfied clients — because asking for reviews feels awkward and never gets done consistently. Competitors with more reviews rank higher, get more calls, and win more bookings regardless of treatment quality.</div>
+  </div>
+
+  <div class="problem-block">
+    <div class="problem-label">Problem 4</div>
+    <div class="problem-title">New inquiries that go cold before anyone responds</div>
+    <div class="problem-body">A prospect finds the clinic on Instagram or Google and submits an inquiry. The clinic owner is in treatment. They see the message three hours later and write back. By then, the prospect has already booked somewhere else or moved on. The window for converting a warm inquiry is short — and manual response cannot compete with an automated instant reply.</div>
+  </div>
+
+  <div class="callout" style="margin-top: 24px;">
+    <p>The MedSpa Growth Engine eliminates all four problems — automatically.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     03 — HOW IT WORKS
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <h2>How It Works</h2>
+  </div>
+
+  <p>The system has three components that work together.</p>
+
+  <div class="how-block">
+    <div class="how-icon">⚡</div>
+    <div>
+      <div class="how-num">Component 1</div>
+      <div class="how-title">The Automation Engine — n8n</div>
+      <div class="how-body">Six workflows running in a cloud-hosted automation platform. Each workflow is an independent process with its own trigger — a webhook that fires on a specific event, or a scheduled timer that runs daily, weekly, or monthly. They run without any input from the clinic owner. Every workflow reads from and writes to the Google Sheet, and sends emails through the clinic's own Gmail account.</div>
+    </div>
+  </div>
+
+  <div class="how-block">
+    <div class="how-icon">📊</div>
+    <div>
+      <div class="how-num">Component 2</div>
+      <div class="how-title">The Database — Google Sheets</div>
+      <div class="how-body">One Google Sheet with three tabs acts as the entire CRM and data layer: <strong>Clients</strong> (full client records — name, email, status, visit count, last visit date, VIP flag, source), <strong>Appointments</strong> (every booking with date, time, service, status, and automation flags that prevent duplicate emails), and <strong>Activity Log</strong> (a timestamped record of every automated action the system takes). The clinic owner never needs to open Google Sheets for day-to-day operations. It is the brain of the system, not the interface.</div>
+    </div>
+  </div>
+
+  <div class="how-block">
+    <div class="how-icon">🖥️</div>
+    <div>
+      <div class="how-num">Component 3</div>
+      <div class="how-title">The Interface — Dashboard + Intake Form</div>
+      <div class="how-body">The clinic owner interacts with the system through two lightweight tools, each opened as a browser bookmark. The <strong>Dashboard</strong> is a live view of clients, appointments, analytics, and system activity — with two action buttons per appointment (📧 Confirm fires Workflow 6 instantly; ✅ Complete fires Workflow 3). The <strong>Intake Form</strong> is a hosted HTML page linked from the clinic's website or Instagram bio — when a prospect submits it, Workflow 1 fires automatically within 30 seconds. That is the entire user interface.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     04 — THE 6 WORKFLOWS
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <h2>The 6 Workflows — What Runs Automatically</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:40px;">#</th>
+          <th>Workflow</th>
+          <th>When</th>
+          <th>What It Does</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="wf-num-cell">1</span></td>
+          <td>Lead Inquiry Intake</td>
+          <td><span class="trigger-badge">Instantly on form submit</span></td>
+          <td>Receives new prospect, sends personalised service info email within 30 seconds, alerts clinic, creates CRM entry. Inquiry follow-up sequence begins automatically if no booking within 3 days.</td>
+        </tr>
+        <tr>
+          <td><span class="wf-num-cell">2</span></td>
+          <td>Appointment Follow-Up Engine</td>
+          <td><span class="trigger-badge">Daily 9am</span></td>
+          <td>Reads all appointments and sends the right email at the right time: 48-hour reminder, 24-hour reminder, same-day no-show recovery, post-treatment check-in the morning after completion, and inquiry follow-ups on days 3, 6, and 9. Duplicate-prevention flags in the sheet ensure each email fires exactly once.</td>
+        </tr>
+        <tr>
+          <td><span class="wf-num-cell">3</span></td>
+          <td>Review &amp; Referral System</td>
+          <td><span class="trigger-badge">On ✅ Complete click</span></td>
+          <td>Marks appointment complete, increments visit count, sends a Google review request 24 hours later. Clients on visit 2+ also receive a referral ask — a discount for their friend and a credit for themselves.</td>
+        </tr>
+        <tr>
+          <td><span class="wf-num-cell">4</span></td>
+          <td>VIP Retention Engine</td>
+          <td><span class="trigger-badge">Monthly on the 1st</span></td>
+          <td>Segments entire client list by days since last visit. Sends a rebook nudge at 60–90 days, a "we miss you" + 10% offer at 90–180 days, a personal win-back at 180+ days. Active clients receive a seasonally themed promotional email. Season is auto-detected.</td>
+        </tr>
+        <tr>
+          <td><span class="wf-num-cell">5</span></td>
+          <td>Weekly Performance Report</td>
+          <td><span class="trigger-badge">Every Monday 8am</span></td>
+          <td>Builds and delivers a full performance summary to the clinic owner's inbox: treatments completed, revenue with week-over-week comparison, no-shows by name, new clients, at-risk clients, pending inquiries, and review collection rate.</td>
+        </tr>
+        <tr>
+          <td><span class="wf-num-cell">6</span></td>
+          <td>Booking Confirmation</td>
+          <td><span class="trigger-badge">On 📧 Confirm click</span></td>
+          <td>Fires the moment the clinic clicks Confirm in the dashboard. Sends a formatted booking confirmation to the client within seconds — appointment details, service, date, time, and pre-arrival instructions. Logs the action to the Activity Sheet.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     05 — WHAT THE OWNER DOES
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <h2>What the Clinic Owner Actually Does</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>How</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Confirm a new booking</td>
+          <td>Open dashboard → Appointments → click 📧 Confirm on the row</td>
+          <td>15 seconds</td>
+        </tr>
+        <tr>
+          <td>Mark a treatment as complete</td>
+          <td>Open dashboard → Appointments → click ✅ Complete on the row</td>
+          <td>15 seconds</td>
+        </tr>
+        <tr>
+          <td>Review performance</td>
+          <td>Read the Monday morning report email</td>
+          <td>2 min/week</td>
+        </tr>
+        <tr>
+          <td>Capture a new inquiry</td>
+          <td>Share the intake form link — system handles everything from there</td>
+          <td>0 min — automatic</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top: 20px;">Everything else — the reminders, the no-show recovery, the review requests, the win-back sequences, the seasonal promotions, the weekly report — happens without the clinic owner doing anything. Total system interaction time for a clinic running 30 appointments per week is approximately 5–8 minutes per week.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     06 — WHAT THE CLIENT EXPERIENCES
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <h2>What the Client Experiences</h2>
+  </div>
+
+  <p>A client who enters the MGE system receives a consistent, professional communication journey at every stage — whether the clinic owner is in treatment, on a call, or asleep.</p>
+
+  <ul>
+    <li>A personalised service information email <strong>within 30 seconds</strong> of submitting an inquiry — pricing, what to expect, and a clear path to booking</li>
+    <li>A formatted <strong>booking confirmation</strong> the moment their appointment is confirmed, with full appointment details and pre-arrival instructions</li>
+    <li>A <strong>48-hour reminder</strong> and a <strong>24-hour reminder</strong> before their appointment — reducing the chance they forget or double-book elsewhere</li>
+    <li>If they miss their appointment, a warm <strong>same-day no-show recovery email</strong> — acknowledging the miss and making it easy to rebook without an awkward phone call</li>
+    <li>A <strong>post-treatment check-in</strong> the morning after their appointment, asking how the results are settling — which builds genuine trust and generates referrals</li>
+    <li>A <strong>Google review request</strong> 24 hours post-appointment, when satisfaction is highest, with a one-click direct link to the review page</li>
+    <li>On their 2nd visit and beyond, a <strong>referral ask</strong> — a discount for a friend and a credit for themselves</li>
+    <li>If they go quiet, a <strong>rebook nudge at 60 days</strong>, a personal offer at 90 days, and a win-back message at 180 days — keeping the relationship alive without effort from the clinic</li>
+    <li><strong>Seasonal promotions</strong> throughout the year, framed as exclusive offers to existing clients</li>
+  </ul>
+
+  <p>They feel attended to — even during the clinic's busiest weeks.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     07 — TECH STACK
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <h2>Technology Stack</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Purpose</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>n8n (cloud)</td>
+          <td>Runs all 6 automation workflows. Handles webhook triggers, scheduled runs, all business logic, and data read/write operations.</td>
+          <td>~$20/month</td>
+        </tr>
+        <tr>
+          <td>Gmail</td>
+          <td>Sends and receives all emails via the clinic's own Gmail account. Reply-to is the clinic email — clients reply directly to the clinic, never a no-reply address.</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td>Google Sheets</td>
+          <td>Three-tab CRM: Clients, Appointments, Activity Log. Connected to n8n via OAuth2. Dashboard reads via the Sheets API v4.</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td>Dashboard (HTML file)</td>
+          <td>Single HTML file opened in Chrome. No server required. Pulls live data from Google Sheets. Action buttons fire n8n webhooks. Works on phone and desktop.</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td>Intake Form (HTML file)</td>
+          <td>Self-contained HTML inquiry form. No third-party service needed. Hosted on GitHub Pages, Netlify, or embedded on any website via iframe.</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td>Google Apps Script</td>
+          <td>Embedded in the Google Sheet. One-click setup of all tabs, headers, and formatting. Loads demo data. Provides fallback booking confirmation if dashboard not in use.</td>
+          <td>Free</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout green" style="margin-top: 20px;">
+    <p><strong>Total tool cost: ~$20/month.</strong> No CRM subscription. No email marketing platform. No virtual assistant. No Zapier. No per-seat pricing. No proprietary platform. The clinic owns their data entirely.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     08 — WHY THIS
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">08</div>
+    <h2>Why This Over Everything Else</h2>
+  </div>
+
+  <h3>vs. Booking Software (Jane App, Mindbody, Vagaro)</h3>
+  <p>Booking platforms handle scheduling and payments. They send basic reminders — nothing more. They have no lapsed-client re-engagement, no review collection, no referral asks, no seasonal promotions, no inquiry capture, and no weekly performance reporting. They also lock the clinic's data inside their platform. The MGE handles everything booking software ignores, runs on tools the clinic already uses, and the clinic keeps full ownership of their data.</p>
+
+  <h3>vs. Hiring a Virtual Assistant</h3>
+  <p>A VA costs $1,000–$2,500 per month, works set hours, takes sick days, forgets tasks when busy, and requires ongoing management. The MGE costs $20 per month, runs 24/7, and never misses a single follow-up. Every touchpoint in the system is either handled automatically or routes replies directly to the clinic owner. There is no category of task a VA would handle that the system does not cover — at a fraction of the cost.</p>
+
+  <h3>vs. Doing It Manually</h3>
+  <p>Manual follow-up gets done when there is time — which means almost never during a busy clinical week. A clinic owner doing 30 treatments per week has no reliable capacity to manually send reminders, chase no-shows, request reviews, re-engage lapsed clients, and follow up with cold inquiries consistently. The work exists as an intention that never becomes a reliable system. The MGE does it consistently, every time, without requiring their time, and never has an off week.</p>
+
+  <h3>vs. Generic Automation Tools (Zapier, Make)</h3>
+  <p>Generic automation tools provide infrastructure — not a system. They require the clinic to build their own workflows, write their own email copy, design their own logic, and debug their own errors. The MGE is pre-built specifically for how MedSpas operate. The email copy, the timing logic, the retention segmentation, the no-show recovery flow, and the review request strategy are all designed for aesthetic clinic client relationships. It arrives configured and working.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     09 — THE BUSINESS CASE
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">09</div>
+    <h2>The Business Case</h2>
+  </div>
+
+  <p>A MedSpa doing 30 treatments per week at a $300 average earns approximately $468,000 in annual revenue. A 22% no-show rate costs that clinic roughly $97,000 per year in empty slots alone — before factoring in lost retention, missed reviews, and cold inquiries.</p>
+
+  <p>The MGE addresses four revenue streams simultaneously:</p>
+
+  <ul>
+    <li><strong>No-show prevention</strong> — reminders cut the no-show rate from 18–22% to 4–8% within the first month. Preventing 5 no-shows per week at $300/slot recovers $78,000 per year.</li>
+    <li><strong>Lapsed client win-back</strong> — monthly retention sequences recover 3–5 clients per month who would have gone elsewhere. At $300 per visit, that is $1,200–$1,800 per month in recovered revenue.</li>
+    <li><strong>Google review velocity</strong> — consistent review collection dominates local search within 3–4 months, driving new client acquisition organically and reducing or eliminating the need for paid advertising.</li>
+    <li><strong>Referral bookings</strong> — the referral ask to returning clients generates 2–4 new bookings per month from people who already trust the clinic.</li>
+  </ul>
+
+  <div class="callout">
+    <p>A solo injector clinic set up on the MGE went from a 22% no-show rate to 4% in 90 days, collected 47 new Google reviews, re-engaged 14 lapsed clients, and recovered $11,200 in directly attributable revenue — in the first quarter alone.</p>
+  </div>
+
+  <p>The system costs $20/month to operate. Most clinics recover that in the first day their no-show rate drops.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     10 — WHAT'S INCLUDED
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <h2>What's Included</h2>
+  </div>
+
+  <p>The MGE is a complete, production-ready system. There is no development work required on delivery.</p>
+
+  <div class="includes-group">
+    <div class="includes-group-title">Automation — 6 n8n Workflows</div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Workflow 1 — Lead Inquiry Intake</div><div class="includes-desc">Webhook triggered. Instant service info email, clinic alert, CRM entry, 3-touch inquiry follow-up.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Workflow 2 — Appointment Follow-Up Engine</div><div class="includes-desc">Daily schedule. 48hr reminders, 24hr reminders, no-show recovery, post-treatment check-ins, inquiry follow-ups.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Workflow 3 — Review &amp; Referral System</div><div class="includes-desc">Webhook triggered. Review request 24hrs post-appointment, referral ask on visit 2+.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Workflow 4 — VIP Retention Engine</div><div class="includes-desc">Monthly schedule. 60/90/180-day lapsed sequences + seasonal promo to active clients.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Workflow 5 — Weekly Performance Report</div><div class="includes-desc">Monday 8am. Revenue, no-shows, at-risk clients, new clients, review rate delivered to owner's inbox.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Workflow 6 — Booking Confirmation</div><div class="includes-desc">Webhook triggered. Instant booking confirmation email from dashboard Confirm button.</div></div></div>
+  </div>
+
+  <div class="includes-group">
+    <div class="includes-group-title">Clinic Tools</div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Live Dashboard</div><div class="includes-desc">Single HTML file. Full CRM view, appointments with action buttons, analytics, no-show panel, settings. Works on any device.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Client Intake Form</div><div class="includes-desc">Self-hosted HTML form. No third-party accounts. Fires Workflow 1 on submission. Deploy in 5 minutes.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Email Preview Tool</div><div class="includes-desc">All 15+ system emails rendered exactly as clients see them — for use during sales demos and screen shares.</div></div></div>
+  </div>
+
+  <div class="includes-group">
+    <div class="includes-group-title">Setup Tools</div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Google Apps Script (MedSpa Engine)</div><div class="includes-desc">Paste and run once. Creates all 3 sheets, headers, validation, and formatting. Loads demo data.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Workflow Configurator</div><div class="includes-desc">Browser tool. Enter 6 values, load all 6 workflow files, download all configured. No manual find-and-replace.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Setup Guide</div><div class="includes-desc">10-step guide from blank Google Sheet to fully live system, with testing instructions.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Client Handoff Email</div><div class="includes-desc">Ready-to-send HTML email for go-live day. Explains what's running, the two daily actions, and week-one expectations.</div></div></div>
+  </div>
+
+  <div class="includes-group">
+    <div class="includes-group-title">Sales Assets</div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Designed One-Pager (HTML)</div><div class="includes-desc">Dark-theme proposal page. All 6 workflows, ROI table, case study results, investment section.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Case Study (HTML)</div><div class="includes-desc">90-day results: $11,200 recovered, 22%→4% no-show rate, 47 new reviews, 14 win-backs. Full timeline and ROI breakdown.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Cold Email Sequence</div><div class="includes-desc">5-email outreach sequence with subject lines, case study results injected, and prospect targeting criteria.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">LinkedIn DM Sequence</div><div class="includes-desc">4-touch sequence from connection request to booked call. Includes Instagram DM adaptation.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Discovery Call Script</div><div class="includes-desc">20-minute call structure with qualifying questions, demo flow, objection handling, and close prompts.</div></div></div>
+    <div class="includes-item"><div class="includes-check">✓</div><div><div class="includes-name">Post-Call Follow-Up Sequence</div><div class="includes-desc">3-email follow-up for after a positive discovery call. Tackles ROI objections and procrastination.</div></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     11 — SETUP & DEPLOYMENT
+═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <h2>Setup and Deployment</h2>
+  </div>
+
+  <p>Full deployment for a new client takes 20–30 minutes. There is no custom development — every workflow is pre-built and every email is pre-written.</p>
+
+  <ol>
+    <li>Create a blank Google Sheet named "MedSpa Growth Engine"</li>
+    <li>Paste the MedSpa_Engine.gs Apps Script, fill in 5 constants (clinic name, email, review link, webhook URLs), run once to create all tabs and formatting</li>
+    <li>Open the Workflow Configurator in Chrome, enter 6 values, load all 6 workflow files, download all configured</li>
+    <li>Create an n8n account, add Google Sheets OAuth2 and Gmail OAuth2 credentials — requires the client's Google login, done on a screen share in approximately 10 minutes</li>
+    <li>Import all 6 configured workflow files into n8n</li>
+    <li>Activate all 6 workflows, copy the Workflow 3 and Workflow 6 webhook URLs</li>
+    <li>Open the dashboard, go to Settings, enter the API key, Sheet ID, webhook URLs, and Google Review link</li>
+    <li>Set 2 constants in the Intake Form HTML file, deploy to GitHub Pages or embed on the client's website</li>
+    <li>Test: submit a test inquiry, confirm and complete a test appointment, verify emails arrive correctly</li>
+    <li>Send the Client Handoff Email — the system is live</li>
+  </ol>
+
+  <div class="callout" style="margin-top: 28px;">
+    <p>The MedSpa Growth Engine was designed for one type of person: a MedSpa owner who is exceptional at treatments and wants every aspect of client communication handled automatically — so they can focus on the work they built the business to do.</p>
+  </div>
+</div>
+
+</div><!-- /body-wrap -->
+
+<div class="footer">
+  <p>MedSpa Growth Engine &nbsp;·&nbsp; Built on n8n · Gmail · Google Sheets &nbsp;·&nbsp; 6 workflows · 17 automated actions · ~$20/month to operate</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Highlighter</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <h1>Text Highlighter</h1>
+  <p>To use this extension:</p>
+  <ol>
+    <li>Highlight text on any webpage.</li>
+    <li>Either right-click and select "Send selected text" or click this extension's icon.</li>
+  </ol>
+  <p>The selected text will be sent to the webhook, and confetti will appear!</p>
+</body>
+</html>

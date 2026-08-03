@@ -1,0 +1,895 @@
+lead_id,business_name,city,state,country,website,domain,phone,email,specialty,niche,source,confidence
+MS-A1-001,Beverly Hills Aesthetic Medics,Beverly Hills,CA,USA,https://www.bhaestheticmedics.com/,bhaestheticmedics.com,(310) 273-4247,,,MedSpa,WebSearch,HIGH
+MS-A1-002,Skin Verse Medical Spa,Beverly Hills,CA,USA,https://skinversemedspa.com/,skinversemedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-003,Beverly Wilshire Aesthetics,Beverly Hills,CA,USA,https://www.clinicalmedspabeverlyhills.com/,clinicalmedspabeverlyhills.com,(424) 453-5340,,,MedSpa,WebSearch,HIGH
+MS-A1-004,iGlow Med Spa,Beverly Hills,CA,USA,https://iglowmedspa.com/,iglowmedspa.com,(310) 652-0544,,,MedSpa,WebSearch,HIGH
+MS-A1-005,Smooth Skin Lounge,Beverly Hills,CA,USA,https://www.smoothskinlounge.com/,smoothskinlounge.com,(818) 308-7703,,,MedSpa,WebSearch,HIGH
+MS-A1-006,Youthfill MD,Beverly Hills,CA,USA,https://www.youthfillmd.com/,youthfillmd.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-007,Beverly Hills Botox Consultants,Beverly Hills,CA,USA,https://www.beverlyhillsbotoxconsultants.com/,beverlyhillsbotoxconsultants.com,(310) 550-7661,contact@bhderm.com,,MedSpa,WebSearch,HIGH
+MS-A1-008,BW Aesthetics,Beverly Hills,CA,USA,https://www.bwaesthetics.com/,bwaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-009,Spa Medica Aesthetic,Los Angeles,CA,USA,https://www.spamedicaaesthetic.com/,spamedicaaesthetic.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-010,MedBeauty LA,Los Angeles,CA,USA,https://www.medbeautyla.com/,medbeautyla.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-011,OU Beauty,Los Angeles,CA,USA,https://oubeauty.com/,oubeauty.com,(213) 617-1682,,,MedSpa,WebSearch,HIGH
+MS-A1-012,Ginille Beauty,Los Angeles,CA,USA,https://ginillebeauty.com/,ginillebeauty.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-013,Cosmetic Injectables Center,Los Angeles,CA,USA,https://cosmeticinjectables.com/,cosmeticinjectables.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-014,Cienega Med Spa,Los Angeles,CA,USA,https://cienegaspa.com/,cienegaspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-015,Marina Medspa,Los Angeles,CA,USA,https://www.marinamedspa.com/,marinamedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-016,Angels Med Spa,Los Angeles,CA,USA,https://angelsmedspa.com/,angelsmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-017,LA Beauty Skin Center,Los Angeles,CA,USA,https://labeautyskincenter.com/,labeautyskincenter.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-018,Skinsation LA,Los Angeles,CA,USA,https://skinsationla.com/,skinsationla.com,(323) 413-2287,,,MedSpa,WebSearch,HIGH
+MS-A1-019,Skin Specifics Medical Spa,Los Angeles,CA,USA,https://www.yelp.com/biz/skin-specifics-medical-spa-los-angeles,,(310) 481-0058,,,MedSpa,WebSearch,HIGH
+MS-A1-020,Medspa of Los Angeles,Los Angeles,CA,USA,https://medspaoflosangeles.com/,medspaoflosangeles.com,(800) 766-1759,,,MedSpa,WebSearch,HIGH
+MS-A1-021,Fix Me Up Medical Spa,Los Angeles,CA,USA,https://fixmeupmedspa.com/,fixmeupmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-022,me.losangeles aesthetics,West Hollywood,CA,USA,https://www.melosangeles.com/,melosangeles.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-023,Luxbae Medical Spa,West Hollywood,CA,USA,https://luxbae.com/,luxbae.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-024,Beauty Vault Med Spa,West Hollywood,CA,USA,https://beautyvaultmedspa.com/,beautyvaultmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-025,Alchemy 43,West Hollywood,CA,USA,https://alchemy43.com/,alchemy43.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-026,Le Jolie Medi Spa,West Hollywood,CA,USA,https://lejoliespa.com/,lejoliespa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-027,Zavant Aesthetics,West Hollywood,CA,USA,https://zavantaesthetics.com/,zavantaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-028,Santa Monica Medical Aesthetics,Santa Monica,CA,USA,https://www.santamonicamedicalaesthetics.com/,santamonicamedicalaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-029,Kalologie Medspa,Santa Monica,CA,USA,https://kalologie.com/our-locations/kalologie-med-spa-in-santa-monica,kalologie.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-030,NakedMD Santa Monica,Santa Monica,CA,USA,https://www.nakedmd.com/pages/med-spa-santa-monica-ca,nakedmd.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-031,Santa Monica MedSpa,Santa Monica,CA,USA,https://santamonicamedspa.md/,santamonicamedspa.md,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-032,Skin by Lovely,Santa Monica,CA,USA,https://www.skinbylovely.com/,skinbylovely.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-033,SkinLab Santa Monica,Santa Monica,CA,USA,https://www.skinlab-la.com/,skinlab-la.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-034,Newport Beach MedSpa,Newport Beach,CA,USA,https://www.newportbeachmedspa.com/,newportbeachmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-035,Beyond Beauty Medical Spa,Newport Beach,CA,USA,https://bbspamed.com/,bbspamed.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-036,Forever Ageless,Newport Beach,CA,USA,https://www.foreveragelessinc.com/,foreveragelessinc.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-037,Amy Berisha Aesthetics,Newport Beach,CA,USA,https://amyberishaaesthetics.com/,amyberishaaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-038,Beyond Newport Med Spa,Newport Beach,CA,USA,https://beyondnewport.com/,beyondnewport.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-039,Grey Aesthetics,Newport Beach,CA,USA,https://greyaestheticsoc.com/,greyaestheticsoc.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-040,Avesta Medical Spa,Newport Beach,CA,USA,https://avestamedspa.com/,avestamedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-041,PCH MedSpa,Newport Beach,CA,USA,https://www.pchmedspa.com/,pchmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-042,Newport Aesthetics,Newport Beach,CA,USA,https://www.newportaesthetics.com/,newportaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-043,Skin Society OC,Newport Beach,CA,USA,https://www.skinsocietyoc.com/,skinsocietyoc.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-044,BioSpa Medical Spa,Newport Beach,CA,USA,https://www.mybiospa.com/,mybiospa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-045,Biologi MD,Newport Beach,CA,USA,https://biologimd.com/,biologimd.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-046,SDBotox,San Diego,CA,USA,https://sdbotox.com/,sdbotox.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-047,Botoxie,San Diego,CA,USA,https://botoxie.co/,botoxie.co,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-048,Synerchi Medical Spa,San Diego,CA,USA,https://synerchimedspa.com/,synerchimedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-049,Emagine Med Spa,San Diego,CA,USA,https://emagine-medspa.com/,emagine-medspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-050,House of Aesthetix,San Diego,CA,USA,https://houseofaesthetix.com/,houseofaesthetix.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-051,Revive Med Spa,San Diego,CA,USA,https://www.revive.md/,revive.md,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-052,ComplexionsRX Med Spa,San Diego,CA,USA,https://complexionsrx.com/,complexionsrx.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-053,Laser Clinique,San Diego,CA,USA,https://www.laser-clinique.com/,laser-clinique.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-054,San Diego Aesthetics and Medspa,San Diego,CA,USA,https://sdamedspa.com/,sdamedspa.com,(619) 303-0988,,,MedSpa,WebSearch,HIGH
+MS-A1-055,Park MedSpa San Diego,San Diego,CA,USA,https://parkmedspa.com/locations/california/san-diego-medspa/,parkmedspa.com,(619) 313-0495,,,MedSpa,WebSearch,HIGH
+MS-A1-056,Be Youthful Aesthetics,San Diego,CA,USA,https://www.beyouthfulaesthetics.com/,beyouthfulaesthetics.com,(858) 618-1156,,,MedSpa,WebSearch,HIGH
+MS-A1-057,The Med Spa Boutique,San Diego,CA,USA,https://theboutiquespa.md/,theboutiquespa.md,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-058,Belladerma Medical Spa,San Diego,CA,USA,https://www.belladerma.com/,belladerma.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-059,Call of Beauty Med Spa,San Diego,CA,USA,https://callofbeautymedspa.com/,callofbeautymedspa.com,(760) 230-2211,,,MedSpa,WebSearch,HIGH
+MS-A1-060,U Laser Med Spa,La Jolla,CA,USA,https://www.ulasermedspa.com/,ulasermedspa.com,(858) 281-4560,,,MedSpa,WebSearch,HIGH
+MS-A1-061,Starlite Aesthetics,La Jolla,CA,USA,https://www.starliteaesthetics.com/,starliteaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-062,La Jolla Medical Spa,La Jolla,CA,USA,https://www.ljmedicalspa.com/,ljmedicalspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-063,iThriveBeauty La Jolla,La Jolla,CA,USA,https://www.ithrivebeauty.com/locations/la-jolla-ca,ithrivebeauty.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-064,Dermacare La Jolla,La Jolla,CA,USA,https://www.dermacaresandiego.com/locations/la-jolla/,dermacaresandiego.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-065,Nob Hill Aesthetics,San Francisco,CA,USA,https://nobhillaesthetics.com/,nobhillaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-066,SKIN Medical Spa,San Francisco,CA,USA,https://www.skinmedicalspa.com/,skinmedicalspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-067,Hayes Valley Medical Esthetics,San Francisco,CA,USA,https://hayesvalleymed.com/,hayesvalleymed.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-068,Sheena Kong Medical Spa,San Francisco,CA,USA,https://www.sheenakong.com/,sheenakong.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-069,Serenity MedSpa,San Francisco,CA,USA,https://serenitymedspa.com/,serenitymedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-070,Elinea SF,San Francisco,CA,USA,https://elineasf.com/,elineasf.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-071,Epi Center MedSpa,San Francisco,CA,USA,https://epicentermedspa.com/,epicentermedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-072,Medspa of San Francisco,San Francisco,CA,USA,https://medspaofsanfrancisco.com/,medspaofsanfrancisco.com,(628) 299-7741,,,MedSpa,WebSearch,HIGH
+MS-A1-074,Selfishly Wellness,San Francisco,CA,USA,https://selfishlyaesthetics.com/,selfishlyaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-075,Palo Alto Laser and Skin Care,Palo Alto,CA,USA,https://paloaltolaser.com/,paloaltolaser.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-076,Total Glow Med Spa,Palo Alto,CA,USA,https://www.totalglow.com/,totalglow.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-077,L and P Aesthetics,Palo Alto,CA,USA,https://www.fortheface.com/,fortheface.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-078,Esthetic Solutions,Scottsdale,AZ,USA,https://estheticsolutions.com,estheticsolutions.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-079,The Comstock,Scottsdale,AZ,USA,https://thecomstock.com/,thecomstock.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-080,Adam and Eve Medical Aesthetics,Scottsdale,AZ,USA,https://www.adamandevemedspa.com/,adamandevemedspa.com,(480) 771-2819,,,MedSpa,WebSearch,HIGH
+MS-A1-081,Joliet Aesthetics Med Spa,Scottsdale,AZ,USA,https://www.jolietaestheticsmedspa.com/,jolietaestheticsmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-082,Scottsdale Med Spa,Scottsdale,AZ,USA,https://scottsdalemedspa.beauty/,scottsdalemedspa.beauty,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-083,DHH Med Spa,Scottsdale,AZ,USA,https://dhhmedspa.com/,dhhmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-084,Zona Med Spa,Scottsdale,AZ,USA,https://zonamedspa.com/,zonamedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-085,Profile Aesthetics,Scottsdale,AZ,USA,https://profileaesthetics.com/,profileaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-086,The Skin Shop Med Spa,Scottsdale,AZ,USA,https://theskinshopmedspascottsdale.com/,theskinshopmedspascottsdale.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-087,Blume Skin Treatment,Scottsdale,AZ,USA,https://blumeskintreatment.com/,blumeskintreatment.com,(480) 699-7999,,,MedSpa,WebSearch,HIGH
+MS-A1-088,DS Skin and Lips Medical Spa,Scottsdale,AZ,USA,https://www.dsskinandlips.com/,dsskinandlips.com,(480) 864-5100,,,MedSpa,WebSearch,HIGH
+MS-A1-089,Rhose Aesthetics,Scottsdale,AZ,USA,https://www.rhoseaesthetics.com/,rhoseaesthetics.com,(623) 526-1222,,,MedSpa,WebSearch,HIGH
+MS-A1-090,Skin Wellness Med Spa,Scottsdale,AZ,USA,https://www.skinwellnessmedspa.com/,skinwellnessmedspa.com,(480) 993-2218,,,MedSpa,WebSearch,HIGH
+MS-A1-091,Phoenix Medspa,Phoenix,AZ,USA,https://phxmedspa.com/,phxmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-092,Rise Aesthetics,Phoenix,AZ,USA,https://riseaesthetics.co/,riseaesthetics.co,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-093,Zensken Med Spa,Phoenix,AZ,USA,https://www.zensken.com/,zensken.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-094,AZ Laser Studio and Medspa,Phoenix,AZ,USA,https://azlaserstudiomedspa.com/,azlaserstudiomedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-095,Suddenly Slimmer Med Spa,Phoenix,AZ,USA,https://www.suddenlyslimmer.com/,suddenlyslimmer.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-096,Sweet Skin Medspa,Phoenix,AZ,USA,https://www.sweetskinphx.com/,sweetskinphx.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-097,Paradise Medspa,Phoenix,AZ,USA,https://paradisemedspa.com/,paradisemedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-098,Innova MedSpa,Phoenix,AZ,USA,https://inmedspa.com/,inmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-099,All About Me Medical Aesthetics,Phoenix,AZ,USA,https://allaboutmeaz.com/,allaboutmeaz.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-100,TMA Medspa,Phoenix,AZ,USA,https://tmamedspa.com/,tmamedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-101,Center for Aesthetic Medicine,Las Vegas,NV,USA,https://www.centerforaestheticmedicine.com/,centerforaestheticmedicine.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-102,Seamless Aesthetics,Las Vegas,NV,USA,https://seamlessaesthetics.com/,seamlessaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-103,Luxe MD Aesthetics,Las Vegas,NV,USA,https://www.luxemdlv.com/,luxemdlv.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-104,Estevez Aesthetics,Las Vegas,NV,USA,https://estevezaesthetics.com/,estevezaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-105,Las Vegas Aesthetics Med Spa,Las Vegas,NV,USA,https://www.lvamedspa.com/,lvamedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-106,White Coat Aesthetics,Las Vegas,NV,USA,https://whitecoataesthetics.com/,whitecoataesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-107,Alpha Medical Aesthetics,Las Vegas,NV,USA,https://alphamedicalaesthetics.com/,alphamedicalaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-108,Medspa LV,Las Vegas,NV,USA,https://medspa-lv.com/,medspa-lv.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-109,Chic la Vie Med Spa,Las Vegas,NV,USA,https://chiclavie.com/,chiclavie.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-110,Henderson Med Spa,Henderson,NV,USA,https://www.hendersonmedspa.com/,hendersonmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-111,BP Royal Medspa,Henderson,NV,USA,https://bproyalmedspa.com/,bproyalmedspa.com,(702) 899-7100,,,MedSpa,WebSearch,HIGH
+MS-A1-112,Tru Beauty By Trevor,Henderson,NV,USA,https://trubeautybytrevor.com/,trubeautybytrevor.com,(702) 852-3110,,,MedSpa,WebSearch,HIGH
+MS-A1-113,Veristic Aesthetics,Henderson,NV,USA,https://veristicaesthetics.com/,veristicaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-114,Sunset Hills Med Spa,Henderson,NV,USA,https://sunsethillsmedspa.com/,sunsethillsmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-115,Sculpted MD Henderson,Henderson,NV,USA,https://www.sculptedmd.com/nevada/henderson/,sculptedmd.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-116,Face Forward Aesthetics,Henderson,NV,USA,https://www.faceforwardaesthetics.com/,faceforwardaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-117,Maintenance Bar,Seattle,WA,USA,https://www.maintenancebar.net/,maintenancebar.net,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-118,Bellora Medical Aesthetics,Seattle,WA,USA,https://belloramedicalaesthetics.com/,belloramedicalaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-119,NuMe Aesthetics,Seattle,WA,USA,https://numeaesthetics.com/,numeaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-120,Seattle Beauty,Seattle,WA,USA,https://seattlebeauty.org/,seattlebeauty.org,(206) 712-5654,,,MedSpa,WebSearch,HIGH
+MS-A1-121,Simplicity Med Spa,Seattle,WA,USA,https://www.simplicitymedspa.com/,simplicitymedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-122,Skinlogic Med Spa,Seattle,WA,USA,https://www.skinlogicmedspa.com/,skinlogicmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-123,Blue Haven Medical Spa,Seattle,WA,USA,https://www.bluehavenmedicalspa.com/,bluehavenmedicalspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-124,La Belle Vie Med Spa,Seattle,WA,USA,https://labelleviemed.com/,labelleviemed.com,(206) 486-3414,,,MedSpa,WebSearch,HIGH
+MS-A1-125,Celsius Med Spa Seattle,Seattle,WA,USA,https://celsiusmedspa.com/seattle,celsiusmedspa.com,(206) 922-3861,,,MedSpa,WebSearch,HIGH
+MS-A1-126,Seattle Aesthetics,Seattle,WA,USA,https://seattleaesthetics.com/,seattleaesthetics.com,(206) 735-7588,,,MedSpa,WebSearch,HIGH
+MS-A1-127,Glowlight Med Spa,Bellevue,WA,USA,https://glowlightmedspa.com/,glowlightmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-128,AMARA Medical Aesthetics,Bellevue,WA,USA,https://www.amaraaestheticsbellevue.com/,amaraaestheticsbellevue.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-129,Muse Medspa,Bellevue,WA,USA,https://www.muse-medspa.com/,muse-medspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-130,Eastside Body and Skin,Bellevue,WA,USA,https://www.eastsidebodyandskin.com/,eastsidebodyandskin.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-131,NewSkin Med Spa,Bellevue,WA,USA,https://www.newskin.com/,newskin.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-132,Flawless Medispa,Bellevue,WA,USA,https://www.flawlessmedispa.com/,flawlessmedispa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-133,Viktorya Wellness and Skincare,Bellevue,WA,USA,https://www.viktoryawellness.com/,viktoryawellness.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-134,The Glow Clinic,Bellevue,WA,USA,https://www.theglowclinic.org/,theglowclinic.org,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-135,Sevid Beauty and Aesthetics,Bellevue,WA,USA,https://sevidbeauty.com/,sevidbeauty.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-136,Annemarie Aesthetics,Bellevue,WA,USA,https://www.annemarieaesthetics.com/,annemarieaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-137,The Clinic Medspa Bellevue,Bellevue,WA,USA,https://theclinicmedspa.com,theclinicmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-138,Natural Rejuvenation Med Spa,Bellevue,WA,USA,https://naturalrejuvenationmedspa.com/,naturalrejuvenationmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-139,Bellaboxx Aesthetics,Bellevue,WA,USA,https://www.bellaboxx.com/,bellaboxx.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-140,Templum Aesthetics,Bellevue,WA,USA,https://templumaw.com/,templumaw.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-141,Mahal Aesthetics,Bellevue,WA,USA,https://www.mahalaesthetics.com/,mahalaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-142,Skintegrity Med Spa,Bellevue,WA,USA,https://www.skintegritymedspa.com/,skintegritymedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-143,Aura Aesthetics,Portland,OR,USA,https://www.aurapdx.com/,aurapdx.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-144,Cosmetiq Medicine,Portland,OR,USA,https://cosmetiqmedicine.com/,cosmetiqmedicine.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-145,Riviere Med Spa,Portland,OR,USA,https://rivierespa.com,rivierespa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-146,Limelight Medical Aesthetics,Portland,OR,USA,https://www.limelightmedicalaesthetics.com/,limelightmedicalaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-147,Fresh Faces RX,Portland,OR,USA,https://freshfacesrx.com/,freshfacesrx.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-148,Refreshed MD,Portland,OR,USA,https://refreshedmd.com/,refreshedmd.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-149,Amelie Med Spa,Portland,OR,USA,https://www.ameliemedspa.com/,ameliemedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-150,Komal Aesthetics and Wellness,Portland,OR,USA,https://www.komalaestheticsandwellness.com/,komalaestheticsandwellness.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-151,Renew Aesthetic Clinic,Portland,OR,USA,https://renewaestheticclinic.com/,renewaestheticclinic.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-152,Meraki Med Aesthetics,Portland,OR,USA,https://merakimedaesthetics.com/,merakimedaesthetics.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-153,In My Own Skin MedSpa,Portland,OR,USA,https://www.inmyownskinmedspa.com/,inmyownskinmedspa.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A1-154,Quenby's Aesthetic and Wellness,Portland,OR,USA,https://quenbyswellnesscenter.com/,quenbyswellnesscenter.com,,,,MedSpa,WebSearch,MEDIUM
+MS-A2-001,Elite Aesthetics NYC,Manhattan,NY,USA,https://eliteaestheticsnyc.com/,eliteaestheticsnyc.com,,,,MedSpa,websearch,HIGH
+MS-A2-002,Manhattan Aesthetics,Manhattan,NY,USA,https://www.manhattan-aesthetics.com/,manhattan-aesthetics.com,212-960-8172,,,MedSpa,websearch,HIGH
+MS-A2-003,Glowtox NYC,Manhattan,NY,USA,https://www.glowtoxnyc.com/,glowtoxnyc.com,,,,MedSpa,websearch,HIGH
+MS-A2-004,Tribeca MedSpa,Manhattan,NY,USA,https://www.tribecamedspa.com/,tribecamedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-005,Beaute Aesthetics New York,Manhattan,NY,USA,https://www.beautenyc.com/,beautenyc.com,,,,MedSpa,websearch,HIGH
+MS-A2-006,Skin City Lab,Manhattan,NY,USA,https://skincitylab.com/,skincitylab.com,,,,MedSpa,websearch,HIGH
+MS-A2-007,Trifecta Med Spa,Manhattan,NY,USA,https://wallstreetbotoxnyc.com/,wallstreetbotoxnyc.com,,,,MedSpa,websearch,HIGH
+MS-A2-008,Dr. Syra Aesthetics & Longevity Institute,Manhattan,NY,USA,https://syraaesthetics.com/,syraaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-009,SoVous Med Spa NYC,Manhattan,NY,USA,https://sovous.com/,sovous.com,,,,MedSpa,websearch,HIGH
+MS-A2-010,UPKEEP Med Spa,Manhattan,NY,USA,https://www.upkeepmedspa.com/,upkeepmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-011,Manhattan Laser,Manhattan,NY,USA,https://manhattan-laser.com/,manhattan-laser.com,,,,MedSpa,websearch,HIGH
+MS-A2-012,Manhattan Medspa,Manhattan,NY,USA,https://www.manhattan-medspa.com/,manhattan-medspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-013,Reset Med Clinic,Manhattan,NY,USA,https://www.resetmedclinic.com/,resetmedclinic.com,,,,MedSpa,websearch,HIGH
+MS-A2-014,Sculpt NYC,Manhattan,NY,USA,https://www.sculptmedspas.com/,sculptmedspas.com,,,,MedSpa,websearch,HIGH
+MS-A2-015,Midtown Medical Spa and Lasers of NYC,Manhattan,NY,USA,https://www.midtownmedicalspalasersnyc.com/,midtownmedicalspalasersnyc.com,,,,MedSpa,websearch,HIGH
+MS-A2-016,Studio Esthetique,Manhattan,NY,USA,https://studioesthetique.com/,studioesthetique.com,,,,MedSpa,websearch,HIGH
+MS-A2-017,Lola Aesthetics & Medical Spa,Brooklyn,NY,USA,https://lolaaestheticsmedispa.com/,lolaaestheticsmedispa.com,,,,MedSpa,websearch,HIGH
+MS-A2-018,New York Aesthetics Brooklyn,Brooklyn,NY,USA,https://brooklynmedicalspa.com/,brooklynmedicalspa.com,347-673-7070,,,MedSpa,websearch,HIGH
+MS-A2-019,PBK Medspa,Brooklyn,NY,USA,https://pbkmedspa.com/,pbkmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-020,N4 Esthetic Clinic,Brooklyn,NY,USA,https://n4estheticclinic.com/,n4estheticclinic.com,,,,MedSpa,websearch,HIGH
+MS-A2-021,L'Elite MediSpa Brooklyn,Brooklyn,NY,USA,https://lelitemedispa.com/,lelitemedispa.com,,,,MedSpa,websearch,HIGH
+MS-A2-022,Aesthetic Island NYC,Brooklyn,NY,USA,https://www.aestheticislandnyc.com/,aestheticislandnyc.com,,,,MedSpa,websearch,HIGH
+MS-A2-023,Dolce Aesthetics NY,Brooklyn,NY,USA,https://dolceaestheticsny.com/,dolceaestheticsny.com,,,,MedSpa,websearch,HIGH
+MS-A2-024,LY Aesthetics,Brooklyn,NY,USA,https://www.lyaesthetics.com/,lyaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-025,Purely Natural Medical Spa,Brooklyn,NY,USA,https://purelynaturalspa.com/,purelynaturalspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-026,Deep Blue Med Spa,Long Island,NY,USA,https://www.deepbluemedspa.com/,deepbluemedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-027,Shore Medical Aesthetics & Anti-Aging,Long Island,NY,USA,https://shoremedaesthetics.com/,shoremedaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-028,Vital Medical Care & Aesthetics,Long Island,NY,USA,https://vmaesthetics.com/,vmaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-029,The Natural Beauty Med Spa,Long Island,NY,USA,https://www.thenaturalbeautymedspa.com/,thenaturalbeautymedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-030,Long Island Med Spa,Long Island,NY,USA,https://longislandmedspa.com/,longislandmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-031,North Shore Medical Spa,Long Island,NY,USA,https://northshorems.com/,northshorems.com,,,,MedSpa,websearch,HIGH
+MS-A2-032,Babe Aesthetics,Long Island,NY,USA,https://www.babeaestheticsny.com/,babeaestheticsny.com,,,,MedSpa,websearch,HIGH
+MS-A2-033,LI Medical Aesthetics,Long Island,NY,USA,https://limedicalaesthetics.com/,limedicalaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-034,Perfect Med Spa,Long Island,NY,USA,https://www.perfectmedspa.com/,perfectmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-035,The Cosmetic Clinic Greenwich,Greenwich,CT,USA,https://thecosmeticclinic.org/,thecosmeticclinic.org,203-399-3678,,,MedSpa,websearch,HIGH
+MS-A2-036,Kallos Medical Aesthetics,Greenwich,CT,USA,https://www.kallosmedicalaesthetics.com/,kallosmedicalaesthetics.com,203-869-2939,,,MedSpa,websearch,HIGH
+MS-A2-037,NaturallYou Med Spa,Greenwich,CT,USA,https://naturallyou.net/,naturallyou.net,,,,MedSpa,websearch,HIGH
+MS-A2-038,Greenwich Medical Spa,Greenwich,CT,USA,https://www.greenwichmedicalspa.com/,greenwichmedicalspa.com,,,,MedSpa,websearch,MEDIUM
+MS-A2-039,Her Secret Medspa,Westchester,NY,USA,https://hsmedspa.com/,hsmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-040,The Formula Medspa,Westchester,NY,USA,https://theformulamedspa.com/,theformulamedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-041,Infinite You MedAesthetics,Westchester,NY,USA,https://infiniteyoumedaesthetics.com/,infiniteyoumedaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-042,Thrive Wellness Mt Kisco,Westchester,NY,USA,https://thrivewellnow.com/,thrivewellnow.com,,,,MedSpa,websearch,HIGH
+MS-A2-043,Aesthetics of Westchester,Westchester,NY,USA,https://www.aestheticsofwestchester.com/,aestheticsofwestchester.com,,,,MedSpa,websearch,HIGH
+MS-A2-044,Kerin Medspa & Laser Center,Westchester,NY,USA,https://www.kerinmedspa.com/,kerinmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-045,SkinCenter Hartsdale,Westchester,NY,USA,https://bestskincenter.com/,bestskincenter.com,,,,MedSpa,websearch,HIGH
+MS-A2-046,Sedora MedSpa,Westchester,NY,USA,https://www.sedoramedspa.com/,sedoramedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-047,Boston Medical Aesthetics,Boston,MA,USA,https://www.bostonmedicalaesthetics.net/,bostonmedicalaesthetics.net,,,,MedSpa,websearch,HIGH
+MS-A2-048,Seaport Medspa,Boston,MA,USA,https://www.seaportmedspa.com/,seaportmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-049,KDR Medspa + Wellness,Boston,MA,USA,https://kathrynrussoaesthetics.com/,kathrynrussoaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-050,Vega Vitality,Boston,MA,USA,https://vegavitality.com/,vegavitality.com,,,,MedSpa,websearch,HIGH
+MS-A2-051,Medical Aesthetics on Tremont,Boston,MA,USA,https://medicalaestheticsontremont.com/,medicalaestheticsontremont.com,,,,MedSpa,websearch,HIGH
+MS-A2-052,Laser MD Medspa,Boston,MA,USA,https://lasermdmedspa.com/,lasermdmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-053,Boston Beautox,Boston,MA,USA,https://www.bostonbeautox.com/,bostonbeautox.com,,,,MedSpa,websearch,HIGH
+MS-A2-054,Newton Medical Aesthetics,Newton,MA,USA,https://www.newtonmedspa.com/,newtonmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-055,Dr. Renee Moran Medical Aesthetics,Newton,MA,USA,https://www.drmoranmedspa.com/,drmoranmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-056,MD Beauty Boston,Newton,MA,USA,https://www.mdbeautyboston.com/,mdbeautyboston.com,,,,MedSpa,websearch,HIGH
+MS-A2-057,Newton Beauty,Newton,MA,USA,https://newtonbeauty.com/,newtonbeauty.com,,,,MedSpa,websearch,HIGH
+MS-A2-058,Skin Tight Medical Spa Newton,Newton,MA,USA,https://skintightmedicalspa.com/,skintightmedicalspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-059,Revive Medical Aesthetics,Philadelphia,PA,USA,https://www.revivephilly.com/,revivephilly.com,,,,MedSpa,websearch,HIGH
+MS-A2-060,Citrine Glow Medispa,Philadelphia,PA,USA,https://www.citrineglowmedispa.com,citrineglowmedispa.com,,,,MedSpa,websearch,HIGH
+MS-A2-061,KP Aesthetics,Philadelphia,PA,USA,https://www.kpaesthetics.com/,kpaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-062,4Ever Young Philadelphia,Philadelphia,PA,USA,https://4everyoungantiaging.com/philadelphia/,4everyoungantiaging.com,,,,MedSpa,websearch,HIGH
+MS-A2-063,Dermacenter,Philadelphia,PA,USA,https://dermacenter.com/,dermacenter.com,,,,MedSpa,websearch,HIGH
+MS-A2-064,Glow Lab MedSpa,Philadelphia,PA,USA,https://glowlabmedspa.net/,glowlabmedspa.net,,,,MedSpa,websearch,HIGH
+MS-A2-065,Studio N MedSpa,Philadelphia,PA,USA,https://www.studionphilly.com/,studionphilly.com,,,,MedSpa,websearch,HIGH
+MS-A2-066,Enigma MediSpa,Philadelphia,PA,USA,https://enigmamedispa.com/,enigmamedispa.com,,,,MedSpa,websearch,HIGH
+MS-A2-067,Serenity AW Medspa,Philadelphia,PA,USA,https://serenityawmedspa.com/,serenityawmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-068,Bloom Facial Plastic Surgery,Bryn Mawr,PA,USA,https://www.bloomfacialplastics.com/,bloomfacialplastics.com,,,,MedSpa,websearch,HIGH
+MS-A2-069,La-Mone Aesthetics,Bryn Mawr,PA,USA,https://www.lamoneaesthetics.com/,lamoneaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-070,Dr. Kelli Yacono Medical and Aesthetics,Bryn Mawr,PA,USA,https://www.drkelliyacono.com/,drkelliyacono.com,,,,MedSpa,websearch,HIGH
+MS-A2-071,Dr. John Lee Surgery / Lux Medspa,Bryn Mawr,PA,USA,https://www.drjohnleesurgery.com/,drjohnleesurgery.com,,,,MedSpa,websearch,HIGH
+MS-A2-072,Skincredible,Bryn Mawr,PA,USA,https://skincredible.com/,skincredible.com,,,,MedSpa,websearch,HIGH
+MS-A2-073,Allure Aesthetics LLC,Bryn Mawr,PA,USA,https://allureaestheticsllc.com/,allureaestheticsllc.com,,,,MedSpa,websearch,HIGH
+MS-A2-074,AnewSkin Medical Spa,Washington,DC,USA,https://www.anewskinmedspa.com/,anewskinmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-075,Blue Sky Laser & Tox,Washington,DC,USA,https://www.blueskylasertox.com/,blueskylasertox.com,,,,MedSpa,websearch,HIGH
+MS-A2-076,Georgetown Allure Med Spa,Washington,DC,USA,https://georgetownallure.com,georgetownallure.com,,,,MedSpa,websearch,HIGH
+MS-A2-077,Vitalify MedSpa,Washington,DC,USA,https://vitalifymedspa.com/,vitalifymedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-078,ProMD Health DC,Washington,DC,USA,https://promdhealth.com/,promdhealth.com,,,,MedSpa,websearch,HIGH
+MS-A2-079,Belmont Plastic Surgery,Washington,DC,USA,https://www.belmontplasticsurgery.com/,belmontplasticsurgery.com,,,,MedSpa,websearch,HIGH
+MS-A2-080,Capital Center for Oral and Maxillofacial Surgery,Washington,DC,USA,https://ccomfs.com/,ccomfs.com,,,,MedSpa,websearch,MEDIUM
+MS-A2-081,Evexia Medspa Bethesda,Bethesda,MD,USA,https://evexiamedspa.com/,evexiamedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-082,NoBe Aesthetics & Wellness,Bethesda,MD,USA,https://www.nobeinjectables.com/,nobeinjectables.com,,,,MedSpa,websearch,HIGH
+MS-A2-083,Fresh Face Bethesda,Bethesda,MD,USA,https://freshfacebethesda.com/,freshfacebethesda.com,,,,MedSpa,websearch,HIGH
+MS-A2-084,Estar Medspa,Bethesda,MD,USA,https://estarmedspa.com/,estarmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-085,Rejuvenate MedSpa Maryland,Bethesda,MD,USA,https://rejuvenatemaryland.com/,rejuvenatemaryland.com,,,,MedSpa,websearch,HIGH
+MS-A2-086,Cosmetic Dermatology Center,Bethesda,MD,USA,https://cosmetic-dermatology-center.com/,cosmetic-dermatology-center.com,,,,MedSpa,websearch,HIGH
+MS-A2-087,Tiam Spa,McLean,VA,USA,https://tiamspa.com/,tiamspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-088,Divine Glow Aesthetic,McLean,VA,USA,https://divineglowaesthetic.com/,divineglowaesthetic.com,,,,MedSpa,websearch,HIGH
+MS-A2-089,DermaGlow Medspa,McLean,VA,USA,https://dermaglowmed.com/,dermaglowmed.com,,,,MedSpa,websearch,HIGH
+MS-A2-090,Lumiere Skin and Laser,McLean,VA,USA,https://lumiereskinandlaser.com/,lumiereskinandlaser.com,,,,MedSpa,websearch,HIGH
+MS-A2-091,Med Spa Tysons,McLean,VA,USA,https://medspatysons.com/,medspatysons.com,,,,MedSpa,websearch,HIGH
+MS-A2-092,Angels Aesthetics DMV,McLean,VA,USA,https://www.angelaestheticsdmv.com/,angelaestheticsdmv.com,,,,MedSpa,websearch,HIGH
+MS-A2-093,The Modern Aesthetic,Charlotte,NC,USA,https://www.themodernaesthetic.co/,themodernaesthetic.co,,,,MedSpa,websearch,HIGH
+MS-A2-094,Ageless Remedies SouthPark,Charlotte,NC,USA,https://agelessremediessouthpark.com/,agelessremediessouthpark.com,,,,MedSpa,websearch,HIGH
+MS-A2-095,Infinity MedSpa and Wellness,Charlotte,NC,USA,https://infinitymedspaandwellness.com/,infinitymedspaandwellness.com,,,,MedSpa,websearch,HIGH
+MS-A2-096,Aesthetica Med Spa Charlotte,Charlotte,NC,USA,https://aestheticamspa.com/,aestheticamspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-097,Voci MedSpa,Charlotte,NC,USA,https://vocimedspa.com/,vocimedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-098,Miramae Studio,Charlotte,NC,USA,https://miramaestudio.com/,miramaestudio.com,,,,MedSpa,websearch,HIGH
+MS-A2-099,Evolve Medical Associates,Charlotte,NC,USA,https://www.evolvemetoday.com/,evolvemetoday.com,,,,MedSpa,websearch,HIGH
+MS-A2-100,Fanous MedSpa,Charlotte,NC,USA,https://www.fanousmedspa.com/,fanousmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-101,Atlanta MediSpa,Atlanta,GA,USA,https://www.atlantamedispa.com/,atlantamedispa.com,,,,MedSpa,websearch,HIGH
+MS-A2-102,AYA Medical Spa Buckhead,Buckhead,GA,USA,https://ayaskin.com/,ayaskin.com,,,,MedSpa,websearch,HIGH
+MS-A2-103,Balanced Aesthetics + Wellness,Atlanta,GA,USA,https://balancedaestheticsmedspa.com/,balancedaestheticsmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-104,The AgeLess Center,Atlanta,GA,USA,https://www.theagelesscenter.com/,theagelesscenter.com,,,,MedSpa,websearch,HIGH
+MS-A2-105,Be Flawless Atlanta,Buckhead,GA,USA,https://beflawlessatlanta.com/,beflawlessatlanta.com,,,,MedSpa,websearch,HIGH
+MS-A2-106,LUX Med Spa Buckhead,Buckhead,GA,USA,https://buckheadplasticsurgery.com/lux-med-spa/,buckheadplasticsurgery.com,,,,MedSpa,websearch,HIGH
+MS-A2-107,Conqr Aesthetics Wellness,Atlanta,GA,USA,https://www.conqraesthetics.com/,conqraesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-108,Ecobel Med Spa,Atlanta,GA,USA,https://ecobelmedspa.com/,ecobelmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-109,Viva MD Atlanta,Atlanta,GA,USA,https://www.vivamd.org/,vivamd.org,,,,MedSpa,websearch,HIGH
+MS-A2-110,Atlanta Medical Aesthetics,Atlanta,GA,USA,https://www.atlantamedicalaesthetics.com/,atlantamedicalaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-111,Derm Clinic M.D.,Atlanta,GA,USA,https://www.dermclinicmd.com/,dermclinicmd.com,,,,MedSpa,websearch,HIGH
+MS-A2-112,Revolution by MKA,Atlanta,GA,USA,https://revolutionbymka.com/,revolutionbymka.com,,,,MedSpa,websearch,HIGH
+MS-A2-113,Truffles Aesthetics,Atlanta,GA,USA,https://www.trufflesaesthetics.com/,trufflesaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-114,Innovative Surgical Arts Medspa,Atlanta,GA,USA,https://www.innovativesurgicalarts.com/,innovativesurgicalarts.com,,,,MedSpa,websearch,HIGH
+MS-A2-115,LuxLift Med Spa,Naples,FL,USA,https://www.luxliftmedspa.com/,luxliftmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-116,Inside Out Med Spa,Naples,FL,USA,https://insideoutmedspa.com/,insideoutmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-117,The Laser Lounge Spa Naples,Naples,FL,USA,https://naples.thelaserloungespa.com/,thelaserloungespa.com,,,,MedSpa,websearch,HIGH
+MS-A2-118,Von & Co Medical Aesthetics Studio,Naples,FL,USA,https://www.vonandcoaesthetics.com/,vonandcoaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-119,Time 4 U Naples,Naples,FL,USA,https://www.time4unaples.com/,time4unaples.com,,,,MedSpa,websearch,HIGH
+MS-A2-120,Dr. Hasen Medical Spa,Naples,FL,USA,https://www.drhasen.com/,drhasen.com,,,,MedSpa,websearch,HIGH
+MS-A2-121,Naples Facial Botox Med Spa,Naples,FL,USA,https://naplesfacialbotoxmedspa.com/,naplesfacialbotoxmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-122,Jewell Medical Spa,Naples,FL,USA,https://www.jewellmedicalspa.com/,jewellmedicalspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-123,Beautysculpt Medical Aesthetics,Naples,FL,USA,https://www.beautysculptmedicalaesthetics.com/,beautysculptmedicalaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-124,The Aesthetics MD and Wellness,Coral Gables,FL,USA,https://www.theaestheticsmd.com/,theaestheticsmd.com,,,,MedSpa,websearch,HIGH
+MS-A2-125,Med Aesthetics Miami,Miami,FL,USA,https://www.medaestheticsmiami.com,medaestheticsmiami.com,,,,MedSpa,websearch,HIGH
+MS-A2-126,Monaco Medical Spa,Miami,FL,USA,https://www.monacomedspa.com/,monacomedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-127,Azala Skin Clinic,Coral Gables,FL,USA,https://www.azalaskinclinic.com/,azalaskinclinic.com,,,,MedSpa,websearch,HIGH
+MS-A2-128,Facial Mania Med Spa,Coral Gables,FL,USA,https://facialmaniamedspamiami.com/,facialmaniamedspamiami.com,,,,MedSpa,websearch,HIGH
+MS-A2-129,The Plump Room,Coral Gables,FL,USA,https://theplumproommiami.com/,theplumproommiami.com,,,,MedSpa,websearch,HIGH
+MS-A2-130,Gables Medical Aesthetics & Wellness,Coral Gables,FL,USA,https://www.gablesaesthetics.com/,gablesaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-131,VIP Aesthetic Center Med Spa,Miami,FL,USA,https://www.vipaestheticcenter.com/,vipaestheticcenter.com,,,,MedSpa,websearch,HIGH
+MS-A2-132,South Florida Face and Body,Miami,FL,USA,https://www.southfloridafaceandbody.com/,southfloridafaceandbody.com,,,,MedSpa,websearch,HIGH
+MS-A2-133,PrivaMedis Aesthetics,Miami,FL,USA,https://www.privamedis.com/,privamedis.com,,,,MedSpa,websearch,HIGH
+MS-A2-134,Miami Wellness And Aesthetics Center,Miami,FL,USA,https://drhamadiya.com/,drhamadiya.com,,,,MedSpa,websearch,HIGH
+MS-A2-135,Be Beautiful Facial Aesthetics,Miami,FL,USA,https://bebeautifulfacialaesthetics.com/,bebeautifulfacialaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-136,Miami Beach Laser & Aesthetics,Miami,FL,USA,https://miamibeachlaserandaesthetics.com/,miamibeachlaserandaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-137,LL Aesthetics Miami,Miami,FL,USA,https://www.llaestheticsmiami.com/,llaestheticsmiami.com,,,,MedSpa,websearch,HIGH
+MS-A2-138,Luminance Aesthetics Miami,Miami,FL,USA,https://www.luminanceaestheticsmiami.com/,luminanceaestheticsmiami.com,,,,MedSpa,websearch,HIGH
+MS-A2-139,The Beauty Clinic,Miami,FL,USA,https://thebeautyclinic.com/,thebeautyclinic.com,,,,MedSpa,websearch,HIGH
+MS-A2-140,FLAUNT Med Spa,Boca Raton,FL,USA,https://www.flaunt-medspa.com/,flaunt-medspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-141,Boca Laser & Medical Spa,Boca Raton,FL,USA,https://bocalasermedicalspa.com/,bocalasermedicalspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-142,Prestige Aesthetics Clinic,Boca Raton,FL,USA,https://pacboca.com/,pacboca.com,,,,MedSpa,websearch,HIGH
+MS-A2-143,Horn Plastic Surgery Med Spa,Boca Raton,FL,USA,https://www.hornplasticsurgery.com/,hornplasticsurgery.com,,,,MedSpa,websearch,HIGH
+MS-A2-144,Elite Medical SPA Boca,Boca Raton,FL,USA,https://drhegedosh.com/,drhegedosh.com,,,,MedSpa,websearch,HIGH
+MS-A2-145,AuraMed Aesthetics,Boca Raton,FL,USA,https://auramedboca.com/,auramedboca.com,,,,MedSpa,websearch,HIGH
+MS-A2-146,Dr. G Med Spa,Boca Raton,FL,USA,https://www.drgmedspa.com/,drgmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-147,All About Aesthetics Med Spa,Boca Raton,FL,USA,https://allaboutaestheticsfl.com/,allaboutaestheticsfl.com,,,,MedSpa,websearch,HIGH
+MS-A2-148,ZenTox Aesthetics,Boca Raton,FL,USA,https://www.zentoxaesthetics.com/,zentoxaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-149,Opulent Medspa,Tampa,FL,USA,https://www.theopulentmedspa.com/,theopulentmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-150,BevelUp MedSpa,Tampa,FL,USA,https://www.bevelup.com/,bevelup.com,,,,MedSpa,websearch,HIGH
+MS-A2-151,Elixir Aesthetics MedSpa,Tampa,FL,USA,https://www.elixiraestheticsmedspa.com/,elixiraestheticsmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-152,Esthetica MedSpa Tampa,Tampa,FL,USA,https://estheticamedspa.com/,estheticamedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-153,Elevate Medical Spa Tampa,Tampa,FL,USA,https://www.elevatetpa.com/,elevatetpa.com,,,,MedSpa,websearch,HIGH
+MS-A2-154,VIVIFY Med Spa Tampa,Tampa,FL,USA,https://www.vivifyps.com/,vivifyps.com,,,,MedSpa,websearch,HIGH
+MS-A2-155,Livia Medspa,Tampa,FL,USA,https://liviamedspa.com/,liviamedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-156,Kiyani Aesthetics,Tampa,FL,USA,https://kiyanimedspa.com/,kiyanimedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-157,Aspire MedSpa and Beauty Bar,Tampa,FL,USA,https://aspiremedspas.com/,aspiremedspas.com,,,,MedSpa,websearch,HIGH
+MS-A2-158,Luxe Med Spa Aesthetics,Orlando,FL,USA,https://www.luxemedspaaesthetics.com/,luxemedspaaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-159,Vitality Aesthetic Orlando,Orlando,FL,USA,https://vitalityaesthetic.com/,vitalityaesthetic.com,,,,MedSpa,websearch,HIGH
+MS-A2-160,Vivify Aesthetics Medspa,Orlando,FL,USA,https://vivifyaestheticsmedspa.com/,vivifyaestheticsmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-161,Boutiq Clinic Orlando,Orlando,FL,USA,https://boutiqclinic.com/,boutiqclinic.com,,,,MedSpa,websearch,HIGH
+MS-A2-162,The Phoenix Clinique,Orlando,FL,USA,https://www.phoenixclinique.com/,phoenixclinique.com,,,,MedSpa,websearch,HIGH
+MS-A2-163,Aloha Aesthetics FL,Orlando,FL,USA,https://www.alohaaestheticsfl.com/,alohaaestheticsfl.com,,,,MedSpa,websearch,HIGH
+MS-A2-164,Bijoux Medspa,Orlando,FL,USA,https://www.bijouxmedspa.com/,bijouxmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-165,The Palm Medspa and Wellness,Orlando,FL,USA,https://thepalmmedspa.com/,thepalmmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-166,Bloom Aesthetics Orlando,Orlando,FL,USA,https://www.bloomaestheticsfl.com/,bloomaestheticsfl.com,,,,MedSpa,websearch,HIGH
+MS-A2-167,Aesthetic Specialists of Houston,Houston,TX,USA,https://www.aestheticspecialistshtx.com/,aestheticspecialistshtx.com,,,,MedSpa,websearch,HIGH
+MS-A2-168,Mederna Aesthetic Medicine,Houston,TX,USA,https://medernaofficial.com/,medernaofficial.com,,,,MedSpa,websearch,HIGH
+MS-A2-169,Artavi Med Spa,Houston,TX,USA,https://www.artavimedspa.com/,artavimedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-170,BotoxRN MedSpa,Houston,TX,USA,https://botoxrn.com/,botoxrn.com,,,,MedSpa,websearch,HIGH
+MS-A2-171,MD Aesthetica,Houston,TX,USA,https://mdamedspa.com/,mdamedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-172,BeYoutiful Anti-Aging Studio,Houston,TX,USA,https://beyoutifulantiaging.com/,beyoutifulantiaging.com,,,,MedSpa,websearch,HIGH
+MS-A2-173,Rose Milk Aesthetics,Houston,TX,USA,https://www.rosemilkaesthetics.com/,rosemilkaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-174,Body BeneFits MedSpa,The Woodlands,TX,USA,https://bodybenefitswoodlands.com,bodybenefitswoodlands.com,,,,MedSpa,websearch,HIGH
+MS-A2-175,Woodlands Aesthetics,The Woodlands,TX,USA,https://www.woodlandsaesthetics.com/,woodlandsaesthetics.com,281-363-4450,,,MedSpa,websearch,HIGH
+MS-A2-176,East Shore Medspa,The Woodlands,TX,USA,https://www.eastshoremedspa.com/,eastshoremedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-177,Evergreen MedSpa Woodlands,The Woodlands,TX,USA,https://myevergreenmedspa.com/,myevergreenmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-178,Dr. Summer Rose MD Aesthetics,The Woodlands,TX,USA,https://drsummerrose.com/,drsummerrose.com,,,,MedSpa,websearch,HIGH
+MS-A2-179,Woodlands Medical Aesthetics Institute,The Woodlands,TX,USA,https://woodlandsmedicalaesthetics.com/,woodlandsmedicalaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-180,Seychelles Med & Laser Spa,The Woodlands,TX,USA,https://seychellesmedspa.com/,seychellesmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-181,Medical-AL Woodlands,The Woodlands,TX,USA,https://www.medical-al.com/,medical-al.com,,,,MedSpa,websearch,HIGH
+MS-A2-182,The Derm Lounge,Dallas,TX,USA,https://thedermlounge.com/,thedermlounge.com,,,,MedSpa,websearch,HIGH
+MS-A2-183,Renew Beauty Med Spa,Dallas,TX,USA,https://renewbeautymedspa.com/,renewbeautymedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-184,Lily Med Spa,Dallas,TX,USA,https://lilymedspa.com/,lilymedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-185,MD Aesthetics Dallas,Dallas,TX,USA,https://www.mdaestheticsdallas.com/,mdaestheticsdallas.com,,,,MedSpa,websearch,HIGH
+MS-A2-186,The Lab Medspa,Dallas,TX,USA,https://www.thelabmedspa.com/,thelabmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-187,Fabutopia Medspa & Aesthetics,Dallas,TX,USA,https://www.fabutopiamedspa.com/,fabutopiamedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-188,Sleek Aesthetics Medspa,Dallas,TX,USA,https://sleek-aesthetics.com/,sleek-aesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A2-189,OMNI Sculpt MD,Dallas,TX,USA,https://omnisculptmd.com/,omnisculptmd.com,,,,MedSpa,websearch,HIGH
+MS-A2-190,Body Lounge Park Cities,Dallas,TX,USA,https://www.bodyloungeparkcities.com/,bodyloungeparkcities.com,,,,MedSpa,websearch,HIGH
+MS-A2-191,Bare Aesthetics Dallas,Dallas,TX,USA,https://www.bareaestheticsdallas.com/,bareaestheticsdallas.com,,,,MedSpa,websearch,HIGH
+MS-A2-192,MedSpa 33,Plano,TX,USA,https://www.medspa33.com/,medspa33.com,,,,MedSpa,websearch,HIGH
+MS-A2-193,Aesthetic Collective Plano,Plano,TX,USA,https://ac-plano.com/,ac-plano.com,,,,MedSpa,websearch,HIGH
+MS-A2-194,U Med Spa,Plano,TX,USA,https://www.umedspa.com/,umedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-195,S Glowic MedSpa,Plano,TX,USA,https://sglowic.com/,sglowic.com,,,,MedSpa,websearch,HIGH
+MS-A2-196,InjectCo,Plano,TX,USA,https://injectco.com/,injectco.com,,,,MedSpa,websearch,HIGH
+MS-A2-197,Starwood Med Spa,Plano,TX,USA,https://starwoodmedspa.com/,starwoodmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-198,Rejuve Med Spa,Dallas,TX,USA,https://www.rejuvemedspa.com/,rejuvemedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-199,Rejuvenate Austin,Austin,TX,USA,https://www.rejuvenateaustin.com/,rejuvenateaustin.com,,,,MedSpa,websearch,HIGH
+MS-A2-200,Innate Beauty,Austin,TX,USA,https://innatebeauty.com/,innatebeauty.com,,,,MedSpa,websearch,HIGH
+MS-A2-201,Maui MedSpa,Austin,TX,USA,https://www.mauimedspa.com/,mauimedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-202,Austin Med Spa,Austin,TX,USA,https://www.austinmedspa.com/,austinmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-203,Aesthetica Med Spa Austin,Austin,TX,USA,https://amedspa.com/,amedspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-204,TOC Medical Spa,Austin,TX,USA,https://www.tocmedicalspa.com/,tocmedicalspa.com,,,,MedSpa,websearch,HIGH
+MS-A2-205,Auveau Medspa,Austin,TX,USA,https://www.auveau.com/,auveau.com,,,,MedSpa,websearch,HIGH
+MS-A2-206,Refine Aesthetics Austin,Austin,TX,USA,https://refineaesthetics.com/,refineaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-001,SKN Yorkville,Toronto,ON,Canada,https://www.yourskn.com/,yourskn.com,,,,MedSpa,websearch,HIGH
+MS-A3-002,MedVSPA Toronto,Toronto,ON,Canada,https://medvspa.com/,medvspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-003,VBeauty Medical Spa Yorkville,Toronto,ON,Canada,https://vbeautyspa.com/,vbeautyspa.com,(416) 839-1771,,,MedSpa,websearch,HIGH
+MS-A3-004,Rejuuv Medi Spa,Toronto,ON,Canada,https://rejuuvmedispa.com/,rejuuvmedispa.com,,,,MedSpa,websearch,HIGH
+MS-A3-005,Dr Torgerson Med Spa Clinic,Toronto,ON,Canada,https://drtorgerson.com/,drtorgerson.com,,,,MedSpa,websearch,MEDIUM
+MS-A3-006,Made in Yorkville (Dr Mike Roskies),Toronto,ON,Canada,https://drmikeroskies.com/,drmikeroskies.com,,,,MedSpa,websearch,HIGH
+MS-A3-007,Refine Cosmetic Clinic,Toronto,ON,Canada,https://vicpark.com/clinics/refine-cosmetic-clinic-toronto/,vicpark.com,,,,MedSpa,websearch,MEDIUM
+MS-A3-008,Signature Cosmetic Clinic,Toronto,ON,Canada,https://signaturemedispa.com/,signaturemedispa.com,,,,MedSpa,websearch,HIGH
+MS-A3-009,The Look Lab Toronto,Toronto,ON,Canada,https://thelooklab.ca/,thelooklab.ca,,,,MedSpa,websearch,HIGH
+MS-A3-010,Reforme Lab,Toronto,ON,Canada,https://reformelab.com/,reformelab.com,,,,MedSpa,websearch,HIGH
+MS-A3-011,Skin Worthy MediSpa,Toronto,ON,Canada,https://www.skinworthy.ca/,skinworthy.ca,,,,MedSpa,websearch,HIGH
+MS-A3-012,Rejuvenation Medical Spa Toronto,Toronto,ON,Canada,https://rejuvenationmedspa.ca/,rejuvenationmedspa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-013,Aafiyat Aesthetics,Mississauga,ON,Canada,https://aafiyataesthetics.com/,aafiyataesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-014,MDA Medical Aesthetics,Mississauga,ON,Canada,https://mdainstitute.ca/,mdainstitute.ca,,,,MedSpa,websearch,HIGH
+MS-A3-015,Distinct Medical Aesthetics,Mississauga,ON,Canada,https://www.distinctmedicalaesthetics.com/,distinctmedicalaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-016,Trends Sassy Medical Spa,Mississauga,ON,Canada,https://trendsassy.ca/,trendsassy.ca,,,,MedSpa,websearch,HIGH
+MS-A3-017,Fyxson Medical Aesthetics,Oakville,ON,Canada,https://fyxsonmedical.com/,fyxsonmedical.com,,,,MedSpa,websearch,HIGH
+MS-A3-018,Vivaderm Medical Aesthetics,Oakville,ON,Canada,https://www.vivaderm.ca/,vivaderm.ca,,,,MedSpa,websearch,HIGH
+MS-A3-019,Sun & Shade Med Spa,Oakville,ON,Canada,https://www.sunandshademedspa.com/,sunandshademedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-020,Rejuvenation Dermatology Oakville,Oakville,ON,Canada,https://oakville.rejuv.ca/,oakville.rejuv.ca,,,,MedSpa,websearch,MEDIUM
+MS-A3-021,TTMSPA,Markham,ON,Canada,https://ttmspa.com/,ttmspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-022,La Vitalité Med Spa,Markham,ON,Canada,https://www.lvmedspa.ca/,lvmedspa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-023,Toronto Medical Aesthetics,Markham,ON,Canada,https://www.tmaclinic.com/,tmaclinic.com,,,,MedSpa,websearch,HIGH
+MS-A3-024,BelleBeauté MedSpa,Markham,ON,Canada,https://bellebeautemedspa.com/,bellebeautemedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-025,EliteMD Aesthetics,Markham,ON,Canada,https://www.elitemdaesthetics.ca/,elitemdaesthetics.ca,,,,MedSpa,websearch,HIGH
+MS-A3-026,M Medi Spa,Markham,ON,Canada,https://mmedispa.ca/,mmedispa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-027,Look Timeless Med Spa,Markham,ON,Canada,https://looktimeless.ca/,looktimeless.ca,,,,MedSpa,websearch,HIGH
+MS-A3-028,Vive Med Spa,Calgary,AB,Canada,https://vivemedspa.ca/,vivemedspa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-029,Calgary MediSpa,Calgary,AB,Canada,https://www.calgarymedispa.com/,calgarymedispa.com,,,,MedSpa,websearch,HIGH
+MS-A3-030,Xthetics Face & Body Sculpt,Calgary,AB,Canada,https://xthetics.ca/,xthetics.ca,,,,MedSpa,websearch,HIGH
+MS-A3-031,Elegance Medispa Calgary,Calgary,AB,Canada,https://elegancecalgary.com/,elegancecalgary.com,,,,MedSpa,websearch,HIGH
+MS-A3-032,Cavabien Spa,Calgary,AB,Canada,https://cavabienspa.com/,cavabienspa.com,,,,MedSpa,websearch,MEDIUM
+MS-A3-033,Juvea Aesthetics,Calgary,AB,Canada,https://juveaaesthetics.ca/,juveaaesthetics.ca,,,,MedSpa,websearch,HIGH
+MS-A3-034,New Skin YYC,Calgary,AB,Canada,https://newskinyyc.ca/,newskinyyc.ca,,,,MedSpa,websearch,HIGH
+MS-A3-035,XMEDISPA,Calgary,AB,Canada,https://www.xmedispa.ca/,xmedispa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-036,EIE MediSpa & Laser Centre,Edmonton,AB,Canada,https://www.eiemedispa.ca/,eiemedispa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-037,External Affairs Medical Spa,Edmonton,AB,Canada,https://www.externalaffairs.ca/,externalaffairs.ca,,,,MedSpa,websearch,HIGH
+MS-A3-038,Glo Skin & Medspa,Edmonton,AB,Canada,https://gloskinmedspa.com/,gloskinmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-039,Albany Cosmetic & Laser Centre,Edmonton,AB,Canada,https://albanylaser.ca/,albanylaser.ca,,,,MedSpa,websearch,HIGH
+MS-A3-040,Youthful You Aesthetics,Edmonton,AB,Canada,https://youthfulyou.ca/,youthfulyou.ca,,,,MedSpa,websearch,HIGH
+MS-A3-041,Bliss MediSpa,Edmonton,AB,Canada,https://www.blissmedispa.ca/,blissmedispa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-042,Utopia Medispa,Edmonton,AB,Canada,https://www.utopiamedispa.ca/,utopiamedispa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-043,MD Spa & Laser Clinic,Edmonton,AB,Canada,https://mdspa.ca/,mdspa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-044,Renue Medical Spa,Vancouver,BC,Canada,https://www.renuemedspa.com/,renuemedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-045,Energy Wellness Medispa,Vancouver,BC,Canada,https://www.energywellnessmedispa.com/,energywellnessmedispa.com,,,,MedSpa,websearch,HIGH
+MS-A3-046,The Vanity Lab,Vancouver,BC,Canada,https://www.thevanitylab.com/,thevanitylab.com,,,,MedSpa,websearch,HIGH
+MS-A3-047,Vancouver Beauty Clinic,Vancouver,BC,Canada,https://www.vancouverbeautyclinic.com/,vancouverbeautyclinic.com,,,,MedSpa,websearch,HIGH
+MS-A3-048,Yaletown Laser Centre,Vancouver,BC,Canada,https://www.yaletownlaser.com/,yaletownlaser.com,,,,MedSpa,websearch,HIGH
+MS-A3-049,SkinCasa,Vancouver,BC,Canada,https://skincasa.com/,skincasa.com,,,,MedSpa,websearch,HIGH
+MS-A3-050,First Avenue Medical Spa,Vancouver,BC,Canada,https://firstavemedicalspa.com/,firstavemedicalspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-051,Kitsilano Skin Care Clinic,Vancouver,BC,Canada,https://kitsilanomedicalaesthetics.com/,kitsilanomedicalaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-052,Vancouver Medi Spa,Vancouver,BC,Canada,https://vancouvermedispa.ca/,vancouvermedispa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-053,Ovo Medi Spa,Vancouver,BC,Canada,https://ovomedispa.com/,ovomedispa.com,,,,MedSpa,websearch,HIGH
+MS-A3-054,Medlife Aesthetics,North Vancouver,BC,Canada,https://www.medlifeaesthetics.com/,medlifeaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-055,Art of Lines MD,North Vancouver,BC,Canada,https://www.artoflinesmd.ca/,artoflinesmd.ca,,,,MedSpa,websearch,HIGH
+MS-A3-056,EverYoung Medical Aesthetic Centre,North Vancouver,BC,Canada,https://everyoungmed.com/,everyoungmed.com,,,,MedSpa,websearch,HIGH
+MS-A3-057,Derma Spa,Victoria,BC,Canada,https://dermaspa.ca/,dermaspa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-058,Philosophy MD,Victoria,BC,Canada,https://philosophymd.com/,philosophymd.com,,,,MedSpa,websearch,HIGH
+MS-A3-059,South Island Medical Aesthetics,Victoria,BC,Canada,https://botoxvictoriabc.com/,botoxvictoriabc.com,,,,MedSpa,websearch,HIGH
+MS-A3-060,Glow Luxe SkinCare & Medispa,Victoria,BC,Canada,https://www.glowluxe.ca/,glowluxe.ca,,,,MedSpa,websearch,HIGH
+MS-A3-061,Beam Beauty Wellness Centre,Victoria,BC,Canada,https://beambeauty.ca/,beambeauty.ca,,,,MedSpa,websearch,HIGH
+MS-A3-062,Victoria Botox Clinic,Victoria,BC,Canada,https://victoriabotoxclinic.com/,victoriabotoxclinic.com,,,,MedSpa,websearch,HIGH
+MS-A3-063,Aestheva Medical Aesthetics,Victoria,BC,Canada,https://aesthevaclinic.ca/,aesthevaclinic.ca,,,,MedSpa,websearch,HIGH
+MS-A3-064,Victoria Rose Aesthetics,Victoria,BC,Canada,https://victoriaroseaesthetics.ca/,victoriaroseaesthetics.ca,,,,MedSpa,websearch,HIGH
+MS-A3-065,GlowUp MediSpa,Ottawa,ON,Canada,https://glowupmedispa.ca/,glowupmedispa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-066,Ottawa Medical Spa,Ottawa,ON,Canada,https://ottawamedicalspa.ca/,ottawamedicalspa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-067,Sublime MediSpa,Ottawa,ON,Canada,https://sublimemedispa.com/,sublimemedispa.com,,,,MedSpa,websearch,HIGH
+MS-A3-068,The Aesthetic Lounge Ottawa,Ottawa,ON,Canada,https://theaestheticlounge.ca/,theaestheticlounge.ca,,,,MedSpa,websearch,HIGH
+MS-A3-069,ODC Medispa,Ottawa,ON,Canada,https://ottawadermcentre.com/odcmedispa/,ottawadermcentre.com,,,,MedSpa,websearch,HIGH
+MS-A3-070,BeautySekrets,Ottawa,ON,Canada,https://beautysekrets.com/,beautysekrets.com,,,,MedSpa,websearch,HIGH
+MS-A3-071,Inskinity,Ottawa,ON,Canada,https://inskinity.ca/,inskinity.ca,,,,MedSpa,websearch,HIGH
+MS-A3-072,Skin Logic Ottawa,Ottawa,ON,Canada,https://skinlogicottawa.com/,skinlogicottawa.com,,,,MedSpa,websearch,HIGH
+MS-A3-073,Refined Image Ottawa,Ottawa,ON,Canada,https://refinedimageottawa.com/,refinedimageottawa.com,,,,MedSpa,websearch,HIGH
+MS-A3-074,Dermaworks,Ottawa,ON,Canada,https://www.dermaworks.com/,dermaworks.com,,,,MedSpa,websearch,HIGH
+MS-A3-075,Danesthetics Medical Design Clinic,Ottawa,ON,Canada,https://danestheticsmedical.com/,danestheticsmedical.com,,,,MedSpa,websearch,HIGH
+MS-A3-076,Capital Aesthetics,Ottawa,ON,Canada,https://www.capitalaesthetics.ca/,capitalaesthetics.ca,,,,MedSpa,websearch,HIGH
+MS-A3-077,ElevateRx Medical Aesthetics,Ottawa,ON,Canada,https://www.elevaterx.ca/,elevaterx.ca,,,,MedSpa,websearch,HIGH
+MS-A3-078,You Derma Medical Aesthetics,Ottawa,ON,Canada,https://youderma.ca/,youderma.ca,,,,MedSpa,websearch,HIGH
+MS-A3-079,Ideal Body Clinic,Montreal,QC,Canada,https://idealbodyclinic.com/,idealbodyclinic.com,,,,MedSpa,websearch,HIGH
+MS-A3-080,Clinimedspa,Montreal,QC,Canada,https://clinimedspa.ca/,clinimedspa.ca,,,,MedSpa,websearch,HIGH
+MS-A3-081,ML Aesthetic Clinic,Montreal,QC,Canada,https://mlaesthetic.ca/,mlaesthetic.ca,,,,MedSpa,websearch,HIGH
+MS-A3-082,Clinique FaceMD,Montreal,QC,Canada,https://cliniquefacemd.com/,cliniquefacemd.com,,,,MedSpa,websearch,HIGH
+MS-A3-083,Clinique Esthétique HoMa,Montreal,QC,Canada,https://drgmansour.com/,drgmansour.com,,,,MedSpa,websearch,HIGH
+MS-A3-084,CHIC Laser Centre,Montreal,QC,Canada,https://www.chiclaser.ca/,chiclaser.ca,,,,MedSpa,websearch,HIGH
+MS-A3-085,Station L Medispa,Montreal,QC,Canada,https://www.stationlmtl.com/,stationlmtl.com,,,,MedSpa,websearch,HIGH
+MS-A3-086,SKN MD,Montreal,QC,Canada,https://sknmd.ca/,sknmd.ca,,,,MedSpa,websearch,HIGH
+MS-A3-087,Old Town Med Spa,Chicago,IL,USA,https://www.oldtownmedspa.com/,oldtownmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-088,Innovative MedSpa Chicago,Chicago,IL,USA,https://www.innovative-medspa.com/,innovative-medspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-089,Better Med Spa,Chicago,IL,USA,https://www.bettermedspa.com/,bettermedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-090,ImageLab Med Spa,Chicago,IL,USA,https://www.imagelabmedspa.com/,imagelabmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-091,Elite Chicago Spa,Chicago,IL,USA,https://elitechicagospa.com/,elitechicagospa.com,,,,MedSpa,websearch,HIGH
+MS-A3-092,Ciao Bella Aesthetics,Lake Forest,IL,USA,https://ciaobellaaesthetic.com/,ciaobellaaesthetic.com,,,,MedSpa,websearch,HIGH
+MS-A3-093,La Beauté Med Spa,Lake Forest,IL,USA,https://www.spalabeaute.com/,spalabeaute.com,,,,MedSpa,websearch,HIGH
+MS-A3-094,The Aesthetic Lounge Lake Forest,Lake Forest,IL,USA,https://theaestheticloungemedspa.com/,theaestheticloungemedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-095,Magdalena European Med Spa,Lake Forest,IL,USA,https://magdalenamedspa.com/,magdalenamedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-096,Skin House,Birmingham,MI,USA,https://skin-house.com/,skin-house.com,,,,MedSpa,websearch,HIGH
+MS-A3-097,Birmingham Skin & Hair Aesthetics,Birmingham,MI,USA,https://birminghamsha.com/,birminghamsha.com,(248) 593-1000,,,MedSpa,websearch,HIGH
+MS-A3-098,Modern Aesthetics + Skin,Birmingham,MI,USA,https://www.modernaestheticsskin.com/,modernaestheticsskin.com,,,,MedSpa,websearch,HIGH
+MS-A3-099,Glam Jail Med Spa,Birmingham,MI,USA,https://glamjail.com/,glamjail.com,,,,MedSpa,websearch,HIGH
+MS-A3-100,AMAE Med Spa,Birmingham,MI,USA,https://birminghammedspa.com/,birminghammedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-101,Elizabeth Face + Body Med Spa,Birmingham,MI,USA,https://www.elizabethmedspa.com/,elizabethmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-102,NuImage Medspa,Detroit,MI,USA,https://www.nuimage-medspa.com/,nuimage-medspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-103,Michigan Medical Spa,Detroit,MI,USA,https://www.michmedspa.com/,michmedspa.com,,,,MedSpa,websearch,MEDIUM
+MS-A3-104,The Aesthetic Method Ferndale,Detroit,MI,USA,https://www.theaestheticmethod.com/,theaestheticmethod.com,,,,MedSpa,websearch,HIGH
+MS-A3-105,Well Labs+ MedSpa,Detroit,MI,USA,https://www.skinboutiquexperts.com/,skinboutiquexperts.com,,,,MedSpa,websearch,HIGH
+MS-A3-106,Revive Medical Spa,Detroit,MI,USA,https://www.revivema.com/,revivema.com,,,,MedSpa,websearch,HIGH
+MS-A3-107,L'Atelier MedSpa,Detroit,MI,USA,https://www.andrewcomptonmd.com/,andrewcomptonmd.com,,,,MedSpa,websearch,MEDIUM
+MS-A3-108,AestheticRx Novi,Detroit,MI,USA,https://aestheticrx.net/,aestheticrx.net,,,,MedSpa,websearch,HIGH
+MS-A3-109,KÜR Modern Medical Aesthetics,Cleveland,OH,USA,https://chooseyourkur.com/,chooseyourkur.com,,,,MedSpa,websearch,HIGH
+MS-A3-110,NUIQ Wellness Lounge & Med Spa,Cleveland,OH,USA,https://www.nuiqwellness.com/,nuiqwellness.com,,,,MedSpa,websearch,HIGH
+MS-A3-111,Confidence Med Spa,Cleveland,OH,USA,https://confidencemedspa.com/,confidencemedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-112,BodyTonic Medspa,Cleveland,OH,USA,https://bodytonicmedspas.com/,bodytonicmedspas.com,,,,MedSpa,websearch,HIGH
+MS-A3-113,Wellness Center of Cleveland,Cleveland,OH,USA,https://wellnesscentercleveland.com/,wellnesscentercleveland.com,,,,MedSpa,websearch,HIGH
+MS-A3-114,The Luxe MedSpa Columbus,Columbus,OH,USA,https://theluxemedicalspa.com/,theluxemedicalspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-116,The Refinery Med Spa,Indianapolis,IN,USA,https://therefinerymedspa.com/,therefinerymedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-117,Lyfe Aesthetics & MedSpa,Indianapolis,IN,USA,https://mylyfemedspa.com/,mylyfemedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-118,The SKN Lab,Indianapolis,IN,USA,https://thesknlabindy.com/,thesknlabindy.com,,,,MedSpa,websearch,HIGH
+MS-A3-119,Ageless Aesthetics Indy,Indianapolis,IN,USA,https://agelessindy.com/,agelessindy.com,,,,MedSpa,websearch,HIGH
+MS-A3-120,Embolden Med Spa,Indianapolis,IN,USA,https://emboldenmedspa.com/,emboldenmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-121,Fundamentals Med Spa,Indianapolis,IN,USA,https://fundamentalsmedspa.com/,fundamentalsmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-122,SimplySkin MedSpa,Indianapolis,IN,USA,https://simplyskinmedspa.com/,simplyskinmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-123,Starsiak Aesthetics,Indianapolis,IN,USA,https://www.starsiakaesthetics.com/,starsiakaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-124,Beautox Bar,Minneapolis,MN,USA,https://www.beautoxbar.com/,beautoxbar.com,,,,MedSpa,websearch,HIGH
+MS-A3-125,Metropolitan Skin Clinic,Minneapolis,MN,USA,https://metropolitanskinclinic.com/,metropolitanskinclinic.com,(952) 288-2230,,,MedSpa,websearch,HIGH
+MS-A3-126,The Clinic for Medical Aesthetics,Minneapolis,MN,USA,https://www.theclinicmn.com/,theclinicmn.com,,,,MedSpa,websearch,HIGH
+MS-A3-127,Skin Artisans,Minneapolis,MN,USA,https://skinartisans.com/,skinartisans.com,,,,MedSpa,websearch,HIGH
+MS-A3-128,MK Aesthetics,Minneapolis,MN,USA,https://www.mkaesthetics.com/,mkaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-129,Pure Lux Medspa,Minneapolis,MN,USA,https://www.mypurelux.com/,mypurelux.com,,,,MedSpa,websearch,HIGH
+MS-A3-130,Medspa of Minneapolis,Minneapolis,MN,USA,https://medspaofminneapolis.com/,medspaofminneapolis.com,,,,MedSpa,websearch,HIGH
+MS-A3-131,Anew Medspa Clinic,Minneapolis,MN,USA,https://www.medspa.clinic/,medspa.clinic,,,,MedSpa,websearch,HIGH
+MS-A3-132,TC Medspa,Minneapolis,MN,USA,https://www.tcmedspas.com/,tcmedspas.com,,,,MedSpa,websearch,HIGH
+MS-A3-133,Aestheticare STL,St. Louis,MO,USA,https://aestheticarestl.com/,aestheticarestl.com,,,,MedSpa,websearch,HIGH
+MS-A3-134,The Saint Louis Med Spa,St. Louis,MO,USA,https://thesaintlouismedspa.com/,thesaintlouismedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-135,Modern Med STL,St. Louis,MO,USA,https://www.modernmedstl.com/,modernmedstl.com,,,,MedSpa,websearch,HIGH
+MS-A3-136,Metro Medspa,St. Louis,MO,USA,https://www.metromedspa.com/,metromedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-137,St. Louis Skin Solutions,St. Louis,MO,USA,https://stlouisskin.com/,stlouisskin.com,,,,MedSpa,websearch,HIGH
+MS-A3-138,Aesthetically Pleasing Medspa,St. Louis,MO,USA,https://www.apstlmedspa.com/,apstlmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-139,Avani Derm Spa,St. Louis,MO,USA,https://www.avanidermspa.com/,avanidermspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-140,Ladue Medical Spa,St. Louis,MO,USA,https://www.laduemedspa.com/,laduemedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-141,Cherry Medical Aesthetics,Denver,CO,USA,https://cherrymedispa.com/,cherrymedispa.com,,,,MedSpa,websearch,HIGH
+MS-A3-142,Look Lab Med Spa Cherry Creek,Denver,CO,USA,https://looklab.com/,looklab.com,,,,MedSpa,websearch,HIGH
+MS-A3-143,Jack Zamora MD Cosmetic Surgery & Aesthetics,Denver,CO,USA,https://www.jackzamoramd.com/,jackzamoramd.com,,,,MedSpa,websearch,MEDIUM
+MS-A3-144,The Cherry Creek MedSpa,Denver,CO,USA,https://www.thecherrycreekmedspa.com/,thecherrycreekmedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-145,La Fontaine Aesthetics,Denver,CO,USA,https://www.denverfusionspa.com/,denverfusionspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-146,GATTONI Medical Aesthetics & Wellness,Denver,CO,USA,https://gattonimed.com/,gattonimed.com,,,,MedSpa,websearch,HIGH
+MS-A3-147,Gleam Med Spa,Denver,CO,USA,https://gleammedspa.com/,gleammedspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-148,Mōv Aesthetics,Boulder,CO,USA,https://www.movaesthetics.com/,movaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-149,Skin Deep MD,Boulder,CO,USA,https://www.skindeepmd.com/,skindeepmd.com,,,,MedSpa,websearch,HIGH
+MS-A3-150,The Luxe Room Cosmetic,Boulder,CO,USA,https://www.luxeroomcosmetic.com/,luxeroomcosmetic.com,,,,MedSpa,websearch,HIGH
+MS-A3-151,Boulder Bliss Medical Spa,Boulder,CO,USA,https://www.boulderblissmedicalspa.com/,boulderblissmedicalspa.com,,,,MedSpa,websearch,HIGH
+MS-A3-152,Boulder Aesthetics & Intimate Wellness,Boulder,CO,USA,https://www.boulderaesthetics.com/,boulderaesthetics.com,,,,MedSpa,websearch,HIGH
+MS-A3-153,Youthbar,Boulder,CO,USA,https://www.youthbar.com/,youthbar.com,,,,MedSpa,websearch,HIGH
+MS-A3-154,Leah Nickie Advanced Aesthetics,Boulder,CO,USA,https://www.leahnickie.com/,leahnickie.com,,,,MedSpa,websearch,HIGH
+MS-W2S-001,VIP Aesthetics LA,Los Angeles,CA,US,https://vipaestheticsla.com,vipaestheticsla.com,,,mens,MedSpa,web,HIGH
+MS-W2S-002,Lushful Aesthetics,New York,NY,US,https://lushfulaesthetics.com,lushfulaesthetics.com,,,mens,MedSpa,web,HIGH
+MS-W2S-003,Mara's Med Spa,Dallas,TX,US,https://marasmedspa.com,marasmedspa.com,,,mens,MedSpa,web,HIGH
+MS-W2S-004,Sanjiva Medical Spa,Dallas,TX,US,https://sanjivamedspa.com,sanjivamedspa.com,,,mens,MedSpa,web,HIGH
+MS-W2S-005,Aesteem Aesthetics,Dallas,TX,US,https://aesteemaesthetics.com,aesteemaesthetics.com,,,mens,MedSpa,web,HIGH
+MS-W2S-006,Fresh Image Cosmetic,Dallas,TX,US,https://freshimagecenter.com,freshimagecenter.com,,,mens,MedSpa,web,HIGH
+MS-W2S-007,DRIP Health & MedSpa,Miami Lakes,FL,US,https://driphealthandmedspa.com,driphealthandmedspa.com,,,mens,MedSpa,web,HIGH
+MS-W2S-008,Arviv Medical Aesthetics,Miami,FL,US,https://arvivaesthetics.com,arvivaesthetics.com,,,mens,MedSpa,web,HIGH
+MS-W2S-009,Miami Men's,Miami,FL,US,https://miamimens.com,miamimens.com,,,mens,MedSpa,web,HIGH
+MS-W2S-010,Florida Men's Health Center,Miami,FL,US,https://floridamenshealth.com,floridamenshealth.com,,,mens,MedSpa,web,HIGH
+MS-W2S-011,BAWA Medical,Miami,FL,US,https://bawamedical.com,bawamedical.com,,,mens,MedSpa,web,HIGH
+MS-W2S-012,Smooth Synergy MedSpa,New York,NY,US,https://smoothsynergy.com,smoothsynergy.com,,,mens,MedSpa,web,HIGH
+MS-W2S-013,Anand Medical Spa,New York,NY,US,https://anandmedicalspa.com,anandmedicalspa.com,,,mens,MedSpa,web,HIGH
+MS-W2S-014,Skin Perfect Medical,Los Angeles,CA,US,https://skinperfectmedical.com,skinperfectmedical.com,,,mens,MedSpa,web,HIGH
+MS-W2S-015,Brentwood Medical Aesthetics,Los Angeles,CA,US,https://brentwoodmedicalaesthetics.com,brentwoodmedicalaesthetics.com,,,mens,MedSpa,web,HIGH
+MS-W2S-016,Mary Lee Amerian MD Dermatology,Santa Monica,CA,US,https://maryleeamerian.com,maryleeamerian.com,,,mens,MedSpa,web,HIGH
+MS-W2S-017,Derm LA,Los Angeles,CA,US,https://dermla.com,dermla.com,,,mens,MedSpa,web,HIGH
+MS-W2S-018,Chicago Skin Clinic,Chicago,IL,US,https://chicagoskinclinic.com,chicagoskinclinic.com,,,mens,MedSpa,web,HIGH
+MS-W2S-019,Chicago Aesthetics,Chicago,IL,US,https://chicagoaesthetics.com,chicagoaesthetics.com,,,mens,MedSpa,web,HIGH
+MS-W2S-020,Elysium Chicago,Chicago,IL,US,https://elysiumchicago.com,elysiumchicago.com,,,mens,MedSpa,web,HIGH
+MS-W2S-021,OB Men Houston,Houston,TX,US,https://houstonmensclinic.com,houstonmensclinic.com,,,mens,MedSpa,web,HIGH
+MS-W2S-022,Whole Beauty Institute,Chicago,IL,US,https://johnqcookmd.com,johnqcookmd.com,,,mens,MedSpa,web,HIGH
+MS-W2S-023,Neighborhood Wellness Clinic,Houston,TX,US,https://neighborhoodwellnessclinic.com,neighborhoodwellnessclinic.com,,,mens,MedSpa,web,HIGH
+MS-W2S-024,Beso Wellness & Beauty,Phoenix,AZ,US,https://besowb.com,besowb.com,,,mens,MedSpa,web,HIGH
+MS-W2S-025,The SHAW Center,Scottsdale,AZ,US,https://theshawcenter.com,theshawcenter.com,,,mens,MedSpa,web,HIGH
+MS-W2S-026,Body Preserve,Scottsdale,AZ,US,https://bodypreserve.com,bodypreserve.com,,,mens,MedSpa,web,HIGH
+MS-W2S-027,AdmireMD Skin Care,Scottsdale,AZ,US,https://admireplasticsurgery.com,admireplasticsurgery.com,,,mens,MedSpa,web,HIGH
+MS-W2S-028,NY Drip Lounge,New York,NY,US,https://nydriplounge.com,nydriplounge.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-029,NutriDrip,New York,NY,US,https://nutridrip.com,nutridrip.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-030,The Drip Doc,New York,NY,US,https://dripdocwellness.com,dripdocwellness.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-031,Manhattan IV Therapy,New York,NY,US,https://manhattanivtherapy.com,manhattanivtherapy.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-032,ReBalance NYC,New York,NY,US,https://rebalancenyc.com,rebalancenyc.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-033,The IV Doc,New York,NY,US,https://theivdoc.com,theivdoc.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-034,Forbidden Wellness,New York,NY,US,https://forbiddenwell.com,forbiddenwell.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-035,IV Drips,New York,NY,US,https://ivdrips.com,ivdrips.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-036,IV Drip Lounge,Los Angeles,CA,US,https://ivdriplounge.com,ivdriplounge.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-037,Vitality IV Drip,Los Angeles,CA,US,https://vitalityivdrip.com,vitalityivdrip.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-038,IV Pros,Los Angeles,CA,US,https://iv-pros.com,iv-pros.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-039,ModMD,Los Angeles,CA,US,https://modmd.com,modmd.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-040,Next Health,West Hollywood,CA,US,https://next-health.com,next-health.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-041,Liquivida,Miami,FL,US,https://liquivida.com,liquivida.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-042,Everliv Mia,Miami,FL,US,https://everlivmia.com,everlivmia.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-043,VitaSquad,Miami,FL,US,https://vitasquad.com,vitasquad.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-044,Covalent Health,Miami,FL,US,https://covalenthealth.org,covalenthealth.org,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-045,Hypervida,Miami,FL,US,https://hypervida.com,hypervida.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-046,vIVe Hydration Therapy,Austin,TX,US,https://viveiv.com,viveiv.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-047,Alive and Well,Austin,TX,US,https://aliveandwell.health,aliveandwell.health,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-048,Infinite Dripz,Dallas,TX,US,https://infinitedripz.com,infinitedripz.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-049,The Drip Lounge,Atlanta,GA,US,https://thedriplounge.com,thedriplounge.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-050,Hydrate IV Bar,Atlanta,GA,US,https://hydrateivbar.com,hydrateivbar.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-051,Rejuvaa Wellness Bar,Atlanta,GA,US,https://rejuvaawellnessbar.com,rejuvaawellnessbar.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-052,IntraVenous Solutions,Nashville,TN,US,https://ivsolns.com,ivsolns.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-053,IV Liquid Lounge,Charlotte,NC,US,https://ivliquidlounge.com,ivliquidlounge.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-054,Elite Mobile IV,Charlotte,NC,US,https://elitemobileiv.com,elitemobileiv.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-055,creatIV Hydration,San Diego,CA,US,https://creativhydration.com,creativhydration.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-056,DRIP Haven,San Diego,CA,US,https://ivdriphaven.com,ivdriphaven.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-057,Saffron Sage Living IV Lounge,San Diego,CA,US,https://saffronsageliving.com,saffronsageliving.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-058,LIVV Natural,San Diego,CA,US,https://livvnatural.com,livvnatural.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-059,ActIVate Drip Spa,Houston,TX,US,https://activatedripspa.com,activatedripspa.com,,,iv-lounge,MedSpa,web,HIGH
+MS-W2S-060,AsandraMD Anti-Aging,Beverly Hills,CA,US,https://asandramd.com,asandramd.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-061,Dr. Jonathan Sykes,Beverly Hills,CA,US,https://drjonathansykes.com,drjonathansykes.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-062,Dr. Vallecillos,Beverly Hills,CA,US,https://drvallecillos.com,drvallecillos.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-063,Beverly Hills Rejuvenation Center,Beverly Hills,CA,US,https://bhrcenter.com,bhrcenter.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-064,Physique26,Beverly Hills,CA,US,https://physique26.com,physique26.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-065,Done by Dorfman,Beverly Hills,CA,US,https://donebydorfman.com,donebydorfman.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-066,Dr. Monika Kiripolsky,Beverly Hills,CA,US,https://drkiripolsky.com,drkiripolsky.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-067,Michael Yoo MD,Newport Beach,CA,US,https://myoomd.com,myoomd.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-068,Behuemn,Houston,TX,US,https://behuemn.com,behuemn.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-069,JustMelt Med Spa,New York,NY,US,https://justmelt.com,justmelt.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-070,Family Medicine NYC,New York,NY,US,https://familymedicinenyc.com,familymedicinenyc.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-071,Skinly Aesthetics,New York,NY,US,https://skinlyaesthetics.com,skinlyaesthetics.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-072,MD365,New York,NY,US,https://md365.org,md365.org,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-073,Dr. Jennifer Levine,New York,NY,US,https://drjenniferlevine.com,drjenniferlevine.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-074,Eastchester Medical Associates,Bronx,NY,US,https://eastchestermedicalassociates.com,eastchestermedicalassociates.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-075,XSculpt,Chicago,IL,US,https://xsculpt.com,xsculpt.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-076,Med 44 Arcadia,Phoenix,AZ,US,https://med44arcadia.com,med44arcadia.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-077,Craft MD,Scottsdale,AZ,US,https://drcraft.com,drcraft.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-078,Valley Medical Weight Loss,Phoenix,AZ,US,https://valleymedicalweightloss.com,valleymedicalweightloss.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-079,Tirzepatide Clinic,Scottsdale,AZ,US,https://tirzepatide.clinic,tirzepatide.clinic,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-080,The Skin Clinic Scottsdale,Scottsdale,AZ,US,https://theskinclinicaz.com,theskinclinicaz.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-081,The Perfect Dose,Scottsdale,AZ,US,https://theperfectdose.com,theperfectdose.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-082,Florida's Premier Wellness Medical Group,Tampa,FL,US,https://flpwmg.com,flpwmg.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-083,Roots Wellness Tampa,Tampa,FL,US,https://rootstampa.com,rootstampa.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-084,Florida Regenerative,Tampa,FL,US,https://floridaregenerative.com,floridaregenerative.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-085,Fidelity Medical Clinic,Tampa,FL,US,https://fidelitymedicalclinic.com,fidelitymedicalclinic.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-086,Khrom MedSpa,Coral Springs,FL,US,https://khrommedspaflorida.com,khrommedspaflorida.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-087,Florida Weight Loss MD,North Miami,FL,US,https://floridaweightlossmd.com,floridaweightlossmd.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-088,Alpha Omega Wellness,Tampa,FL,US,https://alphaomegawellnessfl.com,alphaomegawellnessfl.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-089,Tampa Health Center,Tampa,FL,US,https://tampahealthcenter.com,tampahealthcenter.com,,,weight-loss,MedSpa,web,HIGH
+MS-W2S-090,Beverly Hills Hair Group,Beverly Hills,CA,US,https://beverlyhillshairgroup.com,beverlyhillshairgroup.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-091,Dr. Torkian Facial Plastic Surgery,Beverly Hills,CA,US,https://drtorkian.com,drtorkian.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-092,NassifMD MedSpa,Beverly Hills,CA,US,https://nassifmdmedspa.com,nassifmdmedspa.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-093,Dr. Jimmy Firouz,Beverly Hills,CA,US,https://drfirouz.com,drfirouz.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-094,Beverly Hills Hair Restoration,Beverly Hills,CA,US,https://beverlyhillshr.com,beverlyhillshr.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-095,Nazarian Plastic Surgery,Beverly Hills,CA,US,https://nazarianplasticsurgery.com,nazarianplasticsurgery.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-096,LMC Laser Medical Clinic,Toronto,ON,CA,https://lasermedicalclinic.com,lasermedicalclinic.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-097,Novoskin Cosmetic Clinic,Toronto,ON,CA,https://novoskin.life,novoskin.life,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-098,SkinMed Clinic Toronto,Toronto,ON,CA,https://skinmedclinic.com,skinmedclinic.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-099,PRP Therapy,Toronto,ON,CA,https://prptherapy.ca,prptherapy.ca,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-100,Serene Cosmetic Clinic,Toronto,ON,CA,https://serenecosmeticclinic.ca,serenecosmeticclinic.ca,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-101,Skin Vitality,Toronto,ON,CA,https://skinvitality.ca,skinvitality.ca,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-102,Toronto Beauty Clinic,Toronto,ON,CA,https://torontobeautyclinic.ca,torontobeautyclinic.ca,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-103,Dr. Hong Med Spa,Newton,MA,US,https://drhongmedspa.com,drhongmedspa.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-104,Krauss Dermatology,Wellesley,MA,US,https://kraussdermatology.com,kraussdermatology.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-105,Luxury Hair Suites,New York,NY,US,https://luxuryhairsuites.com,luxuryhairsuites.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-106,NeoGraft Hair Transplant NY,New York,NY,US,https://neografthairtransplantny.com,neografthairtransplantny.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-107,Nova Hair Transplant,New York,NY,US,https://novahairtransplantnyc.com,novahairtransplantnyc.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-108,StudioMD Midtown,New York,NY,US,https://thestudiomd.com,thestudiomd.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-109,Dr. Senderoff Hair Transplant,New York,NY,US,https://drsenderoff.com,drsenderoff.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-110,Atlanta PRP Hair Growth,Atlanta,GA,US,https://atlantaprphairgrowth.com,atlantaprphairgrowth.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-111,Premier Image Cosmetic,Atlanta,GA,US,https://picosmeticsurgery.com,picosmeticsurgery.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-112,Atlanta Trichology,Atlanta,GA,US,https://atlantatrichology.com,atlantatrichology.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-113,Vital Living Healthcare,Atlanta,GA,US,https://vitallivinghealthcare.com,vitallivinghealthcare.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-114,Atlanta Innovative Medicine,Atlanta,GA,US,https://atlantamedicine.com,atlantamedicine.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-115,Hair Restoration Specialists ATL,Atlanta,GA,US,https://hrsatl.com,hrsatl.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-116,Kalos Hair Transplant,Atlanta,GA,US,https://kaloshairtransplant.com,kaloshairtransplant.com,,,hair-restoration,MedSpa,web,HIGH
+MS-W2S-117,Le Parlour NYC,New York,NY,US,https://leparlournyc.com,leparlournyc.com,,,bridal,MedSpa,web,HIGH
+MS-W2S-118,Bloomtime Aesthetics,New York,NY,US,https://bloomtimeaesthetics.com,bloomtimeaesthetics.com,,,bridal,MedSpa,web,HIGH
+MS-W2S-119,Bel Ange Med Spa,New York,NY,US,https://belangemedspa.com,belangemedspa.com,,,bridal,MedSpa,web,HIGH
+MS-W2S-120,SkinLab NYC,New York,NY,US,https://skinlab-nyc.com,skinlab-nyc.com,,,bridal,MedSpa,web,HIGH
+MS-W2S-121,Bella Medspa,New York,NY,US,https://bellamedspaonline.com,bellamedspaonline.com,,,bridal,MedSpa,web,HIGH
+MS-W2S-122,Evolve Med Spa,New York,NY,US,https://evolvemedspa.com,evolvemedspa.com,,,bridal,MedSpa,web,HIGH
+MS-W2S-123,Alpha Hormones,Austin,TX,US,https://alphahormones.com,alphahormones.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-124,Saving Face Austin,Austin,TX,US,https://savingfaceaustin.com,savingfaceaustin.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-125,RENEW Hormone Health,Austin,TX,US,https://renew-hormone-health.com,renew-hormone-health.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-126,Austin MD Aesthetics & Wellness,Austin,TX,US,https://austinmdclinic.com,austinmdclinic.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-127,Hormones by Design,Austin,TX,US,https://hormonesbydesign.com,hormonesbydesign.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-128,Gonstead ATX,Austin,TX,US,https://gonstead-atx.com,gonstead-atx.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-129,Austin Hormone Doctor,Austin,TX,US,https://austinhormonedoctor.com,austinhormonedoctor.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-130,Dr. Adean Kingston Dermatology,Dallas,TX,US,https://adeankingstondermatology.com,adeankingstondermatology.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-131,The Riegel Center,Plano,TX,US,https://theriegelcenter.com,theriegelcenter.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-132,Dr. Shimer OB/GYN,Dallas,TX,US,https://tshimerobgyn.com,tshimerobgyn.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-133,Wellworx Clinic,Frisco,TX,US,https://wellworxclinic.com,wellworxclinic.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-134,Atlanta Functional Medicine,Atlanta,GA,US,https://atlantafunctionalmedicine.com,atlantafunctionalmedicine.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-135,Atlanta Medical Institute,Atlanta,GA,US,https://atlantamedicalinstitute.com,atlantamedicalinstitute.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-136,Nore Health,Marietta,GA,US,https://norehealth.com,norehealth.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-137,My Concierge MD,Beverly Hills,CA,US,https://myconciergemd.com,myconciergemd.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-138,Beverly Hills Concierge Doctor,Beverly Hills,CA,US,https://beverlyhillsconciergedoctor.com,beverlyhillsconciergedoctor.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-139,Healthy Longevity Clinic,Miami,FL,US,https://healthylongevity.clinic,healthylongevity.clinic,,,hrt,MedSpa,web,HIGH
+MS-W2S-140,Rewind Anti-Aging Miami,Miami,FL,US,https://rewindantiagingmiami.com,rewindantiagingmiami.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-141,RWA Center,Beverly Hills,CA,US,https://rwacenter.com,rwacenter.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-142,Medical Health Institute,Houston,TX,US,https://medicalhealthinstitute.com,medicalhealthinstitute.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-143,Amanecia Health,Houston,TX,US,https://amaneciahealth.com,amaneciahealth.com,,,hrt,MedSpa,web,HIGH
+MS-W2S-144,Derm & Rejuvenation Institute (Dr. Kormeili),Santa Monica,CA,US,https://drkormeilidermatology.com,drkormeilidermatology.com,,,postpartum,MedSpa,web,HIGH
+MS-W3US-001,The Lip Fairy Beauty Bar,Sacramento,CA,USA,https://thelipfairy.com,thelipfairy.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-002,Organic Skin Studio,Sacramento,CA,USA,https://organicskinstudio.com,organicskinstudio.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-003,Medspa of Sacramento,Sacramento,CA,USA,https://medspaofsacramento.com,medspaofsacramento.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-004,Pretty Please Aesthetics,Sacramento,CA,USA,https://www.prettypleaseaesthetics.com,prettypleaseaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-005,Vital Glow Medspa,Sacramento,CA,USA,https://www.vitalglowmedspa.com,vitalglowmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-006,Revive Med Spa of Sacramento,Sacramento,CA,USA,https://revivemedspaofsacramento.com,revivemedspaofsacramento.com,,,,MedSpa,WebSearch,MEDIUM
+MS-W3US-007,ME Medical Spa,San Jose,CA,USA,https://memedicalspa.com,memedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-008,San Jose Medical Spa,San Jose,CA,USA,https://www.sanjosemedspa.com,sanjosemedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-009,Clarity Medical Spa,San Jose,CA,USA,https://www.claritymedicalspa.com,claritymedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-010,True You Medical Aesthetic,San Jose,CA,USA,https://www.trueyouaesthetic.com,trueyouaesthetic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-011,Silicon Valley Aesthetics,San Jose,CA,USA,https://siliconvalleymedspa.com,siliconvalleymedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-012,The Beauty Medics,Riverside,CA,USA,https://www.thebeautymedics.com,thebeautymedics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-013,Bloom Aesthetics Riverside,Riverside,CA,USA,https://bloomriversideca.com,bloomriversideca.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-014,Skin Clinic Med Spa Riverside,Riverside,CA,USA,https://skinclinicmedspa.com,skinclinicmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-015,ABQ Medical Spa,Albuquerque,NM,USA,https://medspaalbuquerque.com,medspaalbuquerque.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-016,Reform ABQ,Albuquerque,NM,USA,https://www.reformabq.com,reformabq.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-017,Royal Medical Health,Albuquerque,NM,USA,https://royalmedicalhealth.com,royalmedicalhealth.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-018,AlluraDerm MD Med Spa,Albuquerque,NM,USA,https://alluraderm.com,alluraderm.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-019,Blush Medical Spa Albuquerque,Albuquerque,NM,USA,https://www.theblushmedspa.com,theblushmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-020,Diversions Med Spa,Albuquerque,NM,USA,https://diversionsmedspa.com,diversionsmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-021,Silhouette Medical Spa,Albuquerque,NM,USA,https://www.silhouette-medspa.com,silhouette-medspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-022,Precision Cosmetics Med Spa,Tucson,AZ,USA,https://precisioncosmetics.com,precisioncosmetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-023,Skinani,Tucson,AZ,USA,https://www.skinani.com,skinani.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-024,A New Creation Clinic and Medi-Spa,Tucson,AZ,USA,https://www.anewcreationclinicandmedispa.com,anewcreationclinicandmedispa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-025,Blush & Bloom Med Spa Tucson,Tucson,AZ,USA,https://blushandbloommedspa.com,blushandbloommedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-026,Downtown Faces,Tucson,AZ,USA,https://www.downtownfaces.com,downtownfaces.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-027,Skin Therapy Boutique Med Spa,Tucson,AZ,USA,https://skintherapytucson.com,skintherapytucson.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-028,Allure Medical Tucson,Tucson,AZ,USA,https://www.alluremedicaltucson.com,alluremedicaltucson.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-029,RenewMD Medical Spa,Reno,NV,USA,https://renewmd.com,renewmd.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-030,Renovation A Medical Spa,Reno,NV,USA,https://renovationmedicalspa.com,renovationmedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-031,Reno Sparks MedSpa,Reno,NV,USA,https://renosparksmedspa.com,renosparksmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-032,Med Spa NV,Reno,NV,USA,https://www.medspanv.com,medspanv.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-033,Bella Grey Medical Spa,Reno,NV,USA,https://bellagreymedspa.com,bellagreymedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-034,Primrose Medical Boutique,Reno,NV,USA,https://www.primrosereno.com,primrosereno.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-035,The Beauty Collective Reno,Reno,NV,USA,https://www.injectiongal.com,injectiongal.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-036,Reno Tahoe Medical Spa,Reno,NV,USA,https://renotahoemedicalspa.com,renotahoemedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-037,OM Med Spa Boise,Boise,ID,USA,https://ommedspa.com,ommedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-038,Spa 35 Boise,Boise,ID,USA,https://spa35.com,spa35.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-039,Refined Beauty Idaho,Boise,ID,USA,https://refinedbeautyidaho.com,refinedbeautyidaho.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-040,Bobbi Bullock Medical Esthetics,Boise,ID,USA,https://www.bobbibullock.com,bobbibullock.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-041,The Spa Boise,Boise,ID,USA,https://thespaboise.com,thespaboise.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-042,Mindful Med Spa Boise,Boise,ID,USA,https://www.mindful-medspa.com,mindful-medspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-043,Skin Aesthetics Boise,Boise,ID,USA,https://www.skinaestheticsboise.com,skinaestheticsboise.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-044,Boise Image Enhancement Centre,Boise,ID,USA,https://boiseimage.com,boiseimage.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-045,The LAB Spokane,Spokane,WA,USA,https://www.thelabaw.com,thelabaw.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-046,Crafted Beauty Med Spa,Spokane,WA,USA,https://craftedbeauty.com,craftedbeauty.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-047,Rejuvenate Rx Spokane,Spokane,WA,USA,https://www.rejuvenate-rx.com,rejuvenate-rx.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-048,Werschler Aesthetics,Spokane,WA,USA,https://www.werschleraesthetics.com,werschleraesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-049,Bloom by Zelda,Spokane,WA,USA,https://bloombyzelda.com,bloombyzelda.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-050,Spokane Valley Medical Aesthetics,Spokane,WA,USA,https://valleymedicalaesthetics.com,valleymedicalaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-051,Sarah Hamilton FACE,Spokane,WA,USA,https://www.sarahhamiltonface.com,sarahhamiltonface.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-052,Catalyst Medspa Tacoma,Tacoma,WA,USA,https://www.catalystmedspa.com,catalystmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-053,Full Spectrum Face + Body,Tacoma,WA,USA,https://www.fullspectrumface.com,fullspectrumface.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-054,FACE Medical Aesthetics Tacoma,Tacoma,WA,USA,https://facemedicalaesthetics.com,facemedicalaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-055,NW Medical Arts,Tacoma,WA,USA,https://nwmedicalarts.com,nwmedicalarts.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-056,LISSE Medical Aesthetics,Tacoma,WA,USA,https://lissemedspa.com,lissemedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-057,Advanced Laser Clinic & MedSpa,Tacoma,WA,USA,https://advancedlaserandskin.com,advancedlaserandskin.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-058,Ziba Medical Spa Eugene,Eugene,OR,USA,https://www.zibamedspaeugene.com,zibamedspaeugene.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-059,Brighter Smiles Med Spa,Eugene,OR,USA,https://4brightersmiles.com,4brightersmiles.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-060,Jewell Aesthetic Med Spa,Eugene,OR,USA,https://www.jewellaestheticmedspa.com,jewellaestheticmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-061,Alora Wellness Spa,Eugene,OR,USA,https://alorawellnessspa.com,alorawellnessspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-062,Revive Skin Health,Eugene,OR,USA,https://www.reviveskinhealth.com,reviveskinhealth.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-063,W Aesthetics and Wellness,Bend,OR,USA,https://waestheticsandwellness.com,waestheticsandwellness.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-064,EsthetixMD,Bend,OR,USA,https://www.esthetixmd.com,esthetixmd.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-065,Sneed Medispa,Memphis,TN,USA,https://www.sneedmedispa.com,sneedmedispa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-066,De La Belle Body Wellness,Memphis,TN,USA,https://delabelle.net,delabelle.net,,,,MedSpa,WebSearch,HIGH
+MS-W3US-067,SkinBody Memphis,Memphis,TN,USA,https://skinbodymemphis.com,skinbodymemphis.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-068,A Beautiful You Medical Spa,Memphis,TN,USA,https://www.abeautifulyoumedicalspa.com,abeautifulyoumedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-069,Glo Medical Aesthetics Memphis,Memphis,TN,USA,https://www.glomedmemphis.com,glomedmemphis.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-070,Eden Spa and Laser,Memphis,TN,USA,https://edenspaandlaser.com,edenspaandlaser.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-071,Sarah Hitchcox Aesthetics,Knoxville,TN,USA,https://hitchcoxaesthetics.com,hitchcoxaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-072,Pretty Girl Aesthetics,Knoxville,TN,USA,https://prettygirlaes.com,prettygirlaes.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-073,Arabella Medical Aesthetics,Knoxville,TN,USA,https://arabellaknox.com,arabellaknox.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-074,Create Medical Aesthetics,Knoxville,TN,USA,https://createmedspa.com,createmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-075,Beautique Beautiful,Knoxville,TN,USA,https://beautiquebeautiful.com,beautiquebeautiful.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-076,Scout Aesthetics,Louisville,KY,USA,https://www.scoutaesthetics.com,scoutaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-077,The Louisville Aesthetics,Louisville,KY,USA,https://www.thelouisvilleaesthetics.com,thelouisvilleaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-078,Smart Skin Med Spa,Birmingham,AL,USA,https://smartskinmedspa.com,smartskinmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-079,Azia Medical Spa,Birmingham,AL,USA,https://aziamedispa.com,aziamedispa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-080,Infinity Med-I-Spa,Birmingham,AL,USA,https://med-i-spa.com,med-i-spa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-081,Rejuvene Med Spa New Orleans,New Orleans,LA,USA,https://rejuvenemedspa.com,rejuvenemedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-082,Kapriz Medical Spa,Jacksonville,FL,USA,https://kaprizmedicalspa.com,kaprizmedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-083,Timeless Med Spa Jacksonville,Jacksonville,FL,USA,https://timelessmedspa.org,timelessmedspa.org,,,,MedSpa,WebSearch,HIGH
+MS-W3US-084,Coastal Health Medical Spa,Jacksonville,FL,USA,https://coastalmedicalspa.com,coastalmedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-085,Concierge Cosmetics Aesthetics,Jacksonville,FL,USA,https://conciergecosmeticsandaesthetics.com,conciergecosmeticsandaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-086,Youthful Medical Spa,Jacksonville,FL,USA,https://www.youthfulmedicalspa.com,youthfulmedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-087,Square One Aesthetics Wellness,Tallahassee,FL,USA,https://squareoneaesthetics.com,squareoneaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-088,Seven Hills Aesthetics MedSpa,Tallahassee,FL,USA,https://www.sevenhillsaesthetics.com,sevenhillsaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-089,Skin Science Aesthetics Tallahassee,Tallahassee,FL,USA,https://skinsciencetallahassee.com,skinsciencetallahassee.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-090,Med Spa by Dr Mignon,Tallahassee,FL,USA,https://www.medspabydrmignon.com,medspabydrmignon.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-091,Royal Rejuvenation Med Spa,Tallahassee,FL,USA,https://www.royalrejuvenationmedspa.com,royalrejuvenationmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-092,Evita Med Spa,Tallahassee,FL,USA,https://evitamedspa.com,evitamedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-093,TLH MedSpa,Tallahassee,FL,USA,https://www.tlhmedspa.com,tlhmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-094,Lush Injectables,Sarasota,FL,USA,https://www.lushinjectables.com,lushinjectables.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-095,Sarasota Facial Aesthetics,Sarasota,FL,USA,https://www.sarasotafacialaesthetics.com,sarasotafacialaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-096,The Aesthetic Center Sarasota,Sarasota,FL,USA,https://www.topmedspasarasota.com,topmedspasarasota.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-097,Vita Aesthetics Sarasota,Sarasota,FL,USA,https://vita-aestheticsfl.com,vita-aestheticsfl.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-098,Aire MedSpa Sarasota,Sarasota,FL,USA,https://airemedspa.com,airemedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-099,Sarasota Premier Aesthetics,Sarasota,FL,USA,https://sarasotapremieraesthetics.com,sarasotapremieraesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-100,Elite Medical Spa Sarasota,Sarasota,FL,USA,https://elitemedicalspa.com,elitemedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-101,Bliss Beauty Aesthetics Greenville,Greenville,SC,USA,https://www.blissbeautyaesthetics.com,blissbeautyaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-102,Back to 30 Greenville,Greenville,SC,USA,https://backto30.com,backto30.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-103,The Med Spa on Augusta,Greenville,SC,USA,https://www.themedspaonaugusta.com,themedspaonaugusta.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-104,Elevate Aesthetic Medicine,Greenville,SC,USA,https://www.elevateaestheticmedicine.com,elevateaestheticmedicine.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-105,Siffria Aesthetics,Greenville,SC,USA,https://siffriaesthetics.com,siffriaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-106,PUSH Med,Greenville,SC,USA,https://www.thepushmed.com,thepushmed.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-107,Well Labs Plus Medspa Charleston,Charleston,SC,USA,https://charleston.wellabsplus.com,charleston.wellabsplus.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-108,Revee Aesthetics,Richmond,VA,USA,https://www.myrevee.com,myrevee.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-109,Dermlounge Richmond,Richmond,VA,USA,https://www.medicalspavirginia.com,medicalspavirginia.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-110,MedSpa Pittsburgh,Pittsburgh,PA,USA,https://medspapgh.com,medspapgh.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-111,Pittsburgh Aesthetics Med Spa,Pittsburgh,PA,USA,https://pghaesthetics.com,pghaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-112,The Beauty Haven Medspa Pittsburgh,Pittsburgh,PA,USA,https://www.thebeautyhavenmedspa.com,thebeautyhavenmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-113,Viva Skin Lounge Pittsburgh,Pittsburgh,PA,USA,https://vivaskinlounge.com,vivaskinlounge.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-114,Avere Beauty Pittsburgh,Pittsburgh,PA,USA,https://www.averebeauty.com,averebeauty.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-115,Buffalo Aesthetics,Buffalo,NY,USA,https://buffaloaesthetics.com,buffaloaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-116,Monroe MedSpa Buffalo,Buffalo,NY,USA,https://buffalo.monroemedspa.com,buffalo.monroemedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-117,Dr Buffalo MedSpa,Buffalo,NY,USA,https://doctorbuffalo.com,doctorbuffalo.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-118,Luminescence Aesthetics Buffalo,Buffalo,NY,USA,https://luminescence-aesthetics.com,luminescence-aesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-119,Monroe MedSpa Rochester,Rochester,NY,USA,https://www.monroemedspa.com,monroemedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-120,Bella Republic Med Spa,Hartford,CT,USA,https://bellarepublicmedspa.com,bellarepublicmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-121,Radiance Medspa Avon,Hartford,CT,USA,https://www.radianceavon.com,radianceavon.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-122,Magnolia Med Spa CT,Hartford,CT,USA,https://magnoliamedspact.com,magnoliamedspact.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-123,Vivesse Med Spa,Hartford,CT,USA,https://vivesse.net,vivesse.net,,,,MedSpa,WebSearch,HIGH
+MS-W3US-124,Blush Med Spa CT,Hartford,CT,USA,https://blushmedspact.com,blushmedspact.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-125,Allura Medical Esthetics,Providence,RI,USA,https://alluramedesthetics.com,alluramedesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-126,SkinLab RI,Providence,RI,USA,https://www.skinlabri.com,skinlabri.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-127,Spa No 5,Providence,RI,USA,https://www.spa-five.com,spa-five.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-128,Balencia Medspa,Providence,RI,USA,https://balenciamd.com,balenciamd.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-129,Sola Vie Aesthetics,Providence,RI,USA,https://www.sola-vie.com,sola-vie.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-130,Simply Injectables,Providence,RI,USA,https://simplyinjectables.com,simplyinjectables.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-131,Face First RI,Providence,RI,USA,https://facefirst-ri.com,facefirst-ri.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-132,SeaMist MedSpa,Providence,RI,USA,https://seamistmedspa.com,seamistmedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3US-133,MOTOX Skin Science,Portland,ME,USA,https://motoxskinscience.com,motoxskinscience.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-001,Beautology Medical Spa,Mississauga,ON,Canada,https://www.beautologymedspa.com/,beautologymedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-002,Ageless Elegance Medical Spa,Mississauga,ON,Canada,https://agelesselegancemedspa.com/,agelesselegancemedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-003,Sam Medspa,Mississauga,ON,Canada,https://www.sammedspa.com/,sammedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-004,Skinfidelity,Mississauga,ON,Canada,https://skinfidelity.ca/,skinfidelity.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-005,ERT Cosmetic Clinic,Mississauga,ON,Canada,https://www.ertclinic.ca/,ertclinic.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-006,Youthful Derma,Mississauga,ON,Canada,https://www.youthfulderma.ca/,youthfulderma.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-007,Brampton Cosmetic Medical Spa,Brampton,ON,Canada,https://www.bramptoncosmeticmd.com/,bramptoncosmeticmd.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-008,AK Care Medispa,Brampton,ON,Canada,https://ak.care/,ak.care,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-009,Heart Lake Aesthetic Clinic,Brampton,ON,Canada,https://heartlakeaesthetics.com/,heartlakeaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-010,Astra Medicare Medical Aesthetics,Brampton,ON,Canada,https://www.astramedicare.ca/,astramedicare.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-011,The Pür Glow Medical Spa,Oakville,ON,Canada,https://www.thepurglow.com/,thepurglow.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-012,APT Medical Aesthetics,Oakville,ON,Canada,https://aptmedicalaesthetics.com/,aptmedicalaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-013,Impact Cosmetics Oakville,Oakville,ON,Canada,https://www.impactcosmetic.com/,impactcosmetic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-014,Oakville Dermatology & Aesthetics,Oakville,ON,Canada,https://www.oakvillederm.com/,oakvillederm.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-015,Burlington Medical Aesthetics,Burlington,ON,Canada,https://www.burlingtonmedicalaesthetics.com/,burlingtonmedicalaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-016,Modern You Medical Aesthetics,Burlington,ON,Canada,https://www.modernyou.ca/,modernyou.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-017,Artista Medical Aesthetics,Hamilton,ON,Canada,https://artistamedicalaesthetics.ca/,artistamedicalaesthetics.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-018,The Narra Clinic,Hamilton,ON,Canada,https://www.thenarraclinic.com/,thenarraclinic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-019,The Aesthetics Boutique,Hamilton,ON,Canada,https://theaestheticsboutique.ca/,theaestheticsboutique.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-020,Glam Nurse Neda,Hamilton,ON,Canada,https://glamnurseneda.ca/,glamnurseneda.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-021,Solange Medical Aesthetics,Hamilton,ON,Canada,https://www.solangemedicalaesthetics.ca/,solangemedicalaesthetics.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-022,Marina Medical Aesthetics Hamilton,Hamilton,ON,Canada,https://www.marinaaesthetics.ca/,marinaaesthetics.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-023,Monaco Medical Aesthetics,Hamilton,ON,Canada,https://www.monacospa.ca/,monacospa.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-024,Aura Cosmetic Clinic Hamilton,Hamilton,ON,Canada,https://auracosmeticclinic.ca/,auracosmeticclinic.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-025,FreezeFillGlow Medical Aesthetics,Hamilton,ON,Canada,https://www.freezefillglow.com/,freezefillglow.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-026,Bespoke Skin MD,Kingston,ON,Canada,https://www.bespokeskinmd.com/,bespokeskinmd.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-027,West End Medical Aesthetics,Kingston,ON,Canada,https://westendmedicalaesthetic.com/,westendmedicalaesthetic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-028,HUSH Cosmetic Injections,Kingston,ON,Canada,https://www.hushinjections.com/,hushinjections.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-029,The Beauty Development,Kingston,ON,Canada,https://www.thebeautydevelopment.ca/,thebeautydevelopment.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-030,Kingston Laser Cosmetic Clinic,Kingston,ON,Canada,https://kingstonlaser.com/,kingstonlaser.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-031,Kingston Cosmetic Institute,Kingston,ON,Canada,https://www.kingstoncosmeticinstitute.com/,kingstoncosmeticinstitute.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-032,Revive Medical Spa Barrie,Barrie,ON,Canada,https://revivemedspa.ca/,revivemedspa.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-033,413 Medical Aesthetics,Barrie,ON,Canada,https://www.413medicalaesthetics.ca/,413medicalaesthetics.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-034,Spa Lumina,Barrie,ON,Canada,https://spalumina.com/,spalumina.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-035,North Valley Medical Aesthetics,Barrie,ON,Canada,https://www.northvalleybarrie.com/,northvalleybarrie.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-036,Skin Med Spa Barrie,Barrie,ON,Canada,https://www.skinmedspa.ca/,skinmedspa.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-037,Bold & Co Medical Aesthetics,London,ON,Canada,https://www.boldbeauty.ca/,boldbeauty.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-038,Infinite Medical Spa,London,ON,Canada,https://www.infinitemedicalspa.com/,infinitemedicalspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-039,Redefine MD,London,ON,Canada,https://redefinemd.com/,redefinemd.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-040,North London Skin Revitalization,London,ON,Canada,https://northlondonskinrevitalization.com/,northlondonskinrevitalization.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-041,PureGlo Medical Aesthetics,London,ON,Canada,https://www.pureglo.ca/,pureglo.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-042,Jova Medical Aesthetics,London,ON,Canada,https://jovamedicalaesthetics.com/,jovamedicalaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-043,Waterloo Medical Cosmetics,Waterloo,ON,Canada,https://www.waterloomedicalcosmetics.com/,waterloomedicalcosmetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-044,KW Cosmetic Clinic,Kitchener,ON,Canada,https://kwcosmetic.com/,kwcosmetic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-045,Kitchener Waterloo Medispa,Kitchener,ON,Canada,https://kitchenerwaterloomedispa.com/,kitchenerwaterloomedispa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-046,ArtMed Cosmetic Medicine,Guelph,ON,Canada,https://www.artmed.ca/,artmed.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-047,Breathe Medical Spa,Guelph,ON,Canada,https://www.breathemedspa.ca/,breathemedspa.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-048,Gold & Bloom Medispa,Guelph,ON,Canada,https://gbmedispa.com/,gbmedispa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-049,Natalie Maaden Boutique Med Spa,Guelph,ON,Canada,https://nataliemaaden.com/,nataliemaaden.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-050,Juice Medspa Guelph,Guelph,ON,Canada,https://juicewell.janeapp.com/,juicewell.janeapp.com,,,,MedSpa,WebSearch,MED
+MS-W3CA-051,SQIN Med & Wellness Clinic,Niagara Falls,ON,Canada,https://sqinmed.ca/,sqinmed.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-052,Niagara Medical Esthetics,Niagara Falls,ON,Canada,https://niagaramedicalesthetics.ca/,niagaramedicalesthetics.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-053,Niagara Elite Wellness Spa,Niagara Falls,ON,Canada,https://www.niagaraelitewellness.com/,niagaraelitewellness.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-054,MD Treatment Lounge Niagara,Niagara Falls,ON,Canada,https://mdtreatmentlounge.com/,mdtreatmentlounge.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-055,Diosa Beauty Clinic Niagara,Niagara-on-the-Lake,ON,Canada,https://www.diosaclinic.com/,diosaclinic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-056,Glow & Go Beauty Medical Spa,Windsor,ON,Canada,https://www.glowngobeauty.ca/,glowngobeauty.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-057,Bloom Society Windsor,Windsor,ON,Canada,https://www.bloomsociety.ca/,bloomsociety.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-058,Skin Medical Aesthetics Windsor,Windsor,ON,Canada,https://skinmedical.ca/,skinmedical.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-059,Eden Medical & Aesthetics,Windsor,ON,Canada,https://www.edenmedical.ca/,edenmedical.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-060,Elevate Medical Spa Windsor,Windsor,ON,Canada,https://www.elevatemedicalspa.ca/,elevatemedicalspa.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-061,Clinique Cinq Sens,Quebec City,QC,Canada,https://cinqsens.ca/,cinqsens.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-062,Dre Cynthia Clinique,Quebec City,QC,Canada,https://www.drecynthia.com/,drecynthia.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-063,Clinique Ekinoxe,Quebec City,QC,Canada,https://cliniqueekinoxe.ca/,cliniqueekinoxe.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-064,Clinique Allure Sherbrooke,Sherbrooke,QC,Canada,https://cliniqueallure.ca/,cliniqueallure.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-065,True Clinic Halifax,Halifax,NS,Canada,https://trueclinic.ca/,trueclinic.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-066,Monarchy Medispa,Halifax,NS,Canada,https://www.nursecatherine.com/,nursecatherine.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-067,Luma Clinic Halifax,Halifax,NS,Canada,https://luma.clinic/,luma.clinic,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-068,Face Clinic Halifax,Halifax,NS,Canada,https://faceclinic.ca/,faceclinic.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-069,Nova Scotia Medical Aesthetics,Halifax,NS,Canada,https://www.novascotiamedicalaesthetics.com/,novascotiamedicalaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-070,This Is Sundays Halifax,Halifax,NS,Canada,https://www.sundaysinc.com/,sundaysinc.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-071,Vitality Medi-Spa Halifax,Halifax,NS,Canada,https://vitalitymedispa.ca/,vitalitymedispa.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-072,Embellish Medical Aesthetics,Halifax,NS,Canada,https://www.embellishmedical.com/,embellishmedical.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-073,Sparkle Lifestyle MediSpa,Moncton,NB,Canada,https://sparklelifestyle.ca/,sparklelifestyle.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-074,MedAesthetic NL,St. John's,NL,Canada,https://www.medaestheticnl.com/,medaestheticnl.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-075,Dr. Anna MD Victoria,Victoria,BC,Canada,https://drannamd.com/,drannamd.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-076,Kelowna Medical Aesthetics,Kelowna,BC,Canada,https://www.kelownamedicalaesthetics.com/,kelownamedicalaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-077,Organic Glow Medical Aesthetics,Kelowna,BC,Canada,https://www.organicglowaesthetics.com/,organicglowaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-078,Sensei Medical Aesthetics,Kelowna,BC,Canada,https://senseimedicalaesthetics.com/,senseimedicalaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-079,DermMedica Kelowna,Kelowna,BC,Canada,https://dermmedica.ca/,dermmedica.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-080,Complete Medical Esthetics Kelowna,Kelowna,BC,Canada,https://www.completemedicalesthetics.com/,completemedicalesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-081,The Helix Clinic Kelowna,Kelowna,BC,Canada,https://www.thehelixclinic.com/,thehelixclinic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-082,Cerulean Medical Institute,Kelowna,BC,Canada,https://www.ceruleanmedical.ca/,ceruleanmedical.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-083,Kontour Clinic Kamloops,Kamloops,BC,Canada,https://www.kontourclinic.ca/,kontourclinic.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-084,SONA MD Kamloops,Kamloops,BC,Canada,https://sonamd.ca/,sonamd.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-085,LuxeRx Clinic Kamloops,Kamloops,BC,Canada,https://luxerxclinic.com/,luxerxclinic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-086,Rise Medical Aesthetics Nanaimo,Nanaimo,BC,Canada,https://www.risemedaesthetics.com/,risemedaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-087,Skintegrity Medi Spa Nanaimo,Nanaimo,BC,Canada,https://skintegritymedispa.com/,skintegritymedispa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-088,Lumina MD Aesthetics Nanaimo,Nanaimo,BC,Canada,https://www.luminamdaesthetics.com/,luminamdaesthetics.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-089,Nurse Moreen Advanced Aesthetics,Nanaimo,BC,Canada,https://www.nursemoreen.com/,nursemoreen.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-090,The New U Clinic Nanaimo,Nanaimo,BC,Canada,https://thenewuclinic.ca/,thenewuclinic.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-091,Uplift Medical Aesthetics Nanaimo,Nanaimo,BC,Canada,https://upliftmedicalaesthetics.ca/,upliftmedicalaesthetics.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-092,Lucia Medspa Saskatoon,Saskatoon,SK,Canada,https://luciamedspa.com/,luciamedspa.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-093,Inject Yxe,Saskatoon,SK,Canada,https://www.injectyxe.com/,injectyxe.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-094,SKN Med Spa Saskatoon,Saskatoon,SK,Canada,https://sknmedspa.ca/,sknmedspa.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-095,Premiere Med Spa Saskatoon,Saskatoon,SK,Canada,https://www.premieresaskatoon.ca/,premieresaskatoon.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-096,Scarlett & Lucy Med Spa,Saskatoon,SK,Canada,https://www.scarlettandlucy.com/,scarlettandlucy.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-097,TayTen Cosmetic Regina,Regina,SK,Canada,https://www.taytencosmetic.com/,taytencosmetic.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-098,INVU Skin Regina,Regina,SK,Canada,https://invuskin.com/,invuskin.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-099,Face First Medical Aesthetics,Regina,SK,Canada,https://facefirstregina.com/,facefirstregina.com,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-100,Nu Image Medical Aesthetics Regina,Regina,SK,Canada,https://nuimage.ca/,nuimage.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-101,Head + Heart Skin Studio,Regina,SK,Canada,https://hhskinstudio.ca/,hhskinstudio.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-102,Laser and Skin Care MedSpa Red Deer,Red Deer,AB,Canada,https://laserskincaremedspa.ca/,laserskincaremedspa.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-103,Aesthetic Solutions Red Deer,Red Deer,AB,Canada,https://www.aestheticsolutionsreddeer.ca/,aestheticsolutionsreddeer.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-104,Hebe Beauty Bar Red Deer,Red Deer,AB,Canada,https://www.hebebeautybar.ca/,hebebeautybar.ca,,,,MedSpa,WebSearch,HIGH
+MS-W3CA-105,Lethbridge Plastic Surgery & Aesthetics,Lethbridge,AB,Canada,https://lpsa.ca/,lpsa.ca,,,,MedSpa,WebSearch,HIGH

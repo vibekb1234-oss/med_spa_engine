@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "wave": "W102-LaneB",
+    "generated": "2026-05-23",
+    "total_leads_in_csv": 54,
+    "top_n": 15,
+    "product": "MedSpa Growth Engine"
+  },
+  "top_15": [
+    {
+      "lead_id": "LANEB-MS-W102-004",
+      "business_name": "Good Medicine Aesthetics",
+      "owner": "Dustin Pletcher, RN",
+      "city": "New Braunfels, TX",
+      "tier": "A",
+      "specialty": ["injectables", "IV-therapy", "hair-restoration", "weight-loss"],
+      "why_top": "Opened April 2025 — brand-new medspa in a high-growth Texas market with zero systems in place. RN-owner with a wide service menu (botox + IV + hair restoration + GLP-1) means high booking complexity and urgent need for automation from day 1.",
+      "pain_hook": "You opened 6 weeks ago — you're probably still manually texting clients appointment reminders and chasing no-shows by phone. Every missed booking at your stage is a client relationship that doesn't get built.",
+      "feature_hit": "consult-to-booking",
+      "outreach_angle": "First-mover advantage framing: 'We help new medspas look like they've been running for 5 years from week 1 — automated intake, booking follow-up, and review collection so you can focus on your craft.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-001",
+      "business_name": "Jewell Medical Spa",
+      "owner": "Chris Jewell",
+      "city": "Naples, FL",
+      "tier": "A",
+      "specialty": ["injectables"],
+      "why_top": "Sole-owner injector with 30yr Naples community roots, rated #1 in Naples. Solo operation = no admin team, every no-show and lapsed client is personally costly. High-value Naples demographic makes each booking worth $300-600+.",
+      "pain_hook": "Running #1 in Naples solo means your calendar is your revenue engine — every no-show and every client who drifts 6 months without a reminder is real money walking out the door.",
+      "feature_hit": "no-show",
+      "outreach_angle": "Peer-validation hook: 'We work with solo injectors in high-end markets who can't afford admin overhead but can't afford gaps in their calendar either.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-009",
+      "business_name": "Soundside Medical Aesthetics",
+      "owner": "Nurse Megan",
+      "city": "Owen Sound, ON",
+      "tier": "A",
+      "specialty": ["injectables", "skin", "facial-aesthetics"],
+      "why_top": "Solo nurse owner in a small-city Canadian market with minimal competition. Established her own practice specifically to provide personalized care — this owner has every operational pain point: intake, follow-up, reviews, reactivation, all done manually.",
+      "pain_hook": "As a solo practitioner in Owen Sound, you're the injector, the receptionist, and the marketing department. How many clients from 18 months ago haven't booked a follow-up because no one reminded them?",
+      "feature_hit": "90-day-reactivation",
+      "outreach_angle": "Empathy-first: 'Built for solo nurse injectors who want their practice to run like a 5-staff operation without hiring a single person.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-006",
+      "business_name": "Aeterna Medspa",
+      "owner": "Marlyn Teague, NP",
+      "city": "Cary, NC",
+      "tier": "A",
+      "specialty": ["injectables", "laser", "weight-loss"],
+      "why_top": "Sole NP owner in booming Cary NC (fastest-growing NC suburb). Multi-service: GLP-1 weight loss + botox + laser means complex follow-up cadences, high no-show risk on weight-loss consults, and strong review opportunity.",
+      "pain_hook": "Weight-loss clients need weekly or bi-weekly check-in touchpoints to stay on program — if you're doing that manually you're spending 10hrs a week on follow-up that should be automated.",
+      "feature_hit": "no-show",
+      "outreach_angle": "GLP-1 angle: 'We've automated the entire GLP-1 client journey — intake, follow-up sequences, outcome tracking, and re-engagement — so you see better retention with zero extra admin.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-005",
+      "business_name": "Chan Ramos MedSpa",
+      "owner": "Chandeli Ramos, CRNA",
+      "city": "Round Rock, TX",
+      "tier": "A",
+      "specialty": ["injectables"],
+      "why_top": "Award-winning sole CRNA-owner two years running (Best of Round Rock 2024+2025). Owner does all injections — that means tight capacity. Automated pre/post consultation flows and reactivation could add 10-15% bookings without adding a single new slot.",
+      "pain_hook": "When you're the only injector and you're fully booked, your growth isn't about finding more clients — it's about making sure every existing client comes back on time and refers someone new.",
+      "feature_hit": "referral-prompt",
+      "outreach_angle": "Capacity-optimization angle: 'We help award-winning solo injectors grow revenue without growing hours — automated referral capture and reactivation sequences that work while you're in session.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-008",
+      "business_name": "Aesthetics By The Bay",
+      "owner": "Alivia Gabriel RN + Saprina Turner RN",
+      "city": "Belleville, ON",
+      "tier": "A",
+      "specialty": ["injectables", "laser", "skin"],
+      "why_top": "RN co-owner duo in an underserved Ontario market. Two owners injecting means double the client throughput and double the admin complexity. Strong growth trajectory with loyalty clientele and limited local competition.",
+      "pain_hook": "With two injectors on the floor, you're likely handling 2x the follow-up volume — consult confirmations, post-treatment check-ins, review requests. That's a full-time admin role buried in your day.",
+      "feature_hit": "review-collection",
+      "outreach_angle": "Growth-stage framing: 'Two-owner clinics in secondary Ontario markets are our sweet spot — you have the clinical capacity to scale but need systems that match your ambition.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-024",
+      "business_name": "Sapphire Medical Aesthetics",
+      "owner": "Emma Tonry-Webb",
+      "city": "Hereford, UK",
+      "tier": "A",
+      "specialty": ["injectables", "anti-aging", "skin", "facial-aesthetics"],
+      "why_top": "19-year Hereford institution. Just celebrated 15 years in aesthetics in 2025. Established patient base with high re-booking potential but almost certainly no automated reactivation system — this is a sleeping revenue opportunity.",
+      "pain_hook": "A 19-year practice in a tight-knit community like Hereford means hundreds of clients who've lapsed for 12-24 months. A single automated reactivation sequence could recover 20-30 of them in a week.",
+      "feature_hit": "90-day-reactivation",
+      "outreach_angle": "Legacy-practice angle: 'We help established UK nurse clinics turn their patient history into a predictable rebooking machine — most see 15-25 reactivations in the first 30 days.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-021",
+      "business_name": "REAL Aesthetics + Wellness",
+      "owner": "Melinda Wong, NP-C",
+      "city": "Santa Rosa, CA",
+      "tier": "A",
+      "specialty": ["injectables", "laser", "skin", "anti-aging"],
+      "why_top": "Sonoma County NP with sought-after reputation for natural results. Affluent wine-country clientele willing to spend $500-1200 per visit. Daxxify + Sofwave signals cutting-edge positioning — but reputation-dependent practices live and die by online reviews and word-of-mouth.",
+      "pain_hook": "In a market where clients choose you for your artistry, your biggest growth lever is captured referrals — but most clients who love their results never actually refer anyone because no one asked at the right moment.",
+      "feature_hit": "referral-prompt",
+      "outreach_angle": "Reputation-market angle: 'Natural-results specialists in Sonoma County rely on referrals — we make sure every happy client becomes a referral source automatically, at exactly the right moment post-treatment.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-034",
+      "business_name": "Beauty Beyond Aesthetics",
+      "owner": "Kristina Collins, APRN",
+      "city": "Lakeland, FL",
+      "tier": "A",
+      "specialty": ["injectables", "weight-loss", "skin"],
+      "why_top": "APRN-owner with 15yr medical background offering GLP-1 semaglutide + Botox + microneedling in Lakeland. Weight-loss program requires frequent touchpoints that are painful to do manually — high automation ROI.",
+      "pain_hook": "Semaglutide clients who miss their weekly injection or stop responding after week 3 are the most expensive drop-offs in any medspa — what's your current system for keeping them engaged between visits?",
+      "feature_hit": "no-show",
+      "outreach_angle": "Weight-loss retention angle: 'GLP-1 programs succeed or fail on client adherence — we automate the entire touchpoint sequence so your dropout rate drops and your outcomes (and testimonials) get better.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-027",
+      "business_name": "FINA MedSpa",
+      "owner": "Dr. Argentina Cunha, MD",
+      "city": "Honolulu, HI",
+      "tier": "A",
+      "specialty": ["injectables", "anti-aging", "skin", "regenerative"],
+      "why_top": "100% physician-provided care in Honolulu's premium medspa market. Solo physician model means every minute spent on admin is a minute not spent on revenue-generating treatments. Affluent Oahu clientele = high LTV per client.",
+      "pain_hook": "When every treatment is personally delivered by you as the physician, your time is your most finite asset — how much of it goes to consultation prep, follow-up emails, and chasing no-shows instead of patients?",
+      "feature_hit": "consult-to-booking",
+      "outreach_angle": "Physician-efficiency angle: 'Solo physician medspas in premium markets can increase effective revenue per hour by 20-30% just by automating the pre/post-consultation flow — let the system do the admin while you do the medicine.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-041",
+      "business_name": "Babe Aesthetics",
+      "owner": "Stephanie Gordin NP + Micaela Virgilio FNP",
+      "city": "Rockville Centre, NY",
+      "tier": "A",
+      "specialty": ["injectables", "skin", "IV-therapy", "hair-restoration"],
+      "why_top": "All-female NP co-owner team across 3 Long Island locations. Multi-site complexity plus a diverse service menu (PRP + IV + aquagold + injectables) means intake, booking coordination, and follow-up across locations — a natural fit for automation.",
+      "pain_hook": "Running 3 Long Island locations with two owner-injectors means your biggest invisible cost is the time spent coordinating bookings, confirmations, and follow-ups across sites — and the clients who slip through the gaps between them.",
+      "feature_hit": "consult-to-booking",
+      "outreach_angle": "Multi-site growth angle: 'We help NP-owned multi-location practices consolidate their client journey into a single automated pipeline — one intake, one follow-up system, one review flow, regardless of which location they visited.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-029",
+      "business_name": "MedAesthetics Sarnia",
+      "owner": "Melissa O'Mahony + Dr. John O'Mahony",
+      "city": "Sarnia, ON",
+      "tier": "A",
+      "specialty": ["injectables", "skin", "anti-aging", "laser"],
+      "why_top": "19-year Sarnia institution with 360+ Google reviews — highest social proof in their market. Husband-wife MD+RN ownership means both clinical and business sophistication. Strong candidate to implement a review collection + referral system to maintain market dominance.",
+      "pain_hook": "With 360 Google reviews you're already the most trusted clinic in Sarnia — but are you systematically capturing every new review, or are you relying on happy clients to volunteer them spontaneously?",
+      "feature_hit": "review-collection",
+      "outreach_angle": "Market-leader defense angle: 'Dominant clinics protect their position with systems — a systematic review collection and referral prompt sequence ensures no competitor can close the gap on your reputation.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-022",
+      "business_name": "Aesthetic Lab",
+      "owner": "Gifty Aidoo, FNP-C",
+      "city": "Modesto, CA",
+      "tier": "A",
+      "specialty": ["injectables", "skin", "body-contouring", "weight-loss"],
+      "why_top": "FNP-owner with 3 locations across Modesto-Turlock-Stockton — one of the largest independent NP-owned operations in Central Valley CA. Multi-site + multi-service = exponential admin burden and strong ROI on any automation investment.",
+      "pain_hook": "Managing 3 locations as the primary injector means your booking, follow-up, and reactivation systems have to work across sites without extra headcount — what happens to a client from your Stockton location when they're due for a touch-up?",
+      "feature_hit": "90-day-reactivation",
+      "outreach_angle": "Scale-without-staff framing: 'FNP-owners scaling to multiple locations are our fastest ROI clients — one unified reactivation and referral system across all 3 sites typically adds $8-15K/month without additional marketing spend.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-035",
+      "business_name": "Ageless Aesthetics & Wellness",
+      "owner": "Ashley N., ARNP",
+      "city": "Lakeland, FL",
+      "tier": "A",
+      "specialty": ["injectables", "IV-therapy", "wellness", "anti-aging"],
+      "why_top": "ARNP-owner since 2018 in South Lakeland with extended evening hours and IV therapy on the menu. Evening hours + IV therapy signals a client base that books after work and needs strong confirmation/reminder cadences to prevent no-shows.",
+      "pain_hook": "Evening-hours clients are your highest no-show risk — they book at 10am and by 5pm something came up. What's your current no-show rate, and how much is it costing you in wasted IV prep time each week?",
+      "feature_hit": "no-show",
+      "outreach_angle": "Evening-clinic angle: 'After-hours medspas lose 2-3x more appointments to late cancellations — we automate a 3-touch confirmation sequence that cuts no-shows by 40-60% without any manual outreach.'"
+    },
+    {
+      "lead_id": "LANEB-MS-W102-025",
+      "business_name": "The Glow Clinic Hereford",
+      "owner": "Shelley Folkes, RGN",
+      "city": "Hereford, UK",
+      "tier": "A",
+      "specialty": ["injectables", "facial-aesthetics", "skin", "anti-aging"],
+      "why_top": "Solo RGN with 20yr clinical + 5yr aesthetics — Hereford town centre location competing directly with Sapphire (also in leads). This creates urgency to differentiate through superior client experience and systematic review collection before competitors pull ahead.",
+      "pain_hook": "In a small city like Hereford where two strong clinics compete for the same clients, the one who follows up first and collects reviews fastest wins — what does your post-treatment follow-up look like right now?",
+      "feature_hit": "review-collection",
+      "outreach_angle": "Local competition angle: 'In smaller UK markets, the clinic with the most systematic approach to reviews and reactivation always outperforms the one with the best clinical skills — we give you both.'"
+    }
+  ]
+}

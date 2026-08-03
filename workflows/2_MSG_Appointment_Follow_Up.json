@@ -1,0 +1,438 @@
+{
+  "name": "2 — MSG Appointment Follow-Up Engine",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * *" }]
+        }
+      },
+      "id": "ms2000000-0000-0000-0000-000000000001",
+      "name": "Schedule — Daily 9am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "filters": {},
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000002",
+      "name": "Get All Clients",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [220, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Appointments", "mode": "name" },
+        "filters": {},
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000003",
+      "name": "Get All Appointments",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [220, 200],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "jsCode": "// --- Timezone-aware date math ---\nconst TZ = 'YOUR_CLINIC_TIMEZONE';\nfunction tzDateStr(d, tz, offsetDays = 0) {\n  const x = new Date(d);\n  x.setUTCDate(x.getUTCDate() + offsetDays);\n  return new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(x);\n}\n\nconst clients      = $('Get All Clients').all();\nconst appointments = $('Get All Appointments').all();\nconst now          = new Date();\nconst nowIso       = now.toISOString();\n\nconst todayStr     = tzDateStr(now, TZ, 0);\nconst yesterdayStr = tzDateStr(now, TZ, -1);\n\n// Build appointment map keyed by client email\nconst apptMap = {};\nfor (const item of appointments) {\n  const a = item.json;\n  if (!a['Client Email']) continue;\n  const email = a['Client Email'].toLowerCase().trim();\n  if (!apptMap[email]) apptMap[email] = [];\n  apptMap[email].push(a);\n}\n\nconst priorNotice48h  = [];\nconst priorNotice24h  = [];\nconst noShowRecovery  = [];\nconst inquiryFollowUp = [];\nconst postApptCheckIn = [];\n\nfor (const item of clients) {\n  const c = item.json;\n  if (!c['Client Email'] || (c['Opted Out'] || '').toLowerCase() === 'yes') continue;\n\n  const email  = c['Client Email'].toLowerCase().trim();\n  const status = (c['Status'] || '').trim();\n\n  // --- INQUIRY FOLLOW-UP ---\n  if (status === 'New Inquiry') {\n    const created = c['Created Date'] ? new Date(c['Created Date']) : null;\n    if (created && !isNaN(created)) {\n      const daysSince = Math.floor((now - created) / 86400000);\n      const lastFU    = c['Last Follow-Up Date'] ? new Date(c['Last Follow-Up Date']) : null;\n      const daysSinceFU = lastFU && !isNaN(lastFU) ? Math.floor((now - lastFU) / 86400000) : 999;\n      const fuCount   = parseInt(c['Follow-Up Count'] || 0);\n      if (daysSince >= 3 && daysSinceFU >= 3 && fuCount < 3) {\n        inquiryFollowUp.push({\n          clientEmail:  c['Client Email'].trim(),\n          clientName:   (c['Client Name'] || 'there').trim(),\n          service:      c['Service Interest'] || 'our services',\n          fuCount,\n          nowIso\n        });\n      }\n    }\n  }\n\n  const clientAppts = apptMap[email] || [];\n  for (const appt of clientAppts) {\n    const apptDate = appt['Appointment Date'] ? new Date(appt['Appointment Date']) : null;\n    if (!apptDate || isNaN(apptDate)) continue;\n\n    const hoursUntil  = (apptDate - now) / 3600000;\n    const apptStatus  = (appt['Status'] || '').trim();\n    const apptDateStr = tzDateStr(apptDate, TZ, 0);\n\n    // 48hr reminder — only if not already sent\n    if (apptStatus === 'Scheduled' && hoursUntil >= 44 && hoursUntil <= 52\n        && (appt['Pre-Appt Reminder Sent'] || '').toLowerCase() !== 'yes') {\n      priorNotice48h.push({\n        clientEmail: c['Client Email'].trim(),\n        clientName:  (c['Client Name'] || 'there').trim(),\n        service:     appt['Service'] || 'your appointment',\n        provider:    appt['Provider'] || 'your provider',\n        apptDate:    appt['Appointment Date'],\n        apptTime:    appt['Appointment Time'] || '',\n        nowIso\n      });\n    }\n\n    // 24hr reminder — requires 48hr sent AND 24hr NOT yet sent\n    if (apptStatus === 'Scheduled' && hoursUntil >= 20 && hoursUntil <= 28\n        && (appt['Pre-Appt Reminder Sent'] || '').toLowerCase() === 'yes'\n        && (appt['24hr Reminder Sent'] || '').toLowerCase() !== 'yes') {\n      priorNotice24h.push({\n        clientEmail: c['Client Email'].trim(),\n        clientName:  (c['Client Name'] || 'there').trim(),\n        service:     appt['Service'] || 'your appointment',\n        provider:    appt['Provider'] || 'your provider',\n        apptDate:    appt['Appointment Date'],\n        apptTime:    appt['Appointment Time'] || '',\n        nowIso\n      });\n    }\n\n    if (apptStatus === 'No-Show' && apptDateStr === yesterdayStr\n        && (appt['Post-Appt Follow-Up Sent'] || '').toLowerCase() !== 'yes') {\n      noShowRecovery.push({\n        clientEmail: c['Client Email'].trim(),\n        clientName:  (c['Client Name'] || 'there').trim(),\n        service:     appt['Service'] || 'your appointment',\n        apptDate:    appt['Appointment Date'],\n        nowIso\n      });\n    }\n\n    if (apptStatus === 'Completed' && apptDateStr === yesterdayStr\n        && (appt['Post-Appt Follow-Up Sent'] || '').toLowerCase() !== 'yes') {\n      postApptCheckIn.push({\n        clientEmail: c['Client Email'].trim(),\n        clientName:  (c['Client Name'] || 'there').trim(),\n        service:     appt['Service'] || 'your recent treatment',\n        provider:    appt['Provider'] || 'our team',\n        apptDate:    appt['Appointment Date'],\n        nowIso\n      });\n    }\n  }\n}\n\nconst allItems = [\n  ...priorNotice48h.map(i => ({ ...i, type: 'REMINDER_48H' })),\n  ...priorNotice24h.map(i => ({ ...i, type: 'REMINDER_24H' })),\n  ...noShowRecovery.map(i => ({ ...i, type: 'NO_SHOW' })),\n  ...inquiryFollowUp.map(i => ({ ...i, type: 'INQUIRY_FU' })),\n  ...postApptCheckIn.map(i => ({ ...i, type: 'POST_APPT' }))\n];\n\nif (allItems.length === 0) {\n  return [{ json: { type: 'NONE', nowIso } }];\n}\n\nreturn allItems.map(i => ({ json: i }));"
+      },
+      "id": "ms2000000-0000-0000-0000-000000000004",
+      "name": "Calculate Actions",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 100]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "typeValidation": "strict" },
+          "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "NONE", "operator": { "type": "string", "operation": "notEquals" } }],
+          "combinator": "and"
+        }
+      },
+      "id": "ms2000000-0000-0000-0000-000000000005",
+      "name": "Any Actions Today?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [660, 100]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "REMINDER_48H", "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "REMINDER_48H" },
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "REMINDER_24H", "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "REMINDER_24H" },
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "NO_SHOW",      "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "NO_SHOW"      },
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "INQUIRY_FU",   "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "INQUIRY_FU"   },
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "POST_APPT",    "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "POST_APPT"    }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000006",
+      "name": "Route by Action Type",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [880, 100]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=⏰ Reminder: Your {{ $json.service }} appointment is in 2 days",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#be185d;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">⏰ Appointment Reminder</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>Just a friendly reminder that your <strong>{{ $json.service }}</strong> appointment is coming up!</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;\">\n    <strong>📅 Appointment Details:</strong><br/><br/>\n    Service: {{ $json.service }}<br/>\n    Date: {{ $json.apptDate }}<br/>\n    Time: {{ $json.apptTime }}<br/>\n    Provider: {{ $json.provider }}\n  </div>\n  <p><strong>Before your appointment:</strong></p>\n  <ul style=\"line-height:1.8;\">\n    <li>Arrive 5–10 minutes early to complete any forms</li>\n    <li>Come with a clean face (no heavy makeup if receiving facial treatments)</li>\n    <li>Stay hydrated — it helps with results</li>\n  </ul>\n  <p>If you need to reschedule, please reply to this email or call us at least 24 hours in advance.</p>\n  <p>We're looking forward to seeing you!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000007",
+      "name": "Send 48hr Reminder",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1100, -400],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=🌟 See you tomorrow! {{ $json.service }} — {{ $json.apptTime }}",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#9333ea;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">🌟 See You Tomorrow!</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>Your <strong>{{ $json.service }}</strong> appointment is <strong>tomorrow</strong> — we're looking forward to it!</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #9333ea;\">\n    🕐 <strong>{{ $json.apptTime }}</strong> tomorrow, {{ $json.apptDate }}<br/>\n    ✨ Service: {{ $json.service }}<br/>\n    👤 Provider: {{ $json.provider }}\n  </div>\n  <p>If anything comes up and you need to reschedule, please reply ASAP — this helps us offer your slot to someone on our waitlist. We appreciate the notice!</p>\n  <p>See you tomorrow!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000008",
+      "name": "Send 24hr Reminder",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1100, -200],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=We missed you today, {{ $json.clientName }} — let's reschedule",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#dc2626;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">We Missed You Today</h2></div>\n<div style=\"background:#fff5f5;padding:24px;border:1px solid #fecaca;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>We noticed you weren't able to make your <strong>{{ $json.service }}</strong> appointment today. We hope everything is okay!</p>\n  <p>Life gets busy — we completely understand. Your goal is still achievable and we'd love to help you get there.</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;text-align:center;border:1px solid #fecaca;\">\n    <strong>Ready to rebook?</strong><br/>\n    <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:10px;\">Reply to Reschedule →</a>\n  </div>\n  <p>If there's anything that put you off — concerns about the treatment, pricing, or anything else — please just reply. I'm happy to answer any questions honestly.</p>\n  <p>Hope to see you soon!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000009",
+      "name": "Send No-Show Recovery",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1100, 0],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=Still thinking about {{ $json.service }}, {{ $json.clientName }}?",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">✨ Just Checking In</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>It's been a few days since you reached out about <strong>{{ $json.service }}</strong>. I just wanted to check in and see if you had any questions or were ready to book.</p>\n  <p>Completely no pressure — I just want to make sure you have everything you need to feel confident about taking the next step.</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;\">\n    <strong>What most people ask before booking:</strong><br/><br/>\n    ❓ <em>\"Does it hurt?\"</em> — Most clients describe a mild pinch or pressure. Pain is minimal and temporary.<br/><br/>\n    ❓ <em>\"How long until I see results?\"</em> — Depends on the treatment, but most see results within a few days to 2 weeks.<br/><br/>\n    ❓ <em>\"What's the downtime?\"</em> — Most of our treatments have zero to minimal downtime.\n  </div>\n  <p>If you have a different question, just reply to this email. I personally respond to every message.</p>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Book a Free Consultation →</a>\n  <p style=\"margin-top:20px;\">Looking forward to helping you reach your goals!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000010",
+      "name": "Send Inquiry Follow-Up",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1100, 200],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=How are you feeling after your {{ $json.service }} yesterday?",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:linear-gradient(135deg,#059669,#0891b2);color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">💚 Post-Treatment Check-In</h2></div>\n<div style=\"background:#f0fdf4;padding:24px;border:1px solid #bbf7d0;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>How are you feeling after your <strong>{{ $json.service }}</strong> yesterday? I hope you're already loving the results!</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #059669;\">\n    <strong>A few aftercare reminders:</strong><br/><br/>\n    ✅ Stay hydrated — drink plenty of water today<br/>\n    ✅ Avoid strenuous exercise for 24 hours<br/>\n    ✅ Avoid touching or rubbing the treated area<br/>\n    ✅ If you experience any unexpected reactions, contact us immediately\n  </div>\n  <p>If you have any questions or anything feels off, just reply to this email — I'm always here.</p>\n  <p>We'd also love to see you for your next visit when you're ready. Reply \"book\" and we'll find a time that works for you.</p>\n  <p>Thank you for trusting us with your care!<br/><strong>{{ $json.provider }} &amp; the team at YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000011",
+      "name": "Send Post-Appt Check-In",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1100, 400],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Appointments", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Email":          "={{ $json.clientEmail }}",
+            "Appointment Date":      "={{ $json.apptDate }}",
+            "Pre-Appt Reminder Sent": "Yes"
+          },
+          "matchingColumns": ["Client Email", "Appointment Date"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000017",
+      "name": "Mark 48hr Reminder Sent",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [900, -400],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Appointments", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Email":       "={{ $json.clientEmail }}",
+            "Appointment Date":   "={{ $json.apptDate }}",
+            "24hr Reminder Sent": "Yes"
+          },
+          "matchingColumns": ["Client Email", "Appointment Date"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000021",
+      "name": "Mark 24hr Reminder Sent",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [900, -200],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Appointments", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Email":           "={{ $json.clientEmail }}",
+            "Appointment Date":       "={{ $json.apptDate }}",
+            "Post-Appt Follow-Up Sent": "Yes"
+          },
+          "matchingColumns": ["Client Email", "Appointment Date"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000018",
+      "name": "Mark No-Show Sent",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1320, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Appointments", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Email":           "={{ $json.clientEmail }}",
+            "Appointment Date":       "={{ $json.apptDate }}",
+            "Post-Appt Follow-Up Sent": "Yes"
+          },
+          "matchingColumns": ["Client Email", "Appointment Date"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000019",
+      "name": "Mark Post-Appt Sent",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1320, 400],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Action Type":  "=Pre-Appt Reminder",
+            "Details":      "=48hr reminder sent for {{ $json.service }} on {{ $json.apptDate }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000012",
+      "name": "Log Reminder 48h",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1540, -400],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Action Type":  "=Pre-Appt Reminder",
+            "Details":      "=24hr final reminder sent for {{ $json.service }} on {{ $json.apptDate }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000013",
+      "name": "Log Reminder 24h",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1320, -200],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Action Type":  "=No-Show Recovery",
+            "Details":      "=No-show recovery email sent for {{ $json.service }} (missed {{ $json.apptDate }})"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000014",
+      "name": "Log No-Show",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1540, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Email":        "={{ $json.clientEmail }}",
+            "Last Follow-Up Date": "={{ $json.nowIso }}",
+            "Follow-Up Count":     "={{ ($json.fuCount || 0) + 1 }}"
+          },
+          "matchingColumns": ["Client Email"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000015",
+      "name": "Update Inquiry Follow-Up Count",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1320, 200],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Action Type":  "=Inquiry Follow-Up",
+            "Details":      "=Follow-up #{{ ($json.fuCount || 0) + 1 }} sent to {{ $json.clientName }} re: {{ $json.service }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000020",
+      "name": "Log Inquiry Follow-Up",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1540, 200],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Action Type":  "=Post-Appt Check-In",
+            "Details":      "=Post-appointment check-in sent for {{ $json.service }} received {{ $json.apptDate }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms2000000-0000-0000-0000-000000000016",
+      "name": "Log Post-Appt",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1540, 400],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule — Daily 9am":   { "main": [[{ "node": "Get All Clients",       "type": "main", "index": 0 }, { "node": "Get All Appointments", "type": "main", "index": 0 }]] },
+    "Get All Clients":        { "main": [[{ "node": "Calculate Actions",      "type": "main", "index": 0 }]] },
+    "Get All Appointments":   { "main": [[{ "node": "Calculate Actions",      "type": "main", "index": 0 }]] },
+    "Calculate Actions":      { "main": [[{ "node": "Any Actions Today?",     "type": "main", "index": 0 }]] },
+    "Any Actions Today?": {
+      "main": [
+        [{ "node": "Route by Action Type", "type": "main", "index": 0 }],
+        []
+      ]
+    },
+    "Route by Action Type": {
+      "main": [
+        [{ "node": "Mark 48hr Reminder Sent",       "type": "main", "index": 0 }],
+        [{ "node": "Mark 24hr Reminder Sent",       "type": "main", "index": 0 }],
+        [{ "node": "Mark No-Show Sent",             "type": "main", "index": 0 }],
+        [{ "node": "Update Inquiry Follow-Up Count","type": "main", "index": 0 }],
+        [{ "node": "Mark Post-Appt Sent",           "type": "main", "index": 0 }]
+      ]
+    },
+    "Mark 48hr Reminder Sent": { "main": [[{ "node": "Send 48hr Reminder",    "type": "main", "index": 0 }]] },
+    "Send 48hr Reminder":      { "main": [[{ "node": "Log Reminder 48h",       "type": "main", "index": 0 }]] },
+    "Mark 24hr Reminder Sent": { "main": [[{ "node": "Send 24hr Reminder",    "type": "main", "index": 0 }]] },
+    "Send 24hr Reminder":      { "main": [[{ "node": "Log Reminder 24h",       "type": "main", "index": 0 }]] },
+    "Mark No-Show Sent":       { "main": [[{ "node": "Send No-Show Recovery", "type": "main", "index": 0 }]] },
+    "Send No-Show Recovery":   { "main": [[{ "node": "Log No-Show",            "type": "main", "index": 0 }]] },
+    "Update Inquiry Follow-Up Count":  { "main": [[{ "node": "Send Inquiry Follow-Up",  "type": "main", "index": 0 }]] },
+    "Send Inquiry Follow-Up":          { "main": [[{ "node": "Log Inquiry Follow-Up",   "type": "main", "index": 0 }]] },
+    "Mark Post-Appt Sent":     { "main": [[{ "node": "Send Post-Appt Check-In","type": "main", "index": 0 }]] },
+    "Send Post-Appt Check-In": { "main": [[{ "node": "Log Post-Appt",           "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "ms2000000-0000-0000-0000-000000000099",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "MSG-FOLLOWUP-002",
+  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Production Ready" }]
+}

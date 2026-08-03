@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedSpa Growth Engine - Lost Revenue Recovery OS for Aesthetic Clinics</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1e0a2e 0%, #0f172a 50%, #0a1628 100%);
+      border-bottom: 1px solid #1e293b;
+      padding: 72px 24px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }    .hero-badge {
+      display: inline-block;
+      background: rgba(190,24,93,0.15);
+      border: 1px solid rgba(190,24,93,0.4);
+      color: #f9a8d4;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      color: #f8fafc;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, #f472b6, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-size: 32px;
+      font-weight: 800;
+      color: #f472b6;
+      line-height: 1;
+    }
+    .hero-stat .label {
+      font-size: 12px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 64px 24px; max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #be185d;
+      margin-bottom: 10px;
+    }
+    .section h2 {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-intro {
+      font-size: 16px;
+      color: #94a3b8;
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+
+    /* ── PROBLEM ── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .problem-card {
+      background: #1a0a0a;
+      border: 1px solid #3f1e1e;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .problem-card .number {
+      font-size: 36px;
+      font-weight: 900;
+      color: #ef4444;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .problem-card .title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fca5a5;
+      margin-bottom: 6px;
+    }
+    .problem-card .desc {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* ── WORKFLOWS ── */
+    .workflow-list { display: flex; flex-direction: column; gap: 16px; }
+    .workflow-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .wf-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .wf-icon.pink  { background: rgba(190,24,93,0.15); }
+    .wf-icon.purple{ background: rgba(147,51,234,0.15); }
+    .wf-icon.amber { background: rgba(245,158,11,0.15); }
+    .wf-icon.teal  { background: rgba(20,184,166,0.15); }
+    .wf-icon.indigo{ background: rgba(99,102,241,0.15); }
+    .wf-num {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+    .wf-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-bottom: 8px;
+    }
+    .wf-desc {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .wf-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .wf-bullet {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+
+    /* ── ROI ── */
+    .roi-section {
+      background: linear-gradient(135deg, #1e0a2e, #0f172a);
+      border-top: 1px solid #1e293b;
+      border-bottom: 1px solid #1e293b;
+    }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .roi-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .roi-card .scenario {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    .roi-card .amount {
+      font-size: 26px;
+      font-weight: 800;
+      color: #34d399;
+    }
+    .roi-total {
+      background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.05));
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 12px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .roi-total .label { font-size: 14px; color: #6ee7b7; }
+    .roi-total .total { font-size: 32px; font-weight: 900; color: #34d399; }
+    .roi-total .sub   { font-size: 13px; color: #4ade80; }
+
+    /* ── TECH STACK ── */
+    .stack-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid #1e293b;
+    }
+    .stack-row:last-child { border-bottom: none; }
+    .stack-tool { font-size: 15px; color: #e2e8f0; font-weight: 600; }
+    .stack-role { font-size: 13px; color: #64748b; }
+    .stack-cost {
+      font-size: 14px;
+      font-weight: 700;
+      color: #34d399;
+      white-space: nowrap;
+    }
+
+    /* ── INVESTMENT ── */
+    .investment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .inv-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .inv-card .inv-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+    .inv-card .inv-price {
+      font-size: 34px;
+      font-weight: 900;
+      color: #f1f5f9;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .inv-card .inv-price span {
+      font-size: 16px;
+      font-weight: 400;
+      color: #64748b;
+    }
+    .inv-card .inv-desc {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+    .inv-highlight {
+      background: linear-gradient(135deg, rgba(190,24,93,0.1), rgba(147,51,234,0.08));
+      border: 1px solid rgba(190,24,93,0.3);
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 14px;
+      color: #f9a8d4;
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #be185d 0%, #7c3aed 100%);
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-primary {
+      background: white;
+      color: #be185d;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .cta-primary:hover { opacity: 0.92; }
+    .cta-secondary {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: background 0.15s;
+    }
+    .cta-secondary:hover { background: rgba(255,255,255,0.22); }
+    .contact-info {
+      margin-top: 40px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+    }
+    .contact-info strong { color: white; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #1e293b;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .roi-grid { grid-template-columns: 1fr; }
+      .investment-grid { grid-template-columns: 1fr; }
+      .workflow-card { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+      .roi-total { flex-direction: column; }
+    }
+
+    /* ── PRINT / PDF ── */
+    @media print {
+      body { background: white; color: #1f2937; }
+      .hero { background: #9d174d; color: white; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Lost Revenue Recovery OS</div>
+  <h1>Recover missed consults, no-shows, and <span>lapsed VIP revenue</span></h1>
+  <p class="hero-sub">A managed recovery layer for independent aesthetic clinics: inquiry follow-up, reminders, no-show recovery, reviews, referrals, VIP reactivation, and owner reporting around the booking system you already use.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">8</div>
+      <div class="label">Core workflows</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">Modeled</div>
+      <div class="label">ROI from clinic data</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">Monthly</div>
+      <div class="label">Retention campaigns</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">$20/mo</div>
+      <div class="label">Your tool cost</div>
+    </div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<div class="section">
+  <div class="section-label">The Problem</div>
+  <h2>Great at treatments. Terrible at what happens around them.</h2>
+  <p class="section-intro">Most MedSpas are strong inside the treatment room. The leakage happens around the appointment: slow inquiry response, inconsistent reminders, weak review asks, and clients who never get brought back.</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="number">Leaks</div>
+      <div class="title">Missed appointments</div>
+      <div class="desc">Even a few missed appointments per month can erase the value of a retention system.</div>
+    </div>
+    <div class="problem-card">
+      <div class="number">Quiet</div>
+      <div class="title">First-time clients drift</div>
+      <div class="desc">Often because the next step was never made obvious.</div>
+    </div>
+    <div class="problem-card">
+      <div class="number">0</div>
+      <div class="title">Systematic review collection</div>
+      <div class="desc">Reviews trickle in randomly. New clients go to the clinic with more of them.</div>
+    </div>
+    <div class="problem-card">
+      <div class="number">0</div>
+      <div class="title">Seasonal promotions sent</div>
+      <div class="desc">Too busy treating clients to write promotional emails. Every month, revenue is left on the table.</div>
+    </div>
+  </div>
+  <p style="font-size:16px;color:#94a3b8;">None of this is a talent problem. <strong style="color:#f1f5f9;">It's a systems problem.</strong></p>
+</div>
+
+<hr class="divider">
+
+<!-- THE SYSTEM -->
+<div class="section">
+  <div class="section-label">The System</div>
+  <h2>8 automated workflows. Runs while you treat.</h2>
+  <p class="section-intro">Every client touchpoint from first inquiry to win-back is handled through a managed email and dashboard layer. Built on n8n, Gmail, and Google Sheets. No SaaS migration required.</p>
+
+  <div class="workflow-list">
+    <div class="workflow-card">
+      <div class="wf-icon pink">⚡</div>
+      <div>
+        <div class="wf-num">Workflow 1</div>
+        <div class="wf-title">Lead Inquiry Intake</div>
+        <div class="wf-desc">Someone fills out your intake form. Within seconds they receive personalised service information — pricing, what to expect, a direct CTA to book. You get an instant alert with their details. They're added to your CRM automatically.</div>
+        <div class="wf-bullets">
+          <span class="wf-bullet">Instant service info email</span>
+          <span class="wf-bullet">Clinic alert</span>
+          <span class="wf-bullet">CRM entry</span>
+          <span class="wf-bullet">3-day follow-up if no booking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workflow-card">
+      <div class="wf-icon purple">📅</div>
+      <div>
+        <div class="wf-num">Workflow 2</div>
+        <div class="wf-title">Appointment Follow-Up Engine</div>
+        <div class="wf-desc">Runs every morning at 9am. Sends the right email to the right person automatically — no decisions required from you.</div>
+        <div class="wf-bullets">
+          <span class="wf-bullet">48hr reminder</span>
+          <span class="wf-bullet">24hr final reminder</span>
+          <span class="wf-bullet">Same-day no-show recovery</span>
+          <span class="wf-bullet">Post-treatment aftercare check-in</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workflow-card">
+      <div class="wf-icon amber">⭐</div>
+      <div>
+        <div class="wf-num">Workflow 3</div>
+        <div class="wf-title">Review & Referral System</div>
+        <div class="wf-desc">24 hours after every completed appointment, a Google review request goes out. Returning clients can also receive a clinic-approved referral ask.</div>
+        <div class="wf-bullets">
+          <span class="wf-bullet">One-click Google review link</span>
+          <span class="wf-bullet">Referral ask from visit 2+</span>
+          <span class="wf-bullet">Consistent review ask after each completed visit</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workflow-card">
+      <div class="wf-icon teal">💜</div>
+      <div>
+        <div class="wf-num">Workflow 4</div>
+        <div class="wf-title">VIP Retention Engine</div>
+        <div class="wf-desc">Runs on the 1st of every month. Catches every client who's drifting away before they're gone — and sends seasonally relevant promotions to your active clients automatically.</div>
+        <div class="wf-bullets">
+          <span class="wf-bullet">60-day rebook nudge</span>
+          <span class="wf-bullet">90-day "we miss you" + 10% off</span>
+          <span class="wf-bullet">180-day win-back</span>
+          <span class="wf-bullet">Monthly seasonal promo (auto-detects season)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workflow-card">
+      <div class="wf-icon indigo">📊</div>
+      <div>
+        <div class="wf-num">Workflow 5</div>
+        <div class="wf-title">Weekly Performance Report</div>
+        <div class="wf-desc">Every Monday at 8am, a clean performance email lands in your inbox. Revenue, no-shows, at-risk clients, new client count — the health of your business in 30 seconds, without logging into anything.</div>
+        <div class="wf-bullets">
+          <span class="wf-bullet">Week-over-week revenue</span>
+          <span class="wf-bullet">No-shows by name</span>
+          <span class="wf-bullet">At-risk client list</span>
+          <span class="wf-bullet">Review rate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workflow-card">
+      <div class="wf-icon pink">✅</div>
+      <div>
+        <div class="wf-num">Workflow 6</div>
+        <div class="wf-title">Booking Confirmation</div>
+        <div class="wf-desc">When you confirm an appointment in your dashboard, the client gets an instant booking confirmation email with their appointment details and pre-arrival tips. One click — done. No manual email writing ever.</div>
+        <div class="wf-bullets">
+          <span class="wf-bullet">Fires in seconds</span>
+          <span class="wf-bullet">Triggered from your dashboard</span>
+          <span class="wf-bullet">Pre-arrival tips included</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF MODEL -->
+<div style="background:#0f1729;border-top:1px solid #1e293b;border-bottom:1px solid #1e293b;padding:56px 24px;">
+  <div style="max-width:860px;margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#be185d;margin-bottom:8px;">Decision Model</div>
+    <h2 style="font-size:26px;font-weight:900;color:#f1f5f9;margin-bottom:6px;">We model the upside before you commit</h2>
+    <p style="font-size:15px;color:#64748b;margin-bottom:36px;">Instead of selling from inflated promises, we use your monthly appointments, average treatment value, missed-appointment estimate, review count, and lapsed-client list.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1e293b;border-radius:12px;overflow:hidden;margin-bottom:36px;">
+      <div style="background:#0f172a;padding:24px 20px;text-align:center;">
+        <div style="font-size:34px;font-weight:900;color:#f472b6;line-height:1;">3-5</div>
+        <div style="font-size:11px;color:#475569;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:6px;">Missed appts modeled</div>
+      </div>
+      <div style="background:#0f172a;padding:24px 20px;text-align:center;">
+        <div style="font-size:34px;font-weight:900;color:#34d399;line-height:1;">$300</div>
+        <div style="font-size:11px;color:#475569;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:6px;">Avg treatment value</div>
+      </div>
+      <div style="background:#0f172a;padding:24px 20px;text-align:center;">
+        <div style="font-size:34px;font-weight:900;color:#a78bfa;line-height:1;">2</div>
+        <div style="font-size:11px;color:#475569;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:6px;">Lapsed wins modeled</div>
+      </div>
+      <div style="background:#0f172a;padding:24px 20px;text-align:center;">
+        <div style="font-size:34px;font-weight:900;color:#fbbf24;line-height:1;">1</div>
+        <div style="font-size:11px;color:#475569;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:6px;">Referral modeled</div>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#1e1b4b,#2d1b69);border:1px solid #4c1d95;border-left:4px solid #a78bfa;border-radius:12px;padding:24px 28px;">
+      <p style="font-size:16px;font-style:italic;color:#e2e8f0;line-height:1.7;margin-bottom:12px;">"If the numbers do not make sense conservatively, we should not do the project. The calculator shows what needs to be true for the system to justify itself."</p>
+      <p style="font-size:12px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:0.5px;">Discovery-call ROI model</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ROI -->
+<div class="roi-section">
+  <div class="section">
+    <div class="section-label">The ROI</div>
+    <h2>Use clinic numbers before making the decision.</h2>
+    <p class="section-intro">The system is modeled from appointment volume, average treatment value, missed appointments, lapsed clients, and referrals. No inflated promises required.</p>
+
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="scenario">Prevent 3 missed appointments/month @ $300/slot</div>
+        <div class="amount">+$900</div>
+      </div>
+      <div class="roi-card">
+        <div class="scenario">Win back 2 lapsed clients/month @ $250/visit</div>
+        <div class="amount">+$500</div>
+      </div>
+      <div class="roi-card">
+        <div class="scenario">1 referred new client/month from referral system</div>
+        <div class="amount">+$300+</div>
+      </div>
+      <div class="roi-card">
+        <div class="scenario">More Google reviews → better local search ranking</div>
+        <div class="amount">Compounding</div>
+      </div>
+    </div>
+
+    <div class="roi-total">
+      <div>
+        <div class="label">Modeled monthly recovered revenue</div>
+        <div class="total">$1,700+</div>
+        <div class="sub">Before counting long-term review and retention lift</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:12px;color:#4ade80;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">All-in monthly</div>
+        <div style="font-size:28px;font-weight:900;color:#34d399;">$1,000</div>
+        <div style="font-size:12px;color:#4ade80;">(hosting, maintenance, and support all included)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECH STACK -->
+<div class="section">
+  <div class="section-label">The Tech Stack</div>
+  <h2>Tools you already use. Nothing new to learn.</h2>
+  <p class="section-intro">Built entirely on familiar, reliable infrastructure — no locked-in platforms, no per-seat pricing, no proprietary tools.</p>
+
+  <div>
+    <div class="stack-row">
+      <div>
+        <div class="stack-tool">n8n (automation backbone)</div>
+        <div class="stack-role">Runs all 8 workflows, triggers, schedules</div>
+      </div>
+      <div class="stack-cost">~$20/month</div>
+    </div>
+    <div class="stack-row">
+      <div>
+        <div class="stack-tool">Gmail</div>
+        <div class="stack-role">Sends every automated email from your own address</div>
+      </div>
+      <div class="stack-cost">Free</div>
+    </div>
+    <div class="stack-row">
+      <div>
+        <div class="stack-tool">Google Sheets</div>
+        <div class="stack-role">CRM — clients, appointments, activity log</div>
+      </div>
+      <div class="stack-cost">Free</div>
+    </div>
+    <div class="stack-row">
+      <div>
+        <div class="stack-tool">Intake form (included)</div>
+        <div class="stack-role">Self-hosted, deploys to GitHub Pages or your website</div>
+      </div>
+      <div class="stack-cost">Free</div>
+    </div>
+    <div class="stack-row">
+      <div>
+        <div class="stack-tool">Live clinic dashboard (included)</div>
+        <div class="stack-role">Real-time view of clients, revenue, appointments, analytics</div>
+      </div>
+      <div class="stack-cost">Free</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- INVESTMENT -->
+<div class="section">
+  <div class="section-label">Investment</div>
+  <h2>One-time setup. Managed monthly optimization.</h2>
+  <p class="section-intro">I handle everything — you just connect your accounts and run your business.</p>
+
+  <div class="investment-grid">
+    <div class="inv-card">
+      <div class="inv-label">One-time setup fee</div>
+      <div class="inv-price">$3,500</div>
+      <div class="inv-desc">All 8 workflows configured and live. Google Sheets CRM configured. Dashboard running. Intake form deployed. Full walkthrough included.</div>
+    </div>
+    <div class="inv-card">
+      <div class="inv-label">Monthly retainer</div>
+      <div class="inv-price">$1,000 <span>/ month</span></div>
+      <div class="inv-desc">Ongoing maintenance, updates, email copy refreshes, seasonal content, and direct support. System stays sharp as your business grows.</div>
+    </div>
+  </div>
+
+  <div class="inv-highlight">
+    📍 <strong>What's included in setup:</strong> Every workflow built to your clinic's branding, all email templates customised to your voice, Google Sheets CRM configured, intake form deployed on your domain, live dashboard connected to your data, and a 1-hour walkthrough so you understand exactly how everything works. No code. No tech knowledge required. Clear launch, testing, and monthly optimization.
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to see it live?</h2>
+  <p>15 minutes on a call. I'll show the recovery system running with demo data, map your clinic's biggest leaks, and show what gets installed.</p>
+  <div class="cta-buttons">
+    <a href="../booking/index.html" class="cta-primary">Map My Clinic's Leaks -></a>
+    <a href="../booking/index.html" class="cta-secondary">See The Recovery System</a>
+  </div>
+  <div class="contact-info">
+    <strong>Bibek Bhandari</strong> &nbsp;·&nbsp; MedSpa Growth Engine &nbsp;·&nbsp; Book the leak snapshot above
+  </div>
+</div>
+
+</body>
+</html>
+
+

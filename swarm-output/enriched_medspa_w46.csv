@@ -1,0 +1,122 @@
+lead_id,business_name,city,website,email,phone,enrichment_method,confidence_score
+MS-0664,Naples Facial Botox Med Spa,Naples,https://naplesfacialbotoxmedspa.com/,,,no_email_found,0
+MS-0678,The Drip Doc,New York,https://dripdocwellness.com,,,no_email_found,0
+MS-0689,Luxury Hair Suites,New York,https://luxuryhairsuites.com,hello@luxuryhairsuites.com,(718) 880-4321,websearch_snippet,75
+MS-0690,NeoGraft Hair Transplant NY,New York,https://neografthairtransplantny.com,,,no_email_found,0
+MS-0691,Nova Hair Transplant,New York,https://novahairtransplantnyc.com,,,no_email_found,0
+MS-0693,Dr. Senderoff Hair Transplant,New York,https://drsenderoff.com,info@drsenderoff.com,(212) 481-3939,websearch_snippet,80
+MS-0715,MD Beauty Boston,Newton,https://www.mdbeautyboston.com/,,(617) 930-4117,no_email_found,0
+MS-0730,Vivaderm Medical Aesthetics,Oakville,https://www.vivaderm.ca/,info@vivaderm.ca,,pattern_inferred_domain,65
+MS-1243,Omaha Face & Body Medical Spa,Omaha,https://www.omahaface.com,info@omahaface.com,,pattern_inferred_domain,65
+MS-0824,SkinLab RI,Providence,https://www.skinlabri.com/,info@skinlabri.com,,pattern_inferred_domain,65
+MS-1273,Skin Deep Med Spa Providence,Providence,https://www.skindeepmedspa.com,info@skindeepmedspa.com,(440) 268-6100,websearch_snippet,70
+MS-0935,Tirzepatide Clinic,Scottsdale,https://tirzepatide.clinic,info@tirzepatide.clinic,(602) 492-9919,pattern_inferred_domain,65
+MS-1267,The Beautyful Secret Medical Spa,Shreveport,https://thebeautyfulsecret.com,Confidence@thebeautyfulsecret.com,(318) 670-7813,websearch_direct,90
+MS-1268,Fixx Medical Spa,Shreveport,https://fixxmedicalspa.com,info@fixxmedicalspa.com,(318) 990-1092,websearch_snippet,80
+MS-0945,The LAB Spokane,Spokane,https://www.thelabaw.com,info@thelabaw.com,(509) 255-3840,websearch_snippet,80
+MS-0946,Crafted Beauty Med Spa,Spokane,https://craftedbeauty.com,info@craftedbeautyspokane.com,509.443.3594,websearch_snippet,80
+MS-0947,Rejuvenate Rx Spokane,Spokane,https://www.rejuvenate-rx.com,info@rejuvenate-rx.com,(509) 290-6149,pattern_inferred_domain,65
+MS-0948,Werschler Aesthetics,Spokane,https://www.werschleraesthetics.com,info@spokanederm.com,(509) 344-3223,websearch_snippet,80
+MS-0949,Bloom by Zelda,Spokane,https://bloombyzelda.com,info@bloombyzelda.com,(509) 990-3054,websearch_snippet,80
+MS-0950,Spokane Valley Medical Aesthetics,Spokane,https://valleymedicalaesthetics.com,info@valleymedicalaesthetics.com,(509) 590-3982,pattern_inferred_domain,65
+MS-0951,Sarah Hamilton FACE,Spokane,https://www.sarahhamiltonface.com,info@sarahhamiltonface.com,(509) 210-0228,websearch_snippet,80
+MS-0953,MedAesthetic NL,St. John's,https://www.medaestheticnl.com/,medaestheticnl@hotmail.com,709.726.0467,websearch_snippet,80
+MS-0955,The Saint Louis Med Spa,St. Louis,https://thesaintlouismedspa.com/,Contact@STLMedSpa.com,(557) 220-9575,websearch_snippet,80
+MS-0956,Modern Med STL,St. Louis,https://www.modernmedstl.com/,modernmedstl@gmail.com,314-394-0204,websearch_snippet,75
+MS-0957,Metro Medspa,St. Louis,https://www.metromedspa.com/,info@metromedspa.com,(314) 842-5600,websearch_snippet,80
+MS-0958,St. Louis Skin Solutions,St. Louis,https://stlouisskin.com/,info@stlouisskin.com,(314) 485-7845,pattern_inferred_domain,65
+MS-0959,Aesthetically Pleasing Medspa,St. Louis,https://www.apstlmedspa.com/,info@apstlmedspa.com,,pattern_inferred_domain,65
+MS-0960,Avani Derm Spa,St. Louis,https://www.avanidermspa.com/,spa@nayak.net,(314) 991-5438,websearch_snippet,80
+MS-0961,Ladue Medical Spa,St. Louis,https://www.laduemedspa.com/,info@laduemedspa.com,314 705-3539,websearch_snippet,80
+MS-0962,MarElyse MediSpa,St. Louis,https://www.marelyse.com/,info@marelyse.com,314-571-6062,pattern_inferred_domain,65
+MS-0963,PRICKD Medspa STL,St. Louis,https://prickdmedspa.com/,getprickd@prickdmedspa.com,(314) 256-1290,websearch_direct,90
+MS-0964,DIVINE Boutique Medspa,St. Louis,https://www.divineboutiquemedspa.com/,info@divineboutiquemedspa.com,(314) 504-1787,pattern_inferred_domain,65
+MS-0965,Spa MD St Paul,St. Paul,https://spamd.net/,spaconsultantsmd@gmail.com,(651) 222-4490,websearch_snippet,80
+MS-0966,Luminous You Med Spa,St. Paul,https://www.luminous-you.com/,info@luminous-you.com,(651) 900-1295,pattern_inferred_domain,65
+MS-0970,Catalyst Medspa Tacoma,Tacoma,https://www.catalystmedspa.com,info@catalystmedspa.com,(253) 449-5427,pattern_inferred_domain,65
+MS-0971,Full Spectrum Face + Body,Tacoma,https://www.fullspectrumface.com,contactus@fullspectrumface.com,(253) 260-7060,websearch_snippet,85
+MS-0972,FACE Medical Aesthetics Tacoma,Tacoma,https://facemedicalaesthetics.com,amywoodruffrnllc@outlook.com,(253) 328-4060,websearch_snippet,78
+MS-0973,NW Medical Arts,Tacoma,https://nwmedicalarts.com,info@nwmedicalarts.com,(253) 352-0882,websearch_snippet,80
+MS-0974,LISSE Medical Aesthetics,Tacoma,https://lissemedspa.com,info@lissemedspa.com,(253) 432-6097,websearch_snippet,80
+MS-0975,Advanced Laser Clinic & MedSpa,Tacoma,https://advancedlaserandskin.com,Tacoma@AdvancedLaserAndSkin.com,(253) 476-9500,websearch_snippet,85
+MS-0976,Square One Aesthetics Wellness,Tallahassee,https://squareoneaesthetics.com,squareoneaesthetics@gmail.com,850-765-9923,websearch_snippet,80
+MS-0977,Seven Hills Aesthetics MedSpa,Tallahassee,https://www.sevenhillsaesthetics.com,info@sevenhillsaesthetics.com,,pattern_inferred_domain,65
+MS-0978,Skin Science Aesthetics Tallahassee,Tallahassee,https://skinsciencetallahassee.com,info@skinsciencetallahassee.com,850-733-7474,pattern_inferred_domain,65
+MS-0979,Med Spa by Dr Mignon,Tallahassee,https://www.medspabydrmignon.com,info@medspabydrmignon.com,850-668-5500,pattern_inferred_domain,65
+MS-0980,Royal Rejuvenation Med Spa,Tallahassee,https://www.royalrejuvenationmedspa.com,royalrejuvenationmedspa@gmail.com,(850) 815-0266,websearch_snippet,80
+MS-0981,Evita Med Spa,Tallahassee,https://evitamedspa.com,info@evitamedspa.com,(850) 583-7661,websearch_snippet,80
+MS-0982,TLH MedSpa,Tallahassee,https://www.tlhmedspa.com,info@tlhmedspa.com,850-901-5740,websearch_snippet,80
+MS-1264,Harmonized Aesthetics Tallahassee,Tallahassee,https://harmonizedaesthetics.com,harmonizedaesthetics@gmail.com,(850) 778-8004,websearch_snippet,80
+MS-0986,Esthetica MedSpa Tampa,Tampa,https://estheticamedspa.com/,info@estheticamedspa.com,,pattern_inferred_domain,65
+MS-0999,Body BeneFits MedSpa,The Woodlands,https://bodybenefitswoodlands.com,info@bodybenefitswoodlands.com,(281) 292-8882,websearch_snippet,80
+MS-1000,East Shore Medspa,The Woodlands,https://www.eastshoremedspa.com/,info@eastshoremedspa.com,936-271-2566,pattern_inferred_domain,65
+MS-1001,Evergreen MedSpa Woodlands,The Woodlands,https://myevergreenmedspa.com/,info@myevergreenmedspa.com,346-646-3518,pattern_inferred_domain,65
+MS-1002,Dr. Summer Rose MD Aesthetics,The Woodlands,https://drsummerrose.com/,contact@drsummerrose.com,281-724-2322,websearch_snippet,85
+MS-1003,Woodlands Medical Aesthetics Institute,The Woodlands,https://woodlandsmedicalaesthetics.com/,info@thewmai.com,(936) 273-9053,websearch_snippet,80
+MS-1004,Seychelles Med & Laser Spa,The Woodlands,https://seychellesmedspa.com/,seychelles@seyspa.com,+1 832-813-8086,websearch_snippet,85
+MS-1005,Medical-AL Woodlands,The Woodlands,https://www.medical-al.com/,info@medical-al.com,903-300-6282,pattern_inferred_domain,65
+MS-1006,The Refinery Medical Aesthetics,Topeka,https://therefinerymed.com/,hello@therefinerymed.com,(785) 329-3499,websearch_snippet,85
+MS-1007,Azure Aesthetics Med Spa,Topeka,https://azureaestheticsmedspa.com/,info@azureaestheticsmedspa.com,(785) 270-0179,pattern_inferred_domain,65
+MS-1224,Glow Medical Aesthetics Tulsa,Tulsa,https://glowmedicaltulsa.com,info@glowmedicaltulsa.com,(918) 927-2618,pattern_inferred_domain,65
+MS-1225,Skin Ambitions Medical Spa,Tulsa,https://www.skinambitionstulsa.com,info@skinambitionstulsa.com,918.994.4668,websearch_snippet,80
+MS-1226,Blank Med Spa,Tulsa,https://blankmedspa.com,spa@blankmedspa.com,918-400-0104,websearch_snippet,85
+MS-1227,Nouveau Aesthetics Tulsa,Tulsa,https://nouveauaesthetics.net,kimberly@nouveauaesthetics.net,(918) 724-4998,websearch_direct,90
+MS-1228,Align Injectable Aesthetics,Tulsa,https://align918.com,info@align918.com,(918) 407-9058,websearch_snippet,80
+MS-1229,Prime Medical Spa Tulsa,Tulsa,https://primemedicalspa.com,info@primemedspa.com,918-710-2060,websearch_snippet,80
+MS-1230,Beauty Bar Med Spa Tulsa,Tulsa,https://www.beautybarmedspatulsa.com,beautybarmedspatulsa@gmail.com,(918) 519-3847,websearch_snippet,80
+MS-1231,Firm Medical Spa Tulsa,Tulsa,https://www.firmmedicalspa.com,info@firmmedicalspa.com,(918) 800-4434,pattern_inferred_domain,65
+MS-1038,Vancouver Beauty Clinic,Vancouver,https://www.vancouverbeautyclinic.com/,info@vancouverbeautyclinic.com,,pattern_inferred_domain,65
+MS-1153,Bertucci MedSpa,Vaughan,https://www.bertuccimedspa.com,info@bertuccimedspa.com,(905) 850-4415,pattern_inferred_domain,65
+MS-1045,Derma Spa,Victoria,https://dermaspa.ca/,dermaspa@dermaspa.ca,+1 250-598-6968,websearch_snippet,85
+MS-1046,Philosophy MD,Victoria,https://philosophymd.com/,hello@philosophymd.com,(250) 889-1658,websearch_snippet,85
+MS-1047,South Island Medical Aesthetics,Victoria,https://botoxvictoriabc.com/,info@botoxvictoriabc.com,(250) 896-9099,pattern_inferred_domain,65
+MS-1048,Glow Luxe SkinCare & Medispa,Victoria,https://www.glowluxe.ca/,info@glowluxe.ca,250.590.5459,websearch_snippet,85
+MS-1049,Beam Beauty Wellness Centre,Victoria,https://beambeauty.ca/,info@beambeauty.ca,778-440-2289,websearch_snippet,80
+MS-1050,Victoria Botox Clinic,Victoria,https://victoriabotoxclinic.com/,Info@BritishColumbiaBotoxClinics.com,778-265-1377,websearch_snippet,80
+MS-1051,Aestheva Medical Aesthetics,Victoria,https://aesthevaclinic.ca/,aesthevaclinic@gmail.com,778-265-4652,websearch_snippet,80
+MS-1052,Victoria Rose Aesthetics,Victoria,https://victoriaroseaesthetics.ca/,info@victoriaroseaesthetics.ca,(905) 903-3300,websearch_snippet,80
+MS-1053,Dr. Anna MD Victoria,Victoria,https://drannamd.com/,dranna@drannamd.com,250 590 0883,websearch_snippet,90
+MS-1054,Renew MedSpa,Vidalia,https://www.renewmedspaga.com,rebekah@renewmedspaga.com,912-585-9098,websearch_direct,90
+MS-1055,AnewSkin Medical Spa,Washington,https://www.anewskinmedspa.com/,info@anewskinmedspa.com,(202) 505-6996,websearch_snippet,80
+MS-1056,Blue Sky Laser & Tox,Washington,https://www.blueskylasertox.com/,hello@blueskylasertox.com,(703) 966-3223,websearch_snippet,85
+MS-1057,Georgetown Allure Med Spa,Washington,https://georgetownallure.com,contact@georgetownallure.online,833-255-8731,websearch_snippet,78
+MS-1058,Vitalify MedSpa,Washington,https://vitalifymedspa.com/,info@vitalifymedspa.com,(202) 410-1459,websearch_snippet,80
+MS-1059,ProMD Health DC,Washington,https://promdhealth.com/,washingtondc@promdhealth.com,202-885-9133,websearch_direct,90
+MS-1060,Belmont Plastic Surgery,Washington,https://www.belmontplasticsurgery.com/,info@belmontplasticsurgery.com,(301) 654-5666,pattern_inferred_domain,65
+MS-1061,Capital Center for Oral and Maxillofacial Surgery,Washington,https://ccomfs.com/,info@ccomfs.com,(202) 875-8437,websearch_snippet,80
+MS-1062,Waterloo Medical Cosmetics,Waterloo,https://www.waterloomedicalcosmetics.com/,info@waterloomedicalcosmetics.com,(226) 476-4367,websearch_snippet,80
+MS-1063,Krauss Dermatology,Wellesley,https://kraussdermatology.com,info@kraussdermatology.com,781-416-3500,pattern_inferred_domain,65
+MS-1064,me.losangeles aesthetics,West Hollywood,https://www.melosangeles.com/,info@melosangeles.com,213-583-5905,pattern_inferred_domain,65
+MS-1065,Luxbae Medical Spa,West Hollywood,https://luxbae.com/,info@luxbae.com,310-299-4444,pattern_inferred_domain,65
+MS-1066,Beauty Vault Med Spa,West Hollywood,https://beautyvaultmedspa.com/,info@beautyvaultmedspa.com,(323) 800-6770,pattern_inferred_domain,65
+MS-1067,Alchemy 43,West Hollywood,https://alchemy43.com/,info@alchemy43.com,(323) 507-3943,pattern_inferred_domain,65
+MS-1068,Le Jolie Medi Spa,West Hollywood,https://lejoliespa.com/,weho@lejoliespa.com,(424) 355-0070,websearch_snippet,85
+MS-1069,Zavant Aesthetics,West Hollywood,https://zavantaesthetics.com/,book@zavantaesthetics.com,(213) 341-2909,websearch_snippet,85
+MS-1070,Next Health,West Hollywood,https://next-health.com,marketing@next-health.com,(310) 620-8372,websearch_snippet,80
+MS-1071,Longevity Center (West Palm Beach),West Palm Beach,https://www.thelcfl.com,info@thelcfl.com,+1 (561) 210-4033,websearch_snippet,80
+MS-1080,Jeuje Aesthetics Wellness,Wichita,https://jeujeaesthetics.com/,info@jeujeaesthetics.com,(316) 352-7126,websearch_snippet,80
+MS-1081,BeautyDot Medical Day Spa,Wichita,https://beautydotspa.com/,connect@beautydotspa.com,(316) 350-4030,websearch_snippet,85
+MS-1082,Glo Up Med Spa Wichita,Wichita,https://www.glo-upmedspawichita.com/,SUPPORT@GLO-UPMEDSPAWICHITA.COM,(316) 821-6374,websearch_snippet,80
+MS-1083,Aesthetic Solutions KS,Wichita,https://www.aestheticsolutionsks.com/,aestheticsolutionsks@gmail.com,(316) 708-4451,websearch_snippet,80
+MS-1239,Heartland Aesthetica,Wichita,https://heartlandaesthetica.com,aesthetica@heartland-derm.com,316.777.6393,websearch_snippet,85
+MS-1240,Hazel and Honey Med Spa,Wichita,https://www.hazelandhoneymedspa.com,info@hazelandhoneymedspa.com,(316) 500-7603,websearch_snippet,80
+MS-1241,Spa MD Beauty Wichita,Wichita,https://www.spamdbeauty.com,info@spaMDbeauty.com,316-425-7980,websearch_snippet,80
+MS-1084,Well House Wellness,Winchester,https://wellhouseinstitute.com,info@wellhouseinstitute.com,(540) 313-4174,websearch_snippet,80
+MS-1085,Glow & Go Beauty Medical Spa,Windsor,https://www.glowngobeauty.ca/,info@glowngobeauty.ca,,pattern_inferred_domain,65
+MS-1086,Bloom Society Windsor,Windsor,https://www.bloomsociety.ca/,bloomsocietyaida@gmail.com,519-991-6287,websearch_snippet,80
+MS-1087,Skin Medical Aesthetics Windsor,Windsor,https://skinmedical.ca/,info@skinmedical.ca,519-979-3877,pattern_inferred_domain,65
+MS-1088,Eden Medical & Aesthetics,Windsor,https://www.edenmedical.ca/,info@edenmedical.ca,,pattern_inferred_domain,65
+MS-1089,Elevate Medical Spa Windsor,Windsor,https://www.elevatemedicalspa.ca/,info@elevatemedicalspa.ca,+1 226-674-1009,pattern_inferred_domain,65
+MS-1279,Visage Clinical Beauty,Winnipeg,https://visagebeauty.ca,visageclinicalbeauty1@gmail.com,1-877-847-9398,websearch_snippet,80
+MS-1280,The Injection Nurse Winnipeg,Winnipeg,https://www.theinjectionnurse.com,jessjacob@theinjectionnurse.com,204-291-7282,websearch_direct,90
+MS-1090,Surya Longevity Wellness,Winter Park,https://suryalongevity.com,info@suryalongevity.com,(407) 683-3995,pattern_inferred_domain,65
+MS-1091,Longevity Wellness & Med Spa (Woodstock GA),Woodstock,https://yourlongevitymd.com,hello@yourlongevitymd.com,(770) 578-0785,websearch_snippet,85
+MS-1092,LX Gynecology & Medspa,various,https://lxmedspa.com,info@lxmedspa.com,,pattern_inferred_domain,65
+MS-1093,Joy Wellness Partners,various,https://joywellnesspartners.com,info@joywellnesspartners.com,(858) 609-0866,websearch_snippet,80
+MS-1094,Nia Aesthetics MD,various,https://niaaestheticsmd.com,contact@niaaestheticsmd.com,210-595-9324,websearch_snippet,80
+MS-1095,Concierge Medical Arts,various,https://www.conciergemedicalarts.com,conciergemedicalarts@gmail.com,(910) 302-9918,websearch_snippet,80
+MS-1096,OhZone Clinics,various,https://www.ohzoneclinics.com,jenny@ohzoneclinics.com,(214) 434-1175,websearch_snippet,85
+MS-1097,Integrative Health & Wellness,various,https://integrative-health.com,wecare@ihmedspa.com,208-799-3333,websearch_snippet,75
+MS-1098,Haven Medical Spa (Women's Wellness),various,https://womenswellnessnow.com,admin@womenswellnessnow.com,573-449-9355,websearch_snippet,75
+MS-1099,Rejuvenated MedSpa,various,https://www.rejuvenatedmedspa.com,info@rejuvenatedmedspa.com,479-335-5777,websearch_snippet,80
+MS-1100,Nulevel Wellness MedSpa,various,https://nulevelwellnessmedspa.com,info@nulevelwellnessmedspa.com,(480) 771-7816,websearch_snippet,80

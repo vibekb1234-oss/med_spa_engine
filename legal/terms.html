@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service - MedSpa Growth Engine</title>
+<meta name="description" content="Terms of service for MedSpa Growth Engine - scope of work, fees, cancellation, IP ownership, and limits of liability." />
+<link rel="icon" type="image/png" href="../assets/medspa-growth-engine-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/brand-tokens.css" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg-0); color: var(--text); font-family: var(--font-sans); font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-bright); }
+.nav { position: sticky; top: 0; z-index: 50; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-mark { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.brand-text { font-size: 14px; font-weight: 800; color: var(--accent); }
+.nav-links a { color: var(--text-dim); font-size: 13px; margin-left: 20px; }
+.nav-links a:hover { color: var(--text-strong); }
+main { max-width: 760px; margin: 0 auto; padding: 56px 28px 96px; }
+.eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--accent-bright); text-transform: uppercase; margin-bottom: 16px; }
+h1 { font-size: 38px; font-weight: 700; color: var(--text-strong); line-height: 1.1; margin-bottom: 14px; }
+.meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--text-faint); text-transform: uppercase; margin-bottom: 44px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+h2 { font-size: 22px; font-weight: 700; color: var(--text-strong); margin-top: 42px; margin-bottom: 14px; letter-spacing: -0.01em; }
+p, li { color: var(--text); font-size: 15px; }
+p { margin-bottom: 14px; }
+ul, ol { padding-left: 22px; margin-bottom: 14px; }
+li { margin-bottom: 6px; }
+.callout { background: var(--bg-1); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 6px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: var(--text-dim); }
+.callout strong { color: var(--accent-bright); }
+.footer { padding: 26px 28px; background: var(--bg-0); border-top: 1px solid var(--border); margin-top: 56px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.footer-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+.footer-links a { font-size: 13px; color: var(--text-dim); margin-left: 18px; }
+@media (max-width: 560px) {
+  .nav-inner { padding: 12px 16px; gap: 10px; }
+  .brand { min-width: 0; }
+  .brand-text { font-size: 14px; font-weight: 800; color: var(--accent); }
+  .nav-links { display: none; }
+  main { padding: 36px 18px 72px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 20px; margin-top: 34px; }
+  p, li { font-size: 14px; }
+  .callout { padding: 14px 16px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-links a { margin-left: 0; margin-right: 16px; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../landing/index.html">
+      <div class="brand-mark"><img src="../assets/medspa-growth-engine-mark.png" alt="" /></div>
+      <div class="brand-text">MedSpa Growth Engine</div>
+    </a>
+    <div class="nav-links">
+      <a href="../landing/index.html">Overview</a>
+      <a href="../booking/index.html">Contact</a>
+      <a href="./privacy.html">Privacy</a>
+    </div>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow">Legal</div>
+  <h1>Terms of Service</h1>
+  <div class="meta">Last updated: May 2026 - Operator: Bibek Bhandari</div>
+
+  <div class="callout">
+    <strong>Plain-language version:</strong> I install and operate the MedSpa Growth Engine for your clinic. You pay a setup fee and a monthly retainer. You own the data inside your Google Sheet. Either side can cancel with 30 days notice. I do not promise specific revenue outcomes. I am not your booking system or your medical records provider.
+  </div>
+
+  <h2>1. The parties</h2>
+  <p>These terms govern the engagement between Bibek Bhandari ("I", "me", or "operator") and the clinic that has purchased MedSpa Growth Engine ("Client" or "you"). By signing the engagement letter, paying the setup fee, or commencing onboarding, the Client accepts these terms.</p>
+
+  <h2>2. Scope of work</h2>
+  <p>For the agreed setup fee, I will:</p>
+  <ul>
+    <li>Configure the clinic's Google Sheet using the provided Apps Script.</li>
+    <li>Configure the 8 n8n workflows with the clinic's credentials and copy.</li>
+    <li>Install the dashboard, configure the admin account, and connect it to the Sheet.</li>
+    <li>Smoke-test the system with synthetic data before any real client email goes out.</li>
+    <li>Provide a handoff email and a written runbook.</li>
+  </ul>
+  <p>For the monthly retainer, I will:</p>
+  <ul>
+    <li>Monitor the error handler and respond to workflow failures.</li>
+    <li>Adjust copy and timing within the scope of the chosen package.</li>
+    <li>Load the seasonal campaign each month (Growth and Local Dominance packages).</li>
+    <li>Send a monthly ROI review (Growth and Local Dominance packages).</li>
+  </ul>
+
+  <h2>3. Out of scope (unless separately agreed)</h2>
+  <ul>
+    <li>Replacing your booking system (Jane, Fresha, Mindbody, Square, etc.).</li>
+    <li>Adding SMS - SMS requires separate consent and compliance work.</li>
+    <li>Paid ads, ad-spend management, or media buying.</li>
+    <li>Social media content, organic posting, or community management.</li>
+    <li>Anything touching medical records, photos, prescriptions, or clinical notes.</li>
+    <li>HIPAA-covered transactions or workflows involving Protected Health Information (PHI).</li>
+  </ul>
+
+  <h2>4. Client responsibilities</h2>
+  <ul>
+    <li>Provide accurate clinic details: name, email, services, timezone, review link.</li>
+    <li>Authorize Gmail and Google Sheets OAuth in n8n on the kickoff call.</li>
+    <li>Approve email copy (reminder language, review ask wording, referral offer terms, opt-out language) before the system goes live.</li>
+    <li>Keep paying Google, n8n, and any optional connectors directly - those are the Client's accounts, not mine.</li>
+    <li>Comply with all marketing, anti-spam, and consumer-protection laws in the Client's jurisdiction (CAN-SPAM, CASL, GDPR, ePrivacy, state laws, etc.).</li>
+  </ul>
+
+  <h2>5. Fees and billing</h2>
+  <ul>
+    <li><strong>Setup fee:</strong> due before workflow configuration begins. Non-refundable once smoke-test is complete.</li>
+    <li><strong>Monthly retainer:</strong> billed in advance on the calendar day of go-live.</li>
+    <li>Late payment (more than 14 days) pauses the retainer services (monitoring, monthly campaigns, ROI review). Workflows remain operational because they run on the clinic's own accounts.</li>
+    <li>Currency: USD unless otherwise agreed in writing.</li>
+  </ul>
+
+  <h2>6. Term and cancellation</h2>
+  <ul>
+    <li>The engagement is month-to-month with a <strong>30-day notice period</strong> on either side.</li>
+    <li>If you cancel, you keep the Google Sheet, all client data, the n8n instance, and the dashboard. I provide a written handoff so your team can run the workflows themselves or transition to another operator.</li>
+    <li>I may terminate the engagement (with 30 days notice) if the Client uses the system for unsolicited bulk email, content prohibited by the email provider's terms, or any unlawful purpose.</li>
+  </ul>
+
+  <h2>7. Data ownership</h2>
+  <ul>
+    <li>The Client owns all client and operational data inside the Client's Google Sheet.</li>
+    <li>I retain ownership of the workflow JSON, the dashboard source, the Apps Script, and any reusable configuration patterns - these are licensed (not sold) to the Client for use during the engagement.</li>
+    <li>If the engagement ends, the Client may continue running the deployed workflows on their own n8n instance but may not resell, sublicense, or redistribute the system.</li>
+  </ul>
+
+  <h2>8. Confidentiality</h2>
+  <p>Both sides agree to keep non-public business information of the other side confidential. This survives 24 months after the engagement ends.</p>
+
+  <h2>9. Service level and warranties</h2>
+  <ul>
+    <li>I aim for workflow uptime in line with the underlying providers (Google and n8n). I do not control those providers' availability and do not guarantee a specific uptime percentage.</li>
+    <li>I will respond to error-handler alerts within one business day (Mon-Fri, operator's local time).</li>
+    <li>The system is provided "as is". I make no warranty of revenue uplift, no-show reduction, review growth, or any other business outcome. ROI projections shared during discovery are estimates based on Client-supplied inputs, not guarantees.</li>
+  </ul>
+
+  <h2>10. Limitation of liability</h2>
+  <p>To the maximum extent permitted by law, my aggregate liability for any claim arising from these terms is limited to the fees paid by the Client in the 90 days preceding the claim. I am not liable for indirect, incidental, consequential, or lost-profit damages.</p>
+
+  <h2>11. Indemnity</h2>
+  <p>The Client agrees to defend and hold me harmless from claims by third parties (including end-clients) arising from the Client's failure to obtain consent, the Client's email/marketing content choices, or the Client's use of the system outside the scope of these terms.</p>
+
+  <h2>12. Compliance disclaimer</h2>
+  <p>MedSpa Growth Engine is not a HIPAA Business Associate and is not designed to process Protected Health Information. The Client is responsible for ensuring the data routed through the system does not include PHI and that all marketing complies with applicable law. If the Client is unsure, consult a local lawyer before going live.</p>
+
+  <h2>13. Disputes</h2>
+  <p>These terms are governed by the laws of the operator's home jurisdiction. Disputes will first be addressed by good-faith negotiation, then mediation, and only then formal proceedings. Either side may pursue injunctive relief for confidentiality or IP breaches at any time.</p>
+
+  <h2>14. Changes</h2>
+  <p>I may update these terms with 30 days written notice to active Clients. Continued use after the effective date constitutes acceptance.</p>
+
+  <h2>15. Contact</h2>
+  <p>Bibek Bhandari<br />
+  <a href="mailto:vibekb.1234@gmail.com">vibekb.1234@gmail.com</a></p>
+
+  <div class="callout" style="margin-top:36px">
+    <strong>Note for launch:</strong> these are reasonable, balanced terms for a solo-operator productized service. Before your first paid Client signs, have a lawyer in your jurisdiction review them - particularly clauses 9 (warranties), 10 (liability), 12 (compliance), and 13 (disputes). This document is a starting point, not legal advice.
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-meta">&copy; MedSpa Growth Engine - Bibek Bhandari</div>
+    <div>
+      <a href="../landing/index.html" class="footer-links" style="margin:0">Overview</a>
+      <a href="../booking/index.html" class="footer-links">Contact</a>
+      <a href="./privacy.html" class="footer-links">Privacy</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

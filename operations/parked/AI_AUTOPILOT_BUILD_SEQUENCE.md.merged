@@ -1,0 +1,194 @@
+# AI Autopilot Build Sequence
+
+This is the build order for making MedSpa Growth Engine run on autopilot after the owner completes the required setup.
+
+## Phase 1: Control Center
+
+Goal:
+
+- One place for leads, outreach, replies, calls, clients, and owner briefs.
+
+Build:
+
+- Import `AI_LEAD_PIPELINE_TEMPLATE.csv`.
+- Import `AI_OPERATOR_TASK_BOARD.csv`.
+- Create Outreach Log table.
+- Create Replies table.
+- Create Call Briefs table.
+- Create Clients table.
+
+Acceptance:
+
+- Every lead has status and next action.
+- Every contacted lead has next follow-up date.
+- Every reply has classification.
+- Every booked call has a brief.
+
+## Phase 2: Research Engine
+
+Goal:
+
+- No generic outreach leaves the system.
+
+Build:
+
+- Lead sourcing workflow.
+- Enrichment workflow.
+- Fit score.
+- Pain hypothesis.
+- Personalization line.
+- Research Needed queue.
+
+Acceptance:
+
+- 10 sample leads researched.
+- No invented facts.
+- Every first-touch message uses one real observation.
+
+## Phase 3: Outreach Queue
+
+Goal:
+
+- Messages and follow-ups happen on time.
+
+Build:
+
+- First-touch generator.
+- Follow-up generator.
+- Approval queue.
+- Send limits.
+- Bounce handling.
+- Unsubscribe handling.
+
+Acceptance:
+
+- First campaign approved.
+- Test sends log correctly.
+- Follow-up dates populate correctly.
+- Opt-out stops all future touches.
+
+## Phase 4: Reply Triage
+
+Goal:
+
+- Hot replies are surfaced fast.
+
+Build:
+
+- Gmail/DM/manual reply intake.
+- Reply classification.
+- Suggested response.
+- Owner-needed flag.
+- Daily owner brief.
+
+Acceptance:
+
+- Hot, warm, objection, not now, unsubscribe, bad fit, and complaint replies route correctly.
+
+## Phase 5: Sales Assist
+
+Goal:
+
+- Owner enters every call prepared.
+
+Build:
+
+- Call brief generator.
+- Demo route generator.
+- Post-call recap draft.
+- Proposal follow-up tracker.
+
+Acceptance:
+
+- Every booked call gets a brief.
+- Every completed call gets next step and follow-up date.
+
+## Phase 6: Delivery Assist
+
+Goal:
+
+- Closed client becomes a clean install.
+
+Build:
+
+- Sales handoff.
+- Client delivery board.
+- Missing-access tracker.
+- QA checklist.
+- Client kickoff draft.
+
+Acceptance:
+
+- Paid client creates tasks automatically.
+- Missing access is chased.
+- Go-live cannot happen without QA checklist.
+
+## Phase 7: Client Success Autopilot
+
+Goal:
+
+- Clients see value and risks are caught early.
+
+Build:
+
+- Weekly report draft.
+- Workflow error monitor.
+- Client health score.
+- Churn-risk alerts.
+- Monthly improvement idea.
+
+Acceptance:
+
+- Every live client gets weekly report draft.
+- Error alerts create tasks.
+- Churn-risk clients are escalated to owner.
+
+## Phase 8: Ads Autopilot
+
+Goal:
+
+- Paid ads use proven hooks, not guesses.
+
+Build:
+
+- Winning hook extractor.
+- Ad concept generator.
+- Creative script generator.
+- Ad review dashboard.
+- Spend approval gate.
+
+Acceptance:
+
+- Ads do not run until outbound proves hooks.
+- Owner approves spend, claims, and creative.
+
+## Launch Readiness Gate
+
+The autopilot is live-ready when:
+
+- Lead tracker exists.
+- Research gate works.
+- Outreach approval queue works.
+- Send limits are configured.
+- Unsubscribe handling is tested.
+- Reply triage works.
+- Daily owner brief works.
+- Call brief generator works.
+- Delivery board works.
+- Client weekly report workflow works.
+- Secrets are not stored in public files or browser-only storage.
+
+## Owner Setup Dependencies
+
+The owner must provide:
+
+- Email inbox.
+- Calendar link.
+- Approved offer/pricing.
+- Payment/contract path.
+- Target markets.
+- Sending limits.
+- Compliance preference.
+- Automation platform credentials.
+
+Once these are done, the AI operator can run the machine daily and only call the owner in when needed.

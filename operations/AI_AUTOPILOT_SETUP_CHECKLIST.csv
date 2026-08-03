@@ -1,0 +1,26 @@
+area,setup_item,status,owner,required_before_autopilot,done_definition
+Foundation,Choose operating tool stack,Not Started,Owner,Yes,Decision made for Sheets/Airtable plus n8n/Make/Zapier plus Gmail/calendar
+Foundation,Create lead tracker,Not Started,AI/Owner,Yes,AI_LEAD_PIPELINE_TEMPLATE imported and columns verified
+Foundation,Create outreach log,Not Started,AI/Owner,Yes,Outreach log table exists with touch dates and response status
+Foundation,Create reply tracker,Not Started,AI/Owner,Yes,Reply classifications and owner-needed field exist
+Foundation,Create call brief folder,Not Started,AI/Owner,Yes,Call brief template available and linked from lead tracker
+Sending,Connect sending inbox,Not Started,Owner,Yes,Email account connected with sender name signature and reply monitoring
+Sending,Set daily send limits,Not Started,Owner,Yes,Cold outreach daily cap recorded and enforced
+Sending,Create unsubscribe handling,Not Started,Owner,Yes,Stop-contact process exists and is tested
+Sending,Approve first campaign,Not Started,Owner,Yes,First email/DM campaign reviewed for claims tone and compliance
+Research,Select first target markets,Not Started,Owner,Yes,3-5 cities or regions selected
+Research,Approve lead quality rules,Not Started,Owner,Yes,Fit score rules and bad-fit rules reviewed
+Research,Test research prompt,Not Started,AI/Owner,Yes,10 sample leads researched and scored without invented facts
+Research,Test personalization gate,Not Started,AI/Owner,Yes,10 sample messages pass observation/pain/CTA quality gate
+Automation,Build lead sourcing workflow,Not Started,AI/Owner,No,Public-source lead intake adds rows with source and status
+Automation,Build enrichment workflow,Not Started,AI/Owner,No,Approved leads get research fields and first-touch angle
+Automation,Build outreach queue workflow,Not Started,AI/Owner,No,Due messages are queued or sent based on autopilot level
+Automation,Build reply triage workflow,Not Started,AI/Owner,No,Replies are classified with suggested response and owner-needed flag
+Automation,Build daily owner brief,Not Started,AI/Owner,No,Daily brief sends hot replies calls follow-ups blockers and risks
+Sales,Connect calendar link,Not Started,Owner,Yes,Booking link ready for qualified prospects
+Sales,Create proposal/payment process,Not Started,Owner,Yes,Proposal payment and contract path ready
+Delivery,Create client delivery board,Not Started,AI/Owner,No,Closed clients generate tasks access checklist and QA checklist
+Retention,Create weekly client report workflow,Not Started,AI/Owner,No,Live clients get weekly report draft and risk scan
+Safety,Review legal/compliance rules,Not Started,Owner,Yes,Owner confirms outreach compliance approach and restricted claims
+Safety,Create credential policy,Not Started,Owner,Yes,Secrets stay in approved tools and not in public docs or prompts
+Safety,Test stop conditions,Not Started,AI/Owner,Yes,Bounce unsubscribe complaint and hot-reply stop rules tested

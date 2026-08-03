@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>MGE Day-of Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  color-scheme: dark;
+  --bg-0: #0c0a0d; --bg-1: #15121a; --bg-2: #1d1923; --bg-3: #26212d;
+  --border: #221d28; --border-bright: #312a3a;
+  --text: #ebe6dc; --text-strong: #f7f2e6; --text-dim: #a39c93; --text-faint: #6b6660;
+  --accent: #a85664; --accent-bright: #c0697a;
+  --success: #8ec5b6; --warning: #e8b04d; --danger: #d88775; --info: #8ab8d8;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-0: #f7f3ec; --bg-1: #fffdf7; --bg-2: #fbf6ec; --bg-3: #f1ebde;
+  --border: #e8dfce; --border-bright: #cfc3ad;
+  --text: #1a1518; --text-strong: #0a0508; --text-dim: #5b5048; --text-faint: #94897e;
+  --accent: #7e3e4d; --accent-bright: #a85664;
+  --success: #557066; --warning: #8a6422; --danger: #824032; --info: #3f6986;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; background: var(--bg-0); color: var(--text); padding: 32px 16px; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 760px; margin: 0 auto; }
+.head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 32px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: var(--text-strong); display: grid; place-items: center; font-weight: 700; font-size: 16px; }
+h1 { font-size: 22px; font-weight: 700; color: var(--text-strong); letter-spacing: -0.01em; }
+.sub { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+.actions-bar { display: flex; gap: 8px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; }
+.btn--primary { background: var(--accent); color: var(--text-strong); }
+.btn--primary:hover { background: var(--accent-bright); }
+.btn--secondary { background: transparent; border: 1px solid var(--border-bright); color: var(--text); }
+.btn--secondary:hover { background: var(--bg-2); }
+.theme-toggle { min-width: 38px; height: 38px; border-radius: 8px; border: 1px solid var(--border-bright); background: var(--bg-1); color: var(--text); display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; }
+.theme-toggle:hover { color: var(--accent-bright); background: var(--bg-2); }
+.theme-toggle svg { width: 15px; height: 15px; }
+
+.section { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px; }
+.section h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); padding: 16px 20px 8px; }
+.section .body { padding: 4px 20px 20px; }
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.kpi { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.kpi .lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); }
+.kpi .val { font-family: var(--font-mono); font-size: 24px; font-weight: 700; color: var(--text-strong); margin-top: 4px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); padding: 8px 12px; border-bottom: 1px solid var(--border); }
+td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+.appt-time { font-family: var(--font-mono); color: var(--accent-bright); font-weight: 600; white-space: nowrap; }
+.alert-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.alert-row:last-child { border-bottom: none; }
+.alert-icon { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; background: var(--bg-2); color: var(--warning); font-weight: 700; font-size: 12px; }
+.alert-icon[data-tone="danger"] { color: var(--danger); }
+.alert-icon[data-tone="info"] { color: var(--info); }
+.alert-content { flex: 1; min-width: 0; }
+.alert-meta { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+.notes-area { background: var(--bg-2); border: 1px dashed var(--border-bright); border-radius: 10px; padding: 16px; min-height: 200px; }
+.notes-area .lines { background: linear-gradient(to bottom, transparent calc(28px - 1px), var(--border) calc(28px - 1px), var(--border) 28px); background-size: 100% 28px; min-height: 168px; }
+.notes-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-faint); margin-bottom: 8px; }
+.empty { text-align: center; padding: 24px; color: var(--text-faint); font-size: 13px; }
+
+.print-stamp { display: none; }
+@media (max-width: 640px) {
+  body { padding: 24px 12px; }
+  .head { align-items: flex-start; flex-direction: column; }
+  .actions-bar { width: 100%; flex-wrap: wrap; }
+  .actions-bar .btn, .actions-bar .theme-toggle { flex: 1; justify-content: center; min-width: 0; }
+  .kpi-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .kpi { padding: 12px; }
+  .kpi .val { font-size: 20px; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  th, td { white-space: nowrap; }
+}
+@media (max-width: 420px) {
+  .kpi-row { grid-template-columns: 1fr; }
+}
+@media print {
+  body { background: white !important; color: #1a1518 !important; padding: 16px; font-size: 12px; }
+  .actions-bar { display: none !important; }
+  .print-stamp { display: block; font-size: 10px; color: #888; text-align: right; margin-top: 16px; font-family: var(--font-mono); }
+  .section { background: white !important; border: 1px solid #ddd !important; box-shadow: none; page-break-inside: avoid; }
+  .section h2 { color: #555 !important; }
+  .kpi { background: #fafafa !important; border: 1px solid #ddd !important; }
+  .kpi .val { color: #1a1518 !important; }
+  .kpi .lbl { color: #666 !important; }
+  th { color: #555 !important; border-bottom: 1px solid #ddd !important; }
+  td { border-bottom: 1px solid #eee !important; color: #1a1518 !important; }
+  .alert-icon { background: #f5f5f5 !important; }
+  .appt-time { color: #7e3e4d !important; }
+  .alert-row { border-bottom: 1px solid #eee !important; }
+  .notes-area { background: white !important; border: 1px dashed #aaa !important; }
+  .notes-area .lines { background: linear-gradient(to bottom, transparent calc(28px - 1px), #ddd calc(28px - 1px), #ddd 28px) !important; background-size: 100% 28px !important; }
+  .brand-mark { background: #7e3e4d !important; }
+  h1 { color: #0a0508 !important; }
+  .sub, .alert-meta, .notes-label { color: #5b5048 !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <div>
+        <h1 id="day-title">Day-of brief</h1>
+        <div class="sub" id="day-sub">Loading…</div>
+      </div>
+    </div>
+    <div class="actions-bar">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+      <button class="btn btn--primary" onclick="window.print()">Print</button>
+      <a class="btn btn--secondary" href="../dashboard/index.html">← Dashboard</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="body">
+      <div class="kpi-row">
+        <div class="kpi"><div class="lbl">Today's appts</div><div class="val" id="kpi-today">—</div></div>
+        <div class="kpi"><div class="lbl">Urgent (48h)</div><div class="val" id="kpi-urgent">—</div></div>
+        <div class="kpi"><div class="lbl">Stale inquiries</div><div class="val" id="kpi-stale">—</div></div>
+        <div class="kpi"><div class="lbl">Awaiting reply</div><div class="val" id="kpi-await">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Today's appointments</h2>
+    <div class="body" id="appt-body"><div class="empty">Loading…</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Needs attention</h2>
+    <div class="body" id="alert-body"><div class="empty">Loading…</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Notes</h2>
+    <div class="body">
+      <div class="notes-label">Handwrite reminders, follow-ups, observations</div>
+      <div class="notes-area"><div class="lines"></div></div>
+    </div>
+  </div>
+
+  <div class="print-stamp" id="print-stamp"></div>
+</div>
+
+<script>
+const cfg = JSON.parse(localStorage.getItem('mge_config') || '{}');
+
+function escapeHtml(s) { if (s === null || s === undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+async function fetchSheet(tab) {
+  if (!cfg.apiKey || !cfg.sheetId) return [];
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${cfg.sheetId}/values/${encodeURIComponent(tab)}?key=${cfg.apiKey}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Sheet ${tab}: ${res.status}`);
+  const json = await res.json();
+  const rows = json.values || [];
+  if (rows.length < 2) return [];
+  const headers = rows[0];
+  return rows.slice(1).map(r => { const o = {}; headers.forEach((h, i) => o[h] = r[i] || ''); return o; });
+}
+
+async function build() {
+  const today = new Date();
+  const todayStr = today.toLocaleDateString('en', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  document.getElementById('day-title').textContent = `${cfg.clinicName || 'Your clinic'} — Day-of Brief`;
+  document.getElementById('day-sub').textContent = todayStr;
+  document.getElementById('print-stamp').textContent = `Generated ${new Date().toLocaleString()} · MGE Day-of Brief`;
+
+  if (!cfg.apiKey || !cfg.sheetId) {
+    document.getElementById('appt-body').innerHTML = `<div class="empty">No data source configured. Set the Sheets API key + Sheet ID in dashboard Settings → System.</div>`;
+    document.getElementById('alert-body').innerHTML = '';
+    return;
+  }
+
+  let clients = [], appts = [];
+  try {
+    [clients, appts] = await Promise.all([fetchSheet('Clients'), fetchSheet('Appointments')]);
+  } catch (e) {
+    document.getElementById('appt-body').innerHTML = `<div class="empty">Could not load data: ${escapeHtml(e.message)}</div>`;
+    return;
+  }
+
+  // Today's appointments
+  const todayAppts = appts.filter(a => {
+    if (!a['Appointment Date']) return false;
+    const d = new Date(a['Appointment Date']);
+    return d.toDateString() === today.toDateString();
+  }).sort((a, b) => (a['Appointment Time'] || '').localeCompare(b['Appointment Time'] || ''));
+
+  // Urgent (48h scheduled, not today already)
+  const urgent = appts.filter(a => {
+    if (!a['Appointment Date'] || a['Status'] !== 'Scheduled') return false;
+    const ms = new Date(a['Appointment Date']).getTime() - Date.now();
+    return ms > 0 && ms < 48 * 3600 * 1000;
+  });
+
+  // Stale inquiries (7+ days, no follow-ups exhausted)
+  const stale = clients.filter(c => {
+    if (c['Status'] !== 'New Inquiry' || !c['Created Date']) return false;
+    const days = Math.floor((Date.now() - new Date(c['Created Date']).getTime()) / 86400000);
+    return days >= 7;
+  });
+
+  // Awaiting reply (3+ days, <3 follow-ups)
+  const awaiting = clients.filter(c => {
+    if (c['Status'] !== 'New Inquiry' || !c['Created Date']) return false;
+    const days = Math.floor((Date.now() - new Date(c['Created Date']).getTime()) / 86400000);
+    return days >= 3 && parseInt(c['Follow-Up Count'] || 0) < 3;
+  });
+
+  // KPI numbers
+  document.getElementById('kpi-today').textContent = String(todayAppts.length).padStart(2, '0');
+  document.getElementById('kpi-urgent').textContent = String(urgent.length).padStart(2, '0');
+  document.getElementById('kpi-stale').textContent = String(stale.length).padStart(2, '0');
+  document.getElementById('kpi-await').textContent = String(awaiting.length).padStart(2, '0');
+
+  // Appointments table
+  document.getElementById('appt-body').innerHTML = todayAppts.length === 0
+    ? `<div class="empty">No appointments today. Use the time to chase the items in "Needs attention" below.</div>`
+    : `<table>
+        <thead><tr><th>Time</th><th>Client</th><th>Service</th><th>Provider</th><th>Status</th></tr></thead>
+        <tbody>${todayAppts.map(a => `
+          <tr>
+            <td class="appt-time">${escapeHtml(a['Appointment Time'] || 'TBD')}</td>
+            <td><strong>${escapeHtml(a['Client Name'] || a['Client Email'])}</strong><br><span style="font-size:11px;color:var(--text-dim);font-family:var(--font-mono);">${escapeHtml(a['Client Email'] || '')}</span></td>
+            <td>${escapeHtml(a['Service'] || '—')}</td>
+            <td style="color:var(--text-dim);">${escapeHtml(a['Provider'] || '—')}</td>
+            <td>${escapeHtml(a['Status'] || '—')}</td>
+          </tr>`).join('')}</tbody>
+      </table>`;
+
+  // Alerts
+  const alertItems = [
+    ...urgent.map(a => ({ tone: 'warning', title: a['Client Name'] || a['Client Email'], meta: `Within 48h · ${a['Service'] || ''} · ${a['Appointment Date']}` })),
+    ...stale.map(c => ({ tone: 'info', title: c['Client Name'] || c['Client Email'], meta: `Stale ${Math.floor((Date.now() - new Date(c['Created Date']).getTime()) / 86400000)}d · ${c['Service Interest'] || ''}` })),
+    ...awaiting.filter(c => !stale.includes(c)).map(c => ({ tone: 'info', title: c['Client Name'] || c['Client Email'], meta: `Awaiting reply · ${c['Service Interest'] || ''} · ${c['Follow-Up Count'] || 0}/3 follow-ups sent` }))
+  ];
+  document.getElementById('alert-body').innerHTML = alertItems.length === 0
+    ? `<div class="empty">All clear. No urgent items, no stale inquiries.</div>`
+    : alertItems.map(a => `
+      <div class="alert-row">
+        <div class="alert-icon" data-tone="${a.tone}">!</div>
+        <div class="alert-content">
+          <div><strong>${escapeHtml(a.title)}</strong></div>
+          <div class="alert-meta">${escapeHtml(a.meta)}</div>
+        </div>
+      </div>`).join('');
+}
+
+build();
+</script>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

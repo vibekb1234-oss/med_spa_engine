@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Book a Consultation — YOUR CLINIC NAME</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #fdf4ff 0%, #fce7f3 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(190, 24, 93, 0.12);
+      max-width: 520px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .card-header {
+      background: linear-gradient(135deg, #9d174d, #7c3aed);
+      padding: 32px 36px;
+      color: white;
+      text-align: center;
+    }
+    .clinic-name {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+    .card-header h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .card-header p {
+      font-size: 14px;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+    .card-body { padding: 32px 36px; }
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 7px;
+    }
+    .required { color: #be185d; margin-left: 2px; }
+    .form-input, .form-select {
+      width: 100%;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 15px;
+      color: #1f2937;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      background: white;
+      appearance: none;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: #be185d;
+      box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.1);
+    }
+    .form-input.error, .form-select.error {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+    .error-msg {
+      font-size: 12px;
+      color: #ef4444;
+      margin-top: 5px;
+      display: none;
+    }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+      pointer-events: none;
+      font-size: 14px;
+    }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #be185d, #9333ea);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .submit-btn:hover { opacity: 0.92; }
+    .submit-btn:active { transform: scale(0.99); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .privacy-note {
+      text-align: center;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+    /* Success state */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 40px 36px;
+    }
+    .success-icon {
+      font-size: 56px;
+      margin-bottom: 16px;
+    }
+    .success-screen h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+    .success-screen p {
+      font-size: 15px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    .success-highlight {
+      background: linear-gradient(135deg, #fdf4ff, #fce7f3);
+      border: 1px solid #f0abfc;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 20px 0;
+      font-size: 14px;
+      color: #7c3aed;
+      font-weight: 500;
+    }
+    /* Loading spinner */
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (max-width: 480px) {
+      .card-header { padding: 24px 24px; }
+      .card-body { padding: 24px 24px; }
+      .two-col { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="card-header">
+    <div class="clinic-name" id="header-clinic-name">YOUR CLINIC NAME</div>
+    <h1>Book a Free Consultation ✨</h1>
+    <p>Tell us what you're interested in and we'll send you everything you need to know — within minutes.</p>
+  </div>
+
+  <!-- FORM -->
+  <div class="card-body" id="form-body">
+
+    <!-- Config-missing banner (shown only if webhook + secret weren't passed as URL params) -->
+    <div id="config-banner" style="display:none; background:#fff7ed; border:1.5px solid #fdba74; border-radius:10px; padding:14px 16px; margin-bottom:20px; font-size:13px; color:#9a3412; line-height:1.55;">
+      <strong style="display:block; margin-bottom:6px; color:#7c2d12;">⚠ Form not configured</strong>
+      This intake form is missing its <code style="background:#fed7aa; padding:2px 6px; border-radius:4px;">?webhook=</code> and <code style="background:#fed7aa; padding:2px 6px; border-radius:4px;">?secret=</code> URL parameters. The clinic operator must embed it with the real n8n webhook URL and secret — see <code>setup/Setup_Guide.md</code>. Submissions are disabled until configured.
+    </div>
+
+    <form id="intake-form" novalidate>
+
+      <div class="two-col">
+        <div class="form-group">
+          <label class="form-label" for="name">Full Name <span class="required">*</span></label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Sarah Johnson" autocomplete="name">
+          <div class="error-msg" id="name-error">Please enter your name.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone Number</label>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="416-555-0100" autocomplete="tel">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+        <input class="form-input" type="email" id="email" name="email" placeholder="sarah@email.com" autocomplete="email">
+        <div class="error-msg" id="email-error">Please enter a valid email address.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="service">What are you interested in? <span class="required">*</span></label>
+        <div class="select-wrap">
+          <select class="form-select" id="service" name="service">
+            <option value="" disabled selected>Select a treatment…</option>
+            <option value="Botox">Botox / Dysport — $10–14/unit · results 3–4 months</option>
+            <option value="Filler">Dermal Fillers — from $600/syringe · results 12–18 months</option>
+            <option value="Laser Hair Removal">Laser Hair Removal — permanent reduction in 6–8 sessions</option>
+            <option value="HydraFacial">HydraFacial — instant glow, zero downtime</option>
+            <option value="Microneedling">Microneedling — collagen boost, skin texture</option>
+            <option value="Body Contouring">Body Contouring — CoolSculpting / EMSculpt</option>
+            <option value="IV Therapy">IV Therapy / Wellness</option>
+            <option value="General Inquiry">Not sure yet — I'd like a consultation</option>
+          </select>
+        </div>
+        <div class="error-msg" id="service-error">Please select a treatment.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="referral">Were you referred by someone? <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+        <input class="form-input" type="text" id="referral" name="referral" placeholder="Friend's name">
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">
+        Send My Enquiry →
+      </button>
+
+      <p class="privacy-note">
+        🔒 Your information is private and will only be used to respond to your enquiry.<br>
+        You'll receive a confirmation email within a few minutes.
+      </p>
+
+    </form>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success-screen" id="success-screen">
+    <div class="success-icon">✨</div>
+    <h2>You're all set, <span id="success-name"></span>!</h2>
+    <p>We've received your enquiry and sent you a detailed email about <strong id="success-service"></strong>.</p>
+    <div class="success-highlight">
+      📧 Check your inbox — your personalised treatment information is on its way.
+    </div>
+    <p>Our team will follow up shortly. We can't wait to meet you!</p>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIGURATION
+  // This static install form is meant for a clinic-owned page or private embed.
+  // Pass values via URL parameters:
+  //   ?webhook=<url>&secret=<webhook-secret>&clinic=<clinic%20name>&source=<lead-source>
+  // Example:
+  //   intake.html?webhook=https://foo.app.n8n.cloud/webhook/msg-lead-intake&secret=abc123&clinic=Luxe%20Aesthetics&source=Instagram
+  // ============================================================
+  const _params = new URLSearchParams(window.location.search);
+  const N8N_WEBHOOK_URL = _params.get('webhook') || 'https://YOUR_N8N_DOMAIN/webhook/msg-lead-intake';
+  const WEBHOOK_SECRET  = _params.get('secret')  || 'YOUR_WEBHOOK_SECRET';
+  const CLINIC_NAME     = _params.get('clinic')  || 'YOUR CLINIC NAME';
+  const LEAD_SOURCE     = _params.get('source')  || 'Website Form';
+  // ============================================================
+
+  // Set clinic name in header
+  document.querySelectorAll('#header-clinic-name').forEach(el => el.textContent = CLINIC_NAME);
+  document.title = `Book a Consultation — ${CLINIC_NAME}`;
+
+  // Fail-loud guard: if the form was embedded without real webhook+secret URL params,
+  // show a visible banner and disable submit so a prospect never sees a broken fetch error.
+  const CONFIG_VALID = !N8N_WEBHOOK_URL.includes('YOUR_N8N_DOMAIN') && !WEBHOOK_SECRET.includes('YOUR_WEBHOOK_SECRET');
+  if (!CONFIG_VALID) {
+    document.getElementById('config-banner').style.display = 'block';
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Form not configured';
+    btn.style.cursor = 'not-allowed';
+  }
+
+  const form = document.getElementById('intake-form');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>Sending…';
+
+    const payload = {
+      name:         document.getElementById('name').value.trim(),
+      email:        document.getElementById('email').value.trim(),
+      phone:        document.getElementById('phone').value.trim(),
+      service:      document.getElementById('service').value,
+      leadSource:   LEAD_SOURCE,
+      referralName: document.getElementById('referral').value.trim()
+    };
+
+    try {
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Webhook-Secret': WEBHOOK_SECRET },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error(`Webhook returned ${res.status}: ${await res.text()}`);
+      showSuccess(payload.name, payload.service);
+    } catch(err) {
+      console.error('Webhook fetch failed:', err);
+      btn.disabled = false;
+      btn.innerHTML = 'Submit Request';
+      alert('Sorry, the form could not submit. Please call or email the clinic directly.');
+    }
+  });
+
+  function validate() {
+    let valid = true;
+
+    const name = document.getElementById('name');
+    const nameErr = document.getElementById('name-error');
+    if (!name.value.trim()) {
+      name.classList.add('error');
+      nameErr.style.display = 'block';
+      valid = false;
+    } else {
+      name.classList.remove('error');
+      nameErr.style.display = 'none';
+    }
+
+    const email = document.getElementById('email');
+    const emailErr = document.getElementById('email-error');
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    if (!emailOk) {
+      email.classList.add('error');
+      emailErr.style.display = 'block';
+      valid = false;
+    } else {
+      email.classList.remove('error');
+      emailErr.style.display = 'none';
+    }
+
+    const service = document.getElementById('service');
+    const serviceErr = document.getElementById('service-error');
+    if (!service.value) {
+      service.classList.add('error');
+      serviceErr.style.display = 'block';
+      valid = false;
+    } else {
+      service.classList.remove('error');
+      serviceErr.style.display = 'none';
+    }
+
+    return valid;
+  }
+
+  function showSuccess(name, service) {
+    document.getElementById('form-body').style.display = 'none';
+    const s = document.getElementById('success-screen');
+    s.style.display = 'block';
+    document.getElementById('success-name').textContent = name.split(' ')[0];
+    // Clean up the service label (remove pricing text)
+    const cleanService = service.split(' — ')[0];
+    document.getElementById('success-service').textContent = cleanService;
+  }
+</script>
+</body>
+</html>

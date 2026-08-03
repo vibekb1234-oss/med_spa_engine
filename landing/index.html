@@ -1,0 +1,1133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0c0b12" />
+<title>MedSpa Growth Engine - Revenue Recovery for Established Med Spas</title>
+<meta name="description" content="MedSpa Growth Engine identifies where consultations, no-shows, memberships, inactive clients, and follow-up gaps are leaking revenue inside your existing clinic pipeline." />
+<meta name="author" content="Bibek Bhandari" />
+<meta property="og:title" content="MedSpa Growth Engine - Revenue Recovery for aesthetic clinics" />
+<meta property="og:description" content="Find the bookings and treatment revenue already slipping through your clinic's existing pipeline." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="../assets/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" href="../assets/medspa-growth-engine-mark.png" />
+<link rel="canonical" href="https://medspagrowthengine.com/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/brand-tokens.css" />
+<style>
+/* Tokens load from ../assets/brand-tokens.css. Page-specific overrides only below. */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; max-width: 100%; background: var(--bg-0); color: var(--text); font-family: 'Geist', -apple-system, system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; letter-spacing: 0; scroll-behavior: smooth; overflow-x: hidden; }
+body { background: var(--page-bg); padding-top: var(--fixed-nav-h); }
+body::before,
+body::after { content: ''; position: fixed; inset: auto auto 8vh -10vw; width: 44vw; height: 44vw; min-width: 380px; min-height: 380px; border-radius: 999px; pointer-events: none; z-index: 0; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 14%, transparent) 0%, transparent 68%); filter: blur(24px); opacity: .42; animation: spa-mist 22s ease-in-out infinite; }
+body::after { inset: 12vh -12vw auto auto; background: radial-gradient(circle, color-mix(in srgb, var(--teal) 13%, transparent) 0%, transparent 70%); animation-delay: -8s; opacity: .34; }
+.mono { font-family: 'Geist Mono', monospace; font-feature-settings: 'tnum'; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-bright); }
+button { font-family: inherit; cursor: pointer; }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 50; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.brand-text { font-size: 16px; font-weight: 800; color: var(--accent); letter-spacing: 0; line-height: 1; }
+.brand-meta { font-family: 'Geist Mono', monospace; font-size: 9px; color: var(--text-faint); letter-spacing: 0.22em; margin-top: 2px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 26px; align-items: center; }
+.nav-links a { color: var(--text-dim); font-size: 14px; font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--text-strong); }
+.btn-cta { background: var(--accent); color: var(--button-text) !important; -webkit-text-fill-color: var(--button-text); padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 14px; border: none; transition: background 0.15s, box-shadow 0.15s, transform 0.08s; display: inline-flex; align-items: center; gap: 7px; cursor: pointer; text-decoration: none; text-shadow: 0 1px 1px rgba(0,0,0,0.18); }
+.btn-cta:hover { background: var(--accent-bright); color: var(--button-text); box-shadow: 0 8px 24px var(--accent-glow); }
+.btn-cta:active { transform: translateY(1px); }
+.btn-cta svg { width: 14px; height: 14px; color: currentColor; stroke: currentColor; }
+.btn-cta,
+.btn-cta:link,
+.btn-cta:visited,
+.btn-cta:hover,
+.btn-cta:active,
+.btn-cta-large,
+.btn-cta-large:link,
+.btn-cta-large:visited,
+.btn-cta-large:hover,
+.btn-cta-large:active,
+.price-card.featured .btn-tier,
+.price-card.featured .btn-tier:link,
+.price-card.featured .btn-tier:visited,
+.price-card.featured .btn-tier:hover,
+.price-card.featured .btn-tier:active {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.btn-cta svg,
+.btn-cta-large svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+
+.tool-map::after { content: ''; position: absolute; inset: 66px 132px 96px; z-index: 0; border-radius: 999px; background: conic-gradient(from 0deg, transparent 0 18%, color-mix(in srgb, var(--accent) 32%, transparent) 24%, transparent 32% 58%, color-mix(in srgb, var(--teal) 30%, transparent) 64%, transparent 72% 100%); filter: blur(10px); opacity: 0.42; animation: orbit-flow 14s linear infinite; }
+.tool-node { position: relative; overflow: hidden; transition: transform 360ms var(--motion-ease, ease), border-color 360ms var(--motion-ease, ease), box-shadow 360ms var(--motion-ease, ease); }
+.tool-node::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 0 38%, rgba(255,255,255,.16) 48%, transparent 58% 100%); transform: translateX(-120%); opacity: 0; pointer-events: none; }
+.tool-node:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 42%, var(--border-bright)); box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+.tool-node:hover::after { opacity: 1; animation: node-sheen 820ms var(--motion-ease, ease); }
+.tool-center { overflow: visible; animation: center-breathe 5.8s ease-in-out infinite; }
+.tool-center::before, .tool-center::after { content: ''; position: absolute; inset: -14px; border-radius: inherit; border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent); opacity: 0; pointer-events: none; animation: center-ring 4.6s ease-out infinite; }
+.tool-center::after { inset: -28px; animation-delay: 1.35s; border-color: color-mix(in srgb, var(--teal) 22%, transparent); }
+.integration-logo { transition: transform 320ms var(--motion-ease, ease), box-shadow 320ms var(--motion-ease, ease), border-color 320ms var(--motion-ease, ease); animation: logo-float 7s ease-in-out infinite; }
+.integration-logo:nth-child(2) { animation-delay: .4s; }
+.integration-logo:nth-child(3) { animation-delay: .8s; }
+.integration-logo:nth-child(4) { animation-delay: 1.2s; }
+.integration-logo:nth-child(5) { animation-delay: 1.6s; }
+.integration-logo:nth-child(6) { animation-delay: 2s; }
+.integration-logo:nth-child(7) { animation-delay: 2.4s; }
+.integration-logo:hover { transform: translateY(-3px) scale(1.035); border-color: color-mix(in srgb, var(--accent) 36%, var(--border)); box-shadow: 0 16px 38px rgba(0,0,0,.16); }
+@keyframes orbit-flow { to { transform: rotate(360deg); } }
+@keyframes node-sheen { to { transform: translateX(120%); } }
+@keyframes center-breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+@keyframes center-ring { 0% { transform: scale(.9); opacity: 0; } 22% { opacity: .52; } 100% { transform: scale(1.28); opacity: 0; } }
+@keyframes logo-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes tag-sheen { 0%, 42% { transform: translateX(-120%); } 62%, 100% { transform: translateX(120%); } }
+@keyframes dashboard-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+.hero::before { content: ''; position: absolute; left: 28px; right: 28px; top: 24px; height: 1px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 40%, transparent), color-mix(in srgb, var(--teal) 36%, transparent), transparent); opacity: .45; transform-origin: center; animation: hero-line-glide 6.8s ease-in-out infinite; pointer-events: none; }
+.demo-window::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent), 0 0 34px color-mix(in srgb, var(--accent) 16%, transparent); opacity: .4; animation: dashboard-glow 4.8s ease-in-out infinite; }
+.demo-preview::before { content: ''; position: absolute; left: 0; right: 0; top: -28%; height: 22%; z-index: 2; background: linear-gradient(180deg, transparent, rgba(255,255,255,.13), transparent); transform: translateY(-120%); animation: dashboard-scan 5.6s ease-in-out infinite; pointer-events: none; }
+.solution-card { position: relative; overflow: hidden; }
+.solution-card::before { content: ''; position: absolute; left: 22px; right: 22px; top: 0; height: 1px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 48%, transparent), color-mix(in srgb, var(--teal) 40%, transparent), transparent); transform: translateX(-70%); opacity: .45; animation: card-line-sweep 7.2s ease-in-out infinite; pointer-events: none; }
+.solution-card:nth-child(2)::before { animation-delay: .8s; }
+.solution-card:nth-child(3)::before { animation-delay: 1.6s; }
+.solution-card:nth-child(4)::before { animation-delay: 2.4s; }
+.tool-node.has-logo .tool-logo { animation: logo-tick 4.8s ease-in-out infinite; }
+.tool-column:nth-child(3) .tool-node.has-logo .tool-logo { animation-delay: 1.2s; }
+[data-theme="dark"] .integration-logo,
+html:not([data-theme="light"]) .integration-logo { background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.045)); border-color: rgba(255,255,255,.13); box-shadow: 0 16px 34px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.10); }
+[data-theme="dark"] .integration-logo img,
+html:not([data-theme="light"]) .integration-logo img { background: rgba(255,255,255,.94); border-radius: 8px; padding: 3px; box-shadow: 0 5px 14px rgba(0,0,0,.20); }
+[data-theme="dark"] .integration-logo.wide img,
+html:not([data-theme="light"]) .integration-logo.wide img { padding: 4px 6px; max-width: 64px; }
+[data-theme="dark"] .tool-logo,
+html:not([data-theme="light"]) .tool-logo { background: rgba(255,255,255,.94); border-color: rgba(255,255,255,.78); box-shadow: 0 8px 18px rgba(0,0,0,.26); }
+[data-theme="dark"] .app-chip,
+html:not([data-theme="light"]) .app-chip { background: rgba(255,255,255,.045); border-color: rgba(255,255,255,.10); }
+[data-theme="dark"] .app-chip img,
+html:not([data-theme="light"]) .app-chip img { background: rgba(255,255,255,.94); border-radius: 6px; padding: 2px; box-shadow: 0 4px 10px rgba(0,0,0,.18); }
+@keyframes hero-line-glide { 0%,100% { transform: scaleX(.72); opacity: .28; } 50% { transform: scaleX(1); opacity: .62; } }
+@keyframes dashboard-glow { 0%,100% { opacity: .28; } 50% { opacity: .62; } }
+@keyframes dashboard-scan { 0%, 38% { transform: translateY(-140%); opacity: 0; } 54% { opacity: .32; } 76%, 100% { transform: translateY(650%); opacity: 0; } }
+@keyframes card-line-sweep { 0%, 34% { transform: translateX(-78%); opacity: .12; } 54% { opacity: .55; } 74%, 100% { transform: translateX(78%); opacity: .12; } }
+@keyframes logo-tick { 0%,100% { transform: scale(1); } 48% { transform: scale(1); } 55% { transform: scale(1.08); } 62% { transform: scale(1); } }
+@keyframes spa-mist { 0%, 100% { transform: translate3d(0,0,0) scale(1); } 45% { transform: translate3d(7vw,-5vh,0) scale(1.08); } 72% { transform: translate3d(3vw,4vh,0) scale(.96); } }
+
+
+[data-theme="light"] .btn-cta,
+[data-theme="light"] .btn-cta-large,
+[data-theme="light"] .price-card.featured .btn-tier,
+[data-theme="light"] .price-card.featured::before {
+  background: #84234d;
+  border-color: #84234d;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: 0 12px 28px rgba(132, 35, 77, 0.20);
+}
+[data-theme="light"] .btn-cta:hover,
+[data-theme="light"] .btn-cta-large:hover,
+[data-theme="light"] .price-card.featured .btn-tier:hover {
+  background: #6f1d42;
+  border-color: #6f1d42;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.btn-secondary-large { background: transparent; color: var(--text); padding: 10px 18px; border-radius: 8px; font-weight: 500; font-size: 14px; border: 1px solid var(--border-bright); transition: all 0.15s; display: inline-flex; align-items: center; gap: 7px; text-decoration: none; }
+.btn-secondary-large:hover { border-color: var(--accent-deep); color: var(--accent); }
+
+section { position: relative; z-index: 1; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+.hero { padding: 78px 28px 70px; max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: minmax(430px, 0.86fr) minmax(520px, 1.14fr); gap: 58px; align-items: center; }
+.hero-copy { min-width: 0; }
+.hero-visual { min-width: 0; align-self: center; }
+.hero-tag { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 9px; font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; color: var(--accent-bright); text-transform: uppercase; margin-bottom: 22px; padding: 8px 14px; border: 1px solid var(--accent-deep); border-radius: 999px; background: var(--accent-soft); line-height: 1.35; max-width: 100%; box-shadow: 0 10px 30px rgba(217,77,133,.08); }
+.hero-tag::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 0 35%, rgba(255,255,255,.16) 50%, transparent 65% 100%); transform: translateX(-120%); animation: tag-sheen 5.2s ease-in-out infinite; pointer-events: none; }
+.hero-tag span, .hero-tag .pulse { position: relative; z-index: 1; }
+.hero-tag .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px rgba(85, 199, 177, 0.55); animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+.hero h1 { font-size: clamp(42px, 3.85vw, 58px); font-weight: 760; color: var(--text-strong); letter-spacing: 0; line-height: 1.04; margin: 0 0 22px; max-width: 650px; overflow-wrap: normal; word-break: normal; text-wrap: balance; }
+.hero h1 .hero-line { display: block; }
+.hero h1 .accent { background: linear-gradient(135deg, var(--accent-bright), var(--teal)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { font-size: clamp(16px, 1.35vw, 18px); color: var(--text-dim); max-width: 600px; margin: 0 0 28px; line-height: 1.62; }
+.hero-cta-row { display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap; margin-bottom: 22px; }
+.btn-cta-large { background: var(--accent); color: var(--button-text) !important; -webkit-text-fill-color: var(--button-text); padding: 16px 32px; border-radius: 10px; font-weight: 700; font-size: 16px; border: none; transition: background 0.15s, box-shadow 0.15s, transform 0.08s; display: inline-flex; align-items: center; gap: 9px; cursor: pointer; text-decoration: none; text-shadow: 0 1px 1px rgba(0,0,0,0.18); }
+.btn-cta-large:hover { background: var(--accent-bright); color: var(--button-text); box-shadow: 0 12px 32px var(--accent-glow); }
+.btn-cta-large:active { transform: translateY(1px); }
+.btn-cta-large svg { width: 16px; height: 16px; color: currentColor; stroke: currentColor; }
+.hero-benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 10px; max-width: 610px; }
+.hero-benefit { display: flex; align-items: center; gap: 9px; color: var(--text); font-size: 12.5px; line-height: 1.34; padding: 9px 11px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in srgb, var(--bg-1) 72%, transparent); transition: transform 280ms var(--motion-ease, ease), border-color 280ms var(--motion-ease, ease), box-shadow 280ms var(--motion-ease, ease), background 280ms var(--motion-ease, ease); }
+.hero-benefit:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 34%, var(--border)); box-shadow: 0 14px 34px rgba(0,0,0,.12); background: color-mix(in srgb, var(--bg-1) 88%, var(--accent-soft)); }
+
+.hero-benefit svg { width: 17px; height: 17px; color: var(--accent-bright); flex-shrink: 0; }
+.integration-rail { margin-top: 16px; padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: color-mix(in srgb, var(--bg-1) 76%, transparent); max-width: 610px; }
+.integration-kicker { font-family: var(--font-sans); font-size: 10px; font-weight: 750; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 12px; }
+.integration-logos { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; }
+.integration-logo { min-width: 50px; height: 40px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.92); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 26px rgba(0,0,0,0.12); }
+.integration-logo img { display: block; max-width: 78px; max-height: 24px; width: auto; height: auto; object-fit: contain; }
+.integration-logo.square { width: 42px; min-width: 42px; padding: 8px; }
+.integration-logo.square img { max-width: 24px; max-height: 24px; }
+.integration-logo.wide { min-width: 74px; }
+.tool-node.has-logo { padding-left: 10px; }
+.tool-logo { width: 28px; height: 28px; border-radius: 8px; background: rgba(255,255,255,0.94); border: 1px solid rgba(255,255,255,0.62); display: inline-flex; align-items: center; justify-content: center; flex: 0 0 28px; overflow: hidden; }
+.tool-logo img { display: block; max-width: 22px; max-height: 22px; width: auto; height: auto; object-fit: contain; }
+.tool-logo.wide img { max-width: 24px; }
+.solution-apps { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: -4px 0 18px; }
+.app-chip { height: 34px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: color-mix(in srgb, var(--bg-2) 74%, transparent); color: var(--text-dim); font-size: 12px; font-weight: 650; display: inline-flex; align-items: center; gap: 7px; transition: transform 240ms var(--motion-ease, ease), border-color 240ms var(--motion-ease, ease), color 240ms var(--motion-ease, ease); }
+.app-chip:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 38%, var(--border)); color: var(--text); }
+.app-chip img { width: 18px; height: 18px; object-fit: contain; display: block; }
+.app-chip.ai img { background: rgba(255,255,255,0.92); border-radius: 5px; padding: 2px; }
+
+.objection-section { max-width: 1180px; margin: 0 auto 88px; padding: 0 28px; }
+.objection-panel { background: var(--bg-1); border: 1px solid var(--border); border-radius: 18px; padding: 34px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr); gap: 34px; align-items: center; overflow: hidden; }
+.objection-kicker { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--accent-bright); text-transform: uppercase; margin-bottom: 14px; font-weight: 750; }
+.objection-panel h2 { font-size: clamp(28px, 4vw, 44px); line-height: 1.08; color: var(--text-strong); letter-spacing: 0; max-width: 520px; margin-bottom: 16px; }
+.objection-panel p { color: var(--text-dim); font-size: 16px; line-height: 1.65; max-width: 540px; }
+.objection-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 18px; margin-top: 24px; }
+.objection-list li { display: flex; align-items: center; gap: 9px; color: var(--text); font-size: 14px; }
+.objection-list svg { width: 17px; height: 17px; color: var(--teal); flex-shrink: 0; }
+.tool-map { position: relative; min-height: 330px; display: grid; grid-template-columns: 1fr 150px 1fr; gap: 18px; align-items: center; }
+.tool-map::before { content: ''; position: absolute; inset: 28px 88px 56px; border: 1px solid var(--border); border-radius: 999px; opacity: 0.7; }
+.tool-column { display: grid; gap: 10px; position: relative; z-index: 1; }
+.tool-node, .tool-center, .tool-caption { background: color-mix(in srgb, var(--bg-1) 82%, var(--bg-2)); border: 1px solid var(--border); border-radius: 11px; box-shadow: 0 18px 48px rgba(0,0,0,0.12); }
+.tool-node { min-height: 48px; display: flex; align-items: center; gap: 10px; padding: 10px 12px; color: var(--text); font-size: 13px; font-weight: 600; }
+.tool-node svg { width: 17px; height: 17px; color: var(--accent-bright); flex-shrink: 0; }
+.tool-center { position: relative; z-index: 2; width: 150px; height: 150px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 18px; background: radial-gradient(circle at 50% 35%, var(--accent-soft), var(--bg-1) 72%); }
+.tool-center img { width: 42px; height: 42px; object-fit: contain; margin-bottom: 8px; }
+.tool-center strong { color: var(--accent-bright); font-size: 14px; line-height: 1.16; }
+.tool-caption { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); z-index: 3; padding: 9px 16px; color: var(--accent-bright); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.audit-panel, .recovery-list { max-width: 1040px; margin: 0 auto; }
+.audit-card, .recovery-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: 0 18px 48px rgba(0,0,0,0.12); }
+.audit-table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 14px; }
+.audit-table th, .audit-table td { padding: 15px 14px; text-align: left; border-bottom: 1px solid var(--border); color: var(--text); font-size: 14px; }
+.audit-table th { font-family: var(--font-sans); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); background: color-mix(in srgb, var(--bg-2) 78%, transparent); }
+.audit-table tr:last-child td { border-bottom: 0; }
+.audit-priority { color: var(--accent-bright); font-weight: 800; }
+.audit-recommendation { margin-top: 18px; display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 16px; }
+.audit-recommendation > div, .recovery-card { background: color-mix(in srgb, var(--bg-2) 74%, transparent); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+.audit-label, .recovery-label { font-family: var(--font-sans); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-bright); font-weight: 800; margin-bottom: 8px; }
+.action-list-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1080px; margin: 0 auto 28px; }
+.recovery-card h3 { color: var(--text-strong); font-size: 22px; line-height: 1.16; margin-bottom: 12px; }
+.recovery-meta { color: var(--text-dim); font-size: 14px; line-height: 1.55; margin-bottom: 14px; }
+.recovery-action { color: var(--text); font-weight: 750; border-top: 1px solid var(--border); padding-top: 14px; }
+.recovery-caption { max-width: 780px; margin: 0 auto; text-align: center; color: var(--text-dim); font-size: 16px; line-height: 1.65; }
+[data-theme="light"] .audit-card, [data-theme="light"] .recovery-card, [data-theme="light"] .audit-recommendation > div { background: rgba(255,253,249,.92); border-color: #ead8cd; box-shadow: 0 18px 54px rgba(92,61,72,.08); }
+[data-theme="light"] .audit-table th, [data-theme="light"] .audit-recommendation > div { background: rgba(255,248,243,.78); }
+@media (max-width: 760px) { .action-list-grid, .audit-recommendation { grid-template-columns: 1fr; } .audit-card { padding: 18px; overflow-x: auto; } .audit-table { min-width: 680px; } }
+.demo-window { position: relative; background: var(--bg-1); border: 1px solid var(--border); border-radius: 16px; padding: 6px; box-shadow: 0 32px 96px rgba(0,0,0,0.38), 0 0 0 1px rgba(217, 77, 133, 0.08); overflow: hidden; max-width: 760px; margin-left: auto; }
+.demo-window::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.demo-window-bar { height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border-bottom: 1px solid var(--border); color: var(--text-faint); font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+.demo-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--accent); opacity: 0.75; }
+.demo-dot:nth-child(2) { background: var(--warning); }
+.demo-dot:nth-child(3) { background: var(--success); }
+.demo-window-title { margin-left: 8px; }
+.demo-preview { position: relative; display: block; width: 100%; border: 0; padding: 0; background: transparent; color: inherit; border-radius: 10px; overflow: hidden; cursor: zoom-in; text-align: left; }
+.demo-preview::after { content: 'Click to expand'; position: absolute; right: 12px; bottom: 12px; padding: 7px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(12, 11, 18, 0.72); color: #fff; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0; transform: translateY(4px); transition: opacity 0.16s ease, transform 0.16s ease; backdrop-filter: blur(8px); }
+.demo-preview:hover::after, .demo-preview:focus-visible::after { opacity: 1; transform: translateY(0); }
+.demo-preview:focus-visible { outline: 2px solid var(--accent-bright); outline-offset: 3px; }
+.demo-shot { display: block; width: 100%; height: auto; border-radius: 10px; background: var(--mockup-bg); transition: transform 0.22s ease, filter 0.22s ease; }
+.demo-preview:hover .demo-shot, .demo-preview:focus-visible .demo-shot { transform: scale(1.015); filter: saturate(1.06); }
+.demo-caption { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px 10px; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--text-faint); text-transform: uppercase; }
+.demo-caption strong { color: var(--accent-bright); font-weight: 700; }
+.demo-note-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.demo-note { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.demo-note strong { display: block; color: var(--text-strong); font-size: 14px; margin-bottom: 5px; }
+.demo-note span { display: block; color: var(--text-dim); font-size: 13px; line-height: 1.55; }
+.screenshot-modal { position: fixed; inset: 0; z-index: 120; display: none; align-items: center; justify-content: center; padding: 28px; background: rgba(6, 5, 9, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.screenshot-modal.open { display: flex; }
+.screenshot-modal__panel { width: min(1240px, 100%); max-height: min(88vh, 920px); background: var(--bg-1); border: 1px solid var(--border-bright); border-radius: 16px; box-shadow: 0 34px 110px rgba(0,0,0,0.62); overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.screenshot-modal__top { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 12px 10px 16px; border-bottom: 1px solid var(--border); }
+.screenshot-modal__title { font-family: 'Geist Mono', monospace; color: var(--text); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.4; }
+.screenshot-modal__close { width: 36px; height: 36px; border-radius: 9px; border: 1px solid var(--border-bright); background: var(--bg-2); color: var(--text); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+.screenshot-modal__close:hover { border-color: var(--accent-deep); color: var(--accent-bright); background: var(--accent-soft); }
+.screenshot-modal__close svg { width: 18px; height: 18px; }
+.screenshot-modal__stage { overflow: auto; background: var(--mockup-bg); padding: 14px; }
+.screenshot-modal__stage img { display: block; width: 100%; height: auto; border-radius: 10px; background: var(--mockup-bg); }
+.modal-open { overflow: hidden; }
+.proof-strip { padding: 36px 28px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-1); }
+.proof-strip-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-around; gap: 32px; flex-wrap: wrap; text-align: center; }
+.proof-stat { min-width: 160px; }
+.proof-stat-value { font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--text-strong); letter-spacing: 0; line-height: 1; font-feature-settings: 'tnum'; }
+.proof-stat-value .accent { color: var(--accent-bright); }
+.proof-stat-label { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 8px; }
+
+.section-pad { padding: 100px 28px; }
+.section-head { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+.section-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.22em; color: var(--accent-bright); text-transform: uppercase; margin-bottom: 20px; }
+.section-eyebrow::before, .section-eyebrow::after { content: ''; width: 18px; height: 1px; background: var(--accent-deep); }
+.section-h2 { font-size: clamp(30px, 4.5vw, 44px); font-weight: 700; color: var(--text-strong); letter-spacing: 0; line-height: 1.1; margin-bottom: 20px; }
+.section-sub { font-size: clamp(15px, 2vw, 18px); color: var(--text-dim); line-height: 1.6; }
+
+.problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1100px; margin: 0 auto; }
+.problem-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; transition: border-color 0.2s, transform 0.2s; }
+.problem-card:hover { border-color: var(--border-bright); transform: translateY(-2px); }
+.problem-icon { width: 44px; height: 44px; background: rgba(231, 121, 143, 0.10); border: 1px solid rgba(231, 121, 143, 0.30); border-radius: 11px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--danger); }
+.problem-icon svg { width: 20px; height: 20px; }
+.problem-card h3 { font-size: 17px; font-weight: 600; color: var(--text-strong); margin-bottom: 10px; letter-spacing: 0; }
+.problem-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+.problem-card .stat { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--danger); letter-spacing: 0.06em; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-weight: 600; }
+
+.solution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 1100px; margin: 0 auto; }
+.solution-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 14px; padding: 32px; }
+.solution-card .num { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--accent-bright); margin-bottom: 14px; font-weight: 600; }
+.solution-card h3 { font-size: 22px; font-weight: 700; color: var(--text-strong); margin-bottom: 12px; letter-spacing: 0; line-height: 1.2; }
+.solution-card .lead { font-size: 14px; color: var(--text); margin-bottom: 18px; line-height: 1.6; }
+.solution-list { list-style: none; padding: 0; }
+.solution-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-dim); margin-bottom: 9px; }
+.solution-list li svg { width: 14px; height: 14px; color: var(--teal); flex-shrink: 0; margin-top: 3px; }
+.swipe-hint { display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: var(--text-faint); text-transform: uppercase; }
+.swipe-hint::after { content: ''; width: 34px; height: 1px; background: linear-gradient(90deg, var(--accent), transparent); }
+.has-reveal .reveal-section .problem-card,
+.has-reveal .reveal-section .solution-card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 520ms ease, transform 520ms ease, border-color 0.2s;
+}
+.has-reveal .reveal-section.is-visible .problem-card,
+.has-reveal .reveal-section.is-visible .solution-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+.has-reveal .reveal-section.is-visible .problem-card:nth-child(2),
+.has-reveal .reveal-section.is-visible .solution-card:nth-child(2) { transition-delay: 80ms; }
+.has-reveal .reveal-section.is-visible .problem-card:nth-child(3),
+.has-reveal .reveal-section.is-visible .solution-card:nth-child(3) { transition-delay: 160ms; }
+.has-reveal .reveal-section.is-visible .problem-card:nth-child(4),
+.has-reveal .reveal-section.is-visible .solution-card:nth-child(4) { transition-delay: 240ms; }
+
+.process-grid { max-width: 980px; margin: 0 auto; position: relative; }
+.process-step { display: grid; grid-template-columns: 60px 1fr; gap: 28px; padding: 32px 0; position: relative; align-items: flex-start; }
+.process-step::before { content: ''; position: absolute; left: 28px; top: 60px; bottom: -32px; width: 1px; background: var(--border-bright); }
+.process-step:last-child::before { display: none; }
+.process-num { width: 56px; height: 56px; background: var(--bg-1); border: 1px solid var(--border-bright); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent-bright); position: relative; z-index: 1; flex-shrink: 0; }
+.process-step h3 { font-size: 19px; font-weight: 600; color: var(--text-strong); margin-bottom: 6px; letter-spacing: 0; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.process-step .day { font-family: 'Geist Mono', monospace; font-size: 10px; padding: 3px 9px; background: var(--accent-soft); color: var(--accent-bright); border: 1px solid var(--accent-deep); border-radius: 4px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
+.process-step p { font-size: 14px; color: var(--text-dim); line-height: 1.65; }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1180px; margin: 0 auto; }
+.price-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 16px; padding: 34px 24px; position: relative; transition: border-color 0.2s, transform 0.2s; }
+.price-card.attraction { border-style: dashed; background: color-mix(in srgb, var(--bg-1) 82%, var(--accent-soft)); }
+.price-card.featured { border-color: var(--accent-deep); background: linear-gradient(180deg, var(--bg-1), var(--bg-2)); transform: translateY(-4px); }
+.price-card.featured::before { content: 'Most popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--button-text); font-family: 'Geist Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; padding: 5px 12px; border-radius: 999px; text-transform: uppercase; white-space: nowrap; }
+.price-card .tier { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px; font-weight: 600; }
+.price-card .price-val { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+.price-card .price-val .amt { font-size: 38px; font-weight: 700; color: var(--text-strong); letter-spacing: 0; line-height: 1; font-feature-settings: 'tnum'; }
+.price-card .price-val .per { color: var(--text-dim); font-size: 14px; }
+.price-card .price-setup { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.price-card .price-setup .strong { color: var(--accent-bright); font-weight: 600; }
+.price-features { list-style: none; padding: 0; margin-bottom: 28px; }
+.price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); margin-bottom: 11px; line-height: 1.5; }
+.price-features li svg { width: 14px; height: 14px; color: var(--teal); flex-shrink: 0; margin-top: 4px; }
+.price-features li.faded { color: var(--text-faint); }
+.price-features li.faded svg { color: var(--text-faint); opacity: 0.55; }
+.btn-tier { width: 100%; padding: 13px; background: var(--bg-2); color: var(--text); border: 1px solid var(--border-bright); border-radius: 10px; font-weight: 600; font-size: 14px; transition: all 0.15s; cursor: pointer; text-decoration: none; display: inline-block; text-align: center; font-family: 'Geist', sans-serif; }
+.btn-tier:hover { border-color: var(--accent-deep); color: var(--accent-bright); }
+.price-card.featured .btn-tier { background: var(--accent); color: var(--button-text) !important; -webkit-text-fill-color: var(--button-text); border-color: var(--accent); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,0.18); }
+.price-card.featured .btn-tier:hover { background: var(--accent-bright); color: var(--button-text); border-color: var(--accent-bright); }
+
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; cursor: pointer; }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 17px; font-weight: 600; color: var(--text-strong); letter-spacing: 0; gap: 16px; }
+.faq-q .icon { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--border-bright); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.22s, border-color 0.15s; }
+.faq-q .icon svg { width: 11px; height: 11px; color: var(--text-dim); }
+.faq-item.open .faq-q .icon { transform: rotate(45deg); border-color: var(--accent-deep); }
+.faq-item.open .faq-q .icon svg { color: var(--accent); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-item.open .faq-a { max-height: 360px; }
+.faq-a-inner { padding-top: 16px; color: var(--text-dim); font-size: 15px; line-height: 1.7; }
+
+.final-cta { background: linear-gradient(180deg, var(--bg-0), var(--bg-1)); border-top: 1px solid var(--border); padding: 100px 28px; text-align: center; }
+.final-cta-frame { max-width: 760px; margin: 0 auto; }
+.final-cta h2 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; color: var(--text-strong); letter-spacing: 0; line-height: 1.05; margin-bottom: 20px; }
+.final-cta p { font-size: 18px; color: var(--text-dim); margin-bottom: 32px; }
+.footer { padding: 26px 28px; background: var(--bg-0); border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.footer-meta { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: var(--text-dim); }
+
+
+/* Light theme contrast pass: keep the brand soft, but avoid washed panels. */
+[data-theme="light"] body { background: linear-gradient(180deg, #fffaf6 0%, #fffdf9 44%, #f8eee6 100%); }
+[data-theme="light"] .nav { background: rgba(255, 252, 247, 0.88); box-shadow: 0 8px 32px rgba(93, 55, 72, 0.08); }
+[data-theme="light"] .brand-text { color: #84234d; }
+[data-theme="light"] .nav-links a { color: #55424c; }
+[data-theme="light"] .nav-links a:hover { color: #160d13; }
+[data-theme="light"] .hero-tag,
+[data-theme="light"] .section-eyebrow,
+[data-theme="light"] .objection-kicker,
+[data-theme="light"] .solution-card .num,
+[data-theme="light"] .price-card .tier,
+[data-theme="light"] .process-step .day { color: #84234d; }
+[data-theme="light"] .hero-tag { background: rgba(157, 47, 93, 0.075); border-color: rgba(157, 47, 93, 0.30); }
+[data-theme="light"] .hero h1 .accent { background: linear-gradient(135deg, #9d2f5d, #177f70); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+[data-theme="light"] .hero p,
+[data-theme="light"] .section-sub,
+[data-theme="light"] .objection-panel p,
+[data-theme="light"] .faq-a-inner { color: #5a4852; }
+[data-theme="light"] .hero-benefit { background: rgba(255,255,255,0.78); border-color: rgba(157, 47, 93, 0.16); color: #24171e; box-shadow: 0 10px 28px rgba(103, 63, 78, 0.06); }
+[data-theme="light"] .hero-benefit svg,
+[data-theme="light"] .tool-node svg { color: #9d2f5d; }
+[data-theme="light"] .integration-rail { background: rgba(255, 253, 249, 0.74); border-color: rgba(157, 47, 93, 0.12); }
+[data-theme="light"] .integration-logo,
+[data-theme="light"] .tool-logo { box-shadow: 0 10px 24px rgba(92, 61, 72, 0.08); }
+[data-theme="light"] .integration-logo img { background: transparent; box-shadow: none; padding: 0; }
+[data-theme="light"] .app-chip img { box-shadow: none; }
+[data-theme="light"] .app-chip { background: rgba(255, 248, 243, 0.74); border-color: rgba(157, 47, 93, 0.13); color: #5b5048; }
+[data-theme="light"] .demo-window,
+[data-theme="light"] .objection-panel,
+[data-theme="light"] .problem-card,
+[data-theme="light"] .solution-card,
+[data-theme="light"] .price-card,
+[data-theme="light"] .demo-note,
+[data-theme="light"] .screenshot-modal__panel { background: rgba(255, 253, 249, 0.92); border-color: #ead8cd; box-shadow: 0 28px 80px rgba(92, 61, 72, 0.11); }
+[data-theme="light"] .demo-window::before { background: linear-gradient(90deg, transparent, rgba(157,47,93,.34), transparent); }
+[data-theme="light"] .demo-window-bar,
+[data-theme="light"] .demo-caption,
+[data-theme="light"] .screenshot-modal__title { color: #6e5b64; border-color: #efe0d7; background: rgba(255, 248, 243, 0.72); }
+[data-theme="light"] .demo-shot,
+[data-theme="light"] .screenshot-modal__stage { background: #fffaf4; }
+[data-theme="light"] .objection-panel { background: linear-gradient(135deg, rgba(255,253,249,.98), rgba(253,244,238,.94)); }
+[data-theme="light"] .objection-list li,
+[data-theme="light"] .tool-node,
+[data-theme="light"] .tool-center strong,
+[data-theme="light"] .problem-card h3,
+[data-theme="light"] .solution-card h3,
+[data-theme="light"] .process-step h3,
+[data-theme="light"] .faq-q { color: #1d1218; }
+[data-theme="light"] .tool-map::before { border-color: rgba(157, 47, 93, 0.18); }
+[data-theme="light"] .tool-map::after { opacity: 0.34; filter: blur(12px); }
+[data-theme="light"] .tool-node,
+[data-theme="light"] .tool-center,
+[data-theme="light"] .tool-caption { background: rgba(255, 255, 255, 0.88); border-color: rgba(157, 47, 93, 0.14); box-shadow: 0 14px 40px rgba(92, 61, 72, 0.08); }
+[data-theme="light"] .tool-center { background: radial-gradient(circle at 50% 35%, rgba(157,47,93,.10), rgba(255,253,249,.96) 72%); }
+[data-theme="light"] .tool-caption { color: #84234d; }
+[data-theme="light"] .proof-strip,
+[data-theme="light"] #system,
+[data-theme="light"] #pricing,
+[data-theme="light"] #faq { background: rgba(255, 253, 249, 0.72) !important; border-color: #ead8cd !important; }
+[data-theme="light"] .proof-stat-value,
+[data-theme="light"] .section-h2,
+[data-theme="light"] .final-cta h2,
+[data-theme="light"] .price-card .price-val .amt { color: #130b10; }
+[data-theme="light"] .proof-stat-label,
+[data-theme="light"] .price-card .price-setup,
+[data-theme="light"] .price-card .price-val .per,
+[data-theme="light"] .problem-card p,
+[data-theme="light"] .solution-list li,
+[data-theme="light"] .footer-meta,
+[data-theme="light"] .footer-links a { color: #6b5862; }
+[data-theme="light"] .problem-icon { background: rgba(157, 47, 93, 0.08); border-color: rgba(157, 47, 93, 0.18); color: #9d2f5d; }
+[data-theme="light"] .problem-card .stat { color: #8d294f; border-color: #ead8cd; }
+[data-theme="light"] .price-card.featured { background: linear-gradient(180deg, #fffdf9, #f8eee7); border-color: rgba(157, 47, 93, 0.34); }
+[data-theme="light"] .price-card.attraction { background: rgba(255, 248, 243, 0.72); border-color: rgba(157, 47, 93, 0.22); }
+[data-theme="light"] .btn-secondary-large,
+[data-theme="light"] .btn-tier { background: rgba(255,255,255,.62); border-color: #d8c2b5; color: #24171e; }
+[data-theme="light"] .btn-secondary-large:hover,
+[data-theme="light"] .btn-tier:hover { color: #84234d; border-color: rgba(157, 47, 93, 0.42); background: rgba(157, 47, 93, 0.06); }
+[data-theme="light"] .faq-item { border-color: #ead8cd; }
+[data-theme="light"] .faq-q .icon { border-color: #d8c2b5; }
+[data-theme="light"] .final-cta { background: linear-gradient(180deg, #fffaf6, #fffdf9); border-color: #ead8cd; }
+[data-theme="light"] .footer { background: #fffaf6; border-color: #ead8cd; }
+
+@media (max-width: 920px) {
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; gap: 34px; padding-top: 58px; }
+  .hero-copy, .hero-visual { min-width: 0; align-self: center; }
+  .hero h1, .hero p { max-width: 760px; }
+  .demo-window { margin-left: 0; max-width: 760px; }
+  .hero-visual { max-width: 760px; width: 100%; }
+  .objection-panel { grid-template-columns: 1fr; }
+  .tool-map { max-width: 720px; margin: 0 auto; }
+  .problem-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .solution-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  body, main, section, .container, .objection-section, .problem-section, .solution-section, .pricing-section, .faq-section, .final-cta { width: 100%; max-width: 100%; overflow-x: hidden; }
+  .nav-inner { padding: 12px 16px; gap: 10px; }
+  .brand { min-width: 0; }
+  .brand-text { font-size: 16px; font-weight: 800; color: var(--accent); letter-spacing: 0; line-height: 1; }
+  .brand-meta { display: none; }
+  .nav .btn-cta { display: none; }
+  .hero { width: 100%; max-width: none; margin: 0 auto; padding: 42px 18px 54px; overflow: hidden; gap: 28px; }
+  .hero-copy, .hero-visual, .objection-panel, .tool-map, .tool-column { min-width: 0; }
+  .hero-tag { display: flex; max-width: 100%; justify-content: flex-start; text-align: left; font-size: 10px; letter-spacing: 0.08em; line-height: 1.45; white-space: normal; overflow-wrap: anywhere; }
+  .hero h1 { font-size: clamp(34px, 10.4vw, 44px); line-height: 1.08; max-width: 100%; }
+  .hero p { font-size: 16px; line-height: 1.58; margin-bottom: 28px; max-width: 100%; overflow-wrap: break-word; }
+  .hero-cta-row { width: 100%; flex-direction: column; align-items: stretch; margin-bottom: 28px; }
+  .btn-cta-large, .btn-secondary-large { width: 100%; justify-content: center; }
+  .hero-benefits { grid-template-columns: 1fr; gap: 11px; }
+  .hero-benefit { font-size: 13px; }
+  .hero h1 .hero-line { display: block; }
+  .hero-visual .demo-window { margin-top: 2px; width: 100%; }
+  .hero-visual .demo-caption span { max-width: 100%; overflow-wrap: anywhere; }
+  .objection-section { padding: 0 16px; margin-bottom: 64px; }
+  .objection-panel { border-radius: 14px; padding: 24px 18px; gap: 28px; }
+  .objection-list { grid-template-columns: 1fr; }
+  .tool-map { min-height: auto; grid-template-columns: 1fr; gap: 12px; }
+  .tool-map::before { display: none; }
+  .tool-center { width: 132px; height: 132px; margin: 4px auto; order: -1; }
+  .tool-caption { position: static; transform: none; text-align: center; white-space: normal; line-height: 1.35; }
+  .tool-node { min-height: 46px; font-size: 13px; }
+  .demo-window, .demo-card { border-radius: 12px; overflow: hidden; }
+  .demo-window-bar { min-width: 0; }
+  .demo-shot { width: 100%; max-width: 100%; }
+  .demo-preview::after { opacity: 1; transform: none; right: 10px; bottom: 10px; font-size: 9px; padding: 6px 8px; }
+  .demo-note-row { grid-template-columns: 1fr; }
+  .demo-caption { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .screenshot-modal { padding: 12px; align-items: stretch; }
+  .screenshot-modal__panel { max-height: calc(100dvh - 24px); border-radius: 12px; }
+  .screenshot-modal__top { padding-left: 12px; }
+  .screenshot-modal__title { font-size: 10px; letter-spacing: 0.1em; }
+  .screenshot-modal__stage { padding: 10px; }
+  .screenshot-modal__stage img { width: 100%; max-width: 100%; }
+  .problem-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .swipe-hint { display: flex; }
+  .problem-grid.swipe-carousel, .solution-grid.swipe-carousel {
+    display: flex;
+    grid-template-columns: none;
+    max-width: none;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 18px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 14px;
+    margin: 0 -18px;
+    padding: 0 18px 18px;
+  }
+  .problem-grid.swipe-carousel::-webkit-scrollbar, .solution-grid.swipe-carousel::-webkit-scrollbar { display: none; }
+  .problem-grid.swipe-carousel > .problem-card,
+  .solution-grid.swipe-carousel > .solution-card {
+    flex: 0 0 calc(100vw - 56px);
+    scroll-snap-align: center;
+    min-height: 260px;
+  }
+  .solution-grid.swipe-carousel > .solution-card { min-height: 390px; }
+  .section-head { margin-bottom: 36px; }
+  .section-pad, .proof-strip, .final-cta, .footer { width: 100%; max-width: none; margin-left: auto; margin-right: auto; }
+  .section-eyebrow { font-size: 10px; letter-spacing: 0.16em; }
+  .section-h2 { font-size: clamp(28px, 8vw, 34px); }
+  .problem-card, .solution-card, .price-card { padding: 24px 20px; }
+  .section-pad { padding: 72px 18px; }
+  .process-step { grid-template-columns: 44px 1fr; gap: 18px; }
+  .process-num { width: 44px; height: 44px; border-radius: 11px; font-size: 15px; }
+  .process-step::before { left: 21px; top: 48px; }
+  .final-cta { padding: 72px 18px; }
+  .final-cta p { font-size: 16px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+
+
+/* Mobile conversion pass: stack the page, remove horizontal overflow, and keep CTAs readable. */
+@media (max-width: 760px) {
+  html, body { overflow-x: hidden; }
+  .container, .hero, .objection-section, .proof-strip, .section-pad, .final-cta, .footer { width: 100%; max-width: none; padding-left: 16px; padding-right: 16px; }
+  .nav-inner { padding: 12px 14px; gap: 10px; }
+  .brand { min-width: 0; gap: 9px; }
+  .brand-mark { width: 34px; height: 34px; }
+  .brand-text { font-size: 14px; line-height: 1.1; }
+  .brand-meta { display: none; }
+  .nav-links { display: none; }
+  .nav-actions { gap: 8px; }
+  .nav .btn-cta { padding: 9px 12px; font-size: 12px; max-width: 156px; white-space: normal; line-height: 1.2; justify-content: center; text-align: center; }
+  .theme-toggle { width: 40px; height: 40px; flex: 0 0 40px; }
+  .hero { display: block; padding-top: 42px; padding-bottom: 46px; }
+  .hero-copy { margin-bottom: 30px; }
+  .hero-tag { width: 100%; justify-content: flex-start; border-radius: 14px; padding: 9px 11px; font-size: 10px; letter-spacing: 0.09em; }
+  .hero h1 { font-size: clamp(33px, 9.8vw, 42px); line-height: 1.08; margin-bottom: 18px; overflow-wrap: normal; word-break: normal; text-wrap: balance; }
+  .hero h1 .hero-line { display: inline; }
+  .tool-map::after, .tool-center::before, .tool-center::after { display: none; }
+  .integration-logo { animation: none; }
+  .hero::before { display: none; }
+  .solution-card::before { animation-duration: 9s; }
+  .hero p { font-size: 15.5px; line-height: 1.58; margin-bottom: 22px; }
+  .hero-cta-row { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 18px; }
+  .btn-cta-large, .btn-secondary-large, .btn-tier { width: 100%; min-height: 52px; justify-content: center; padding: 14px 16px; line-height: 1.22; white-space: normal; text-align: center; }
+  .hero-benefits { grid-template-columns: 1fr; gap: 9px; max-width: none; }
+  .integration-rail { padding: 14px; }
+  .integration-logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .integration-logo, .integration-logo.square, .integration-logo.wide { width: 100%; min-width: 0; height: 38px; padding: 7px; }
+  .integration-logo img { max-width: 54px; max-height: 22px; }
+  .solution-apps { gap: 7px; margin-bottom: 16px; }
+  .app-chip { height: 32px; font-size: 11.5px; padding: 6px 9px; }
+  .hero-benefit { align-items: flex-start; padding: 10px 11px; }
+  .demo-window { width: 100%; border-radius: 14px; }
+  .demo-window-bar { min-height: 34px; height: auto; padding: 8px 10px; letter-spacing: 0.08em; white-space: normal; overflow-wrap: anywhere; }
+  .demo-caption { display: block; padding: 12px 10px 8px; letter-spacing: 0.1em; }
+  .demo-note-row { grid-template-columns: 1fr; }
+  .objection-section { margin-bottom: 46px; }
+  .objection-panel { display: block; padding: 22px 16px; border-radius: 16px; }
+  .objection-panel h2 { font-size: clamp(28px, 8vw, 36px); }
+  .objection-list { grid-template-columns: 1fr; gap: 10px; }
+  .tool-map { display: block; min-height: 0; margin-top: 24px; }
+  .tool-map::before { display: none; }
+  .tool-column { gap: 8px; }
+  .tool-center { width: 132px; height: 132px; margin: 14px auto; }
+  .tool-caption { position: static; transform: none; width: 100%; margin-top: 12px; white-space: normal; text-align: center; }
+  .proof-strip { padding-top: 26px; padding-bottom: 26px; }
+  .proof-strip-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+  .proof-stat { min-width: 0; }
+  .proof-stat-label { font-size: 10px; letter-spacing: 0.1em; }
+  .section-pad { padding-top: 62px; padding-bottom: 62px; }
+  .section-head { margin-bottom: 32px; }
+  .section-eyebrow { font-size: 10px; letter-spacing: 0.14em; justify-content: center; text-align: center; }
+  .section-h2 { font-size: clamp(28px, 8.4vw, 38px); line-height: 1.12; }
+  .section-sub { font-size: 15.5px; }
+  .problem-grid.swipe-carousel, .solution-grid.swipe-carousel, .problem-grid, .solution-grid, .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 14px; overflow: visible; margin: 0; padding: 0; scroll-snap-type: none; }
+  .problem-grid.swipe-carousel > .problem-card, .solution-grid.swipe-carousel > .solution-card { flex: none; width: 100%; min-height: auto; scroll-snap-align: unset; }
+  .problem-card, .solution-card, .price-card { padding: 22px 18px; border-radius: 14px; }
+  .solution-card h3 { font-size: 20px; }
+  .swipe-hint { display: none; }
+  .process-grid { gap: 14px; }
+  .process-step { grid-template-columns: 38px minmax(0, 1fr); gap: 12px; padding: 18px 14px; }
+  .process-num { width: 38px; height: 38px; font-size: 12px; }
+  .process-step h3 { font-size: 17px; }
+  .process-step .day { display: block; margin-top: 4px; }
+  .price-card.featured { transform: none; }
+  .price-card.featured::before { top: 10px; left: auto; right: 14px; transform: none; font-size: 9px; }
+  .faq-list { gap: 10px; }
+  .faq-q { align-items: flex-start; gap: 12px; padding: 18px 14px; font-size: 15px; }
+  .faq-q .icon { flex: 0 0 28px; width: 28px; height: 28px; }
+  .faq-a-inner { padding: 0 14px 18px; }
+  .final-cta { padding-top: 62px; padding-bottom: 62px; }
+  .final-cta-frame { padding: 30px 18px; }
+  .final-cta h2 { font-size: clamp(28px, 8.5vw, 38px); }
+  .footer-inner { flex-direction: column; align-items: flex-start; padding: 24px 0; }
+  .footer-links { gap: 14px; flex-wrap: wrap; }
+  .screenshot-modal { padding: 10px; align-items: stretch; }
+  .screenshot-modal__panel { max-height: calc(100dvh - 20px); border-radius: 12px; }
+  .screenshot-modal__stage { padding: 8px; }
+  .screenshot-modal__stage img { width: 100%; max-width: 100%; }
+}
+
+@media (max-width: 430px) {
+  .container, .hero, .objection-section, .proof-strip, .section-pad, .final-cta, .footer { padding-left: 14px; padding-right: 14px; }
+  .brand-text { font-size: 13px; }
+  .nav .btn-cta { max-width: 132px; font-size: 11px; }
+  .hero { padding-top: 34px; }
+  .hero-tag { font-size: 9.5px; }
+  .hero h1 { font-size: clamp(30px, 9.6vw, 38px); }
+  .proof-strip-inner { grid-template-columns: 1fr; }
+  .price-card .price-val .amt { font-size: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-reveal .reveal-section .problem-card,
+  .has-reveal .reveal-section .solution-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Premium motion + softer accent typography */
+:root { --motion-ease: cubic-bezier(.22, 1, .36, 1); --motion-ease-soft: cubic-bezier(.16, 1, .3, 1); --fixed-nav-h: 72px; }
+html { scroll-padding-top: 86px; }
+.nav { transition: background 280ms var(--motion-ease), border-color 280ms var(--motion-ease), box-shadow 280ms var(--motion-ease), transform 280ms var(--motion-ease); }
+.nav.is-scrolled { background: color-mix(in srgb, var(--nav-bg) 86%, var(--bg-1)); border-color: color-mix(in srgb, var(--border-bright) 72%, transparent); box-shadow: 0 18px 54px rgba(0,0,0,.20); }
+.hero-tag,
+.demo-window-bar,
+.demo-preview::after,
+.demo-caption,
+.screenshot-modal__title,
+.proof-stat-label,
+.section-eyebrow,
+.problem-card .stat,
+.solution-card .num,
+.swipe-hint,
+.process-step .day,
+.price-card.featured::before,
+.price-card .tier,
+.footer-meta {
+  font-family: var(--font-sans);
+  letter-spacing: .075em;
+  font-weight: 750;
+}
+.hero-tag, .section-eyebrow, .objection-kicker { letter-spacing: .095em; }
+.problem-grid { align-items: stretch; grid-auto-rows: 1fr; }
+.problem-card { height: 100%; min-height: 286px; display: flex; flex-direction: column; will-change: transform; transform: translateZ(0); }
+.problem-card .stat { margin-top: auto; min-height: 49px; display: flex; align-items: center; }
+.solution-card, .demo-window, .demo-card, .price-card, .faq-item { transform: translateZ(0); will-change: transform; }
+.problem-card:hover, .solution-card:hover, .demo-card:hover, .price-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 42%, var(--border-bright)); box-shadow: 0 22px 70px rgba(0,0,0,.22); }
+.demo-window { transition: transform 420ms var(--motion-ease), box-shadow 420ms var(--motion-ease), border-color 420ms var(--motion-ease); animation: dashboard-float 8s ease-in-out infinite; }
+.demo-window:hover { transform: translateY(-3px); box-shadow: 0 42px 110px rgba(0,0,0,.44), 0 0 0 1px rgba(217,77,133,.14); }
+.btn-cta, .btn-cta-large, .btn-tier, .theme-toggle { transition: transform 220ms var(--motion-ease), box-shadow 220ms var(--motion-ease), background 220ms var(--motion-ease), border-color 220ms var(--motion-ease), color 220ms var(--motion-ease); }
+.btn-cta:hover, .btn-cta-large:hover, .btn-tier:hover { transform: translateY(-2px); box-shadow: 0 14px 34px var(--accent-glow); }
+.faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 360ms var(--motion-ease); }
+.faq-item.open .faq-a { grid-template-rows: 1fr; }
+.faq-a-inner { overflow: hidden; }
+.motion-ready .hero > *,
+.motion-ready main > section,
+.motion-ready .proof-strip,
+.motion-ready .final-cta {
+  opacity: .38;
+  transform: translate3d(0, var(--reveal-y, 14px), 0) scale(.996);
+  transition: opacity 560ms var(--motion-ease-soft), transform 720ms var(--motion-ease-soft);
+}
+.motion-ready .reveal-from-top { --reveal-y: -14px; }
+.motion-ready .reveal-from-bottom { --reveal-y: 14px; }
+.motion-ready .hero.is-visible > *,
+.motion-ready main > section.is-visible,
+.motion-ready .proof-strip.is-visible,
+.motion-ready .final-cta.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+.motion-ready .hero.is-visible > *:nth-child(2) { transition-delay: 70ms; }
+.motion-ready .hero.is-visible > *:nth-child(3) { transition-delay: 140ms; }
+.motion-ready .hero.is-visible > *:nth-child(4) { transition-delay: 210ms; }
+.motion-ready .hero.is-visible .hero-benefit { animation: chip-rise 620ms var(--motion-ease-soft) both; }
+.motion-ready .hero.is-visible .hero-benefit:nth-child(2) { animation-delay: 60ms; }
+.motion-ready .hero.is-visible .hero-benefit:nth-child(3) { animation-delay: 120ms; }
+.motion-ready .hero.is-visible .hero-benefit:nth-child(4) { animation-delay: 180ms; }
+.motion-ready .hero.is-visible .hero-benefit:nth-child(5) { animation-delay: 240ms; }
+.motion-ready .hero.is-visible .hero-benefit:nth-child(6) { animation-delay: 300ms; }
+@keyframes chip-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.has-reveal .reveal-section .problem-card,
+.has-reveal .reveal-section .solution-card {
+  transition: opacity 680ms var(--motion-ease-soft), transform 680ms var(--motion-ease-soft), border-color 220ms var(--motion-ease), box-shadow 220ms var(--motion-ease);
+}
+
+@media (max-width: 390px) {
+  .brand-text { font-size: 14px; }
+  .hero { padding-left: 14px; padding-right: 14px; }
+  .hero h1 { font-size: clamp(30px, 9.6vw, 38px); }
+  .hero-tag { font-size: 9px; padding: 7px 11px; }
+  .objection-section, .section-pad, .proof-strip, .final-cta, .footer { padding-left: 14px; padding-right: 14px; }
+  .objection-panel { padding: 22px 14px; }
+  .tool-node { padding: 9px 10px; }
+  .proof-strip-inner { gap: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body::before, body::after, .nav, .btn-cta, .btn-cta-large, .btn-tier, .theme-toggle, .hero::before, .demo-window, .demo-window::after, .demo-preview::before, .hero-tag::after, .hero-benefit, .app-chip, .problem-card, .solution-card, .solution-card::before, .demo-card, .price-card, .faq-a, .integration-logo, .tool-logo, .tool-center, .tool-node, .tool-map::after, .tool-center::before, .tool-center::after,
+  .motion-ready .hero > *, .motion-ready main > section, .motion-ready .proof-strip, .motion-ready .final-cta {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 560px) { :root { --fixed-nav-h: 62px; } }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#">
+      <div class="brand-mark"><img src="../assets/medspa-growth-engine-mark.png" alt="" /></div>
+      <div>
+        <div class="brand-text">MedSpa Growth Engine</div>
+        
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#system">System</a>
+      <a href="#how">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="../booking/index.html" class="btn-cta">Book audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-tag"><span class="pulse"></span> Revenue leak, not lead problem.</div>
+      <h1><span class="hero-line">Most Med Spas Don't Have A Lead Problem.</span> <span class="hero-line accent">They Have A Revenue Leak Problem.</span></h1>
+      <p>You already paid to create the opportunity. We identify where inquiries, consultations, no-shows, memberships, and past clients are slipping through, then show your team exactly what deserves attention first.</p>
+      <div class="hero-cta-row">
+        <a href="../booking/index.html" class="btn-cta-large">Book A Revenue Leak Audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#pricing" class="btn-secondary-large">See How It Works</a>
+      </div>
+      <div class="hero-benefits" aria-label="Key system benefits">
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Recover missed consultations</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reduce no-shows</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reactivate inactive clients</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Protect membership renewals</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Works with your existing systems</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Prioritize the first recovery action</div>
+      </div>
+      <div class="integration-rail" aria-label="Tools MedSpa Growth Engine can sit around">
+        <div class="integration-kicker">Installed around the tools you already use</div>
+        <div class="integration-logos">
+          <span class="integration-logo square"><img src="../assets/integrations/gmail.png" alt="Gmail" /></span>
+          <span class="integration-logo wide"><img src="../assets/integrations/google-sheets.png" alt="Google Sheets" /></span>
+          <span class="integration-logo square"><img src="../assets/integrations/google-calendar.png" alt="Google Calendar" /></span>
+          <span class="integration-logo wide"><img src="../assets/integrations/n8n.png" alt="n8n" /></span>
+          <span class="integration-logo square"><img src="../assets/integrations/openai.png" alt="OpenAI" /></span>
+          <span class="integration-logo square"><img src="../assets/integrations/gemini.png" alt="Gemini" /></span>
+          <span class="integration-logo square"><img src="../assets/integrations/claude.png" alt="Claude" /></span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="demo-window">
+        <div class="demo-window-bar"><span class="demo-dot"></span><span class="demo-dot"></span><span class="demo-dot"></span><span class="demo-window-title">Revenue recovery command center</span></div>
+        <button class="demo-preview" type="button" data-shot-src="../assets/dashboard-overview.png" data-shot-title="Revenue recovery command center" aria-label="Expand dashboard overview screenshot">
+          <img class="demo-shot" src="../assets/dashboard-overview.png" alt="MedSpa Growth Engine dashboard overview showing KPI cards, critical alerts, appointments, and activity stream" loading="eager" />
+        </button>
+        <div class="demo-caption"><strong>Recovery support view</strong><span>Consultations, no-shows, renewals, reactivations</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="objection-section reveal-section" aria-label="Works with your existing clinic tools">
+    <div class="objection-panel">
+      <div>
+        <div class="objection-kicker">No. We don't replace your CRM.</div>
+        <h2>We make your existing workflow smarter.</h2>
+        <p>We do not ask your team to move into a new CRM. MedSpa Growth Engine works alongside the tools your clinic already uses and helps identify consultations, no-shows, inactive clients, membership renewals, reviews, and follow-up gaps that deserve attention.</p>
+        <ul class="objection-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>No migration</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>No retraining</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>No disruption</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>Clearer revenue recovery</li>
+        </ul>
+      </div>
+      <div class="tool-map" aria-label="Existing tools connected to MedSpa Growth Engine">
+        <div class="tool-column">
+          <div class="tool-node has-logo"><span class="tool-logo"><img src="../assets/integrations/crm.png" alt="" /></span>Your CRM / EMR</div>
+          <div class="tool-node has-logo"><span class="tool-logo"><img src="../assets/integrations/google-docs.png" alt="" /></span>Website forms</div>
+          <div class="tool-node has-logo"><span class="tool-logo"><img src="../assets/integrations/gmail.png" alt="" /></span>Email follow-up</div>
+          <div class="tool-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>SMS</div>
+          <div class="tool-node has-logo"><span class="tool-logo"><img src="../assets/integrations/google-calendar.png" alt="" /></span>Calendar</div>
+        </div>
+        <div class="tool-center"><img src="../assets/medspa-growth-engine-mark.png" alt="" /><strong>MedSpa<br />Growth Engine</strong></div>
+        <div class="tool-column">
+          <div class="tool-node has-logo"><span class="tool-logo"><img src="../assets/integrations/gemini.png" alt="" /></span>Client context</div>
+          <div class="tool-node has-logo"><span class="tool-logo"><img src="../assets/integrations/google-sheets.png" alt="" /></span>Sheets tracking</div>
+          <div class="tool-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Payments</div>
+          <div class="tool-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</div>
+          <div class="tool-node has-logo"><span class="tool-logo wide"><img src="../assets/integrations/n8n.png" alt="" /></span>n8n workflows</div>
+        </div>
+        <div class="tool-caption">One recovery layer. Existing tools. Clearer priorities.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="screenshot-modal" id="screenshot-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="screenshot-modal-title">
+    <div class="screenshot-modal__panel" role="document">
+      <div class="screenshot-modal__top">
+        <div class="screenshot-modal__title" id="screenshot-modal-title">Dashboard screenshot</div>
+        <button class="screenshot-modal__close" type="button" aria-label="Close screenshot preview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="screenshot-modal__stage">
+        <img id="screenshot-modal-img" src="" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <section class="proof-strip">
+    <div class="proof-strip-inner">
+      <div class="proof-stat"><div class="proof-stat-value"><span class="accent">Audit</span></div><div class="proof-stat-label">Revenue leaks first</div></div>
+      <div class="proof-stat"><div class="proof-stat-value">List</div><div class="proof-stat-label">Weekly recovery priorities</div></div>
+      <div class="proof-stat"><div class="proof-stat-value">Install</div><div class="proof-stat-label">One system at a time</div></div>
+      <div class="proof-stat"><div class="proof-stat-value">No swap</div><div class="proof-stat-label">Keep your current systems</div></div>
+    </div>
+  </section>
+
+  <section class="section-pad reveal-section">
+    <div class="section-head">
+      <div class="section-eyebrow">Revenue leaks</div>
+      <h2 class="section-h2">Revenue Is Usually Lost After The Inquiry.</h2>
+      <p class="section-sub">The challenge is rarely demand. It is what happens after demand arrives: missed contact, unconverted consultations, no-show gaps, inactive clients, and renewals nobody catches in time.</p>
+      <div class="swipe-hint">Swipe the leaks</div>
+    </div>
+    <div class="problem-grid swipe-carousel">
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="6" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h3>Slow follow-up loses ready buyers</h3>
+        <p>Leads come in from forms, DMs, calls, ads, referrals, and events. If they are not contacted fast, the opportunity cools off.</p>
+        <div class="stat">Leads are not contacted</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h3>Booked revenue slips off the calendar</h3>
+        <p>Consultations get booked, then stall. Some do not convert, some no-show, and some never get a personal recovery action.</p>
+        <div class="stat">Consultations do not convert</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></div>
+        <h3>Past clients go quiet</h3>
+        <p>Existing clients become inactive when nobody owns the next treatment moment, renewal window, or seasonal return opportunity.</p>
+        <div class="stat">Existing clients become inactive</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Memberships quietly leak</h3>
+        <p>Membership renewals and VIP follow-ups get missed when the team is busy with today's appointments.</p>
+        <div class="stat">Membership renewals are missed</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad reveal-section" id="audit">
+    <div class="section-head">
+      <div class="section-eyebrow">Revenue Leak Audit</div>
+      <h2 class="section-h2">Before you install anything, see where revenue is slipping.</h2>
+      <p class="section-sub">The audit gives the owner a simple map of missed opportunities, priority level, and the first recovery system worth installing.</p>
+    </div>
+    <div class="audit-panel">
+      <div class="audit-table" role="table" aria-label="Sample revenue leak audit">
+        <div class="audit-row audit-head" role="row"><span>Leak</span><span>Opportunities</span><span>Priority</span><span>Recommended First System</span></div>
+        <div class="audit-row" role="row"><span>Unbooked Consultations</span><span>48</span><span><b class="audit-priority">High</b></span><span>Consultation Recovery</span></div>
+        <div class="audit-row" role="row"><span>Inactive Clients</span><span>312</span><span><b class="audit-priority medium">Medium</b></span><span>Client Reactivation</span></div>
+        <div class="audit-row" role="row"><span>No-Shows</span><span>17</span><span><b class="audit-priority">High</b></span><span>No-Show Recovery</span></div>
+        <div class="audit-row" role="row"><span>Membership Renewals</span><span>11</span><span><b class="audit-priority">High</b></span><span>Membership Retention</span></div>
+      </div>
+      <div class="audit-recommendation">
+        <span class="audit-label">Recommended first installation</span>
+        <strong>Consultation Recovery</strong>
+        <p>Highest opportunity. Strongest data quality. Fastest path to measurable results.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad reveal-section" id="recovery-list" style="background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="section-head">
+      <div class="section-eyebrow">This Week's Revenue Recovery List</div>
+      <h2 class="section-h2">Your team sees what deserves attention first.</h2>
+      <p class="section-sub">The dashboard supports the action list. It identifies opportunities, prioritizes them, and shows your team where to act before revenue drifts.</p>
+    </div>
+    <div class="recovery-list action-list-grid">
+      <div class="recovery-card"><span class="recovery-label">High Priority</span><h3>Michelle</h3><p class="recovery-meta">Consultation completed / No treatment booked</p><p class="recovery-action">Recommended Action: Personal follow-up</p></div>
+      <div class="recovery-card"><span class="recovery-label">High Priority</span><h3>Sarah</h3><p class="recovery-meta">Botox / Last visit: 5.5 months ago</p><p class="recovery-action">Recommended Action: SMS + staff call</p></div>
+      <div class="recovery-card"><span class="recovery-label">High Priority</span><h3>Jessica</h3><p class="recovery-meta">Membership expires in 17 days</p><p class="recovery-action">Recommended Action: Renewal message</p></div>
+    </div>
+    <p class="recovery-caption">MedSpa Growth Engine turns scattered clinic data into a short weekly action list: who to contact, why now, and which system should handle the next step.</p>
+  </section>
+    <section class="section-pad reveal-section" id="system" style="background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="section-head">
+      <div class="section-eyebrow">Revenue Recovery System</div>
+      <h2 class="section-h2">The Med Spa Revenue Recovery System, installed and managed for you.</h2>
+      <p class="section-sub">A managed layer around your current booking system, CRM, inbox, calendar, and team. It helps identify lost opportunities, follow up consistently, and keep revenue recovery visible without replacing your existing tools.</p>
+      <div class="swipe-hint">Swipe the systems</div>
+    </div>
+    <div class="solution-grid swipe-carousel">
+      <div class="solution-card"><div class="num">01 - Revenue leakage detection</div><h3>Find the revenue already hiding in your clinic.</h3><p class="lead">We review inquiries, consultation outcomes, no-shows, inactive clients, memberships, and review opportunities so the first installation is based on the highest-value leak.</p><div class="solution-apps"><span class="app-chip"><img src="../assets/integrations/google-sheets.png" alt="" />Leak list</span><span class="app-chip"><img src="../assets/integrations/crm.png" alt="" />CRM context</span><span class="app-chip ai"><img src="../assets/integrations/gemini.png" alt="" />AI-assisted priority</span></div><ul class="solution-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Revenue leak audit and data review</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Highest-priority opportunity mapping</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly owner action list</li></ul></div>
+      <div class="solution-card"><div class="num">02 - Consultation recovery</div><h3>Bring back people who showed interest but never booked.</h3><p class="lead">Completed consults with no treatment booked, old inquiries, and stalled prospects get routed into clear follow-up so the team knows who needs a personal touch.</p><div class="solution-apps"><span class="app-chip"><img src="../assets/integrations/gmail.png" alt="" />Email</span><span class="app-chip"><img src="../assets/integrations/google-calendar.png" alt="" />Calendar</span><span class="app-chip"><img src="../assets/integrations/n8n.png" alt="" />Workflow</span></div><ul class="solution-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unbooked consultation follow-up</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Staff call prompts for high-value clients</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Booked/unbooked status visibility</li></ul></div>
+      <div class="solution-card"><div class="num">03 - No-show recovery</div><h3>Recover empty slots before they become forgotten revenue.</h3><p class="lead">No-shows and late cancellations are flagged, followed up, and reported so the team can recover bookings instead of letting them disappear from the calendar.</p><div class="solution-apps"><span class="app-chip"><img src="../assets/integrations/google-calendar.png" alt="" />Calendar</span><span class="app-chip"><img src="../assets/integrations/gmail.png" alt="" />Recovery message</span><span class="app-chip"><img src="../assets/integrations/google-sheets.png" alt="" />Tracking</span></div><ul class="solution-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No-show and cancellation lists</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Warm reschedule follow-up</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Recovery outcome reporting</li></ul></div>
+      <div class="solution-card"><div class="num">04 - Client reactivation</div><h3>Turn inactive clients into current treatment opportunities.</h3><p class="lead">Past clients, VIPs, Botox cycles, filler windows, laser plans, and seasonal offers become organized reactivation campaigns instead of sitting untouched.</p><div class="solution-apps"><span class="app-chip"><img src="../assets/integrations/crm.png" alt="" />Client segments</span><span class="app-chip"><img src="../assets/integrations/google-docs.png" alt="" />Approved scripts</span><span class="app-chip ai"><img src="../assets/integrations/claude.png" alt="" />AI-assisted copy</span></div><ul class="solution-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inactive client segments</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Membership and return-window prompts</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>One active campaign at a time</li></ul></div>
+      <div class="solution-card"><div class="num">05 - Reviews and referrals</div><h3>Make proof and referrals part of the recovery system.</h3><p class="lead">Happy clients receive the right review or referral ask at the right time, giving the clinic more local proof without asking the team to remember every touchpoint.</p><div class="solution-apps"><span class="app-chip"><img src="../assets/integrations/gmail.png" alt="" />Review ask</span><span class="app-chip"><img src="../assets/integrations/google-docs.png" alt="" />Scripts</span><span class="app-chip"><img src="../assets/integrations/google-sheets.png" alt="" />Proof tracker</span></div><ul class="solution-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Review request timing</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Referral ask for returning clients</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Owner visibility report</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="how">
+    <div class="section-head">
+      <div class="section-eyebrow">From yes to live</div>
+      <h2 class="section-h2">A 14-day install plan that does not bury your team</h2>
+      <p class="section-sub">You give access and clinic context. We map the leaks, install the system, test every workflow, and monitor launch.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div><h3>Leak map <span class="day">Day 1-2</span></h3><p>We review inquiry sources, booking flow, follow-up gaps, client segments, offers, reviews, appointment volume, and treatment value. If the math needs aggressive assumptions, we say so.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div><h3>Clinic context and copy approval <span class="day">Day 3-4</span></h3><p>You approve service language, reminder tone, review ask, referral angle, reactivation rules, opt-out language, and what data stays out of the system.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div><h3>System install <span class="day">Day 5-10</span></h3><p>We configure intake, follow-up, booking support, reminders, reviews, reactivation, dashboard, workflow monitoring, Gmail, Sheets, and webhook secrets.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <div><h3>QA with demo data <span class="day">Day 11-12</span></h3><p>We test intake, booking confirmation, completion, status updates, weekly reporting, and error handling with synthetic data before any client receives a real email.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">05</div>
+        <div><h3>Launch and monitor <span class="day">Day 13-14+</span></h3><p>The system goes live in a controlled batch. We watch the first launch window, clean up edge cases, and send the first owner visibility report.</p></div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section-pad reveal-section" id="risk-reversal">
+    <div class="section-head">
+      <div class="section-eyebrow">Implementation First</div>
+      <h2 class="section-h2">Implementation first. Monthly management second.</h2>
+      <p class="section-sub">We do not begin ongoing management until systems are connected, the database is reviewed, revenue leaks are identified, and the first action list is delivered. Foundation comes before optimization.</p>
+    </div>
+    <div class="demo-note-row">
+      <div class="demo-note"><strong>Systems connected</strong><span>CRM, forms, email, calendar, sheets, and workflow logic are checked before launch.</span></div>
+      <div class="demo-note"><strong>Leaks identified</strong><span>The first revenue recovery list shows which opportunities deserve attention first.</span></div>
+      <div class="demo-note"><strong>Managed calmly</strong><span>No aggressive promises. We install, monitor, report, and improve the recovery layer over time.</span></div>
+    </div>
+  </section>
+
+    <section class="section-pad" id="pricing" style="background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="section-head">
+      <div class="section-eyebrow">Subscription Model</div>
+      <h2 class="section-h2">Clear packages. No aggressive selling.</h2>
+      <p class="section-sub">Start with the audit, install the first recovery workflow, then continue with monthly management only when the foundation is in place.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card attraction"><div class="tier">Revenue Recovery Installation</div><div class="price-val"><span class="amt">One-Time</span><span class="per">setup</span></div><div class="price-setup">Built around your existing systems</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Revenue Leak Audit</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Data review and priority leak identification</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>One recovery workflow installed</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Action list reporting</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Testing and launch</li></ul><a href="../booking/index.html" class="btn-tier">Book Audit</a></div>
+      <div class="price-card featured"><div class="tier">Recovery Management</div><div class="price-val"><span class="amt">Monthly</span><span class="per">managed</span></div><div class="price-setup">For clinics with one active recovery focus</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Workflow monitoring</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly revenue recovery lists</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reporting and optimization</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>One active recovery campaign</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Calm monthly improvement rhythm</li></ul><a href="../booking/index.html" class="btn-tier">Book Audit</a></div>
+      <div class="price-card"><div class="tier">Recovery Plus</div><div class="price-val"><span class="amt">Monthly</span><span class="per">expanded</span></div><div class="price-setup">For clinics ready to manage multiple leaks</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Recovery Management</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Client Reactivation</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Consultation Recovery</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Membership Retention</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No-Show Recovery</li></ul><a href="../booking/index.html" class="btn-tier">Book Audit</a></div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="faq" style="background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="section-head">
+      <div class="section-eyebrow">Common questions</div>
+      <h2 class="section-h2">Everything the clinic owner needs to know</h2>
+    </div>
+        <div class="faq-list">
+      <div class="faq-item"><div class="faq-q"><span>Is this another marketing agency?</span><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">No. We focus on revenue recovery after the inquiry, not ad management.</div></div></div>
+      <div class="faq-item"><div class="faq-q"><span>Do I need a new CRM?</span><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">No. MedSpa Growth Engine works alongside the tools your clinic already uses.</div></div></div>
+      <div class="faq-item"><div class="faq-q"><span>What does the audit identify?</span><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Inactive clients, unbooked consultations, no-show recovery opportunities, membership renewals, and follow-up gaps.</div></div></div>
+      <div class="faq-item"><div class="faq-q"><span>Do you guarantee revenue?</span><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">No. We identify opportunities and help your team act. Results depend on offers, pricing, staff execution, market conditions, and follow-through.</div></div></div>
+      <div class="faq-item"><div class="faq-q"><span>What happens after the audit?</span><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">We recommend the first recovery system to install, then you can decide whether you want one-time installation or monthly management.</div></div></div>
+    </div>
+  </section>
+  <section class="final-cta" id="book">
+    <div class="final-cta-frame">
+      <h2>Your front desk should not decide how much revenue leaks this month.</h2>
+      <p>Book a Revenue Leak Audit and we will map where consultations, no-shows, inactive clients, renewals, and follow-up gaps are costing attention before you install anything.</p>
+      <a href="../booking/index.html" class="btn-cta-large">Book A Revenue Leak Audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-meta">&copy; MedSpa Growth Engine - Revenue Recovery System for established med spas</div>
+    <div class="footer-links">
+      <a href="#system">System</a>
+      <a href="#how">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="../booking/index.html">Contact</a>
+      <a href="../legal/privacy.html">Privacy</a>
+      <a href="../legal/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/theme.js"></script>
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => item.classList.toggle('open'));
+});
+
+const screenshotModal = document.getElementById('screenshot-modal');
+const screenshotModalImg = document.getElementById('screenshot-modal-img');
+const screenshotModalTitle = document.getElementById('screenshot-modal-title');
+let lastScreenshotTrigger = null;
+
+function closeScreenshotModal() {
+  if (!screenshotModal) return;
+  screenshotModal.classList.remove('open');
+  screenshotModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+  screenshotModalImg.removeAttribute('src');
+  screenshotModalImg.alt = '';
+  if (lastScreenshotTrigger) lastScreenshotTrigger.focus();
+}
+
+document.querySelectorAll('.demo-preview').forEach(button => {
+  button.addEventListener('click', () => {
+    lastScreenshotTrigger = button;
+    const img = button.querySelector('img');
+    const title = button.dataset.shotTitle || 'Dashboard screenshot';
+    screenshotModalTitle.textContent = title;
+    screenshotModalImg.src = button.dataset.shotSrc;
+    screenshotModalImg.alt = img ? img.alt : title;
+    screenshotModal.classList.add('open');
+    screenshotModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    screenshotModal.querySelector('.screenshot-modal__close').focus();
+  });
+});
+
+if (screenshotModal) {
+  screenshotModal.addEventListener('click', event => {
+    if (event.target === screenshotModal) closeScreenshotModal();
+  });
+  screenshotModal.querySelector('.screenshot-modal__close').addEventListener('click', closeScreenshotModal);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && screenshotModal.classList.contains('open')) closeScreenshotModal();
+  });
+}
+
+document.documentElement.classList.add('has-reveal');
+const revealSections = document.querySelectorAll('.reveal-section');
+let lastScrollY = window.scrollY;
+function setRevealDirection(el) {
+  const goingUp = window.scrollY < lastScrollY;
+  el.classList.toggle('reveal-from-top', goingUp);
+  el.classList.toggle('reveal-from-bottom', !goingUp);
+}
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      setRevealDirection(entry.target);
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    });
+    lastScrollY = window.scrollY;
+  }, { threshold: 0.04, rootMargin: '22% 0px 22% 0px' });
+  revealSections.forEach(section => observer.observe(section));
+} else {
+  revealSections.forEach(section => section.classList.add('is-visible'));
+}
+</script>
+
+<script>
+(function () {
+  const nav = document.querySelector('.nav');
+  const motionTargets = [document.querySelector('.hero'), ...document.querySelectorAll('main > section, .proof-strip, .final-cta')].filter(Boolean);
+  document.documentElement.classList.add('motion-ready');
+  const updateNav = () => nav && nav.classList.toggle('is-scrolled', window.scrollY > 12);
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+  const show = el => el.classList.add('is-visible');
+  if ('IntersectionObserver' in window) {
+    const motionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        setRevealDirection(entry.target);
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
+      });
+      lastScrollY = window.scrollY;
+    }, { threshold: 0.035, rootMargin: '24% 0px 24% 0px' });
+    motionTargets.forEach(el => motionObserver.observe(el));
+  } else {
+    motionTargets.forEach(show);
+  }
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

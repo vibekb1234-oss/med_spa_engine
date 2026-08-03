@@ -1,0 +1,28 @@
+area,task,status,owner,priority,cadence,trigger,done_definition
+AI Growth,Create target market list,Backlog,AI/Owner,P0,Weekly,Monday growth block,5 cities or regions selected with reason and source plan
+AI Growth,Build weekly lead list,Backlog,AI,P0,Weekly,Target market selected,50-100 qualified medspa leads added to tracker
+AI Growth,Enrich priority leads,Backlog,AI,P0,Daily,New leads added,Top 25 leads have website social reviews booking path and leak hypothesis
+AI Growth,Score leads,Backlog,AI,P0,Daily,Leads enriched,Every lead has fit score urgency score and next action
+AI Growth,Approve first campaign,Backlog,Owner,P0,Per campaign,New message angle ready,Owner approves channel claims and first touch before sending
+AI Growth,Queue first-touch outreach,Backlog,AI,P0,Daily,Leads approved,Approved leads have first-touch message and follow-up dates
+AI Growth,Send or assign outreach,Backlog,AI/Owner,P0,Daily,Outreach due,Messages sent or manual send tasks assigned
+AI Growth,Run follow-up queue,Backlog,AI,P0,Daily,Follow-up due,Due follow-ups sent queued or stopped with reason
+AI Growth,Triage replies,Backlog,AI,P0,Daily,New replies received,Replies classified with suggested response and owner-needed flag
+AI Growth,Prepare owner inbox brief,Backlog,AI,P0,Daily,Start of workday,Hot replies follow-ups calls and blockers summarized
+AI Sales,Create call brief,Backlog,AI,P0,Per call,Demo booked,Clinic snapshot leak hypothesis questions objections and demo route prepared
+AI Sales,Draft post-call recap,Backlog,AI,P0,Per call,Call completed,Recap and recommended next step drafted same day
+AI Sales,Draft proposal notes,Backlog,AI/Owner,P0,Per fit opportunity,Fit confirmed,Package recommendation scope and payment next step ready for owner approval
+AI Sales,Run proposal follow-up,Backlog,AI,P0,Daily,Proposal sent,Follow-up sequence tracked until paid lost or nurture
+AI Ads,Extract winning hooks,Backlog,AI,P1,Weekly,Outbound replies reviewed,Top hooks identified from real replies and calls
+AI Ads,Draft ad test pack,Backlog,AI,P1,As needed,Winning hooks found,3 ad angles 3 scripts and landing page test notes drafted
+AI Ads,Review ad readiness,Backlog,Owner,P0,Before paid traffic,Ad pack ready,Spend claims targeting and booking route approved
+AI Delivery,Create delivery board,Backlog,AI,P0,Per client,Setup paid,Client tasks access checklist QA checklist and launch date created
+AI Delivery,Track onboarding access,Backlog,AI,P0,Daily,Client intake started,Missing access and blockers summarized for owner
+AI Delivery,Draft client kickoff,Backlog,AI,P0,Per client,Client paid and intake started,Kickoff email drafted with next steps and support boundaries
+AI Delivery,Run QA checklist,Backlog,AI/Owner,P0,Per launch,Workflows configured,Functional checks logged and owner approves go-live
+AI Retention,Prepare weekly client report,Backlog,AI,P0,Weekly,Client live,Client wins errors activity and next improvement summarized
+AI Retention,Scan churn risk,Backlog,AI,P0,Weekly,Weekly report cycle,Silent clients errors low activity and unresolved blockers flagged
+AI Retention,Draft improvement recommendation,Backlog,AI,P1,Monthly,Monthly review,One practical retention or recovery improvement proposed
+Ops,Update master scorecard,Backlog,AI/Owner,P1,Weekly,Friday ops block,Sales delivery retention and blockers updated
+Ops,Review human approval log,Backlog,Owner,P0,Weekly,Friday ops block,Any risky AI actions approvals and changes reviewed
+Ops,Improve SOP from friction,Backlog,AI/Owner,P2,As needed,Repeated issue appears,SOP or checklist updated so issue does not repeat

@@ -1,0 +1,306 @@
+{
+    "name": "How to Turn Podcasts into Reels 2/3",
+    "flow": [
+        {
+            "id": 10,
+            "module": "dropbox:watchFiles2",
+            "version": 5,
+            "parameters": {
+                "__IMTCONN__": 1427849,
+                "path": "/Reels",
+                "recursive": false,
+                "limit": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Dropbox connection (itsssssjack@outlook.com)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "dropbox"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:dropbox",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "path",
+                        "type": "folder",
+                        "label": "Folder"
+                    },
+                    {
+                        "name": "recursive",
+                        "type": "boolean",
+                        "label": "Watch also subfolders",
+                        "required": true
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 12,
+            "module": "dropbox:makeApiCall",
+            "version": 5,
+            "parameters": {
+                "__IMTCONN__": 1427849
+            },
+            "mapper": {
+                "type": "api",
+                "method": "POST",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": "{\"path\":\"{{10.path_lower}}\"}",
+                "disablePathRoot": false,
+                "url": "/2/files/get_temporary_link"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 343,
+                    "y": -1
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Dropbox connection (itsssssjack@outlook.com)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "dropbox"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "type": {
+                            "label": "https://api.dropboxapi.com"
+                        },
+                        "method": {
+                            "mode": "chose",
+                            "label": "POST"
+                        },
+                        "headers": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "qs": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:dropbox",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Dropbox API Endpoint",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "api",
+                                "content"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "PATCH",
+                                "DELETE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "type": "array",
+                        "label": "Headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "qs",
+                        "type": "array",
+                        "label": "Query String",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "body",
+                        "type": "any",
+                        "label": "Body"
+                    },
+                    {
+                        "name": "disablePathRoot",
+                        "type": "boolean",
+                        "label": "Disable Dropbox API Path Root",
+                        "required": true
+                    },
+                    {
+                        "name": "url",
+                        "type": "text",
+                        "label": "URL",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "module": "instagram-business:CreateAReelPost",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1454622
+            },
+            "mapper": {
+                "accountId": "17841464088334301",
+                "video_url": "{{12.body.link}}",
+                "caption": "tes test 1-2-3",
+                "share_to_feed": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 739,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Facebook connection (Jack Roberts)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "facebook"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "accountId": {
+                            "mode": "chose",
+                            "label": "Mmapodast1 Connected Page (@mmapodast1)"
+                        },
+                        "share_to_feed": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:facebook",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "accountId",
+                        "type": "select",
+                        "label": "Page",
+                        "required": true
+                    },
+                    {
+                        "name": "video_url",
+                        "type": "url",
+                        "label": "Video URL",
+                        "required": true
+                    },
+                    {
+                        "name": "caption",
+                        "type": "text",
+                        "label": "Caption"
+                    },
+                    {
+                        "name": "thumb_offset",
+                        "type": "number",
+                        "label": "Cover Frame"
+                    },
+                    {
+                        "name": "location_id",
+                        "type": "text",
+                        "label": "Location ID"
+                    },
+                    {
+                        "name": "share_to_feed",
+                        "type": "boolean",
+                        "label": "Share to Feed",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com"
+    }
+}

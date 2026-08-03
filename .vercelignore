@@ -1,0 +1,47 @@
+﻿# Vercel deploy allowlist philosophy:
+# Public pages/assets deploy; operator docs, lead data, setup files, workflows, and raw internal assets do not.
+
+# Operator-only root docs
+README.md
+LAUNCH_CHECKLIST.md
+LAUNCH_READINESS_REPORT.md
+ARCHITECTURE.md
+MANAGED_OS_PACKAGE.md
+GTM_LAUNCH_GUARDRAILS.md
+DEPLOYMENT_GUIDE.md
+DEPLOYMENT_MANUAL.md
+SECURITY_GUIDE.md
+System_Description.html
+MASTER_email_campaign.xlsx
+
+# Internal docs and implementation folders
+design/
+docs/
+launch/
+operations/
+prompts/
+setup/
+system/
+workflows/
+Skills/
+outputs/
+swarm-output/
+
+# Keep dashboard app, but never deploy legacy prompt/archive files
+dashboard/legacy/
+dashboard/Google_AI_Studio_Dashboard_Prompt.md
+dashboard/medspa_dashboard.html
+
+# Public outreach HTML pages are allowed; internal markdown is not
+outreach/*.md
+outreach/*.xlsx
+outreach/*.csv
+
+# Stray READMEs in subfolders are operator docs only
+landing/README.md
+**/README.md
+
+# Local/temporary files
+*.lock
+*.tmp
+*.bak

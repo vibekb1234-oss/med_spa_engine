@@ -1,0 +1,10 @@
+# Robots.txt for Scale With Teddy
+User-agent: *
+Allow: /
+
+# Disallow admin routes (if any)
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://scalewithteddy.com/sitemap.xml

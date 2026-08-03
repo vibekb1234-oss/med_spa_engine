@@ -1,0 +1,79 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/landing" },
+    { "source": "/login", "destination": "/auth/login" },
+    { "source": "/signup", "destination": "/auth/signup" },
+    { "source": "/reset", "destination": "/auth/reset" },
+    { "source": "/auth/callback", "destination": "/auth/callback" },
+    { "source": "/book", "destination": "/booking" },
+    { "source": "/client-reactivation", "destination": "/client-reactivation" },
+    { "source": "/thanks", "destination": "/thanks" },
+    { "source": "/dashboard", "destination": "/dashboard" },
+    { "source": "/privacy", "destination": "/legal/privacy" },
+    { "source": "/terms", "destination": "/legal/terms" },
+    { "source": "/one-pager", "destination": "/outreach/One_Pager" },
+    { "source": "/case-study", "destination": "/outreach/Case_Study" },
+    { "source": "/roi-calculator", "destination": "/outreach/ROI_Calculator" },
+    { "source": "/system-check", "destination": "/tools/system-check" },
+    { "source": "/day-brief", "destination": "/tools/day-of-brief" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self' https://*.supabase.co https://*.supabase.in https://sheets.googleapis.com https://api.netlify.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'" }
+      ]
+    },
+    {
+      "source": "/auth/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/login",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/signup",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/reset",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/dashboard",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/onboarding/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    }
+  ]
+}
+
+

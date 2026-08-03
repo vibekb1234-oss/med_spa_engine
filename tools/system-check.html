@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>MGE System Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  color-scheme: dark;
+  --bg-0: #0c0a0d; --bg-1: #15121a; --bg-2: #1d1923; --bg-3: #26212d;
+  --border: #221d28; --border-bright: #312a3a;
+  --text: #ebe6dc; --text-strong: #f7f2e6; --text-dim: #a39c93; --text-faint: #6b6660;
+  --accent: #a85664; --accent-bright: #c0697a;
+  --success: #8ec5b6; --warning: #e8b04d; --danger: #d88775; --info: #8ab8d8;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-0: #f7f3ec; --bg-1: #fffdf7; --bg-2: #fbf6ec; --bg-3: #f1ebde;
+  --border: #e8dfce; --border-bright: #cfc3ad;
+  --text: #1a1518; --text-strong: #0a0508; --text-dim: #5b5048; --text-faint: #94897e;
+  --accent: #7e3e4d; --accent-bright: #a85664;
+  --success: #557066; --warning: #8a6422; --danger: #824032; --info: #3f6986;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); font-size: 14px; line-height: 1.45; background: var(--bg-0); color: var(--text); padding: 32px 16px; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 760px; margin: 0 auto; }
+.head { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.brand-mark { width: 40px; height: 40px; display: grid; place-items: center; flex-shrink: 0; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+h1 { font-size: 22px; font-weight: 700; color: var(--text-strong); letter-spacing: -0.01em; }
+.sub { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.sum-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+.sum-card .num { font-family: var(--font-mono); font-size: 28px; font-weight: 700; }
+.sum-card .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-top: 4px; }
+.sum-card[data-tone="pass"] .num { color: var(--success); }
+.sum-card[data-tone="warn"] .num { color: var(--warning); }
+.sum-card[data-tone="fail"] .num { color: var(--danger); }
+.section { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px; }
+.section h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); padding: 16px 20px 8px; }
+.check { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-top: 1px solid var(--border); }
+.check:first-of-type { border-top: none; }
+.icon { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; flex-shrink: 0; font-family: var(--font-mono); }
+.icon.pass { background: rgba(142, 197, 182, 0.16); color: var(--success); }
+.icon.warn { background: rgba(232, 176, 77, 0.16); color: var(--warning); }
+.icon.fail { background: rgba(216, 135, 117, 0.16); color: var(--danger); }
+.icon.pending { background: var(--bg-3); color: var(--text-faint); }
+.check-body { flex: 1; min-width: 0; }
+.check-name { font-weight: 500; color: var(--text); }
+.check-detail { font-size: 12px; color: var(--text-dim); margin-top: 2px; font-family: var(--font-mono); word-break: break-word; }
+.check-fix { font-size: 12px; color: var(--accent-bright); margin-top: 4px; cursor: pointer; }
+.check-fix:hover { text-decoration: underline; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; }
+.btn--primary { background: var(--accent); color: var(--text-strong); }
+.btn--primary:hover { background: var(--accent-bright); }
+.btn--secondary { background: transparent; border: 1px solid var(--border-bright); color: var(--text); }
+.actions { display: flex; gap: 8px; margin-top: 24px; }
+.note { background: var(--bg-2); border-left: 3px solid var(--info); padding: 12px 16px; border-radius: 6px; font-size: 13px; color: var(--text-dim); margin-bottom: 24px; }
+.theme-toggle { min-width: 38px; height: 38px; border-radius: 8px; border: 1px solid var(--border-bright); background: var(--bg-1); color: var(--text); display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; }
+.theme-toggle:hover { color: var(--accent-bright); background: var(--bg-2); }
+.theme-toggle svg { width: 15px; height: 15px; }
+@media (max-width: 640px) {
+  .head { align-items: flex-start; }
+  .summary { grid-template-columns: 1fr; }
+  .actions { flex-direction: column; }
+  .btn { justify-content: center; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="brand-mark"><img src="../assets/medspa-growth-engine-mark.png" alt="MedSpa Growth Engine mark"></div>
+    <div>
+      <h1>MGE System Check</h1>
+      <div class="sub">Verifies your config, sheet schema, webhook reachability, and browser features.</div>
+    </div>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+  </div>
+
+  <div class="note">
+    This page reads the same <code>mge_config</code> from localStorage that the dashboard uses. If you ran setup in a different browser or browsing-mode, copy the config there first.
+  </div>
+
+  <div class="summary">
+    <div class="sum-card" data-tone="pass" id="sum-pass"><div class="num" id="num-pass">—</div><div class="lbl">passing</div></div>
+    <div class="sum-card" data-tone="warn" id="sum-warn"><div class="num" id="num-warn">—</div><div class="lbl">warnings</div></div>
+    <div class="sum-card" data-tone="fail" id="sum-fail"><div class="num" id="num-fail">—</div><div class="lbl">failing</div></div>
+  </div>
+
+  <div class="section"><h2>Configuration</h2><div id="g-config"></div></div>
+  <div class="section"><h2>Sheet connectivity</h2><div id="g-sheets"></div></div>
+  <div class="section"><h2>Webhook reachability</h2><div id="g-webhooks"></div></div>
+  <div class="section"><h2>Browser features</h2><div id="g-browser"></div></div>
+
+  <div class="actions">
+    <button class="btn btn--primary" onclick="runAll()">Re-run all checks</button>
+    <a class="btn btn--secondary" href="../landing/index.html">Back to website</a>
+  </div>
+</div>
+
+<script>
+const cfg = JSON.parse(localStorage.getItem('mge_config') || '{}');
+const users = JSON.parse(localStorage.getItem('mge_users') || '{}');
+
+function row(name, status, detail, fix) {
+  const sym = { pass: '✓', warn: '!', fail: '✗', pending: '…' }[status] || '?';
+  return `<div class="check">
+    <div class="icon ${status}">${sym}</div>
+    <div class="check-body">
+      <div class="check-name">${name}</div>
+      ${detail ? `<div class="check-detail">${detail}</div>` : ''}
+      ${fix ? `<div class="check-fix">${fix}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+let counts = { pass: 0, warn: 0, fail: 0 };
+function tally(s) { counts[s]++; refreshSummary(); }
+function refreshSummary() {
+  document.getElementById('num-pass').textContent = counts.pass;
+  document.getElementById('num-warn').textContent = counts.warn;
+  document.getElementById('num-fail').textContent = counts.fail;
+}
+
+async function runAll() {
+  counts = { pass: 0, warn: 0, fail: 0 };
+  refreshSummary();
+  document.getElementById('g-config').innerHTML = '';
+  document.getElementById('g-sheets').innerHTML = '';
+  document.getElementById('g-webhooks').innerHTML = '';
+  document.getElementById('g-browser').innerHTML = '';
+
+  await checkConfig();
+  await checkSheets();
+  await checkWebhooks();
+  checkBrowser();
+}
+
+async function checkConfig() {
+  const g = document.getElementById('g-config');
+  const checks = [
+    { name: 'Admin user created', test: () => Object.values(users).some(u => u.role === 'ADMIN'), detail: () => Object.values(users).filter(u => u.role === 'ADMIN').map(u => u.email).join(', ') || 'no admins', fix: () => 'Open the dashboard and complete first-run setup.' },
+    { name: 'Clinic name set', test: () => !!cfg.clinicName, detail: () => cfg.clinicName || '—', fix: () => 'Settings → System → Clinic details' },
+    { name: 'Clinic email set', test: () => !!cfg.clinicEmail, detail: () => cfg.clinicEmail || '—', fix: () => 'Settings → System → Clinic details' },
+    { name: 'Clinic timezone set', test: () => !!cfg.clinicTimezone, detail: () => cfg.clinicTimezone || '—', fix: () => 'Settings → System → Clinic details' },
+    { name: 'Google Sheets API key', test: () => !!cfg.apiKey && cfg.apiKey.length > 20, detail: () => cfg.apiKey ? cfg.apiKey.substring(0, 8) + '…' : 'not set', fix: () => 'Settings → System → Sheet connection. Restrict the key by HTTP referrer + Sheets API only.' },
+    { name: 'Sheet ID', test: () => !!cfg.sheetId && cfg.sheetId.length > 20, detail: () => cfg.sheetId || 'not set', fix: () => 'Copy the long string from /spreadsheets/d/THIS_PART/edit' },
+    { name: 'Webhook secret', test: () => !!cfg.webhookSecret && cfg.webhookSecret.length >= 16, detail: () => cfg.webhookSecret ? '••• (' + cfg.webhookSecret.length + ' chars)' : 'not set', fix: () => 'Generate one in setup/Workflow_Configurator.html. Same value goes in n8n + intake form + dashboard.' },
+    { name: 'Lead intake webhook', test: () => !!(cfg.webhooks && cfg.webhooks.intake), detail: () => (cfg.webhooks||{}).intake || 'not set', fix: () => 'Workflow 1 URL — copy from n8n after activating.' },
+    { name: 'Mark complete webhook', test: () => !!(cfg.webhooks && cfg.webhooks.complete), detail: () => (cfg.webhooks||{}).complete || 'not set', fix: () => 'Workflow 3 URL — copy from n8n after activating.' },
+    { name: 'Booking confirmation webhook', test: () => !!(cfg.webhooks && cfg.webhooks.confirm), detail: () => (cfg.webhooks||{}).confirm || 'not set', fix: () => 'Workflow 6 URL — copy from n8n after activating.' },
+    { name: 'Status update webhook', test: () => !!(cfg.webhooks && cfg.webhooks.statusUpdate), detail: () => (cfg.webhooks||{}).statusUpdate || 'not set', fix: () => 'Workflow 8 URL — copy from n8n after activating.' },
+    { name: 'Google review link', test: () => !!cfg.reviewLink, detail: () => cfg.reviewLink || 'not set', fix: () => 'From Google Business Profile → Get more reviews.' }
+  ];
+  for (const c of checks) {
+    const ok = c.test();
+    const status = ok ? 'pass' : 'fail';
+    g.innerHTML += row(c.name, status, c.detail(), ok ? '' : c.fix());
+    tally(status);
+  }
+}
+
+async function checkSheets() {
+  const g = document.getElementById('g-sheets');
+  if (!cfg.apiKey || !cfg.sheetId) {
+    g.innerHTML = row('Sheet connectivity', 'warn', 'Skipped — API key or Sheet ID missing.', '');
+    tally('warn');
+    return;
+  }
+  const tabs = ['Clients', 'Appointments', 'Activity Log'];
+  const expectedHeaders = {
+    'Clients': ['Client Email', 'Client Name', 'Status', 'Total Visits', 'Last Visit Date', 'VIP Status', 'Created Date', 'Last Promo Month'],
+    'Appointments': ['Client Email', 'Service', 'Appointment Date', 'Status', 'Pre-Appt Reminder Sent', '24hr Reminder Sent', 'Post-Appt Follow-Up Sent'],
+    'Activity Log': ['Timestamp', 'Client Email', 'Action Type', 'Details']
+  };
+  for (const tab of tabs) {
+    g.innerHTML += row(`Tab: ${tab}`, 'pending', 'Fetching…', '');
+    try {
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${cfg.sheetId}/values/${encodeURIComponent(tab)}?key=${cfg.apiKey}`;
+      const res = await fetch(url);
+      const last = g.lastElementChild;
+      if (!res.ok) {
+        last.outerHTML = row(`Tab: ${tab}`, 'fail', `HTTP ${res.status}`, 'Verify the sheet exists, the API key is restricted to Sheets, and the sheet is shared with "anyone with the link".');
+        tally('fail');
+        continue;
+      }
+      const data = await res.json();
+      const rows = data.values || [];
+      const headers = rows[0] || [];
+      const missing = expectedHeaders[tab].filter(h => !headers.includes(h));
+      if (missing.length === 0) {
+        last.outerHTML = row(`Tab: ${tab}`, 'pass', `${rows.length - 1} rows · all required headers present`, '');
+        tally('pass');
+      } else {
+        last.outerHTML = row(`Tab: ${tab}`, 'warn', `${rows.length - 1} rows · missing headers: ${missing.join(', ')}`, 'Re-run MedSpa ⚡ → Setup → ✅ Create All Tabs & Headers in your Sheet to refresh the schema.');
+        tally('warn');
+      }
+    } catch (e) {
+      const last = g.lastElementChild;
+      last.outerHTML = row(`Tab: ${tab}`, 'fail', e.message, 'Network error — check that you have internet and that the sheet is reachable.');
+      tally('fail');
+    }
+  }
+}
+
+async function checkWebhooks() {
+  const g = document.getElementById('g-webhooks');
+  const wh = cfg.webhooks || {};
+  const list = [
+    { name: 'Workflow 1 — Lead intake', url: wh.intake },
+    { name: 'Workflow 3 — Mark complete', url: wh.complete },
+    { name: 'Workflow 6 — Booking confirmation', url: wh.confirm },
+    { name: 'Workflow 8 — Status update', url: wh.statusUpdate }
+  ];
+  if (!cfg.webhookSecret) {
+    g.innerHTML += row('Webhook secret', 'fail', 'Missing — webhook calls will be rejected by n8n.', 'Settings → System → Webhook secret');
+    tally('fail');
+  }
+  for (const w of list) {
+    if (!w.url) {
+      g.innerHTML += row(w.name, 'warn', 'URL not configured — skipping.', 'Settings → System');
+      tally('warn');
+      continue;
+    }
+    g.innerHTML += row(w.name, 'pending', 'Probing reachability (HEAD)…', '');
+    const last = g.lastElementChild;
+    try {
+      // n8n webhooks usually 405 on GET (we don't want to fire them with a POST). A non-network error means the host is reachable.
+      const res = await fetch(w.url, { method: 'GET', mode: 'no-cors' }).catch(e => ({ _err: e }));
+      if (res && res._err) throw res._err;
+      last.outerHTML = row(w.name, 'pass', `host reachable · ${w.url}`, '');
+      tally('pass');
+    } catch (e) {
+      last.outerHTML = row(w.name, 'fail', `unreachable · ${e.message}`, 'Activate the workflow in n8n and verify the URL.');
+      tally('fail');
+    }
+  }
+}
+
+function checkBrowser() {
+  const g = document.getElementById('g-browser');
+  const features = [
+    { name: 'Crypto subtle (SHA-256)', test: () => !!(window.crypto && window.crypto.subtle), fix: () => 'Use a modern browser (Chrome 60+, Safari 11+, Firefox 57+).' },
+    { name: 'Fetch API', test: () => typeof fetch === 'function', fix: () => 'Update your browser.' },
+    { name: 'localStorage', test: () => { try { localStorage.setItem('_x','1'); localStorage.removeItem('_x'); return true; } catch(e) { return false; } }, fix: () => 'Disable private/incognito mode or storage restrictions.' },
+    { name: 'Intl.DateTimeFormat with timeZone', test: () => { try { new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date()); return true; } catch(e) { return false; } }, fix: () => 'Update your browser — needed for timezone-aware dates.' },
+    { name: 'CSS custom properties', test: () => CSS.supports('color', 'var(--x)'), fix: () => 'Update your browser.' },
+    { name: 'Drag and drop', test: () => 'draggable' in document.createElement('div'), fix: () => 'Update your browser.' }
+  ];
+  for (const f of features) {
+    const ok = f.test();
+    g.innerHTML += row(f.name, ok ? 'pass' : 'fail', ok ? 'available' : 'not available', ok ? '' : f.fix());
+    tally(ok ? 'pass' : 'fail');
+  }
+}
+
+runAll();
+</script>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

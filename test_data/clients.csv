@@ -1,0 +1,264 @@
+Client Name,Client Email,Phone,Service Interest,Status,Created Date,Last Visit Date,Total Visits,Total Spend,VIP Status,Opted Out,Review Requested,Review Left,Last Follow-Up Date,Follow-Up Count,Last Promo Month,Lead Source,Notes
+Sarah Kowalski,sarah105@yahoo.com,(892) 958-9935,Dermal Fillers - Cheek,New Inquiry,2026-07-28 10:00:00,,0,0,Standard,,,,,0,,TikTok,"Just submitted intake, no follow-up sent yet"
+Jessica Brown,jessica.brown@hotmail.com,(774) 403-9928,Dermal Fillers - Cheek,New Inquiry,2026-07-27 10:00:00,,0,0,Standard,,,,,0,,Referral,"Just submitted intake, no follow-up sent yet"
+Megan Johnson,megan.johnson@protonmail.com,(484) 359-4527,Dermal Fillers - Lip,New Inquiry,2026-07-27 10:00:00,,0,0,Standard,,,,,0,,Instagram,"Just submitted intake, no follow-up sent yet"
+Ashley Lewis,ashley45@hotmail.com,(947) 670-9785,Laser Hair Removal - Face,New Inquiry,2026-07-28 10:00:00,,0,0,Standard,,,,,0,,TikTok,"Just submitted intake, no follow-up sent yet"
+Kayla Dubois,kayla.dubois@outlook.com,(921) 271-1750,Ultherapy,New Inquiry,2026-07-25 10:00:00,,0,0,Standard,,,,,0,,Walk-in,Should trigger inquiry follow-up email
+Malik Taylor,malik.taylor@gmail.com,(664) 850-6977,Laser Hair Removal - Face,New Inquiry,2026-07-24 10:00:00,,0,0,Standard,,,,,0,,Facebook,Should trigger inquiry follow-up email
+Megan O'Brien,megan.obrien@hotmail.com,(746) 946-5010,Laser Hair Removal - Face,New Inquiry,2026-07-24 10:00:00,,0,0,Standard,,,,,0,,TikTok,Should trigger inquiry follow-up email
+Hannah Costa,hannah.costa@yahoo.com,(986) 994-1916,Laser Hair Removal - Brazilian,New Inquiry,2026-07-20 10:00:00,,0,0,Standard,,,,2026-07-24 10:00:00,1,,Website,"Already got 1 follow-up, due for 2nd"
+Aisha Kowalski,aisha966@gmail.com,(780) 935-6155,Laser Hair Removal - Body,New Inquiry,2026-07-20 10:00:00,,0,0,Standard,,,,2026-07-24 10:00:00,1,,Yelp,"Already got 1 follow-up, due for 2nd"
+Hannah Baker,hannah253@yahoo.com,(962) 774-9830,HydraFacial,New Inquiry,2026-07-13 10:00:00,,0,0,Standard,,,,2026-07-24 10:00:00,2,,TikTok,"Final follow-up due; after this, no more per workflow rules"
+Justin Walker,justin.walker@yahoo.com,(341) 721-9085,Dermal Fillers - Lip,New Inquiry,2026-07-13 10:00:00,,0,0,Standard,,,,2026-07-24 10:00:00,2,,Website,"Final follow-up due; after this, no more per workflow rules"
+Chris Garcia,chris.garcia@protonmail.com,(265) 594-7252,Botox,New Inquiry,2026-07-18 10:00:00,,0,0,Standard,Yes,,,,1,,Instagram,Unsubscribed after first email — no more contact
+Sofía Nakamura,sofía.nakamura@outlook.com,(211) 896-2876,Ultherapy,Booked,2026-07-08 10:00:00,,0,0,Standard,,,,,0,,Walk-in,Has an upcoming appointment
+María Kim,maría.kim@outlook.com,(664) 203-5315,IV Therapy - Beauty,Booked,2026-07-20 10:00:00,,0,0,Standard,,,,,0,,Google My Business,Has an upcoming appointment
+Malik Al-Rashid,malik.al@protonmail.com,(403) 356-7126,Laser Hair Removal - Face,Booked,2026-07-08 10:00:00,,0,0,Standard,,,,,0,,Google My Business,Has an upcoming appointment
+Andre Thompson,andre952@icloud.com,(571) 514-4923,Dysport,Booked,2026-07-18 10:00:00,,0,0,Standard,,,,,0,,Instagram,Has an upcoming appointment
+Zara O'Brien,zara.obrien@hotmail.com,(331) 875-8787,Kybella,Booked,2026-07-20 10:00:00,,0,0,Standard,,,,,0,,Walk-in,Has an upcoming appointment
+Naomi Scott,naomi.scott@hotmail.com,(906) 405-6107,Microneedling + PRP,Completed,2026-04-04 10:00:00,2026-07-15 10:00:00,1,591,Standard,,Yes,No,,0,,Google My Business,
+Lauren Taylor,lauren568@outlook.com,(435) 802-4608,Botox,Completed,2026-06-19 10:00:00,2026-07-14 10:00:00,1,723,Standard,,Yes,Yes,,0,,Referral,
+Emma Robinson,emma686@hotmail.com,(697) 419-9834,Dermal Fillers - Jawline,Completed,2026-04-16 10:00:00,2026-07-16 10:00:00,1,642,Standard,,Yes,No,,0,,Yelp,
+Rachel Nguyen,rachel.nguyen@protonmail.com,(633) 620-8651,Consultation,Completed,2026-06-22 10:00:00,2026-07-15 10:00:00,1,734,Standard,,Yes,Yes,,0,,Website,
+María Nguyen,maría460@yahoo.com,(343) 632-4006,HydraFacial,Completed,2026-04-30 10:00:00,2026-07-22 10:00:00,1,847,Standard,,Yes,Yes,,0,,Yelp,
+Alexis Costa,alexis.costa@gmail.com,(753) 215-2528,Laser Hair Removal - Brazilian,Completed,2026-06-07 10:00:00,2026-07-19 10:00:00,1,648,Standard,,Yes,No,,0,,Referral,
+Dmitri Patel,dmitri400@icloud.com,(471) 665-5673,CoolSculpting,Completed,2026-01-30 10:00:00,2026-05-25 10:00:00,2,1298,Standard,,Yes,Yes,,0,,Google Ads,Should trigger 60-day re-engagement
+Rachel Patel,rachel.patel@protonmail.com,(965) 521-1936,Dysport,Completed,2026-02-14 10:00:00,2026-05-26 10:00:00,4,2628,Standard,,Yes,Yes,,0,,Google My Business,Should trigger 60-day re-engagement
+Chloé Williams,chloé.williams@gmail.com,(891) 440-7615,Dermal Fillers - Cheek,Completed,2026-02-16 10:00:00,2026-05-28 10:00:00,2,1392,Standard,,Yes,Yes,,0,,Website,Should trigger 60-day re-engagement
+Yuki Fitzgerald,yuki.fitzgerald@hotmail.com,(467) 409-6147,Laser Hair Removal - Brazilian,Completed,2026-03-27 10:00:00,2026-05-26 10:00:00,4,1868,Standard,,Yes,Yes,,0,,Walk-in,Should trigger 60-day re-engagement
+Hannah O'Brien,hannah.obrien@icloud.com,(776) 302-2200,Kybella,Completed,2026-03-03 10:00:00,2026-04-25 10:00:00,2,1270,Standard,,Yes,Yes,,0,,Facebook,Should trigger 90-day re-engagement
+Dmitri Chen-Smith,dmitri854@outlook.com,(756) 920-5956,Morpheus8,Completed,2025-12-17 10:00:00,2026-04-24 10:00:00,4,3080,Standard,,Yes,Yes,,0,,Google My Business,Should trigger 90-day re-engagement
+Michelle Nguyen,michelle110@outlook.com,(960) 766-3546,HydraFacial,Completed,2026-02-22 10:00:00,2026-04-25 10:00:00,3,1821,Standard,,Yes,No,,0,,Referral,Should trigger 90-day re-engagement
+Alexis Van Der Berg,alexis930@icloud.com,(252) 294-7939,HydraFacial,Lapsed,2025-11-19 10:00:00,2026-01-29 10:00:00,7,5887,Standard,,Yes,Yes,,0,,Walk-in,Deep lapse — 180-day win-back
+Sofía Costa,sofía78@hotmail.com,(907) 352-9938,Dysport,Lapsed,2025-08-28 10:00:00,2026-01-11 10:00:00,6,6390,Standard,,Yes,Yes,,0,,TikTok,Deep lapse — 180-day win-back
+Kayla Walker,kayla256@outlook.com,(882) 305-6794,Kybella,Lapsed,2025-08-18 10:00:00,2026-01-10 10:00:00,3,1974,Standard,,Yes,Yes,,0,,Google Ads,Deep lapse — 180-day win-back
+Kenji Rodriguez,kenji.rodriguez@yahoo.com,(540) 621-5065,HydraFacial,VIP,2025-10-20 10:00:00,2026-07-15 10:00:00,12,7500,VIP,,Yes,Yes,,0,,TikTok,Loyal VIP — active recurring
+Malik Foster,malik.foster@icloud.com,(433) 428-1387,Ultherapy,VIP,2025-10-03 10:00:00,2026-06-26 10:00:00,9,7236,VIP,,Yes,Yes,,0,,Facebook,Loyal VIP — active recurring
+Jessica Kowalski,jessica.kowalski@hotmail.com,(749) 539-1452,Dermal Fillers - Cheek,VIP,2024-10-17 10:00:00,2026-07-05 10:00:00,11,13816,VIP,,Yes,Yes,,0,,Google Ads,Loyal VIP — active recurring
+Megan Chen,megan.chen@icloud.com,(521) 646-9379,Dermal Fillers - Cheek,VIP,2025-06-26 10:00:00,2026-06-15 10:00:00,7,8470,VIP,,Yes,Yes,,0,2026-06,Referral,Loyal VIP — active recurring
+Stephanie Scott,stephanie.scott@hotmail.com,(959) 954-4228,Microneedling,VIP,2025-06-03 10:00:00,2026-07-17 10:00:00,6,6792,VIP,,Yes,Yes,,0,2026-06,Facebook,Loyal VIP — active recurring
+Michelle Kim,michelle.kim@hotmail.com,(618) 534-7592,Vampire Facial (PRP),VIP,2025-05-03 10:00:00,2026-05-07 10:00:00,8,5840,VIP,,Yes,Yes,,0,,Referral,"Was VIP, now 60+ days no visit — high churn risk"
+Aisha Rodriguez,aisha.rodriguez@hotmail.com,(761) 200-5978,Chemical Peel - Light,VIP,2025-06-16 10:00:00,2026-05-11 10:00:00,10,11930,VIP,,Yes,Yes,,0,,Facebook,"Was VIP, now 60+ days no visit — high churn risk"
+Sofía Brown,sofía.brown@hotmail.com,(953) 373-2389,Chemical Peel - Light,Completed,2026-04-09 10:00:00,2026-07-25 10:00:00,2,1448,Standard,,Yes,,,0,,Facebook,Just completed 2nd visit — referral ask eligible
+Brittany Chen-Smith,brittany.chen@protonmail.com,(403) 350-1400,Dysport,Completed,2026-05-13 10:00:00,2026-07-26 10:00:00,2,1425,Standard,,Yes,,,0,,Instagram,Just completed 2nd visit — referral ask eligible
+Morgan Hernandez,morgan.hernandez@yahoo.com,(593) 706-7547,Botox,Booked,2026-07-23 10:00:00,,0,0,Standard,,,,,0,,Referral,Referred by Emma Johnson
+Jennifer Johnson,jennifer.johnson@gmail.com,(424) 380-9486,Botox + Dermal Fillers + HydraFacial (package),VIP,2025-05-04 10:00:00,2026-07-14 10:00:00,18,24000,VIP,,Yes,Yes,,0,,Referral,Top-spend client — annual package holder
+María O'Brien-González,maria.obrien@gmail.com,(415) 555-0192,Chemical Peel - Medium,Completed,2026-05-29 10:00:00,2026-07-23 10:00:00,1,450,Standard,,,,,0,,Instagram,"Tests: apostrophe, hyphen, accent, unicode"
+Alexandrina Constantinople-Windermere Vandevelde,alexandrina.c@protonmail.com,(212) 555-0847,Ultherapy,Booked,2026-06-28 10:00:00,,0,0,Standard,,,,,0,,Website,Tests: very long client name truncation in UI
+Yuki Nakamura,yuki.nakamura@icloud.com,+81 90-1234-5678,PRP,Completed,2026-04-29 10:00:00,2026-07-03 10:00:00,3,2400,Standard,,,,,0,,Google My Business,Tests: international phone format
+Anastasia Chen-Smith,anastasia.chen@gmail.com,,HydraFacial,New Inquiry,2026-07-27 10:00:00,,0,0,Standard,,,,,0,,Walk-in,Tests: missing phone field
+Michelle Nakamura,invalid.bounce@fakemail.thisisnotreal,(772) 809-6198,Botox,New Inquiry,2026-07-22 10:00:00,,0,0,Standard,,,,,1,,Website,Tests: hard-bounce email address
+Dmitri Green,dmitri.green@hotmail.com,(716) 636-9976,Laser Hair Removal - Face,Lapsed,2024-12-05 10:00:00,2024-12-25 10:00:00,1,200,Standard,,,,,0,,Groupon,Tests: ancient one-visit client (deals hunter)
+Nicole Foster,nicole254@icloud.com,(852) 483-9540,HydraFacial,Booked,2026-07-28 08:00:00,,0,0,Standard,,,,,0,,Instagram,Tests: booking created same day as appointment
+Rachel Foster,rachel.foster@gmail.com,(310) 555-2984,Botox,Completed,2026-01-29 10:00:00,2026-07-16 10:00:00,4,2400,Standard,,,,,0,,Referral,Tests: family group (same phone as Jennifer Foster)
+Jennifer Foster,jenn.foster@gmail.com,(310) 555-2984,Dermal Fillers - Lip,Booked,2026-07-20 10:00:00,,0,0,Standard,,,,,0,,Referral,"Tests: sister of Rachel Foster, same phone"
+Kayla Anderson,kayla.anderson@yahoo.com,(696) 841-4919,Botox,Completed,2026-04-29 10:00:00,2026-05-29 10:00:00,1,400,Standard,,,,,0,,Website,Tests: existing client — should NOT create duplicate on re-submit
+Jessica Mbeki,jessica328@yahoo.com,(753) 282-3267,Not sure yet — consultation,New Inquiry,2026-07-27 10:00:00,,0,0,Standard,,,,,0,,Instagram,Wants consultation to decide between multiple services
+Aisha Wright,aisha425@protonmail.com,(617) 538-9890,Botox,Completed,2026-03-30 10:00:00,2026-06-28 10:00:00,2,900,Standard,Yes,Yes,No,,0,,Google Ads,Completed treatment but opted out of marketing
+Emma Brown,emma.brown@icloud.com,(988) 798-1320,HydraFacial,Completed,2026-03-17 10:00:00,2026-07-18 10:00:00,3,606,Standard,,Yes,Yes,,0,,Referral,
+Ryan Hall,ryan.hall@icloud.com,(952) 759-4613,HydraFacial,Completed,2026-03-28 10:00:00,2026-07-21 10:00:00,3,1046,Standard,,Yes,Yes,,0,,Referral,
+Aisha Robinson,aisha.robinson@protonmail.com,(614) 941-3704,HydraFacial,Completed,2026-03-31 10:00:00,2026-07-22 10:00:00,4,1146,Standard,,Yes,Yes,,0,,Referral,
+Ariana Sullivan,ariana.sullivan@hotmail.com,(419) 816-4632,Dermal Filler - Lip (1 syringe),Lapsed,2025-10-15 10:00:00,2026-01-19 10:00:00,5,4011,Standard,,Yes,Yes,,0,,Google My Business,
+Luna Verma,luna36@aol.com,(484) 267-3470,Dermal Filler - Nasolabial,Completed,2025-10-03 10:00:00,2026-07-15 10:00:00,3,3480,Standard,,Yes,Yes,,0,,Google Ads,
+Nora Choi,nora564@gmail.com,(674) 258-4154,Dermal Filler - Lip (0.5 syringe),Lapsed,2025-08-08 10:00:00,2025-10-24 10:00:00,7,4547,Standard,,Yes,,,0,,Facebook,
+Aiden Sims,aiden904@protonmail.com,(665) 504-1663,Dysport touch-up,Completed,2025-09-27 10:00:00,2026-06-08 10:00:00,1,901,Standard,,Yes,Yes,,0,,Referral,
+Savannah Watanabe,savannah632@protonmail.com,(965) 851-2008,Botox (30 units),Booked,2026-07-03 10:00:00,2026-01-16 10:00:00,2,1218,Standard,,,,,0,,Yelp,
+David Perry,david.perry@yahoo.com,(396) 659-3244,Botox (30 units),Lapsed,2024-12-06 10:00:00,2025-09-10 10:00:00,3,2973,Standard,,,,,0,,Newsletter,
+Zoey Fisher,zoey848@yahoo.com,(771) 588-3480,Dermal Filler - Cheek (1 syringe),Completed,2025-10-13 10:00:00,2026-07-10 10:00:00,3,2512,Standard,,Yes,Yes,,0,,Podcast,
+Bella Mehta,bmehta@outlook.com,(293) 380-1344,Dermal Filler - Cheek (2 syringes),Lapsed,2025-05-23 10:00:00,2026-04-30 10:00:00,5,3728,Standard,,Yes,Yes,,0,,Walk-in,
+Abigail Watanabe,abigail104@protonmail.com,(693) 299-9868,Botox (30 units),VIP,2025-01-11 10:00:00,2026-06-04 10:00:00,16,20290,VIP,,Yes,,,0,2026-06,Radio,
+Genesis Yamamoto,genesis.yamamoto@aol.com,(651) 528-2133,Dermal Filler - Jawline (2 syringes),Completed,2026-05-05 10:00:00,2026-06-24 10:00:00,3,2117,Standard,,Yes,Yes,,0,,Snapchat,
+Kai Mehta,kai.mehta@gmail.com,(809) 489-7112,HydraFacial - Platinum,Lapsed,2025-03-05 10:00:00,2025-09-06 10:00:00,4,3225,Standard,,,,,0,,Facebook,
+Bella Patel,bella845@aol.com,(932) 543-7805,Botox (40 units),Completed,2026-04-19 10:00:00,2026-06-25 10:00:00,3,2878,Standard,,Yes,Yes,,0,,TikTok,
+Liam Russell,liam.russell@outlook.com,(233) 885-3773,Dermal Filler - Jawline (2 syringes),New Inquiry,2026-07-12 10:00:00,,0,0,Standard,,,,2026-07-27 10:00:00,3,,TikTok,
+Camila Powell,camila.powell@yahoo.com,(380) 589-9623,HydraFacial + LED,Booked,2026-07-15 10:00:00,,0,0,Standard,,,,,0,,TikTok,
+Aiden Henderson,aiden.henderson@hotmail.com,(308) 885-8387,Dysport (30 units),Booked,2026-07-19 10:00:00,2026-02-15 10:00:00,1,328,Standard,,,,,0,,Google Ads,
+Kaia Butler,kaia.butler@icloud.com,(568) 985-2069,Dysport touch-up,Lapsed,2024-10-14 10:00:00,2025-10-14 10:00:00,4,2354,Standard,,,,,0,,LinkedIn,
+Brooklyn Verma,brooklyn.verma@hotmail.com,(386) 841-8289,Dermal Filler - Jawline (2 syringes),VIP,2025-04-17 10:00:00,2026-06-29 10:00:00,17,20753,VIP,,Yes,Yes,,0,,Google Ads,
+Emily Suzuki,emily.suzuki@outlook.com,(707) 526-8931,HydraFacial - Signature,Lapsed,2025-09-22 10:00:00,2026-05-26 10:00:00,8,7044,Standard,,Yes,Yes,,0,,TikTok,
+Liam Barnes,liam499@outlook.com,(714) 816-4236,HydraFacial - Deluxe,Completed,2026-04-24 10:00:00,2026-06-29 10:00:00,2,1362,Standard,,Yes,Yes,,0,,Walk-in,
+Genesis Rao,genesis.rao@protonmail.com,(270) 497-9211,Dermal Filler - Cheek (2 syringes),Completed,2026-03-18 10:00:00,2026-07-15 10:00:00,2,2046,Standard,,Yes,Yes,,0,,Groupon,
+Audrey Reyes,areyes@protonmail.com,(490) 561-7214,HydraFacial - Signature,Completed,2025-10-11 10:00:00,2026-06-28 10:00:00,2,2813,Standard,,Yes,,,0,,Website,
+Layla Rao,layla.rao@aol.com,(246) 230-2516,Botox (60 units),Lapsed,2025-10-11 10:00:00,2026-03-30 10:00:00,8,6562,Standard,,Yes,Yes,,0,,Newsletter,
+Logan Long,llong@icloud.com,(522) 500-5304,HydraFacial - Deluxe,Completed,2026-03-26 10:00:00,2026-06-21 10:00:00,3,2484,Standard,,Yes,Yes,,0,,Website,
+Skylar Foster,skylar544@aol.com,(251) 572-6714,Dysport touch-up,New Inquiry,2026-07-17 10:00:00,,0,0,Standard,,,,2026-07-27 10:00:00,2,,Website,
+Naomi Foster,naomi.foster@protonmail.com,(986) 296-1722,Dermal Filler - Lip (0.5 syringe),Completed,2025-09-18 10:00:00,2026-07-10 10:00:00,2,1136,Standard,,Yes,,,0,,Referral,
+Allison Watanabe,allison.watanabe@hotmail.com,(209) 296-4588,Dermal Filler - Jawline (3 syringes),Completed,2025-11-27 10:00:00,2026-06-22 10:00:00,4,4367,Standard,,Yes,Yes,,0,,Google Ads,
+Evelyn Sullivan,evelyn203@icloud.com,(820) 706-2078,Dermal Filler - Cheek (1 syringe),Lapsed,2025-03-07 10:00:00,2025-09-05 10:00:00,2,1424,Standard,,Yes,,,0,,Newsletter,
+Brooklyn Russell,brussell@yahoo.com,(675) 483-2002,Dysport touch-up,Completed,2026-03-22 10:00:00,2026-06-07 10:00:00,5,4544,Standard,,Yes,Yes,,0,,Groupon,
+Aurora Price,aurora37@outlook.com,(853) 785-7874,Botox (50 units),VIP,2025-07-11 10:00:00,2026-06-06 10:00:00,18,21561,VIP,,Yes,Yes,,0,,Google Ads,
+Savannah Bell,savannah.bell@icloud.com,(645) 902-6525,Dermal Filler - Lip (1 syringe),Lapsed,2025-08-22 10:00:00,2025-11-06 10:00:00,2,1344,Standard,,Yes,Yes,,0,,Facebook,
+Kai Iyer,kai.iyer@yahoo.com,(625) 412-7184,Dermal Filler - Under-Eye,New Inquiry,2026-07-21 10:00:00,,0,0,Standard,,,,2026-07-24 10:00:00,1,,Google Ads,
+Genesis Watanabe,genesis742@outlook.com,(801) 649-8483,Botox (20 units),Completed,2026-03-19 10:00:00,2026-07-17 10:00:00,5,4813,Standard,,,,,0,,Groupon,
+Elena Butler,elena897@protonmail.com,(578) 859-3541,Dermal Filler - Cheek (2 syringes),New Inquiry,2026-07-19 10:00:00,,0,0,Standard,,,,2026-07-27 10:00:00,2,,Groupon,
+Lily Long,lily641@icloud.com,(583) 564-9045,Dysport (40 units),New Inquiry,2026-07-19 10:00:00,,0,0,Standard,,,,2026-07-24 10:00:00,2,,Groupon,
+David Bell,david.bell@aol.com,(216) 453-5239,Botox (50 units),Completed,2025-10-16 10:00:00,2026-06-04 10:00:00,2,1576,Standard,,Yes,Yes,,0,,Yelp,
+Emily Watanabe,emily.watanabe@hotmail.com,(610) 567-1344,HydraFacial - Signature,Completed,2025-11-06 10:00:00,2026-07-14 10:00:00,2,1746,Standard,,Yes,,,0,,Instagram,
+Madison Ross,madison.ross@yahoo.com,(602) 650-6673,Botox (60 units),Completed,2025-11-10 10:00:00,2026-07-13 10:00:00,3,3197,Standard,,Yes,,,0,,Snapchat,
+Sarah Jenkins,sarah899@aol.com,(642) 840-9969,Dermal Filler - Jawline (2 syringes),New Inquiry,2026-07-08 10:00:00,,0,0,Standard,,,,2026-07-24 10:00:00,3,,Radio,
+Elena Yamamoto,elena827@outlook.com,(473) 788-7786,Dermal Filler - Cheek (1 syringe),Booked,2026-07-16 10:00:00,2026-05-19 10:00:00,3,954,Standard,,,,,0,,TikTok,
+Noah Henderson,noah.henderson@gmail.com,(534) 999-3043,Dermal Filler - Nasolabial,VIP,2024-06-07 10:00:00,2026-06-14 10:00:00,15,18965,VIP,,Yes,Yes,,0,2026-06,Radio,
+Genesis Powell,genesis.powell@protonmail.com,(892) 514-8214,Dermal Filler - Lip (1 syringe),Completed,2026-03-10 10:00:00,2026-06-06 10:00:00,1,1338,Standard,,,,,0,,Walk-in,
+Victoria Choi,victoria.choi@aol.com,(437) 355-3857,HydraFacial - Deluxe,Completed,2026-03-31 10:00:00,2026-07-08 10:00:00,4,3388,Standard,,Yes,Yes,,0,,Radio,
+Mason Choi,mason985@icloud.com,(763) 505-7955,HydraFacial + LED,VIP,2025-06-27 10:00:00,2026-07-18 10:00:00,12,14247,VIP,,Yes,,,0,2026-06,TikTok,
+Kaia Henderson,khenderson@outlook.com,(937) 230-6120,Dysport touch-up,Booked,2026-07-18 10:00:00,2026-06-13 10:00:00,2,1530,Standard,,,,,0,,Website,
+Aurora Long,aurora553@outlook.com,(507) 475-6103,HydraFacial + LED,Lapsed,2025-03-09 10:00:00,2026-01-05 10:00:00,4,3515,Standard,,Yes,,,0,,Groupon,
+Sarah Choi,sarah.choi@aol.com,(938) 820-5972,Botox (20 units),New Inquiry,2026-07-12 10:00:00,,0,0,Standard,,,,2026-07-24 10:00:00,3,,Walk-in,
+Brooklyn Price,brooklyn.price@aol.com,(573) 211-8096,HydraFacial - Signature,New Inquiry,2026-07-08 10:00:00,,0,0,Standard,,,,2026-07-27 10:00:00,3,,Website,
+Evelyn Choi,evelyn.choi@yahoo.com,(898) 404-4674,Dermal Filler - Under-Eye,New Inquiry,2026-07-25 10:00:00,,0,0,Standard,,,,,0,,Snapchat,
+Sarah Butler,sarah863@aol.com,(691) 255-2288,Botox (20 units),Completed,2026-05-24 10:00:00,2026-07-01 10:00:00,5,3688,Standard,,Yes,,,0,,Radio,
+Isabella Price,isabella.price@aol.com,(366) 380-7828,HydraFacial + LED,Lapsed,2024-09-24 10:00:00,2025-07-24 10:00:00,3,2002,Standard,Yes,,,,0,,Google My Business,Opted out — do not contact
+Liam Myers,liam694@outlook.com,(967) 304-5803,Botox (60 units),Lapsed,2025-06-27 10:00:00,2026-05-20 10:00:00,7,5689,Standard,,,,,0,,TikTok,
+Maya Coleman,maya732@yahoo.com,(390) 238-2572,Dermal Filler - Cheek (2 syringes),Completed,2026-04-06 10:00:00,2026-06-18 10:00:00,5,2763,Standard,,Yes,Yes,,0,,Yelp,
+Elijah Malhotra,elijah.malhotra@hotmail.com,(955) 668-9651,Dermal Filler - Nasolabial,Lapsed,2024-11-29 10:00:00,2026-05-25 10:00:00,6,3890,Standard,,Yes,Yes,,0,,Facebook,
+Sarah Tanaka,stanaka@protonmail.com,(992) 943-6848,HydraFacial + LED,Completed,2025-10-17 10:00:00,2026-07-25 10:00:00,1,1398,Standard,,Yes,Yes,,0,,Walk-in,
+Mia Fisher,mia.fisher@protonmail.com,(867) 694-9775,Dysport (40 units),Completed,2026-03-07 10:00:00,2026-06-27 10:00:00,1,1022,Standard,,,,,0,,Instagram,
+Layla Rao,layla639@hotmail.com,(547) 955-9262,Dermal Filler - Cheek (1 syringe),Completed,2026-04-22 10:00:00,2026-07-20 10:00:00,2,1769,Standard,,Yes,,,0,,Website,
+Marcus Russell,marcus314@gmail.com,(547) 908-7647,Dermal Filler - Cheek (2 syringes),Lapsed,2025-04-07 10:00:00,2026-03-08 10:00:00,7,4490,Standard,,,,,0,,Yelp,
+Mason Nguyen,mason.nguyen@gmail.com,(753) 751-1696,Botox (60 units),Lapsed,2024-08-30 10:00:00,2025-07-01 10:00:00,5,5423,Standard,,Yes,Yes,,0,,Podcast,
+Elena Long,elena685@hotmail.com,(575) 343-4412,Dysport (30 units),Completed,2025-12-05 10:00:00,2026-06-04 10:00:00,1,1464,Standard,,Yes,Yes,,0,,Yelp,
+Savannah Patel,spatel@icloud.com,(595) 589-5066,Dysport (40 units),Completed,2025-11-17 10:00:00,2026-06-22 10:00:00,3,3225,Standard,,Yes,Yes,,0,,Podcast,
+Savannah Kamal,savannah.kamal@yahoo.com,(459) 785-4843,Botox (40 units),VIP,2024-09-05 10:00:00,2026-07-01 10:00:00,12,14881,VIP,,Yes,Yes,,0,,Website,
+Victoria Kamal,victoria.kamal@protonmail.com,(634) 464-6971,Dermal Filler - Cheek (1 syringe),Booked,2026-07-03 10:00:00,2026-01-23 10:00:00,2,1042,Standard,,,,,0,,Google Ads,
+Emily Sims,emily.sims@gmail.com,(277) 981-7837,HydraFacial - Signature,Completed,2025-11-13 10:00:00,2026-07-05 10:00:00,1,1008,Standard,,Yes,,,0,,Google Ads,
+Ethan Long,ethan.long@outlook.com,(652) 226-9411,HydraFacial + LED,Lapsed,2025-09-11 10:00:00,2026-01-17 10:00:00,2,1249,Standard,,Yes,Yes,,0,,LinkedIn,
+Liam Aziz,liam.aziz@outlook.com,(327) 451-1908,Dermal Filler - Under-Eye,Lapsed,2025-01-23 10:00:00,2026-02-23 10:00:00,6,4528,Standard,,Yes,Yes,,0,,Referral,
+Aiden Price,aiden.price@yahoo.com,(203) 556-8215,Dermal Filler - Cheek (2 syringes),New Inquiry,2026-07-28 10:00:00,,0,0,Standard,,,,,0,,TikTok,
+Naomi Yoon,nyoon@aol.com,(613) 392-1266,Dermal Filler - Jawline (3 syringes),Booked,2026-07-22 10:00:00,,0,0,Standard,,,,,0,,Podcast,
+Mason Yamamoto,mason19@yahoo.com,(916) 909-6831,Botox (60 units),Completed,2026-01-11 10:00:00,2026-07-19 10:00:00,2,1688,Standard,,Yes,,,0,,Google Ads,
+Chloe Perry,cperry@gmail.com,(648) 716-8096,Botox (50 units),Completed,2026-04-28 10:00:00,2026-06-08 10:00:00,2,1292,Standard,,Yes,,,0,,Yelp,
+Marcus Powell,marcus688@icloud.com,(959) 894-7270,Botox (30 units),Completed,2025-08-23 10:00:00,2026-06-11 10:00:00,1,339,Standard,,Yes,Yes,,0,,TikTok,
+Victoria Yoon,victoria991@gmail.com,(946) 655-8160,Botox (50 units),Booked,2026-07-18 10:00:00,2026-03-03 10:00:00,3,1026,Standard,,,,,0,,Snapchat,
+Ariana Yamamoto,ariana278@gmail.com,(809) 928-6440,Botox (60 units),Lapsed,2024-09-15 10:00:00,2025-09-08 10:00:00,8,6677,Standard,,Yes,Yes,,0,,LinkedIn,
+Isabella Bennett,isabella412@protonmail.com,(908) 943-5736,Botox (60 units),Lapsed,2025-03-07 10:00:00,2025-11-13 10:00:00,8,7083,Standard,,Yes,,,0,,Newsletter,
+Ariana Chen,ariana.chen@protonmail.com,(282) 318-7840,Dysport (30 units),New Inquiry,2026-07-17 10:00:00,,0,0,Standard,,,,2026-07-27 10:00:00,2,,Radio,
+Marcus Bennett,marcus.bennett@gmail.com,(740) 951-8321,Dermal Filler - Lip (1 syringe),Completed,2026-05-31 10:00:00,2026-07-01 10:00:00,4,3057,Standard,,Yes,Yes,,0,,Referral,
+Kaia Tanaka,kaia652@icloud.com,(641) 558-6021,Dysport (40 units),New Inquiry,2026-07-15 10:00:00,,0,0,Standard,,,,2026-07-25 10:00:00,3,,Groupon,
+Kai Kamal,kai.kamal@outlook.com,(828) 294-4048,Dermal Filler - Cheek (1 syringe),VIP,2025-01-09 10:00:00,2026-06-12 10:00:00,13,17158,VIP,,Yes,Yes,,0,2026-06,Instagram,
+Maya Nguyen,maya.nguyen@yahoo.com,(581) 503-8493,Dysport (40 units),VIP,2025-02-25 10:00:00,2026-07-17 10:00:00,15,19209,VIP,,Yes,Yes,,0,,Podcast,
+David Fisher,david.fisher@yahoo.com,(616) 843-4056,Dermal Filler - Lip (1 syringe),Completed,2025-10-31 10:00:00,2026-07-17 10:00:00,2,1490,Standard,,Yes,,,0,,Groupon,
+Camila Hassan,camila.hassan@aol.com,(539) 253-8629,Dermal Filler - Under-Eye,Lapsed,2025-01-12 10:00:00,2025-07-01 10:00:00,8,6762,Standard,,Yes,Yes,,0,,Yelp,
+Anna Yoon,anna.yoon@aol.com,(789) 782-4923,Dermal Filler - Cheek (1 syringe),Completed,2025-09-22 10:00:00,2026-06-11 10:00:00,1,655,Standard,,Yes,,,0,,Facebook,
+Kaia Ibrahim,kaia145@icloud.com,(916) 327-1774,Dermal Filler - Cheek (2 syringes),VIP,2025-10-06 10:00:00,2026-07-10 10:00:00,12,15192,VIP,,Yes,Yes,,0,2026-06,Snapchat,
+Victoria Aziz,victoria.aziz@protonmail.com,(217) 652-3256,HydraFacial - Platinum,Completed,2026-05-07 10:00:00,2026-06-28 10:00:00,4,2789,Standard,,Yes,,,0,,Newsletter,
+Evelyn Hughes,evelyn.hughes@yahoo.com,(789) 275-5613,Botox (20 units),Lapsed,2025-09-17 10:00:00,2025-11-05 10:00:00,2,1142,Standard,,Yes,,,0,,Yelp,
+Sarah Aziz,sarah179@yahoo.com,(760) 919-7611,Dysport (40 units),VIP,2024-07-15 10:00:00,2026-06-17 10:00:00,8,12172,VIP,Yes,Yes,,,0,2026-06,Groupon,Opted out — do not contact
+Aiden Reyes,aiden.reyes@protonmail.com,(399) 315-8355,Dermal Filler - Cheek (1 syringe),Lapsed,2024-11-03 10:00:00,2025-07-12 10:00:00,2,1637,Standard,,Yes,,,0,,Snapchat,
+Layla Foster,layla.foster@yahoo.com,(944) 217-5210,Dermal Filler - Jawline (3 syringes),Completed,2026-01-23 10:00:00,2026-07-13 10:00:00,1,886,Standard,,Yes,,,0,,Google My Business,
+Aurora Reyes,aurora.reyes@yahoo.com,(985) 488-8050,Dysport (40 units),New Inquiry,2026-07-27 10:00:00,,0,0,Standard,,,,,0,,Instagram,
+Naomi Russell,naomi97@protonmail.com,(633) 644-2243,Dermal Filler - Lip (1 syringe),Booked,2026-07-24 10:00:00,2026-05-09 10:00:00,2,1290,Standard,,,,,0,,LinkedIn,
+Maya Kamal,maya.kamal@aol.com,(337) 643-1620,Botox (60 units),VIP,2024-12-12 10:00:00,2026-07-19 10:00:00,10,12082,VIP,,Yes,Yes,,0,2026-06,Groupon,
+Ethan Myers,ethan401@outlook.com,(448) 354-4983,Botox (60 units),New Inquiry,2026-07-11 10:00:00,,0,0,Standard,,,,2026-07-25 10:00:00,3,,Instagram,
+Elijah Verma,elijah.verma@aol.com,(666) 934-4999,Dermal Filler - Lip (0.5 syringe),Completed,2025-10-15 10:00:00,2026-06-03 10:00:00,2,1361,Standard,,Yes,,,0,,Google My Business,
+Sarah Aziz,sarah.aziz@protonmail.com,(512) 512-9054,Botox (40 units),Lapsed,2025-05-23 10:00:00,2026-02-15 10:00:00,6,3733,Standard,,Yes,,,0,,Podcast,
+Logan Kim,logan103@protonmail.com,(516) 744-2660,Botox (50 units),Completed,2026-04-07 10:00:00,2026-06-07 10:00:00,2,1995,Standard,,Yes,Yes,,0,,Podcast,
+Amelia Coleman,amelia.coleman@protonmail.com,(488) 689-5495,Botox (40 units),Completed,2025-09-22 10:00:00,2026-06-13 10:00:00,3,2787,Standard,,Yes,,,0,,Podcast,
+Aurora Iyer,aurora.iyer@aol.com,(650) 570-5551,Dermal Filler - Cheek (1 syringe),Booked,2026-07-12 10:00:00,2026-02-27 10:00:00,2,654,Standard,,,,,0,,Instagram,
+Chloe Iyer,chloe.iyer@hotmail.com,(287) 376-7560,Dermal Filler - Nasolabial,Completed,2025-12-09 10:00:00,2026-07-01 10:00:00,3,2823,Standard,,Yes,Yes,,0,,Podcast,
+Kai Yamamoto,kyamamoto@icloud.com,(926) 989-3391,HydraFacial + LED,Completed,2025-11-21 10:00:00,2026-07-07 10:00:00,2,1116,Standard,,Yes,,,0,,Walk-in,
+Aaliyah Reyes,aaliyah.reyes@outlook.com,(710) 582-9134,HydraFacial - Platinum,VIP,2024-11-14 10:00:00,2026-06-08 10:00:00,8,9407,VIP,,Yes,Yes,,0,,Newsletter,
+David Ibrahim,david.ibrahim@hotmail.com,(957) 438-3238,Botox (60 units),Lapsed,2025-05-17 10:00:00,2025-11-30 10:00:00,4,2909,Standard,,Yes,,,0,,LinkedIn,
+Sarah ✨ Chen,sarah.chen.999@gmail.com,(415) 555-3020,Botox,New Inquiry,2026-07-27 14:30:00,,0,0,Standard,,,,,0,,Instagram,EDGE: emoji in name — must survive JSON encoding + Sheet paste
+Isabella Rothschild-Hamilton,isabella.rh@icloud.com,(212) 555-8823,Annual Package — Botox + Fillers + HydraFacial,VIP,2025-01-15 10:00:00,2026-07-18 14:00:00,22,42500,VIP,,Yes,Yes,,0,,Referral,"EDGE: highest LTV client — pre-paid annual, needs white-glove"
+Chloe Vasquez,chloe.v.gift@yahoo.com,(310) 555-6621,HydraFacial (gift card),Booked,2026-07-25 11:15:00,,0,0,Standard,,,,,0,,Gift Card Redemption,EDGE: gift card recipient — comes with different messaging expectations
+Marcus Petrov,marcus.p@fullinbox-noreply.example,(646) 555-9977,Consultation,New Inquiry,2026-07-22 09:00:00,,0,0,Standard,,,,2026-07-25 09:00:00,2,,Google Ads,EDGE: email keeps soft-bouncing (mailbox full)
+Zara Al-Farsi,zara.alf@protonmail.com,(415) 555-4477,Botox,Completed,2024-11-05 15:00:00,2026-07-22 13:00:00,6,3800,Standard,,Yes,Yes,,0,2026-06,Facebook,EDGE: reactivated after 180-day winback — success case
+Corporate Contact (Verve Aesthetics HQ),corp@verve-aesthetics-example.com,(800) 555-1000,Enterprise Info Request,New Inquiry,2026-07-26 16:00:00,,0,0,Standard,,,,,0,,Cold Email Reply,"EDGE: chain corporate — bad ICP fit, respond politely, ask for referrals"
+Dr. Hannah Yoon (Complaint),hannah.yoon.md@example.org,(212) 555-0011,Consultation,New Inquiry,2026-07-24 17:00:00,,0,0,Standard,Yes,,,2026-07-25 09:00:00,1,,Cold Email,"EDGE: prospect filed complaint — do NOT contact further, escalation only"
+Emma Rodriguez,emma.rodriguez@gmail.com,(415) 555-0132,Dermal Fillers - Lip,New Inquiry,2026-07-28 08:00:00,,0,0,Standard,,,,,0,,Website,EDGE: SAME email as W1 sample #1 — tests appendOrUpdate dedup
+Mia Ives,mia.ives288@outlook.com,(558) 261-7665,Wedding prep package,Completed,2026-03-23 10:00:00,2026-04-28 10:00:00,3,2153,Standard,,Yes,,,0,,Wedding Wire,WEDDING-SEASON — Mother of Bride
+Nova Cross,nova.cross749@icloud.com,(360) 374-6169,Wedding prep package,Completed,2026-05-13 10:00:00,2026-06-08 10:00:00,3,1738,Standard,,Yes,Yes,,0,,Wedding Wire,WEDDING-SEASON — Bride
+Valentina Ives,valentina.ives6@icloud.com,(709) 273-8484,Wedding prep package,Completed,2026-03-15 10:00:00,2026-04-11 10:00:00,2,989,Standard,,Yes,Yes,,0,,Referral,WEDDING-SEASON — Mother of Bride
+Sage Cortez,sage.cortez947@gmail.com,(650) 394-2929,Wedding prep package,Completed,2026-04-15 10:00:00,2026-05-19 10:00:00,4,2476,Standard,,Yes,Yes,,0,,Referral,WEDDING-SEASON — Bridesmaid
+Wren North,wren.north313@gmail.com,(292) 977-9822,Wedding prep package,Completed,2026-04-22 10:00:00,2026-05-03 10:00:00,2,1162,Standard,,Yes,,,0,,Wedding Wire,WEDDING-SEASON — Bride
+Zoe Vargas,zoe.vargas561@icloud.com,(827) 528-5119,Wedding prep package,Completed,2026-04-11 10:00:00,2026-05-15 10:00:00,4,3046,Standard,,Yes,Yes,,0,,Referral,WEDDING-SEASON — Mother of Bride
+Andrea Dominguez,andrea.dominguez242@outlook.com,(687) 819-6346,Wedding prep package,Completed,2026-02-02 10:00:00,2026-03-12 10:00:00,3,2137,Standard,,Yes,Yes,,0,,Instagram,WEDDING-SEASON — Mother of Bride
+Mia Locke,mia.locke694@outlook.com,(263) 499-8585,Wedding prep package,Completed,2026-03-23 10:00:00,2026-04-18 10:00:00,3,2379,Standard,,Yes,,,0,,Instagram,WEDDING-SEASON — Bride
+Wren Dominguez,wren.dominguez340@outlook.com,(398) 521-7103,Wedding prep package,Completed,2026-05-07 10:00:00,2026-06-02 10:00:00,4,2846,Standard,,Yes,Yes,,0,,Wedding Wire,WEDDING-SEASON — Bride
+Ava Beck,ava.beck467@gmail.com,(906) 712-3830,Wedding prep package,Completed,2026-03-18 10:00:00,2026-04-23 10:00:00,2,1473,Standard,,Yes,Yes,,0,,Wedding Wire,WEDDING-SEASON — Bridesmaid
+Wren Cortez,wren.cortez124@outlook.com,(417) 400-3235,Wedding prep package,Completed,2026-04-30 10:00:00,2026-06-04 10:00:00,4,2348,Standard,,Yes,,,0,,Referral,WEDDING-SEASON — Bride
+Mariana Drake,mariana.drake717@gmail.com,(640) 851-1448,Wedding prep package,Completed,2026-03-06 10:00:00,2026-03-22 10:00:00,3,1898,Standard,,Yes,,,0,,Referral,WEDDING-SEASON — Mother of Bride
+Elena Herrera,elena.herrera108@yahoo.com,(891) 887-8886,Wedding prep package,Completed,2026-05-07 10:00:00,2026-06-18 10:00:00,4,2474,Standard,,Yes,Yes,,0,,Instagram,WEDDING-SEASON — Mother of Bride
+Tessa North,tessa.north217@outlook.com,(902) 850-1665,Wedding prep package,Completed,2026-03-20 10:00:00,2026-04-23 10:00:00,4,2854,Standard,,Yes,Yes,,0,,Referral,WEDDING-SEASON — Mother of Bride
+Elena Aguilar,elena.aguilar844@gmail.com,(993) 372-3536,Wedding prep package,Completed,2026-03-30 10:00:00,2026-04-21 10:00:00,4,2340,Standard,,Yes,,,0,,Instagram,WEDDING-SEASON — Bride
+Camila Pace,camila.pace131@outlook.com,(750) 222-1345,Wedding prep package,Completed,2026-02-26 10:00:00,2026-03-20 10:00:00,4,2499,Standard,,Yes,,,0,,Referral,WEDDING-SEASON — Bride
+Poppy Cortez,poppy.cortez724@outlook.com,(222) 839-6868,Wedding prep package,Completed,2026-03-05 10:00:00,2026-04-08 10:00:00,2,898,Standard,,Yes,Yes,,0,,Wedding Wire,WEDDING-SEASON — Bride
+Tessa Vargas,tessa.vargas428@outlook.com,(654) 823-2101,Wedding prep package,Completed,2026-04-24 10:00:00,2026-05-24 10:00:00,2,1301,Standard,,Yes,,,0,,Wedding Wire,WEDDING-SEASON — Maid of Honor
+Camila Suarez,camila.suarez395@yahoo.com,(645) 738-4780,Wedding prep package,Completed,2026-04-27 10:00:00,2026-05-14 10:00:00,2,1013,Standard,,Yes,Yes,,0,,Wedding Wire,WEDDING-SEASON — Bride
+Sloane Molina,sloane.molina253@outlook.com,(895) 854-9545,Wedding prep package,Completed,2026-04-02 10:00:00,2026-04-18 10:00:00,4,2708,Standard,,Yes,Yes,,0,,Wedding Wire,WEDDING-SEASON — Bride
+Tessa Ford,tessa.ford934@yahoo.com,(273) 533-1276,Wedding prep package,Completed,2026-05-12 10:00:00,2026-06-05 10:00:00,4,2623,Standard,,Yes,Yes,,0,,Referral,WEDDING-SEASON — Bridesmaid
+Isabela Vargas,isabela.vargas738@gmail.com,(349) 445-6600,Wedding prep package,Completed,2026-04-18 10:00:00,2026-05-20 10:00:00,3,1517,Standard,,Yes,Yes,,0,,Wedding Wire,WEDDING-SEASON — Maid of Honor
+Wren Knox,wren.knox514@gmail.com,(882) 470-8492,Wedding prep package,Completed,2026-04-24 10:00:00,2026-06-03 10:00:00,4,2728,Standard,,Yes,,,0,,Referral,WEDDING-SEASON — Bride
+Tessa Reed,tessa.reed947@outlook.com,(710) 476-9992,Wedding prep package,Completed,2026-04-03 10:00:00,2026-04-30 10:00:00,3,2037,Standard,,Yes,,,0,,Referral,WEDDING-SEASON — Bride
+Piper Knox,piper.knox57@gmail.com,(858) 224-3402,Wedding prep package,Completed,2026-03-08 10:00:00,2026-03-26 10:00:00,2,1097,Standard,,Yes,Yes,,0,,Instagram,WEDDING-SEASON — Bridesmaid
+Andrea Solis,andrea.solis730@outlook.com,(431) 513-6073,Holiday party prep,Lapsed,2025-11-15 10:00:00,2025-12-22 10:00:00,3,1716,Standard,,Yes,Yes,,0,,Instagram,Q4 HOLIDAY — booked for company party / NYE
+Ella Aguilar,ella.aguilar38@yahoo.com,(272) 574-9300,Holiday party prep,Lapsed,2025-10-19 10:00:00,2025-11-23 10:00:00,2,1262,Standard,,Yes,Yes,,0,,Referral,Q4 HOLIDAY — booked for company party / NYE
+Isabela Grant,isabela.grant483@gmail.com,(435) 461-2151,Holiday party prep,Completed,2025-10-15 10:00:00,2025-11-26 10:00:00,1,714,Standard,,Yes,Yes,,0,,Referral,Q4 HOLIDAY — booked for company party / NYE
+Ruby Dominguez,ruby.dominguez312@icloud.com,(879) 890-4860,Holiday party prep,Completed,2025-10-03 10:00:00,2025-11-11 10:00:00,1,663,Standard,,Yes,Yes,,0,,Instagram,Q4 HOLIDAY — booked for company party / NYE
+Reese Marsh,reese.marsh95@gmail.com,(919) 855-7217,Holiday party prep,Lapsed,2025-11-29 10:00:00,2025-12-22 10:00:00,1,606,Standard,,Yes,Yes,,0,,Instagram,Q4 HOLIDAY — booked for company party / NYE
+Willa Owens,willa.owens646@icloud.com,(756) 576-1357,Holiday party prep,Completed,2025-10-23 10:00:00,2025-11-17 10:00:00,1,427,Standard,,Yes,Yes,,0,,Instagram,Q4 HOLIDAY — booked for company party / NYE
+Renata Suarez,renata.suarez296@yahoo.com,(678) 344-1770,Holiday party prep,Completed,2025-10-18 10:00:00,2025-11-20 10:00:00,3,1706,Standard,,Yes,,,0,,Google Ads,Q4 HOLIDAY — booked for company party / NYE
+Valentina Owens,valentina.owens572@yahoo.com,(680) 229-8374,Holiday party prep,Completed,2025-11-12 10:00:00,2025-12-15 10:00:00,1,491,Standard,,Yes,Yes,,0,,Referral,Q4 HOLIDAY — booked for company party / NYE
+Ava Stone,ava.stone796@icloud.com,(579) 574-3377,Holiday party prep,Lapsed,2025-10-21 10:00:00,2025-11-28 10:00:00,2,1375,Standard,,Yes,,,0,,Google Ads,Q4 HOLIDAY — booked for company party / NYE
+Poppy Vargas,poppy.vargas899@gmail.com,(614) 367-3664,Holiday party prep,Completed,2025-10-15 10:00:00,2025-11-16 10:00:00,1,597,Standard,,Yes,Yes,,0,,Google Ads,Q4 HOLIDAY — booked for company party / NYE
+Alba Marsh,alba.marsh326@yahoo.com,(363) 750-1666,Holiday party prep,Completed,2025-11-10 10:00:00,2025-12-02 10:00:00,1,690,Standard,,Yes,Yes,,0,,Referral,Q4 HOLIDAY — booked for company party / NYE
+Tessa Suarez,tessa.suarez114@icloud.com,(256) 979-6686,Holiday party prep,Completed,2025-11-11 10:00:00,2025-12-19 10:00:00,2,1203,Standard,,Yes,Yes,,0,,Referral,Q4 HOLIDAY — booked for company party / NYE
+Zoe Jaeger,zoe.jaeger402@icloud.com,(863) 284-7124,Holiday party prep,Lapsed,2025-10-22 10:00:00,2025-12-03 10:00:00,3,1695,Standard,,Yes,Yes,,0,,Referral,Q4 HOLIDAY — booked for company party / NYE
+Nova Herrera,nova.herrera379@outlook.com,(293) 788-3814,Holiday party prep,Completed,2025-10-07 10:00:00,2025-11-14 10:00:00,2,1001,Standard,,Yes,Yes,,0,,Instagram,Q4 HOLIDAY — booked for company party / NYE
+Mariana Thorne,mariana.thorne423@yahoo.com,(756) 760-4395,Holiday party prep,Completed,2025-11-12 10:00:00,2025-12-16 10:00:00,2,1272,Standard,,Yes,Yes,,0,,Instagram,Q4 HOLIDAY — booked for company party / NYE
+Elena Pace,elena.pace970@yahoo.com,(608) 316-6589,Holiday party prep,Completed,2025-10-17 10:00:00,2025-11-10 10:00:00,3,1666,Standard,,Yes,,,0,,Google Ads,Q4 HOLIDAY — booked for company party / NYE
+Willa Knox,willa.knox273@icloud.com,(432) 222-4089,Holiday party prep,Lapsed,2025-10-25 10:00:00,2025-12-05 10:00:00,1,463,Standard,,Yes,Yes,,0,,Google Ads,Q4 HOLIDAY — booked for company party / NYE
+Renata Aguilar,renata.aguilar466@outlook.com,(830) 596-8844,Holiday party prep,Lapsed,2025-11-09 10:00:00,2025-12-09 10:00:00,2,1278,Standard,,Yes,Yes,,0,,Google Ads,Q4 HOLIDAY — booked for company party / NYE
+Ruby Ortiz,ruby.ortiz855@gmail.com,(641) 554-2213,Holiday party prep,Lapsed,2025-11-16 10:00:00,2025-12-22 10:00:00,3,2000,Standard,,Yes,Yes,,0,,Referral,Q4 HOLIDAY — booked for company party / NYE
+Alba Knox,alba.knox438@outlook.com,(385) 223-4753,Holiday party prep,Lapsed,2025-11-12 10:00:00,2025-12-14 10:00:00,2,1373,Standard,,Yes,Yes,,0,,Instagram,Q4 HOLIDAY — booked for company party / NYE
+Poppy Drake,poppy.drake97@yahoo.com,(392) 529-2204,Summer body contouring,Completed,2026-05-13 10:00:00,2026-06-05 10:00:00,1,1521,Standard,,Yes,,,0,,TikTok,SUMMER BODY — CoolSculpting/EMSculpt series
+Wren Grant,wren.grant202@yahoo.com,(969) 642-1389,Summer body contouring,Completed,2026-05-15 10:00:00,2026-06-14 10:00:00,3,5015,Standard,,Yes,Yes,,0,,Instagram,SUMMER BODY — CoolSculpting/EMSculpt series
+Alba North,alba.north923@gmail.com,(573) 471-8117,Summer body contouring,Completed,2026-05-22 10:00:00,2026-06-07 10:00:00,4,5204,Standard,,Yes,,,0,,TikTok,SUMMER BODY — CoolSculpting/EMSculpt series
+Elena Drake,elena.drake886@icloud.com,(327) 514-5782,Summer body contouring,Completed,2026-05-22 10:00:00,2026-06-05 10:00:00,3,5320,Standard,,Yes,Yes,,0,,Instagram,SUMMER BODY — CoolSculpting/EMSculpt series
+Blake Rios,blake.rios877@icloud.com,(462) 680-6599,Summer body contouring,Completed,2026-06-05 10:00:00,2026-06-23 10:00:00,2,3569,Standard,,Yes,,,0,,Instagram,SUMMER BODY — CoolSculpting/EMSculpt series
+Ava Molina,ava.molina73@outlook.com,(930) 252-9656,Summer body contouring,Completed,2026-05-17 10:00:00,2026-06-06 10:00:00,1,1587,Standard,,Yes,,,0,,Google Ads,SUMMER BODY — CoolSculpting/EMSculpt series
+Renata Vargas,renata.vargas917@icloud.com,(299) 952-1799,Summer body contouring,Completed,2026-04-28 10:00:00,2026-05-25 10:00:00,4,6277,Standard,,Yes,,,0,,TikTok,SUMMER BODY — CoolSculpting/EMSculpt series
+Ivy Suarez,ivy.suarez234@yahoo.com,(856) 487-4027,Summer body contouring,Completed,2026-05-06 10:00:00,2026-05-22 10:00:00,1,1138,Standard,,Yes,Yes,,0,,Google Ads,SUMMER BODY — CoolSculpting/EMSculpt series
+Ava Reed,ava.reed270@gmail.com,(257) 377-5203,Summer body contouring,Completed,2026-05-29 10:00:00,2026-06-23 10:00:00,2,3682,Standard,,Yes,Yes,,0,,Google Ads,SUMMER BODY — CoolSculpting/EMSculpt series
+Wren Ford,wren.ford83@outlook.com,(208) 401-6932,Summer body contouring,Completed,2026-04-08 10:00:00,2026-05-03 10:00:00,4,6309,Standard,,Yes,Yes,,0,,TikTok,SUMMER BODY — CoolSculpting/EMSculpt series
+Nova Rios,nova.rios721@yahoo.com,(998) 790-8672,Summer body contouring,Completed,2026-05-14 10:00:00,2026-06-11 10:00:00,1,1707,Standard,,Yes,,,0,,Instagram,SUMMER BODY — CoolSculpting/EMSculpt series
+Reese Grant,reese.grant689@outlook.com,(446) 331-9110,Summer body contouring,Completed,2026-05-10 10:00:00,2026-05-28 10:00:00,2,3365,Standard,,Yes,Yes,,0,,TikTok,SUMMER BODY — CoolSculpting/EMSculpt series
+Emilia Pace,emilia.pace419@outlook.com,(726) 275-8499,Botox + Fillers,VIP,2025-05-11 10:00:00,2026-07-11 10:00:00,13,9700,VIP,,Yes,Yes,,0,,Website,"REFERRAL CHAIN #1 — root client, referred 2 people"
+Renata Hayes,renata.hayes136@gmail.com,(961) 819-2335,Dermal Fillers,Completed,2025-11-26 10:00:00,2026-06-04 10:00:00,6,3007,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #1 — referred by Emilia Pace
+Emilia Quinn,emilia.quinn127@outlook.com,(937) 215-4428,Dermal Fillers,Completed,2026-01-26 10:00:00,2026-06-28 10:00:00,5,2001,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #1 — referred by Emilia Pace
+Wren Ortiz,wren.ortiz554@gmail.com,(202) 259-2663,Dermal Fillers,Completed,2025-11-19 10:00:00,2026-05-17 10:00:00,5,3121,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #1 — referred by Emilia Pace
+Piper Dominguez,piper.dominguez92@icloud.com,(390) 245-8200,HydraFacial,New Inquiry,2026-06-24 10:00:00,2026-07-01 10:00:00,0,911,Standard,,,,,0,,Referral,REFERRAL CHAIN #1 — referred by Renata Hayes (chain root: Emilia Pace)
+Renata Drake,renata.drake523@yahoo.com,(468) 379-2761,Botox,New Inquiry,2026-06-01 10:00:00,,2,1227,Standard,,,,,0,,Referral,REFERRAL CHAIN #1 — referred by Emilia Quinn (chain root: Emilia Pace)
+Willa Aguilar,willa.aguilar864@icloud.com,(828) 708-8665,Botox + Fillers,VIP,2025-06-06 10:00:00,2026-07-09 10:00:00,8,10585,VIP,,Yes,Yes,,0,,Website,"REFERRAL CHAIN #2 — root client, referred 4 people"
+Tessa North,tessa.north890@gmail.com,(265) 633-5332,Botox,Completed,2025-11-07 10:00:00,2026-05-02 10:00:00,5,2676,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #2 — referred by Willa Aguilar
+Elena Beck,elena.beck133@gmail.com,(629) 586-1295,Dermal Fillers,Completed,2026-01-19 10:00:00,2026-06-23 10:00:00,4,2224,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #2 — referred by Willa Aguilar
+Andrea Cross,andrea.cross532@icloud.com,(782) 758-6513,Botox,Completed,2025-11-21 10:00:00,2026-05-15 10:00:00,4,4475,Standard,,Yes,,,0,,Referral,REFERRAL CHAIN #2 — referred by Willa Aguilar
+Poppy Cross,poppy.cross726@icloud.com,(499) 489-6857,HydraFacial,New Inquiry,2026-06-07 10:00:00,2026-07-23 10:00:00,0,761,Standard,,,,,0,,Referral,REFERRAL CHAIN #2 — referred by Tessa North (chain root: Willa Aguilar)
+Valentina Jaeger,valentina.jaeger559@outlook.com,(229) 797-6825,Botox,Completed,2026-06-11 10:00:00,,3,213,Standard,,,,,0,,Referral,REFERRAL CHAIN #2 — referred by Elena Beck (chain root: Willa Aguilar)
+Nova Hayes,nova.hayes923@gmail.com,(767) 235-6299,Botox + Fillers,VIP,2025-04-15 10:00:00,2026-07-01 10:00:00,10,12406,VIP,,Yes,Yes,,0,,Website,"REFERRAL CHAIN #3 — root client, referred 4 people"
+Emilia Solis,emilia.solis920@yahoo.com,(532) 382-9530,Botox,VIP,2025-12-08 10:00:00,2026-05-13 10:00:00,3,1539,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #3 — referred by Nova Hayes
+Ava North,ava.north36@outlook.com,(864) 361-4908,HydraFacial,VIP,2025-12-15 10:00:00,2026-06-11 10:00:00,5,3240,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #3 — referred by Nova Hayes
+Poppy Dominguez,poppy.dominguez588@gmail.com,(745) 791-8126,Botox,VIP,2025-11-04 10:00:00,2026-05-11 10:00:00,2,3627,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #3 — referred by Nova Hayes
+Ella Drake,ella.drake211@icloud.com,(863) 261-1390,Botox,Completed,2026-05-15 10:00:00,,0,1176,Standard,,,,,0,,Referral,REFERRAL CHAIN #3 — referred by Emilia Solis (chain root: Nova Hayes)
+Piper Ellis,piper.ellis193@gmail.com,(627) 816-5293,Consultation,New Inquiry,2026-03-22 10:00:00,2026-06-28 10:00:00,1,253,Standard,,,,,0,,Referral,REFERRAL CHAIN #3 — referred by Ava North (chain root: Nova Hayes)
+Ava Ford,ava.ford70@gmail.com,(323) 924-8484,Consultation,Completed,2026-03-06 10:00:00,,3,935,Standard,,,,,0,,Referral,REFERRAL CHAIN #3 — referred by Ava North (chain root: Nova Hayes)
+Sloane Rios,sloane.rios825@gmail.com,(577) 504-4664,Botox + Fillers,VIP,2025-04-25 10:00:00,2026-06-25 10:00:00,15,8823,VIP,,Yes,Yes,,0,,Website,"REFERRAL CHAIN #4 — root client, referred 3 people"
+Zoe Knox,zoe.knox836@yahoo.com,(598) 625-1336,HydraFacial,Completed,2026-02-08 10:00:00,2026-05-03 10:00:00,6,1625,Standard,,Yes,,,0,,Referral,REFERRAL CHAIN #4 — referred by Sloane Rios
+Willa Dominguez,willa.dominguez68@yahoo.com,(307) 989-5826,Botox,Completed,2025-10-22 10:00:00,2026-06-22 10:00:00,3,3585,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #4 — referred by Sloane Rios
+Valentina Beck,valentina.beck815@outlook.com,(742) 336-9719,Botox,VIP,2025-10-11 10:00:00,2026-05-10 10:00:00,6,3772,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #4 — referred by Sloane Rios
+Renata Adler,renata.adler788@outlook.com,(857) 541-3643,Consultation,Booked,2026-04-06 10:00:00,,1,41,Standard,,,,,0,,Referral,REFERRAL CHAIN #4 — referred by Zoe Knox (chain root: Sloane Rios)
+Nova Ford,nova.ford888@gmail.com,(465) 568-6823,HydraFacial,Booked,2026-06-15 10:00:00,,2,19,Standard,,,,,0,,Referral,REFERRAL CHAIN #4 — referred by Willa Dominguez (chain root: Sloane Rios)
+Emilia Drake,emilia.drake287@yahoo.com,(661) 838-3978,Botox,New Inquiry,2026-04-03 10:00:00,2026-07-16 10:00:00,2,1084,Standard,,,,,0,,Referral,REFERRAL CHAIN #4 — referred by Willa Dominguez (chain root: Sloane Rios)
+Valentina Ives,valentina.ives159@gmail.com,(674) 981-7652,Botox + Fillers,VIP,2025-03-23 10:00:00,2026-07-04 10:00:00,15,10035,VIP,,Yes,Yes,,0,,Website,"REFERRAL CHAIN #5 — root client, referred 2 people"
+Mariana Knox,mariana.knox817@outlook.com,(378) 427-6257,HydraFacial,Completed,2025-12-27 10:00:00,2026-07-04 10:00:00,6,3934,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #5 — referred by Valentina Ives
+Poppy Thorne,poppy.thorne672@icloud.com,(494) 984-4173,Botox,VIP,2026-02-27 10:00:00,2026-07-01 10:00:00,6,3445,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #5 — referred by Valentina Ives
+Willa Owens,willa.owens795@outlook.com,(548) 259-9592,Consultation,Completed,2026-03-20 10:00:00,2026-07-10 10:00:00,2,143,Standard,,,,,0,,Referral,REFERRAL CHAIN #5 — referred by Mariana Knox (chain root: Valentina Ives)
+Ella Ives,ella.ives317@gmail.com,(538) 673-4417,HydraFacial,Booked,2026-03-21 10:00:00,2026-06-19 10:00:00,1,732,Standard,,,,,0,,Referral,REFERRAL CHAIN #5 — referred by Poppy Thorne (chain root: Valentina Ives)
+Tessa Beck,tessa.beck705@yahoo.com,(794) 294-9196,Botox,Booked,2026-03-21 10:00:00,2026-06-24 10:00:00,0,660,Standard,,,,,0,,Referral,REFERRAL CHAIN #5 — referred by Poppy Thorne (chain root: Valentina Ives)
+Valentina Ives,valentina.ives35@yahoo.com,(994) 938-3867,Botox + Fillers,VIP,2025-05-06 10:00:00,2026-06-24 10:00:00,14,11999,VIP,,Yes,Yes,,0,,Website,"REFERRAL CHAIN #6 — root client, referred 4 people"
+Reese Pace,reese.pace263@icloud.com,(442) 293-2561,Dermal Fillers,Completed,2026-01-02 10:00:00,2026-06-20 10:00:00,3,3561,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #6 — referred by Valentina Ives
+Camila Knox,camila.knox472@yahoo.com,(341) 518-8463,HydraFacial,Completed,2025-12-08 10:00:00,2026-05-13 10:00:00,4,3599,Standard,,Yes,Yes,,0,,Referral,REFERRAL CHAIN #6 — referred by Valentina Ives
+Wren Vargas,wren.vargas604@outlook.com,(799) 306-8458,Consultation,Booked,2026-06-30 10:00:00,2026-07-10 10:00:00,3,750,Standard,,,,,0,,Referral,REFERRAL CHAIN #6 — referred by Reese Pace (chain root: Valentina Ives)
+Ruby Herrera,ruby.herrera62@yahoo.com,(626) 682-2586,Botox,Booked,2026-03-14 10:00:00,2026-07-20 10:00:00,3,743,Standard,,,,,0,,Referral,REFERRAL CHAIN #6 — referred by Reese Pace (chain root: Valentina Ives)
+Willa Cross,willa.cross187@gmail.com,(600) 445-9449,HydraFacial,Booked,2026-07-08 10:00:00,2026-07-12 10:00:00,0,1284,Standard,,,,,0,,Referral,REFERRAL CHAIN #6 — referred by Camila Knox (chain root: Valentina Ives)
+Mia Ford,mia.ford558@gmail.com,(347) 795-4183,Botox,New Inquiry,2026-06-05 10:00:00,,0,231,Standard,,,,,0,,Referral,REFERRAL CHAIN #6 — referred by Camila Knox (chain root: Valentina Ives)

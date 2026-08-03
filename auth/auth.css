@@ -1,0 +1,80 @@
+:root {
+  --auth-bg: #0c0a0d;
+  --auth-card: #15121a;
+  --auth-card-2: #1d1923;
+  --auth-border: #312a3a;
+  --auth-text: #ebe6dc;
+  --auth-strong: #f7f2e6;
+  --auth-muted: #a39c93;
+  --auth-faint: #6b6660;
+  --auth-accent: #a85664;
+  --auth-accent-2: #8ec5b6;
+  --auth-danger: #d88775;
+  --auth-shadow: 0 28px 80px rgba(0,0,0,.46);
+  --auth-font: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+[data-theme="light"] {
+  --auth-bg: #f7f3ec;
+  --auth-card: #fffdf7;
+  --auth-card-2: #fbf6ec;
+  --auth-border: #d9cdbc;
+  --auth-text: #1a1518;
+  --auth-strong: #090609;
+  --auth-muted: #5b5048;
+  --auth-faint: #94897e;
+  --auth-accent: #7e3e4d;
+  --auth-accent-2: #557066;
+  --auth-danger: #824032;
+  --auth-shadow: 0 24px 64px rgba(122,95,60,.20);
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; }
+body {
+  font-family: var(--auth-font);
+  color: var(--auth-text);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(168,86,100,.18), transparent 28%),
+    radial-gradient(circle at 82% 0%, rgba(142,197,182,.10), transparent 26%),
+    var(--auth-bg);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+a { color: inherit; }
+.auth-wrap { width: min(100%, 440px); }
+.auth-card {
+  border: 1px solid var(--auth-border);
+  background: color-mix(in srgb, var(--auth-card) 94%, transparent);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: var(--auth-shadow);
+}
+.auth-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 24px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 850; color: var(--auth-accent); }
+.logo-mark { width: 36px; height: 36px; display: grid; place-items: center; flex-shrink: 0; }
+.logo-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.back { color: var(--auth-muted); text-decoration: none; font-size: 13px; }
+.back:hover { color: var(--auth-strong); }
+.eyebrow { text-transform: uppercase; letter-spacing: .13em; color: var(--auth-accent-2); font-size: 11px; font-weight: 800; margin: 0 0 10px; }
+h1 { font-size: clamp(30px, 8vw, 44px); line-height: 1; letter-spacing: -0.03em; margin: 0 0 12px; color: var(--auth-strong); }
+.copy { color: var(--auth-muted); line-height: 1.6; margin: 0 0 22px; }
+.form { display: grid; gap: 12px; }
+label { display: grid; gap: 7px; color: var(--auth-muted); font-size: 13px; font-weight: 700; }
+input {
+  width: 100%; min-height: 46px; border-radius: 10px; border: 1px solid var(--auth-border);
+  background: var(--auth-card-2); color: var(--auth-strong); padding: 0 13px; font: inherit;
+}
+input:focus { outline: 3px solid color-mix(in srgb, var(--auth-accent) 22%, transparent); border-color: var(--auth-accent); }
+.btn { min-height: 46px; border: 1px solid transparent; border-radius: 10px; padding: 0 16px; font: inherit; font-weight: 850; cursor: pointer; }
+.btn.primary { background: var(--auth-accent); color: #fff8ef; }
+.btn.secondary { background: transparent; color: var(--auth-strong); border-color: var(--auth-border); }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.divider { display: flex; align-items: center; gap: 12px; color: var(--auth-faint); font-size: 12px; margin: 18px 0; }
+.divider:before, .divider:after { content: ''; height: 1px; background: var(--auth-border); flex: 1; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px; color: var(--auth-muted); font-size: 13px; }
+.row a { color: var(--auth-strong); font-weight: 800; text-decoration: none; }
+.status { display: none; margin-top: 14px; padding: 12px; border-radius: 10px; background: var(--auth-card-2); border: 1px solid var(--auth-border); color: var(--auth-muted); line-height: 1.45; }
+.status.show { display: block; }
+.status.error { color: var(--auth-danger); border-color: color-mix(in srgb, var(--auth-danger) 50%, var(--auth-border)); }
+.mode-toggle { position: fixed; right: 18px; top: 18px; width: 42px; height: 42px; border-radius: 999px; border: 1px solid var(--auth-border); background: var(--auth-card); color: var(--auth-strong); cursor: pointer; display: grid; place-items: center; }
+@media (max-width: 520px) { body { padding: 16px; align-items: start; padding-top: 24px; } .auth-card { padding: 22px; border-radius: 14px; } .auth-top { align-items: flex-start; } .mode-toggle { position: absolute; } }

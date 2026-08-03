@@ -1,0 +1,92 @@
+lead_id,business_name,city,state,country,website,domain,phone,email,specialty,niche,source,confidence
+MS-W9-001,Acne Clinic NYC,New York,NY,USA,https://acneclinicnyc.com,acneclinicnyc.com,(929) 490-7770,acneclinicnyc1@gmail.com,acne,MedSpa,websearch,HIGH
+MS-W9-002,Skin Rejuve by Tiffany,Los Angeles,CA,USA,https://www.skinrejuvebytiffany.com,skinrejuvebytiffany.com,(323) 346-9393,tiffany@skinrejuvebytiffany.com,acne,MedSpa,websearch,HIGH
+MS-W9-003,Dermaster Medical Aesthetic Clinic,Los Angeles,CA,USA,https://dermasterusa.com,dermasterusa.com,(213) 816-4768,info@dermasterusa.com,acne,MedSpa,websearch,HIGH
+MS-W9-004,Raw Rituale Med Spa,Denver,CO,USA,https://www.rawrituale.com,rawrituale.com,(303) 229-8292,audrey@rawrituale.com,acne,MedSpa,websearch,HIGH
+MS-W9-005,Orenda Med Spa,Castle Rock,CO,USA,https://orendamedspa.com,orendamedspa.com,(720) 519-0223,,acne,MedSpa,websearch,HIGH
+MS-W9-006,Beauty by Michelle Med Spa,Miami,FL,USA,https://beautybymichellemedspa.com,beautybymichellemedspa.com,(786) 717-0161,,acne,MedSpa,websearch,HIGH
+MS-W9-007,SkinLocal,Miami,FL,USA,https://theskinlocal.com,theskinlocal.com,(786) 701-8106,info@theskinlocal.com,acne,MedSpa,websearch,HIGH
+MS-W9-008,Beauty Bar Clinic West Hollywood,Los Angeles,CA,USA,https://beautybarclinic.com,beautybarclinic.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-009,My Med Spa LA,Los Angeles,CA,USA,https://www.mymedspala.com,mymedspala.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-010,VITAHL Medical Aesthetics Chicago,Chicago,IL,USA,https://vitahlchicago.com,vitahlchicago.com,(312) 634-6100,chicago@vitahl.com,prp,MedSpa,websearch,HIGH
+MS-W9-011,Refine by Tulsi,Chicago,IL,USA,https://refinebytulsi.com,refinebytulsi.com,(618) 298-8574,contact@refinebytulsi.com,prp,MedSpa,websearch,HIGH
+MS-W9-012,Soleil Medical and Beauty Spa,Portland,OR,USA,https://soleilmedicalspapdx.com,soleilmedicalspapdx.com,(503) 244-7717,info@soleilmedicalspa.com,prp,MedSpa,websearch,HIGH
+MS-W9-013,Toxxology Med Spa,Nashville,TN,USA,https://www.toxxology.com,toxxology.com,(615) 436-8699,,prp,MedSpa,websearch,HIGH
+MS-W9-014,VIP MedSpa Clinic,San Diego,CA,USA,https://vipmedspaclinic.com,vipmedspaclinic.com,(858) 451-6500,,prp,MedSpa,websearch,HIGH
+MS-W9-015,Enliven Aesthetics,San Diego,CA,USA,https://enlivenaesthetics.com,enlivenaesthetics.com,(858) 609-0866,info@enlivenaesthetics.com,prp,MedSpa,websearch,HIGH
+MS-W9-016,Cool MedSpa Miami,Miami,FL,USA,https://coolmedspamiami.com,coolmedspamiami.com,,,body-sculpting,MedSpa,websearch,HIGH
+MS-W9-017,Lavish Laser Medspa,Miami,FL,USA,https://lavishlasermedspa.com,lavishlasermedspa.com,(305) 846-7524,info@lavishlasermedspa.com,body-sculpting,MedSpa,websearch,HIGH
+MS-W9-018,AOB Med Spa,Greenwood Village,CO,USA,https://www.aobmedspa.com,aobmedspa.com,(303) 731-2149,info@aobmedspa.com,body-sculpting,MedSpa,websearch,HIGH
+MS-W9-019,Glow Medispa,Seattle,WA,USA,https://glowspaseattle.com,glowspaseattle.com,(206) 228-7281,info@glowspaseattle.com,body-sculpting,MedSpa,websearch,HIGH
+MS-W9-020,Lux Aesthetics Seattle,Seattle,WA,USA,https://luxaestheticsseattle.com,luxaestheticsseattle.com,(425) 331-9092,info@luxaestheticsseattle.com,body-sculpting,MedSpa,websearch,HIGH
+MS-W9-021,Prime Med Spa PDX,Portland,OR,USA,https://primemedspapdx.com,primemedspapdx.com,(971) 777-0303,infoprimemedspa@gmail.com,body-sculpting,MedSpa,websearch,HIGH
+MS-W9-022,Just Injected Medical Spa,Dallas,TX,USA,https://www.justinjected.com,justinjected.com,(469) 317-0555,justinelewis@justinjected.com,lip-filler,MedSpa,websearch,HIGH
+MS-W9-023,Skin Damsel Aesthetics,Dallas,TX,USA,https://skindamsel.com,skindamsel.com,(469) 828-1732,hello@skindamsel.com,lip-filler,MedSpa,websearch,HIGH
+MS-W9-024,Dermaluxe Spa,Houston,TX,USA,https://dermaluxespa.com,dermaluxespa.com,(832) 377-0030,contact@dermaluxespa.com,microblading,MedSpa,websearch,HIGH
+MS-W9-025,Radiance Medspa Atlanta,Atlanta,GA,USA,https://radiancemedspaatlanta.com,radiancemedspaatlanta.com,,,tattoo-removal,MedSpa,websearch,MEDIUM
+MS-W9-026,Touch Advanced Aesthetics,Phoenix,AZ,USA,https://touchadvancedaesthetics.com,touchadvancedaesthetics.com,,,tattoo-removal,MedSpa,websearch,MEDIUM
+MS-W9-027,Cascade Medical Spa,Portland,OR,USA,https://tattooremovalportlandor.com,tattooremovalportlandor.com,(503) 610-0562,,tattoo-removal,MedSpa,websearch,HIGH
+MS-W9-028,Radianté Spa Nashville,Nashville,TN,USA,https://radiantespa.com,radiantespa.com,(615) 239-0094,info@radiantespa.com,cellulite,MedSpa,websearch,HIGH
+MS-W9-029,Montrose Medspa,Houston,TX,USA,https://montrosemedspa.com,montrosemedspa.com,(713) 485-5027,info@montrosemedspa.com,luxury,MedSpa,websearch,HIGH
+MS-W9-030,Golden Diamond Medical Spa,Garland,TX,USA,https://goldendiamondmed-spa.com,goldendiamondmed-spa.com,,,luxury,MedSpa,websearch,MEDIUM
+MS-W9-031,Midtown Med Spa Toronto,Toronto,ON,Canada,https://www.midtownmedspa.ca,midtownmedspa.ca,(416) 440-0080,info@midtownmedspa.ca,vitamin-iv,MedSpa,websearch,HIGH
+MS-W9-032,Trove Wellbeing,Toronto,ON,Canada,https://trovewellbeing.com,trovewellbeing.com,(647) 805-9816,concierge@trovewellbeing.com,vitamin-iv,MedSpa,websearch,HIGH
+MS-W9-033,Atheria Wellness,Toronto,ON,Canada,https://www.atheriawellness.com,atheriawellness.com,,,vitamin-iv,MedSpa,websearch,MEDIUM
+MS-W9-034,Bardot Beauty Boutique,Calgary,AB,Canada,https://bardotbeauty.ca,bardotbeauty.ca,(403) 475-4025,,luxury,MedSpa,websearch,HIGH
+MS-W9-035,Regenerative MedSpa of Buckhead,Atlanta,GA,USA,https://regenmedspabuckhead.com,regenmedspabuckhead.com,(404) 816-8557,,vitamin-iv,MedSpa,websearch,HIGH
+MS-W9-036,Recharge Medspa Boston,Boston,MA,USA,https://rechargemedspa.com,rechargemedspa.com,,,vitamin-iv,MedSpa,websearch,MEDIUM
+MS-W9-037,Shirani Beauty Clinic,North Vancouver,BC,Canada,https://www.shiranibeauty.com,shiranibeauty.com,,,microblading,MedSpa,websearch,MEDIUM
+MS-W9-038,Brow Beauty Lab Vancouver,Vancouver,BC,Canada,https://browbeautylab.com,browbeautylab.com,,,microblading,MedSpa,websearch,MEDIUM
+MS-W9-039,Dr. Brows PMU Studio,Toronto,ON,Canada,https://www.drbrows.ca,drbrows.ca,,,microblading,MedSpa,websearch,MEDIUM
+MS-W9-040,MicroBladers Studio Las Vegas,Las Vegas,NV,USA,https://microbladers.com,microbladers.com,,,microblading,MedSpa,websearch,MEDIUM
+MS-W9-041,Mila Aesthetics Las Vegas,Las Vegas,NV,USA,https://milaaesthetics.com,milaaesthetics.com,,,microblading,MedSpa,websearch,MEDIUM
+MS-W9-042,House 22 Med Spa,Chicago,IL,USA,https://house22.com,house22.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-043,Essence Med Spa and Wellness,Chicago,IL,USA,https://essence-medspa.com,essence-medspa.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-044,Polaris Medical Aesthetics,Los Angeles,CA,USA,https://polarisaesthetics.com,polarisaesthetics.com,,,acne,MedSpa,websearch,MEDIUM
+MS-W9-045,Coco Medical Spa Miami,Miami,FL,USA,https://cocomedicalspa.com,cocomedicalspa.com,,,threading,MedSpa,websearch,MEDIUM
+MS-W9-046,Lush RX Med Spa,Houston,TX,USA,https://www.lushrx.com,lushrx.com,,,threading,MedSpa,websearch,MEDIUM
+MS-W9-047,Skin Synthesis Seattle,Seattle,WA,USA,https://skinsynthesis.com,skinsynthesis.com,,,luxury,MedSpa,websearch,MEDIUM
+MS-W9-048,Penelope and The Beauty Bar,Seattle,WA,USA,https://www.penelopeandthebeautybar.com,penelopeandthebeautybar.com,,,luxury,MedSpa,websearch,MEDIUM
+MS-W9-049,Renew Body Contouring MedSpa,Houston,TX,USA,https://renewbodycontouring.com,renewbodycontouring.com,,,cellulite,MedSpa,websearch,MEDIUM
+MS-W9-050,New You Cosmetic Centre,Toronto,ON,Canada,https://newyouspas.com,newyouspas.com,,,cellulite,MedSpa,websearch,MEDIUM
+MS-W9-051,The Skinny Spa Calgary Edmonton,Calgary,AB,Canada,https://theskinnyspa.ca,theskinnyspa.ca,,,body-sculpting,MedSpa,websearch,MEDIUM
+MS-W9-052,Bertucci MedSpa,Vaughan,ON,Canada,https://www.bertuccimedspa.com,bertuccimedspa.com,,,body-sculpting,MedSpa,websearch,MEDIUM
+MS-W9-053,Canada Body Sculpting,Toronto,ON,Canada,https://canadabodysculpting.ca,canadabodysculpting.ca,,,body-sculpting,MedSpa,websearch,MEDIUM
+MS-W9-054,Renovo Medispa,Toronto,ON,Canada,https://renovomedispa.com,renovomedispa.com,,,body-sculpting,MedSpa,websearch,MEDIUM
+MS-W9-055,Alinea Medical Spa,New York,NY,USA,https://www.alineamedicalspa.com,alineamedicalspa.com,,,acne,MedSpa,websearch,MEDIUM
+MS-W9-056,San Diego Acne Clinic,San Diego,CA,USA,https://sdacneclinic.com,sdacneclinic.com,,,acne,MedSpa,websearch,MEDIUM
+MS-W9-057,Beautiful Skin Denver,Denver,CO,USA,https://beautifulskindenver.com,beautifulskindenver.com,,,acne,MedSpa,websearch,MEDIUM
+MS-W9-058,DermaSpalogy Miami,Miami,FL,USA,https://www.dermaspalogy.com,dermaspalogy.com,,,acne,MedSpa,websearch,MEDIUM
+MS-W9-059,Avante Laser MediSpa,Houston,TX,USA,https://avantemedispa.com,avantemedispa.com,,,microblading,MedSpa,websearch,MEDIUM
+MS-W9-060,Atlanta Permanent Makeup Lab,Atlanta,GA,USA,https://www.atlantapermanentmakeuplab.com,atlantapermanentmakeuplab.com,,,microblading,MedSpa,websearch,MEDIUM
+MS-W9-061,Amalie Aesthetics Nashville,Nashville,TN,USA,https://www.amalieaesthetics.com,amalieaesthetics.com,,,cellulite,MedSpa,websearch,MEDIUM
+MS-W9-062,Natural Skincare Clinic Denver,Denver,CO,USA,https://www.naturalskincareclinic.com,naturalskincareclinic.com,,,acne,MedSpa,websearch,MEDIUM
+MS-W9-063,Beauti4Skin Medspa Houston,Houston,TX,USA,https://beauti4skin.com,beauti4skin.com,,,microblading,MedSpa,websearch,MEDIUM
+MS-W9-064,Elevate by Purifi Nashville,Nashville,TN,USA,https://purifinashville.com,purifinashville.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-065,AW Medspa Chicago,Chicago,IL,USA,https://www.awmedspa.com,awmedspa.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-066,Solve Clinics Chicago,Chicago,IL,USA,https://solveclinics.com,solveclinics.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-067,Kass Precision Medicine Seattle,Seattle,WA,USA,https://www.drkatekass.com,drkatekass.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-068,Beeson Wellness Portland,Portland,OR,USA,https://beesonwellness.com,beesonwellness.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-069,Ewa Medical Aesthetics Calgary,Calgary,AB,Canada,https://www.ewamedicalaesthetics.ca,ewamedicalaesthetics.ca,,,luxury,MedSpa,websearch,MEDIUM
+MS-W9-070,D and M Treatments Calgary,Calgary,AB,Canada,https://dmtreatments.com,dmtreatments.com,,,luxury,MedSpa,websearch,MEDIUM
+MS-W9-071,Viso Medi Spa Calgary,Calgary,AB,Canada,https://visoboutique.com,visoboutique.com,,,luxury,MedSpa,websearch,MEDIUM
+MS-W9-072,Skin Matters Vancouver,Vancouver,BC,Canada,https://www.skinmatters.ca,skinmatters.ca,,,lip-filler,MedSpa,websearch,MEDIUM
+MS-W9-073,Beauty Phi Calgary,Calgary,AB,Canada,https://www.beautyphi.com,beautyphi.com,,,lip-filler,MedSpa,websearch,MEDIUM
+MS-W9-074,CBAM Clinic Calgary,Calgary,AB,Canada,https://cbamclinic.com,cbamclinic.com,,,lip-filler,MedSpa,websearch,MEDIUM
+MS-W9-075,B Medical Spa San Diego,San Diego,CA,USA,https://bmedspa.com,bmedspa.com,,,vitamin-iv,MedSpa,websearch,MEDIUM
+MS-W9-076,Spark Health San Diego,San Diego,CA,USA,https://www.sparkhealth.com,sparkhealth.com,,,vitamin-iv,MedSpa,websearch,MEDIUM
+MS-W9-077,Rouge and Wright Phoenix,Phoenix,AZ,USA,https://rougeandwright.com,rougeandwright.com,,,vitamin-iv,MedSpa,websearch,MEDIUM
+MS-W9-078,Oasis Med Spa Phoenix,Phoenix,AZ,USA,https://oasismedspaaz.com,oasismedspaaz.com,,,vitamin-iv,MedSpa,websearch,MEDIUM
+MS-W9-079,Units Injection Spa Phoenix,Phoenix,AZ,USA,https://unitsinjectionspa.com,unitsinjectionspa.com,,,vitamin-iv,MedSpa,websearch,MEDIUM
+MS-W9-080,Elite IV Hydration Atlanta,Atlanta,GA,USA,https://eliteivhydrationandwellness.com,eliteivhydrationandwellness.com,,,vitamin-iv,MedSpa,websearch,MEDIUM
+MS-W9-081,Skinsanity MedSpa Denver,Denver,CO,USA,https://www.skinsanityco.com,skinsanityco.com,,,acne,MedSpa,websearch,MEDIUM
+MS-W9-082,Skincare 5280 Denver,Denver,CO,USA,https://www.skincare5280.net,skincare5280.net,,,acne,MedSpa,websearch,MEDIUM
+MS-W9-083,Cadella Aesthetics Chicago,Chicago,IL,USA,https://cadellaaesthetics.com,cadellaaesthetics.com,,,lip-filler,MedSpa,websearch,MEDIUM
+MS-W9-084,Ellehomme Holistic Med Spa,Chicago,IL,USA,https://ellehommespa.com,ellehommespa.com,,,lip-filler,MedSpa,websearch,MEDIUM
+MS-W9-085,The Confidence Bar Chicago,Chicago,IL,USA,https://www.theconfidencebar.com,theconfidencebar.com,,,lip-filler,MedSpa,websearch,MEDIUM
+MS-W9-086,Erased Laser Tattoo Removal Las Vegas,Las Vegas,NV,USA,https://erasedlasertattooremoval.com,erasedlasertattooremoval.com,,,tattoo-removal,MedSpa,websearch,MEDIUM
+MS-W9-087,Phoenix Tattoo Removal,Phoenix,AZ,USA,https://phoenixtattooremoval.com,phoenixtattooremoval.com,,,tattoo-removal,MedSpa,websearch,MEDIUM
+MS-W9-088,Take It Off PDX,Portland,OR,USA,https://www.takeitoffpdx.com,takeitoffpdx.com,,,tattoo-removal,MedSpa,websearch,MEDIUM
+MS-W9-089,Sky Balance Medical Spa Chicago,Chicago,IL,USA,https://www.skybalancemedspa.com,skybalancemedspa.com,,,prp,MedSpa,websearch,MEDIUM
+MS-W9-090,Wrinkle Fairy Chicago,Chicago,IL,USA,https://www.wrinklefairy.com,wrinklefairy.com,,,threading,MedSpa,websearch,MEDIUM
+MS-W9-091,Trio Med Spa Chicago,Chicago,IL,USA,https://triomedspa.com,triomedspa.com,,,threading,MedSpa,websearch,MEDIUM

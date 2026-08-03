@@ -1,0 +1,123 @@
+{
+    "name": "Instagram GROWTH (1/2) 📈",
+    "flow": [
+        {
+            "id": 4,
+            "module": "apify:runActor",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 1624764
+            },
+            "mapper": {
+                "actorId": "shu8hvrXbJbY3Eb9W",
+                "runSync": false,
+                "inputBody": "{    \"addParentData\": false,    \"directUrls\": [        \"https://www.instagram.com/chriswillx/\",        \"https://www.instagram.com/hormozi/\",        \"https://www.instagram.com/imangadzhireels/\"    ],    \"enhanceUserSearchWithFacebookPage\": false,    \"isUserTaggedFeedURL\": false,    \"onlyPostsNewerThan\": \"2024-05-23\",    \"resultsLimit\": 10,    \"resultsType\": \"posts\",    \"search\": \"Physiotherapy\",    \"searchLimit\": 15,    \"searchType\": \"hashtag\"}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 83,
+                    "y": -45
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Apify connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "apify"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "actorId": {
+                            "mode": "chose",
+                            "label": "apify/instagram-scraper"
+                        },
+                        "runSync": {
+                            "mode": "chose"
+                        },
+                        "memory": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:apify",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "actorId",
+                        "type": "select",
+                        "label": "Actor",
+                        "required": true
+                    },
+                    {
+                        "name": "runSync",
+                        "type": "boolean",
+                        "label": "Run synchronously",
+                        "required": true
+                    },
+                    {
+                        "name": "inputBody",
+                        "type": "text",
+                        "label": "Input JSON"
+                    },
+                    {
+                        "name": "build",
+                        "type": "text",
+                        "label": "Build"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout"
+                    },
+                    {
+                        "name": "memory",
+                        "type": "select",
+                        "label": "Memory",
+                        "validate": {
+                            "enum": [
+                                128,
+                                256,
+                                512,
+                                1024,
+                                2048,
+                                4096,
+                                8192,
+                                16384,
+                                32768
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com"
+    }
+}

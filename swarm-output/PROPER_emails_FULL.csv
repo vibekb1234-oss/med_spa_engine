@@ -1,0 +1,1165 @@
+lead_id,business_name,city,niche,to_email,research_finding,batch,step,send_day,subject,body,word_count
+1,Acuity,Atlanta,CPA,inbound@acuity.co,"2,600+ clients across 6 verticals: SaaS, ecom, agencies, crypto, medical practices, family offices",A,COLD,0,"Acuity's 6-vertical doc problem at 2,600 clients","Acuity's 2,600+ client base spans SaaS, ecom, crypto, agencies, medical practices, and family offices — each needing a completely different document list at onboarding and tax time.
+
+Your inbound@acuity.co catch-all gets the doc. It doesn't know which of those 6 checklists to run next.
+
+CPA Command Centre carries per-vertical doc list templates with Day 3/7/14 auto-escalation, plus a reply parser that strips received items from the outstanding list so your team never re-asks for something already in the inbox.
+
+Worth a 10-minute Loom of it running on synthetic Acuity SaaS-vertical data?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",68
+2,Insogna CPA,Austin,CPA,chase@insognacpa.com,Named to Inc. Regionals 2025 Southwest list; acquired by LedgerWay in 2025 — scaling nationally across TX/CA/GA/FL with ecom and owner-managed business clients,A,COLD,0,Post-LedgerWay doc chase at scale,"Chase — Inc. Regionals 2025 Southwest and a LedgerWay acquisition in the same year means your client count is climbing fast across Texas, California, Georgia, and Florida.
+
+More clients, same inbox. The tax-season doc chase doesn't scale with headcount the way revenue does.
+
+CPA Command Centre's Day 3/7/14 escalation sequence runs per client automatically — and the reply parser reads incoming emails to strip received docs from each client's outstanding list without anyone touching it.
+
+15 minutes to show you what that looks like on a realistic Austin ecom client profile?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",72
+3,Massey and Company CPA,Atlanta,CPA,gary.massey@masseyandcompanycpa.com,"IRS resolution and tax problem specialty — clients are often distressed small business owners dealing with liens, levies, audits, and payment plans",A,COLD,0,IRS resolution clients ghost doc requests too,"Gary — when a client is dealing with a tax lien or a levy, they're already avoidant. The documents you need to build their resolution case are the ones they're slowest to send.
+
+The standard follow-up email gets ignored. Three rounds of manual chasing later, deadlines slip.
+
+CPA Command Centre's Day 7 and Day 14 escalation emails are calibrated for urgency without being threatening — and a morning brief surfaces every stuck file so you see exactly who needs a call before the day starts.
+
+Worth 15 minutes to see it on a synthetic IRS-resolution client?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",77
+4,LGA LLP,Boston,CPA,info@lga.cpa,"Multi-vertical firm: construction/real estate, dental, nonprofits, high-net-worth individuals, tech — each with distinct doc requirements; 500-1,000 employees across 4 offices",A,COLD,0,LGA's cross-industry doc list problem,"LGA serves construction GCs, dental practices, nonprofits, HNW individuals, and tech companies out of four offices — five client profiles that each require a different document package at engagement.
+
+At your scale, someone is always re-asking for a W-2 that landed in the inbox three days ago.
+
+CPA Command Centre runs industry-specific doc list templates with a reply parser that auto-removes received items from each client's outstanding list, and a morning brief that flags every stuck engagement across the whole book.
+
+Happy to walk through what that looks like mapped to your construction or dental client flow.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",80
+5,Tristan CPA,Boston,CPA,info@tristancpa.com,"Explicitly positions around professional services firms — law firms, consultancies, agencies — where billable-hour pressure means clients resent time spent on accounting admin",A,COLD,0,Professional services clients hate doc requests,"Tristan CPA's whole pitch to professional services clients is that their time is billable — admin time is lost revenue.
+
+That cuts both ways. Every doc request email your team sends manually is unbillable time. Every client who ignores it costs a second and third follow-up.
+
+CPA Command Centre automates the Day 3/7/14 chase sequence and sends clients an auto-confirmation the moment their document lands — no back-and-forth, no 'did you get my W-2?' call.
+
+15 minutes to show you what that looks like for a Boston consulting firm client profile?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",76
+6,Atlanta MediSpa,Atlanta,MedSpa,info@atlantamedispa.com,"Family-owned 20+ years, two locations (East Cobb/Marietta and Buckhead), broad treatment menu: Botox, fillers, laser, SmartLipo, chemical peels, dermaplaning",A,COLD,0,20 years of clients who've never been asked for a review,"Atlanta MediSpa has been running two locations for over 20 years — that's a deep client base that's likely never received a systematic review ask or a reactivation sequence.
+
+Most of those clients are a single well-timed message away from rebooking or leaving a Google review that drives the next Botox inquiry.
+
+MedSpa Growth Engine triggers a 48-hour post-treatment review ask automatically, and a 90-day reactivation sequence for anyone who hasn't rebooked — no manual follow-up, no missed windows.
+
+Worth a quick look at what that would run on your East Cobb client list?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",79
+7,The AgeLess Center,Atlanta,MedSpa,info@theagelesscenter.com,"Allergan Top 250 nationwide + Top 10 in Georgia — heavy injectable focus (Botox, Juvederm, Kybella, Radiesse); ranked in top 1% for aesthetic services",A,COLD,0,Allergan Diamond status means your best clients are silent,"Being Allergan Diamond Top 10 in Georgia means your injectors are excellent — but that reputation doesn't spread automatically.
+
+Your top Botox and Juvederm clients finish a treatment and leave happy. They just don't tell anyone unless someone asks, and that ask almost never comes at the right moment.
+
+MedSpa Growth Engine fires a referral prompt 48 hours after a positive treatment, and a 90-day reactivation sequence for anyone who hasn't rebooked — timed to when the results are wearing off and they're already thinking about it.
+
+10 minutes to show you what that sequence looks like for a filler-focused practice?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",80
+8,Ecobel Med Spa,Atlanta,MedSpa,info@ecobelmedspa.com,"PDO thread specialty + 30-year expertise; combines Eastern natural skincare with Western medical practice; also runs hormone therapy, weight loss peptides, and IV treatments — unusually broad menu",A,COLD,0,PDO thread clients don't rebook themselves,"Ecobel's PDO thread specialty is a high-ticket service with a natural rebook window — results peak around 3 months and fade by 9 to 12.
+
+If you're not sending a reactivation message at 90 days, a significant share of those clients are quietly lapsing while your team focuses on new bookings.
+
+MedSpa Growth Engine triggers a 90-day reactivation sequence automatically per client, plus a 48-hour post-treatment review ask that builds the Google footprint your PDO thread expertise deserves.
+
+Worth 15 minutes to see it running on a thread-lift client profile?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",78
+9,Revolution by MKA,Atlanta,MedSpa,revolution@revolutionbymka.com,#1 EndoLift provider in the US; only provider of LightScan Fractional Laser in Georgia; Best MedSpa Decatur 4 consecutive years — Mike Kelleher PA-C is the clinical brand,A,COLD,0,Your EndoLift exclusivity doesn't market itself,"Mike — being the #1 EndoLift provider in the country and Georgia's only LightScan clinic means patients drive in specifically for you. The problem is every patient who leaves without telling three people is a missed referral for a procedure nobody else in the state offers.
+
+MedSpa Growth Engine fires a referral prompt 48 hours after treatment, timed to when results are visible and patients are most likely to share. The 90-day reactivation sequence catches anyone who hasn't rebooked before they book a less specialized competitor.
+
+10 minutes to show you what that looks like for a high-ticket laser client?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",82
+10,Truffles Aesthetics,Alpharetta,MedSpa,info@trufflesaesthetics.com,"Modern Luxury 2026 best in beauty winner; multiple Georgia locations; broad menu including Sculptra biostimulators, B12, TMJ/hyperhidrosis Botox, medical weight loss — unusually wide wellness-plus-aesthetics mix",A,COLD,0,Modern Luxury winner with a wide menu — hard to follow up on all of it,"Truffles just won Modern Luxury 2026 best in beauty across multiple Georgia locations — and a wide menu that runs from Sculptra to B12 shots to medical weight loss means your clients' natural rebook windows vary wildly.
+
+A weight loss patient has a different 90-day follow-up than a Sculptra patient. Manual follow-up can't track both.
+
+MedSpa Growth Engine runs a 90-day reactivation sequence per client, a 48-hour post-treatment review ask, and a VIP retention tier for high-frequency clients — all automated, no front-desk overhead.
+
+Happy to show you what that looks like across your Alpharetta location's client mix.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",82
+CPA-0439,SAL Accounting,Toronto,ecommerce CPA,tax@salaccounting.ca,SAL has served 230+ Shopify/Amazon sellers and publishes monthly settlement reconciliation and multi-state US sales tax compliance as core deliverables — featured in Yahoo Finance and Globe & Mail,B,COLD,0,230+ ecom clients — doc chasing is a second job,"Salman — SAL's 230+ Shopify/Amazon client base means chasing W-9s, sales-tax nexus docs, and settlement statements from dozens of clients simultaneously.
+
+CPA Command Centre's per-vertical doc templates auto-load the right checklist the moment a client is tagged ""ecommerce"" — and the reply parser strips received docs automatically, so no one's manually cross-checking inboxes.
+
+Worth a 15-minute look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",60
+CPA-0441,Think Accounting,Toronto,ecommerce CPA,info@thinkaccounting.ca,"Think Accounting serves e-commerce, startups, creative agencies, and medical practices — all four verticals with distinct doc requirements — and explicitly offers M&A and business-exit advisory on top of core bookkeeping",B,COLD,0,"4 client types, 4 doc lists — one generic follow-up","Think Accounting's four-vertical model (ecom, startups, agencies, medical) means your team context-switches between different document requirements all day while clients get the same generic follow-up.
+
+CPA Command Centre's per-vertical templates send ecom clients Shopify settlement prompts and startups SAFE + cap table prompts automatically. Day 3/7/14 escalation runs without manual follow-up per vertical.
+
+15 minutes to see it?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",61
+CPA-0442,Source Accounting,Toronto,ecommerce CPA,info@sourceaccounting.ca,"Source Accounting is led by a CPA with 20+ years of experience and positions itself as Canada's leading ecommerce accounting provider, serving Shopify, Etsy, and Amazon sellers with HST filing and CRA audit assistance",B,COLD,0,Ecom doc chasing — still manual?,"Your 20+ years in ecommerce accounting means you've watched the same cycle repeat: HST filing package, settlement exports, CRA audit docs — clients promise to send, then go quiet.
+
+CPA Command Centre's Day 14 escalation fires automatically on anything outstanding. Auto-confirmation hits the client the moment a document lands — no manual inbox monitoring.
+
+Your team does the work your 20 years is worth.
+
+15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",69
+CPA-0449,Serbinski Accounting,Toronto,cross-border CPA,info@serbinski.com,"Serbinski has 30+ years of US-Canada cross-border tax expertise with offices in Toronto and Chicago, licensed to practice in all US states and Canadian provinces",B,COLD,0,"Cross-border files — twice the docs, same inbox problem","Mark — Serbinski's 30-year cross-border practice means every file needs two jurisdiction doc sets. When one piece is missing, the whole file stalls.
+
+CPA Command Centre tracks Canadian and US outstanding docs separately per client. The reply parser auto-strips received items from both lists, and the morning brief shows exactly which file is stuck where.
+
+15 minutes for a walkthrough?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",63
+CPA-0453,Stern Cohen Accountants,Toronto,real estate CPA,info@sterncohen.com,"Stern Cohen has served real estate clients for over 60 years, with Partner Michael Jacobson specialising in commercial and residential real estate holdings and construction projects",B,COLD,0,60 years of real estate clients — doc chasing still costs you,"Stern Cohen's 60-year real estate practice means your team knows every document a file needs — title records, rental income statements, draw schedules — but getting clients to send them on time is different.
+
+CPA Command Centre's real estate doc template fires the right checklist automatically. Day 3/7/14 escalation runs without manual follow-up. Michael Jacobson's team sees every stuck file on one morning brief.
+
+15 minutes to see it live?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",73
+CPA-0458,CPA4IT,Toronto,IT consultant CPA,contact@cpa4it.ca,"CPA4IT was founded in 1984 by Andrew Wall CPA and specialises exclusively in cloud accounting services for IT consultants and independent contractors, with 20 staff and 40+ years serving the same niche",B,COLD,0,IT contractors are the worst at sending docs on time,"Andrew — 40 years of IT contractor clients means you know the drill: doc request lands in their inbox, sits there until email four.
+
+CPA Command Centre's Day 3/7/14 escalation fires automatically — no one on your team touches it. The reply parser strips confirmed docs the moment they're forwarded.
+
+Your staff handles the two genuinely stuck files, not all of them.
+
+15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",67
+CPA-0462,Tohme Accounting,Toronto,crypto CPA,samer@tohme-accounting.com,"Samer Tohme's firm tracks cost basis across multiple exchanges and handles dual CRA/IRS compliance — each client file requires transaction exports from multiple wallets, exchanges, and DeFi platforms",B,COLD,0,Multi-exchange doc collection — still manual?,"Samer — crypto files require exports from Binance, Coinbase, Ledger, and DeFi protocols — each different, often sent weeks apart.
+
+CPA Command Centre tracks every missing exchange export as a separate line item. Auto-confirmation fires when one lands. The morning brief shows exactly which file is waiting on which exchange.
+
+Dual CRA/IRS deadlines make late docs expensive. 15 minutes to see the crypto template?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",67
+CPA-0463,Block3 Finance,Toronto,crypto CPA,inquiry@block3finance.com,"Block3 Finance serves 980+ clients worldwide, earned #1 crypto accounting firm in North America recognition on Bitcoin.com in 2025, and handles NFT royalties, staking rewards, DeFi, and DAO accounting",B,COLD,0,"980 clients, each with a different wallet stack","Block3's 980+ clients span wallets, exchanges, DeFi, and DAOs — every file has a different combination of missing exports. A generic follow-up hits all of them the same way.
+
+CPA Command Centre tracks Binance, Coinbase, MetaMask, and staking reports as separate items per client. Day 14 escalation fires automatically. Your morning brief shows only genuinely stuck files.
+
+At 980 clients, that gap is your entire week.
+
+15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",71
+CPA-0465,Kreston GTA,Toronto,SR&ED CPA,info@krestongta.com,"Kreston GTA combines CPAs, engineers, and SR&ED specialists — their process requires detailed technical narratives and supporting documentation from clients, and they've had one client report a 40% increase in annual SR&ED claims through improved documentation",B,COLD,0,SR&ED files stall on documentation — before the claim even starts,"Kreston's SR&ED work needs two document categories from every client: financial records and technical project narratives. Both required; clients slow on both.
+
+CPA Command Centre runs separate outstanding lists for financial vs. technical. Day 3/7/14 escalation fires on each independently — engineers get the technical nudge, finance gets chased for T2 schedules, nothing crossed.
+
+15 minutes to see the SR&ED template?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",64
+CPA-0424,Gondaliya CPA,Toronto,general CPA,info@gondaliyacpa.ca,"Gondaliya CPA serves six distinct client verticals simultaneously: childcare operators (CWELCC), real estate corps, tech startups, diamond traders, ecommerce, and professional services — each with different doc requirements",B,COLD,0,"6 client verticals, 6 doc lists — one inbox to manage all of them","Gondaliya CPA's six verticals (CWELCC, real estate, SaaS, diamond traders, ecommerce, professional services) means your team switches between completely different document requirements all day.
+
+CPA Command Centre loads the right checklist the moment a client type is tagged — CWELCC clients get their audit-support list, ecommerce clients get Shopify prompts. Day 3/7/14 escalation runs automatically on each.
+
+15 minutes to see the multi-vertical setup?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",67
+MX-0234,Fort Funding Corp,Englewood Cliffs NJ,jumbo,mortgage@fortfunding.com,"Five offices across the tri-state area with NMLS#39463, serving NY/NJ/CT/PA/FL/CA — confirmed jumbo specialists with hundreds of lender relationships",D,COLD,0,Jumbo pipeline paperwork eating your day?,"Fort Funding runs jumbo files across five tri-state offices — that's a lot of doc chasing across a lot of borrowers. Mortgage Pipeline Machine's Day 3/7/14 escalation ladder auto-follows up on outstanding docs, with a rate-lock override that goes daily when expiry is ≤5 days away. Most brokers recover 4–6 hours a week. Worth a 15-minute look? — Bibek Bhandari, vibekb.1234@gmail.com",61
+MX-0193,Compass Mortgage,Chicago IL,fha,abbypetersdorf@compmort.com,"Locally-owned Chicago broker (Warrenville HQ) offering FHA, IHDA, and USDA — one of few in the market with FHA + state down-payment-assistance stacking",D,COLD,0,FHA borrowers ghost. Here's the fix.,"FHA borrowers tend to drag out the document stage — lower financial literacy, more conditions to satisfy. Mortgage Pipeline Machine sends the doc checklist automatically on intake, then escalates at Day 3, 7, and 14 with urgency-calibrated emails. When a doc arrives, the reply parser removes it from the outstanding list without you touching the CRM. 15-minute demo? — Bibek Bhandari, vibekb.1234@gmail.com",62
+MX-0200,The Reichert Mortgage Team,Colorado Springs CO,va,troy@reichertmortgage.com,"Troy Reichert: 20-year Air Force veteran, closed $45M+ in residential loans, runs the Pikes Peak Heroes program for veterans/military families in Colorado Springs",D,COLD,0,VA borrowers deserve better follow-up than a manual spreadsheet.,"Troy — fellow veterans need the white-glove experience your Pikes Peak Heroes program promises, but doc chasing manually doesn't scale. Mortgage Pipeline Machine auto-sends VA-specific document checklists on intake, tracks every file's stage, and emails rate-lock alerts daily when expiry is ≤5 days out. Your referral partners (real estate agents, VSOs) get automatic stage updates at Submitted, Approved, and Closed. 15 minutes? — Bibek Bhandari, vibekb.1234@gmail.com",66
+MX-0115,LendFriend Mortgage,Austin TX,bank-statement,eric@lendfriendmtg.com,"Founded 2023 by Eric Bernstein (Co-founder/President, $1B+ closed), launched a dedicated self-employed bank statement mortgage program — confirmed via press release on OpenPR",D,COLD,0,Self-employed borrowers send docs in pieces. This fixes it.,"Eric — LendFriend's bank statement program is exactly the niche where document chaos compounds: self-employed borrowers send one pay stub at a time for weeks. Mortgage Pipeline Machine's reply parser reads incoming emails, strips matched docs from the outstanding list automatically, and keeps a live checklist without manual CRM updates. Your pipeline stays clean while you focus on new business. 15-minute call? — Bibek Bhandari, vibekb.1234@gmail.com",66
+MX-0101,UHome Mortgage,Atlanta GA,investor,approveme@uhomemortgage.com,"Fix-and-flip and ground-up construction lender, funding up to $5M, closing in 7–14 days with 90% LTC — speed is the core value proposition",D,COLD,0,"If you close in 14 days, you can't afford a 7-day doc delay.","UHome's fix-and-flip value prop is speed — close in 7–14 days. One missing doc kills that promise. Mortgage Pipeline Machine's rate-lock override sends daily automated escalations when deadlines are ≤5 days out. Your morning brief shows every stuck file in one screen with one-click update buttons, so nothing slips past day three. Curious? — Bibek Bhandari, vibekb.1234@gmail.com",57
+MX-0108,Wendy Thompson Lending,Atlanta GA,first-time,clients@thewendythompsonteam.com,Wendy Thompson's team is licensed in all 50 states with a first-time buyer focus — reviewers specifically name hand-holding through each step as the team's differentiator,D,COLD,0,First-time buyers need hand-holding. Automation handles it.,"The Wendy Thompson team's reputation is built on guiding first-time buyers step-by-step — but doing that manually for every file doesn't scale. Mortgage Pipeline Machine sends the doc checklist automatically at intake, follows up on Day 3/7/14 with progressively firmer emails, and gives each client a self-serve portal to check their own status. Your team stays personal. The machine handles the repetition. 15 minutes? — Bibek Bhandari, vibekb.1234@gmail.com",68
+MX-0155,Access Reverse Mortgage Corp,Bradenton FL,reverse,inquiries@accessreversemortgage.com,"Founded 2005 by Mac and Pamela Tennant — both CRMP certified (one of only 101 nationwide, 10 in Florida); helped 1800+ Florida seniors; A+ BBB rated",D,COLD,0,"1,800 closed reverse files — are you staying in touch with them?","Mac — 1,800 closed reverse mortgage clients is a powerful base. Mortgage Pipeline Machine's post-close retention module sends anniversary check-ins at 11–12 months and refinance/HECM-to-HECM alerts at 24–30 months automatically. Most reverse brokers lose refi opportunities to competitors because follow-up falls off after closing. System runs on ~$20/month in tooling. Happy to show you? — Bibek Bhandari, vibekb.1234@gmail.com",58
+MX-0082,NM Mortgage Advisors,Albuquerque NM,general,sean@nm-mtg.com,Sean McMurtry closes loans in under 2 weeks consistently — reviewers cite speed and responsiveness; 277 five-star reviews on Birdeye,D,COLD,0,Closing in 2 weeks means your doc chase has to be flawless.,"Sean — closing loans in under 2 weeks is a serious brand promise. One slow document follow-up breaks it. Mortgage Pipeline Machine automates Day 3/7/14 doc-chase emails, parses client replies to auto-clear received docs, and sends a daily morning brief with rate-lock alerts so nothing sits overnight. Keeps your close speed intact without manually babysitting every file. Worth 15 minutes? — Bibek Bhandari, vibekb.1234@gmail.com",64
+MX-0083,Alliance Mortgage Solutions,Albuquerque NM,general,alex@alliancemortgagesolutions.com,Owner Alex is a former licensed realtor and financial coach who works with credit-challenged and underserved borrowers — personally guides each client through the process,D,COLD,0,"Credit-challenged borrowers need more touchpoints, not less.","Alex — clients you've coached from poor credit to homeownership need more nurturing than a standard pipeline, not less. Mortgage Pipeline Machine sends automated doc checklists on intake, escalates follow-ups at Day 3/7/14, and keeps a client portal where borrowers can check their own status and outstanding docs 24/7. Less hand-holding per file, more capacity for new clients. 15-minute call? — Bibek Bhandari, vibekb.1234@gmail.com",64
+MX-0084,Indigo Mortgage,Albuquerque NM,general,ben@indigomortgage.net,"Ben Lucero founded Indigo in 2003 with five dedicated loan divisions: Residential, VA, Reverse, Construction, and Commercial — each division operates as a specialist unit",D,COLD,0,Five divisions. One pipeline to keep organized.,"Ben — running five specialized divisions since 2003 means five separate document workflows, five sets of partner relationships, five follow-up cadences. Mortgage Pipeline Machine handles doc chase automation and partner stage-update emails across all of them from one system. Referral partners get Submitted/Approved/Closed emails automatically. Post-close retention runs itself. 20-minute walkthrough worth it? — Bibek Bhandari, vibekb.1234@gmail.com",57
+CPA-0079,Achen Henderson CPAs,Calgary,medical,info@achenhenderson.ca,"Dedicated doctors accounting page — specialist services for GPs, surgeons, and medical professional corporations in Alberta, including incorporation, tax planning, and cloud bookkeeping.",F,COLD,0,Your medical clients are chasing docs. Here's what's chasing them.,"Hi,
+
+Your doctors page covers medical professional corporations, T4A reconciliation, and cloud bookkeeping — smart niche. The persistent friction: physicians are slow senders. Bank statements, shareholder loan schedules — they reply two weeks late then forget what they sent.
+
+CPA Command Centre's Day 3/7/14 doc-chase escalation auto-follows up, and the reply parser strips received docs the moment they land in your inbox. Morning brief shows exactly what's still missing.
+
+Setup: 5–7 days. 15-minute look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",74
+CPA-0081,Quadrant Accounting,Calgary,construction,info@quadrantaccounting.ca,"Boutique Calgary firm serving small business owners with tax, valuation, and wealth planning — described as 'purposefully boutique' with a hands-on owner-centric approach.",F,COLD,0,Construction clients forget docs. Your mornings shouldn't be about chasing them.,"Hi,
+
+Quadrant's boutique setup means you're personally managing document flow for every client — fine until WCB certificates, T5018 contractor slips, and holdback statements pile up at March crunch.
+
+CPA Command Centre handles the chasing. Day 3/7/14 reminders go out automatically. When a client replies with an attachment, the reply parser removes it from their outstanding list and sends confirmation. One clean morning brief of what's still missing.
+
+5–7 day setup. 15 minutes to see it?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",76
+CPA-0087,Blasetti Broyles LLP,Calgary,construction,info@bbbcpa.ca,"Partners Randal Blasetti and Bryan Broyles bring 75+ combined years in public practice; firm explicitly serves construction, agriculture, restaurants, and manufacturing clients.",F,COLD,0,75 years of practice experience — still manually chasing T5018s?,"Hi Bryan / Randal,
+
+75 combined years serving construction, manufacturing, and restaurants — you've seen every version of the same problem: clients who promise docs 'this week' and arrive three reminders later.
+
+CPA Command Centre sends Day 3/7/14 escalating follow-ups automatically. The reply parser detects received attachments and removes them from each client's outstanding list in real time. One morning brief shows what's still missing.
+
+Worth 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",68
+CPA-0091,Webtaxonline,Calgary,dental,contact@webtaxonline.ca,"Dedicated dental accounting service — helps dentists minimize tax burden, structure professional corporations, and handle corporate/personal tax planning across Calgary and Toronto offices.",F,COLD,0,Dentists are terrible at sending docs. You already know this.,"Hi,
+
+Your dental page covers incorporation, tax deferral, professional corp planning — solid. What it doesn't mention is the 11th reminder you send before a dentist uploads their associate pay stubs in April.
+
+CPA Command Centre's Day 3/7/14 escalating follow-ups go out automatically. When the client replies, the reply parser strips received items off their checklist and fires a confirmation. One morning brief. Everything missing is visible.
+
+5–7 days to deploy. 15-minute call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",73
+CPA-0092,Shajani LLP,Calgary,restaurant,AR@shajani.ca,"Founded 1984 — 40+ year Calgary CPA firm offering accounting, assurance, tax, and consulting; explicitly lists restaurants/bars among served industries.",F,COLD,0,40 years in practice — how much of that was chasing POS reports?,"Hi,
+
+Shajani's 40-year track record is genuinely impressive. The one thing four decades hasn't fixed: restaurant clients sending daily sales exports, GST records, and supplier invoices in a single disorganized email at 11pm.
+
+CPA Command Centre auto-sends a per-vertical doc checklist on intake, then escalates at Day 3, 7, and 14. The reply parser reads inbound emails and removes matched items from each client's outstanding list.
+
+Setup: 5–7 days. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",71
+CPA-0084,True North Accounting,Calgary,construction,matt@truenorthaccounting.com,"Calgary CPA firm focused on construction and trades — principal Matt reachable directly; serves contractors, trades businesses, and builders with bookkeeping and tax compliance.",F,COLD,0,Construction doc chasing is eating your admin hours.,"Hi Matt,
+
+True North's focus on trades means you know this well: a framer sends three receipts in a text, a GC emails a blurry T5018 in March, and you're manually reconciling what arrived versus what's outstanding.
+
+CPA Command Centre auto-follows up at Day 3, 7, and 14. The reply parser detects attached files and removes those items from the checklist. You get one morning brief — no manual tracking.
+
+5–7 days to deploy. 15-minute call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",76
+CPA-0564,Manning Elliott LLP,Vancouver,SR&ED,info@manningelliott.com,Dedicated SR&ED consulting practice with a 100% CRA acceptance rate and 2% review rate — principal Michael Weatherby featured in Business in Vancouver for SR&ED expertise.,F,COLD,0,100% SR&ED acceptance rate. Does your doc intake match?,"Hi,
+
+Business in Vancouver covered Manning Elliott's SR&ED practice — 100% CRA acceptance rate and a 2% review rate is rare.
+
+The weak point at SR&ED firms: technical staff are expert consultants but inconsistent document gatherers. Expense logs, payroll breakdowns, project time records trickle in over weeks.
+
+CPA Command Centre's per-vertical SR&ED checklists, Day 3/7/14 escalation, and reply parser keep every client's outstanding list current — no admin chasing.
+
+15 minutes to see how it integrates?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",76
+CPA-0572,Walsh King LLP,Vancouver,construction,kwalsh@walshking.com,"30+ year independent Vancouver CPA firm; GGI global alliance member; explicitly serves construction, manufacturing, and transport clients in BC and internationally.",F,COLD,0,"GGI member, 30 years in construction accounting — still tracking docs manually?","Hi,
+
+Walsh King's GGI membership and 30-year construction, manufacturing, and transport track record is a real differentiator. The operational gap: construction clients generate high document volume — progress billings, WCB clearances, contract summaries — and tracking received versus outstanding becomes manual admin.
+
+CPA Command Centre's Day 3/7/14 escalation and reply parser automate that intake loop. One morning brief shows your team exactly what's still missing.
+
+15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",67
+CPA-0254,Shemie CPA,Montreal,real-estate,charles@shemie.ca,"Founded by Charles Shemie (McGill CPA, CA, 1986) — 35+ years specializing in real estate accounting and tax advisory for property investors across Montreal, Toronto, and Calgary.",F,COLD,0,35 years of real estate accounting. Rental schedules still come in late?,"Hi Charles,
+
+35 years building a real estate specialty — T776 schedules, principal residence designations, HST/QST rebate tracking across Montreal investors is complex, detailed work.
+
+The friction: real estate clients are slow with rent rolls, mortgage statements, and expense logs. CPA Command Centre's Day 3/7/14 doc-chase escalation and reply parser auto-remove received items from each client's outstanding list the moment they arrive.
+
+15-minute call to see it?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",67
+CPA-0265,Emergex Subsidies,Montreal,SR&ED,info@emergex.com,Montreal SR&ED consultancy since 1994 — 98% success rate; self-described as #1 firm for SR&ED claims in software and IT; has helped clients recover hundreds of millions in government credits.,F,COLD,0,98% SR&ED success rate since 1994. Is your document intake that clean?,"Hi,
+
+Since 1994, Emergex has built the #1 track record in software and IT SR&ED claims — 98% success over 30 years.
+
+The operational gap at claims firms this size: technical staff nail the R&D narrative, but getting clients to submit payroll records, subcontractor invoices, and experimental-activity logs on time is a separate battle. CPA Command Centre's Day 3/7/14 escalation and reply parser automate that intake loop entirely.
+
+5–7 day setup. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",73
+SC-W11-028,CrossFit Paragon,Atlanta,Gym,nate@crossfitparagon.com,Nate Taylor opened CrossFit Paragon in 2008 as the 10th CrossFit affiliate in Georgia and is a 2017 CrossFit Games champion,G,COLD,0,Nate — the members you're losing between classes,"You built one of Georgia's first CrossFit boxes from scratch in 2008 — but even elite communities bleed members quietly. The drop-off usually hits at 3 months: attendance dips, no one notices until they've already gone. Our 90-day reactivation sequence catches lapsed members automatically and brings them back before they cancel. Takes 20 minutes to set up. Want to see how it runs?",63
+SC-W11-020,LIFT CHICAGO,Chicago,Gym,info@lift-chicago.com,RESEARCH-THIN: boutique private-training gym in River North/Lincoln Park; owner name not publicly confirmed,G,COLD,0,LIFT — recovering members who ghost after the first month,"Private training gyms in Chicago lose most trial members inside 30 days — not because the product is wrong, but because no one follows up systematically after the intro session. We automate a 90-day reactivation sequence and a referral prompt for your most active members, so new revenue comes from people already sold on you. 15-minute call to show you the numbers?",62
+SC-W11-018,CrossFit Wynwood,Miami,Gym,info@crossfitwynwood.com,"Owner Bill Ohlsen has run CrossFit Wynwood since September 2017 — introduced to CrossFit by his son Noah Ohlsen, a perennial CrossFit Games top-10 finisher",G,COLD,0,Bill — no-show recovery for your Wynwood community,"Running a box in Wynwood whose reputation is tied to Noah Ohlsen's name means members expect more than a class reminder text. We automate 24-hour class reminders, no-show recovery nudges, and a referral prompt for members who hit milestone classes — the kind of follow-up that keeps a community tight without you managing it manually. Worth a quick look?",59
+SC-W11-014,Brooklyn Yoga Project,New York,Gym,studio@brooklynyogaproject.com,Founder Ossi Raveh opened Brooklyn Yoga Project in Carroll Gardens after co-founding the Sage and Spirit Pilates/Gyrotonic studio in NYC,G,COLD,0,Ossi — the students you lose between 5- and 10-class packs,"Carroll Gardens studios live on repeat bookings, but the gap between a 5-pack finishing and a student buying their next one is where you lose them. We run automated milestone check-ins after class 5 and 10, a reactivation sequence for anyone who goes quiet for 30+ days, and a post-class review ask that builds your Google profile without you chasing it. Want to see the flow?",66
+SC-W11-063,Dwell360,Boston,RealEstate,Ed@Dwell360.com,Co-founders Edward Johnston and John Lynch launched Dwell360 in 2010 after being recognized as the top residential sales team at a major Newton brokerage; licensed in MA and RI,G,COLD,0,Ed — the docs that stall your Newton closings,"Twenty years building the top team in Newton and you still lose a week per file waiting on downpayment proof or ID from buyers who swear they'll send it tonight. We automate a buyer-side doc chase with Day 3/7/14 escalation, plus a post-close anniversary sequence that brings past clients back before they call someone else. Takes one afternoon to set up. Worth 15 minutes?",64
+SC-W11-061,The Agency Dallas,Dallas,RealEstate,dallas@theagencyre.com,Damon and Megan Williamson founded The Agency Dallas in January 2023; projected $492M in transaction volume for 2025 at an average sale price of $822K,G,COLD,0,Damon — keeping clients warm across a $492M pipeline,"At $492M projected volume and an $822K average sale price, a single client who goes quiet mid-transaction is a six-figure problem. We automate closing-day client communication, seller-side prep doc lists, and a post-close market update sequence that re-lists past clients before a competitor gets to them. Built for fast-scaling boutique teams. Quick call this week?",55
+SC-W11-046,PSR Brokerage,Toronto,RealEstate,info@psrbrokerage.com,Arif Manji founded PSR Brokerage in 2008 as 'Private Service Realty' with five agents; it has since surpassed $8 billion in total sales and won Luxury Lifestyle Awards for Toronto's premier luxury boutique brokerage,G,COLD,0,PSR — the doc gaps slowing your pre-con closings,"After $8 billion in sales you know exactly where deals stall: buyer docs that trickle in over two weeks instead of two days. We run automated doc-chase sequences with Day 3/7/14 escalation on every file, plus referral partner stage updates so your mortgage brokers and lawyers are never guessing where a deal sits. Want to see how it works on a pre-con pipeline?",63
+SC-W11-081,Sullivan & Galleshaw,New York,Law,Info@SullivanGalleshaw.com,"Sullivan & Galleshaw's attorneys are members of the Million Dollar Advocates Forum (fewer than 1% of US attorneys) and have been quoted on Fox News, NBC 4 NY, and the NY Post",G,COLD,0,Sullivan & Galleshaw — intake docs that stall before discovery,"A Million Dollar Advocates firm shouldn't be chasing retainer agreements and ID by text. We automate client intake doc collection with Day 3/7/14 escalation for slow signers, auto-confirmation when docs land, and a morning brief showing every file stuck at intake — so your attorneys spend time on strategy, not paper-chasing. 15-minute demo this week?",55
+SC-W11-088,Diggs & Sadler,Houston,Law,info@texasadvocates.com,Judith Sadler is board-certified by the Texas Board of Legal Specialization in Labor and Employment Law with 30+ years of experience; the firm is recognized as one of the largest family law practices in Texas,G,COLD,0,Diggs & Sadler — the intake backlog costing billable hours,"One of Texas's largest family law firms still loses billable hours every week waiting on retainer docs, ID, and evidence from new clients. We automate intake doc collection with Day 3/7/14 escalation, auto-confirm when packets arrive, and surface a daily morning brief of every file stuck before discovery starts. Setup is one afternoon. Want to see it?",57
+SC-W11-104,Tenge Law Firm,Denver,Law,info@tengelaw.com,Founder Todd Tenge has run the firm since 1992 and has recovered over $75 million for Colorado accident victims; rated 10.0/10 on Avvo with a Martindale-Hubbell AV Preeminent rating,G,COLD,0,Todd — intake gaps between the accident call and the signed retainer,"Thirty-plus years and $75M recovered — but the gap between a new accident inquiry and a signed retainer is still where cases slip to the next firm that follows up faster. We automate intake doc collection with Day 3/7/14 escalation, confirm receipt automatically, and send a daily brief of files stuck at intake so nothing falls through. Worth 15 minutes to see it?",63
+SC-W14-010,Partners Marketing Group,Atlanta,MarketingAgency,info@partnersmg.com,Boutique Atlanta agency since 2001; deliberately caps client roster at ~10 clients to maintain white-glove service,H,COLD,0,Your 10-client roster deserves better than chasing brand assets via email,"Hi Jamie,
+
+Partners Marketing Group caps at roughly 10 clients on purpose — every new onboarding matters. But if you're still emailing back and forth to collect logos, logins, and brand briefs, that intake friction costs you hours per client.
+
+Our client onboarding doc-collection system sends a structured checklist on day one, escalates automatically on day 3 and 7, and logs everything — so you hit kickoff ready, not waiting.
+
+Worth a 15-minute look? Bibek Bhandari | vibekb.1234@gmail.com",72
+SC-W14-011,Syrup Marketing,Atlanta,MarketingAgency,info@syrupmarketing.com,B2B SaaS-focused agency founded by Benj Miller in 2004; specializes in marketing automation and sales process for mid-market brands,H,COLD,0,You automate B2B sales pipelines — who's automating yours?,"Hi Benj,
+
+Syrup has been building marketing automation stacks for B2B SaaS companies since 2004. You know the irony: agencies that sell process rarely have it for their own retainer renewals.
+
+Our retainer renewal nudge fires 60 days before contract end, and project milestone emails update clients automatically so your team isn't writing status updates manually.
+
+Happy to show you the setup in 15 minutes. Bibek Bhandari | vibekb.1234@gmail.com",68
+SC-W14-012,id8 Agency,Atlanta,MarketingAgency,info@id8agency.com,"Award-winning boutique brand agency in Marietta led by President Kriston Sellier; founded in 2000 as Sellier Design, rebranded id8 in 2009",H,COLD,0,Kriston — brand agencies shouldn't chase clients for files,"Hi Kriston,
+
+id8 has spent 20+ years helping mid-market brands communicate clearly. But when every project kicks off with a back-and-forth email chain collecting logos, guidelines, and login credentials, the onboarding process undermines the brand experience you promise clients.
+
+Our intake doc-collection system sends a structured asset request on day one, follows up on day 3 and 7 automatically, and closes the loop before your first strategy call.
+
+15 minutes? Bibek Bhandari | vibekb.1234@gmail.com",74
+SC-W14-013,Joseph Studios,Atlanta,MarketingAgency,info@josephstudios.net,"Named a leading Digital Marketing & PR Agency in Atlanta by Clutch; uses proprietary Deep Insight methodology to build organic campaigns for healthcare, tech, and entertainment clients",H,COLD,0,Deep Insight methodology deserves a cleaner client reporting loop,"Hi there,
+
+Joseph Studios earned its Clutch recognition by going deeper than surface demographics — your Deep Insight approach is genuinely differentiated. But if monthly reporting still means someone compiling stats and drafting recap emails by hand, that's hours your team should be spending on strategy.
+
+Our monthly reporting digest automation pulls the data and sends branded performance summaries on a set schedule — zero manual assembly.
+
+Worth 15 minutes? Bibek Bhandari | vibekb.1234@gmail.com",73
+SC-W14-074,D Ward Insurance,Atlanta,InsuranceBroker,dward@dwardinsurance.com,Owner Debbie Ward AAI has run this family-owned independent agency since 1999; serves commercial and personal lines across Georgia and the Southeast,H,COLD,0,Debbie — how many renewal calls does your team make manually each week?,"Hi Debbie,
+
+Family-owned agencies like D. Ward Insurance live on renewals and referrals — one missed 30-day renewal touch can hand a client to a competing carrier.
+
+Our renewal reminder automation sends policy holders personalised emails at 90, 60, and 30 days out automatically, then flags anyone who hasn't responded for a human follow-up. No spreadsheet tracking, no dropped clients.
+
+Would a 15-minute walkthrough make sense? Bibek Bhandari | vibekb.1234@gmail.com",72
+SC-W14-071,Watkins Insurance Group,Austin,InsuranceBroker,sheila@watkinsinsurancegroup.com,"Patrick Watkins leads this Austin agency founded in 1949; elected as an Assurex Global partner, serving niches including biotech, nonprofits, construction, and private-client lines",H,COLD,0,Assurex-caliber service deserves automated renewal follow-through,"Hi Sheila,
+
+Watkins Insurance Group's Assurex Global membership signals a commitment to independent, high-touch service. But when renewal reminders still depend on a team member checking a spreadsheet, niche commercial clients — biotech, nonprofits, construction — get the same generic experience every carrier offers.
+
+Our renewal reminder automation sends 90/60/30-day policy-specific emails and escalates non-responders to your producers automatically.
+
+15 minutes to see it? Bibek Bhandari | vibekb.1234@gmail.com",71
+SC-W14-072,Britton and Britton Insurance,Austin,InsuranceBroker,riley@brittonandbritton.com,"Family-owned Texas agency founded in 1985 by Robert Britton; RC Britton now serves as President; independently serves Austin, San Antonio, and San Marcos with personal-lines focus on Texas homeowners",H,COLD,0,Texas renewals move fast — RC's team shouldn't be chasing them manually,"Hi Riley,
+
+Britton & Britton has been protecting Texas homeowners since 1985. With hail seasons accelerating claims conversations, your producers can't afford to let a renewal reminder slip through because someone forgot to pull the list.
+
+Our cross-sell and renewal automation emails auto-policies holders at 90, 60, and 30 days, and fires a home/life suggestion to existing auto clients — all without touching a spreadsheet.
+
+Worth 15 minutes? Bibek Bhandari | vibekb.1234@gmail.com",73
+SC-W14-094,Rollins Financial Advisors,Atlanta,FinancialAdvisor,invest@rollinsfinancial.com,"Founded by Joe Rollins in 1990; recognized by CNBC and Financial Times; fee-only RIA offering investment counseling, tax, and estate services from Atlanta",H,COLD,0,CNBC-recognized RIA — is tax-doc collection still a manual crunch?,"Hi Joe,
+
+Rollins Financial's CNBC and Financial Times recognition is built on transparent, fee-only service. But if tax season still means your team emailing clients one-by-one for W-2s, brokerage statements, and K-1s — with follow-ups tracked in someone's inbox — that friction contradicts the professionalism clients pay for.
+
+Our tax-season doc collection automation sends structured requests on Day 1, follows up on Day 3 and 7, and logs every receipt.
+
+15-minute walkthrough? Bibek Bhandari | vibekb.1234@gmail.com",76
+SC-W14-095,Inspire Financial Planning,Atlanta,FinancialAdvisor,jeff@inspirefp.net,"Jeff Headrick AIF founded Inspire Financial Planning; boutique fiduciary RIA serving HNW clients across Atlanta, NYC, Boston, and 8 other cities via Charles Schwab and Vanguard custody",H,COLD,0,Jeff — multi-city HNW practice needs quarterly reviews that schedule themselves,"Hi Jeff,
+
+Running a fiduciary RIA across Atlanta, New York, Boston, and eight other cities means quarterly review scheduling alone is a coordination headache. If your team is sending calendar invites and chasing confirmations manually for every HNW household, that's real hours lost per quarter.
+
+Our quarterly review scheduling automation sends personalised invites, follows up on non-responses, and populates your calendar without a back-and-forth thread.
+
+Worth a 15-minute look? Bibek Bhandari | vibekb.1234@gmail.com",77
+SC-W14-096,The Advisory Firm,Atlanta,FinancialAdvisor,info@theadvisoryfirm.net,"James Daniel CFP/CFA/CMT/EA runs this Alpharetta fee-only RIA; NAPFA-registered fiduciary offering planning, investment management, and in-house tax prep under a No Stress Retirement brand",H,COLD,0,James — in-house tax prep means doc collection season is every season,"Hi James,
+
+Combining CFP planning, investment management, and EA-level tax prep under one roof is rare. The tradeoff: your team collects documents from clients more often than a single-service firm, and one un-followed-up request delays both the tax return and the financial plan.
+
+Our tax-season doc collection automation sends requests Day 1, escalates Day 3 and Day 7, and logs every confirmed receipt — so nothing stalls the plan.
+
+15 minutes? Bibek Bhandari | vibekb.1234@gmail.com",76
+SVC-W47-032,Top Notch CEO,Dallas,coach,Stephie@TopNotchCEO.com,Dr. Stephie Althouse created the proprietary Brilliance Extraction™ methodology to turn client expertise into tangible assets,I,COLD,0,Your Brilliance Extraction clients deserve a smoother intake,"Dr. Althouse — found your Brilliance Extraction™ system while researching Dallas executive coaches. That methodology is sophisticated. What's probably not sophisticated: chasing new clients for intake questionnaires and goal-setting docs before session one. I automate that entire intake loop plus 24hr session-prep reminders, so your clients arrive prepared every time. Worth a 15-minute call? — Bibek Bhandari | vibekb.1234@gmail.com",61
+SVC-W47-035,Wendy Lynne Life Coach,Seattle,coach,wendy@wendylynne.com,Wendy uses Internal Family Systems (IFS) combined with neuroscience-based coaching — a distinctive dual-modality approach,I,COLD,0,IFS clients need prep — here's how to automate it,"Wendy — your IFS + neuroscience coaching blend stood out immediately. Clients doing that depth of parts work need to arrive ready, not scrambling. I set up automated 24hr session-prep reminders and post-session homework follow-ups so the between-session integration actually happens. Re-engagement sequences for paused clients too. Runs in the background while you coach. 15 minutes? — Bibek Bhandari | vibekb.1234@gmail.com",67
+SVC-W47-059,Nova Psychotherapy,Boston,therapist,contact@novapsychotherapy.com,"Nova is a boutique Back Bay private practice specializing in trauma, anxiety, and relational challenges using integrative psychodynamic and CBT approaches",I,COLD,0,Intake paperwork bottleneck — Nova Psychotherapy,"Hi — Nova's integrative approach to trauma and anxiety is well-regarded in Back Bay. One thing I see slow down practices like yours: clients waiting days for intake paperwork, then no-showing because there was no reminder. I automate HIPAA-compliant intake collection and 24hr appointment reminders, plus a quiet re-engagement sequence for clients who go quiet. No chart changes, no EHR replacement. Quick call? — Bibek Bhandari | vibekb.1234@gmail.com",73
+SVC-W47-064,Seattle Anxiety Specialists,Seattle,therapist,info@seattleanxiety.com,Seattle Anxiety Specialists uses evidence-based CBT trained through the Beck Institute — multiple therapists with specialized CBT and ERP certifications,I,COLD,0,Beck Institute-trained practice — one admin gap worth fixing,"Hi — Seattle Anxiety Specialists' Beck Institute CBT training is a real differentiator for evidence-based anxiety care. One place that training goes to waste: clients who go dark between booking and session one. I handle HIPAA-compliant intake collection, 24hr appointment reminders, and no-show recovery automatically. No disruption to your clinical workflow. Worth 15 minutes? — Bibek Bhandari | vibekb.1234@gmail.com",68
+SVC-W47-077,WATTAGE West Loop,Chicago,trainer,info@wattagept.com,Owner Aaron is a former Chicago Lions Rugby Strength & Conditioning coach who has trained Olympic bronze medalist Gracie Gold and Paralympic bronze medalist Melissa Stockwell,I,COLD,0,Olympic-caliber clients deserve Olympic-caliber follow-up,"Aaron — training Gracie Gold and Melissa Stockwell takes a completely different level of programming. Does your follow-up match that standard? I automate 24hr session reminders, no-show recovery, and 90-day reactivation for lapsed members, plus milestone-triggered review asks for your best advocates. You focus on the training; I handle the retention loop. 15 minutes? — Bibek Bhandari | vibekb.1234@gmail.com",67
+SVC-W47-080,Iron Lab,Vancouver,trainer,admin@ironlab.ca,Iron Lab co-owner Charlotte Kapitza grew from trainer to head coach to owner since 2019 and offers a guaranteed results policy — #1 rated personal training studio in Vancouver BC,I,COLD,0,Guaranteed results studio — is your follow-up guaranteed too?,"Hi — Iron Lab's guaranteed-results policy is a bold differentiator, and Charlotte's growth from trainer to co-owner is a great story. Question: when a member goes lapsed at 60 or 90 days, is there an automatic reactivation touchpoint? I build that sequence plus post-milestone review asks and referral prompts for active members. Keeps the retention numbers as strong as the training results. 15 minutes? — Bibek Bhandari | vibekb.1234@gmail.com",74
+SVC-W47-108,Cameo Salon,Atlanta,salon,jennifer@cameoatlanta.com,Owner Jennifer Kelley specializes in multi-dimensional color and tailored haircuts; salon is a collective of independent stylists in East Lake/Kirkwood,I,COLD,0,Jennifer — multi-dimensional color clients need a rebooking nudge,"Jennifer — your focus on multi-dimensional color tailored to face-shape means clients see the difference immediately. The problem: they forget to rebook until it's been 10 weeks. I automate 72hr appointment reminders, a rebooking nudge at the 5-week mark, 90-day reactivation for lapsed clients, and post-service review asks. Built specifically for independent salon collectives. 15-minute call? — Bibek Bhandari | vibekb.1234@gmail.com",71
+SVC-W47-118,Salon Mérite,Seattle,salon,info@salonmerite.com,Owner Jedediah Roberts is a national educator for Global Haircor with 23 years in the industry; salon voted Seattle's Best Hair Colorist,I,COLD,0,Voted Seattle's best — your client retention should match,"Hi — Jedediah's 23-year career and Seattle's Best Hair Colorist recognition set a high bar. The retention side often lags: no automated rebooking nudge at 5 weeks, no 90-day reactivation for lapsed clients, no post-service review ask capitalizing on that reputation. I handle all three automatically. One setup, runs indefinitely. Worth a 15-minute conversation? — Bibek Bhandari | vibekb.1234@gmail.com",65
+SVC-W47-142,Prepped and Polished,Boston,tutor,alexis@preppedandpolished.com,Founder Alexis Avila was named one of the 50 Most Influential Business People of Color; built a proprietary 15-year ACT/SAT Hybrid Test Prep Selector formula,I,COLD,0,Alexis — your 15-year formula deserves a 15-minute conversation,"Alexis — your proprietary ACT/SAT Hybrid Test Prep Selector, built over 15 years, is exactly the kind of differentiated methodology that wins families. What loses them: slow intake forms, missed session-prep reminders to parents, and no monthly progress digests. I automate all three — parent intake, 24hr session reminders, and monthly progress emails. You focus on the formula. Quick call? — Bibek Bhandari | vibekb.1234@gmail.com",70
+SVC-W47-123,Ivy Tutors Network,New York,tutor,contact@ivytutorsnetwork.com,"Ivy Tutors Network has operated since 2003 and is recognized as New York's leader in subject tutoring and test prep, staffing tutors from elite colleges and grad programs",I,COLD,0,NYC's 2003 tutoring leader — one ops gap worth fixing,"Hi — Ivy Tutors Network's 20-plus-year track record and elite-tutor bench is well-known in NYC test prep circles. One gap I see at practices this size: parent intake is still manual, session-prep reminders to parents are inconsistent, and there's no automated progress digest to keep families engaged month-to-month. I automate all three. Keeps retention high without adding admin headcount. 15 minutes? — Bibek Bhandari | vibekb.1234@gmail.com",74
+1,Acuity,,,inbound@acuity.co,,FU1,FU1,3,"Re: Acuity's 6-vertical doc problem at 2,600 clients","Bumping this — the per-vertical doc list thing is the piece that scales at 2,600 clients. Worth a 10-minute Loom on the SaaS or crypto vertical?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",26
+2,Insogna CPA,,,chase@insognacpa.com,,FU1,FU1,3,Re: Post-LedgerWay doc chase at scale,"Resurface. The Day 3/7/14 escalation sequence is what absorbs the volume spike from the LedgerWay expansion without adding headcount. 15 minutes if useful?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+3,Massey and Company CPA,,,gary.massey@masseyandcompanycpa.com,,FU1,FU1,3,Re: IRS resolution clients ghost doc requests too,"Bumping this. The urgency-calibrated Day 7/14 sequence for avoidant IRS-resolution clients is the part worth seeing on a real file profile. Interested?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+4,LGA LLP,,,info@lga.cpa,,FU1,FU1,3,Re: LGA's cross-industry doc list problem,"Resurface — the industry-specific template piece (construction vs. dental doc lists running separately) is the gap at four-office scale. 15 minutes this week?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+5,Tristan CPA,,,info@tristancpa.com,,FU1,FU1,3,Re: Professional services clients hate doc requests,"Bumping. The unbillable-time angle hits differently for a firm positioning around billable-hour clients. Worth a quick look at the Day 3/7/14 sequence?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+6,Atlanta MediSpa,,,info@atlantamedispa.com,,FU1,FU1,3,Re: 20 years of clients who've never been asked for a review,"Resurface — the 90-day reactivation sequence for a 20-year client base is the bigger lever here. Worth 15 minutes to see it running on East Cobb data?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",27
+7,The AgeLess Center,,,info@theagelesscenter.com,,FU1,FU1,3,Re: Allergan Diamond status means your best clients are silent,"Resurfacing. The 48-hour referral prompt compounds fast on Allergan Diamond volume. 10 minutes if there's interest?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",16
+8,Ecobel Med Spa,,,info@ecobelmedspa.com,,FU1,FU1,3,Re: PDO thread clients don't rebook themselves,"Bumping this — the 90-day reactivation window for PDO thread clients is precise for a reason. Worth seeing it on a thread-lift profile?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+9,Revolution by MKA,,,revolution@revolutionbymka.com,,FU1,FU1,3,Re: Your EndoLift exclusivity doesn't market itself,"Resurface — the 48-hour referral prompt on a procedure nobody else in Georgia offers is the compounding part. 10 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+10,Truffles Aesthetics,,,info@trufflesaesthetics.com,,FU1,FU1,3,Re: Modern Luxury winner with a wide menu — hard to follow up on all of it,"Bumping. The per-treatment reactivation windows (Sculptra vs. weight loss) are what manual follow-up can't track. 15 minutes across the Alpharetta location?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+CPA-0439,SAL Accounting,,,tax@salaccounting.ca,,FU1,FU1,3,Re: 230+ ecom clients — doc chasing is a second job,"Resurface — the per-vertical ecom template (Shopify vs. Amazon doc lists loading automatically) is the piece worth a 15-minute look. Still relevant?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+CPA-0441,Think Accounting,,,info@thinkaccounting.ca,,FU1,FU1,3,"Re: 4 client types, 4 doc lists — one generic follow-up","Bumping. The per-vertical template piece — ecom gets Shopify prompts, startups get SAFE + cap table nudges — runs without manual routing. Quick look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",24
+CPA-0442,Source Accounting,,,info@sourceaccounting.ca,,FU1,FU1,3,Re: Ecom doc chasing — still manual?,"Resurface — the auto-confirmation-on-receipt part is the piece that stops the 'did you get my HST filing?' back-and-forth. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+CPA-0449,Serbinski Accounting,,,info@serbinski.com,,FU1,FU1,3,"Re: Cross-border files — twice the docs, same inbox problem","Bumping. Separate Canadian and US outstanding lists per file — that's the piece that prevents the two-jurisdiction stall. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+CPA-0453,Stern Cohen Accountants,,,info@sterncohen.com,,FU1,FU1,3,Re: 60 years of real estate clients — doc chasing still costs you,"Resurface — the real estate doc template with Day 3/7/14 escalation running automatically is the operational gap. Worth 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+CPA-0458,CPA4IT,,,contact@cpa4it.ca,,FU1,FU1,3,Re: IT contractors are the worst at sending docs on time,"Bumping. The reply parser stripping confirmed docs the moment they're forwarded — that's the piece that recovers the most admin time at your volume. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",26
+CPA-0462,Tohme Accounting,,,samer@tohme-accounting.com,,FU1,FU1,3,Re: Multi-exchange doc collection — still manual?,"Resurface — the exchange-by-exchange outstanding tracking (Binance, Coinbase, DeFi each as separate line items) is the part worth a look. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+CPA-0463,Block3 Finance,,,inquiry@block3finance.com,,FU1,FU1,3,"Re: 980 clients, each with a different wallet stack","Bumping this — the per-wallet checklist thing is most useful at 980 clients. Worth a quick Loom of it running on synthetic Block3 data?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",24
+CPA-0465,Kreston GTA,,,info@krestongta.com,,FU1,FU1,3,Re: SR&ED files stall on documentation — before the claim even starts,"Resurface — the separate financial vs. technical outstanding lists with independent escalation is the SR&ED-specific piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",18
+CPA-0424,Gondaliya CPA,,,info@gondaliyacpa.ca,,FU1,FU1,3,"Re: 6 client verticals, 6 doc lists — one inbox to manage all of them","Bumping. The CWELCC vs. diamond trader vs. ecommerce checklists loading automatically on tag is the multi-vertical piece worth a look. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+MS-ALCHEMY43,Alchemy 43,,,info@alchemy43.com,,FU1,FU1,3,Re: Your injectors do subtle — your follow-up system shouldn't be silent,"Resurface — the 48-hour post-treatment referral prompt is the piece that catches word-of-mouth before it disappears quietly. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",19
+MS-NASSIF,NassifMD MedSpa,,,concierge@drpaulnassif.com,,FU1,FU1,3,Re: 182 reviews is a foundation. Here's how to build on it.,"Bumping. The 48-hour review trigger compounding on Dr. Nassif's existing 4.8-star base is the momentum piece. Quick call this week?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+MS-TRIFECTA,Trifecta Med Spa,,,hello@trifectamedspanyc.com,,FU1,FU1,3,Re: Top 1% Allergan volume deserves a retention system to match,"Resurface — the 90-day reactivation sequence for top-1% Allergan volume is the lapsed-client piece worth 15 minutes. Still relevant?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",19
+MS-DOLCE,Dolce Aesthetics NY,,,contact@dolceaestheticsny.com,,FU1,FU1,3,Re: 109 Yelp reviews. Jen's reputation deserves an automated referral engine.,"Bumping. The 48-hour referral prompt turning Jennifer's word-of-mouth into a steady stream is the compounding part. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",18
+MS-JUSTMELT,JustMelt Med Spa,,,info@justmelt.com,,FU1,FU1,3,Re: Multi-session clients are your best reactivation targets,"Resurface — the 90-day reactivation on multi-session CoolSculpting clients is the missed referral window. Worth a quick look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",18
+MS-TRIBECA,Tribeca MedSpa,,,info@tribecamedspa.com,,FU1,FU1,3,Re: Operating since 2006 — your patient database is your biggest untapped asset,"Bumping. The 19-year patient list with no automated reactivation running is the gap. 15 minutes to see the sequence mapped to your cadence?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+MS-NEXTHEALTH,Next Health,,,marketing@next-health.com,,FU1,FU1,3,Re: 411 Yelp reviews. Dr. Shah's Mayo-trained model deserves retention to match.,"Resurface — the VIP retention tier for longevity members who drift between IV and panel appointments is the proactive piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+MS-NAKEDMD,NakedMD,,,concierge@nakedmd.com,,FU1,FU1,3,Re: 40 locations and a TOX membership — your reactivation gap is systematic,"Bumping. The 90-day reactivation across 40 TOX membership locations without adding headcount is the systematic piece. Quick call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",18
+MS-GLOWTOX,Glowtox NYC,,,info@glowtoxnyc.com,,FU1,FU1,3,"Re: Top-100 injector, boutique practice — your reviews should scale with your reputation","Resurface — the 48-hour post-treatment review trigger for a boutique practice where the experience is the brand is the compounding part. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+MS-DERMLA,Derm LA,,,info@dermla.com,,FU1,FU1,3,Re: Your appointment slots are full. Your lapsed patients aren't coming back on their own.,"Bumping. The 90-day reactivation pulling back lapsed cosmetic patients before they book elsewhere is the quiet revenue piece. Worth a look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+MX-0234,Fort Funding Corp,,,mortgage@fortfunding.com,,FU1,FU1,3,Re: Jumbo pipeline paperwork eating your day?,"Resurface — the rate-lock override going daily at ≤5 days is the piece that protects jumbo timelines across five offices. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+MX-0193,Compass Mortgage,,,abbypetersdorf@compmort.com,,FU1,FU1,3,Re: FHA borrowers ghost. Here's the fix.,"Bumping. The reply parser removing received docs from the outstanding list without CRM updates is the friction piece for FHA volume. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+MX-0200,The Reichert Mortgage Team,,,troy@reichertmortgage.com,,FU1,FU1,3,Re: VA borrowers deserve better follow-up than a manual spreadsheet.,"Resurface — the automatic Submitted/Approved/Closed partner updates for VSOs and agents is the white-glove piece the Pikes Peak Heroes program deserves. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+MX-0115,LendFriend Mortgage,,,eric@lendfriendmtg.com,,FU1,FU1,3,Re: Self-employed borrowers send docs in pieces. This fixes it.,"Bumping. The reply parser keeping the bank-statement checklist live as docs trickle in is exactly the piece for LendFriend's self-employed program. Quick call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+MX-0101,UHome Mortgage,,,approveme@uhomemortgage.com,,FU1,FU1,3,"Re: If you close in 14 days, you can't afford a 7-day doc delay.","Resurface — the daily escalation override at ≤5-day rate-lock is the piece that protects your 7–14 day close promise. Curious?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+MX-0108,Wendy Thompson Lending,,,clients@thewendythompsonteam.com,,FU1,FU1,3,Re: First-time buyers need hand-holding. Automation handles it.,"Bumping. The self-serve client portal — borrowers checking their own status and outstanding docs 24/7 — is the hand-holding-at-scale piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+MX-0155,Access Reverse Mortgage Corp,,,inquiries@accessreversemortgage.com,,FU1,FU1,3,"Re: 1,800 closed reverse files — are you staying in touch with them?","Resurface — the HECM-to-HECM refi alert at 24–30 months is the retention piece most reverse brokers miss. Happy to show you on a synthetic file?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",25
+MX-0082,NM Mortgage Advisors,,,sean@nm-mtg.com,,FU1,FU1,3,Re: Closing in 2 weeks means your doc chase has to be flawless.,"Bumping. The morning brief with rate-lock alerts so nothing sits overnight is the piece that keeps your sub-2-week close intact. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+MX-0083,Alliance Mortgage Solutions,,,alex@alliancemortgagesolutions.com,,FU1,FU1,3,"Re: Credit-challenged borrowers need more touchpoints, not less.","Resurface — the 24/7 self-serve client portal for borrowers you've coached from poor credit is the touchpoint-at-scale piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+MX-0084,Indigo Mortgage,,,ben@indigomortgage.net,,FU1,FU1,3,Re: Five divisions. One pipeline to keep organized.,"Bumping. The partner stage-update emails (Submitted/Approved/Closed) firing automatically across all five divisions is the piece worth seeing. 20 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",19
+MS-0101,Rejuvenate Austin,,,hello@rejuvenateaustin.com,,FU1,FU1,3,Re: Austin Monthly called you the face of anti-aging — your clients don't know it yet,"Resurface — the 48-hour referral prompt catching that post-treatment satisfaction moment is the compounding piece. 15 minutes to see it running?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+MS-0588,Monaco Medical Spa,,,officemanager@monacomedspa.com,,FU1,FU1,3,Re: Miami Herald's best medspa — are no-shows stealing that revenue?,"Bumping. The one-tap reschedule link in the 24-hour reminder is the piece that recovers most would-be gaps before they open. Quick call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+MS-0304,Azala Skin Clinic,,,info@azalaskinclinic.com,,FU1,FU1,3,Re: Your 'Azala Method' turns clients around fast — your follow-up should too,"Resurface — the 48-hour post-treatment trigger catching same-day-return clients at peak satisfaction is exactly the right window. Curious?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",18
+MS-0311,Renew Beauty Med Spa,,,contact@renewbeautymedspa.com,,FU1,FU1,3,Re: Two locations means double the reactivation gap — here's how to close it,"Bumping. The 90-day reactivation running across both Dallas and Frisco without spreadsheet audits is the dual-location piece. Quick call this week?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+MS-0423,Artavi Med Spa,,,info@artavimedspa.com,,FU1,FU1,3,Re: Dr. Desai built Artavi from scratch — this is the retention engine it needs,"Resurface — the VIP tier rewarding your most loyal Heights Mercantile clients automatically is the next chapter worth 15 minutes. Interested?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+MS-0743,Luxe Med Spa Aesthetics,,,info@luxemedspaaesthetics.com,,FU1,FU1,3,Re: 600 CME hours in aesthetics deserves a referral engine to match,"Bumping. The 48-hour referral ask at peak satisfaction — no front-desk script, no awkward moments — is the piece that compounds Jamie's clinical reputation. Quick look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",26
+MS-0983,Opulent Medspa,,,info@theopulentmedspa.com,,FU1,FU1,3,Re: Marina Landings foot traffic is an asset — your follow-up system should convert it,"Resurface — the three-touch reactivation sequence for dormant Marina Landings clients is the monthly revenue piece. Worth a quick call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+MS-0587,Med Aesthetics Miami,,,coralgables@medaestheticsmiami.com,,FU1,FU1,3,Re: Top-rated on Google and Yelp — here's what protects that ranking,"Bumping. The 48-hour review trigger protecting Rosanna's Google and Yelp position is the piece that compounds quietly. 15 minutes this week?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+MS-0312,Lily Med Spa,,,info@lilymedspa.com,,FU1,FU1,3,Re: A Galderma National Trainer's practice deserves a VIP retention tier,"Resurface — the automated milestone emails for 3-year, 5-year, 8-year clients are the loyalty piece Tama's 13-year base hasn't had yet. Interested?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",22
+MS-0745,Vivify Aesthetics Medspa,,,info@vivifyaestheticsmedspa.com,,FU1,FU1,3,Re: 16 years of clinical trust shouldn't rely on clients remembering to rebook,"Bumping. The 90-day reactivation for Morpheus8 and Semaglutide clients staying on protocol is the clinical-trust-to-revenue piece. Quick call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",18
+CPA-0079,Achen Henderson CPAs,,,info@achenhenderson.ca,,FU1,FU1,3,Re: Your medical clients are chasing docs. Here's what's chasing them.,"Resurface — the Day 3/7/14 escalation calibrated for slow-sending physicians (not generic clients) is the piece worth 15 minutes. Still relevant?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+CPA-0081,Quadrant Accounting,,,info@quadrantaccounting.ca,,FU1,FU1,3,Re: Construction clients forget docs. Your mornings shouldn't be about chasing them.,"Bumping. The morning brief showing one clean view of every stuck WCB or T5018 is the boutique-firm piece that pays back daily. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",24
+CPA-0087,Blasetti Broyles LLP,,,info@bbbcpa.ca,,FU1,FU1,3,Re: 75 years of practice experience — still manually chasing T5018s?,"Resurface — the reply parser detecting T5018 attachments in real time and removing them from the outstanding list is the construction-specific piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",24
+CPA-0091,Webtaxonline,,,contact@webtaxonline.ca,,FU1,FU1,3,Re: Dentists are terrible at sending docs. You already know this.,"Bumping. The Day 14 escalation for dental clients who go quiet after the second reminder is the piece worth a look. 15-minute call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+CPA-0092,Shajani LLP,,,AR@shajani.ca,,FU1,FU1,3,Re: 40 years in practice — how much of that was chasing POS reports?,"Resurface — the reply parser reading disorganized restaurant emails and matching attachments to the checklist is the Shajani-specific piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+CPA-0084,True North Accounting,,,matt@truenorthaccounting.com,,FU1,FU1,3,Re: Construction doc chasing is eating your admin hours.,"Bumping, Matt — the reply parser detecting blurry T5018 attachments and auto-removing them from the outstanding list is the trades-specific piece. Quick call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+CPA-0564,Manning Elliott LLP,,,info@manningelliott.com,,FU1,FU1,3,Re: 100% SR&ED acceptance rate. Does your doc intake match?,"Resurface — the per-client SR&ED checklist with Day 3/7/14 escalation running without admin chasing is the intake piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",20
+CPA-0572,Walsh King LLP,,,kwalsh@walshking.com,,FU1,FU1,3,"Re: GGI member, 30 years in construction accounting — still tracking docs manually?","Bumping. The reply parser auto-clearing received WCB and progress-billing docs from each file's outstanding list is the construction-volume piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",21
+CPA-0254,Shemie CPA,,,charles@shemie.ca,,FU1,FU1,3,Re: 35 years of real estate accounting. Rental schedules still come in late?,"Resurface, Charles — the Day 3/7/14 escalation auto-removing received T776 and rent-roll docs the moment they arrive is the piece worth a look. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",25
+CPA-0265,Emergex Subsidies,,,info@emergex.com,,FU1,FU1,3,Re: 98% SR&ED success rate since 1994. Is your document intake that clean?,"Bumping. The Day 3/7/14 escalation for payroll records and subcontractor invoices running without admin effort is the 30-year SR&ED firm piece. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",23
+1,Acuity,,,inbound@acuity.co,,FU2,FU2,7,The CPA firm that cut follow-up time by 6 hrs/week,"A Toronto ecom CPA with 200+ Shopify clients recovered the setup fee in under 3 weeks — mostly from the morning brief: one screen showing every stuck engagement before the team touched email.
+
+For Acuity's 2,600-client book across six verticals, that replaces a full inbox audit every day.
+
+Happy to send a 3-minute Loom.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",54
+2,Insogna CPA,,,chase@insognacpa.com,,FU2,FU2,7,If you're thinking 'we already have a CRM' — this sits on top of it,"Chase — fair objection. This doesn't replace Karbon or your existing CRM.
+
+It adds one layer those tools don't: auto-escalating doc-chase emails, plus a reply parser that strips received docs from each client's outstanding list without anyone touching the CRM.
+
+Worth a 3-minute Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",44
+3,Massey and Company CPA,,,gary.massey@masseyandcompanycpa.com,,FU2,FU2,7,The reply parser IRS resolution firms use to stop re-asking,"Gary — the second most common complaint at resolution practices: staff re-asks for a document already emailed in. Client frustration, wasted time.
+
+CPA Command Centre's reply parser reads every incoming email, matches attachments against the outstanding list, and auto-removes received items.
+
+Your team only sees what's still genuinely missing. 3-minute Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",51
+4,LGA LLP,,,info@lga.cpa,,FU2,FU2,7,Four offices. One morning brief. Every stuck file visible.,"At LGA's scale, the real cost is partner time spent asking four offices what's outstanding.
+
+CPA Command Centre surfaces every stuck engagement across the whole book on one dashboard each morning — same view at every location. No status calls, no duplicate follow-ups.
+
+Happy to walk through a multi-office setup in 10 minutes.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",53
+5,Tristan CPA,,,info@tristancpa.com,,FU2,FU2,7,The feature your professional services clients actually notice,"Most CPA tools are invisible to clients. This one isn't.
+
+When a document lands in your inbox, CPA Command Centre sends the client an automatic confirmation: ""Got your T4 — outstanding: notice of assessment."" No ""did you receive it?"" call.
+
+For professional services clients who bill $300+/hr, that responsiveness earns referrals.
+
+3-minute Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",53
+6,Atlanta MediSpa,,,info@atlantamedispa.com,,FU2,FU2,7,What 20-year medspas do about clients who quietly lapse,"At two locations with 20+ years of clients, lapsed clients are a quiet revenue drain — most never get a re-engagement message.
+
+MedSpa Growth Engine sends a 90-day reactivation sequence per client automatically. Practices your size typically pull 12–18% of dormant clients back each month.
+
+Worth a quick Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",49
+7,The AgeLess Center,,,info@theagelesscenter.com,,FU2,FU2,7,What Allergan Diamond practices do with their top-20% clients,"Allergan Diamond Top 10 in Georgia means roughly 20% of your client list drives most revenue. Most practices never formally recognize that.
+
+MedSpa Growth Engine's VIP retention tier triggers milestone emails for your highest-frequency clients — turning loyal patients into active advocates without a loyalty program to manage.
+
+10 minutes to see how it works?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+8,Ecobel Med Spa,,,info@ecobelmedspa.com,,FU2,FU2,7,30 years of expertise — how many Google reviews reflect it?,"Ecobel's 30-year approach is a genuine differentiator clients want to talk about. The gap: without a triggered ask at the right moment, most never write the review.
+
+MedSpa Growth Engine fires a post-treatment review request at 48 hours, when results are visible and satisfaction peaks.
+
+PDO thread clients at that stage almost always say yes. Quick Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",57
+9,Revolution by MKA,,,revolution@revolutionbymka.com,,FU2,FU2,7,Exclusive procedures + an automated referral ask = compounding word-of-mouth,"Mike — practices that systematize the referral ask typically see 18–25% lift in new bookings from existing clients within 60 days.
+
+For a US-exclusive EndoLift practice, each referral brings a patient who genuinely can't go elsewhere.
+
+Happy to send a 2-minute walkthrough video — no meeting needed.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",47
+10,Truffles Aesthetics,,,info@trufflesaesthetics.com,,FU2,FU2,7,Modern Luxury 2026 winner — here's what the VIP tier looks like,"Truffles' multi-location win means a client base with high-spenders mixing Sculptra, B12, and weight loss. Those clients are your best referral source — most have never been formally recognized as VIP.
+
+MedSpa Growth Engine's VIP tier automates milestone messages for top-frequency clients.
+
+3-minute Loom on a multi-location setup?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",48
+CPA-0439,SAL Accounting,,,tax@salaccounting.ca,,FU2,FU2,7,230 ecom clients. One screen to see every stuck file.,"Salman — at 230+ Shopify and Amazon clients, the real cost is the hour spent each morning figuring out which files are stuck.
+
+CPA Command Centre's morning brief shows every outstanding engagement, ranked by days overdue, before 9am.
+
+A similar-sized ecom CPA in Toronto recovered the fee in under a month. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",53
+CPA-0441,Think Accounting,,,info@thinkaccounting.ca,,FU2,FU2,7,The thing your ecom clients notice (besides fast turnaround),"Think Accounting's four-vertical model means clients from Shopify sellers to medical practices — all with the same complaint: ""I sent that last week.""
+
+CPA Command Centre sends an automatic confirmation the moment a doc lands. Clients stop asking if you received it.
+
+That one feature cuts inbound inquiries noticeably. 3-minute Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",51
+CPA-0442,Source Accounting,,,info@sourceaccounting.ca,,FU2,FU2,7,Canada's leading ecom CPA — what does client retention look like?,"Being Canada's leading ecommerce CPA firm earns first-time business. Keeping it requires consistent follow-through every file, every year.
+
+CPA Command Centre's auto-confirmation emails make every client feel proactively managed — not just chased.
+
+Ecom clients who feel well-served refer their Shopify-seller friends. Worth a look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",45
+CPA-0449,Serbinski Accounting,,,info@serbinski.com,,FU2,FU2,7,Cross-border files: if you track this in a spreadsheet — this automates that,"Mark — most cross-border practices track outstanding docs in spreadsheets or Karbon. The gap: when a client replies with one of six items, someone manually updates the tracker.
+
+CPA Command Centre's reply parser auto-removes received docs the moment they land — both jurisdictions, no manual step.
+
+Happy to send a 2-minute walkthrough video.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",53
+CPA-0453,Stern Cohen Accountants,,,info@sterncohen.com,,FU2,FU2,7,60 years of real estate clients — are you staying in touch post-engagement?,"Stern Cohen's 60-year real estate practice has a client base most firms would envy. Without systematic post-engagement follow-up, clients drift between transactions.
+
+CPA Command Centre can trigger annual check-in sequences — keeping Stern Cohen top of mind before the next property deal.
+
+Worth exploring alongside the intake automation? 15 minutes.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",50
+CPA-0458,CPA4IT,,,contact@cpa4it.ca,,FU2,FU2,7,IT contractors prefer self-serve — here's what that looks like for a CPA,"Andrew — IT consultants use dashboards daily. Emailing back and forth about missing docs feels archaic to them.
+
+CPA Command Centre's client-facing portal lets each client see their outstanding list and upload directly — no email thread, no phone tag.
+
+That single feature reduces inbound inquiry volume at tech-contractor firms noticeably. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",53
+CPA-0462,Tohme Accounting,,,samer@tohme-accounting.com,,FU2,FU2,7,Crypto CPA firms with 50+ clients — what the morning brief solves,"Samer — at volume, crypto tax stops being a technical problem and becomes a coordination problem: which files are waiting on Binance exports vs. DeFi reconciliations.
+
+CPA Command Centre's morning brief shows every outstanding item per client, per exchange, ranked by urgency.
+
+Happy to share a 3-minute Loom — no meeting needed.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",52
+CPA-0463,Block3 Finance,,,inquiry@block3finance.com,,FU2,FU2,7,980 crypto clients who want a self-serve portal — here it is,"Crypto clients manage wallets, DeFi positions, and multi-exchange accounts daily. They don't want to email to ask what docs are missing.
+
+CPA Command Centre's client-facing portal shows each client their outstanding list. They upload directly without touching your team.
+
+At 980 clients worldwide, that alone cuts inbound inquiry volume significantly. 15-minute demo?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",52
+CPA-0465,Kreston GTA,,,info@krestongta.com,,FU2,FU2,7,One Kreston client increased SR&ED claims 40% — the doc angle explains why,"Your own case study notes a 40% increase in annual SR&ED claims through improved documentation. That starts at intake — better doc collection means more qualifying expenses captured before the write-up begins.
+
+CPA Command Centre's SR&ED checklist and Day 3/7/14 escalation close that gap automatically.
+
+2-minute Loom of the SR&ED template?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",51
+CPA-0424,Gondaliya CPA,,,info@gondaliyacpa.ca,,FU2,FU2,7,CWELCC + diamond traders + ecom — one morning brief covers all six verticals,"The real overhead at a 6-vertical firm isn't the work — it's starting each day figuring out which files are stuck across different client types.
+
+CPA Command Centre's morning brief surfaces every outstanding engagement across all six, ranked by days overdue, before 9am.
+
+A similar multi-vertical Toronto firm recovered setup cost in 3 weeks. 15-minute call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",56
+MS-ALCHEMY43,Alchemy 43,,,info@alchemy43.com,,FU2,FU2,7,What multi-city medspa clients do after visit 2 — and how to stop the drift,"Most clients rebook consistently for visits 1 and 2, then disappear — not because they're unhappy, but because no one reached out at the right moment.
+
+MedSpa Growth Engine's 90-day reactivation sequence sends a timed re-engagement per client automatically. Practices with your visit cadence see 15–20% of dormant clients return per month.
+
+Two-minute video — want it?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",57
+MS-NASSIF,NassifMD MedSpa,,,concierge@drpaulnassif.com,,FU2,FU2,7,Dr. Nassif's brand turns patients into referrers — if you ask at the right moment,"Patients who trust Dr. Nassif already tell friends — but only when asked at peak satisfaction. Most practices miss that window.
+
+MedSpa Growth Engine fires a referral prompt 48 hours post-visit, when results are visible and enthusiasm peaks.
+
+Happy to send a 2-minute Loom rather than scheduling a call — easier on your schedule.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",54
+MS-TRIFECTA,Trifecta Med Spa,,,hello@trifectamedspanyc.com,,FU2,FU2,7,Top 1% Allergan volume — what does a 5% no-show reduction mean in revenue?,"At Trifecta's volume across four NYC locations, a 5% no-show reduction is meaningful revenue. MedSpa Growth Engine's 24-hour reminder with a one-tap reschedule link typically cuts no-shows 20–30% in month one.
+
+That single feature often recoups the retainer in week one.
+
+The reactivation and VIP tiers work on top of that. Worth 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",54
+MS-DOLCE,Dolce Aesthetics NY,,,contact@dolceaestheticsny.com,,FU2,FU2,7,18 years of clients. How many heard from you in the last 90 days?,"Jennifer — 18 years injecting in Brooklyn means a client list most practices can't match. Without a reactivation sequence, clients who haven't rebooked in 90 days are almost never re-engaged.
+
+MedSpa Growth Engine identifies and re-contacts dormant clients automatically — three timed messages, no front-desk overhead.
+
+Happy to show what that looks like. 15 minutes.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+MS-JUSTMELT,JustMelt Med Spa,,,info@justmelt.com,,FU2,FU2,7,Body contouring clients refer — when asked at the result window,"CoolSculpting results peak 2–3 months post-treatment — exactly when a referral ask should land, but almost never does.
+
+MedSpa Growth Engine times the referral prompt to the result window, not the appointment date. That timing difference is what turns accidental word-of-mouth into a consistent referral stream.
+
+Quick Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",48
+MS-TRIBECA,Tribeca MedSpa,,,info@tribecamedspa.com,,FU2,FU2,7,19 years of patients — some of them should be getting VIP treatment automatically,"Dr. Ferzli's Weill Cornell and Columbia background attracts high-trust patients who return for years. At 19 years in practice, your longest-standing clients have likely never been formally recognized.
+
+MedSpa Growth Engine's VIP tier sends milestone acknowledgments to top-frequency clients — zero manual management.
+
+That drives referrals from your most satisfied advocates. 15-minute look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",53
+MS-NEXTHEALTH,Next Health,,,marketing@next-health.com,,FU2,FU2,7,Longevity clients refer — but they need a trigger,"Dr. Shah's Next Health model attracts health-optimizing clients — exactly the profile that eagerly refers friends when asked at the right moment.
+
+MedSpa Growth Engine fires a referral prompt 48 hours after a positive visit, when IV therapy results are being felt. At 411 Yelp reviews, the infrastructure is already working — this scales it.
+
+15 minutes to walk through the longevity-client flow?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",63
+MS-NAKEDMD,NakedMD,,,concierge@nakedmd.com,,FU2,FU2,7,TOX members who refer — what triggers that at scale across 40 locations,"NakedMD's membership model means clients are pre-committed — already sold on the concept. The untapped layer is turning them into referrers.
+
+Members who just got their monthly TOX are at peak satisfaction. MedSpa Growth Engine fires a referral prompt at 48 hours, automatically, across all 40 locations.
+
+15-minute call worth it?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",51
+MS-GLOWTOX,Glowtox NYC,,,info@glowtoxnyc.com,,FU2,FU2,7,Sculptra and Sofwave clients have a natural 90-day rebook window — are you hitting it?,"Nicole — Sculptra results peak at 3–6 months; Sofwave improves over 90 days. Both have a natural follow-up window when satisfaction peaks.
+
+MedSpa Growth Engine's 90-day reactivation sequence hits that window automatically per client, per treatment type.
+
+Most boutique practices see 15–20% of dormant clients rebook. 3-minute Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",48
+MS-DERMLA,Derm LA,,,info@dermla.com,,FU2,FU2,7,Multi-provider cosmetic derm — your Google ranking depends on consistent reviews,"Derm LA's multi-provider practice means high patient volume, but without a triggered review ask, even happy patients rarely think to write one.
+
+MedSpa Growth Engine fires a post-visit review request at 48 hours. One similar practice doubled its Google review count in 60 days from this single trigger.
+
+Worth 15 minutes alongside the reactivation setup?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+MX-0234,Fort Funding Corp,,,mortgage@fortfunding.com,,FU2,FU2,7,Your referral partners — getting deal updates automatically?,"Fort Funding's five tri-state offices mean a lot of realtor and planner relationships. Without automated stage updates, partners hear nothing until close — and their clients follow up with them instead.
+
+Mortgage Pipeline Machine sends referral partners automatic emails at Submitted, Approved, and Closed. No manual drafting.
+
+Partners who feel informed refer more. 15-minute call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+MX-0193,Compass Mortgage,,,abbypetersdorf@compmort.com,,FU2,FU2,7,FHA borrowers checking their own status — here's what that looks like,"Abby — FHA borrowers ask more questions than conventional borrowers. A client portal where they check their own status and outstanding docs 24/7 cuts those inbound calls significantly.
+
+Mortgage Pipeline Machine includes that portal. Borrowers see what's missing and upload directly — no phone tag.
+
+Pair with the Day 3/7/14 auto-chase and it covers most inbound volume. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",59
+MX-0200,The Reichert Mortgage Team,,,troy@reichertmortgage.com,,FU2,FU2,7,VA loans close — your post-close pipeline is worth more than you think,"Troy — VA clients are fiercely loyal once they trust you. Without a post-close retention system, anniversary check-ins and refi alerts happen manually or not at all.
+
+Mortgage Pipeline Machine fires anniversary emails at 11–12 months and refi alerts at 24–30 months automatically.
+
+For your Pikes Peak Heroes base, that's recurring revenue from people who already chose you. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",60
+MX-0115,LendFriend Mortgage,,,eric@lendfriendmtg.com,,FU2,FU2,7,Bank statement pipeline: what the morning brief shows every day,"Eric — self-employed borrowers send docs in pieces over weeks. Without a daily overview, a nearly-complete file can sit stuck on one missing statement for days.
+
+Mortgage Pipeline Machine's morning brief shows every file ranked by days overdue and rate-lock status — before 9am, with one-click update buttons.
+
+A Vancouver broker with a self-employed-heavy pipeline saved 6 hrs/week from this view alone. Quick call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",64
+MX-0101,UHome Mortgage,,,approveme@uhomemortgage.com,,FU2,FU2,7,Fix-and-flip lenders — your realtor network should hear about every close,"UHome's 7–14 day close speed is a real selling point for realtors who refer investor clients. Are those realtors hearing from you at every stage?
+
+Mortgage Pipeline Machine sends automatic stage updates to referral partners at Submitted, Approved, and Closed. No manual email.
+
+Partners who feel looped in refer again. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",52
+MX-0108,Wendy Thompson Lending,,,clients@thewendythompsonteam.com,,FU2,FU2,7,50 states of closed files — your post-close pipeline is untapped,"The Wendy Thompson team's 50-state reach means a deep closed-client database. Without post-close retention, those clients drift to whoever emails them first at refinance time.
+
+Mortgage Pipeline Machine sends anniversary check-ins at 11–12 months and refi alerts at 24–30 months — automatically, every closed file.
+
+Recurring revenue from people who already chose you. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+MX-0155,Access Reverse Mortgage Corp,,,inquiries@accessreversemortgage.com,,FU2,FU2,7,Reverse mortgage clients — what Day 14 escalation does for senior borrowers,"Mac — senior borrowers are often slower to respond, and a delayed escalation means deadlines slip. Mortgage Pipeline Machine's Day 14 escalation fires automatically — and the morning brief flags any file with rate-lock within 5 days for daily automated contact.
+
+CRMP-certified practice, process-driven follow-up. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",47
+MX-0082,NM Mortgage Advisors,,,sean@nm-mtg.com,,FU2,FU2,7,277 five-star reviews — are your referral partners seeing every win?,"Sean — 277 five-star reviews means clients are happy. The question is whether your referral partners feel informed enough to send the next one.
+
+Mortgage Pipeline Machine sends automatic branded updates to referral partners at Submitted, Approved, and Closed — no manual email, no dropped ball.
+
+Partners who feel looped in refer consistently. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+MX-0083,Alliance Mortgage Solutions,,,alex@alliancemortgagesolutions.com,,FU2,FU2,7,Credit-coached borrowers close — then they refer their friends,"Alex — clients you've guided from credit challenges to homeownership are among the most loyal referral sources in any broker's book. Most never get a systematic ask.
+
+Mortgage Pipeline Machine's post-close retention sequence sends anniversary check-ins automatically — and referral partners get deal-stage updates that keep them sending new clients.
+
+15-minute call this week?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",54
+MX-0084,Indigo Mortgage,,,ben@indigomortgage.net,,FU2,FU2,7,Five Indigo divisions. One post-close retention system for all of them.,"Ben — Indigo's five divisions each generate closed clients who age into refinance opportunities. Without retention, those files sit silent until a competitor reaches out first.
+
+Mortgage Pipeline Machine fires anniversary and refi alerts across all division types automatically — 11 months, 24 months, same system.
+
+Worth adding to the walkthrough. Send me a time.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+MS-0101,Rejuvenate Austin,,,hello@rejuvenateaustin.com,,FU2,FU2,7,Austin Monthly's face of anti-aging — what's your 90-day reactivation rate?,"Dr. Wright — Austin Monthly's recognition drives new bookings. What keeps revenue consistent between surges is reactivation: clients who haven't rebooked in 90 days getting a timely re-engagement.
+
+MedSpa Growth Engine sends that automatically. Practices your size typically recover 15–20% of dormant clients per month from this sequence alone.
+
+15 minutes to see what it looks like?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",57
+MS-0588,Monaco Medical Spa,,,officemanager@monacomedspa.com,,FU2,FU2,7,Miami Herald's best medspa — is that award driving referrals automatically?,"Dr. Barrueta's 2023 Miami Herald win earns trust before new clients book. Without a referral engine, that recognition fades.
+
+MedSpa Growth Engine fires a referral prompt 48 hours post-treatment — paired with a review trigger, it turns a one-time recognition into ongoing word-of-mouth.
+
+Curious what that looks like for a Midtown Miami practice? 15 minutes.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+MS-0304,Azala Skin Clinic,,,info@azalaskinclinic.com,,FU2,FU2,7,Minimally invasive clients rebook — but only if you reach them at 90 days,"Paula — the Azala Method's same-day-return approach means clients are back at their desks immediately. That's great for compliance, but they're not thinking about their next treatment until 90 days later when results plateau.
+
+MedSpa Growth Engine hits that window automatically with a personalized reactivation.
+
+Quick Loom of the 90-day sequence?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",51
+MS-0311,Renew Beauty Med Spa,,,contact@renewbeautymedspa.com,,FU2,FU2,7,Dallas + Frisco — your most loyal clients have never been called VIP,"Louisa — running two locations means a core group of long-standing clients who've never been formally recognized as VIP.
+
+MedSpa Growth Engine's VIP retention tier automates milestone messages and early-access outreach for highest-frequency clients — turning them into advocates without a manual loyalty program.
+
+Quick call to see what that looks like?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",52
+MS-0423,Artavi Med Spa,,,info@artavimedspa.com,,FU2,FU2,7,Heights Mercantile foot traffic converts better with a 24-hour reminder,"Dr. Desai — first-time bookings from Heights Mercantile have higher no-show rates than repeat clients.
+
+MedSpa Growth Engine's 24-hour reminder with a one-tap reschedule link cuts that rate 20–30% in month one.
+
+At Artavi's growth stage, that's real revenue recovered without adding staff. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",45
+MS-0743,Luxe Med Spa Aesthetics,,,info@luxemedspaaesthetics.com,,FU2,FU2,7,Downtown Orlando clients go quiet at 90 days — here's the fix,"Jamie — clients who loved their HydraFacial or Sculptra go quiet after 90 days without a nudge.
+
+MedSpa Growth Engine identifies dormant clients and sends three timed re-engagement messages automatically. No spreadsheet audits, no manual outreach.
+
+Most boutique practices see 15–18% of dormant clients rebook. Worth a look?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",48
+MS-0983,Opulent Medspa,,,info@theopulentmedspa.com,,FU2,FU2,7,Opulent's Marina Landings regulars — are they leaving Google reviews?,"Regulars near Marina Landings are vocal — they review restaurants and shops. Without a triggered ask, even your happiest Botox clients rarely think to review a medspa.
+
+MedSpa Growth Engine fires a post-treatment review request at 48 hours. One Tampa medspa doubled its Google review count in 60 days from this trigger alone.
+
+Quick Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+MS-0587,Med Aesthetics Miami,,,coralgables@medaestheticsmiami.com,,FU2,FU2,7,Top-rated on Google and Yelp — here's what turns that into referrals,"Rosanna — being top-rated on Google, Yelp, and Expertise.com earns new clients. The untapped layer is turning satisfied clients into active referrers.
+
+MedSpa Growth Engine fires a referral prompt 48 hours post-treatment — when clients are still talking about their results.
+
+Want a 2-minute Loom before we connect?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",48
+MS-0312,Lily Med Spa,,,info@lilymedspa.com,,FU2,FU2,7,Galderma National Trainer — your clinical authority should show in your review count,"Tama — training nationally for Galderma means your credibility is known in the industry. The gap: it's invisible to prospective Dallas clients searching online.
+
+MedSpa Growth Engine fires a 48-hour post-treatment review ask automatically. For a practice with 13+ years of loyal clients, that's a significant review backlog waiting to be unlocked.
+
+Happy to show how it layers on top of the VIP tier.
+
+Bibek Bhandari
+vibekb.1234@gmail.com",64
+MS-0745,Vivify Aesthetics Medspa,,,info@vivifyaestheticsmedspa.com,,FU2,FU2,7,Morpheus8 results peak at 90 days — that's your referral window,"Vivienne — Morpheus8 improvements develop over 90 days. At that point, clients are seeing peak results and naturally talking about them. Without a triggered referral ask at exactly that moment, word-of-mouth happens by accident.
+
+MedSpa Growth Engine times the prompt to the result window — not the appointment date.
+
+3-minute Loom?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",51
+CPA-0079,Achen Henderson CPAs,,,info@achenhenderson.ca,,FU2,FU2,7,Medical professional corporations — what a client portal does for Alberta physicians,"Physicians are busy and slow to email docs. A self-serve portal changes that: each doctor logs in, sees what's outstanding for their professional corporation, and uploads directly.
+
+CPA Command Centre includes that portal. No more chasing bank statements by email — the client sees their own checklist and acts on it.
+
+Works well for Alberta medical corps specifically. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",60
+CPA-0081,Quadrant Accounting,,,info@quadrantaccounting.ca,,FU2,FU2,7,Boutique Calgary CPA: what the morning brief replaces,"At a purposefully boutique firm, the owner IS the morning brief — mentally tracking which client owes T5018s and who's three weeks overdue on holdback statements.
+
+CPA Command Centre surfaces all of that automatically each morning, ranked by urgency, before you open email.
+
+A similar Calgary boutique recovered setup cost in under a month. 15-minute call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",56
+CPA-0087,Blasetti Broyles LLP,,,info@bbbcpa.ca,,FU2,FU2,7,Trades clients who check their phone — not their email — love this,"Bryan / Randal — construction and trades clients are hands-on. They don't check email reliably, but they use their phones. CPA Command Centre's client portal lets each client see what's missing and upload directly — no email thread, no phone tag.
+
+For a 75-year construction practice, that self-serve layer meaningfully cuts back-and-forth.
+
+15 minutes to see it?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",57
+CPA-0091,Webtaxonline,,,contact@webtaxonline.ca,,FU2,FU2,7,Dentists who send everything in one email — your reply parser handles that,"A dental associate sends one email with T4A, associate agreement, and expense log mixed in a reply chain. Someone manually reads it, matches each attachment, updates the checklist.
+
+CPA Command Centre's reply parser reads that email, matches each attachment, and removes matched items automatically.
+
+Calgary and Toronto dental clients treated identically. 15-minute call?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",53
+CPA-0092,Shajani LLP,,,AR@shajani.ca,,FU2,FU2,7,"40 years of practice — one morning brief across assurance, tax, and restaurants","Shajani's assurance, tax advisory, and restaurant practice means your team context-switches between completely different document requirements every day.
+
+CPA Command Centre's morning brief shows every stuck engagement across all client types, ranked by days overdue on one screen.
+
+No status meetings, no manual tracking. 15 minutes mapped to Shajani's client mix?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",51
+CPA-0084,True North Accounting,,,matt@truenorthaccounting.com,,FU2,FU2,7,Trades clients who text docs — here's what the client portal does,"Matt — framers and GCs send receipts by text or blurry email. A client portal changes that: each contractor sees what's outstanding and uploads directly in one place.
+
+CPA Command Centre includes that portal — plus the Day 3/7/14 escalation if they don't log in. Two layers covering the same problem.
+
+15-minute call this week?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+CPA-0564,Manning Elliott LLP,,,info@manningelliott.com,,FU2,FU2,7,SR&ED consultants — what your technical staff shouldn't be doing,"Manning Elliott's consultants are experts in R&D narratives — not inbox management. When they chase expense logs and payroll summaries manually, that's billable time going to admin.
+
+CPA Command Centre's escalation and reply parser handle the intake loop. Your consultants see a morning brief of what's still genuinely missing.
+
+15 minutes for the SR&ED-specific setup?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+CPA-0572,Walsh King LLP,,,kwalsh@walshking.com,,FU2,FU2,7,GGI member with international clients — doc replies across time zones,"Walsh King's GGI membership means international construction and manufacturing clients in different time zones. A client emails documents at 2am; your team sees it at 9, manually checks coverage, updates the outstanding list.
+
+CPA Command Centre's reply parser handles that update automatically — matched, removed, confirmed — regardless of when the email lands.
+
+15-minute walkthrough?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",55
+CPA-0254,Shemie CPA,,,charles@shemie.ca,,FU2,FU2,7,Real estate investors across three cities — a self-serve doc portal changes the dynamic,"Charles — Montreal, Toronto, and Calgary investors aren't sitting at a desk waiting to send rent rolls. They're managing properties. A client portal where they log in, see what's outstanding, and upload at 9pm on a Tuesday changes the completion rate entirely.
+
+CPA Command Centre includes that portal alongside Day 3/7/14 escalation. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",54
+CPA-0265,Emergex Subsidies,,,info@emergex.com,,FU2,FU2,7,30 years of SR&ED claims — what your intake team shouldn't be doing manually,"Emergex's 98% success rate is built on technical rigor. The operational drag: tracking which of 50+ active clients has submitted payroll records, subcontractor invoices, and experimental logs.
+
+CPA Command Centre's morning brief shows exactly that — per client, per document type, ranked by urgency.
+
+Your experts spend the day on claims, not intake coordination. 15 minutes?
+
+Bibek Bhandari
+vibekb.1234@gmail.com",56
+1,Acuity,,,inbound@acuity.co,,FU3,FU3,14,closing the loop — Acuity,"Last one from me. If automating doc checklists across Acuity's 6 verticals isn't a priority right now, totally understand — a quick ""not now"" closes the loop. The offer stands when the time's right.",34
+2,Insogna CPA,,,chase@insognacpa.com,,FU3,FU3,14,Insogna — should I move on?,"Will leave you alone after this. If streamlining client intake across your TX/CA/GA/FL expansion isn't on the radar yet, no worries at all — reply ""not now"" and I'll step back. Offer stays open.",34
+3,Massey and Company CPA,,,gary.massey@masseyandcompanycpa.com,,FU3,FU3,14,"last from me, Gary","Closing this out. If automating doc collection for your IRS resolution clients isn't the right timing, a ""not now"" reply is all I need. I know distressed clients are unpredictable — offer stands whenever it fits.",36
+4,LGA LLP,,,info@lga.cpa,,FU3,FU3,14,closing the loop — LGA,"Last message from me. If reducing the manual doc-chase across your construction, dental, and nonprofit verticals isn't a current priority, just reply ""not now."" The offer stays open.",28
+5,Tristan CPA,,,info@tristancpa.com,,FU3,FU3,14,Tristan CPA — wrap-up,"Last one from me. If automating the onboarding doc workflow for your law firm and agency clients isn't the right fit right now, totally fine — reply ""not now"" and I'll stop. Happy to revisit later.",36
+6,Atlanta MediSpa,,,info@atlantamedispa.com,,FU3,FU3,14,closing the loop — Atlanta MediSpa,"Last one from me. If streamlining client intake and follow-up across your East Cobb and Buckhead locations isn't a fit right now, totally fine — a ""not now"" closes it out. Offer stands.",33
+7,The AgeLess Center,,,info@theagelesscenter.com,,FU3,FU3,14,[Allergan Diamond] — should I move on?,"Will leave you alone after this. If MedSpa Growth Engine isn't the right fit for The AgeLess Center right now, no worries — a ""not now"" reply closes the loop. Demo offer's still good.",34
+8,Ecobel Med Spa,,,info@ecobelmedspa.com,,FU3,FU3,14,closing the loop — Ecobel,"Last one from me. If automating follow-up for your PDO thread and hormone clients isn't a priority right now, a quick ""not now"" closes it out. Happy to reconnect when timing's better.",32
+9,Revolution by MKA,,,revolution@revolutionbymka.com,,FU3,FU3,14,Revolution by MKA — wrap-up,"Last message from me. If automating the follow-up side for your EndoLift and LightScan clientele isn't the right timing, totally fine — reply ""not now"" and I'll step back. Offer remains open.",32
+10,Truffles Aesthetics,,,info@trufflesaesthetics.com,,FU3,FU3,14,closing the loop — Truffles,"Last one from me. If streamlining client retention across your Georgia locations isn't a priority right now, a ""not now"" reply is all I need. The offer stands whenever it fits.",31
+CPA-0439,SAL Accounting,,,tax@salaccounting.ca,,FU3,FU3,14,closing the loop — SAL,"Last one from me. If automating doc collection for your 230+ Shopify and Amazon seller clients isn't a priority right now, a quick ""not now"" closes it out. Happy to reconnect when the timing's better.",35
+CPA-0441,Think Accounting,,,info@thinkaccounting.ca,,FU3,FU3,14,Think Accounting — should I move on?,"Will leave you alone after this. If streamlining intake across your ecom, startup, and medical practice clients isn't top of mind, just reply ""not now."" Offer stands when the time's right.",31
+CPA-0442,Source Accounting,,,info@sourceaccounting.ca,,FU3,FU3,14,last from me — Source Accounting,"Closing this out. If automating the doc checklist process for your ecommerce client base isn't the right fit yet, a ""not now"" is all I need. The offer stays open whenever you're ready.",33
+CPA-0449,Serbinski Accounting,,,info@serbinski.com,,FU3,FU3,14,closing the loop — Serbinski,"Last one from me. If reducing the dual-jurisdiction doc burden for your US-Canada cross-border clients isn't a current priority, reply ""not now"" and I'll stop. Happy to revisit when timing fits.",31
+CPA-0453,Stern Cohen Accountants,,,info@sterncohen.com,,FU3,FU3,14,Stern Cohen — wrap-up,"Last message from me. If automating doc intake for your commercial and residential real estate clients isn't on the list right now, totally fine — a ""not now"" closes the loop. Offer remains open.",34
+CPA-0458,CPA4IT,,,contact@cpa4it.ca,,FU3,FU3,14,closing the loop — CPA4IT,"Last one from me. If streamlining the doc workflow for your IT consultant client base isn't a fit right now, reply ""not now"" and I'll stop. Happy to revisit — the offer stays open.",34
+CPA-0462,Tohme Accounting,,,samer@tohme-accounting.com,,FU3,FU3,14,"last from me, Samer","Closing this out. If automating doc collection for your dual CRA/IRS crypto clients isn't the right timing, a quick ""not now"" is all I need. The offer stands whenever you're ready.",31
+CPA-0463,Block3 Finance,,,inquiry@block3finance.com,,FU3,FU3,14,closing the loop — Block3,"Last one from me. If the 980-client doc workflow thing isn't a priority right now, totally understand — a quick ""not now"" reply tells me to stop. The offer stands when it is.",33
+CPA-0465,Kreston GTA,,,info@krestongta.com,,FU3,FU3,14,Kreston GTA — should I move on?,"Will leave you alone after this. If reducing the doc-gathering burden on your SR&ED technical narratives and supporting records isn't a fit right now, reply ""not now."" Offer stays open.",30
+CPA-0424,Gondaliya CPA,,,info@gondaliyacpa.ca,,FU3,FU3,14,closing the loop — Gondaliya,"Last message from me. If automating intake across your childcare, real estate, and tech client verticals isn't a current priority, a ""not now"" closes the loop. Happy to revisit anytime.",30
+MS-ALCHEMY43,Alchemy 43,,,info@alchemy43.com,,FU3,FU3,14,last from me — Alchemy 43,"Closing this out. If automating client follow-up for Alchemy 43's 'invisible results' clientele isn't the right fit yet, reply ""not now"" and I'll stop. Happy to revisit when the time's right.",31
+MS-NASSIF,NassifMD MedSpa,,,concierge@drpaulnassif.com,,FU3,FU3,14,NassifMD — should I move on?,"Will leave you alone after this. If systemizing client follow-up alongside Dr. Nassif's rhinoplasty practice isn't the right priority right now, a ""not now"" closes it. Offer stays open.",29
+MS-TRIFECTA,Trifecta Med Spa,,,hello@trifectamedspanyc.com,,FU3,FU3,14,closing the loop — Trifecta,"Last one from me. If streamlining client retention for your Top 1% Allergan practice isn't a priority right now, totally fine — reply ""not now"" and I'll stop. The offer remains open.",32
+MS-DOLCE,Dolce Aesthetics NY,,,contact@dolceaestheticsny.com,,FU3,FU3,14,Dolce Aesthetics — wrap-up,"Last message from me. If automating follow-up for Jennifer's 18-year injector clientele isn't the right fit right now, a quick ""not now"" closes it. Happy to reconnect whenever timing works.",30
+MS-JUSTMELT,JustMelt Med Spa,,,info@justmelt.com,,FU3,FU3,14,closing the loop — JustMelt,"Last one from me. If automating the reactivation side for your body contouring clients isn't a current priority, reply ""not now"" and I'll stop. Offer stands whenever you're ready.",29
+MS-TRIBECA,Tribeca MedSpa,,,info@tribecamedspa.com,,FU3,FU3,14,Tribeca MedSpa — should I move on?,"Will leave you alone after this. If systematizing client follow-up alongside Dr. Ferzli's clinical practice isn't a fit right now, totally fine — a ""not now"" closes the loop. Offer remains open.",32
+MS-NEXTHEALTH,Next Health,,,marketing@next-health.com,,FU3,FU3,14,last from me — Next Health,"Closing this out. If automating the client journey at the world's first health optimization center isn't a priority right now, a quick ""not now"" is all I need. Happy to revisit.",31
+MS-NAKEDMD,NakedMD,,,concierge@nakedmd.com,,FU3,FU3,14,closing the loop — NakedMD,"Last one from me. If streamlining retention across your 40+ TOX membership locations isn't a fit right now, reply ""not now"" and I'll stop. The offer stands whenever it makes sense.",31
+MS-GLOWTOX,Glowtox NYC,,,info@glowtoxnyc.com,,FU3,FU3,14,Glowtox — wrap-up,"Last message from me. If automating client follow-up for your Top 100 injector practice in the West Village isn't the right timing, totally fine — a ""not now"" closes it. Offer stands.",32
+MS-DERMLA,Derm LA,,,info@dermla.com,,FU3,FU3,14,closing the loop — Derm LA,"Last one from me. If building a reactivation system for your men's dermatology clientele isn't a priority right now, a quick ""not now"" closes the loop. Happy to revisit when timing's better.",32
+MX-0234,Fort Funding Corp,,,mortgage@fortfunding.com,,FU3,FU3,14,closing the loop — Fort Funding,"Last one from me. If automating the pipeline follow-up for your jumbo loan clients across five tri-state offices isn't a fit right now, reply ""not now."" The offer stands whenever you're ready.",32
+MX-0193,Compass Mortgage,,,abbypetersdorf@compmort.com,,FU3,FU3,14,Compass Mortgage — should I move on?,"Will leave you alone after this. If automating the doc-chase for your FHA and IHDA borrowers isn't a priority right now, totally fine — a ""not now"" closes it. Offer stays open.",32
+MX-0200,The Reichert Mortgage Team,,,troy@reichertmortgage.com,,FU3,FU3,14,"last from me, Troy","Closing this out. If automating follow-up for your Pikes Peak Heroes veterans pipeline isn't the right fit right now, a ""not now"" is all I need. Offer stands when timing works.",31
+MX-0115,LendFriend Mortgage,,,eric@lendfriendmtg.com,,FU3,FU3,14,closing the loop — LendFriend,"Last one from me. If streamlining the doc workflow for your bank-statement self-employed borrowers isn't a priority right now, reply ""not now"" and I'll stop. The offer remains open.",29
+MX-0101,UHome Mortgage,,,approveme@uhomemortgage.com,,FU3,FU3,14,UHome — wrap-up,"Last message from me. If automating pipeline alerts for your 7–14 day fix-and-flip closings isn't a fit right now, totally fine — a ""not now"" closes the loop. Offer stands.",30
+MX-0108,Wendy Thompson Lending,,,clients@thewendythompsonteam.com,,FU3,FU3,14,closing the loop — Wendy Thompson,"Last one from me. If automating the hand-holding doc chase for your first-time buyer clients isn't a priority right now, reply ""not now"" and I'll step back. Offer stays open.",30
+MX-0155,Access Reverse Mortgage Corp,,,inquiries@accessreversemortgage.com,,FU3,FU3,14,Access Reverse — should I move on?,"Will leave you alone after this. If automating client follow-up alongside serving 1,800+ Florida seniors on reverse mortgages isn't the right fit, a ""not now"" closes it. Offer remains.",29
+MX-0082,NM Mortgage Advisors,,,sean@nm-mtg.com,,FU3,FU3,14,"last from me, Sean","Closing this out. If automating the doc pipeline to protect your sub-2-week close reputation isn't a priority right now, a quick ""not now"" is all I need. Happy to revisit.",30
+MX-0083,Alliance Mortgage Solutions,,,alex@alliancemortgagesolutions.com,,FU3,FU3,14,closing the loop — Alliance Mortgage,"Last one from me. If automating the follow-up side for your credit-challenged and underserved borrowers isn't a fit right now, reply ""not now"" and I'll stop. Offer stands whenever you're ready.",31
+MX-0084,Indigo Mortgage,,,ben@indigomortgage.net,,FU3,FU3,14,Indigo Mortgage — wrap-up,"Last message from me. If streamlining the doc workflow across your five loan divisions — VA, reverse, construction, residential, commercial — isn't a current priority, a ""not now"" closes it. Offer stays.",32
+MS-0101,Rejuvenate Austin,,,hello@rejuvenateaustin.com,,FU3,FU3,14,closing the loop — Rejuvenate Austin,"Last one from me. If building a client reactivation engine alongside Dr. Wright's anti-aging practice isn't the right timing, totally fine — reply ""not now"" and I'll stop. Offer stands.",30
+MS-0588,Monaco Medical Spa,,,officemanager@monacomedspa.com,,FU3,FU3,14,Monaco Medical Spa — should I move on?,"Will leave you alone after this. If automating client follow-up for your Miami Herald award-winning practice isn't a priority right now, a ""not now"" closes it. Happy to revisit anytime.",30
+MS-0304,Azala Skin Clinic,,,info@azalaskinclinic.com,,FU3,FU3,14,last from me — Azala,"Closing this out. If automating client retention around your proprietary Azala Method clientele isn't the right fit yet, a ""not now"" is all I need. The offer stands whenever timing works.",31
+MS-0311,Renew Beauty Med Spa,,,contact@renewbeautymedspa.com,,FU3,FU3,14,closing the loop — Renew Beauty,"Last one from me. If streamlining follow-up across your Dallas and Frisco locations — CoolSculpting, HRT, weight loss — isn't a priority right now, reply ""not now."" Offer stays open.",30
+MS-0423,Artavi Med Spa,,,info@artavimedspa.com,,FU3,FU3,14,Artavi — wrap-up,"Last message from me. If automating client retention for the practice you built from scratch isn't the right fit right now, totally fine — a ""not now"" closes the loop. Offer remains open.",33
+MS-0743,Luxe Med Spa Aesthetics,,,info@luxemedspaaesthetics.com,,FU3,FU3,14,closing the loop — Luxe Med Spa,"Last one from me. If building a reactivation system alongside Jamie's boutique ER-nurse-led practice in Orlando isn't a priority right now, reply ""not now."" The offer stays open.",28
+MS-0983,Opulent Medspa,,,info@theopulentmedspa.com,,FU3,FU3,14,Opulent Medspa — should I move on?,"Will leave you alone after this. If streamlining client follow-up across Botox, IV therapy, and weight loss programs isn't the right timing, a ""not now"" closes the loop. Offer stands.",30
+MS-0587,Med Aesthetics Miami,,,coralgables@medaestheticsmiami.com,,FU3,FU3,14,last from me — Med Aesthetics Miami,"Closing this out. If automating client retention for Rosanna's top South Florida skincare practice isn't a fit right now, a quick ""not now"" closes the loop. Happy to reconnect anytime.",30
+MS-0312,Lily Med Spa,,,info@lilymedspa.com,,FU3,FU3,14,closing the loop — Lily Med Spa,"Last one from me. If building a reactivation engine for your 13-year Dallas clientele — backed by Galderma GAIN faculty credibility — isn't a priority right now, reply ""not now."" Offer stands.",32
+MS-0745,Vivify Aesthetics Medspa,,,info@vivifyaestheticsmedspa.com,,FU3,FU3,14,Vivify Aesthetics — wrap-up,"Last message from me. If automating the follow-up side for Vivienne's 16-year FNP practice isn't the right fit right now, totally fine — a ""not now"" closes it. The offer remains open.",32
+CPA-0079,Achen Henderson CPAs,,,info@achenhenderson.ca,,FU3,FU3,14,closing the loop — Achen Henderson,"Last one from me. If automating doc collection for your Alberta medical professional corporations and surgeon clients isn't a priority right now, reply ""not now."" The offer stands.",28
+CPA-0081,Quadrant Accounting,,,info@quadrantaccounting.ca,,FU3,FU3,14,Quadrant Accounting — should I move on?,"Will leave you alone after this. If streamlining onboarding docs for your purposeful small business clients in Calgary isn't a fit right now, a ""not now"" closes the loop. Offer stays open.",32
+CPA-0087,Blasetti Broyles LLP,,,info@bbbcpa.ca,,FU3,FU3,14,last from me — Blasetti Broyles,"Closing this out. If automating the doc workflow for your construction and real estate clients isn't the right timing, a quick ""not now"" is all I need. Happy to reconnect whenever it fits.",33
+CPA-0091,Webtaxonline,,,contact@webtaxonline.ca,,FU3,FU3,14,closing the loop — Webtaxonline,"Last one from me. If automating doc collection for your dental professional corporation clients isn't a current priority, reply ""not now"" and I'll stop. The offer remains open whenever you're ready.",31
+CPA-0092,Shajani LLP,,,AR@shajani.ca,,FU3,FU3,14,Shajani LLP — wrap-up,"Last message from me. If streamlining the doc intake process for your restaurant clients isn't the right fit right now, totally fine — a ""not now"" closes the loop. Offer stands.",31
+CPA-0084,True North Accounting,,,matt@truenorthaccounting.com,,FU3,FU3,14,"closing the loop, Matt","Last one from me. If automating doc follow-up for your construction and trades clients isn't a priority right now, a quick ""not now"" closes it. Happy to revisit when timing's right.",31
+CPA-0564,Manning Elliott LLP,,,info@manningelliott.com,,FU3,FU3,14,Manning Elliott — should I move on?,"Will leave you alone after this. If reducing the doc-gathering load on your 100% CRA acceptance SR&ED practice isn't a fit right now, reply ""not now."" Offer remains open.",29
+CPA-0572,Walsh King LLP,,,kwalsh@walshking.com,,FU3,FU3,14,last from me — Walsh King,"Closing this out. If automating doc collection for your construction and manufacturing clients isn't the right timing, a ""not now"" is all I need. The offer stands whenever it fits.",30
+CPA-0254,Shemie CPA,,,charles@shemie.ca,,FU3,FU3,14,"closing the loop, Charles","Last one from me. If streamlining the doc intake process for your 35-year real estate accounting practice isn't a priority right now, reply ""not now"" and I'll stop. Offer stays open.",31
+CPA-0265,Emergex Subsidies,,,info@emergex.com,,FU3,FU3,14,Emergex — wrap-up,"Last message from me. If automating the supporting documentation side for your 98% success rate SR&ED claims isn't the right fit right now, a ""not now"" closes the loop. Offer stands.",31

@@ -1,0 +1,73 @@
+{
+  "name": "7 — MSG Error Handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ms7000000-0000-0000-0000-000000000001",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const e = $input.first().json;\nconst wf = e.workflow || {};\nconst err = e.execution && e.execution.error ? e.execution.error : {};\nconst lastNode = e.execution && e.execution.lastNodeExecuted ? e.execution.lastNodeExecuted : 'unknown';\nconst runUrl = (e.execution && e.execution.url) ? e.execution.url : '';\nconst msg = (err.message || 'unknown error').toString().replace(/</g,'&lt;').replace(/>/g,'&gt;');\nconst stack = (err.stack || '').toString().replace(/</g,'&lt;').replace(/>/g,'&gt;').slice(0, 1500);\n\nreturn [{\n  json: {\n    workflowName: wf.name || 'unknown workflow',\n    workflowId:   wf.id   || '',\n    lastNode,\n    message:      msg,\n    stack,\n    runUrl,\n    nowIso:       new Date().toISOString()\n  }\n}];"
+      },
+      "id": "ms7000000-0000-0000-0000-000000000002",
+      "name": "Build Error Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "sendTo": "YOUR_CLINIC_EMAIL@gmail.com",
+        "subject": "=⚠️ MedSpa Engine error in {{ $json.workflowName }}",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:system-ui,-apple-system,sans-serif;max-width:640px;margin:0 auto;color:#1f2937;\">\n<div style=\"background:#991b1b;color:white;padding:20px 28px;border-radius:10px 10px 0 0;\">\n  <h2 style=\"margin:0;font-size:18px;\">⚠️ Workflow Failure</h2>\n  <div style=\"font-size:13px;opacity:0.85;margin-top:4px;\">The MedSpa Growth Engine hit an error that needs a look.</div>\n</div>\n<div style=\"background:#fff5f5;border:1px solid #fecaca;border-top:none;padding:20px 28px;border-radius:0 0 10px 10px;\">\n  <table style=\"width:100%;border-collapse:collapse;font-size:14px;\">\n    <tr><td style=\"padding:6px 0;color:#6b7280;width:130px;\">Workflow</td><td style=\"padding:6px 0;font-weight:700;\">{{ $json.workflowName }}</td></tr>\n    <tr><td style=\"padding:6px 0;color:#6b7280;\">Failing node</td><td style=\"padding:6px 0;\">{{ $json.lastNode }}</td></tr>\n    <tr><td style=\"padding:6px 0;color:#6b7280;\">When</td><td style=\"padding:6px 0;\">{{ $json.nowIso }}</td></tr>\n  </table>\n  <div style=\"background:white;border:1px solid #fecaca;border-radius:8px;padding:14px;margin-top:14px;\">\n    <div style=\"font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;font-weight:700;\">Error message</div>\n    <div style=\"font-family:ui-monospace,monospace;font-size:13px;color:#991b1b;white-space:pre-wrap;\">{{ $json.message }}</div>\n  </div>\n  <p style=\"font-size:13px;color:#6b7280;margin-top:14px;\">Open n8n to investigate: look at the last execution of <strong>{{ $json.workflowName }}</strong> in the Executions tab.</p>\n  <p style=\"font-size:12px;color:#6b7280;margin-top:18px;border-top:1px solid #fecaca;padding-top:12px;\">Until this is fixed, the affected automation is not running. Other workflows continue normally.</p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms7000000-0000-0000-0000-000000000003",
+      "name": "Email Clinic Owner",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [440, 0],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "system@engine",
+            "Action Type":  "Workflow Error",
+            "Details":      "=[{{ $json.workflowName }}] at {{ $json.lastNode }}: {{ $json.message }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms7000000-0000-0000-0000-000000000004",
+      "name": "Log Error to Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [660, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger":      { "main": [[{ "node": "Build Error Report", "type": "main", "index": 0 }]] },
+    "Build Error Report": { "main": [[{ "node": "Email Clinic Owner", "type": "main", "index": 0 }]] },
+    "Email Clinic Owner": { "main": [[{ "node": "Log Error to Sheet", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "ms7000000-0000-0000-0000-000000000099",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "MSG-ERRORS-007",
+  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Error Handler" }]
+}

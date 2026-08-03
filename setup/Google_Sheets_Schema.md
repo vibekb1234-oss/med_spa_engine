@@ -1,0 +1,105 @@
+# Google Sheets Schema — MedSpa Growth Engine
+
+## Create a New Google Sheet
+Name it: **MedSpa Growth Engine**
+
+---
+
+## Sheet 1: "Clients"
+One row per client. This is the core CRM.
+
+| Col | Header | Type | Notes |
+|-----|--------|------|-------|
+| A | Client Email | Email | PRIMARY — used for matching |
+| B | Client Name | Text | Full name |
+| C | Phone Number | Text | |
+| D | Service Interest | Text | What they enquired about |
+| E | Lead Source | Text | Instagram / Google / Referral / Walk-in / Website |
+| F | Referral Name | Text | Who referred them (if applicable) |
+| G | Status | Text | New Inquiry / Booked / Completed / No-Show / Lapsed / VIP |
+| H | Total Visits | Number | Auto-incremented |
+| I | Total Spend | Number | Lifetime value |
+| J | Last Visit Date | Date | Auto-updated |
+| K | Next Appointment | Date | |
+| L | Last Follow-Up Date | Date | Auto-updated |
+| M | Follow-Up Count | Number | Default: 0 |
+| N | Review Requested | Text | Yes / No |
+| O | Review Left | Text | Yes / No |
+| P | Referral Asked | Text | Yes / No |
+| Q | VIP Status | Text | Standard / VIP / Lapsed |
+| R | Notes | Text | Manual notes |
+| S | Created Date | Date | Auto-set on intake |
+| T | Opted Out | Text | Yes / No — for unsubscribes |
+| U | Last Promo Month | Text | YYYY-MM — prevents duplicate monthly retention/promotional sends |
+
+### Status Values
+- **New Inquiry** — came in, hasn't booked yet
+- **Booked** — appointment confirmed
+- **Completed** — visited and received service
+- **No-Show** — didn't show up or cancelled same-day
+- **Lapsed** — completed but hasn't rebooked in 60+ days
+- **VIP** — 3+ visits or high lifetime value
+
+### Conditional Formatting on Column G (Status)
+- New Inquiry → light blue (#cfe2f3)
+- Booked → light yellow (#fff2cc)
+- Completed → light green (#d9ead3)
+- No-Show → light red (#f4cccc)
+- Lapsed → light grey (#efefef)
+- VIP → gold (#ffd966)
+
+---
+
+## Sheet 2: "Appointments"
+One row per appointment.
+
+| Col | Header | Type | Notes |
+|-----|--------|------|-------|
+| A | Client Email | Email | FK to Clients |
+| B | Client Name | Text | |
+| C | Service | Text | Specific service received |
+| D | Provider | Text | Injector/provider name |
+| E | Appointment Date | Date | |
+| F | Appointment Time | Text | e.g. 2:30pm |
+| G | Status | Text | Scheduled / Completed / No-Show / Cancelled |
+| H | Pre-Appt Reminder Sent | Text | Yes / No |
+| I | 24hr Reminder Sent | Text | Yes / No |
+| J | Post-Appt Follow-Up Sent | Text | Yes / No |
+| K | Review Request Sent | Text | Yes / No |
+| L | Revenue | Number | Amount collected |
+| M | Notes | Text | |
+
+---
+
+## Sheet 3: "Activity Log"
+Audit trail of all automated actions.
+
+| Col | Header |
+|-----|--------|
+| A | Timestamp |
+| B | Client Email |
+| C | Action Type |
+| D | Details |
+
+### Action Types
+- New Inquiry, Inquiry Follow-Up, Pre-Appt Reminder, No-Show Recovery, Post-Appt Check-In, Review Request, Referral Ask, VIP Re-Engagement, Seasonal Promo, Lapsed Recovery
+
+---
+
+## Services Quick Reference (for email personalisation)
+
+### Injectables
+- Botox / Dysport — typically 3–4 month cycle (natural rebooking trigger)
+- Dermal Fillers — 6–18 month cycle depending on area
+
+### Laser / Skin
+- Laser Hair Removal — 6–8 treatments, 4–6 weeks apart
+- HydraFacial — monthly maintenance
+- Chemical Peel — 4–6 week cycle
+- Microneedling — 3–6 treatments, 4 weeks apart
+
+### Body
+- CoolSculpting / Fat Freeze — 1–3 sessions
+- EMSculpt — 4 sessions over 2 weeks
+
+### Use these cycles to time re-booking reminders in Workflow 4

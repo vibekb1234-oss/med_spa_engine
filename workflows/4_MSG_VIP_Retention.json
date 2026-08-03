@@ -1,0 +1,219 @@
+{
+  "name": "4 — MSG VIP Retention Engine",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 10 1 * *" }]
+        }
+      },
+      "id": "ms4000000-0000-0000-0000-000000000001",
+      "name": "Schedule — Monthly 1st at 10am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const TZ = 'YOUR_CLINIC_TIMEZONE';\nfunction tzDateStr(d, tz, offsetDays = 0) {\n  const x = new Date(d);\n  x.setUTCDate(x.getUTCDate() + offsetDays);\n  return new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(x);\n}\n\nconst now = new Date();\nconst nowIso = now.toISOString();\n\n// Compute 60/90/180-day cutoffs relative to clinic's local timezone (YYYY-MM-DD strings)\nconst days60str  = tzDateStr(now, TZ, -60);\nconst days90str  = tzDateStr(now, TZ, -90);\nconst days180str = tzDateStr(now, TZ, -180);\nconst currentMonthKey = new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit' }).format(now); // e.g. '2026-04'\n\n// Seasonal promotions — detect current season in clinic's timezone\nconst tzMonth = parseInt(new Intl.DateTimeFormat('en-US', { timeZone: TZ, month: 'numeric' }).format(now));\nconst month = tzMonth;\nlet season, seasonalPromo;\nif (month >= 3 && month <= 5) {\n  season = 'Spring';\n  seasonalPromo = { subject: '🌸 Spring refresh — exclusive offer for you', theme: 'spring', offer: '20% off HydraFacial or Chemical Peel this month — the perfect spring skin reset.', color: '#ec4899' };\n} else if (month >= 6 && month <= 8) {\n  season = 'Summer';\n  seasonalPromo = { subject: '☀️ Summer-ready skin — special offer inside', theme: 'summer', offer: 'Get summer-ready with 15% off laser hair removal or body contouring this month.', color: '#f59e0b' };\n} else if (month >= 9 && month <= 11) {\n  season = 'Fall';\n  seasonalPromo = { subject: '🍂 Fall skin renewal — your exclusive offer', theme: 'fall', offer: 'Fall is the perfect time for deeper treatments. 15% off microneedling or a full Botox touch-up this month.', color: '#b45309' };\n} else {\n  season = 'New Year';\n  seasonalPromo = { subject: '✨ New year, new you — exclusive January offer', theme: 'winter', offer: 'Start the year feeling your best. 20% off any injectable treatment booked this month.', color: '#7c3aed' };\n}\n\nreturn [{ json: { nowIso, days60Str: days60str, days90Str: days90str, days180Str: days180str, currentMonthKey, season, seasonalPromo } }];"
+      },
+      "id": "ms4000000-0000-0000-0000-000000000002",
+      "name": "Calculate Dates + Season",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "filters": {},
+        "options": {}
+      },
+      "id": "ms4000000-0000-0000-0000-000000000003",
+      "name": "Get All Clients",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [440, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "jsCode": "const TZ = 'YOUR_CLINIC_TIMEZONE';\nfunction tzDateStr(d, tz) {\n  return new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(d));\n}\n\nconst clients = $input.all();\nconst dates   = $('Calculate Dates + Season').first().json;\nconst sp      = dates.seasonalPromo;\nconst nowIso  = dates.nowIso;\nconst currentMonthKey = dates.currentMonthKey;\n\nconst lapsed60   = [];\nconst lapsed90   = [];\nconst lapsed180  = [];\nconst seasonal   = [];\n\nfor (const item of clients) {\n  const c = item.json;\n  if (!c['Client Email'] || (c['Opted Out'] || '').toLowerCase() === 'yes') continue;\n  if ((c['Status'] || '') === 'New Inquiry') continue;  // Haven't visited yet\n\n  const lastVisit = c['Last Visit Date'] ? new Date(c['Last Visit Date']) : null;\n  if (!lastVisit || isNaN(lastVisit)) continue;\n\n  const lastVisitStr = tzDateStr(lastVisit, TZ);\n  const totalVisits  = parseInt(c['Total Visits'] || 1);\n  const vipStatus    = (c['VIP Status'] || 'Standard').trim();\n  const lastPromoMonth = (c['Last Promo Month'] || '').trim();\n\n  const base = {\n    clientEmail:  c['Client Email'].trim(),\n    clientName:   (c['Client Name'] || 'there').trim(),\n    service:      c['Service Interest'] || 'your last treatment',\n    totalVisits,\n    vipStatus,\n    lastVisitStr,\n    nowIso,\n    currentMonthKey,\n    seasonalPromo: sp\n  };\n\n  // Lapsed buckets + idempotency: don't re-send if already contacted this month\n  if (lastPromoMonth !== currentMonthKey) {\n    if (lastVisitStr <= dates.days180Str) {\n      lapsed180.push({ ...base, type: 'LAPSED_180' });\n    } else if (lastVisitStr <= dates.days90Str) {\n      lapsed90.push({ ...base, type: 'LAPSED_90' });\n    } else if (lastVisitStr <= dates.days60Str) {\n      lapsed60.push({ ...base, type: 'LAPSED_60' });\n    } else {\n      // Seasonal promo: only clients who visited within the last 60 days\n      seasonal.push({ ...base, type: 'SEASONAL' });\n    }\n  }\n}\n\nconst allItems = [...lapsed60, ...lapsed90, ...lapsed180, ...seasonal];\n\nif (allItems.length === 0) {\n  return [{ json: { type: 'NONE', nowIso } }];\n}\n\nreturn allItems.map(i => ({ json: i }));"
+      },
+      "id": "ms4000000-0000-0000-0000-000000000004",
+      "name": "Segment Clients",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "typeValidation": "strict" },
+          "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "NONE", "operator": { "type": "string", "operation": "notEquals" } }],
+          "combinator": "and"
+        }
+      },
+      "id": "ms4000000-0000-0000-0000-000000000005",
+      "name": "Any Clients to Contact?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [880, 0]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "LAPSED_60",  "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "LAPSED_60"  },
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "LAPSED_90",  "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "LAPSED_90"  },
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "LAPSED_180", "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "LAPSED_180" },
+            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "SEASONAL",   "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "SEASONAL"   }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ms4000000-0000-0000-0000-000000000006",
+      "name": "Route by Segment",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [1100, 0]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=Time for your {{ $json.service }} top-up, {{ $json.clientName }}?",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">✨ Time for a Top-Up?</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>It's been about 2 months since your last visit, and depending on the treatment, it might be the perfect time to come back in for a top-up or your next session.</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;\">\n    <strong>Your last treatment:</strong> {{ $json.service }}<br/>\n    <strong>Last visit:</strong> {{ $json.lastVisitStr }}\n  </div>\n  <p>Ready to book? Just reply to this email and we'll find a time that works for you. We'd love to see you!</p>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Book My Next Visit →</a>\n  <p style=\"margin-top:20px;\">See you soon!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms4000000-0000-0000-0000-000000000007",
+      "name": "Send 60-Day Rebook",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1320, -300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=We miss you, {{ $json.clientName }} — it's been a while",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#7c3aed;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">💜 We Miss You</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #ddd6fe;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>It's been about 3 months since we last saw you, and we genuinely wanted to reach out. We hope everything is going well!</p>\n  <p>We know life gets busy. If you've been thinking about coming back but haven't had the chance to book, we'd love to make it easy for you.</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #7c3aed;\">\n    <strong>💝 A little gift for you:</strong><br/>\n    Mention this email when you book and receive <strong>10% off your next treatment</strong>. Our way of saying we appreciate you.\n  </div>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#7c3aed;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Claim My 10% Off →</a>\n  <p style=\"margin-top:20px;\">We'd love to see your name on our schedule again!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms4000000-0000-0000-0000-000000000008",
+      "name": "Send 90-Day We Miss You",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1320, -100],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "=Is everything okay, {{ $json.clientName }}? We haven't seen you in a while",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#0f172a;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">A Personal Note</h2></div>\n<div style=\"background:#f8fafc;padding:24px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>I'm writing personally because it's been quite a while since your last visit, and I just wanted to make sure everything is okay on your end.</p>\n  <p>If there's anything that put you off — whether it was the experience, the results, the pricing, or something else entirely — I genuinely want to know. Your feedback helps me improve, and I'd rather know than wonder.</p>\n  <div style=\"background:#dbeafe;padding:16px;border-radius:8px;margin:20px 0;\">\n    <strong>If you'd like to come back:</strong><br/>\n    Reply to this email and I'll personally take care of your booking. As a returning client, I'll make sure you receive our best available rate.\n  </div>\n  <p>And if life has just taken you in a different direction — no hard feelings at all. I'm just glad we had the chance to help you when we did.</p>\n  <p>Warmly,<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms4000000-0000-0000-0000-000000000009",
+      "name": "Send 180-Day Win-Back",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1320, 100],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.clientEmail }}",
+        "subject": "={{ $json.seasonalPromo.subject }}",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:{{ $json.seasonalPromo.color }};color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">✨ {{ $json.seasonalPromo.subject.replace(/^[^ ]+ /, '') }}</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>Hope you're doing well! We have something special for you this month:</p>\n  <div style=\"background:white;padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid {{ $json.seasonalPromo.color }};\">\n    <strong>🎁 {{ $json.seasonalPromo.offer }}</strong>\n  </div>\n  <p>This offer is exclusively for our existing clients as a thank-you for your loyalty.</p>\n  <p>Spots are limited — reply to this email or book directly to claim your offer.</p>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:{{ $json.seasonalPromo.color }};color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Book My Spot →</a>\n  <p style=\"margin-top:20px;\">Talk soon!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms4000000-0000-0000-0000-000000000010",
+      "name": "Send Seasonal Promo",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1320, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":    "={{ $json.nowIso }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Action Type":  "=VIP Re-Engagement",
+            "Details":      "={{ $json.type }} re-engagement email sent to {{ $json.clientName }} (last visit: {{ $json.lastVisitStr }})"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms4000000-0000-0000-0000-000000000011",
+      "name": "Log Retention Action",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1540, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Email":     "={{ $json.clientEmail }}",
+            "Last Promo Month": "={{ $json.currentMonthKey }}"
+          },
+          "matchingColumns": ["Client Email"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms4000000-0000-0000-0000-000000000012",
+      "name": "Mark Promo Sent This Month",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1760, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule — Monthly 1st at 10am": { "main": [[{ "node": "Calculate Dates + Season", "type": "main", "index": 0 }]] },
+    "Calculate Dates + Season":        { "main": [[{ "node": "Get All Clients",           "type": "main", "index": 0 }]] },
+    "Get All Clients":                 { "main": [[{ "node": "Segment Clients",           "type": "main", "index": 0 }]] },
+    "Segment Clients":                 { "main": [[{ "node": "Any Clients to Contact?",   "type": "main", "index": 0 }]] },
+    "Any Clients to Contact?": {
+      "main": [
+        [{ "node": "Route by Segment", "type": "main", "index": 0 }],
+        []
+      ]
+    },
+    "Route by Segment": {
+      "main": [
+        [{ "node": "Send 60-Day Rebook",     "type": "main", "index": 0 }],
+        [{ "node": "Send 90-Day We Miss You", "type": "main", "index": 0 }],
+        [{ "node": "Send 180-Day Win-Back",   "type": "main", "index": 0 }],
+        [{ "node": "Send Seasonal Promo",     "type": "main", "index": 0 }]
+      ]
+    },
+    "Send 60-Day Rebook":     { "main": [[{ "node": "Log Retention Action", "type": "main", "index": 0 }]] },
+    "Send 90-Day We Miss You": { "main": [[{ "node": "Log Retention Action", "type": "main", "index": 0 }]] },
+    "Send 180-Day Win-Back":   { "main": [[{ "node": "Log Retention Action", "type": "main", "index": 0 }]] },
+    "Send Seasonal Promo":     { "main": [[{ "node": "Log Retention Action", "type": "main", "index": 0 }]] },
+    "Log Retention Action":    { "main": [[{ "node": "Mark Promo Sent This Month", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "ms4000000-0000-0000-0000-000000000099",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "MSG-RETENTION-004",
+  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Production Ready" }]
+}

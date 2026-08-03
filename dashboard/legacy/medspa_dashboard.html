@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedSpa Growth Engine — Clinic Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --rose: #be185d;
+      --rose-light: #fce7f3;
+      --purple: #7c3aed;
+      --sidebar: #9d174d;
+      --sidebar-hover: #831843;
+      --bg: #fdf4ff;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #f0abfc;
+      --sidebar-width: 220px;
+    }
+    html, body { height: 100%; font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); }
+
+    /* === LAYOUT === */
+    .app { display: flex; height: 100vh; overflow: hidden; }
+    .sidebar { width: var(--sidebar-width); background: var(--sidebar); color: #fff; display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
+    .sidebar-logo { padding: 24px 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .sidebar-logo h1 { font-size: 15px; font-weight: 700; line-height: 1.3; }
+    .sidebar-logo span { font-size: 11px; opacity: 0.7; display: block; margin-top: 2px; }
+    .nav-item { display: flex; align-items: center; gap: 10px; padding: 11px 20px; cursor: pointer; font-size: 14px; font-weight: 500; border-left: 3px solid transparent; transition: background 0.15s; }
+    .nav-item:hover { background: rgba(255,255,255,0.1); }
+    .nav-item.active { background: rgba(255,255,255,0.15); border-left-color: #fff; }
+    .nav-icon { font-size: 16px; width: 20px; text-align: center; }
+    .sidebar-section { padding: 16px 20px 6px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5; }
+
+    /* === HEADER === */
+    .content-area { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+    .header-left { font-size: 16px; font-weight: 700; color: var(--rose); }
+    .header-center { font-size: 14px; color: var(--muted); text-align: center; }
+    .header-center strong { color: var(--text); }
+    .header-right { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+    .refresh-btn { background: var(--rose-light); border: none; color: var(--rose); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .refresh-btn:hover { background: #fad1e8; }
+    .config-banner { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; padding: 10px 24px; font-size: 13px; font-weight: 500; flex-shrink: 0; }
+
+    /* === MAIN SECTIONS === */
+    .main { flex: 1; overflow-y: auto; padding: 24px; }
+    .section { display: none; }
+    .section.active { display: block; }
+    .section-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 20px; }
+
+    /* === CARDS === */
+    .card { background: var(--card); border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 20px; }
+    .card + .card { margin-top: 16px; }
+
+    /* === KPI GRID === */
+    .kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 20px; }
+    .kpi-card { background: var(--card); border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 18px 16px; text-align: center; }
+    .kpi-value { font-size: 28px; font-weight: 800; color: var(--rose); line-height: 1; }
+    .kpi-label { font-size: 11px; color: var(--muted); margin-top: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* === PANELS === */
+    .panel { background: var(--card); border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 20px; margin-bottom: 16px; }
+    .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .panel-title { font-size: 14px; font-weight: 700; color: var(--text); }
+    .panel.at-risk { border: 1.5px solid #f97316; }
+    .panel.lapsed { border: 1.5px solid #ef4444; }
+
+    /* === TABLES === */
+    .table-wrap { overflow-x: auto; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead th { background: #f9fafb; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); border-bottom: 1px solid #f3f4f6; white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid #f9fafb; transition: background 0.1s; cursor: pointer; }
+    tbody tr:hover { background: var(--bg); }
+    tbody td { padding: 10px 12px; color: var(--text); vertical-align: middle; }
+    tbody tr:last-child { border-bottom: none; }
+    .empty-state { text-align: center; padding: 32px; color: var(--muted); font-size: 14px; }
+
+    /* === BADGES === */
+    .badge { display: inline-block; padding: 2px 9px; border-radius: 12px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .badge-new-inquiry { background: #cfe2f3; color: #1e40af; }
+    .badge-booked { background: #fff2cc; color: #92400e; }
+    .badge-completed { background: #d9ead3; color: #166534; }
+    .badge-no-show { background: #f4cccc; color: #991b1b; }
+    .badge-lapsed { background: #efefef; color: #374151; }
+    .badge-vip { background: #ffd966; color: #78350f; }
+    .badge-standard { background: #f3f4f6; color: #374151; }
+    .badge-scheduled { background: #e0e7ff; color: #3730a3; }
+    .badge-cancelled { background: #fee2e2; color: #991b1b; }
+
+    /* === ACTIVITY FEED === */
+    .activity-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f9fafb; }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-time { font-size: 11px; color: var(--muted); white-space: nowrap; min-width: 90px; }
+    .activity-email { font-size: 12px; color: var(--muted); flex: 1; }
+    .activity-action { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+    .activity-details { font-size: 12px; color: var(--text); flex: 2; }
+
+    /* === ACTION TYPE COLOURS === */
+    .action-new-inquiry { background: #dbeafe; color: #1e40af; }
+    .action-review-request { background: #fef9c3; color: #854d0e; }
+    .action-no-show-recovery { background: #fee2e2; color: #991b1b; }
+    .action-pre-appt-reminder { background: #e0e7ff; color: #3730a3; }
+    .action-vip-re-engagement { background: #fdf4ff; color: #7c3aed; }
+    .action-post-appt-check-in { background: #dcfce7; color: #166534; }
+    .action-default { background: #f3f4f6; color: #374151; }
+
+    /* === STATS ROW === */
+    .stats-row { display: grid; gap: 12px; margin-bottom: 20px; }
+    .stats-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .stats-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .stat-card { background: var(--card); border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 18px 16px; text-align: center; }
+    .stat-value { font-size: 32px; font-weight: 800; color: var(--rose); }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+    /* === FILTERS / SEARCH === */
+    .filters-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .search-input { border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 12px; font-size: 13px; min-width: 220px; outline: none; }
+    .search-input:focus { border-color: var(--rose); }
+    select.filter-select { border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 10px; font-size: 13px; outline: none; background: white; cursor: pointer; }
+    select.filter-select:focus { border-color: var(--rose); }
+
+    /* === CHARTS GRID === */
+    .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .charts-grid .chart-card { background: var(--card); border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 20px; }
+    .chart-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+    .chart-wrap { position: relative; height: 220px; }
+
+    /* === MODAL === */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 1000; }
+    .modal-overlay.open { display: flex; justify-content: flex-end; }
+    .modal-panel { background: var(--card); width: 480px; max-width: 100%; height: 100%; overflow-y: auto; box-shadow: -4px 0 24px rgba(0,0,0,0.15); animation: slide-in 0.2s ease; }
+    @keyframes slide-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    .modal-header { background: linear-gradient(135deg, var(--rose), var(--purple)); color: #fff; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .modal-close { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; padding: 4px; }
+    .modal-body { padding: 20px 24px; }
+    .modal-section { margin-bottom: 20px; }
+    .modal-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 10px; border-bottom: 1px solid #f3f4f6; padding-bottom: 6px; }
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .field-item label { font-size: 11px; color: var(--muted); font-weight: 500; display: block; margin-bottom: 2px; }
+    .field-item span { font-size: 13px; color: var(--text); font-weight: 500; }
+    .copy-btn { background: none; border: 1px solid #e5e7eb; padding: 2px 8px; border-radius: 4px; font-size: 11px; cursor: pointer; color: var(--muted); margin-left: 4px; }
+    .copy-btn:hover { background: var(--bg); }
+    .big-stat { text-align: center; padding: 16px; background: var(--bg); border-radius: 10px; margin-bottom: 12px; }
+    .big-stat .number { font-size: 42px; font-weight: 800; color: var(--rose); }
+    .big-stat .label { font-size: 12px; color: var(--muted); }
+    .notes-area { width: 100%; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; font-size: 13px; color: var(--text); background: #fafafa; resize: none; min-height: 80px; }
+
+    /* === SETTINGS === */
+    .settings-form { max-width: 560px; }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .form-hint { font-size: 11px; color: var(--muted); margin-top: 3px; }
+    .form-input { width: 100%; border: 1px solid #e5e7eb; border-radius: 8px; padding: 9px 12px; font-size: 13px; outline: none; }
+    .form-input:focus { border-color: var(--rose); }
+    .btn-primary { background: var(--rose); color: #fff; border: none; padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .btn-primary:hover { background: var(--sidebar); }
+    .save-success { display: none; background: #d9ead3; color: #166534; padding: 8px 14px; border-radius: 6px; font-size: 13px; margin-left: 12px; }
+
+    /* === TOAST === */
+    .toast { position: fixed; bottom: 24px; right: 24px; background: #1f2937; color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 13px; z-index: 9999; display: none; max-width: 320px; }
+    .toast.show { display: block; animation: fade-in 0.2s ease; }
+    .toast.success { background: #065f46; }
+    .toast.error   { background: #7f1d1d; }
+    @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* === ACTION BUTTONS (Appointments table) === */
+    .action-btn { border: none; border-radius: 6px; padding: 4px 10px; font-size: 11px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: opacity 0.15s; }
+    .action-btn:hover { opacity: 0.8; }
+    .action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-confirm  { background: #e0e7ff; color: #3730a3; }
+    .btn-complete { background: #d9ead3; color: #166534; }
+    .btn-sending  { background: #f3f4f6; color: #6b7280; }
+    .appt-actions { display: flex; gap: 5px; flex-wrap: nowrap; }
+
+    /* === CONFIRM MODAL === */
+    .confirm-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 2000; align-items: center; justify-content: center; }
+    .confirm-overlay.open { display: flex; }
+    .confirm-dialog { background: #fff; border-radius: 14px; padding: 28px 32px; max-width: 400px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.2); animation: pop-in 0.18s ease; }
+    @keyframes pop-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .confirm-dialog h3 { font-size: 17px; font-weight: 800; color: #1f2937; margin-bottom: 10px; }
+    .confirm-dialog p  { font-size: 14px; color: #6b7280; line-height: 1.6; margin-bottom: 24px; }
+    .confirm-dialog p strong { color: #1f2937; }
+    .confirm-btns { display: flex; gap: 10px; justify-content: flex-end; }
+    .confirm-cancel { background: #f3f4f6; color: #374151; border: none; border-radius: 8px; padding: 9px 20px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .confirm-cancel:hover { background: #e5e7eb; }
+    .confirm-go { background: var(--rose); color: #fff; border: none; border-radius: 8px; padding: 9px 20px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .confirm-go:hover { background: var(--sidebar); }
+    .confirm-go.green { background: #059669; }
+    .confirm-go.green:hover { background: #047857; }
+
+    /* === SKELETON === */
+    .skeleton-block { background: #e5e7eb; border-radius: 6px; animation: skeleton-pulse 1.5s ease-in-out infinite; }
+    @keyframes skeleton-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+    /* === NO-SHOW RECOVERY === */
+    tr.no-recovery { background: #fff7ed; }
+    tr.no-recovery td { border-left: 3px solid #f97316; }
+
+    /* === RESPONSIVE === */
+    .hamburger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; padding: 4px 8px; }
+    @media (max-width: 768px) {
+      .sidebar { position: fixed; left: -100%; top: 0; height: 100%; z-index: 500; transition: left 0.25s; }
+      .sidebar.open { left: 0; }
+      .hamburger { display: block; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .charts-grid { grid-template-columns: 1fr; }
+      .stats-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* === FOOTER === */
+    .footer { padding: 12px 24px; background: var(--card); border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); text-align: center; flex-shrink: 0; }
+
+    /* === MISC === */
+    .days-bold { font-weight: 700; color: #f97316; }
+    .tag-pill { background: var(--rose-light); color: var(--rose); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .mt-16 { margin-top: 16px; }
+    .mb-16 { margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <h1>💎 MedSpa Growth Engine</h1>
+      <span>Clinic Dashboard</span>
+    </div>
+    <div class="sidebar-section">Overview</div>
+    <div class="nav-item active" data-section="dashboard">
+      <span class="nav-icon">📊</span> Dashboard
+    </div>
+    <div class="sidebar-section">Clients</div>
+    <div class="nav-item" data-section="clients">
+      <span class="nav-icon">👥</span> Client Table
+    </div>
+    <div class="nav-item" data-section="appointments">
+      <span class="nav-icon">📅</span> Appointments
+    </div>
+    <div class="sidebar-section">Insights</div>
+    <div class="nav-item" data-section="analytics">
+      <span class="nav-icon">📈</span> Analytics
+    </div>
+    <div class="nav-item" data-section="noshows">
+      <span class="nav-icon">🚨</span> No-Show Recovery
+    </div>
+    <div class="sidebar-section">System</div>
+    <div class="nav-item" data-section="settings">
+      <span class="nav-icon">⚙️</span> Settings
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content-area">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">💎 MedSpa Growth Engine</div>
+      <div class="header-center" id="header-center">Loading...</div>
+      <div class="header-right">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <span id="last-updated">—</span>
+        <button class="refresh-btn" onclick="fetchData()">🔄 Refresh</button>
+      </div>
+    </header>
+
+    <!-- CONFIG BANNER -->
+    <div class="config-banner" id="config-banner" style="display:none;">
+      ⚠️ Please configure your API Key and Sheet ID in <strong>Settings</strong> to load live data.
+    </div>
+
+    <!-- MAIN -->
+    <main class="main" id="main">
+
+      <!-- ===== DASHBOARD ===== -->
+      <div class="section active" id="section-dashboard">
+        <div class="section-title">Dashboard</div>
+
+        <!-- KPI Row -->
+        <div class="kpi-grid" id="kpi-grid">
+          <div class="kpi-card"><div class="kpi-value" id="kpi-active">—</div><div class="kpi-label">Active Clients</div></div>
+          <div class="kpi-card"><div class="kpi-value" id="kpi-ltv">—</div><div class="kpi-label">Total LTV</div></div>
+          <div class="kpi-card"><div class="kpi-value" id="kpi-appts-month">—</div><div class="kpi-label">Appts This Month</div></div>
+          <div class="kpi-card"><div class="kpi-value" id="kpi-revenue-month">—</div><div class="kpi-label">Revenue This Month</div></div>
+          <div class="kpi-card"><div class="kpi-value" id="kpi-noshow-rate">—</div><div class="kpi-label">No-Show Rate</div></div>
+          <div class="kpi-card"><div class="kpi-value" id="kpi-review-rate">—</div><div class="kpi-label">Review Rate</div></div>
+        </div>
+
+        <div class="two-col">
+          <!-- At-Risk -->
+          <div class="panel at-risk">
+            <div class="panel-header">
+              <div class="panel-title">⚠️ Due for Re-booking (60–90 days)</div>
+              <span class="tag-pill" id="at-risk-count">0</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Client</th><th>Last Visit</th><th>Service</th><th>Days Since</th></tr></thead>
+                <tbody id="at-risk-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Lapsed -->
+          <div class="panel lapsed">
+            <div class="panel-header">
+              <div class="panel-title">🔴 Lapsed Clients (90+ days)</div>
+              <span class="tag-pill" id="lapsed-count">0</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Client</th><th>Last Visit</th><th>Service</th><th>Days Since</th></tr></thead>
+                <tbody id="lapsed-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Today's Appointments -->
+        <div class="panel mt-16">
+          <div class="panel-header">
+            <div class="panel-title">📅 Today's Appointments</div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Time</th><th>Client</th><th>Service</th><th>Provider</th><th>Status</th></tr></thead>
+              <tbody id="todays-appts-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="panel mt-16">
+          <div class="panel-header">
+            <div class="panel-title">🔔 Recent Activity</div>
+            <span style="font-size:12px;color:var(--muted);">Last 10 actions</span>
+          </div>
+          <div id="activity-feed"></div>
+        </div>
+      </div>
+
+      <!-- ===== CLIENT TABLE ===== -->
+      <div class="section" id="section-clients">
+        <div class="section-title">Client Table</div>
+        <div class="filters-bar">
+          <input type="text" class="search-input" id="client-search" placeholder="Search by name or email…" oninput="renderClientsTable()">
+          <select class="filter-select" id="client-status-filter" onchange="renderClientsTable()">
+            <option value="">All Statuses</option>
+            <option>New Inquiry</option><option>Booked</option><option>Completed</option>
+            <option>No-Show</option><option>Lapsed</option><option>VIP</option>
+          </select>
+          <select class="filter-select" id="client-vip-filter" onchange="renderClientsTable()">
+            <option value="">All VIP Levels</option>
+            <option>Standard</option><option>VIP</option><option>Lapsed</option>
+          </select>
+          <select class="filter-select" id="client-service-filter" onchange="renderClientsTable()">
+            <option value="">All Services</option>
+          </select>
+        </div>
+        <div class="card" style="padding:0;">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="cursor:pointer" onclick="sortClients('Client Name')">Client ↕</th>
+                  <th>Status</th>
+                  <th>Service</th>
+                  <th style="cursor:pointer" onclick="sortClients('Total Visits')">Visits ↕</th>
+                  <th style="cursor:pointer" onclick="sortClients('Total Spend')">Spend ↕</th>
+                  <th>Last Visit</th>
+                  <th>VIP</th>
+                  <th>Review</th>
+                </tr>
+              </thead>
+              <tbody id="clients-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== APPOINTMENTS ===== -->
+      <div class="section" id="section-appointments">
+        <div class="section-title">Appointments</div>
+        <div class="stats-row cols-4" id="appt-stats"></div>
+        <div class="filters-bar">
+          <select class="filter-select" id="appt-status-filter" onchange="renderAppointmentsTable()">
+            <option value="">All Statuses</option>
+            <option>Scheduled</option><option>Completed</option><option>No-Show</option><option>Cancelled</option>
+          </select>
+          <select class="filter-select" id="appt-provider-filter" onchange="renderAppointmentsTable()">
+            <option value="">All Providers</option>
+          </select>
+          <select class="filter-select" id="appt-range-filter" onchange="renderAppointmentsTable()">
+            <option value="month">This Month</option>
+            <option value="week">This Week</option>
+            <option value="last-month">Last Month</option>
+            <option value="all">All Time</option>
+          </select>
+        </div>
+        <div class="card" style="padding:0;">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Client</th><th>Service</th><th>Provider</th>
+                  <th>Date</th><th>Time</th><th>Status</th>
+                  <th>Revenue</th><th>Reminders</th><th>Review Sent</th><th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="appts-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ANALYTICS ===== -->
+      <div class="section" id="section-analytics">
+        <div class="section-title">Analytics</div>
+        <div class="charts-grid">
+          <div class="chart-card"><div class="chart-title">Monthly Revenue Trend</div><div class="chart-wrap"><canvas id="chart-revenue"></canvas></div></div>
+          <div class="chart-card"><div class="chart-title">Monthly Appointments</div><div class="chart-wrap"><canvas id="chart-appts"></canvas></div></div>
+          <div class="chart-card"><div class="chart-title">No-Show Rate Trend (%)</div><div class="chart-wrap"><canvas id="chart-noshows"></canvas></div></div>
+          <div class="chart-card"><div class="chart-title">Client Status Breakdown</div><div class="chart-wrap"><canvas id="chart-status"></canvas></div></div>
+          <div class="chart-card"><div class="chart-title">Service Mix</div><div class="chart-wrap"><canvas id="chart-services"></canvas></div></div>
+          <div class="chart-card"><div class="chart-title">Lead Source Distribution</div><div class="chart-wrap"><canvas id="chart-sources"></canvas></div></div>
+          <div class="chart-card" style="grid-column: span 2;"><div class="chart-title">New vs Returning Clients per Month</div><div class="chart-wrap"><canvas id="chart-retention"></canvas></div></div>
+        </div>
+      </div>
+
+      <!-- ===== NO-SHOW RECOVERY ===== -->
+      <div class="section" id="section-noshows">
+        <div class="section-title">No-Show Recovery</div>
+        <div class="stats-row cols-4" id="noshow-stats"></div>
+        <div class="card" style="padding:0;margin-top:16px;">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Client</th><th>Service</th><th>Appt Date</th><th>Days Ago</th><th>Recovery Email Sent</th><th>Rebooked?</th></tr>
+              </thead>
+              <tbody id="noshow-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px;">🟠 Orange rows = no recovery email sent yet. Check Workflow 2 is active.</p>
+      </div>
+
+      <!-- ===== SETTINGS ===== -->
+      <div class="section" id="section-settings">
+        <div class="section-title">Settings</div>
+        <div class="card settings-form">
+          <div class="form-group">
+            <label class="form-label">Clinic Name</label>
+            <input class="form-input" id="s-clinic-name" type="text" placeholder="Luxe Aesthetics">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Owner Name</label>
+            <input class="form-input" id="s-owner-name" type="text" placeholder="Dr. Sarah">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Clinic Email</label>
+            <input class="form-input" id="s-clinic-email" type="email" placeholder="hello@yourclinic.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Google Sheets API Key</label>
+            <input class="form-input" id="s-api-key" type="text" placeholder="AIzaSy...">
+            <div class="form-hint">Get one at console.cloud.google.com → APIs → Credentials</div>
+            <div style="background:#fef3c7;border:1px solid #fde68a;color:#92400e;padding:10px 12px;border-radius:6px;font-size:12px;line-height:1.5;margin-top:8px;">
+              <strong>⚠️ Security — restrict this key before going live.</strong> This key is stored in your browser and sent in every request. Anyone with access to this dashboard (or your browser) can see it. In Google Cloud Console → Credentials → (this key) → <em>Application restrictions</em>: select <strong>HTTP referrers</strong> and add the URL where you open this dashboard. Under <em>API restrictions</em>, limit it to <strong>Google Sheets API</strong> only.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">MedSpa Sheet ID</label>
+            <input class="form-input" id="s-sheet-id" type="text" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms">
+            <div class="form-hint">From the Google Sheets URL: /spreadsheets/d/<strong>THIS_PART</strong>/edit</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Average Appointment Revenue ($)</label>
+            <input class="form-input" id="s-avg-revenue" type="number" placeholder="300" value="300">
+            <div class="form-hint">Used for no-show revenue loss calculation</div>
+          </div>
+          <hr style="border:none;border-top:1px solid #f3f4f6;margin:20px 0;">
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:14px;">⚡ Workflow Actions (optional)</div>
+          <div class="form-group">
+            <label class="form-label">Webhook Secret</label>
+            <input class="form-input" id="s-webhook-secret" type="text" placeholder="paste the same secret used in the Workflow Configurator">
+            <div class="form-hint">Sent as <code>X-Webhook-Secret</code> on every webhook call. Must match the value set in the Workflow Configurator.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">n8n Webhook — Mark Complete</label>
+            <input class="form-input" id="s-webhook-complete" type="url" placeholder="https://your-n8n.app.n8n.cloud/webhook/msg-appointment-complete">
+            <div class="form-hint">Workflow 3 webhook URL. Enables the "✅ Complete" button in the Appointments table.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">n8n Webhook — Booking Confirmation</label>
+            <input class="form-input" id="s-webhook-confirm" type="url" placeholder="https://your-n8n.app.n8n.cloud/webhook/msg-booking-confirmation">
+            <div class="form-hint">Workflow 6 webhook URL. Enables the "📧 Confirm" button in the Appointments table.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Google Review Link</label>
+            <input class="form-input" id="s-review-link" type="url" placeholder="https://g.page/r/XXXX/review">
+            <div class="form-hint">Sent to clients in the review request email after marking complete.</div>
+          </div>
+          <div style="display:flex;align-items:center;margin-top:8px;">
+            <button class="btn-primary" onclick="saveSettings()">💾 Save Settings</button>
+            <span class="save-success" id="save-success">✅ Saved!</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="footer">MedSpa Growth Engine — Built with n8n + Google Sheets + AI</footer>
+  </div>
+</div>
+
+<!-- CLIENT DETAIL MODAL -->
+<div class="modal-overlay" id="client-modal" onclick="closeModal(event)">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <div>
+        <div style="font-size:18px;font-weight:700;" id="modal-name">—</div>
+        <div style="font-size:13px;opacity:0.85;" id="modal-status-badge"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="big-stat">
+        <div class="number" id="modal-visits">0</div>
+        <div class="label" id="modal-visits-label">Total Visits</div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Contact</div>
+        <div class="field-grid">
+          <div class="field-item">
+            <label>Email</label>
+            <span id="modal-email">—</span>
+            <button class="copy-btn" onclick="copyField('modal-email')">Copy</button>
+          </div>
+          <div class="field-item">
+            <label>Phone</label>
+            <span id="modal-phone">—</span>
+            <button class="copy-btn" onclick="copyField('modal-phone')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Client Details</div>
+        <div class="field-grid">
+          <div class="field-item"><label>Service Interest</label><span id="modal-service">—</span></div>
+          <div class="field-item"><label>Lead Source</label><span id="modal-lead-source">—</span></div>
+          <div class="field-item"><label>Total Spend</label><span id="modal-spend">—</span></div>
+          <div class="field-item"><label>VIP Status</label><span id="modal-vip">—</span></div>
+          <div class="field-item"><label>Last Visit</label><span id="modal-last-visit">—</span></div>
+          <div class="field-item"><label>Next Appointment</label><span id="modal-next-appt">—</span></div>
+          <div class="field-item"><label>Review Requested</label><span id="modal-review-req">—</span></div>
+          <div class="field-item"><label>Review Left</label><span id="modal-review-left">—</span></div>
+          <div class="field-item"><label>Referral Name</label><span id="modal-referral">—</span></div>
+          <div class="field-item"><label>Opted Out</label><span id="modal-opted-out">—</span></div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Notes</div>
+        <textarea class="notes-area" id="modal-notes" readonly></textarea>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Appointment History</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Service</th><th>Provider</th><th>Status</th><th>Revenue</th></tr></thead>
+            <tbody id="modal-appt-history"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTION CONFIRM MODAL -->
+<div class="confirm-overlay" id="confirm-modal">
+  <div class="confirm-dialog">
+    <h3 id="confirm-title">Confirm</h3>
+    <p id="confirm-msg"></p>
+    <div class="confirm-btns">
+      <button class="confirm-cancel" onclick="closeConfirmModal()">Cancel</button>
+      <button class="confirm-go" id="confirm-go-btn">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+const state = {
+  clients: [],
+  appointments: [],
+  activityLog: [],
+  settings: { clinicName: '', ownerName: '', clinicEmail: '', apiKey: '', sheetId: '', avgRevenue: 300, webhookComplete: '', webhookConfirm: '', webhookSecret: '', reviewLink: '' },
+  lastUpdated: null,
+  currentSection: 'dashboard',
+  sortKey: '',
+  sortDir: 1,
+  charts: {}
+};
+
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  loadSettings();
+  setupNavigation();
+  updateHeaderCenter();
+  const saved = localStorage.getItem('msg_active_section');
+  if (saved) showSection(saved, false);
+  if (state.settings.apiKey && state.settings.sheetId) {
+    fetchData();
+  } else {
+    document.getElementById('config-banner').style.display = 'block';
+  }
+  setInterval(fetchData, 5 * 60 * 1000);
+});
+
+function setupNavigation() {
+  document.querySelectorAll('.nav-item[data-section]').forEach(el => {
+    el.addEventListener('click', () => showSection(el.dataset.section));
+  });
+}
+
+function showSection(name, save = true) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const el = document.getElementById('section-' + name);
+  if (el) el.classList.add('active');
+  const nav = document.querySelector(`.nav-item[data-section="${name}"]`);
+  if (nav) nav.classList.add('active');
+  state.currentSection = name;
+  if (save) localStorage.setItem('msg_active_section', name);
+  if (name === 'analytics') renderCharts();
+  if (name === 'appointments') populateProviderFilter();
+  if (name === 'clients') populateServiceFilter();
+  // Close mobile sidebar
+  document.getElementById('sidebar').classList.remove('open');
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ============================================================
+// SETTINGS
+// ============================================================
+function loadSettings() {
+  const saved = localStorage.getItem('msg_settings');
+  if (saved) {
+    try { Object.assign(state.settings, JSON.parse(saved)); } catch(e) {}
+  }
+  document.getElementById('s-clinic-name').value      = state.settings.clinicName      || '';
+  document.getElementById('s-owner-name').value       = state.settings.ownerName       || '';
+  document.getElementById('s-clinic-email').value     = state.settings.clinicEmail     || '';
+  document.getElementById('s-api-key').value          = state.settings.apiKey          || '';
+  document.getElementById('s-sheet-id').value         = state.settings.sheetId         || '';
+  document.getElementById('s-avg-revenue').value      = state.settings.avgRevenue      || 300;
+  document.getElementById('s-webhook-complete').value = state.settings.webhookComplete || '';
+  document.getElementById('s-webhook-confirm').value  = state.settings.webhookConfirm  || '';
+  document.getElementById('s-webhook-secret').value   = state.settings.webhookSecret   || '';
+  document.getElementById('s-review-link').value      = state.settings.reviewLink      || '';
+}
+
+function saveSettings() {
+  state.settings.clinicName      = document.getElementById('s-clinic-name').value.trim();
+  state.settings.ownerName       = document.getElementById('s-owner-name').value.trim();
+  state.settings.clinicEmail     = document.getElementById('s-clinic-email').value.trim();
+  state.settings.apiKey          = document.getElementById('s-api-key').value.trim();
+  state.settings.sheetId         = document.getElementById('s-sheet-id').value.trim();
+  state.settings.avgRevenue      = parseFloat(document.getElementById('s-avg-revenue').value) || 300;
+  state.settings.webhookComplete = document.getElementById('s-webhook-complete').value.trim();
+  state.settings.webhookConfirm  = document.getElementById('s-webhook-confirm').value.trim();
+  state.settings.webhookSecret   = document.getElementById('s-webhook-secret').value.trim();
+  state.settings.reviewLink      = document.getElementById('s-review-link').value.trim();
+  localStorage.setItem('msg_settings', JSON.stringify(state.settings));
+  const el = document.getElementById('save-success');
+  el.style.display = 'inline';
+  setTimeout(() => el.style.display = 'none', 2500);
+  updateHeaderCenter();
+  if (state.settings.apiKey && state.settings.sheetId) {
+    document.getElementById('config-banner').style.display = 'none';
+    fetchData();
+  }
+}
+
+// ============================================================
+// DATA FETCH
+// ============================================================
+async function fetchData() {
+  const { apiKey, sheetId } = state.settings;
+  if (!apiKey || !sheetId) return;
+  const base = `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(sheetId)}/values`;
+  try {
+    const [cr, ar, lr] = await Promise.all([
+      fetch(`${base}/Clients?key=${apiKey}`),
+      fetch(`${base}/Appointments?key=${apiKey}`),
+      fetch(`${base}/Activity%20Log?key=${apiKey}`)
+    ]);
+    if (!cr.ok) throw new Error(`Sheets API error: ${cr.status}`);
+    const [cd, ad, ld] = await Promise.all([cr.json(), ar.json(), lr.json()]);
+    state.clients      = parseSheet(cd);
+    state.appointments = parseSheet(ad);
+    state.activityLog  = parseSheet(ld);
+    state.lastUpdated  = new Date();
+    document.getElementById('last-updated').textContent = 'Updated just now';
+    renderCurrentSection();
+    scheduleLastUpdatedText();
+  } catch(e) {
+    showToast('⚠️ Could not refresh data. Check Settings.');
+    console.error(e);
+  }
+}
+
+function parseSheet(data) {
+  if (!data.values || data.values.length < 2) return [];
+  const headers = data.values[0];
+  return data.values.slice(1).map(row => {
+    const obj = {};
+    headers.forEach((h, i) => { obj[h] = (row[i] || '').toString().trim(); });
+    return obj;
+  }).filter(r => Object.values(r).some(v => v));
+}
+
+function renderCurrentSection() {
+  const s = state.currentSection;
+  if (s === 'dashboard')    renderDashboard();
+  if (s === 'clients')      { populateServiceFilter(); renderClientsTable(); }
+  if (s === 'appointments') { populateProviderFilter(); renderAppointmentsStats(); renderAppointmentsTable(); }
+  if (s === 'analytics')    renderCharts();
+  if (s === 'noshows')      renderNoShows();
+}
+
+let _lastUpdatedInterval = null;
+function scheduleLastUpdatedText() {
+  if (_lastUpdatedInterval) clearInterval(_lastUpdatedInterval);
+  let mins = 0;
+  _lastUpdatedInterval = setInterval(() => {
+    mins++;
+    const el = document.getElementById('last-updated');
+    if (el) el.textContent = `Updated ${mins} min${mins > 1 ? 's' : ''} ago`;
+    if (mins >= 5) { clearInterval(_lastUpdatedInterval); _lastUpdatedInterval = null; }
+  }, 60000);
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function fmt$(n) {
+  if (n === undefined || n === null || n === '') return '—';
+  const v = parseFloat(n);
+  if (isNaN(v)) return '—';
+  return '$' + v.toLocaleString('en-US', { maximumFractionDigits: 0 });
+}
+
+// Parse date strings as LOCAL time (not UTC) to avoid off-by-one day display issues
+function parseLocalDate(d) {
+  if (!d) return null;
+  // "2024-03-15" → treat as local midnight, not UTC midnight
+  const iso = d.toString().trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) {
+    const [y, m, day] = iso.split('-');
+    return new Date(+y, +m - 1, +day);
+  }
+  const dt = new Date(d);
+  return isNaN(dt) ? null : dt;
+}
+
+function fmtDate(d) {
+  const dt = parseLocalDate(d);
+  if (!dt) return d || '—';
+  return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function fmtDateShort(d) {
+  const dt = parseLocalDate(d);
+  if (!dt) return d || '—';
+  return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function daysSince(dateStr) {
+  const dt = parseLocalDate(dateStr);
+  if (!dt) return 9999;
+  const nowMidnight = new Date(); nowMidnight.setHours(0,0,0,0);
+  return Math.floor((nowMidnight - dt) / 86400000);
+}
+
+function statusBadge(status) {
+  const cls = {
+    'New Inquiry': 'new-inquiry', 'Booked': 'booked', 'Completed': 'completed',
+    'No-Show': 'no-show', 'Lapsed': 'lapsed', 'VIP': 'vip',
+    'Scheduled': 'scheduled', 'Cancelled': 'cancelled', 'Standard': 'standard'
+  }[status] || 'standard';
+  return `<span class="badge badge-${cls}">${status || '—'}</span>`;
+}
+
+function actionBadge(type) {
+  const t = (type || '').toLowerCase().replace(/[^a-z]/g, '-');
+  const cls = `action-${t}`;
+  return `<span class="activity-action ${cls}">${type}</span>`;
+}
+
+function getMonthKey(dateStr) {
+  const d = parseLocalDate(dateStr);
+  if (!d) return null;
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+}
+
+function last12Months() {
+  const months = [];
+  const now = new Date();
+  for (let i = 11; i >= 0; i--) {
+    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    months.push(`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`);
+  }
+  return months;
+}
+
+function formatMonthLabel(key) {
+  const [y, m] = key.split('-');
+  return new Date(+y, +m - 1, 1).toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
+}
+
+function currentMonthKey() { return getMonthKey(new Date().toISOString()); }
+
+function showToast(msg) { showToastStyled(msg); }
+
+function updateHeaderCenter() {
+  const now = new Date();
+  const h = now.getHours();
+  const greeting = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+  const name = state.settings.clinicName || 'Clinic';
+  const dateStr = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  document.getElementById('header-center').innerHTML = `${dateStr} &nbsp;·&nbsp; <strong>${greeting}, ${name}</strong>`;
+}
+
+function copyField(id) {
+  const txt = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(txt).then(() => showToast('Copied!'));
+}
+
+// ============================================================
+// DASHBOARD
+// ============================================================
+function renderDashboard() {
+  const { clients, appointments, activityLog } = state;
+  const now = new Date();
+  const monthKey = currentMonthKey();
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+
+  // KPIs
+  const active = clients.filter(c => ['Booked','Completed','VIP'].includes(c['Status'])).length;
+  const ltv = clients.reduce((s,c) => s + (parseFloat(c['Total Spend']) || 0), 0);
+  const apptsThisMonth = appointments.filter(a => getMonthKey(a['Appointment Date']) === monthKey);
+  const revenueMonth = apptsThisMonth.filter(a => a['Status'] === 'Completed').reduce((s,a) => s + (parseFloat(a['Revenue']) || 0), 0);
+  const noShowsMonth = apptsThisMonth.filter(a => a['Status'] === 'No-Show').length;
+  const totalScheduledMonth = apptsThisMonth.filter(a => ['Completed','No-Show','Scheduled'].includes(a['Status'])).length;
+  const noShowRate = totalScheduledMonth > 0 ? Math.round(noShowsMonth / totalScheduledMonth * 100) : 0;
+  const reviewReq = clients.filter(c => c['Review Requested'] === 'Yes').length;
+  const reviewLeft = clients.filter(c => c['Review Left'] === 'Yes').length;
+  const reviewRate = reviewReq > 0 ? Math.round(reviewLeft / reviewReq * 100) : 0;
+
+  document.getElementById('kpi-active').textContent = active;
+  document.getElementById('kpi-ltv').textContent = fmt$(ltv);
+  document.getElementById('kpi-appts-month').textContent = apptsThisMonth.length;
+  document.getElementById('kpi-revenue-month').textContent = fmt$(revenueMonth);
+  document.getElementById('kpi-noshow-rate').textContent = noShowRate + '%';
+  document.getElementById('kpi-review-rate').textContent = reviewRate + '%';
+
+  // At-risk (60–90 days, not lapsed)
+  const atRisk = clients.filter(c => {
+    const d = daysSince(c['Last Visit Date']);
+    return d >= 60 && d < 90 && c['Status'] !== 'Lapsed' && c['Status'] !== 'New Inquiry';
+  });
+  document.getElementById('at-risk-count').textContent = atRisk.length;
+  const atRiskBody = document.getElementById('at-risk-body');
+  if (atRisk.length === 0) {
+    atRiskBody.innerHTML = `<tr><td colspan="4" class="empty-state">✅ All clients are up to date!</td></tr>`;
+  } else {
+    atRiskBody.innerHTML = atRisk.map(c => `
+      <tr onclick="openClientModal('${encodeURIComponent(c['Client Email'])}')">
+        <td>${c['Client Name'] || '—'}</td>
+        <td>${fmtDate(c['Last Visit Date'])}</td>
+        <td>${c['Service Interest'] || '—'}</td>
+        <td><span class="days-bold">${daysSince(c['Last Visit Date'])}d</span></td>
+      </tr>`).join('');
+  }
+
+  // Lapsed (90+ days or Status=Lapsed)
+  const lapsedList = clients.filter(c => {
+    const d = daysSince(c['Last Visit Date']);
+    return (d >= 90 || c['Status'] === 'Lapsed') && c['Status'] !== 'New Inquiry';
+  });
+  document.getElementById('lapsed-count').textContent = lapsedList.length;
+  const lapsedBody = document.getElementById('lapsed-body');
+  if (lapsedList.length === 0) {
+    lapsedBody.innerHTML = `<tr><td colspan="4" class="empty-state">✅ No lapsed clients this month!</td></tr>`;
+  } else {
+    lapsedBody.innerHTML = lapsedList.slice(0, 10).map(c => `
+      <tr onclick="openClientModal('${encodeURIComponent(c['Client Email'])}')">
+        <td>${c['Client Name'] || '—'}</td>
+        <td>${fmtDate(c['Last Visit Date'])}</td>
+        <td>${c['Service Interest'] || '—'}</td>
+        <td style="color:#ef4444;font-weight:700">${daysSince(c['Last Visit Date'])}d</td>
+      </tr>`).join('');
+  }
+
+  // Today's appointments
+  const todayAppts = appointments.filter(a => {
+    const d = parseLocalDate(a['Appointment Date']);
+    if (!d) return false;
+    const ds = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    return ds === todayStr;
+  });
+  const todayBody = document.getElementById('todays-appts-body');
+  if (todayAppts.length === 0) {
+    todayBody.innerHTML = `<tr><td colspan="5" class="empty-state">No appointments scheduled for today.</td></tr>`;
+  } else {
+    todayAppts.sort((a,b) => (a['Appointment Time'] || '').localeCompare(b['Appointment Time'] || ''));
+    todayBody.innerHTML = todayAppts.map(a => `
+      <tr>
+        <td>${a['Appointment Time'] || '—'}</td>
+        <td>${a['Client Name'] || '—'}</td>
+        <td>${a['Service'] || '—'}</td>
+        <td>${a['Provider'] || '—'}</td>
+        <td>${statusBadge(a['Status'])}</td>
+      </tr>`).join('');
+  }
+
+  // Activity feed
+  const feedEl = document.getElementById('activity-feed');
+  const recent = [...activityLog].reverse().slice(0, 10);
+  if (recent.length === 0) {
+    feedEl.innerHTML = `<div class="empty-state">No activity logged yet.</div>`;
+  } else {
+    feedEl.innerHTML = recent.map(a => {
+      const d = new Date(a['Timestamp']);
+      const timeStr = isNaN(d) ? a['Timestamp'] : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' · ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      return `<div class="activity-item">
+        <div class="activity-time">${timeStr}</div>
+        ${actionBadge(a['Action Type'])}
+        <div class="activity-email">${a['Client Email'] || '—'}</div>
+        <div class="activity-details">${a['Details'] || ''}</div>
+      </div>`;
+    }).join('');
+  }
+}
+
+// ============================================================
+// CLIENT TABLE
+// ============================================================
+let clientSortKey = '';
+let clientSortDir = 1;
+
+function populateServiceFilter() {
+  const services = [...new Set(state.clients.map(c => c['Service Interest']).filter(Boolean))].sort();
+  const sel = document.getElementById('client-service-filter');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">All Services</option>' + services.map(s => `<option ${s===cur?'selected':''}>${s}</option>`).join('');
+}
+
+function sortClients(key) {
+  if (clientSortKey === key) clientSortDir *= -1;
+  else { clientSortKey = key; clientSortDir = 1; }
+  renderClientsTable();
+}
+
+function renderClientsTable() {
+  const search  = (document.getElementById('client-search').value || '').toLowerCase();
+  const status  = document.getElementById('client-status-filter').value;
+  const vip     = document.getElementById('client-vip-filter').value;
+  const service = document.getElementById('client-service-filter').value;
+
+  let data = state.clients.filter(c => {
+    if (search  && !((c['Client Name']||'')+(c['Client Email']||'')).toLowerCase().includes(search)) return false;
+    if (status  && c['Status'] !== status)      return false;
+    if (vip     && c['VIP Status'] !== vip)     return false;
+    if (service && c['Service Interest'] !== service) return false;
+    return true;
+  });
+
+  if (clientSortKey) {
+    data = [...data].sort((a, b) => {
+      const av = isNaN(a[clientSortKey]) ? (a[clientSortKey]||'') : parseFloat(a[clientSortKey]);
+      const bv = isNaN(b[clientSortKey]) ? (b[clientSortKey]||'') : parseFloat(b[clientSortKey]);
+      return av < bv ? -clientSortDir : av > bv ? clientSortDir : 0;
+    });
+  }
+
+  const body = document.getElementById('clients-table-body');
+  if (data.length === 0) {
+    body.innerHTML = `<tr><td colspan="8" class="empty-state">No clients match your filters.</td></tr>`;
+    return;
+  }
+  body.innerHTML = data.map(c => `
+    <tr onclick="openClientModal('${encodeURIComponent(c['Client Email'])}')">
+      <td><strong>${c['Client Name'] || '—'}</strong><br><span style="color:var(--muted);font-size:11px">${c['Client Email']||''}</span></td>
+      <td>${statusBadge(c['Status'])}</td>
+      <td>${c['Service Interest'] || '—'}</td>
+      <td>${c['Total Visits'] || 0}</td>
+      <td>${fmt$(c['Total Spend'])}</td>
+      <td>${fmtDateShort(c['Last Visit Date'])}</td>
+      <td>${statusBadge(c['VIP Status'] || 'Standard')}</td>
+      <td>${c['Review Left'] === 'Yes' ? '⭐ Yes' : c['Review Requested'] === 'Yes' ? '⏳ Pending' : '—'}</td>
+    </tr>`).join('');
+}
+
+// ============================================================
+// CLIENT MODAL
+// ============================================================
+function openClientModal(emailEncoded) {
+  const email = decodeURIComponent(emailEncoded);
+  const c = state.clients.find(x => x['Client Email'] === email);
+  if (!c) return;
+  document.getElementById('modal-name').textContent = c['Client Name'] || email;
+  document.getElementById('modal-status-badge').innerHTML = statusBadge(c['Status']);
+  document.getElementById('modal-visits').textContent = c['Total Visits'] || 0;
+  document.getElementById('modal-visits-label').innerHTML = 'Total Visits ' + (c['VIP Status']==='VIP' ? '⭐ <strong style="color:#f59e0b">VIP</strong>' : '');
+  document.getElementById('modal-email').textContent = c['Client Email'] || '—';
+  document.getElementById('modal-phone').textContent = c['Phone Number'] || '—';
+  document.getElementById('modal-service').textContent = c['Service Interest'] || '—';
+  document.getElementById('modal-lead-source').textContent = c['Lead Source'] || '—';
+  document.getElementById('modal-spend').textContent = fmt$(c['Total Spend']);
+  document.getElementById('modal-vip').innerHTML = statusBadge(c['VIP Status'] || 'Standard');
+  document.getElementById('modal-last-visit').textContent = fmtDate(c['Last Visit Date']);
+  document.getElementById('modal-next-appt').textContent = fmtDate(c['Next Appointment']);
+  document.getElementById('modal-review-req').textContent = c['Review Requested'] || 'No';
+  document.getElementById('modal-review-left').textContent = c['Review Left'] || 'No';
+  document.getElementById('modal-referral').textContent = c['Referral Name'] || '—';
+  document.getElementById('modal-opted-out').textContent = c['Opted Out'] || 'No';
+  document.getElementById('modal-notes').value = c['Notes'] || '';
+  const history = state.appointments.filter(a => a['Client Email'] === email)
+    .sort((a,b) => new Date(b['Appointment Date']) - new Date(a['Appointment Date']));
+  const hBody = document.getElementById('modal-appt-history');
+  if (history.length === 0) {
+    hBody.innerHTML = `<tr><td colspan="5" class="empty-state">No appointments on record.</td></tr>`;
+  } else {
+    hBody.innerHTML = history.map(a => `
+      <tr>
+        <td>${fmtDate(a['Appointment Date'])}</td>
+        <td>${a['Service']||'—'}</td>
+        <td>${a['Provider']||'—'}</td>
+        <td>${statusBadge(a['Status'])}</td>
+        <td>${fmt$(a['Revenue'])}</td>
+      </tr>`).join('');
+  }
+  document.getElementById('client-modal').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('client-modal')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('client-modal').classList.remove('open');
+}
+
+// ============================================================
+// APPOINTMENTS
+// ============================================================
+function renderAppointmentsStats() {
+  const now = new Date();
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+  const monthKey = currentMonthKey();
+  const a = state.appointments;
+  const todayCount = a.filter(x => {
+    const d = parseLocalDate(x['Appointment Date']);
+    if (!d) return false;
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}` === todayStr;
+  }).length;
+  const completedMonth = a.filter(x => getMonthKey(x['Appointment Date']) === monthKey && x['Status'] === 'Completed').length;
+  const noShowsMonth = a.filter(x => getMonthKey(x['Appointment Date']) === monthKey && x['Status'] === 'No-Show').length;
+  const totalMonth = a.filter(x => getMonthKey(x['Appointment Date']) === monthKey && ['Completed','No-Show','Scheduled'].includes(x['Status'])).length;
+  const nsRate = totalMonth > 0 ? Math.round(noShowsMonth / totalMonth * 100) : 0;
+  document.getElementById('appt-stats').innerHTML = `
+    <div class="stat-card"><div class="stat-value">${todayCount}</div><div class="stat-label">Scheduled Today</div></div>
+    <div class="stat-card"><div class="stat-value">${completedMonth}</div><div class="stat-label">Completed This Month</div></div>
+    <div class="stat-card"><div class="stat-value">${noShowsMonth}</div><div class="stat-label">No-Shows This Month</div></div>
+    <div class="stat-card"><div class="stat-value">${nsRate}%</div><div class="stat-label">No-Show Rate</div></div>`;
+}
+
+function populateProviderFilter() {
+  const providers = [...new Set(state.appointments.map(a => a['Provider']).filter(Boolean))].sort();
+  const sel = document.getElementById('appt-provider-filter');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">All Providers</option>' + providers.map(p => `<option ${p===cur?'selected':''}>${p}</option>`).join('');
+}
+
+function renderAppointmentsTable() {
+  const status   = document.getElementById('appt-status-filter').value;
+  const provider = document.getElementById('appt-provider-filter').value;
+  const range    = document.getElementById('appt-range-filter').value;
+  const now = new Date();
+
+  let data = state.appointments.filter(a => {
+    if (status   && a['Status'] !== status)     return false;
+    if (provider && a['Provider'] !== provider) return false;
+    if (range !== 'all') {
+      const d = new Date(a['Appointment Date']);
+      if (isNaN(d)) return false;
+      if (range === 'week') {
+        const start = new Date(now); start.setDate(now.getDate() - now.getDay());
+        const end   = new Date(start); end.setDate(start.getDate() + 7);
+        if (d < start || d >= end) return false;
+      } else if (range === 'month') {
+        if (getMonthKey(a['Appointment Date']) !== currentMonthKey()) return false;
+      } else if (range === 'last-month') {
+        const lm = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+        const lmKey = `${lm.getFullYear()}-${String(lm.getMonth()+1).padStart(2,'0')}`;
+        if (getMonthKey(a['Appointment Date']) !== lmKey) return false;
+      }
+    }
+    return true;
+  });
+
+  data.sort((a, b) => new Date(b['Appointment Date']) - new Date(a['Appointment Date']));
+
+  const body = document.getElementById('appts-table-body');
+  const { webhookComplete, webhookConfirm } = state.settings;
+  if (data.length === 0) {
+    body.innerHTML = `<tr><td colspan="10" class="empty-state">No appointments match your filters.</td></tr>`;
+    return;
+  }
+  body.innerHTML = data.map((a, idx) => {
+    const isScheduled = a['Status'] === 'Scheduled';
+    const confirmBtn = webhookConfirm
+      ? `<button class="action-btn btn-confirm" onclick="event.stopPropagation();promptBookingConfirm(${idx})" title="Send booking confirmation email">📧 Confirm</button>`
+      : '';
+    const completeBtn = (webhookComplete && isScheduled)
+      ? `<button class="action-btn btn-complete" onclick="event.stopPropagation();promptMarkComplete(${idx})" title="Mark complete + schedule review email">✅ Complete</button>`
+      : '';
+    const actions = (confirmBtn || completeBtn)
+      ? `<div class="appt-actions">${confirmBtn}${completeBtn}</div>`
+      : '<span style="color:#d1d5db;font-size:11px;">—</span>';
+    return `
+    <tr>
+      <td><strong>${a['Client Name']||'—'}</strong></td>
+      <td>${a['Service']||'—'}</td>
+      <td>${a['Provider']||'—'}</td>
+      <td>${fmtDate(a['Appointment Date'])}</td>
+      <td>${a['Appointment Time']||'—'}</td>
+      <td>${statusBadge(a['Status'])}</td>
+      <td>${fmt$(a['Revenue'])}</td>
+      <td>${a['Pre-Appt Reminder Sent']==='Yes'?'✅':'—'}</td>
+      <td>${a['Review Request Sent']==='Yes'?'✅':'—'}</td>
+      <td>${actions}</td>
+    </tr>`;
+  }).join('');
+
+  // Store filtered data for button actions to reference by index
+  state._filteredAppts = data;
+}
+
+// ============================================================
+// ANALYTICS CHARTS
+// ============================================================
+function renderCharts() {
+  const months = last12Months();
+  const labels = months.map(formatMonthLabel);
+  const appts = state.appointments;
+  const clients = state.clients;
+
+  // Destroy old charts
+  Object.values(state.charts).forEach(c => { try { c.destroy(); } catch(e){} });
+  state.charts = {};
+
+  const chartDefaults = {
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, grid: { color: '#f3f4f6' } }, x: { grid: { display: false } } },
+    maintainAspectRatio: false
+  };
+
+  // 1. Monthly Revenue
+  const revenueByMonth = {};
+  months.forEach(m => revenueByMonth[m] = 0);
+  appts.filter(a => a['Status']==='Completed').forEach(a => {
+    const k = getMonthKey(a['Appointment Date']);
+    if (k && revenueByMonth[k] !== undefined) revenueByMonth[k] += parseFloat(a['Revenue'])||0;
+  });
+  state.charts.revenue = new Chart(document.getElementById('chart-revenue'), {
+    type: 'bar',
+    data: { labels, datasets: [{ data: months.map(m => revenueByMonth[m]), backgroundColor: '#be185d', borderRadius: 4 }] },
+    options: { ...chartDefaults, plugins: { ...chartDefaults.plugins, tooltip: { callbacks: { label: ctx => fmt$(ctx.raw) } } } }
+  });
+
+  // 2. Monthly Appointments
+  const apptsByMonth = {};
+  months.forEach(m => apptsByMonth[m] = 0);
+  appts.forEach(a => {
+    const k = getMonthKey(a['Appointment Date']);
+    if (k && apptsByMonth[k] !== undefined) apptsByMonth[k]++;
+  });
+  state.charts.appts = new Chart(document.getElementById('chart-appts'), {
+    type: 'line',
+    data: { labels, datasets: [{ data: months.map(m => apptsByMonth[m]), borderColor: '#7c3aed', backgroundColor: 'rgba(124,58,237,0.1)', tension: 0.3, fill: true, pointRadius: 4 }] },
+    options: { ...chartDefaults }
+  });
+
+  // 3. No-Show Rate
+  const nsRateByMonth = months.map(m => {
+    const total = appts.filter(a => getMonthKey(a['Appointment Date'])===m && ['Completed','No-Show','Scheduled'].includes(a['Status'])).length;
+    const ns    = appts.filter(a => getMonthKey(a['Appointment Date'])===m && a['Status']==='No-Show').length;
+    return total > 0 ? Math.round(ns/total*100) : 0;
+  });
+  state.charts.noshows = new Chart(document.getElementById('chart-noshows'), {
+    type: 'line',
+    data: { labels, datasets: [{ data: nsRateByMonth, borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.1)', tension: 0.3, fill: true, pointRadius: 4 }] },
+    options: { ...chartDefaults, scales: { ...chartDefaults.scales, y: { ...chartDefaults.scales.y, max: 100, ticks: { callback: v => v+'%' } } } }
+  });
+
+  // 4. Client Status
+  const statusCounts = {};
+  clients.forEach(c => { statusCounts[c['Status']] = (statusCounts[c['Status']]||0)+1; });
+  const statusColors = { 'New Inquiry':'#93c5fd','Booked':'#fde68a','Completed':'#86efac','No-Show':'#fca5a5','Lapsed':'#d1d5db','VIP':'#fcd34d' };
+  state.charts.status = new Chart(document.getElementById('chart-status'), {
+    type: 'doughnut',
+    data: { labels: Object.keys(statusCounts), datasets: [{ data: Object.values(statusCounts), backgroundColor: Object.keys(statusCounts).map(k => statusColors[k]||'#e5e7eb'), borderWidth: 2 }] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: true, position: 'right', labels: { font: { size: 11 } } } } }
+  });
+
+  // 5. Service Mix
+  const serviceCounts = {};
+  clients.forEach(c => { if(c['Service Interest']) serviceCounts[c['Service Interest']] = (serviceCounts[c['Service Interest']]||0)+1; });
+  const chartColors = ['#be185d','#7c3aed','#0891b2','#059669','#f59e0b','#ef4444','#8b5cf6','#ec4899'];
+  state.charts.services = new Chart(document.getElementById('chart-services'), {
+    type: 'doughnut',
+    data: { labels: Object.keys(serviceCounts), datasets: [{ data: Object.values(serviceCounts), backgroundColor: chartColors, borderWidth: 2 }] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: true, position: 'right', labels: { font: { size: 11 } } } } }
+  });
+
+  // 6. Lead Source
+  const sourceCounts = {};
+  clients.forEach(c => { if(c['Lead Source']) sourceCounts[c['Lead Source']] = (sourceCounts[c['Lead Source']]||0)+1; });
+  state.charts.sources = new Chart(document.getElementById('chart-sources'), {
+    type: 'doughnut',
+    data: { labels: Object.keys(sourceCounts), datasets: [{ data: Object.values(sourceCounts), backgroundColor: chartColors.slice().reverse(), borderWidth: 2 }] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: true, position: 'right', labels: { font: { size: 11 } } } } }
+  });
+
+  // 7. New vs Returning Clients
+  const newByMonth = {}, retByMonth = {};
+  months.forEach(m => { newByMonth[m] = 0; retByMonth[m] = 0; });
+  clients.forEach(c => {
+    const k = getMonthKey(c['Created Date']);
+    if (k && newByMonth[k] !== undefined) {
+      const visits = parseInt(c['Total Visits']||0);
+      if (visits <= 1) newByMonth[k]++;
+      else retByMonth[k]++;
+    }
+  });
+  state.charts.retention = new Chart(document.getElementById('chart-retention'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        { label: 'New Clients',       data: months.map(m => newByMonth[m]),  backgroundColor: '#be185d', borderRadius: 4 },
+        { label: 'Returning Clients', data: months.map(m => retByMonth[m]),  backgroundColor: '#7c3aed', borderRadius: 4 }
+      ]
+    },
+    options: { ...chartDefaults, plugins: { legend: { display: true } } }
+  });
+}
+
+// ============================================================
+// WEBHOOK ACTIONS
+// ============================================================
+let _confirmCallback = null;
+
+function showConfirmModal(title, html, btnLabel, btnClass, onConfirm) {
+  document.getElementById('confirm-title').textContent = title;
+  document.getElementById('confirm-msg').innerHTML = html;
+  const btn = document.getElementById('confirm-go-btn');
+  btn.textContent = btnLabel;
+  btn.className = `confirm-go${btnClass ? ' ' + btnClass : ''}`;
+  _confirmCallback = onConfirm;
+  document.getElementById('confirm-modal').classList.add('open');
+}
+
+function closeConfirmModal() {
+  document.getElementById('confirm-modal').classList.remove('open');
+  _confirmCallback = null;
+}
+
+document.getElementById('confirm-go-btn').addEventListener('click', () => {
+  if (_confirmCallback) {
+    _confirmCallback();
+    closeConfirmModal();
+  }
+});
+
+document.getElementById('confirm-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('confirm-modal')) closeConfirmModal();
+});
+
+function showToastStyled(msg, type = '') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = `toast show${type ? ' ' + type : ''}`;
+  setTimeout(() => { el.classList.remove('show'); el.className = 'toast'; }, 4000);
+}
+
+function getTotalVisitsForEmail(email) {
+  const c = state.clients.find(x => x['Client Email'] === email);
+  return (parseInt(c?.['Total Visits'] || 0)) + 1; // +1 for the appointment being completed now
+}
+
+// ── BOOKING CONFIRMATION ──
+function promptBookingConfirm(idx) {
+  const a = state._filteredAppts?.[idx];
+  if (!a) return;
+  showConfirmModal(
+    '📧 Send Booking Confirmation',
+    `Send a confirmation email to <strong>${a['Client Name']}</strong>?<br><br>
+     <strong>Service:</strong> ${a['Service'] || '—'}<br>
+     <strong>Date:</strong> ${fmtDate(a['Appointment Date'])}<br>
+     <strong>Time:</strong> ${a['Appointment Time'] || '—'}<br>
+     <strong>Provider:</strong> ${a['Provider'] || '—'}<br><br>
+     This sends the "Your appointment is confirmed" email directly from your Gmail.`,
+    'Send Email',
+    'green',
+    () => fireBookingConfirm(a)
+  );
+}
+
+async function fireBookingConfirm(a) {
+  const url = state.settings.webhookConfirm;
+  const secret = state.settings.webhookSecret;
+  if (!url) { showToastStyled('⚠️ No confirmation webhook URL in Settings.', 'error'); return; }
+  if (!secret) { showToastStyled('⚠️ Set Webhook Secret in Settings first.', 'error'); return; }
+  try {
+    showToastStyled('⏳ Sending confirmation email…');
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Webhook-Secret': secret },
+      body: JSON.stringify({
+        clientEmail: a['Client Email'],
+        clientName:  a['Client Name'],
+        service:     a['Service'],
+        provider:    a['Provider'],
+        apptDate:    a['Appointment Date'],
+        apptTime:    a['Appointment Time']
+      })
+    });
+    if (res.ok) {
+      showToastStyled('✅ Booking confirmation sent!', 'success');
+      setTimeout(fetchData, 2000); // refresh to show updated activity log
+    } else {
+      showToastStyled(`⚠️ Webhook returned ${res.status}. Check Workflow 6 is active.`, 'error');
+    }
+  } catch(err) {
+    showToastStyled('⚠️ Could not reach webhook. Check your n8n URL in Settings.', 'error');
+    console.error(err);
+  }
+}
+
+// ── MARK COMPLETE ──
+function promptMarkComplete(idx) {
+  const a = state._filteredAppts?.[idx];
+  if (!a) return;
+  const totalVisits = getTotalVisitsForEmail(a['Client Email']);
+  showConfirmModal(
+    '✅ Mark Appointment Complete',
+    `Mark <strong>${a['Client Name']}</strong>'s <strong>${a['Service']}</strong> as complete?<br><br>
+     This will:<br>
+     • Schedule a Google review request (sends in 24 hours)<br>
+     ${totalVisits >= 2 ? '• Send a referral ask (returning client — visit #' + totalVisits + ')' : '• First visit — referral ask not triggered yet'}<br><br>
+     <span style="color:#6b7280;font-size:13px;">Make sure Workflow 3 is active in n8n.</span>`,
+    'Mark Complete',
+    '',
+    () => fireMarkComplete(a, totalVisits)
+  );
+}
+
+async function fireMarkComplete(a, totalVisits) {
+  const url = state.settings.webhookComplete;
+  const secret = state.settings.webhookSecret;
+  if (!url) { showToastStyled('⚠️ No Mark Complete webhook URL in Settings.', 'error'); return; }
+  if (!secret) { showToastStyled('⚠️ Set Webhook Secret in Settings first.', 'error'); return; }
+  try {
+    showToastStyled('⏳ Marking complete…');
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Webhook-Secret': secret },
+      body: JSON.stringify({
+        clientEmail:      a['Client Email'],
+        clientName:       a['Client Name'],
+        service:          a['Service'],
+        provider:         a['Provider'],
+        googleReviewLink: state.settings.reviewLink || '',
+        totalVisits
+      })
+    });
+    if (res.ok) {
+      showToastStyled('✅ Marked complete! Review email scheduled for 24 hours.', 'success');
+      setTimeout(fetchData, 2000);
+    } else {
+      showToastStyled(`⚠️ Webhook returned ${res.status}. Check Workflow 3 is active.`, 'error');
+    }
+  } catch(err) {
+    showToastStyled('⚠️ Could not reach webhook. Check your n8n URL in Settings.', 'error');
+    console.error(err);
+  }
+}
+
+// ============================================================
+// NO-SHOW RECOVERY
+// ============================================================
+function renderNoShows() {
+  const { appointments, settings } = state;
+  const avgRev = settings.avgRevenue || 300;
+  const now = new Date();
+  const monthKey = currentMonthKey();
+  const weekStart = new Date(now); weekStart.setDate(now.getDate() - now.getDay());
+
+  const allNoShows = appointments.filter(a => a['Status'] === 'No-Show');
+  const nsMonth = allNoShows.filter(a => getMonthKey(a['Appointment Date']) === monthKey);
+  const nsWeek  = allNoShows.filter(a => new Date(a['Appointment Date']) >= weekStart);
+  const revLost = nsMonth.length * avgRev;
+
+  // Recovery rate: no-shows who rebooked (have a later Scheduled or Completed appt)
+  let rebooked = 0;
+  allNoShows.forEach(ns => {
+    const nsDate = new Date(ns['Appointment Date']);
+    const hasLater = appointments.some(a =>
+      a['Client Email'] === ns['Client Email'] &&
+      new Date(a['Appointment Date']) > nsDate &&
+      ['Scheduled','Completed'].includes(a['Status'])
+    );
+    if (hasLater) rebooked++;
+  });
+  const recoveryRate = allNoShows.length > 0 ? Math.round(rebooked / allNoShows.length * 100) : 0;
+
+  document.getElementById('noshow-stats').innerHTML = `
+    <div class="stat-card"><div class="stat-value">${nsMonth.length}</div><div class="stat-label">No-Shows This Month</div></div>
+    <div class="stat-card"><div class="stat-value">${nsWeek.length}</div><div class="stat-label">No-Shows This Week</div></div>
+    <div class="stat-card"><div class="stat-value" style="color:#ef4444;">${fmt$(revLost)}</div><div class="stat-label">Revenue Lost This Month</div></div>
+    <div class="stat-card"><div class="stat-value" style="color:#059669;">${recoveryRate}%</div><div class="stat-label">Recovery Rate</div></div>`;
+
+  const body = document.getElementById('noshow-table-body');
+  if (allNoShows.length === 0) {
+    body.innerHTML = `<tr><td colspan="6" class="empty-state">✅ Zero no-shows this month — great retention!</td></tr>`;
+    return;
+  }
+
+  const sorted = [...allNoShows].sort((a,b) => new Date(b['Appointment Date']) - new Date(a['Appointment Date']));
+  body.innerHTML = sorted.map(ns => {
+    const d = daysSince(ns['Appointment Date']);
+    const noEmail = (ns['Post-Appt Follow-Up Sent']||'').toLowerCase() !== 'yes';
+    const nsDate = new Date(ns['Appointment Date']);
+    const hasLater = appointments.some(a =>
+      a['Client Email'] === ns['Client Email'] &&
+      new Date(a['Appointment Date']) > nsDate &&
+      ['Scheduled','Completed'].includes(a['Status'])
+    );
+    return `<tr class="${noEmail ? 'no-recovery' : ''}">
+      <td><strong>${ns['Client Name']||'—'}</strong></td>
+      <td>${ns['Service']||'—'}</td>
+      <td>${fmtDate(ns['Appointment Date'])}</td>
+      <td>${d < 9999 ? d+'d ago' : '—'}</td>
+      <td>${noEmail ? '<span style="color:#f97316;font-weight:600">⚠️ Not Sent</span>' : '✅ Sent'}</td>
+      <td>${hasLater ? '<span style="color:#059669;font-weight:600">✅ Rebooked</span>' : '—'}</td>
+    </tr>`;
+  }).join('');
+}
+</script>
+</body>
+</html>

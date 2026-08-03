@@ -1,0 +1,44 @@
+{
+  "description": "POST payloads for Workflow 8",
+  "samples": [
+    {
+      "scenario": "Kanban drag New Inquiry \u2192 Booked",
+      "payload": {
+        "clientEmail": "sarah.k@gmail.com",
+        "newStatus": "Booked",
+        "actor": "dashboard-drag"
+      }
+    },
+    {
+      "scenario": "Kanban drag Completed \u2192 VIP (owner manually promoting)",
+      "payload": {
+        "clientEmail": "emma.r@gmail.com",
+        "newStatus": "VIP",
+        "actor": "dashboard-drag"
+      }
+    },
+    {
+      "scenario": "Bulk mark VIP (5 clients at once)",
+      "payload": {
+        "clientEmails": [
+          "a@x.com",
+          "b@x.com",
+          "c@x.com",
+          "d@x.com",
+          "e@x.com"
+        ],
+        "newStatus": "VIP",
+        "actor": "bulk-action"
+      }
+    },
+    {
+      "scenario": "EDGE \u2014 invalid status value",
+      "expected_result": "Should reject with 400, Sheet unchanged",
+      "payload": {
+        "clientEmail": "test@x.com",
+        "newStatus": "NotARealStatus",
+        "actor": "dashboard-drag"
+      }
+    }
+  ]
+}

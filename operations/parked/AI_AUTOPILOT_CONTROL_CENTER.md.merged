@@ -1,0 +1,184 @@
+# AI Autopilot Control Center
+
+This is the always-on operating plan for MedSpa Growth Engine. It explains how the system keeps working after the owner completes the required setup: sourcing leads, researching them, drafting specific outreach, following up, preparing calls, supporting delivery, monitoring clients, and escalating only when human judgment is needed.
+
+## Autopilot Principle
+
+The system should feel like an operator, not a tool.
+
+It should:
+
+- Keep finding new medspa leads.
+- Research each lead before outreach.
+- Identify the most likely pain point.
+- Draft specific messages around that pain.
+- Follow up on time.
+- Triage replies.
+- Prepare the owner for sales calls.
+- Create delivery tasks after a close.
+- Monitor live clients.
+- Prepare weekly updates and churn-risk alerts.
+
+It should not:
+
+- Blast generic outreach.
+- Invent pain points.
+- Ignore opt-outs.
+- Make medical, legal, or revenue guarantees.
+- Touch secrets without owner-controlled setup.
+- Make final sales or client-trust decisions without the owner.
+
+## Autopilot Levels
+
+| Level | Name | What AI can do | Owner involvement |
+|---|---|---|---|
+| 0 | Manual Assist | Research, draft, summarize | Owner runs actions manually |
+| 1 | Draft Autopilot | Build lead lists, research, write messages, queue follow-ups | Owner approves sends |
+| 2 | Controlled Send | Send approved sequences within daily limits, stop on replies/opt-outs | Owner reviews daily brief and hot replies |
+| 3 | Sales Assist | Triage replies, book-call prompts, call briefs, recaps, proposal drafts | Owner takes calls and approves offers |
+| 4 | Delivery Assist | Build delivery boards, check blockers, draft client updates | Owner handles credentials and go-live |
+| 5 | Retention Monitor | Weekly reports, error checks, churn-risk alerts, upsell timing | Owner handles save calls and strategic changes |
+
+Default launch mode:
+
+**Level 1 until inboxes, compliance rules, sending limits, unsubscribe handling, and lead quality are proven.**
+
+Move to Level 2 only after:
+
+- The first campaign has been reviewed.
+- Messages are specific and safe.
+- Bounce/opt-out handling works.
+- Daily send limits are set.
+- The owner can review the daily brief.
+
+## Always-On Schedule
+
+| Time/Cadence | Autopilot action | Output |
+|---|---|---|
+| Daily morning | Build owner brief | Hot replies, calls, follow-ups, blockers, highest-value action |
+| Daily | Source leads from selected markets | New leads with source and status |
+| Daily | Enrich priority leads | Research brief, pain hypothesis, fit score |
+| Daily | Draft or send due outreach | Outreach log and next follow-up dates |
+| Daily | Triage replies | Classification, suggested response, owner-needed flag |
+| Daily | Monitor delivery blockers | Missing access, overdue tasks, QA issues |
+| Weekly | Review pipeline metrics | Leads, sends, replies, calls, proposals, closes |
+| Weekly | Review client health | Reports sent, workflow errors, churn risks |
+| Monthly | Improve offer and campaigns | Winning hooks, weak messages, retention ideas |
+
+## Owner Handoff Triggers
+
+The AI should notify the owner when:
+
+- A lead asks for pricing.
+- A lead asks to book a call.
+- A lead replies with a strong pain signal.
+- A lead objects in a way that needs trust.
+- A prospect complains or asks to stop contact.
+- A proposal needs final terms.
+- A client has missing access for more than 48 hours.
+- A client workflow has repeated errors.
+- A client shows churn risk.
+- A paid ad needs approval or spend changes.
+
+## Lead Quality Gate
+
+No lead moves into outreach unless it has:
+
+- Clinic name.
+- Location.
+- Website or social profile.
+- Contact route.
+- Service category.
+- At least one real observation from website, reviews, social, booking path, or ads.
+- A suspected revenue leak.
+- Fit score.
+- Recommended first-touch angle.
+
+If any of these are missing, status stays:
+
+`Research Needed`
+
+## Outreach Quality Gate
+
+No message is approved unless it passes all checks:
+
+- It references a real observation.
+- It names one likely business pain.
+- It connects that pain to the Lost Revenue Recovery OS.
+- It is short enough to read fast.
+- It has one clear next step.
+- It does not sound like a mass template.
+- It does not guarantee results.
+- It includes opt-out handling where required.
+
+Bad message:
+
+> We help medspas automate their business with AI. Are you free for a call?
+
+Good message:
+
+> I saw you push consultations from Instagram into a booking link, but there is no obvious follow-up path for people who do not book right away. We install a recovery layer for medspas so missed consults, no-shows, and lapsed clients get followed up consistently. Worth me sending the 4-leak map?
+
+## Daily Owner Brief Standard
+
+The owner should see one compact brief every day:
+
+```text
+Date:
+Money action today:
+Hot replies:
+Calls today:
+Follow-ups due:
+New researched leads:
+Messages waiting approval:
+Delivery/client blockers:
+Client risks:
+AI completed:
+Owner needed:
+```
+
+## Monitoring Rules
+
+The autopilot should keep these queues clean:
+
+- Leads without research older than 24 hours.
+- Approved leads without first touch.
+- Contacted leads without next follow-up date.
+- Replies without classification.
+- Calls without call brief.
+- Proposals without next follow-up.
+- Clients with missing access.
+- Live clients without weekly report.
+- Workflow errors without owner alert.
+
+## Autopilot Safety
+
+The system can be aggressive with work ethic, not reckless with trust.
+
+Required safeguards:
+
+- Daily send limits.
+- Bounce tracking.
+- Unsubscribe/stop-contact handling.
+- No patient data in prompts.
+- No scraping behind logins without permission.
+- No bypassing platform terms.
+- No public storage of secrets or private client links.
+- Human approval for new campaigns, paid ads, pricing, contracts, complaints, and go-live.
+
+## What The Owner Completes
+
+The owner must provide:
+
+- Sending email account.
+- Domain/inbox setup.
+- Calendar booking link.
+- Outreach compliance preference.
+- Target cities or markets.
+- Approved daily send limit.
+- Approved offer/pricing.
+- Payment link or invoice process.
+- Client contract or engagement letter.
+- Access to n8n/Make/Zapier/Sheets if automation will run live.
+
+After that, the AI operator can run the day-to-day system and escalate only when needed.

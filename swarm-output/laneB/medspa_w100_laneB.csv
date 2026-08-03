@@ -1,0 +1,66 @@
+lead_id,business_name,city,state_province,country,website,domain,phone,email,specialty,niche,quality_tier,confidence,source,source_wave,enrichment_method,enrichment_confidence
+LANEB-MS-W100-001,Reagan Aesthetics,Charleston,SC,US,https://reaganaesthetics.com,reaganaesthetics.com,(843) 896-3407,info@reaganaesthetics.com,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-002,Inject Savannah,Savannah,GA,US,https://injectsavannah.com,injectsavannah.com,(912) 328-1075,admin@injectsavannah.com,injectables,MedSpa,A,95,WebSearch,W100-LaneB,manual-search,95
+LANEB-MS-W100-003,Harmonized Aesthetics,Tallahassee,FL,US,https://harmonizedaesthetics.com,harmonizedaesthetics.com,(850) 778-8004,harmonizedaesthetics@gmail.com,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,90
+LANEB-MS-W100-004,SOLISE MedSpa,Pensacola,FL,US,https://solisemedspa.com,solisemedspa.com,,solise@solisemedspa.com,injectables,MedSpa,A,85,WebSearch,W100-LaneB,manual-search,82
+LANEB-MS-W100-005,Luminescence Aesthetics,Buffalo,NY,US,https://luminescence-aesthetics.com,luminescence-aesthetics.com,(716) 800-1916,hello@luminescence-aesthetics.com,skin,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-006,The Beauty Haven Medspa,Pittsburgh,PA,US,https://www.thebeautyhavenmedspa.com,thebeautyhavenmedspa.com,(412) 587-1698,info@thebeautyhavenmedspa.com,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,92
+LANEB-MS-W100-007,Sola Vie Medical Aesthetics,Providence,RI,US,https://www.sola-vie.com,sola-vie.com,(401) 241-3852,sola@sola-vie.com,skin,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-008,Bravo MedSpa,West Hartford,CT,US,https://www.bravomedspa.com,bravomedspa.com,(860) 478-8877,Bravomedicalaesthetics@yahoo.com,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,90
+LANEB-MS-W100-009,MOTOX Skin Science,South Portland,ME,US,https://motoxskinscience.com,motoxskinscience.com,(207) 200-4380,info@motoxskinscience.com,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-010,Aesthetics Med Spa,Reno,NV,US,https://aestheticsmedspa.com,aestheticsmedspa.com,(775) 825-1586,,laser,MedSpa,A,82,WebSearch,W100-LaneB,manual-search,80
+LANEB-MS-W100-011,Jewell Aesthetic Med Spa,Eugene,OR,US,https://www.jewellaestheticmedspa.com,jewellaestheticmedspa.com,(541) 683-3238,,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,85
+LANEB-MS-W100-012,Full Spectrum Face + Body,Tacoma,WA,US,https://www.fullspectrumface.com,fullspectrumface.com,(253) 260-7060,,injectables,MedSpa,A,85,WebSearch,W100-LaneB,manual-search,82
+LANEB-MS-W100-013,LUMAesthetics,Rochester,NY,US,https://www.lumaesthetics.com,lumaesthetics.com,,,injectables,MedSpa,B,80,WebSearch,W100-LaneB,manual-search,75
+LANEB-MS-W100-014,La Bella Medical Aesthetics,Worcester,MA,US,https://labellaaesthetics.net,labellaaesthetics.net,(508) 887-6763,info@labellaaesthetics.net,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,92
+LANEB-MS-W100-015,Skin and Tonic Brighton,Brighton,MI,US,https://skinandtonicbrighton.com,skinandtonicbrighton.com,(810) 522-4799,skinandtonic.online@gmail.com,injectables,MedSpa,A,85,WebSearch,W100-LaneB,manual-search,80
+LANEB-MS-W100-016,Organic Glow Medical Aesthetics,Kelowna,BC,CA,https://www.organicglowaesthetics.com,organicglowaesthetics.com,(778) 940-6286,info@ogmakelowna.com,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,92
+LANEB-MS-W100-017,Aesthete Sunshine Coast,Maroochydore,QLD,AU,https://aesthetesunshinecoast.com.au,aesthetesunshinecoast.com.au,+61 7 5379 3171,admin@aesthetesunshinecoast.com.au,wellness,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,92
+LANEB-MS-W100-018,Rejuvenate Clinic,Townsville,QLD,AU,https://www.rejuvenateclinic.au,rejuvenateclinic.au,+61 406 965 605,Info@rejuvenateclinic.au,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-019,Skin Revival,Wollongong,NSW,AU,https://www.skinrevival.com.au,skinrevival.com.au,(02) 4201 0142,info@skinrevival.com.au,laser,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,90
+LANEB-MS-W100-020,Luminosity Skin and Laser Clinic,Geelong,VIC,AU,https://www.luminosityskin.com.au,luminosityskin.com.au,(03) 5221 7676,info@luminosityskin.com.au,laser,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-021,Enhance Medispa,Bath,,UK,https://www.enhancemedispa.co.uk,enhancemedispa.co.uk,01225 422851,info@enhancemedispa.co.uk,skin,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,90
+LANEB-MS-W100-022,NY Skin Clinic,Aberdeen,,UK,https://nyskinclinic.co.uk,nyskinclinic.co.uk,01224 593777,info@nyskinclinic.co.uk,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-023,Sparkle Lifestyle and MediSpa,Moncton,NB,CA,https://sparklelifestyle.ca,sparklelifestyle.ca,(506) 871-4421,info@sparklelifestyle.ca,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-024,Contour Laser Medi Spa,Fredericton,NB,CA,https://contourlaser.ca,contourlaser.ca,(506) 455-4100,hello@contourlaser.ca,laser,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-025,MD Aesthetics of Mobile Bay,Fairhope,AL,US,https://mdaestheticsmobilebay.com,mdaestheticsmobilebay.com,(251) 281-8776,,injectables,MedSpa,A,82,WebSearch,W100-LaneB,manual-search,80
+LANEB-MS-W100-026,Awaken Medical Aesthetics,Amarillo,TX,US,https://awakenmedicalaesthetics.com,awakenmedicalaesthetics.com,(806) 354-8600,,injectables,MedSpa,A,82,WebSearch,W100-LaneB,manual-search,80
+LANEB-MS-W100-027,The Confidence Collective,Sioux Falls,SD,US,https://www.theconfidencecollectivesf.com,theconfidencecollectivesf.com,(605) 206-3839,Team@theconfidencecollectivesf.com,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,90
+LANEB-MS-W100-028,Revay Aesthetics,Fresno,CA,US,https://revayaesthetics.com,revayaesthetics.com,(559) 547-6949,info@revayaesthetics.com,laser,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,90
+LANEB-MS-W100-029,Alyeska Aesthetics,Anchorage,AK,US,https://www.alyeskaaesthetics.com,alyeskaaesthetics.com,(907) 561-1436,,skin,MedSpa,A,82,WebSearch,W100-LaneB,manual-search,80
+LANEB-MS-W100-030,Hebe Beauty Bar,Red Deer,AB,CA,https://www.hebebeautybar.ca,hebebeautybar.ca,(403) 986-6388,info@hebebeautybar.ca,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,92
+LANEB-MS-W100-031,Norwich Aesthetics Clinic,Norwich,,UK,https://www.norwichaesthetics.com,norwichaesthetics.com,,,injectables,MedSpa,B,78,WebSearch,W100-LaneB,manual-search,72
+LANEB-MS-W100-032,Fresh Medical Aesthetics,Plymouth,,UK,https://freshmedicalaesthetics.com,freshmedicalaesthetics.com,(774) 454-4934,info@freshmedicalaesthetics.com,injectables,MedSpa,A,80,WebSearch,W100-LaneB,manual-search,78
+LANEB-MS-W100-033,Exthetics Clinic,Exeter,,UK,https://exthetics.co.uk,exthetics.co.uk,,,injectables,MedSpa,B,80,WebSearch,W100-LaneB,manual-search,75
+LANEB-MS-W100-034,Glow Medical Aesthetics,Lethbridge,AB,CA,https://justglow.ca,justglow.ca,(403) 795-2012,drkrushel@justglow.ca,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-035,Ageless Cosmetic Bar,Cairns,QLD,AU,https://agelesscosmeticbar.com,agelesscosmeticbar.com,+61 438 405 215,terry@agelesscosmeticbar.com,injectables,MedSpa,A,85,WebSearch,W100-LaneB,manual-search,82
+LANEB-MS-W100-036,Inspired Beauty Med Spa,Manlius,NY,US,https://www.inspiredbeautymedspa.com,inspiredbeautymedspa.com,(315) 807-1282,info@inspiredbeauty.boutique,skin,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-037,Bloom Medical Aesthetics and Wellness,Bakersfield,CA,US,https://www.bloommedicalaestheticswellness.com,bloommedicalaestheticswellness.com,(805) 975-5456,bloom.medical.aesthetic@gmail.com,injectables,MedSpa,A,82,WebSearch,W100-LaneB,manual-search,80
+LANEB-MS-W100-038,Facial Aesthetics Ballarat,Ballarat,VIC,AU,https://www.facialaestheticsballarat.com,facialaestheticsballarat.com,,,facial-aesthetics,MedSpa,B,75,WebSearch,W100-LaneB,manual-search,70
+LANEB-MS-W100-039,Aesthetika Ballarat,Ballarat,VIC,AU,,,+61 437 141 144,admin@aesthetikaballarat.com.au,injectables,MedSpa,A,80,WebSearch,W100-LaneB,manual-search,78
+LANEB-MS-W100-040,Bella Rose Medispa,Salem,OR,US,https://bellarosemedispa.com,bellarosemedispa.com,(503) 585-7673,,wellness,MedSpa,A,82,WebSearch,W100-LaneB,manual-search,80
+LANEB-MS-W100-041,Revive Aesthetics,Cedar Rapids,IA,US,https://reviveaestheticsiowa.com,reviveaestheticsiowa.com,(319) 200-2555,revivewellbeing@outlook.com,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-042,Adorned Aesthetics,Toowoomba,QLD,AU,https://adornedaesthetics.com.au,adornedaesthetics.com.au,,,injectables,MedSpa,B,78,WebSearch,W100-LaneB,manual-search,72
+LANEB-MS-W100-043,Glow MedSpa,Savannah,GA,US,https://www.glowsavannah.com,glowsavannah.com,,,injectables,MedSpa,B,80,WebSearch,W100-LaneB,manual-search,75
+LANEB-MS-W100-044,Grace and Grey Med Spa,Pensacola,FL,US,https://graceandgreymedspa.com,graceandgreymedspa.com,,,injectables,MedSpa,B,80,WebSearch,W100-LaneB,manual-search,75
+LANEB-MS-W100-045,TLH MedSpa,Tallahassee,FL,US,https://www.tlhmedspa.com,tlhmedspa.com,,,injectables,MedSpa,B,75,WebSearch,W100-LaneB,manual-search,70
+LANEB-MS-W100-046,Vital Luxe Medical Spa,Lubbock,TX,US,https://vitalluxe-aestheticsbest.com,vitalluxe-aestheticsbest.com,,,injectables,MedSpa,B,78,WebSearch,W100-LaneB,manual-search,72
+LANEB-MS-W100-047,Grace and Grey Med Spa,Pensacola,FL,US,https://graceandgreymedspa.com,graceandgreymedspa.com,(850) 741-2006,info@graceandgreymedspa.com,injectables,MedSpa,A,85,WebSearch,W100-LaneB,manual-search,85
+LANEB-MS-W100-048,Vital Luxe Medical Spa,Lubbock,TX,US,https://vitalluxe-aestheticsbest.com,vitalluxe-aestheticsbest.com,(806) 589-8923,desireemartinez@vitalluxe.org,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-049,Aesthetic Alchemy,Lubbock,TX,US,https://aestheticalchemylbk.com,aestheticalchemylbk.com,(806) 722-9855,info@aestheticalchemylbk.com,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,90
+LANEB-MS-W100-050,Azul Medspa,El Paso,TX,US,https://azul-medspa.com,azul-medspa.com,,,body-contouring,MedSpa,B,78,WebSearch,W100-LaneB,manual-search,72
+LANEB-MS-W100-051,Sun City Laser,El Paso,TX,US,https://suncitylaser.com,suncitylaser.com,,,laser,MedSpa,B,75,WebSearch,W100-LaneB,manual-search,70
+LANEB-MS-W100-052,Modern Skin Medispa,Moncton,NB,CA,https://modernskin.ca,modernskin.ca,,,skin,MedSpa,B,75,WebSearch,W100-LaneB,manual-search,70
+LANEB-MS-W100-053,Revitalize CNY,Syracuse,NY,US,https://www.revitalizecny.com,revitalizecny.com,,,injectables,MedSpa,B,78,WebSearch,W100-LaneB,manual-search,72
+LANEB-MS-W100-054,Azul Medspa,El Paso,TX,US,https://azul-medspa.com,azul-medspa.com,(915) 317-5212,chavezazulmedspa@gmail.com,body-contouring,MedSpa,A,85,WebSearch,W100-LaneB,manual-search,85
+LANEB-MS-W100-055,face etc medispa,York,,UK,https://www.faceetcmedispa.co.uk,faceetcmedispa.co.uk,01904 675222,,injectables,MedSpa,A,80,WebSearch,W100-LaneB,manual-search,78
+LANEB-MS-W100-056,Astounding Skin Aesthetics,Coventry,,UK,https://www.astoundingskinaesthetics.co.uk,astoundingskinaesthetics.co.uk,07404430685,astoundingskinaesthetics@gmail.com,injectables,MedSpa,A,85,WebSearch,W100-LaneB,manual-search,85
+LANEB-MS-W100-057,Island Glow Medispa,St. John's,NL,CA,https://islandglowmedispa.com,islandglowmedispa.com,(709) 250-4569,info@islandglowmedispa.com,injectables,MedSpa,A,90,WebSearch,W100-LaneB,manual-search,90
+LANEB-MS-W100-058,Kontour Clinic,Kamloops,BC,CA,https://www.kontourclinic.ca,kontourclinic.ca,,,injectables,MedSpa,B,80,WebSearch,W100-LaneB,manual-search,75
+LANEB-MS-W100-059,Innovative Aesthetics Medical Spa,Cedar Rapids,IA,US,https://iamedicalspa.com,iamedicalspa.com,(319) 365-7721,info@iamedicalspa.com,laser,MedSpa,A,85,WebSearch,W100-LaneB,manual-search,85
+LANEB-MS-W100-060,Revive Aesthetics,Cedar Rapids,IA,US,https://reviveaestheticsiowa.com,reviveaestheticsiowa.com,(319) 200-2555,revivewellbeing@outlook.com,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-061,Bella Rose Medispa,Salem,OR,US,https://bellarosemedispa.com,bellarosemedispa.com,(503) 585-7673,,wellness,MedSpa,A,80,WebSearch,W100-LaneB,manual-search,78
+LANEB-MS-W100-062,Glow Medical Aesthetics,Savannah,GA,US,https://www.glowsavannah.com,glowsavannah.com,,,injectables,MedSpa,B,78,WebSearch,W100-LaneB,manual-search,72
+LANEB-MS-W100-063,Glow MedSpa Savannah,Savannah,GA,US,https://www.glowsavannah.com,glowsavannah.com,(912) 303-9611,contact@glowsavannah.com,injectables,MedSpa,A,88,WebSearch,W100-LaneB,manual-search,88
+LANEB-MS-W100-064,Brighter Smiles Med Spa,Eugene,OR,US,https://4brightersmiles.com,4brightersmiles.com,(541) 342-7483,,laser,MedSpa,A,82,WebSearch,W100-LaneB,manual-search,80
+LANEB-MS-W100-065,Skin Lab Medspa,Reno,NV,US,https://skinlabnv.com,skinlabnv.com,,,skin,MedSpa,B,75,WebSearch,W100-LaneB,manual-search,70

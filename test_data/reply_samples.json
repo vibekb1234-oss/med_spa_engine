@@ -1,0 +1,87 @@
+{
+  "description": "Realistic prospect reply samples covering every class in AI_COMMUNICATION_SYSTEM.md",
+  "classes": [
+    {
+      "class": "HOT",
+      "description": "Explicit interest, ready for a call",
+      "samples": [
+        "Yes I'd love to see this. When can we jump on 15 min this week?",
+        "Send me a Calendly link, this is exactly what I've been looking for",
+        "Interesting \u2014 call me at (415) 555-2109 tomorrow before 11am"
+      ]
+    },
+    {
+      "class": "WARM",
+      "description": "Curious, needs more info before committing",
+      "samples": [
+        "How does this compare to Boulevard? We use them now",
+        "Can you send me pricing before we chat?",
+        "What kind of clinics have you done this for?",
+        "How long does setup take? We're slammed until September"
+      ]
+    },
+    {
+      "class": "OBJECTION",
+      "description": "Interested but hitting a real blocker",
+      "samples": [
+        "Our EHR is Aesthetic Record \u2014 does this even work with it?",
+        "We tried an agency before and they ghosted us after 2 months",
+        "$1000/month is a lot. What's your smallest package?",
+        "Isn't this a HIPAA violation? We can't have patient data in Google Sheets"
+      ]
+    },
+    {
+      "class": "NOT_NOW",
+      "description": "Interested but wrong timing \u2014 nurture",
+      "samples": [
+        "Reach back out in 3 months, we're mid-move",
+        "Sounds cool but Q4 is not the right time",
+        "I'll bring this up with my partner and get back to you"
+      ]
+    },
+    {
+      "class": "REFERRAL",
+      "description": "Not for them, but knows someone",
+      "samples": [
+        "Not for me but my friend runs a clinic in Scottsdale \u2014 should I connect you?",
+        "We're too big for this. Try Dr. Kim at Verve Aesthetics"
+      ]
+    },
+    {
+      "class": "UNSUBSCRIBE",
+      "description": "Wants off the list \u2014 HARD STOP",
+      "samples": [
+        "Take me off your list",
+        "Unsubscribe",
+        "Do not email me again",
+        "How did you get my email? Remove me"
+      ]
+    },
+    {
+      "class": "BAD_FIT",
+      "description": "Not the ICP",
+      "samples": [
+        "We're a chain of 40 locations, this is way too small",
+        "I'm a solo esthetician working from home, no bookings system",
+        "We only do medical (not aesthetic) \u2014 dermatology practice"
+      ]
+    },
+    {
+      "class": "COMPLAINT",
+      "description": "Escalation needed \u2014 owner must handle",
+      "samples": [
+        "This is spam and I'm reporting it",
+        "You should be ashamed of yourself for cold emailing medical practices",
+        "I'm forwarding this to my attorney"
+      ]
+    },
+    {
+      "class": "AUTO_REPLY",
+      "description": "OOO / autoresponders \u2014 do NOT count as engagement, do NOT respond",
+      "samples": [
+        "I am out of the office until August 15th. For urgent matters contact...",
+        "Auto-response: Thank you for your message. I will reply within 2 business days."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2001 @@
+{
+  "metadata": {
+    "scrape_date": "2026-04-28",
+    "total_leads_AB": 166,
+    "buckets": {
+      "A": 142,
+      "B": 24
+    },
+    "sources": "Apify Compass: Atlanta, Phoenix-Scottsdale, Dallas, Houston, Boston, Chicago",
+    "note": "Strict anti-ICP filtering: no chains, no plastic surgery, no dermatology, no day spa, no nail/hair salon"
+  },
+  "briefs": [
+    {
+      "id": "A01",
+      "hook": "single-location indie on Buckhead Village \u2014 exactly the size where automation compounds fastest",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A02",
+      "hook": "women-owned indie on South Tuxedo Park where the front desk and the owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "South Tuxedo Park",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A03",
+      "hook": "284 reviews at 5 stars \u2014 operator-cares-about-every-client signal",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "East Chastain Park",
+      "signals": [
+        "284+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A04",
+      "hook": "women-owned indie on Buckhead Village where the front desk and the owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "women-owned",
+        "321+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A05",
+      "hook": "single-location indie on East Chastain Park \u2014 exactly the size where automation compounds fastest",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "East Chastain Park",
+      "signals": [
+        "veteran-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A06",
+      "hook": "women-owned indie on South Tuxedo Park where the front desk and the owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "South Tuxedo Park",
+      "signals": [
+        "women-owned",
+        "410+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A07",
+      "hook": "women-owned indie on Buckhead Village where the front desk and the owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "women-owned",
+        "Asian-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P01",
+      "hook": "women-owned indie on Central Scottsdale where the front desk and the owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P02",
+      "hook": "124 reviews at 5 stars \u2014 operator-cares-about-every-client signal",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Ironwood Office Suites",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A08",
+      "hook": "single-location indie on Buckhead Village \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": []
+    },
+    {
+      "id": "A09",
+      "hook": "single-location indie on East Chastain Park \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "East Chastain Park",
+      "signals": []
+    },
+    {
+      "id": "A10",
+      "hook": "single-location indie on South Tuxedo Park \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "South Tuxedo Park",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A11",
+      "hook": "single-location indie on South Tuxedo Park \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "B",
+      "city": "Atlanta",
+      "neighborhood": "South Tuxedo Park",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A12",
+      "hook": "586 reviews at 4.8 on Buckhead \u2014 elite-tier indie energy in Atlanta",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "586+ reviews",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A13",
+      "hook": "Black-owned indie on Buckhead Village \u2014 founder-built brand pattern",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "women-owned",
+        "Black-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A14",
+      "hook": "Black-owned indie on Buckhead \u2014 founder-built brand pattern",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "women-owned",
+        "Black-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A15",
+      "hook": "Black-owned indie on Buckhead Village \u2014 founder-built brand pattern",
+      "pain_segment": "no-show recovery",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "women-owned",
+        "Black-owned"
+      ]
+    },
+    {
+      "id": "A16",
+      "hook": "single-location indie on Buckhead \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "355+ reviews"
+      ]
+    },
+    {
+      "id": "A17",
+      "hook": "single-location indie on Buckhead Village \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "B",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A18",
+      "hook": "single-location indie on Buckhead Forest \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Forest",
+      "signals": [
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A19",
+      "hook": "Black-owned indie on Buckhead \u2014 founder-built brand pattern",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "women-owned",
+        "Black-owned",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A20",
+      "hook": "single-location indie on Buckhead Village \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "455+ reviews"
+      ]
+    },
+    {
+      "id": "A21",
+      "hook": "women-owned indie on Buckhead Village \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "women-owned",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A22",
+      "hook": "women-owned indie on South Tuxedo Park \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "South Tuxedo Park",
+      "signals": [
+        "women-owned",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A23",
+      "hook": "women-owned indie on South Tuxedo Park \u2014 front desk and owner are the same person",
+      "pain_segment": "no-show recovery",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "South Tuxedo Park",
+      "signals": [
+        "women-owned",
+        "327+ reviews"
+      ]
+    },
+    {
+      "id": "A24",
+      "hook": "single-location indie on Buckhead Village \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A25",
+      "hook": "women-owned indie on Buckhead \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "women-owned",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A26",
+      "hook": "single-location indie on Buckhead \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "B",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A27",
+      "hook": "302 reviews at 5 stars across Buckhead \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "women-owned",
+        "302+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A28",
+      "hook": "single-location indie on Buckhead \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "412+ reviews"
+      ]
+    },
+    {
+      "id": "A29",
+      "hook": "146 reviews and 4.5 rating \u2014 usually traces to a few no-show recovery moments",
+      "pain_segment": "no-show recovery",
+      "bucket": "B",
+      "city": "Atlanta",
+      "neighborhood": "South Tuxedo Park",
+      "signals": []
+    },
+    {
+      "id": "A30",
+      "hook": "single-location indie on Buckhead Village \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A31",
+      "hook": "women-owned indie on Berkeley Park \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Berkeley Park",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A32",
+      "hook": "Black-owned indie on Kirkwood \u2014 founder-built brand pattern",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Kirkwood",
+      "signals": [
+        "women-owned",
+        "Black-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A33",
+      "hook": "409 reviews at 4.8 on Buckhead Village \u2014 elite-tier indie energy in Atlanta",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "women-owned",
+        "409+ reviews",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A34",
+      "hook": "417 reviews at 4.9 on Midtown Atlanta \u2014 elite-tier indie energy in Atlanta",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Midtown Atlanta",
+      "signals": [
+        "417+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A35",
+      "hook": "women-owned indie on  \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A36",
+      "hook": "single-location indie on South Tuxedo Park \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "South Tuxedo Park",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A37",
+      "hook": "women-owned indie on Inman Park \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Inman Park",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A38",
+      "hook": "single-location indie on Buckhead Village \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead Village",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A39",
+      "hook": "single-location indie on Midtown \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Midtown",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A40",
+      "hook": "1478 reviews at 4.8 on Morningside-Lenox Park \u2014 elite-tier indie energy in Atlanta",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Atlanta",
+      "neighborhood": "Morningside-Lenox Park",
+      "signals": [
+        "women-owned",
+        "1478+ reviews",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A41",
+      "hook": "women-owned indie on Piedmont Heights \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Piedmont Heights",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A42",
+      "hook": "single-location indie on Downtown Atlanta \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Downtown Atlanta",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A43",
+      "hook": "single-location indie on Inman Park \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Inman Park",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A44",
+      "hook": "Black-owned indie on Blandtown \u2014 founder-built brand pattern",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Blandtown",
+      "signals": [
+        "women-owned",
+        "Black-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A45",
+      "hook": "women-owned indie on Colonial Homes \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Colonial Homes",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A46",
+      "hook": "single-location indie on Rockdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "B",
+      "city": "Atlanta",
+      "neighborhood": "Rockdale",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A47",
+      "hook": "women-owned indie on Colonial Homes \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Colonial Homes",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A48",
+      "hook": "265 reviews at 5 stars across Midtown Atlanta \u2014 operator-cares-about-every-client",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Midtown Atlanta",
+      "signals": [
+        "265+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A49",
+      "hook": "single-location indie on Buckhead \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Buckhead",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "A50",
+      "hook": "single-location indie on Berkeley Park \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Berkeley Park",
+      "signals": [
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "A51",
+      "hook": "single-location indie on Downtown Atlanta \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Atlanta",
+      "neighborhood": "Downtown Atlanta",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "A52",
+      "hook": "1125 reviews at 5 on Midtown Atlanta \u2014 elite-tier indie energy in Atlanta",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "B",
+      "city": "Atlanta",
+      "neighborhood": "Midtown Atlanta",
+      "signals": [
+        "1125+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P03",
+      "hook": "women-owned indie on North Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P04",
+      "hook": "women-owned indie on Sundown Plaza \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Scottsdale",
+      "neighborhood": "Sundown Plaza",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P05",
+      "hook": "243 reviews at 5 stars across Sundown Vista \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Sundown Vista",
+      "signals": [
+        "women-owned",
+        "243+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P06",
+      "hook": "women-owned indie on Sundown Plaza \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Sundown Plaza",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P07",
+      "hook": "women-owned indie on Edwards Business Park \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Edwards Business Park",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P08",
+      "hook": "511 reviews at 5 on Sundown Plaza \u2014 elite-tier indie energy in Scottsdale",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Sundown Plaza",
+      "signals": [
+        "women-owned",
+        "511+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P09",
+      "hook": "women-owned indie on North Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P10",
+      "hook": "women-owned indie on Ironwood Office Suites \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Ironwood Office Suites",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P11",
+      "hook": "women-owned indie on Hayden Office Park \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Hayden Office Park",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P12",
+      "hook": "208 reviews at 5 stars across North Scottsdale \u2014 operator-cares-about-every-client",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "208+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P13",
+      "hook": "women-owned indie on Central Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P14",
+      "hook": "women-owned indie on Edwards Business Park \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Edwards Business Park",
+      "signals": [
+        "women-owned",
+        "327+ reviews",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "P15",
+      "hook": "women-owned indie on Central Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P16",
+      "hook": "single-location indie on Central Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P17",
+      "hook": "single-location indie on Edwards Business Park \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Edwards Business Park",
+      "signals": [
+        "LGBTQ+-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P18",
+      "hook": "women-owned indie on North Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "X01",
+      "hook": "single-location indie on  \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "B",
+      "city": "",
+      "neighborhood": "",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P19",
+      "hook": "single-location indie on Central Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "B",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P20",
+      "hook": "women-owned indie on Scottsdale Fiesta \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Scottsdale Fiesta",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P21",
+      "hook": "women-owned indie on South Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "South Scottsdale",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P22",
+      "hook": "women-owned indie on North Scottsdale Airpark \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale Airpark",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P23",
+      "hook": "women-owned indie on South Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "South Scottsdale",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P24",
+      "hook": "women-owned indie on Desert Fairways \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Desert Fairways",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P25",
+      "hook": "women-owned indie on Central Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P26",
+      "hook": "279 reviews at 5 stars across North Scottsdale \u2014 operator-cares-about-every-client",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "279+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P27",
+      "hook": "single-location indie on North Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P28",
+      "hook": "women-owned indie on North Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P29",
+      "hook": "single-location indie on Sundown Plaza \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "B",
+      "city": "Scottsdale",
+      "neighborhood": "Sundown Plaza",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P30",
+      "hook": "969 reviews at 5 on North Scottsdale \u2014 elite-tier indie energy in Scottsdale",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "women-owned",
+        "Latino-owned",
+        "969+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P31",
+      "hook": "women-owned indie on North Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P32",
+      "hook": "Asian-owned indie with 101 reviews \u2014 multicultural patient base, strong retention",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "Asian-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P33",
+      "hook": "999 reviews at 5 on Agua Caliente \u2014 elite-tier indie energy in Scottsdale",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "B",
+      "city": "Scottsdale",
+      "neighborhood": "Agua Caliente",
+      "signals": [
+        "999+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P34",
+      "hook": "women-owned indie on Central Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P35",
+      "hook": "244 reviews at 5 stars across Aquila McDowell Mountain \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Aquila McDowell Mountain",
+      "signals": [
+        "women-owned",
+        "244+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P36",
+      "hook": "single-location indie on Central Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "P37",
+      "hook": "381 reviews at 5 stars across Desert Cove Professional Center \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Desert Cove Professional Center",
+      "signals": [
+        "women-owned",
+        "381+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P38",
+      "hook": "292 reviews at 5 stars across Central Scottsdale \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "LGBTQ+-owned",
+        "292+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P39",
+      "hook": "women-owned indie on Paradise Valley Plaza \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Paradise Valley Plaza",
+      "signals": [
+        "women-owned",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "P40",
+      "hook": "527 reviews at 4.9 on Mountain View Office Suites \u2014 elite-tier indie energy in Scottsdale",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Mountain View Office Suites",
+      "signals": [
+        "women-owned",
+        "527+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P41",
+      "hook": "456 reviews at 5 on The Offices At Sundown Ranch \u2014 elite-tier indie energy in Scottsdale",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "The Offices At Sundown Ranch",
+      "signals": [
+        "456+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P42",
+      "hook": "single-location indie on North Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P43",
+      "hook": "single-location indie on Thunderbird Industrial Airpark \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Thunderbird Industrial Airpark",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P44",
+      "hook": "single-location indie on North Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "395+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P45",
+      "hook": "single-location indie on Plaza Leyenda \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Plaza Leyenda",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P46",
+      "hook": "single-location indie on Central Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P47",
+      "hook": "women-owned indie on McCormick Ranch Industrial Center \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "McCormick Ranch Industrial Center",
+      "signals": [
+        "women-owned",
+        "238+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P48",
+      "hook": "single-location indie on Central Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P49",
+      "hook": "single-location indie on Paradise Valley Plaza \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Paradise Valley Plaza",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P50",
+      "hook": "women-owned indie on Edwards Business Park \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Edwards Business Park",
+      "signals": [
+        "women-owned",
+        "209+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P51",
+      "hook": "women-owned indie on Central Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P52",
+      "hook": "223 reviews at 5 stars across North Scottsdale \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "women-owned",
+        "223+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P53",
+      "hook": "single-location indie on North Scottsdale \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P54",
+      "hook": "women-owned indie on North Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "North Scottsdale",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P55",
+      "hook": "276 reviews at 5 stars across Central Scottsdale \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "Asian-owned",
+        "276+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P56",
+      "hook": "223 reviews at 5 stars across Central Scottsdale \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "223+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P57",
+      "hook": "women-owned indie on Central Scottsdale \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Central Scottsdale",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "P58",
+      "hook": "213 reviews at 5 stars across Hayden Crossing Office \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Hayden Crossing Office",
+      "signals": [
+        "women-owned",
+        "213+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "P59",
+      "hook": "women-owned indie on Sundown Plaza \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Scottsdale",
+      "neighborhood": "Sundown Plaza",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "D01",
+      "hook": "single-location indie on Oak Cliff \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Oak Cliff",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "D02",
+      "hook": "women-owned indie on Knox / Henderson \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Knox / Henderson",
+      "signals": [
+        "women-owned",
+        "244+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "D03",
+      "hook": "single-location indie on Oak Lawn \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Oak Lawn",
+      "signals": [
+        "302+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "D04",
+      "hook": "single-location indie on Lower Greenville \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Lower Greenville",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "D05",
+      "hook": "880 reviews at 4.9 on Vickery Place \u2014 elite-tier indie energy in Dallas",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Dallas",
+      "neighborhood": "Vickery Place",
+      "signals": [
+        "women-owned",
+        "880+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "D06",
+      "hook": "596 reviews at 4.8 on Oak Lawn \u2014 elite-tier indie energy in Dallas",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Oak Lawn",
+      "signals": [
+        "women-owned",
+        "Latino-owned",
+        "596+ reviews",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "D07",
+      "hook": "women-owned indie on Belmont Park \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Belmont Park",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "D08",
+      "hook": "women-owned indie on Cedar Crest \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Cedar Crest",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "D09",
+      "hook": "201 reviews at 5 stars across Old East Dallas \u2014 operator-cares-about-every-client",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Old East Dallas",
+      "signals": [
+        "201+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "D10",
+      "hook": "Black-owned indie on Old East Dallas \u2014 founder-built brand pattern",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Old East Dallas",
+      "signals": [
+        "women-owned",
+        "Black-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "D11",
+      "hook": "Latino + women-owned indie on  \u2014 community-led founder energy",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "",
+      "signals": [
+        "women-owned",
+        "Latino-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "D12",
+      "hook": "542 reviews at 5 on Cedar Crest \u2014 elite-tier indie energy in Dallas",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "Cedar Crest",
+      "signals": [
+        "women-owned",
+        "542+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "D13",
+      "hook": "women-owned indie on  \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Dallas",
+      "neighborhood": "",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "B01",
+      "hook": "women-owned indie on Back Bay \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Boston",
+      "neighborhood": "Back Bay",
+      "signals": [
+        "women-owned"
+      ]
+    },
+    {
+      "id": "B02",
+      "hook": "single-location indie on North End \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "North End",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "B03",
+      "hook": "Latino + women-owned indie on Hyde Square \u2014 community-led founder energy",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "Hyde Square",
+      "signals": [
+        "women-owned",
+        "Latino-owned",
+        "Black-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "B04",
+      "hook": "320 reviews at 5 stars across Dorchester \u2014 operator-cares-about-every-client",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Dorchester",
+      "neighborhood": "Dorchester",
+      "signals": [
+        "Asian-owned",
+        "320+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "B05",
+      "hook": "women-owned indie on South Boston Waterfront \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "South Boston Waterfront",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "B06",
+      "hook": "single-location indie on Back Bay \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "Back Bay",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "B07",
+      "hook": "women-owned indie on Government Center \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "Government Center",
+      "signals": [
+        "women-owned",
+        "274+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "B08",
+      "hook": "385 reviews at 5 stars across South Boston \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "South Boston",
+      "signals": [
+        "women-owned",
+        "385+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "B09",
+      "hook": "women-owned indie on East Boston \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "East Boston",
+      "neighborhood": "East Boston",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "B10",
+      "hook": "women-owned indie on Columbus \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "Columbus",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "B11",
+      "hook": "243 reviews at 5 stars across South Boston \u2014 operator-cares-about-every-client",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "South Boston",
+      "signals": [
+        "women-owned",
+        "243+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "B12",
+      "hook": "single-location indie on Columbus \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "Columbus",
+      "signals": [
+        "201+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "B13",
+      "hook": "women-owned indie on Columbus \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "Columbus",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "B14",
+      "hook": "single-location indie on Downtown \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "Downtown",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "B15",
+      "hook": "women-owned indie on Back Bay \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Boston",
+      "neighborhood": "Back Bay",
+      "signals": [
+        "women-owned",
+        "531+ reviews"
+      ]
+    },
+    {
+      "id": "H01",
+      "hook": "Black-owned indie on Clear Lake \u2014 founder-built brand pattern",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Webster",
+      "neighborhood": "Clear Lake",
+      "signals": [
+        "women-owned",
+        "LGBTQ+-owned",
+        "Black-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "H02",
+      "hook": "1281 reviews at 4.9 on Clear Lake \u2014 elite-tier indie energy in Houston",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Houston",
+      "neighborhood": "Clear Lake",
+      "signals": [
+        "women-owned",
+        "veteran-owned",
+        "1281+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "H03",
+      "hook": "women-owned indie on Clear Lake \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Houston",
+      "neighborhood": "Clear Lake",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "H04",
+      "hook": "women-owned indie on Clear Lake \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Houston",
+      "neighborhood": "Clear Lake",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "H05",
+      "hook": "single-location indie on Clear Lake \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Houston",
+      "neighborhood": "Clear Lake",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "H06",
+      "hook": "single-location indie on Clear Lake \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Friendswood",
+      "neighborhood": "Clear Lake",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "C01",
+      "hook": "Black-owned indie on Lake View \u2014 founder-built brand pattern",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Chicago",
+      "neighborhood": "Lake View",
+      "signals": [
+        "women-owned",
+        "LGBTQ+-owned",
+        "Black-owned",
+        "veteran-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "C02",
+      "hook": "Latino + women-owned indie on Mount Greenwood \u2014 community-led founder energy",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Chicago",
+      "neighborhood": "Mount Greenwood",
+      "signals": [
+        "women-owned",
+        "Latino-owned",
+        "Black-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "C03",
+      "hook": "single-location indie on South Side \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Chicago",
+      "neighborhood": "South Side",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "C04",
+      "hook": "women-owned indie on South Loop \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "B",
+      "city": "Chicago",
+      "neighborhood": "South Loop",
+      "signals": [
+        "women-owned",
+        "veteran-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "C05",
+      "hook": "single-location indie on Clearing West \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "Chicago",
+      "neighborhood": "Clearing West",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "C06",
+      "hook": "602 reviews at 4.9 on Near North Side \u2014 elite-tier indie energy in Chicago",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "B",
+      "city": "Chicago",
+      "neighborhood": "Near North Side",
+      "signals": [
+        "602+ reviews",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "C07",
+      "hook": "women-owned indie on Pilsen \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Chicago",
+      "neighborhood": "Pilsen",
+      "signals": [
+        "women-owned",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "C08",
+      "hook": "women-owned indie on South Loop \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Chicago",
+      "neighborhood": "South Loop",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "C09",
+      "hook": "women-owned indie on South Loop \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Chicago",
+      "neighborhood": "South Loop",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "C10",
+      "hook": "women-owned indie on South Side \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "Chicago",
+      "neighborhood": "South Side",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "S01",
+      "hook": "single-location indie on  \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "B",
+      "city": "",
+      "neighborhood": "",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "S02",
+      "hook": "women-owned indie on Carmel Valley \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "San Diego",
+      "neighborhood": "Carmel Valley",
+      "signals": [
+        "women-owned",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "S03",
+      "hook": "single-location indie on Del Mar Heights \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "Del Mar",
+      "neighborhood": "Del Mar Heights",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "S04",
+      "hook": "single-location indie on  \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "B",
+      "city": "Del Mar",
+      "neighborhood": "",
+      "signals": [
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "S05",
+      "hook": "women-owned indie on Torrey Highlands Village \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "San Diego",
+      "neighborhood": "Torrey Highlands Village",
+      "signals": [
+        "women-owned",
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "S06",
+      "hook": "420 reviews at 5 on Rancho Bernardo \u2014 elite-tier indie energy in San Diego",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "San Diego",
+      "neighborhood": "Rancho Bernardo",
+      "signals": [
+        "women-owned",
+        "Asian-owned",
+        "420+ reviews",
+        "5.0 stars"
+      ]
+    },
+    {
+      "id": "S07",
+      "hook": "single-location indie on Carmel Valley \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "San Diego",
+      "neighborhood": "Carmel Valley",
+      "signals": [
+        "4.8 stars"
+      ]
+    },
+    {
+      "id": "S08",
+      "hook": "women-owned indie on Carmel Valley \u2014 front desk and owner are the same person",
+      "pain_segment": "front-desk-is-owner",
+      "bucket": "A",
+      "city": "San Diego",
+      "neighborhood": "Carmel Valley",
+      "signals": [
+        "women-owned",
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "S09",
+      "hook": "single-location indie on Rancho Bernardo \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "lapsed clients drift",
+      "bucket": "A",
+      "city": "San Diego",
+      "neighborhood": "Rancho Bernardo",
+      "signals": [
+        "4.9 stars"
+      ]
+    },
+    {
+      "id": "S10",
+      "hook": "single-location indie on Carmel Valley \u2014 automation compounds where the owner runs the front desk",
+      "pain_segment": "reviews left on the table",
+      "bucket": "A",
+      "city": "San Diego",
+      "neighborhood": "Carmel Valley",
+      "signals": [
+        "5.0 stars"
+      ]
+    }
+  ]
+}
