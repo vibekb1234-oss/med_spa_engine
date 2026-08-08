@@ -75,3 +75,22 @@ MEDSPA_CALENDLY_WEBHOOK_SIGNING_KEY
 Calendly sends the calendar invite and meeting link. n8n sends the branded MedSpa Growth Engine reminder emails.
 
 Google/Calendly calendar invite emails cannot be fully styled. The branded HTML emails are sent from n8n/Gmail.
+
+## Production Reminder Workflow
+
+Use the complete confirmation/reminder workflow here:
+
+```text
+launch/calendly/Revenue_Leak_Audit_Reminder_Workflow.md
+```
+
+Import these n8n workflows:
+
+```text
+workflows/18_Calendly_Revenue_Leak_Audit_Reminders.json
+workflows/19_Calendly_Revenue_Leak_Audit_Reminder_Dispatcher.json
+```
+
+Workflow 18 receives Calendly booking/cancel events and writes UTC-safe reminder rows.
+
+Workflow 19 runs every minute, sends due reminders, and marks each row as `sent`, `skipped`, or `failed`.

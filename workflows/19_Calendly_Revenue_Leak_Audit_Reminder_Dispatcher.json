@@ -1,0 +1,184 @@
+{
+  "name": "19 - Calendly Revenue Leak Audit Reminder Dispatcher",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "schedule-every-minute",
+      "name": "Every Minute",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-900, 0]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.MEDSPA_SUPABASE_URL + '/rest/v1/audit_reminder_logs?status=eq.scheduled&scheduled_for=lte.' + encodeURIComponent($now.toUTC().toISO()) + '&select=*,audit_bookings(*)&order=scheduled_for.asc&limit=25' }}",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Authorization", "value": "={{ 'Bearer ' + $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        }
+      },
+      "id": "get-due-reminders",
+      "name": "Get Due Reminder Logs",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-660, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.first().json;\nconst list = Array.isArray(rows) ? rows : [];\nconst now = new Date();\nconst outputs = [];\nfunction fmtDate(iso, tz) {\n  return new Intl.DateTimeFormat('en-US', { timeZone: tz || 'America/Toronto', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).format(new Date(iso));\n}\nfunction fmtTime(iso, tz) {\n  return new Intl.DateTimeFormat('en-US', { timeZone: tz || 'America/Toronto', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(new Date(iso));\n}\nconst subjects = {\n  confirmation: 'Your Revenue Leak Audit Is Confirmed',\n  three_day: 'Quick note before our audit',\n  one_day: \"Tomorrow's Revenue Leak Audit\",\n  thirty_minute: 'Starting in 30 minutes',\n  fifteen_minute: 'Starting shortly'\n};\nfunction copy(type, b, eventDate, eventTime) {\n  if (type === 'confirmation') return {\n    intro: 'Your Revenue Leak Audit has been scheduled.',\n    bullets: ['how inquiries and consultations are currently managed', 'where potential opportunities may be slipping through', 'how follow-up is currently handled', 'which opportunities may deserve attention first'],\n    close: \"This is a working session focused on your clinic's revenue recovery process, not a software demonstration.\"\n  };\n  if (type === 'three_day') return {\n    intro: 'Looking forward to our upcoming Revenue Leak Audit.',\n    bullets: ['monthly inquiry volume', 'consultation volume', 'current no-show process', 'how inactive clients are currently followed up', 'what system your team currently uses for booking and follow-up'],\n    close: 'No preparation is required. Rough answers are enough.'\n  };\n  if (type === 'one_day') return {\n    intro: 'Just a reminder that your Revenue Leak Audit is scheduled for tomorrow.',\n    bullets: [],\n    close: \"We'll review your current follow-up process, where opportunities may be slipping through, and what a prioritized Revenue Recovery List could look like.\"\n  };\n  if (type === 'thirty_minute') return { intro: 'Your Revenue Leak Audit starts in 30 minutes.', bullets: [], close: 'See you shortly.' };\n  return { intro: 'Your Revenue Leak Audit starts in 15 minutes.', bullets: [], close: 'See you shortly.' };\n}\nfunction htmlEmail(type, b, eventDate, eventTime, meetingLink) {\n  const c = copy(type, b, eventDate, eventTime);\n  const bulletHtml = c.bullets.length ? `<ul style=\"margin:16px 0 0;padding-left:20px;color:#473642;line-height:1.7;\">${c.bullets.map(x => `<li>${x}</li>`).join('')}</ul>` : '';\n  return `<!doctype html><html><body style=\"margin:0;background:#fff7fb;font-family:Arial,Helvetica,sans-serif;color:#24171e;\"><div style=\"max-width:620px;margin:0 auto;padding:28px 16px;\"><div style=\"background:#fffdf9;border:1px solid #ead8cd;border-radius:18px;overflow:hidden;box-shadow:0 20px 56px rgba(117,72,90,.10);\"><div style=\"padding:22px 24px;border-bottom:1px solid #ead8cd;\"><div style=\"color:#9d2f5d;font-weight:800;font-size:18px;\">MedSpa Growth Engine</div><div style=\"color:#765063;font-size:12px;margin-top:4px;letter-spacing:.08em;text-transform:uppercase;\">Revenue Leak Audit</div></div><div style=\"padding:26px 24px;line-height:1.65;\"><p style=\"margin:0 0 16px;\">Hi ${b.first_name || 'there'},</p><p style=\"margin:0 0 16px;\">${c.intro}</p><div style=\"background:#fff7fb;border:1px solid #ead8cd;border-radius:14px;padding:16px;margin:20px 0;\"><div><strong>Date:</strong> ${eventDate}</div><div><strong>Time:</strong> ${eventTime}</div></div>${bulletHtml}<p style=\"margin:18px 0 0;\">${c.close}</p><div style=\"margin:24px 0;\"><a href=\"${meetingLink}\" style=\"display:inline-block;background:#9d2f5d;color:#fff;text-decoration:none;font-weight:800;padding:13px 18px;border-radius:10px;\">Join Audit</a></div><p style=\"margin:0;\">Looking forward to speaking with you.</p><p style=\"margin:10px 0 0;\">- Ishan</p></div><div style=\"padding:16px 24px;border-top:1px solid #ead8cd;color:#765063;font-size:12px;line-height:1.5;\">This reminder is for your scheduled Revenue Leak Audit. No preparation is required.</div></div></div></body></html>`;\n}\nfunction textEmail(type, b, eventDate, eventTime, meetingLink) {\n  const c = copy(type, b, eventDate, eventTime);\n  const bullets = c.bullets.map(x => `- ${x}`).join('\\n');\n  return `Hi ${b.first_name || 'there'},\\n\\n${c.intro}\\n\\nDate: ${eventDate}\\nTime: ${eventTime}\\n\\n${bullets ? bullets + '\\n\\n' : ''}${c.close}\\n\\nMeeting link:\\n${meetingLink}\\n\\nLooking forward to speaking with you.\\n\\n- Ishan`;\n}\nfor (const row of list) {\n  const b = row.audit_bookings || row.booking || {};\n  const eventStart = b.event_start_time ? new Date(b.event_start_time) : null;\n  if (!b.id || b.status !== 'scheduled' || !eventStart || eventStart <= now) {\n    outputs.push({ json: { action: 'skip', log_id: row.id, reason: 'Booking cancelled, missing, or event already started' } });\n    continue;\n  }\n  if (!b.email || !b.meeting_link) {\n    outputs.push({ json: { action: 'fail', log_id: row.id, error_message: 'Missing invitee email or meeting link' } });\n    continue;\n  }\n  const eventDate = fmtDate(b.event_start_time, b.event_timezone);\n  const eventTime = fmtTime(b.event_start_time, b.event_timezone);\n  outputs.push({ json: { action: 'send', log_id: row.id, booking_id: b.id, reminder_type: row.reminder_type, to: b.email, subject: subjects[row.reminder_type] || 'Revenue Leak Audit Reminder', html: htmlEmail(row.reminder_type, b, eventDate, eventTime, b.meeting_link), text: textEmail(row.reminder_type, b, eventDate, eventTime, b.meeting_link) } });\n}\nreturn outputs;"
+      },
+      "id": "prepare-due-emails",
+      "name": "Prepare Due Emails",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-420, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.action }}",
+              "operation": "equals",
+              "value2": "send"
+            }
+          ]
+        }
+      },
+      "id": "if-send",
+      "name": "Should Send?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [-180, 0]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.to }}",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "send-email",
+      "name": "Send Gmail Reminder",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [80, -100],
+      "continueOnFail": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_WITH_GMAIL_CREDENTIAL_ID",
+          "name": "MedSpa Gmail"
+        }
+      },
+      "notes": "Use a real sender mailbox controlled by the operator. The HTML is lightweight and the workflow stores delivery status in Supabase."
+    },
+    {
+      "parameters": {
+        "jsCode": "const emailItem = $('Prepare Due Emails').item.json;\nconst result = $input.first().json || {};\nconst failed = !!result.error || !!result.message?.includes?.('error');\nreturn [{ json: { log_id: emailItem.log_id, status: failed ? 'failed' : 'sent', sent_at: failed ? null : new Date().toISOString(), provider_message_id: result.id || result.messageId || result.threadId || null, error_message: failed ? JSON.stringify(result.error || result).slice(0, 900) : null } }];"
+      },
+      "id": "build-sent-patch",
+      "name": "Build Sent/Failed Patch",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [320, -100]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.MEDSPA_SUPABASE_URL + '/rest/v1/audit_reminder_logs?id=eq.' + $json.log_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Authorization", "value": "={{ 'Bearer ' + $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=minimal" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ status: $json.status, sent_at: $json.sent_at, provider_message_id: $json.provider_message_id, error_message: $json.error_message }) }}"
+      },
+      "id": "mark-sent-or-failed",
+      "name": "Mark Sent or Failed",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [560, -100]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.MEDSPA_SUPABASE_URL + '/rest/v1/audit_reminder_logs?id=eq.' + $json.log_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Authorization", "value": "={{ 'Bearer ' + $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=minimal" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ status: $json.action === 'skip' ? 'skipped' : 'failed', error_message: $json.reason || $json.error_message || null }) }}"
+      },
+      "id": "mark-skipped-or-failed",
+      "name": "Mark Skipped or Failed",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [80, 140]
+    }
+  ],
+  "connections": {
+    "Every Minute": {
+      "main": [[{ "node": "Get Due Reminder Logs", "type": "main", "index": 0 }]]
+    },
+    "Get Due Reminder Logs": {
+      "main": [[{ "node": "Prepare Due Emails", "type": "main", "index": 0 }]]
+    },
+    "Prepare Due Emails": {
+      "main": [[{ "node": "Should Send?", "type": "main", "index": 0 }]]
+    },
+    "Should Send?": {
+      "main": [
+        [{ "node": "Send Gmail Reminder", "type": "main", "index": 0 }],
+        [{ "node": "Mark Skipped or Failed", "type": "main", "index": 0 }]
+      ]
+    },
+    "Send Gmail Reminder": {
+      "main": [[{ "node": "Build Sent/Failed Patch", "type": "main", "index": 0 }]]
+    },
+    "Build Sent/Failed Patch": {
+      "main": [[{ "node": "Mark Sent or Failed", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "UTC",
+    "saveManualExecutions": true
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "description": "Minute dispatcher for Revenue Leak Audit reminder logs. Sends due reminders, skips reminders after event start, and marks sent/failed/skipped in Supabase."
+  },
+  "pinData": {},
+  "versionId": "medspa-revenue-leak-audit-dispatcher-v1"
+}

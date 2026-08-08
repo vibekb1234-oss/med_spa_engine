@@ -295,6 +295,7 @@ create index if not exists idx_audit_bookings_email on public.audit_bookings(ema
 create unique index if not exists idx_audit_bookings_calendly_invitee_unique on public.audit_bookings(calendly_invitee_id);
 create index if not exists idx_audit_reminder_logs_status_scheduled on public.audit_reminder_logs(status, scheduled_for);
 create index if not exists idx_audit_reminder_logs_booking_type on public.audit_reminder_logs(booking_id, reminder_type);
+create unique index if not exists idx_audit_reminder_logs_booking_type_unique on public.audit_reminder_logs(booking_id, reminder_type);
 
 -- No public policies are intentionally added for audit_bookings or audit_reminder_logs.
 -- These tables store booking/reminder operations and should only be accessed server-side.
