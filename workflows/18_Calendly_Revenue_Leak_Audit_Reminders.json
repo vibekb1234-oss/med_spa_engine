@@ -1,0 +1,249 @@
+{
+  "name": "18 - Calendly Revenue Leak Audit Reminders",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "medspa-calendly-revenue-leak-audit-reminders",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-calendly-audit",
+      "name": "Calendly Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-940, 0],
+      "webhookId": "medspa-calendly-revenue-leak-audit-reminders"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst body = input.body || input;\nconst eventType = body.event || body.payload?.event_type || '';\nconst payload = body.payload || body;\nconst scheduledEvent = payload.scheduled_event || payload.event || {};\nconst invitee = payload.invitee || payload;\nconst eventName = (scheduledEvent.name || payload.event_name || '').toString();\nconst eventUri = (scheduledEvent.uri || payload.event_uri || '').toString();\nconst slugText = `${eventName} ${eventUri}`.toLowerCase();\nif (!slugText.includes('revenue leak audit') && !slugText.includes('revenue-leak-audit')) {\n  return [{ json: { ignored: true, reason: 'Not Revenue Leak Audit', eventType, raw: body } }];\n}\nconst email = (invitee.email || payload.email || '').trim().toLowerCase();\nconst fullName = (invitee.name || payload.name || '').trim();\nconst firstName = fullName.split(/\\s+/)[0] || 'there';\nconst questions = invitee.questions_and_answers || payload.questions_and_answers || [];\nfunction answer(label) {\n  const row = questions.find(q => (q.question || '').toLowerCase().includes(label));\n  return row ? row.answer : '';\n}\nconst start = scheduledEvent.start_time || payload.start_time || invitee.event_start_time;\nconst end = scheduledEvent.end_time || payload.end_time || invitee.event_end_time;\nconst startMs = start ? new Date(start).getTime() : NaN;\nconst nowMs = Date.now();\nconst meetingLink = invitee.event_guest_link || payload.event_guest_link || scheduledEvent.location?.join_url || scheduledEvent.location?.location || '';\nconst booking = {\n  calendly_event_id: scheduledEvent.uuid || scheduledEvent.uri || eventUri,\n  calendly_invitee_id: invitee.uuid || invitee.uri || payload.uri || email,\n  first_name: firstName,\n  email,\n  clinic_name: answer('clinic') || payload.clinic_name || payload.company_name || '',\n  event_start_time: start,\n  event_end_time: end,\n  event_timezone: scheduledEvent.event_timezone || scheduledEvent.timezone || payload.timezone || $env.MEDSPA_BOOKING_TIMEZONE || 'America/Toronto',\n  meeting_link: meetingLink,\n  status: eventType.includes('canceled') || eventType.includes('cancelled') ? 'cancelled' : 'scheduled',\n  raw_payload: body\n};\nconst reminderOffsets = [\n  ['confirmation', 0],\n  ['three_day', 3 * 24 * 60 * 60 * 1000],\n  ['one_day', 24 * 60 * 60 * 1000],\n  ['thirty_minute', 30 * 60 * 1000],\n  ['fifteen_minute', 15 * 60 * 1000]\n];\nconst reminders = Number.isFinite(startMs) ? reminderOffsets.map(([type, offset]) => {\n  const scheduledFor = type === 'confirmation' ? nowMs : startMs - offset;\n  const impossible = type !== 'confirmation' && scheduledFor <= nowMs;\n  const afterStart = scheduledFor >= startMs;\n  return { reminder_type: type, scheduled_for: new Date(scheduledFor).toISOString(), status: impossible || afterStart ? 'skipped' : 'scheduled' };\n}) : [];\nreturn [{ json: { ignored: false, eventType, booking, reminders } }];"
+      },
+      "id": "normalize-calendly",
+      "name": "Normalize + Filter Revenue Leak Audit",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-700, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.ignored }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-ignored",
+      "name": "Ignore Non Audit Events?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [-480, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\":true,\"ignored\":true}"
+      },
+      "id": "respond-ignored",
+      "name": "Respond Ignored",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [-240, -140]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.MEDSPA_SUPABASE_URL + '/rest/v1/audit_bookings?on_conflict=calendly_invitee_id' }}",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Authorization", "value": "={{ 'Bearer ' + $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "resolution=merge-duplicates,return=representation" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.booking) }}"
+      },
+      "id": "upsert-booking",
+      "name": "Upsert Audit Booking",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-240, 120],
+      "notes": "Uses service-role env vars only. Do not expose this URL/key in frontend code."
+    },
+    {
+      "parameters": {
+        "jsCode": "const original = $('Normalize + Filter Revenue Leak Audit').first().json;\nconst bookingRows = $input.first().json;\nconst booking = Array.isArray(bookingRows) ? bookingRows[0] : bookingRows;\nif (!booking || !booking.id) throw new Error('Supabase did not return booking id');\nif (original.booking.status === 'cancelled') {\n  return [{ json: { booking, action: 'cancel', reminders: [] } }];\n}\nreturn original.reminders.map(r => ({ json: { booking, action: 'schedule', reminder: { booking_id: booking.id, ...r } } }));"
+      },
+      "id": "prepare-reminders",
+      "name": "Prepare Reminder Rows",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 120]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.action }}",
+              "operation": "equals",
+              "value2": "cancel"
+            }
+          ]
+        }
+      },
+      "id": "if-cancelled",
+      "name": "Cancelled Event?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [220, 120]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.MEDSPA_SUPABASE_URL + '/rest/v1/audit_reminder_logs?booking_id=eq.' + $json.booking.id + '&status=eq.scheduled' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Authorization", "value": "={{ 'Bearer ' + $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=minimal" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"status\":\"cancelled\"}"
+      },
+      "id": "cancel-reminders",
+      "name": "Cancel Pending Reminders",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, -20]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.MEDSPA_SUPABASE_URL + '/rest/v1/audit_reminder_logs' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Authorization", "value": "={{ 'Bearer ' + $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=representation" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.reminder) }}"
+      },
+      "id": "insert-reminder-log",
+      "name": "Insert Reminder Log",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 220]
+    },
+    {
+      "parameters": {
+        "jsCode": "const original = $('Normalize + Filter Revenue Leak Audit').first().json;\nconst logRows = $input.first().json;\nconst log = Array.isArray(logRows) ? logRows[0] : logRows;\nconst b = original.booking;\nconst type = log.reminder_type;\nconst subjects = {\n  confirmation: 'Your Revenue Leak Audit Is Confirmed',\n  three_day: 'Quick note before our audit',\n  one_day: \"Tomorrow's Revenue Leak Audit\",\n  thirty_minute: 'Starting in 30 minutes',\n  fifteen_minute: 'Starting shortly'\n};\nconst bodyMap = {\n  confirmation: `During the 30-minute audit, we will review how new leads are followed up, how consultations are converted, how no-shows are recovered, how past patients are reactivated, and where revenue opportunities may be slipping. This is a working session focused on your current revenue recovery process, not a software demonstration.`,\n  three_day: `To make the conversation more useful, it may help to have a rough idea of your monthly lead volume, consultation volume, current follow-up process, no-show recovery process, patient reactivation process, and booking/follow-up system. No preparation is required. Rough answers are enough.`,\n  one_day: `Just a quick reminder that your Revenue Leak Audit is scheduled for tomorrow. We will review your current follow-up process, where revenue may be leaking, and what a weekly recovery action list could look like.`,\n  thirty_minute: `Your Revenue Leak Audit starts in 30 minutes.`,\n  fifteen_minute: `Your Revenue Leak Audit starts in 15 minutes.`\n};\nconst shell = (content) => `<!doctype html><html><body style=\"margin:0;background:#100b11;font-family:Arial,sans-serif;color:#f8eef3;\"><div style=\"max-width:620px;margin:0 auto;padding:28px;\"><div style=\"border:1px solid #3b2230;background:#171018;border-radius:18px;overflow:hidden;\"><div style=\"padding:22px 24px;border-bottom:1px solid #3b2230;\"><strong style=\"color:#e05691;font-size:18px;\">MedSpa Growth Engine</strong><div style=\"color:#b8a6b0;font-size:12px;margin-top:4px;\">Revenue Leak Audit</div></div><div style=\"padding:26px 24px;color:#f8eef3;line-height:1.65;\"><p>Hi ${b.first_name || 'there'},</p><p>${content}</p><div style=\"background:#211620;border:1px solid #3b2230;border-radius:14px;padding:16px;margin:22px 0;\"><div><strong>Date:</strong> ${b.event_start_time || 'See calendar invite'}</div><div><strong>Time:</strong> ${b.event_timezone || 'Your calendar timezone'}</div></div><a href=\"${b.meeting_link || 'https://calendly.com/medspaagrowth/revenue-leak-audit'}\" style=\"display:inline-block;background:#9d2f5d;color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:10px;\">Join audit</a><p style=\"margin-top:24px;\">Looking forward to speaking with you.</p><p>- Ishan<br/>MedSpa Growth Engine</p></div><div style=\"padding:16px 24px;border-top:1px solid #3b2230;color:#9d8a95;font-size:12px;line-height:1.5;\">We identify potential revenue leaks and recovery opportunities. We do not guarantee revenue, clients, bookings, or medical outcomes.</div></div></div></body></html>`;\nreturn [{ json: { to: b.email, subject: subjects[type] || 'Revenue Leak Audit Reminder', html: shell(bodyMap[type] || bodyMap.confirmation), text: `${subjects[type]}\\n\\nHi ${b.first_name || 'there'},\\n\\n${bodyMap[type] || bodyMap.confirmation}\\n\\nMeeting link: ${b.meeting_link}\\n\\n- Ishan\\nMedSpa Growth Engine`, log_id: log.id, reminder_type: type, should_send_now: type === 'confirmation' } }];"
+      },
+      "id": "build-email",
+      "name": "Build Branded HTML Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 220]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.to }}",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "send-gmail-html",
+      "name": "Send Gmail HTML Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [960, 220],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_WITH_GMAIL_CREDENTIAL_ID",
+          "name": "MedSpa Gmail"
+        }
+      },
+      "notes": "Set email type to HTML. Replace credential ID after import."
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\":true,\"processed\":true}"
+      },
+      "id": "respond-ok",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1200, 80]
+    }
+  ],
+  "connections": {
+    "Calendly Webhook": {
+      "main": [[{ "node": "Normalize + Filter Revenue Leak Audit", "type": "main", "index": 0 }]]
+    },
+    "Normalize + Filter Revenue Leak Audit": {
+      "main": [[{ "node": "Ignore Non Audit Events?", "type": "main", "index": 0 }]]
+    },
+    "Ignore Non Audit Events?": {
+      "main": [
+        [{ "node": "Respond Ignored", "type": "main", "index": 0 }],
+        [{ "node": "Upsert Audit Booking", "type": "main", "index": 0 }]
+      ]
+    },
+    "Upsert Audit Booking": {
+      "main": [[{ "node": "Prepare Reminder Rows", "type": "main", "index": 0 }]]
+    },
+    "Prepare Reminder Rows": {
+      "main": [[{ "node": "Cancelled Event?", "type": "main", "index": 0 }]]
+    },
+    "Cancelled Event?": {
+      "main": [
+        [{ "node": "Cancel Pending Reminders", "type": "main", "index": 0 }],
+        [{ "node": "Insert Reminder Log", "type": "main", "index": 0 }]
+      ]
+    },
+    "Cancel Pending Reminders": {
+      "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]]
+    },
+    "Insert Reminder Log": {
+      "main": [[{ "node": "Build Branded HTML Email", "type": "main", "index": 0 }]]
+    },
+    "Build Branded HTML Email": {
+      "main": [[{ "node": "Send Gmail HTML Email", "type": "main", "index": 0 }]]
+    },
+    "Send Gmail HTML Email": {
+      "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Toronto",
+    "saveManualExecutions": true
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "description": "Handles Calendly invitee.created/invitee.canceled for the MedSpa Growth Engine Revenue Leak Audit. For delayed 3-day/1-day/30-minute/15-minute sends, pair the scheduled rows with a minute-based dispatcher that sends due audit_reminder_logs and marks sent/failed."
+  },
+  "pinData": {},
+  "versionId": "medspa-revenue-leak-audit-reminders-v1"
+}

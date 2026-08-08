@@ -232,3 +232,69 @@ create index if not exists idx_subscription_plans_active on public.subscription_
 -- Operator note:
 -- Protected commercial fields such as tier, subscription_status, deployment_status, and role
 -- should be changed only from Supabase dashboard, server-side scripts, Stripe webhooks, or service-role backend jobs.
+
+-- Revenue Leak Audit booking/reminder state.
+-- Server-side only. n8n should access these tables with a service role key.
+
+do $$ begin
+  create type public.audit_booking_status as enum ('scheduled', 'cancelled', 'rescheduled');
+exception when duplicate_object then null;
+end $$;
+
+do $$ begin
+  create type public.audit_reminder_type as enum ('confirmation', 'three_day', 'one_day', 'thirty_minute', 'fifteen_minute');
+exception when duplicate_object then null;
+end $$;
+
+do $$ begin
+  create type public.audit_reminder_status as enum ('scheduled', 'sent', 'skipped', 'cancelled', 'failed');
+exception when duplicate_object then null;
+end $$;
+
+create table if not exists public.audit_bookings (
+  id uuid primary key default gen_random_uuid(),
+  calendly_event_id text,
+  calendly_invitee_id text,
+  first_name text,
+  email text not null,
+  clinic_name text,
+  event_start_time timestamptz,
+  event_end_time timestamptz,
+  event_timezone text,
+  meeting_link text,
+  status public.audit_booking_status not null default 'scheduled',
+  raw_payload jsonb not null default '{}',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists public.audit_reminder_logs (
+  id uuid primary key default gen_random_uuid(),
+  booking_id uuid references public.audit_bookings(id) on delete cascade,
+  reminder_type public.audit_reminder_type not null,
+  scheduled_for timestamptz,
+  sent_at timestamptz,
+  status public.audit_reminder_status not null default 'scheduled',
+  provider_message_id text,
+  error_message text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+drop trigger if exists audit_bookings_updated_at on public.audit_bookings;
+create trigger audit_bookings_updated_at before update on public.audit_bookings for each row execute function public.set_updated_at();
+
+drop trigger if exists audit_reminder_logs_updated_at on public.audit_reminder_logs;
+create trigger audit_reminder_logs_updated_at before update on public.audit_reminder_logs for each row execute function public.set_updated_at();
+
+alter table public.audit_bookings enable row level security;
+alter table public.audit_reminder_logs enable row level security;
+
+create index if not exists idx_audit_bookings_status_start on public.audit_bookings(status, event_start_time);
+create index if not exists idx_audit_bookings_email on public.audit_bookings(email);
+create unique index if not exists idx_audit_bookings_calendly_invitee_unique on public.audit_bookings(calendly_invitee_id);
+create index if not exists idx_audit_reminder_logs_status_scheduled on public.audit_reminder_logs(status, scheduled_for);
+create index if not exists idx_audit_reminder_logs_booking_type on public.audit_reminder_logs(booking_id, reminder_type);
+
+-- No public policies are intentionally added for audit_bookings or audit_reminder_logs.
+-- These tables store booking/reminder operations and should only be accessed server-side.

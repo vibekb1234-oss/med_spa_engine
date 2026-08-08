@@ -214,7 +214,8 @@ section { position: relative; z-index: 1; }
 .audit-recommendation { margin-top: 18px; display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 16px; }
 .audit-recommendation > div, .recovery-card { background: color-mix(in srgb, var(--bg-2) 74%, transparent); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
 .audit-label, .recovery-label { font-family: var(--font-sans); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-bright); font-weight: 800; margin-bottom: 8px; }
-.action-list-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1080px; margin: 0 auto 28px; }
+.recovery-label.medium { color: var(--teal); }
+.action-list-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1180px; margin: 0 auto 28px; }
 .recovery-card h3 { color: var(--text-strong); font-size: 22px; line-height: 1.16; margin-bottom: 12px; }
 .recovery-meta { color: var(--text-dim); font-size: 14px; line-height: 1.55; margin-bottom: 14px; }
 .recovery-action { color: var(--text); font-weight: 750; border-top: 1px solid var(--border); padding-top: 14px; }
@@ -283,6 +284,19 @@ section { position: relative; z-index: 1; }
 .solution-list { list-style: none; padding: 0; }
 .solution-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-dim); margin-bottom: 9px; }
 .solution-list li svg { width: 14px; height: 14px; color: var(--teal); flex-shrink: 0; margin-top: 3px; }
+.comparison-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.comparison-panel { background: var(--bg-1); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 22px 70px rgba(0,0,0,.12); }
+.comparison-panel.featured { border-color: color-mix(in srgb, var(--accent) 46%, var(--border)); box-shadow: 0 28px 90px color-mix(in srgb, var(--accent-glow) 54%, rgba(0,0,0,.18)); }
+.comparison-head { padding: 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 14px; }
+.comparison-icon { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--border-bright); background: var(--bg-2); color: var(--accent-bright); display: flex; align-items: center; justify-content: center; flex: 0 0 44px; }
+.comparison-icon img { width: 26px; height: 26px; object-fit: contain; }
+.comparison-head h3 { color: var(--text-strong); font-size: 20px; line-height: 1.2; margin-bottom: 4px; }
+.comparison-head p { color: var(--text-dim); font-size: 13px; line-height: 1.45; }
+.comparison-list { list-style: none; padding: 0; margin: 0; }
+.comparison-list li { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; min-height: 54px; padding: 14px 24px; border-bottom: 1px solid var(--border); color: var(--text); font-size: 14px; }
+.comparison-list li:last-child { border-bottom: 0; }
+.comparison-list span:last-child { color: var(--text-dim); font-size: 13px; text-align: right; }
+.comparison-panel.featured .comparison-list span:last-child { color: var(--accent-bright); font-weight: 750; }
 .swipe-hint { display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: var(--text-faint); text-transform: uppercase; }
 .swipe-hint::after { content: ''; width: 34px; height: 1px; background: linear-gradient(90deg, var(--accent), transparent); }
 .has-reveal .reveal-section .problem-card,
@@ -448,7 +462,7 @@ section { position: relative; z-index: 1; }
   .hero-visual { max-width: 760px; width: 100%; }
   .objection-panel { grid-template-columns: 1fr; }
   .tool-map { max-width: 720px; margin: 0 auto; }
-  .problem-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .problem-grid, .pricing-grid, .comparison-grid { grid-template-columns: repeat(2, 1fr); }
   .solution-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
@@ -490,7 +504,7 @@ section { position: relative; z-index: 1; }
   .screenshot-modal__title { font-size: 10px; letter-spacing: 0.1em; }
   .screenshot-modal__stage { padding: 10px; }
   .screenshot-modal__stage img { width: 100%; max-width: 100%; }
-  .problem-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .problem-grid, .pricing-grid, .comparison-grid { grid-template-columns: 1fr; }
   .swipe-hint { display: flex; }
   .problem-grid.swipe-carousel, .solution-grid.swipe-carousel {
     display: flex;
@@ -585,7 +599,7 @@ section { position: relative; z-index: 1; }
   .section-eyebrow { font-size: 10px; letter-spacing: 0.14em; justify-content: center; text-align: center; }
   .section-h2 { font-size: clamp(28px, 8.4vw, 38px); line-height: 1.12; }
   .section-sub { font-size: 15.5px; }
-  .problem-grid.swipe-carousel, .solution-grid.swipe-carousel, .problem-grid, .solution-grid, .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 14px; overflow: visible; margin: 0; padding: 0; scroll-snap-type: none; }
+  .problem-grid.swipe-carousel, .solution-grid.swipe-carousel, .problem-grid, .solution-grid, .pricing-grid, .comparison-grid { display: grid; grid-template-columns: 1fr; gap: 14px; overflow: visible; margin: 0; padding: 0; scroll-snap-type: none; }
   .problem-grid.swipe-carousel > .problem-card, .solution-grid.swipe-carousel > .solution-card { flex: none; width: 100%; min-height: auto; scroll-snap-align: unset; }
   .problem-card, .solution-card, .price-card { padding: 22px 18px; border-radius: 14px; }
   .solution-card h3 { font-size: 20px; }
@@ -740,7 +754,7 @@ html { scroll-padding-top: 86px; }
       <a href="#how">Process</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a href="../booking/index.html" class="btn-cta">Book audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="/book" class="btn-cta">Book audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme"></button>
   </div>
@@ -749,20 +763,20 @@ html { scroll-padding-top: 86px; }
 <main>
   <section class="hero">
     <div class="hero-copy">
-      <div class="hero-tag"><span class="pulse"></span> Revenue leak, not lead problem.</div>
-      <h1><span class="hero-line">Most Med Spas Don't Have A Lead Problem.</span> <span class="hero-line accent">They Have A Revenue Leak Problem.</span></h1>
-      <p>You already paid to create the opportunity. We identify where inquiries, consultations, no-shows, memberships, and past clients are slipping through, then show your team exactly what deserves attention first.</p>
+      <div class="hero-tag"><span class="pulse"></span> Revenue Recovery System for MedSpas</div>
+      <h1><span class="hero-line">Stop losing booked revenue</span> <span class="hero-line accent">because nobody followed up.</span></h1>
+      <p>Most medspas already have revenue sitting inside missed consultations, unsold treatment plans, lapsed patients, no-shows, and old leads. We identify the leaks, prioritize the highest-value opportunities, and show your team who to contact next.</p>
       <div class="hero-cta-row">
-        <a href="../booking/index.html" class="btn-cta-large">Book A Revenue Leak Audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a href="#pricing" class="btn-secondary-large">See How It Works</a>
+        <a href="/book" class="btn-cta-large">Book A Revenue Leak Audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#system" class="btn-secondary-large">See How It Works</a>
       </div>
       <div class="hero-benefits" aria-label="Key system benefits">
-        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Recover missed consultations</div>
-        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reduce no-shows</div>
-        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reactivate inactive clients</div>
-        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Protect membership renewals</div>
-        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Works with your existing systems</div>
-        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Prioritize the first recovery action</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Built for medspas and aesthetic clinics</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Works with your existing workflow</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No CRM migration required</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly revenue recovery action lists</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Done-for-you setup</div>
+        <div class="hero-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI-assisted prioritization</div>
       </div>
       <div class="integration-rail" aria-label="Tools MedSpa Growth Engine can sit around">
         <div class="integration-kicker">Installed around the tools you already use</div>
@@ -909,11 +923,12 @@ html { scroll-padding-top: 86px; }
       <p class="section-sub">The dashboard supports the action list. It identifies opportunities, prioritizes them, and shows your team where to act before revenue drifts.</p>
     </div>
     <div class="recovery-list action-list-grid">
-      <div class="recovery-card"><span class="recovery-label">High Priority</span><h3>Michelle</h3><p class="recovery-meta">Consultation completed / No treatment booked</p><p class="recovery-action">Recommended Action: Personal follow-up</p></div>
-      <div class="recovery-card"><span class="recovery-label">High Priority</span><h3>Sarah</h3><p class="recovery-meta">Botox / Last visit: 5.5 months ago</p><p class="recovery-action">Recommended Action: SMS + staff call</p></div>
-      <div class="recovery-card"><span class="recovery-label">High Priority</span><h3>Jessica</h3><p class="recovery-meta">Membership expires in 17 days</p><p class="recovery-action">Recommended Action: Renewal message</p></div>
+      <div class="recovery-card"><span class="recovery-label">High Priority</span><h3>Jessica M.</h3><p class="recovery-meta">Missed consultation follow-up</p><p class="recovery-action">Recommended Action: Call today + send treatment plan recap</p></div>
+      <div class="recovery-card"><span class="recovery-label">High Priority</span><h3>Luxe Skin Lead</h3><p class="recovery-meta">New injectable inquiry, no reply after form submit</p><p class="recovery-action">Recommended Action: Text + email follow-up</p></div>
+      <div class="recovery-card"><span class="recovery-label medium">Medium Priority</span><h3>Amanda R.</h3><p class="recovery-meta">Last facial 124 days ago</p><p class="recovery-action">Recommended Action: Send reactivation offer</p></div>
+      <div class="recovery-card"><span class="recovery-label medium">Medium Priority</span><h3>No-show list</h3><p class="recovery-meta">3 appointments missed this week</p><p class="recovery-action">Recommended Action: Recovery message + rebooking link</p></div>
     </div>
-    <p class="recovery-caption">MedSpa Growth Engine turns scattered clinic data into a short weekly action list: who to contact, why now, and which system should handle the next step.</p>
+    <p class="recovery-caption">The system identifies revenue leaks, prioritizes opportunities, and tells your team exactly where to focus first. The dashboard supports the action list. The action list is the product.</p>
   </section>
     <section class="section-pad reveal-section" id="system" style="background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
     <div class="section-head">
@@ -928,6 +943,56 @@ html { scroll-padding-top: 86px; }
       <div class="solution-card"><div class="num">03 - No-show recovery</div><h3>Recover empty slots before they become forgotten revenue.</h3><p class="lead">No-shows and late cancellations are flagged, followed up, and reported so the team can recover bookings instead of letting them disappear from the calendar.</p><div class="solution-apps"><span class="app-chip"><img src="../assets/integrations/google-calendar.png" alt="" />Calendar</span><span class="app-chip"><img src="../assets/integrations/gmail.png" alt="" />Recovery message</span><span class="app-chip"><img src="../assets/integrations/google-sheets.png" alt="" />Tracking</span></div><ul class="solution-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No-show and cancellation lists</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Warm reschedule follow-up</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Recovery outcome reporting</li></ul></div>
       <div class="solution-card"><div class="num">04 - Client reactivation</div><h3>Turn inactive clients into current treatment opportunities.</h3><p class="lead">Past clients, VIPs, Botox cycles, filler windows, laser plans, and seasonal offers become organized reactivation campaigns instead of sitting untouched.</p><div class="solution-apps"><span class="app-chip"><img src="../assets/integrations/crm.png" alt="" />Client segments</span><span class="app-chip"><img src="../assets/integrations/google-docs.png" alt="" />Approved scripts</span><span class="app-chip ai"><img src="../assets/integrations/claude.png" alt="" />AI-assisted copy</span></div><ul class="solution-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inactive client segments</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Membership and return-window prompts</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>One active campaign at a time</li></ul></div>
       <div class="solution-card"><div class="num">05 - Reviews and referrals</div><h3>Make proof and referrals part of the recovery system.</h3><p class="lead">Happy clients receive the right review or referral ask at the right time, giving the clinic more local proof without asking the team to remember every touchpoint.</p><div class="solution-apps"><span class="app-chip"><img src="../assets/integrations/gmail.png" alt="" />Review ask</span><span class="app-chip"><img src="../assets/integrations/google-docs.png" alt="" />Scripts</span><span class="app-chip"><img src="../assets/integrations/google-sheets.png" alt="" />Proof tracker</span></div><ul class="solution-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Review request timing</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Referral ask for returning clients</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Owner visibility report</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section-pad reveal-section" id="comparison">
+    <div class="section-head">
+      <div class="section-eyebrow">Manual CRM vs Recovery System</div>
+      <h2 class="section-h2">Software stores the record. The action list protects the revenue.</h2>
+      <p class="section-sub">Traditional systems are useful, but they still require someone to notice the leak, decide the next action, and follow through. MedSpa Growth Engine turns those gaps into weekly priorities.</p>
+    </div>
+    <div class="comparison-grid">
+      <div class="comparison-panel">
+        <div class="comparison-head">
+          <div class="comparison-icon">
+            <img src="../assets/integrations/crm.png" alt="" />
+          </div>
+          <div>
+            <h3>Traditional CRM / Manual Follow-Up</h3>
+            <p>Records, reminders, and manual review.</p>
+          </div>
+        </div>
+        <ul class="comparison-list">
+          <li><span>Stores lead information</span><span>Included</span></li>
+          <li><span>Tracks appointments</span><span>Included</span></li>
+          <li><span>Tracks consultations</span><span>Manual notes</span></li>
+          <li><span>Shows missed follow-ups</span><span>Easy to miss</span></li>
+          <li><span>Prioritizes revenue opportunities</span><span>Manual review</span></li>
+          <li><span>Finds lapsed patients</span><span>Usually manual</span></li>
+          <li><span>Creates weekly action lists</span><span>Not the focus</span></li>
+        </ul>
+      </div>
+      <div class="comparison-panel featured">
+        <div class="comparison-head">
+          <div class="comparison-icon">
+            <img src="../assets/medspa-growth-engine-mark.png" alt="" />
+          </div>
+          <div>
+            <h3>MedSpa Revenue Recovery System</h3>
+            <p>Done-for-you setup, AI-assisted prioritization, and weekly recovery visibility.</p>
+          </div>
+        </div>
+        <ul class="comparison-list">
+          <li><span>Shows missed follow-ups</span><span>Flagged</span></li>
+          <li><span>Prioritizes revenue opportunities</span><span>AI-assisted</span></li>
+          <li><span>Finds lapsed patients</span><span>Segmented</span></li>
+          <li><span>Recovers no-shows</span><span>Tracked</span></li>
+          <li><span>Helps convert unsold consultations</span><span>Next action</span></li>
+          <li><span>Keeps staff focused</span><span>Weekly list</span></li>
+          <li><span>Reduces owner mental load</span><span>Visibility</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -981,10 +1046,11 @@ html { scroll-padding-top: 86px; }
       <p class="section-sub">Start with the audit, install the first recovery workflow, then continue with monthly management only when the foundation is in place.</p>
     </div>
     <div class="pricing-grid">
-      <div class="price-card attraction"><div class="tier">Revenue Recovery Installation</div><div class="price-val"><span class="amt">One-Time</span><span class="per">setup</span></div><div class="price-setup">Built around your existing systems</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Revenue Leak Audit</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Data review and priority leak identification</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>One recovery workflow installed</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Action list reporting</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Testing and launch</li></ul><a href="../booking/index.html" class="btn-tier">Book Audit</a></div>
-      <div class="price-card featured"><div class="tier">Recovery Management</div><div class="price-val"><span class="amt">Monthly</span><span class="per">managed</span></div><div class="price-setup">For clinics with one active recovery focus</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Workflow monitoring</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly revenue recovery lists</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reporting and optimization</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>One active recovery campaign</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Calm monthly improvement rhythm</li></ul><a href="../booking/index.html" class="btn-tier">Book Audit</a></div>
-      <div class="price-card"><div class="tier">Recovery Plus</div><div class="price-val"><span class="amt">Monthly</span><span class="per">expanded</span></div><div class="price-setup">For clinics ready to manage multiple leaks</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Recovery Management</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Client Reactivation</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Consultation Recovery</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Membership Retention</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No-Show Recovery</li></ul><a href="../booking/index.html" class="btn-tier">Book Audit</a></div>
+      <div class="price-card attraction"><div class="tier">Revenue Leak Audit / Installation</div><div class="price-val"><span class="amt">One-Time</span><span class="per">setup</span></div><div class="price-setup">Built around your existing systems</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Revenue leak audit</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Database and process review</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Lead and follow-up gap mapping</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Action list setup</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Launch testing</li></ul><a href="/book" class="btn-tier">Book Audit</a></div>
+      <div class="price-card featured"><div class="tier">Revenue Recovery Management</div><div class="price-val"><span class="amt">Monthly</span><span class="per">managed</span></div><div class="price-setup">For clinics with one active recovery focus</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly recovery action lists</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Follow-up monitoring</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Lead/conversion gap refreshes</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reporting and optimization</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Light workflow tweaks</li></ul><a href="/book" class="btn-tier">Book Audit</a></div>
+      <div class="price-card"><div class="tier">Growth Operations</div><div class="price-val"><span class="amt">Custom</span><span class="per">advanced</span></div><div class="price-setup">For clinics ready to manage multiple leaks</div><ul class="price-features"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Multi-location support</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Advanced integrations</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Additional campaigns</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Deeper reporting</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Custom dashboards and team workflows</li></ul><a href="/book" class="btn-tier">Book Audit</a></div>
     </div>
+    <p class="recovery-caption">We do not guarantee revenue. We identify and prioritize opportunities. Results depend on clinic execution, offer quality, patient decisions, market conditions, and follow-up.</p>
   </section>
 
   <section class="section-pad" id="faq" style="background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
@@ -1004,7 +1070,7 @@ html { scroll-padding-top: 86px; }
     <div class="final-cta-frame">
       <h2>Your front desk should not decide how much revenue leaks this month.</h2>
       <p>Book a Revenue Leak Audit and we will map where consultations, no-shows, inactive clients, renewals, and follow-up gaps are costing attention before you install anything.</p>
-      <a href="../booking/index.html" class="btn-cta-large">Book A Revenue Leak Audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="/book" class="btn-cta-large">Book A Revenue Leak Audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </section>
 </main>
@@ -1016,9 +1082,9 @@ html { scroll-padding-top: 86px; }
       <a href="#system">System</a>
       <a href="#how">Process</a>
       <a href="#pricing">Pricing</a>
-      <a href="../booking/index.html">Contact</a>
-      <a href="../legal/privacy.html">Privacy</a>
-      <a href="../legal/terms.html">Terms</a>
+      <a href="/book">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </div>
   </div>
 </footer>
