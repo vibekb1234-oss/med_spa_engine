@@ -89,8 +89,11 @@ Import these n8n workflows:
 ```text
 workflows/18_Calendly_Revenue_Leak_Audit_Reminders.json
 workflows/19_Calendly_Revenue_Leak_Audit_Reminder_Dispatcher.json
+workflows/20_Calendly_Revenue_Leak_Audit_AI_Prep_Agent.json
 ```
 
 Workflow 18 receives Calendly booking/cancel events and writes UTC-safe reminder rows.
 
 Workflow 19 runs every minute, sends due reminders, and marks each row as `sent`, `skipped`, or `failed`.
+
+Workflow 20 is optional. It uses GPT through the OpenAI Responses API to create an internal audit prep brief for Ishan. It does not control reminder timing or sending.

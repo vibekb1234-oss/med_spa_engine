@@ -1,0 +1,226 @@
+{
+  "name": "20 - Calendly Revenue Leak Audit AI Prep Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 10
+            }
+          ]
+        }
+      },
+      "id": "schedule-every-10-minutes",
+      "name": "Every 10 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -900,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.MEDSPA_SUPABASE_URL + '/rest/v1/audit_bookings?status=eq.scheduled&event_start_time=gt.' + encodeURIComponent($now.toUTC().toISO()) + '&ai_brief_generated_at=is.null&select=*&order=event_start_time.asc&limit=10' }}",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        }
+      },
+      "id": "get-unbriefed-bookings",
+      "name": "Get Unbriefed Audit Bookings",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -660,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.first().json;\nconst list = Array.isArray(rows) ? rows : [];\nreturn list.map(b => ({ json: { booking: b } }));"
+      },
+      "id": "split-bookings",
+      "name": "Split Bookings",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -420,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/responses",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $env.MEDSPA_OPENAI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"{{ $env.MEDSPA_OPENAI_MODEL || 'gpt-5-mini' }}\",\n  \"store\": false,\n  \"input\": \"You are the MedSpa Growth Engine audit prep agent. Create a practical call brief for a booked Revenue Leak Audit. Return ONLY JSON, no markdown. Do not invent proof or guaranteed revenue. Use the booking payload and Calendly answers only.\\n\\nBooking JSON:\\n{{ JSON.stringify($json.booking).replace(/\\\"/g, '\\\\\\\"') }}\\n\\nReturn this exact shape: {\\n  \\\"owner_brief\\\": \\\"5-7 sentence plain-English brief for Ishan before the call\\\",\\n  \\\"likely_leaks\\\": [\\\"missed inquiry follow-up\\\", \\\"no-show recovery\\\"],\\n  \\\"questions_to_ask\\\": [\\\"question 1\\\", \\\"question 2\\\", \\\"question 3\\\"],\\n  \\\"risk_flags\\\": [\\\"flag or empty array\\\"],\\n  \\\"recommended_first_system\\\": \\\"Consultation Recovery | No-Show Recovery | Client Reactivation | Review Recovery | Membership Retention\\\",\\n  \\\"next_best_action\\\": \\\"what Ishan should do first on the call\\\"\\n}\"\n}",
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "generate-ai-brief",
+      "name": "GPT Audit Prep Agent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -180,
+        0
+      ],
+      "continueOnFail": true,
+      "notes": "Uses OpenAI Responses API. Default model is gpt-5-mini unless MEDSPA_OPENAI_MODEL is set. Keep store=false for privacy."
+    },
+    {
+      "parameters": {
+        "jsCode": "const booking = $('Split Bookings').item.json.booking;\nconst raw = $input.first().json || {};\nlet text = raw.output_text || raw.output?.[0]?.content?.[0]?.text || raw.content?.[0]?.text || '';\nlet brief = null;\nlet error = null;\ntry {\n  brief = JSON.parse(text);\n} catch (e) {\n  error = raw.error ? JSON.stringify(raw.error).slice(0, 900) : 'GPT response was missing or invalid JSON';\n}\nconst valid = brief && typeof brief.owner_brief === 'string' && Array.isArray(brief.questions_to_ask);\nreturn [{ json: { booking_id: booking.id, ok: !!valid, ai_brief: valid ? brief : null, ai_brief_error: valid ? null : error } }];"
+      },
+      "id": "validate-brief",
+      "name": "Validate Brief JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        60,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.MEDSPA_SUPABASE_URL + '/rest/v1/audit_bookings?id=eq.' + $json.booking_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $env.MEDSPA_SUPABASE_SERVICE_ROLE_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.ok ? { ai_brief: $json.ai_brief, ai_brief_generated_at: new Date().toISOString(), ai_brief_error: null } : { ai_brief_error: $json.ai_brief_error }) }}"
+      },
+      "id": "save-ai-brief",
+      "name": "Save AI Brief",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Every 10 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Get Unbriefed Audit Bookings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Unbriefed Audit Bookings": {
+      "main": [
+        [
+          {
+            "node": "Split Bookings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Bookings": {
+      "main": [
+        [
+          {
+            "node": "GPT Audit Prep Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GPT Audit Prep Agent": {
+      "main": [
+        [
+          {
+            "node": "Validate Brief JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Brief JSON": {
+      "main": [
+        [
+          {
+            "node": "Save AI Brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "UTC",
+    "saveManualExecutions": true
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "description": "Optional GPT-powered audit prep agent. Generates structured call briefs for booked Revenue Leak Audits. Does not control reminder sends."
+  },
+  "pinData": {},
+  "versionId": "medspa-revenue-leak-audit-ai-prep-agent-v1"
+}

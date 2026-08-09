@@ -4,14 +4,22 @@
     {
       "parameters": {
         "rule": {
-          "interval": [{ "field": "cronExpression", "expression": "0 10 1 * *" }]
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 10 1 * *"
+            }
+          ]
         }
       },
       "id": "ms4000000-0000-0000-0000-000000000001",
       "name": "Schedule — Monthly 1st at 10am",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [0, 0]
+      "position": [
+        0,
+        0
+      ]
     },
     {
       "parameters": {
@@ -21,13 +29,24 @@
       "name": "Calculate Dates + Season",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [220, 0]
+      "position": [
+        220,
+        0
+      ]
     },
     {
       "parameters": {
         "operation": "read",
-        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
-        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_MEDSPA_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Clients",
+          "mode": "name"
+        },
         "filters": {},
         "options": {}
       },
@@ -35,8 +54,16 @@
       "name": "Get All Clients",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
-      "position": [440, 0],
-      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+      "position": [
+        440,
+        0
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_GSHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account"
+        }
+      }
     },
     {
       "parameters": {
@@ -46,13 +73,28 @@
       "name": "Segment Clients",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 0]
+      "position": [
+        660,
+        0
+      ]
     },
     {
       "parameters": {
         "conditions": {
-          "options": { "caseSensitive": false, "typeValidation": "strict" },
-          "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "NONE", "operator": { "type": "string", "operation": "notEquals" } }],
+          "options": {
+            "caseSensitive": false,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.type }}",
+              "rightValue": "NONE",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
           "combinator": "and"
         }
       },
@@ -60,16 +102,138 @@
       "name": "Any Clients to Contact?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [880, 0]
+      "position": [
+        880,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-haiku-4-5\",\n  \"max_tokens\": 500,\n  \"messages\": [{\n    \"role\": \"user\",\n    \"content\": \"You write MedSpa winback emails. Return ONLY raw JSON, no markdown.\\n\\nSegment: {{ $json.type }}\\nClient: {{ $json.clientName }}\\nLast service: {{ $json.service }}\\nLast visit: {{ $json.lastVisitStr }}\\nTotal past visits: {{ $json.totalVisits }}\\nVIP: {{ $json.vipStatus }}\\n\\nTone per segment:\\n- LAPSED_60: warm nudge, 'perfect time for a top-up' — no discount\\n- LAPSED_90: 'we miss you' + 10% off\\n- LAPSED_180: personal note from owner, no discount, just genuine outreach\\n- SEASONAL: {{ $json.seasonalPromo.offer }} — playful excitement\\n\\nRules:\\n1. Reference their SPECIFIC past service by name in the opening\\n2. If VIP, acknowledge loyalty specifically\\n3. Warm not salesy — this client has already trusted us before\\n4. 3-4 sentences max in the personalized paragraph\\n\\nReturn:\\n{\\n  \\\"subject\\\": \\\"Email subject (feel personal, not template-y)\\\",\\n  \\\"personalizedParagraph\\\": \\\"The one paragraph that goes at the top before the offer/CTA. Reference their specific history.\\\"\\n}\"\n  }]\n}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "ms4000000-0000-0000-0000-00000000000a",
+      "name": "AI Personalize Winback",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1000,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "YOUR_ANTHROPIC_CREDENTIAL_ID",
+          "name": "Anthropic API Key"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse AI response and merge with the paired segment row.\n// Do not use .first() here: monthly retention can process many clients at once.\nconst aiRaw = $input.first().json;\nlet segData;\ntry {\n  segData = $('Segment Clients').item.json;\n} catch (e) {\n  segData = $('Segment Clients').first().json;\n}\n\nlet ai = null;\ntry {\n  const text = aiRaw?.content?.[0]?.text || '';\n  ai = JSON.parse(text);\n} catch(e) { ai = null; }\n\nconst hasAi = ai && typeof ai.subject === 'string' && typeof ai.personalizedParagraph === 'string';\n\nreturn [{\n  json: {\n    ...segData,\n    aiUsed:    hasAi,\n    aiSubject: hasAi ? ai.subject : null,\n    aiParagraph: hasAi ? ai.personalizedParagraph : null\n  }\n}];"
+      },
+      "id": "ms4000000-0000-0000-0000-00000000000b",
+      "name": "Merge AI + Fallback",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1180,
+        0
+      ]
     },
     {
       "parameters": {
         "rules": {
           "values": [
-            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "LAPSED_60",  "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "LAPSED_60"  },
-            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "LAPSED_90",  "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "LAPSED_90"  },
-            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "LAPSED_180", "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "LAPSED_180" },
-            { "conditions": { "conditions": [{ "leftValue": "={{ $json.type }}", "rightValue": "SEASONAL",   "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "SEASONAL"   }
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "LAPSED_60",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "LAPSED_60"
+            },
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "LAPSED_90",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "LAPSED_90"
+            },
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "LAPSED_180",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "LAPSED_180"
+            },
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "SEASONAL",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "SEASONAL"
+            }
           ]
         },
         "options": {}
@@ -78,54 +242,81 @@
       "name": "Route by Segment",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
-      "position": [1100, 0]
+      "position": [
+        1360,
+        0
+      ]
     },
     {
       "parameters": {
         "sendTo": "={{ $json.clientEmail }}",
-        "subject": "=Time for your {{ $json.service }} top-up, {{ $json.clientName }}?",
-        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">✨ Time for a Top-Up?</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>It's been about 2 months since your last visit, and depending on the treatment, it might be the perfect time to come back in for a top-up or your next session.</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;\">\n    <strong>Your last treatment:</strong> {{ $json.service }}<br/>\n    <strong>Last visit:</strong> {{ $json.lastVisitStr }}\n  </div>\n  <p>Ready to book? Just reply to this email and we'll find a time that works for you. We'd love to see you!</p>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Book My Next Visit →</a>\n  <p style=\"margin-top:20px;\">See you soon!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "subject": "={{ $json.aiUsed ? $json.aiSubject : `Time for your ${$json.service} top-up, ${$json.clientName}?` }}",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">✨ Time for a Top-Up?</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>{{ $json.aiUsed ? $json.aiParagraph : `It's been about 2 months since your last visit, and depending on the treatment, it might be the perfect time to come back in for a top-up or your next session.` }}</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;\">\n    <strong>Your last treatment:</strong> {{ $json.service }}<br/>\n    <strong>Last visit:</strong> {{ $json.lastVisitStr }}\n  </div>\n  <p>Ready to book? Just reply to this email and we'll find a time that works for you. We'd love to see you!</p>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#be185d;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Book My Next Visit →</a>\n  <p style=\"margin-top:20px;\">See you soon!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
         "options": {}
       },
       "id": "ms4000000-0000-0000-0000-000000000007",
       "name": "Send 60-Day Rebook",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
-      "position": [1320, -300],
-      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+      "position": [
+        1320,
+        -300
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YOUR_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
         "sendTo": "={{ $json.clientEmail }}",
-        "subject": "=We miss you, {{ $json.clientName }} — it's been a while",
-        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#7c3aed;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">💜 We Miss You</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #ddd6fe;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>It's been about 3 months since we last saw you, and we genuinely wanted to reach out. We hope everything is going well!</p>\n  <p>We know life gets busy. If you've been thinking about coming back but haven't had the chance to book, we'd love to make it easy for you.</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #7c3aed;\">\n    <strong>💝 A little gift for you:</strong><br/>\n    Mention this email when you book and receive <strong>10% off your next treatment</strong>. Our way of saying we appreciate you.\n  </div>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#7c3aed;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Claim My 10% Off →</a>\n  <p style=\"margin-top:20px;\">We'd love to see your name on our schedule again!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "subject": "={{ $json.aiUsed ? $json.aiSubject : `We miss you, ${$json.clientName} — it's been a while` }}",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#7c3aed;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">💜 We Miss You</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #ddd6fe;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>{{ $json.aiUsed ? $json.aiParagraph : `It's been about 3 months since we last saw you, and we genuinely wanted to reach out. We hope everything is going well! We know life gets busy. If you've been thinking about coming back but haven't had the chance to book, we'd love to make it easy for you.` }}</p>\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #7c3aed;\">\n    <strong>💝 A little gift for you:</strong><br/>\n    Mention this email when you book and receive <strong>10% off your next treatment</strong>. Our way of saying we appreciate you.\n  </div>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#7c3aed;color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Claim My 10% Off →</a>\n  <p style=\"margin-top:20px;\">We'd love to see your name on our schedule again!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
         "options": {}
       },
       "id": "ms4000000-0000-0000-0000-000000000008",
       "name": "Send 90-Day We Miss You",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
-      "position": [1320, -100],
-      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+      "position": [
+        1320,
+        -100
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YOUR_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
         "sendTo": "={{ $json.clientEmail }}",
-        "subject": "=Is everything okay, {{ $json.clientName }}? We haven't seen you in a while",
-        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#0f172a;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">A Personal Note</h2></div>\n<div style=\"background:#f8fafc;padding:24px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>I'm writing personally because it's been quite a while since your last visit, and I just wanted to make sure everything is okay on your end.</p>\n  <p>If there's anything that put you off — whether it was the experience, the results, the pricing, or something else entirely — I genuinely want to know. Your feedback helps me improve, and I'd rather know than wonder.</p>\n  <div style=\"background:#dbeafe;padding:16px;border-radius:8px;margin:20px 0;\">\n    <strong>If you'd like to come back:</strong><br/>\n    Reply to this email and I'll personally take care of your booking. As a returning client, I'll make sure you receive our best available rate.\n  </div>\n  <p>And if life has just taken you in a different direction — no hard feelings at all. I'm just glad we had the chance to help you when we did.</p>\n  <p>Warmly,<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
+        "subject": "={{ $json.aiUsed ? $json.aiSubject : `Is everything okay, ${$json.clientName}? We haven't seen you in a while` }}",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:#0f172a;color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">A Personal Note</h2></div>\n<div style=\"background:#f8fafc;padding:24px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>{{ $json.aiUsed ? $json.aiParagraph : `I'm writing personally because it's been quite a while since your last visit, and I just wanted to make sure everything is okay on your end.` }}</p>\n  <p>If there's anything that put you off — whether it was the experience, the results, the pricing, or something else entirely — I genuinely want to know. Your feedback helps me improve, and I'd rather know than wonder.</p>\n  <div style=\"background:#dbeafe;padding:16px;border-radius:8px;margin:20px 0;\">\n    <strong>If you'd like to come back:</strong><br/>\n    Reply to this email and I'll personally take care of your booking. As a returning client, I'll make sure you receive our best available rate.\n  </div>\n  <p>And if life has just taken you in a different direction — no hard feelings at all. I'm just glad we had the chance to help you when we did.</p>\n  <p>Warmly,<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
         "options": {}
       },
       "id": "ms4000000-0000-0000-0000-000000000009",
       "name": "Send 180-Day Win-Back",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
-      "position": [1320, 100],
-      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+      "position": [
+        1320,
+        100
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YOUR_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
         "sendTo": "={{ $json.clientEmail }}",
-        "subject": "={{ $json.seasonalPromo.subject }}",
+        "subject": "={{ $json.aiUsed ? $json.aiSubject : $json.seasonalPromo.subject }}",
         "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:{{ $json.seasonalPromo.color }};color:white;padding:24px;border-radius:8px 8px 0 0;\"><h2 style=\"margin:0;\">✨ {{ $json.seasonalPromo.subject.replace(/^[^ ]+ /, '') }}</h2></div>\n<div style=\"background:#fdf4ff;padding:24px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>Hope you're doing well! We have something special for you this month:</p>\n  <div style=\"background:white;padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid {{ $json.seasonalPromo.color }};\">\n    <strong>🎁 {{ $json.seasonalPromo.offer }}</strong>\n  </div>\n  <p>This offer is exclusively for our existing clients as a thank-you for your loyalty.</p>\n  <p>Spots are limited — reply to this email or book directly to claim your offer.</p>\n  <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:{{ $json.seasonalPromo.color }};color:white;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;\">Book My Spot →</a>\n  <p style=\"margin-top:20px;\">Talk soon!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n</body></html>",
         "options": {}
       },
@@ -133,21 +324,37 @@
       "name": "Send Seasonal Promo",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
-      "position": [1320, 300],
-      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+      "position": [
+        1320,
+        300
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YOUR_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
         "operation": "append",
-        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
-        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_MEDSPA_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Activity Log",
+          "mode": "name"
+        },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Timestamp":    "={{ $json.nowIso }}",
+            "Timestamp": "={{ $json.nowIso }}",
             "Client Email": "={{ $json.clientEmail }}",
-            "Action Type":  "=VIP Re-Engagement",
-            "Details":      "={{ $json.type }} re-engagement email sent to {{ $json.clientName }} (last visit: {{ $json.lastVisitStr }})"
+            "Action Type": "=VIP Re-Engagement",
+            "Details": "={{ $json.type }} re-engagement email sent to {{ $json.clientName }} (last visit: {{ $json.lastVisitStr }})"
           },
           "schema": []
         },
@@ -157,21 +364,39 @@
       "name": "Log Retention Action",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
-      "position": [1540, 0],
-      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+      "position": [
+        1540,
+        0
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_GSHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account"
+        }
+      }
     },
     {
       "parameters": {
         "operation": "appendOrUpdate",
-        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
-        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_MEDSPA_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Clients",
+          "mode": "name"
+        },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Client Email":     "={{ $json.clientEmail }}",
+            "Client Email": "={{ $json.clientEmail }}",
             "Last Promo Month": "={{ $json.currentMonthKey }}"
           },
-          "matchingColumns": ["Client Email"],
+          "matchingColumns": [
+            "Client Email"
+          ],
           "schema": []
         },
         "options": {}
@@ -180,40 +405,225 @@
       "name": "Mark Promo Sent This Month",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
-      "position": [1760, 0],
-      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+      "position": [
+        1760,
+        0
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_GSHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Gmail can output message metadata. Restore the paired retention item before logging and marking promo sent.\nlet source;\ntry {\n  source = $('Merge AI + Fallback').item.json;\n} catch (e) {\n  source = $input.first().json;\n}\nreturn [{ json: source }];"
+      },
+      "id": "ms4000000-0000-0000-0000-000000000013",
+      "name": "Restore Retention Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1540,
+        -220
+      ]
     }
   ],
   "pinData": {},
   "connections": {
-    "Schedule — Monthly 1st at 10am": { "main": [[{ "node": "Calculate Dates + Season", "type": "main", "index": 0 }]] },
-    "Calculate Dates + Season":        { "main": [[{ "node": "Get All Clients",           "type": "main", "index": 0 }]] },
-    "Get All Clients":                 { "main": [[{ "node": "Segment Clients",           "type": "main", "index": 0 }]] },
-    "Segment Clients":                 { "main": [[{ "node": "Any Clients to Contact?",   "type": "main", "index": 0 }]] },
+    "Schedule — Monthly 1st at 10am": {
+      "main": [
+        [
+          {
+            "node": "Calculate Dates + Season",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Dates + Season": {
+      "main": [
+        [
+          {
+            "node": "Get All Clients",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get All Clients": {
+      "main": [
+        [
+          {
+            "node": "Segment Clients",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Segment Clients": {
+      "main": [
+        [
+          {
+            "node": "Any Clients to Contact?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Any Clients to Contact?": {
       "main": [
-        [{ "node": "Route by Segment", "type": "main", "index": 0 }],
+        [
+          {
+            "node": "AI Personalize Winback",
+            "type": "main",
+            "index": 0
+          }
+        ],
         []
+      ]
+    },
+    "AI Personalize Winback": {
+      "main": [
+        [
+          {
+            "node": "Merge AI + Fallback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge AI + Fallback": {
+      "main": [
+        [
+          {
+            "node": "Route by Segment",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Route by Segment": {
       "main": [
-        [{ "node": "Send 60-Day Rebook",     "type": "main", "index": 0 }],
-        [{ "node": "Send 90-Day We Miss You", "type": "main", "index": 0 }],
-        [{ "node": "Send 180-Day Win-Back",   "type": "main", "index": 0 }],
-        [{ "node": "Send Seasonal Promo",     "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Send 60-Day Rebook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send 90-Day We Miss You",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send 180-Day Win-Back",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Seasonal Promo",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
-    "Send 60-Day Rebook":     { "main": [[{ "node": "Log Retention Action", "type": "main", "index": 0 }]] },
-    "Send 90-Day We Miss You": { "main": [[{ "node": "Log Retention Action", "type": "main", "index": 0 }]] },
-    "Send 180-Day Win-Back":   { "main": [[{ "node": "Log Retention Action", "type": "main", "index": 0 }]] },
-    "Send Seasonal Promo":     { "main": [[{ "node": "Log Retention Action", "type": "main", "index": 0 }]] },
-    "Log Retention Action":    { "main": [[{ "node": "Mark Promo Sent This Month", "type": "main", "index": 0 }]] }
+    "Send 60-Day Rebook": {
+      "main": [
+        [
+          {
+            "node": "Restore Retention Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send 90-Day We Miss You": {
+      "main": [
+        [
+          {
+            "node": "Restore Retention Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send 180-Day Win-Back": {
+      "main": [
+        [
+          {
+            "node": "Restore Retention Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Seasonal Promo": {
+      "main": [
+        [
+          {
+            "node": "Restore Retention Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Retention Action": {
+      "main": [
+        [
+          {
+            "node": "Mark Promo Sent This Month",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Restore Retention Context": {
+      "main": [
+        [
+          {
+            "node": "Log Retention Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": { "executionOrder": "v1" },
+  "settings": {
+    "executionOrder": "v1"
+  },
   "versionId": "ms4000000-0000-0000-0000-000000000099",
-  "meta": { "templateCredsSetupCompleted": false },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
   "id": "MSG-RETENTION-004",
-  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Production Ready" }]
+  "tags": [
+    {
+      "name": "MedSpa Growth Engine"
+    },
+    {
+      "name": "Production Ready"
+    }
+  ]
 }

@@ -18,10 +18,13 @@ Import both n8n workflows:
 
 - `workflows/18_Calendly_Revenue_Leak_Audit_Reminders.json`
 - `workflows/19_Calendly_Revenue_Leak_Audit_Reminder_Dispatcher.json`
+- Optional: `workflows/20_Calendly_Revenue_Leak_Audit_AI_Prep_Agent.json`
 
 Workflow 18 receives Calendly webhooks and creates reminder rows.
 
 Workflow 19 runs every minute, sends due reminder rows, and updates the log.
+
+Workflow 20 runs every 10 minutes and generates an internal AI prep brief for booked audits that do not have one yet. It does not control confirmations or reminder sends.
 
 ## Required Environment Variables
 
@@ -31,9 +34,13 @@ Set these in n8n:
 MEDSPA_SUPABASE_URL=https://YOUR-PROJECT.supabase.co
 MEDSPA_SUPABASE_SERVICE_ROLE_KEY=YOUR_SERVICE_ROLE_KEY
 MEDSPA_BOOKING_TIMEZONE=America/Toronto
+MEDSPA_OPENAI_API_KEY=YOUR_OPENAI_KEY
+MEDSPA_OPENAI_MODEL=gpt-5-mini
 ```
 
 Do not use the Supabase anon key for these workflows. These tables are server-side only.
+
+`MEDSPA_OPENAI_API_KEY` and `MEDSPA_OPENAI_MODEL` are only required if you activate Workflow 20.
 
 ## Required Credentials
 
@@ -103,6 +110,9 @@ Important fields:
 - `event_timezone`
 - `meeting_link`
 - `status`
+- `ai_brief`
+- `ai_brief_generated_at`
+- `ai_brief_error`
 - `raw_payload`
 
 ### `audit_reminder_logs`
@@ -140,6 +150,26 @@ They include:
 - No hype
 - No guaranteed revenue language
 - No newsletter-style template
+
+## Optional GPT Audit Prep Agent
+
+The AI prep agent is useful, but it should not be allowed to run the booking workflow by itself.
+
+Recommended boundary:
+
+- Deterministic workflow decides booking, cancellation, reminder schedule, and send timing.
+- GPT generates internal call prep only.
+- GPT output is saved as structured JSON.
+- If GPT fails, reminders still send normally.
+
+The prep brief includes:
+
+- owner brief
+- likely revenue leaks
+- discovery questions
+- risk flags
+- recommended first system
+- next best action for the audit
 
 ## QA Test Cases
 
@@ -180,4 +210,3 @@ Run these before activating:
 - A test booking creates reminder rows.
 - A test due reminder sends and marks `sent`.
 - A test cancellation marks pending reminders `cancelled`.
-

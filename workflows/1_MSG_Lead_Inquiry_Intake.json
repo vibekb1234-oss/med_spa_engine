@@ -12,44 +12,117 @@
       "name": "Webhook — New Inquiry",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [0, 0],
+      "position": [
+        0,
+        0
+      ],
       "webhookId": "msg-lead-intake-webhook"
     },
     {
       "parameters": {
-        "jsCode": "// --- Webhook auth ---\nconst headers = $input.first().json.headers || {};\nconst secret = headers['x-webhook-secret'] || headers['X-Webhook-Secret'] || '';\nif (secret !== 'YOUR_WEBHOOK_SECRET') {\n  throw new Error('Unauthorized: invalid or missing X-Webhook-Secret header');\n}\n\nconst data = $input.first().json.body || $input.first().json;\nconst now  = new Date().toISOString();\n\nconst service     = (data.service     || data.serviceInterest || 'General Inquiry').trim();\nconst leadSource  = (data.leadSource  || data.lead_source    || 'Website').trim();\n\n// Service-specific info blocks\nconst serviceInfo = {\n  'Botox': {\n    tagline: 'Natural results that last 3–4 months',\n    details: 'Botox treatments take just 15–20 minutes with zero downtime. Results begin appearing within 3–7 days and last 3–4 months. Perfect for forehead lines, crow\\'s feet, and frown lines.',\n    price: 'Starting from $10–$14/unit',\n    cta: 'Book a free 15-minute consultation and we\\'ll map out exactly what you need.'\n  },\n  'Filler': {\n    tagline: 'Restore volume and definition — instantly',\n    details: 'Dermal fillers add immediate volume and contour to lips, cheeks, and jawline. Results are visible right away and last 12–18 months depending on the area and product used.',\n    price: 'Starting from $600 per syringe',\n    cta: 'Book a complimentary consultation to discuss your goals and see a preview of your results.'\n  },\n  'Laser Hair Removal': {\n    tagline: 'Permanent reduction in 6–8 sessions',\n    details: 'Laser hair removal targets hair follicles to permanently reduce unwanted hair. Most clients complete a course of 6–8 treatments spaced 4–6 weeks apart. Safe for all skin types with our advanced technology.',\n    price: 'Single session or package pricing available',\n    cta: 'Book a free patch test and consultation — we\\'ll give you a personalised treatment plan and package price.'\n  },\n  'HydraFacial': {\n    tagline: 'The world\\'s most popular skin treatment',\n    details: 'HydraFacial deeply cleanses, exfoliates, and hydrates your skin in a single 45-minute session. No downtime, instant glow, suitable for all skin types. Best results with monthly treatments.',\n    price: 'From $180 per session',\n    cta: 'Book your first HydraFacial today — most clients leave glowing.'\n  },\n  'Microneedling': {\n    tagline: 'Stimulate collagen. Transform your skin.',\n    details: 'Microneedling creates micro-channels in the skin to stimulate natural collagen production. Reduces fine lines, scarring, and texture. A course of 3–6 treatments produces the best results.',\n    price: 'From $300 per session',\n    cta: 'Book a consultation and skin analysis — we\\'ll design a treatment plan tailored to your skin goals.'\n  },\n  'General Inquiry': {\n    tagline: 'Let\\'s find the right treatment for you',\n    details: 'We offer a full range of medical aesthetic treatments including injectables (Botox, fillers), laser treatments, skin rejuvenation, and body contouring. Every treatment plan starts with a complimentary consultation.',\n    price: 'Treatments start from $150',\n    cta: 'Book a free 15-minute consultation — no pressure, just an honest conversation about your goals.'\n  }\n};\n\nconst info = serviceInfo[service] || serviceInfo['General Inquiry'];\n\nreturn [{\n  json: {\n    clientEmail:     (data.email    || data.clientEmail    || '').trim(),\n    clientName:      (data.name     || data.clientName     || '').trim(),\n    phoneNumber:     (data.phone    || data.phoneNumber    || '').trim(),\n    service,\n    leadSource,\n    referralName:    (data.referralName || data.referral_name || '').trim(),\n    serviceTagline:  info.tagline,\n    serviceDetails:  info.details,\n    servicePrice:    info.price,\n    serviceCta:      info.cta,\n    nowIso: now,\n    status: 'New Inquiry'\n  }\n}];"
+        "jsCode": "// --- Webhook auth ---\nconst headers = $input.first().json.headers || {};\nconst secret = headers['x-webhook-secret'] || headers['X-Webhook-Secret'] || '';\nif (secret !== 'YOUR_WEBHOOK_SECRET') {\n  throw new Error('Unauthorized: invalid or missing X-Webhook-Secret header');\n}\n\nconst data = $input.first().json.body || $input.first().json;\nconst now  = new Date().toISOString();\n\nconst service     = (data.service     || data.serviceInterest || 'General Inquiry').trim();\nconst leadSource  = (data.leadSource  || data.lead_source    || 'Website').trim();\nconst message     = (data.message || data.notes || data.question || data.clientMessage || '').trim();\n\n// Service-specific info blocks\nconst serviceInfo = {\n  'Botox': {\n    tagline: 'Natural results that last 3–4 months',\n    details: 'Botox treatments take just 15–20 minutes with zero downtime. Results begin appearing within 3–7 days and last 3–4 months. Perfect for forehead lines, crow\\'s feet, and frown lines.',\n    price: 'Starting from $10–$14/unit',\n    cta: 'Book a free 15-minute consultation and we\\'ll map out exactly what you need.'\n  },\n  'Filler': {\n    tagline: 'Restore volume and definition — instantly',\n    details: 'Dermal fillers add immediate volume and contour to lips, cheeks, and jawline. Results are visible right away and last 12–18 months depending on the area and product used.',\n    price: 'Starting from $600 per syringe',\n    cta: 'Book a complimentary consultation to discuss your goals and see a preview of your results.'\n  },\n  'Laser Hair Removal': {\n    tagline: 'Permanent reduction in 6–8 sessions',\n    details: 'Laser hair removal targets hair follicles to permanently reduce unwanted hair. Most clients complete a course of 6–8 treatments spaced 4–6 weeks apart. Safe for all skin types with our advanced technology.',\n    price: 'Single session or package pricing available',\n    cta: 'Book a free patch test and consultation — we\\'ll give you a personalised treatment plan and package price.'\n  },\n  'HydraFacial': {\n    tagline: 'The world\\'s most popular skin treatment',\n    details: 'HydraFacial deeply cleanses, exfoliates, and hydrates your skin in a single 45-minute session. No downtime, instant glow, suitable for all skin types. Best results with monthly treatments.',\n    price: 'From $180 per session',\n    cta: 'Book your first HydraFacial today — most clients leave glowing.'\n  },\n  'Microneedling': {\n    tagline: 'Stimulate collagen. Transform your skin.',\n    details: 'Microneedling creates micro-channels in the skin to stimulate natural collagen production. Reduces fine lines, scarring, and texture. A course of 3–6 treatments produces the best results.',\n    price: 'From $300 per session',\n    cta: 'Book a consultation and skin analysis — we\\'ll design a treatment plan tailored to your skin goals.'\n  },\n  'General Inquiry': {\n    tagline: 'Let\\'s find the right treatment for you',\n    details: 'We offer a full range of medical aesthetic treatments including injectables (Botox, fillers), laser treatments, skin rejuvenation, and body contouring. Every treatment plan starts with a complimentary consultation.',\n    price: 'Treatments start from $150',\n    cta: 'Book a free 15-minute consultation — no pressure, just an honest conversation about your goals.'\n  }\n};\n\nconst info = serviceInfo[service] || serviceInfo['General Inquiry'];\nconst clientEmail = (data.email || data.clientEmail || '').trim();\nif (!clientEmail) throw new Error('client email is required');\n\nreturn [{\n  json: {\n    clientEmail,\n    clientName:      (data.name     || data.clientName     || '').trim(),\n    phoneNumber:     (data.phone    || data.phoneNumber    || '').trim(),\n    service,\n    leadSource,\n    referralName:    (data.referralName || data.referral_name || '').trim(),\n    message,\n    serviceTagline:  info.tagline,\n    serviceDetails:  info.details,\n    servicePrice:    info.price,\n    serviceCta:      info.cta,\n    nowIso: now,\n    status: 'New Inquiry'\n  }\n}];"
       },
       "id": "ms1000000-0000-0000-0000-000000000002",
       "name": "Parse Inquiry + Build Service Info",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [220, 0]
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-haiku-4-5\",\n  \"max_tokens\": 800,\n  \"messages\": [{\n    \"role\": \"user\",\n    \"content\": \"You are a MedSpa intake concierge. A new inquiry just came in. Write a personalized 2-paragraph reply email AND score the lead. Return ONLY raw JSON, no markdown fences, no preamble.\\n\\nInquiry data:\\n- Name: {{ $json.clientName }}\\n- Service interest: {{ $json.service }}\\n- Lead source: {{ $json.leadSource }}\\n- Message from client: {{ ($json.message || 'No message — form submission only').replace(/\\\"/g, '\\\\\\\"').replace(/\\n/g, ' ') }}\\n\\nBackground for the reply:\\n- Service tagline: {{ $json.serviceTagline }}\\n- Service details: {{ $json.serviceDetails }}\\n- Investment: {{ $json.servicePrice }}\\n- Standard CTA: {{ $json.serviceCta }}\\n\\nRules:\\n1. First paragraph acknowledges their SPECIFIC question or concern if they wrote a message (do NOT reference message if it was blank/form-only)\\n2. Second paragraph gives them the service info + CTA to book\\n3. Warm but professional, not salesy\\n4. Sign as YOUR_CLINIC_NAME\\n5. Score 0-100 based on: service value ($800+/treatment = higher), source quality (Referral/Website > TikTok/Facebook), message intent signal (specific question > browsing curiosity)\\n\\nReturn this exact JSON shape:\\n{\\n  \\\"personalizedGreeting\\\": \\\"...\\\",\\n  \\\"personalizedBody\\\": \\\"Full HTML-safe reply body (2 paragraphs, <br/><br/> between)\\\",\\n  \\\"leadScore\\\": 0-100,\\n  \\\"leadTier\\\": \\\"HOT\\\" | \\\"WARM\\\" | \\\"COOL\\\",\\n  \\\"reasoning\\\": \\\"One sentence why this score\\\",\\n  \\\"suggestedResponse\\\": \\\"Instant\\\" | \\\"Within 4 hours\\\" | \\\"Next day OK\\\"\\n}\"\n  }]\n}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "ms1000000-0000-0000-0000-00000000000a",
+      "name": "AI Personalize + Score",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        -140
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "YOUR_ANTHROPIC_CREDENTIAL_ID",
+          "name": "Anthropic API Key"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge AI response with parsed inquiry. If AI failed, fall back gracefully.\nconst parsed = $('Parse Inquiry + Build Service Info').first().json;\nconst aiRaw  = $input.first().json;\n\nlet ai = null;\ntry {\n  const text = aiRaw?.content?.[0]?.text || '';\n  ai = JSON.parse(text);\n} catch (e) {\n  // AI failed or returned invalid JSON — fall back to template\n  ai = null;\n}\n\nconst hasAi = ai && ai.personalizedBody && typeof ai.leadScore === 'number';\n\nreturn [{\n  json: {\n    ...parsed,\n    aiUsed:            hasAi,\n    personalizedBody:  hasAi ? ai.personalizedBody : null,\n    personalizedGreeting: hasAi ? ai.personalizedGreeting : `Hi ${parsed.clientName || 'there'}`,\n    leadScore:         hasAi ? ai.leadScore : 50,\n    leadTier:          hasAi ? ai.leadTier : 'WARM',\n    leadReasoning:     hasAi ? ai.reasoning : 'AI scoring unavailable — using default WARM',\n    suggestedResponse: hasAi ? ai.suggestedResponse : 'Within 4 hours'\n  }\n}];"
+      },
+      "id": "ms1000000-0000-0000-0000-00000000000b",
+      "name": "Merge AI + Fallback",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        -140
+      ]
     },
     {
       "parameters": {
         "operation": "appendOrUpdate",
-        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
-        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_MEDSPA_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Clients",
+          "mode": "name"
+        },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Client Email":    "={{ $json.clientEmail }}",
-            "Client Name":     "={{ $json.clientName }}",
-            "Phone Number":    "={{ $json.phoneNumber }}",
-            "Service Interest":"={{ $json.service }}",
-            "Lead Source":     "={{ $json.leadSource }}",
-            "Referral Name":   "={{ $json.referralName }}",
-            "Status":          "New Inquiry",
-            "Total Visits":    0,
+            "Client Email": "={{ $json.clientEmail }}",
+            "Client Name": "={{ $json.clientName }}",
+            "Phone Number": "={{ $json.phoneNumber }}",
+            "Service Interest": "={{ $json.service }}",
+            "Lead Source": "={{ $json.leadSource }}",
+            "Referral Name": "={{ $json.referralName }}",
+            "Status": "New Inquiry",
+            "Total Visits": 0,
             "Follow-Up Count": 0,
-            "Review Requested":"No",
-            "Review Left":     "No",
-            "Referral Asked":  "No",
-            "VIP Status":      "Standard",
-            "Opted Out":       "No",
-            "Created Date":    "={{ $json.nowIso }}"
+            "Review Requested": "No",
+            "Review Left": "No",
+            "Referral Asked": "No",
+            "VIP Status": "Standard",
+            "Opted Out": "No",
+            "Lead Score": "={{ $json.leadScore }}",
+            "Lead Tier": "={{ $json.leadTier }}",
+            "Created Date": "={{ $json.nowIso }}"
           },
-          "matchingColumns": ["Client Email"],
+          "matchingColumns": [
+            "Client Email"
+          ],
           "schema": []
         },
         "options": {}
@@ -58,49 +131,94 @@
       "name": "Add to Client CRM",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
-      "position": [440, 0],
-      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+      "position": [
+        880,
+        0
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_GSHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Google Sheets can output row metadata. Restore the original parsed+AI inquiry payload for emails, logs, and webhook response.\nreturn [{ json: $('Merge AI + Fallback').item.json }];"
+      },
+      "id": "ms1000000-0000-0000-0000-00000000000c",
+      "name": "Restore Inquiry Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        0
+      ]
     },
     {
       "parameters": {
         "sendTo": "={{ $json.clientEmail }}",
         "subject": "=Thanks for your inquiry — here's everything about {{ $json.service }}",
-        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:32px;border-radius:8px 8px 0 0;\">\n  <h2 style=\"margin:0;\">✨ {{ $json.serviceTagline }}</h2>\n  <p style=\"margin:8px 0 0;opacity:0.9;\">Thank you for reaching out, {{ $json.clientName }}.</p>\n</div>\n<div style=\"background:#fdf4ff;padding:28px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  <p>Hi {{ $json.clientName }},</p>\n  <p>We're so glad you reached out about <strong>{{ $json.service }}</strong>. Here's everything you need to know:</p>\n\n  <div style=\"background:white;padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;\">\n    <strong style=\"color:#be185d;\">About {{ $json.service }}</strong><br/><br/>\n    {{ $json.serviceDetails }}\n  </div>\n\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border:1px solid #f0abfc;\">\n    <strong>💰 Investment:</strong> {{ $json.servicePrice }}\n  </div>\n\n  <div style=\"background:linear-gradient(135deg,#fdf4ff,#fce7f3);padding:20px;border-radius:8px;margin:20px 0;text-align:center;\">\n    <strong style=\"color:#be185d;\">📅 Ready for the next step?</strong><br/>\n    <p>{{ $json.serviceCta }}</p>\n    <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#be185d;color:white;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px;\">Book Your Consultation →</a>\n  </div>\n\n  <p>If you have any questions before booking, just reply to this email — I personally read every message.</p>\n  <p>Looking forward to meeting you!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n<p style=\"color:#9ca3af;font-size:11px;text-align:center;padding:12px;\">Reply to this email to get in touch directly.</p>\n</body></html>",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#333;\">\n<div style=\"background:linear-gradient(135deg,#be185d,#9333ea);color:white;padding:32px;border-radius:8px 8px 0 0;\">\n  <h2 style=\"margin:0;\">✨ {{ $json.serviceTagline }}</h2>\n  <p style=\"margin:8px 0 0;opacity:0.9;\">{{ $json.personalizedGreeting }}</p>\n</div>\n<div style=\"background:#fdf4ff;padding:28px;border:1px solid #f0abfc;border-radius:0 0 8px 8px;\">\n  {{ $json.aiUsed ? $json.personalizedBody : `<p>Hi ${$json.clientName},</p><p>We're so glad you reached out about <strong>${$json.service}</strong>. Here's everything you need to know:</p><div style=\"background:white;padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid #be185d;\"><strong style=\"color:#be185d;\">About ${$json.service}</strong><br/><br/>${$json.serviceDetails}</div>` }}\n\n  <div style=\"background:white;padding:16px;border-radius:8px;margin:20px 0;border:1px solid #f0abfc;\">\n    <strong>💰 Investment:</strong> {{ $json.servicePrice }}\n  </div>\n\n  <div style=\"background:linear-gradient(135deg,#fdf4ff,#fce7f3);padding:20px;border-radius:8px;margin:20px 0;text-align:center;\">\n    <strong style=\"color:#be185d;\">📅 Ready for the next step?</strong><br/>\n    <p>{{ $json.serviceCta }}</p>\n    <a href=\"mailto:YOUR_CLINIC_EMAIL@gmail.com\" style=\"background:#be185d;color:white;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px;\">Book Your Consultation →</a>\n  </div>\n\n  <p>If you have any questions before booking, just reply to this email — I personally read every message.</p>\n  <p>Looking forward to meeting you!<br/><strong>YOUR_CLINIC_NAME</strong></p>\n</div>\n<p style=\"color:#9ca3af;font-size:11px;text-align:center;padding:12px;\">Reply to this email to get in touch directly.</p>\n</body></html>",
         "options": {}
       },
       "id": "ms1000000-0000-0000-0000-000000000004",
       "name": "Send Service Info to Client",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
-      "position": [660, -120],
-      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+      "position": [
+        1300,
+        -160
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YOUR_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
         "sendTo": "YOUR_CLINIC_EMAIL@gmail.com",
-        "subject": "=💎 New Inquiry: {{ $json.clientName }} — {{ $json.service }} (via {{ $json.leadSource }})",
-        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;\">\n<div style=\"background:#1e1b4b;color:white;padding:20px;border-radius:8px 8px 0 0;\">\n  <h2 style=\"margin:0;\">💎 New Client Inquiry</h2>\n</div>\n<div style=\"background:#f8fafc;padding:20px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;\">\n  <table style=\"width:100%;border-collapse:collapse;\">\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Name</td><td style=\"padding:10px;\">{{ $json.clientName }}</td></tr>\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Email</td><td style=\"padding:10px;\">{{ $json.clientEmail }}</td></tr>\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Phone</td><td style=\"padding:10px;\">{{ $json.phoneNumber || 'Not provided' }}</td></tr>\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Service</td><td style=\"padding:10px;\"><strong>{{ $json.service }}</strong></td></tr>\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Lead Source</td><td style=\"padding:10px;\">{{ $json.leadSource }}</td></tr>\n    <tr><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Referred By</td><td style=\"padding:10px;\">{{ $json.referralName || 'Direct' }}</td></tr>\n  </table>\n  <div style=\"background:#fdf4ff;padding:12px;border-radius:6px;margin-top:16px;border:1px solid #f0abfc;\">\n    ✅ Service info email sent to client automatically.\n  </div>\n  <p style=\"margin-top:16px;color:#6b7280;font-size:13px;\">If they don't book within 3 days, the Follow-Up Engine will send an automated nudge.</p>\n</div>\n</body></html>",
+        "subject": "={{ $json.leadTier === 'HOT' ? '🔥' : ($json.leadTier === 'WARM' ? '💎' : '📥') }} {{ $json.leadTier }} lead: {{ $json.clientName }} — {{ $json.service }} (score {{ $json.leadScore }}/100)",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;\">\n<div style=\"background:{{ $json.leadTier === 'HOT' ? '#dc2626' : ($json.leadTier === 'WARM' ? '#1e1b4b' : '#4b5563') }};color:white;padding:20px;border-radius:8px 8px 0 0;\">\n  <h2 style=\"margin:0;\">{{ $json.leadTier === 'HOT' ? '🔥 HOT LEAD' : ($json.leadTier === 'WARM' ? '💎 New Inquiry' : '📥 New Inquiry') }}</h2>\n  <p style=\"margin:8px 0 0;opacity:0.9;font-size:13px;\">Score: {{ $json.leadScore }}/100 · Suggested response: {{ $json.suggestedResponse }}</p>\n</div>\n<div style=\"background:#f8fafc;padding:20px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;\">\n  {{ $json.aiUsed ? `<div style=\"background:#fef3c7;border-left:4px solid #f59e0b;padding:12px 16px;margin-bottom:16px;border-radius:4px;\"><strong style=\"color:#92400e;\">🤖 AI Assessment:</strong><br/>${$json.leadReasoning}</div>` : '' }}\n  <table style=\"width:100%;border-collapse:collapse;\">\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Name</td><td style=\"padding:10px;\">{{ $json.clientName }}</td></tr>\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Email</td><td style=\"padding:10px;\">{{ $json.clientEmail }}</td></tr>\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Phone</td><td style=\"padding:10px;\">{{ $json.phoneNumber || 'Not provided' }}</td></tr>\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Service</td><td style=\"padding:10px;\"><strong>{{ $json.service }}</strong></td></tr>\n    <tr style=\"border-bottom:1px solid #e5e7eb;\"><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Lead Source</td><td style=\"padding:10px;\">{{ $json.leadSource }}</td></tr>\n    <tr><td style=\"padding:10px;font-weight:bold;color:#6b7280;\">Referred By</td><td style=\"padding:10px;\">{{ $json.referralName || 'Direct' }}</td></tr>\n  </table>\n  <div style=\"background:#fdf4ff;padding:12px;border-radius:6px;margin-top:16px;border:1px solid #f0abfc;\">\n    ✅ {{ $json.aiUsed ? 'AI-personalized' : 'Template' }} service info email sent to client automatically.\n  </div>\n  <p style=\"margin-top:16px;color:#6b7280;font-size:13px;\">If they don't book within 3 days, the Follow-Up Engine will send an automated nudge.</p>\n</div>\n</body></html>",
         "options": {}
       },
       "id": "ms1000000-0000-0000-0000-000000000005",
       "name": "Notify Clinic — New Inquiry",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
-      "position": [660, 120],
-      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+      "position": [
+        660,
+        120
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YOUR_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
         "operation": "append",
-        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
-        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_MEDSPA_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Activity Log",
+          "mode": "name"
+        },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Timestamp":    "={{ $json.nowIso }}",
+            "Timestamp": "={{ $json.nowIso }}",
             "Client Email": "={{ $json.clientEmail }}",
-            "Action Type":  "New Inquiry",
-            "Details":      "=New inquiry for {{ $json.service }} via {{ $json.leadSource }}. Service info email sent."
+            "Action Type": "New Inquiry",
+            "Details": "=New inquiry for {{ $json.service }} via {{ $json.leadSource }}. Service info email sent."
           },
           "schema": []
         },
@@ -110,8 +228,16 @@
       "name": "Log to Activity Sheet",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
-      "position": [880, 0],
-      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+      "position": [
+        1300,
+        260
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_GSHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets account"
+        }
+      }
     },
     {
       "parameters": {
@@ -122,27 +248,122 @@
       "name": "Webhook Response",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
-      "position": [1100, 0]
+      "position": [
+        1300,
+        420
+      ]
     }
   ],
   "pinData": {},
   "connections": {
-    "Webhook — New Inquiry":            { "main": [[{ "node": "Parse Inquiry + Build Service Info", "type": "main", "index": 0 }]] },
-    "Parse Inquiry + Build Service Info": { "main": [[{ "node": "Add to Client CRM", "type": "main", "index": 0 }]] },
-    "Add to Client CRM": {
-      "main": [[
-        { "node": "Send Service Info to Client", "type": "main", "index": 0 },
-        { "node": "Notify Clinic — New Inquiry",  "type": "main", "index": 0 }
-      ]]
+    "Webhook — New Inquiry": {
+      "main": [
+        [
+          {
+            "node": "Parse Inquiry + Build Service Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
-    "Send Service Info to Client": { "main": [[{ "node": "Log to Activity Sheet", "type": "main", "index": 0 }]] },
-    "Notify Clinic — New Inquiry":  { "main": [[{ "node": "Log to Activity Sheet", "type": "main", "index": 0 }]] },
-    "Log to Activity Sheet":        { "main": [[{ "node": "Webhook Response",       "type": "main", "index": 0 }]] }
+    "Parse Inquiry + Build Service Info": {
+      "main": [
+        [
+          {
+            "node": "AI Personalize + Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Personalize + Score": {
+      "main": [
+        [
+          {
+            "node": "Merge AI + Fallback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge AI + Fallback": {
+      "main": [
+        [
+          {
+            "node": "Add to Client CRM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add to Client CRM": {
+      "main": [
+        [
+          {
+            "node": "Restore Inquiry Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify Clinic — New Inquiry": {
+      "main": [
+        [
+          {
+            "node": "Log to Activity Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Restore Inquiry Context": {
+      "main": [
+        [
+          {
+            "node": "Send Service Info to Client",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify Clinic — New Inquiry",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Log to Activity Sheet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": { "executionOrder": "v1" },
+  "settings": {
+    "executionOrder": "v1"
+  },
   "versionId": "ms1000000-0000-0000-0000-000000000099",
-  "meta": { "templateCredsSetupCompleted": false },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
   "id": "MSG-INTAKE-001",
-  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Production Ready" }]
+  "tags": [
+    {
+      "name": "MedSpa Growth Engine"
+    },
+    {
+      "name": "Production Ready"
+    }
+  ]
 }

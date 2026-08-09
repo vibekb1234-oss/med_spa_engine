@@ -309,6 +309,10 @@
         <label class="field-label" for="gmail-cred">Gmail Credential ID <span>— from n8n Settings → Credentials</span></label>
         <input class="field-input" id="gmail-cred" type="text" placeholder="xyz789" autocomplete="off">
       </div>
+      <div class="field-group">
+        <label class="field-label" for="anthropic-cred">Anthropic API Credential ID <span>— required only when importing W1/W4/W9 AI workflow files.</span></label>
+        <input class="field-input" id="anthropic-cred" type="text" placeholder="ant456 (Header Auth cred with x-api-key)" autocomplete="off">
+      </div>
     </div>
 
     <div class="two-col">
@@ -398,18 +402,21 @@
     'YOUR_CLINIC_NAME':            () => document.getElementById('clinic-name').value.trim(),
     'YOUR_GOOGLE_REVIEW_LINK':     () => document.getElementById('review-link').value.trim(),
     'YOUR_WEBHOOK_SECRET':         () => document.getElementById('webhook-secret').value.trim(),
-    'YOUR_CLINIC_TIMEZONE':        () => document.getElementById('clinic-tz').value.trim()
+    'YOUR_CLINIC_TIMEZONE':        () => document.getElementById('clinic-tz').value.trim(),
+    'YOUR_ANTHROPIC_CREDENTIAL_ID':() => (document.getElementById('anthropic-cred')?.value || '').trim()
   };
 
   const WORKFLOW_DESCS = {
-    '1_MSG_Lead_Inquiry_Intake':        { label: 'Workflow 1', desc: 'Lead intake + CRM + instant service email', webhook: true },
+    '1_MSG_Lead_Inquiry_Intake':        { label: 'Workflow 1', desc: 'Lead intake + CRM + AI-personalized service email + lead scoring', webhook: true, ai: true },
     '2_MSG_Appointment_Follow_Up':      { label: 'Workflow 2', desc: 'Daily reminders, no-show recovery, inquiry follow-ups', webhook: false },
     '3_MSG_Review_Referral':            { label: 'Workflow 3', desc: 'Post-appointment review + referral ask', webhook: true },
-    '4_MSG_VIP_Retention':              { label: 'Workflow 4', desc: 'Monthly re-engagement + seasonal promos', webhook: false },
+    '4_MSG_VIP_Retention':              { label: 'Workflow 4', desc: 'Monthly re-engagement + seasonal promos (AI-personalized)', webhook: false, ai: true },
     '5_MSG_Weekly_Performance_Report':  { label: 'Workflow 5', desc: 'Weekly performance report to clinic owner', webhook: false },
     '6_MSG_Booking_Confirmation':       { label: 'Workflow 6', desc: 'Booking confirmation email sent when appointment is booked', webhook: true },
     '7_MSG_Error_Handler':              { label: 'Workflow 7', desc: 'Catches errors from any other workflow and emails the clinic owner', webhook: false },
-    '8_MSG_Status_Update':              { label: 'Workflow 8', desc: 'Persists kanban drag-drop + bulk Mark VIP from the dashboard', webhook: true }
+    '8_MSG_Status_Update':              { label: 'Workflow 8', desc: 'Persists kanban drag-drop + bulk Mark VIP from the dashboard', webhook: true },
+    '9_MSG_Reply_Triage':               { label: 'Workflow 9', desc: 'AI reply classifier — auto-suppresses opt-outs, alerts on complaints, tags hot leads', webhook: false, ai: true },
+    '20_Calendly_Revenue_Leak_Audit_AI_Prep_Agent': { label: 'Workflow 20', desc: 'Optional GPT audit prep brief for booked Revenue Leak Audits', webhook: false, ai: true }
   };
 
   let loadedFiles = {};  // filename → file content string
@@ -498,13 +505,19 @@
       'YOUR_CLINIC_NAME':            document.getElementById('clinic-name').value.trim(),
       'YOUR_GOOGLE_REVIEW_LINK':     document.getElementById('review-link').value.trim(),
       'YOUR_WEBHOOK_SECRET':         document.getElementById('webhook-secret').value.trim(),
-      'YOUR_CLINIC_TIMEZONE':        document.getElementById('clinic-tz').value.trim()
+      'YOUR_CLINIC_TIMEZONE':        document.getElementById('clinic-tz').value.trim(),
+      'YOUR_ANTHROPIC_CREDENTIAL_ID':(document.getElementById('anthropic-cred')?.value || '').trim()
     };
   }
 
   function validate() {
     const vals = getValues();
-    const missing = Object.entries(vals).filter(([k, v]) => !v).map(([k]) => k);
+    const optional = new Set(['YOUR_ANTHROPIC_CREDENTIAL_ID']);
+    const missing = Object.entries(vals).filter(([k, v]) => !optional.has(k) && !v).map(([k]) => k);
+    const needsAnthropic = Object.keys(loadedFiles).some(filename =>
+      ['1_MSG_Lead_Inquiry_Intake', '4_MSG_VIP_Retention', '9_MSG_Reply_Triage'].some(key => filename.includes(key))
+    );
+    if (needsAnthropic && !vals['YOUR_ANTHROPIC_CREDENTIAL_ID']) missing.push('YOUR_ANTHROPIC_CREDENTIAL_ID');
     const noFiles = Object.keys(loadedFiles).length === 0;
     return { missing, noFiles };
   }

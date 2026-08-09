@@ -263,6 +263,9 @@ create table if not exists public.audit_bookings (
   event_timezone text,
   meeting_link text,
   status public.audit_booking_status not null default 'scheduled',
+  ai_brief jsonb,
+  ai_brief_generated_at timestamptz,
+  ai_brief_error text,
   raw_payload jsonb not null default '{}',
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -292,6 +295,7 @@ alter table public.audit_reminder_logs enable row level security;
 
 create index if not exists idx_audit_bookings_status_start on public.audit_bookings(status, event_start_time);
 create index if not exists idx_audit_bookings_email on public.audit_bookings(email);
+create index if not exists idx_audit_bookings_ai_brief_due on public.audit_bookings(status, event_start_time, ai_brief_generated_at);
 create unique index if not exists idx_audit_bookings_calendly_invitee_unique on public.audit_bookings(calendly_invitee_id);
 create index if not exists idx_audit_reminder_logs_status_scheduled on public.audit_reminder_logs(status, scheduled_for);
 create index if not exists idx_audit_reminder_logs_booking_type on public.audit_reminder_logs(booking_id, reminder_type);

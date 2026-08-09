@@ -1,0 +1,215 @@
+{
+  "name": "9 — MSG Reply Triage (AI Classifier)",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": { "item": [{ "mode": "everyMinute" }] },
+        "simple": false,
+        "filters": {
+          "labelIds": ["INBOX"],
+          "receivedAfter": "={{ $now.minus({minutes: 5}).toISO() }}"
+        },
+        "options": {
+          "downloadAttachments": false
+        }
+      },
+      "id": "ms9000000-0000-0000-0000-000000000001",
+      "name": "Gmail Trigger — Every 1 min",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract sender + subject + body from Gmail trigger payload\nconst msg = $input.first().json;\n\n// Try common shape variants\nconst headers = msg.payload?.headers || [];\nconst getHeader = (name) => (headers.find(h => h.name.toLowerCase() === name.toLowerCase())?.value) || '';\n\nconst fromRaw = msg.From || getHeader('From') || '';\nconst subject = msg.Subject || getHeader('Subject') || '(no subject)';\nconst body    = (msg.snippet || msg.text || msg.textPlain || '').substring(0, 2000);\n\n// Extract just the email address from 'Name <email@x.com>'\nconst emailMatch = fromRaw.match(/<([^>]+)>/) || fromRaw.match(/([\\w.-]+@[\\w.-]+\\.\\w+)/);\nconst senderEmail = (emailMatch ? emailMatch[1] : fromRaw).toLowerCase().trim();\n\n// Skip our own outbound / automation loops\nconst SKIP_DOMAINS = ['mailer-daemon', 'noreply', 'no-reply', 'notifications@'];\nif (SKIP_DOMAINS.some(d => senderEmail.includes(d))) {\n  return [];\n}\n\nreturn [{ json: { senderEmail, subject, body, receivedAt: new Date().toISOString(), messageId: msg.id } }];"
+      },
+      "id": "ms9000000-0000-0000-0000-000000000002",
+      "name": "Parse Reply",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "filtersUI": {
+          "values": [{ "lookupColumn": "Client Email", "lookupValue": "={{ $json.senderEmail }}" }]
+        },
+        "options": { "returnFirstMatch": true }
+      },
+      "id": "ms9000000-0000-0000-0000-000000000003",
+      "name": "Match Client",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [440, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-haiku-4-5\",\n  \"max_tokens\": 400,\n  \"messages\": [{\n    \"role\": \"user\",\n    \"content\": \"You classify email replies from MedSpa prospects and clients. Return ONLY raw JSON, no markdown, no preamble.\\n\\nReply from: {{ $('Parse Reply').first().json.senderEmail }}\\nSubject: {{ $('Parse Reply').first().json.subject.replace(/\\\"/g, '\\\\\\\"').replace(/\\n/g, ' ') }}\\nBody: {{ $('Parse Reply').first().json.body.replace(/\\\"/g, '\\\\\\\"').replace(/\\n/g, ' ') }}\\n\\nClassify into ONE class (pick strongest signal):\\n- HOT — explicit ready to book (\\\"send me a time\\\", \\\"let's schedule\\\", \\\"yes\\\")\\n- WARM — engaged but needs info (\\\"how does it compare\\\", \\\"what's pricing\\\", \\\"tell me more\\\")\\n- OBJECTION — interested but real blocker (\\\"too expensive\\\", \\\"already have provider\\\", \\\"HIPAA concerns\\\")\\n- NOT_NOW — wrong timing (\\\"reach out in 3 months\\\", \\\"Q4 is bad\\\")\\n- REFERRAL — knows someone else (\\\"try my friend at X\\\")\\n- UNSUBSCRIBE — hard opt-out (\\\"remove me\\\", \\\"stop\\\", \\\"unsubscribe\\\", \\\"do not email\\\")\\n- BAD_FIT — not the ICP (\\\"we're too big\\\", \\\"solo esthetician at home\\\")\\n- COMPLAINT — escalation (\\\"reporting to attorney\\\", \\\"spam\\\", \\\"shame\\\")\\n- AUTO_REPLY — OOO/vacation autoresponder — do NOT engage\\n\\nReturn this exact JSON:\\n{\\n  \\\"class\\\": \\\"HOT\\\" | ... | \\\"AUTO_REPLY\\\",\\n  \\\"confidence\\\": \\\"high\\\" | \\\"medium\\\" | \\\"low\\\",\\n  \\\"oneLineSummary\\\": \\\"...\\\",\\n  \\\"suggestedResponse\\\": \\\"Owner action or drafted reply (1-2 sentences)\\\",\\n  \\\"urgencyMinutes\\\": 0-1440\\n}\"\n  }]\n}",
+        "options": { "timeout": 15000 }
+      },
+      "id": "ms9000000-0000-0000-0000-000000000004",
+      "name": "AI Classify Reply",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [660, 0],
+      "credentials": { "httpHeaderAuth": { "id": "YOUR_ANTHROPIC_CREDENTIAL_ID", "name": "Anthropic API Key" } },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse AI response and merge with parsed reply + client data.\nconst reply = $('Parse Reply').first().json;\nconst clientRow = $('Match Client').first()?.json || null;\nconst aiRaw = $input.first().json;\n\nlet ai = null;\ntry {\n  const text = aiRaw?.content?.[0]?.text || '';\n  ai = JSON.parse(text);\n} catch (e) { ai = null; }\n\nconst validClasses = ['HOT','WARM','OBJECTION','NOT_NOW','REFERRAL','UNSUBSCRIBE','BAD_FIT','COMPLAINT','AUTO_REPLY'];\nif (!ai || !validClasses.includes(ai.class)) {\n  ai = {\n    class: 'WARM',\n    confidence: 'low',\n    oneLineSummary: 'AI unavailable — defaulted to WARM, owner should review manually',\n    suggestedResponse: 'Read the reply and respond within the day.',\n    urgencyMinutes: 240\n  };\n}\n\nreturn [{\n  json: {\n    ...reply,\n    clientName:    clientRow?.['Client Name'] || 'Unknown (not in Sheet)',\n    clientKnown:   !!clientRow,\n    prevStatus:    clientRow?.['Status'] || 'Unknown',\n    prevOptedOut:  clientRow?.['Opted Out'] || 'No',\n    replyClass:    ai.class,\n    confidence:    ai.confidence,\n    summary:       ai.oneLineSummary,\n    suggestedResponse: ai.suggestedResponse,\n    urgencyMinutes: ai.urgencyMinutes,\n    isUnsubscribe: ai.class === 'UNSUBSCRIBE',\n    isComplaint:   ai.class === 'COMPLAINT',\n    isHot:         ai.class === 'HOT',\n    needsOwner:    ['HOT','OBJECTION','COMPLAINT','UNSUBSCRIBE'].includes(ai.class),\n    skipRest:      ai.class === 'AUTO_REPLY'\n  }\n}];"
+      },
+      "id": "ms9000000-0000-0000-0000-000000000005",
+      "name": "Merge + Route",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [880, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "typeValidation": "loose" },
+          "conditions": [
+            { "id": "not-auto", "leftValue": "={{ $json.skipRest }}", "rightValue": true, "operator": { "type": "boolean", "operation": "notEqual" } }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "ms9000000-0000-0000-0000-000000000006",
+      "name": "Skip Auto-Reply?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1100, 0]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Email":    "={{ $json.senderEmail }}",
+            "Opted Out":       "={{ $json.isUnsubscribe ? 'Yes' : $json.prevOptedOut }}",
+            "Last Reply Class":"={{ $json.replyClass }}",
+            "Last Reply Date": "={{ $json.receivedAt }}",
+            "Last Reply Summary": "={{ $json.summary }}",
+            "Complaint Flag":  "={{ $json.isComplaint ? 'Yes' : '' }}"
+          },
+          "matchingColumns": ["Client Email"],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms9000000-0000-0000-0000-000000000007",
+      "name": "Update Client Row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1320, -140],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":   "={{ $json.receivedAt }}",
+            "Client Email":"={{ $json.senderEmail }}",
+            "Action Type": "=Reply received ({{ $json.replyClass }})",
+            "Details":     "={{ $json.summary }} · Owner action: {{ $json.suggestedResponse }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms9000000-0000-0000-0000-000000000008",
+      "name": "Log Reply",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1320, 0],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "typeValidation": "loose" },
+          "conditions": [
+            { "id": "needs-owner", "leftValue": "={{ $json.needsOwner }}", "rightValue": true, "operator": { "type": "boolean", "operation": "equal" } }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "ms9000000-0000-0000-0000-000000000009",
+      "name": "Needs Owner Attention?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1320, 140]
+    },
+    {
+      "parameters": {
+        "sendTo": "YOUR_CLINIC_EMAIL@gmail.com",
+        "subject": "={{ $json.replyClass === 'COMPLAINT' ? '🚨 URGENT COMPLAINT' : ($json.replyClass === 'HOT' ? '🔥 HOT REPLY' : ($json.replyClass === 'UNSUBSCRIBE' ? '🚫 Unsubscribe' : '⚠ Reply needs attention')) }}: {{ $json.clientName }}",
+        "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;\">\n<div style=\"background:{{ $json.replyClass === 'COMPLAINT' ? '#dc2626' : ($json.replyClass === 'HOT' ? '#ea580c' : '#4b5563') }};color:white;padding:20px;border-radius:8px 8px 0 0;\">\n  <h2 style=\"margin:0;\">{{ $json.replyClass === 'COMPLAINT' ? '🚨 URGENT COMPLAINT' : ($json.replyClass === 'HOT' ? '🔥 HOT REPLY — Move fast' : ($json.replyClass === 'UNSUBSCRIBE' ? '🚫 Client opted out' : '⚠ Reply needs your attention')) }}</h2>\n  <p style=\"margin:8px 0 0;opacity:0.9;font-size:13px;\">From {{ $json.clientName }} · {{ $json.replyClass }} · confidence {{ $json.confidence }} · respond within {{ $json.urgencyMinutes }} min</p>\n</div>\n<div style=\"background:#f8fafc;padding:20px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;\">\n  <div style=\"background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 16px;margin-bottom:16px;border-radius:4px;\">\n    <strong style=\"color:#92400e;\">🤖 AI Summary:</strong><br/>{{ $json.summary }}\n  </div>\n  <div style=\"background:white;border:1px solid #e5e7eb;padding:16px;border-radius:8px;margin-bottom:16px;\">\n    <div style=\"font-size:12px;color:#6b7280;margin-bottom:8px;\">FROM {{ $json.senderEmail }}</div>\n    <div style=\"font-weight:600;margin-bottom:8px;\">{{ $json.subject }}</div>\n    <div style=\"color:#374151;font-size:14px;line-height:1.5;white-space:pre-wrap;\">{{ $json.body }}</div>\n  </div>\n  <div style=\"background:#dbeafe;border-left:4px solid #2563eb;padding:14px 16px;border-radius:4px;\">\n    <strong style=\"color:#1e40af;\">💡 Suggested response:</strong><br/>{{ $json.suggestedResponse }}\n  </div>\n  {{ $json.isUnsubscribe ? '<p style=\"color:#dc2626;font-weight:bold;margin-top:12px;\">✓ Client already marked Opted Out — no further marketing will be sent.</p>' : '' }}\n  {{ $json.isComplaint ? '<p style=\"color:#dc2626;font-weight:bold;margin-top:12px;\">⚠ Complaint Flag set on client row. Handle personally within the hour.</p>' : '' }}\n</div>\n</body></html>",
+        "options": {}
+      },
+      "id": "ms9000000-0000-0000-0000-00000000000a",
+      "name": "Alert Owner",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1540, 140],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_GMAIL_CREDENTIAL_ID", "name": "Gmail account" } }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gmail Trigger — Every 1 min":  { "main": [[{ "node": "Parse Reply", "type": "main", "index": 0 }]] },
+    "Parse Reply":                  { "main": [[{ "node": "Match Client", "type": "main", "index": 0 }]] },
+    "Match Client":                 { "main": [[{ "node": "AI Classify Reply", "type": "main", "index": 0 }]] },
+    "AI Classify Reply":            { "main": [[{ "node": "Merge + Route", "type": "main", "index": 0 }]] },
+    "Merge + Route":                { "main": [[{ "node": "Skip Auto-Reply?", "type": "main", "index": 0 }]] },
+    "Skip Auto-Reply?": {
+      "main": [
+        [
+          { "node": "Update Client Row", "type": "main", "index": 0 },
+          { "node": "Log Reply",         "type": "main", "index": 0 },
+          { "node": "Needs Owner Attention?", "type": "main", "index": 0 }
+        ],
+        []
+      ]
+    },
+    "Needs Owner Attention?": {
+      "main": [
+        [{ "node": "Alert Owner", "type": "main", "index": 0 }],
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "ms9000000-0000-0000-0000-000000000099",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "MSG-REPLY-TRIAGE-009",
+  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "AI Agent Layer" }]
+}
