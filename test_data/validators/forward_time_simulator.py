@@ -99,7 +99,7 @@ def run_w5(now, appts):
     return {"emails": 1, "completions": len(completed), "revenue": revenue}
 
 def run_w4(now, clients):
-    """VIP retention — runs 1st of month at 10am."""
+    """client reactivation — runs 1st of month at 10am."""
     d60 = (now - timedelta(days=60)).strftime("%Y-%m-%d")
     d90 = (now - timedelta(days=90)).strftime("%Y-%m-%d")
     d180 = (now - timedelta(days=180)).strftime("%Y-%m-%d")

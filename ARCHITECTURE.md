@@ -37,7 +37,7 @@ A clinic's existing Gmail and Google Sheets become the operational backbone; n8n
        │  - Clients        │  │  1. Lead Inquiry Intake    [webhook]   │
        │  - Appointments   │  │  2. Appointment Follow-Up  [daily 9am] │
        │  - Activity Log   │  │  3. Review & Referral      [webhook]   │
-       │                   │  │  4. VIP Retention          [monthly]   │
+       │                   │  │  4. Client Reactivation          [monthly]   │
        │  Dashboard local  │  │  5. Weekly Report          [Mon 8am]   │
        │                   │  │  6. Booking Confirmation   [webhook]   │
        │  Apps Script:     │  │  7. Error Handler          [trigger]   │

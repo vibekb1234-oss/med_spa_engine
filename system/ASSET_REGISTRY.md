@@ -61,7 +61,7 @@ This is the master map for the build. Use it when you need to find, update, hand
 | Workflow 1 | `workflows/1_MSG_Lead_Inquiry_Intake.json` | Lead intake |
 | Workflow 2 | `workflows/2_MSG_Appointment_Follow_Up.json` | Reminders, no-show recovery, inquiry follow-up |
 | Workflow 3 | `workflows/3_MSG_Review_Referral.json` | Mark complete, reviews, referrals |
-| Workflow 4 | `workflows/4_MSG_VIP_Retention.json` | VIP/lapsed-client retention |
+| Workflow 4 | `workflows/4_MSG_VIP_Retention.json` | client reactivation and lapsed-client recovery |
 | Workflow 5 | `workflows/5_MSG_Weekly_Performance_Report.json` | Weekly report |
 | Workflow 6 | `workflows/6_MSG_Booking_Confirmation.json` | Booking confirmation |
 | Workflow 7 | `workflows/7_MSG_Error_Handler.json` | Error handling |

@@ -39,7 +39,7 @@ Required before a real client launch:
 |---|---|
 | Daily | Check dashboard alerts and Activity Log errors. |
 | Weekly | Confirm Workflow 5 report sent and scan results. |
-| Monthly | Review VIP retention flow and seasonal promo copy. |
+| Monthly | Review client reactivation flow and seasonal promo copy. |
 | After setup changes | Export dashboard backup. |
 | Before sending traffic | Re-run system check and test intake form. |
 

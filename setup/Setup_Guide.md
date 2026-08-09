@@ -104,7 +104,7 @@ Import the configured workflows you are deploying.
 1. **Workflow 1** (Lead Intake) — Active ON → copy webhook URL (ends in `/webhook/msg-lead-intake`)
 2. **Workflow 2** (Follow-Up Engine) — Active ON (runs daily 9am)
 3. **Workflow 3** (Review & Referral) — Active ON → copy webhook URL (ends in `/webhook/msg-appointment-complete`)
-4. **Workflow 4** (VIP Retention) — Active ON (runs monthly 1st at 10am)
+4. **Workflow 4** (Client Reactivation) — Active ON (runs monthly 1st at 10am)
 5. **Workflow 5** (Weekly Report) — Active ON (runs Mondays 8am)
 6. **Workflow 6** (Booking Confirmation) — Active ON → copy webhook URL (ends in `/webhook/msg-booking-confirmation`)
 7. **Workflow 7** (Error Handler) — Active ON. Then:
@@ -191,7 +191,7 @@ In the Appointments sheet, add a test row (Status: Scheduled). Click the row. **
 | You book a new appointment | Dashboard → Appointments → click **📧 Confirm** |
 | Appointment completed | Dashboard → Appointments → click **✅ Complete** |
 | Every morning at 9am (clinic tz) | Workflow 2 — reminders, no-show recovery, inquiry follow-ups |
-| Every month, 1st at 10am | Workflow 4 — VIP retention + seasonal promos |
+| Every month, 1st at 10am | Workflow 4 — client reactivation + seasonal promos |
 | Every Monday, 8am | Workflow 5 — weekly performance report email |
 | Any workflow fails | Workflow 7 emails the owner + logs to Activity Log |
 

@@ -98,7 +98,7 @@ Sample 2  Returning client (2+ visits)  ✓ Care + review + referral ask
 Sample 3  Opted-out client              ✓ Skipped entirely
 ```
 
-### W4 VIP Retention (monthly) — 116 emails from one execution
+### W4 Client Reactivation (monthly) — 116 emails from one execution
 ```
   LAPSED_60:   13 emails  (last visit 60-89d ago)
   LAPSED_90:   10 emails  (last visit 90-179d ago)

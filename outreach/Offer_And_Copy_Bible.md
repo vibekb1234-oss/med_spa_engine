@@ -126,7 +126,7 @@ Primary close line:
 
 > We are not asking you to replace your booking system. We install the recovery layer around it so the revenue leaks are handled every week instead of only when someone remembers.
 
-### 4. Premium Offer - VIP Retention Engine
+### 4. Premium Offer - Client Reactivation Engine
 
 Best for higher-ticket clinics with repeat-treatment potential.
 

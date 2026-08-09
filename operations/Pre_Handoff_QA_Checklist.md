@@ -1,4 +1,4 @@
-﻿# Pre-Handoff QA Checklist
+# Pre-Handoff QA Checklist
 
 Run this before a prospect, client, or operator receives final access.
 
@@ -53,7 +53,7 @@ Run this before a prospect, client, or operator receives final access.
 - [ ] Workflow 1 lead intake tested.
 - [ ] Workflow 2 appointment follow-up tested for duplicate prevention.
 - [ ] Workflow 3 review/referral tested.
-- [ ] Workflow 4 VIP retention tested with demo row.
+- [ ] Workflow 4 client reactivation tested with demo row.
 - [ ] Workflow 5 weekly report tested.
 - [ ] Workflow 6 booking confirmation tested.
 - [ ] Workflow 7 error handler tested.

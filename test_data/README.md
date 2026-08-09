@@ -84,7 +84,7 @@ Status breakdown across all 113 rows: **Completed 93, Scheduled 8, No-Show 7, Ca
 - Workflow 1 (Lead Intake): 42 events — inquiries, service info emails, clinic alerts
 - Workflow 2 (Follow-Up): 54 events — 48hr, 24hr, no-show recovery, post-appt, inquiry follow-ups
 - Workflow 3 (Review/Referral): 14 events — review requests + referral asks
-- Workflow 4 (VIP Retention): 16 events — 60/90/180-day + seasonal (monthly cadence)
+- Workflow 4 (Client Reactivation): 16 events — 60/90/180-day + seasonal (monthly cadence)
 - Workflow 5 (Weekly Report): 3 events — last 3 Mondays
 - Workflow 6 (Booking Confirmation): 10 events — owner clicks
 - Workflow 7 (Error Handler): 3 events — realistic warnings (rate limit, timeout, quota)
@@ -186,7 +186,7 @@ Once loaded, manually trigger each workflow in n8n to see them process real-look
 4. Check your test inbox → emails arrive
 5. Re-run immediately → **should send ZERO new emails** (idempotency test: Pre-Appt Reminder Sent = Yes prevents re-send)
 
-### Workflow 4 (VIP Retention) — monthly cadence test
+### Workflow 4 (Client Reactivation) — monthly cadence test
 
 1. Execute Workflow 4 manually
 2. Expected: emails to 4 lapsed-60 + 3 lapsed-90 + 3 lapsed-180 + 5-6 active VIPs (seasonal promo)

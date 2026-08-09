@@ -9,7 +9,7 @@ You now have 3 AI-orchestrated workflows on top of the base 8. This chapter sets
 | Workflow | Before | After AI |
 |---|---|---|
 | **W1 — Lead Intake** | Static template email based on service dropdown | AI writes a personalized email referencing the specific inquiry message; also scores each lead 0-100 as HOT/WARM/COOL so you know who to call first |
-| **W4 — VIP Retention** | 4 static winback templates (60d/90d/180d/seasonal) | AI writes a personalized paragraph referencing each client's actual service history for every send |
+| **W4 — Client Reactivation** | 4 static winback templates (60d/90d/180d/seasonal) | AI writes a personalized paragraph referencing each client's actual service history for every send |
 | **W9 — Reply Triage (NEW)** | — didn't exist | Gmail-triggered classifier. Every incoming client reply is auto-labeled HOT / WARM / OBJECTION / NOT_NOW / REFERRAL / UNSUBSCRIBE / BAD_FIT / COMPLAINT / AUTO_REPLY, opt-outs auto-flagged in Sheet, complaints emergency-alert the owner, hot leads push to top of daily brief |
 | **W20 — Audit Prep Agent (OPTIONAL)** | Manual pre-call prep | GPT generates an internal Revenue Leak Audit brief from the Calendly booking payload: likely leaks, questions to ask, risk flags, recommended first system, and next best action |
 
@@ -94,7 +94,7 @@ W4 runs on the 1st of each month. To test manually:
 | Workflow | Calls/month | Cost/call | Monthly |
 |---|---:|---:|---:|
 | W1 — Lead intake | ~30 inquiries | $0.002 | $0.06 |
-| W4 — VIP retention | ~40 winback sends | $0.002 | $0.08 |
+| W4 — client reactivation | ~40 winback sends | $0.002 | $0.08 |
 | W9 — Reply triage | ~50 incoming replies | $0.001 | $0.05 |
 | Buffer for testing | 30 calls | $0.001 | $0.03 |
 | **TOTAL per clinic** | | | **~$0.22/mo** |

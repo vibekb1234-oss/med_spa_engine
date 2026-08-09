@@ -53,7 +53,7 @@ No-shows are reduced. The ones who still miss get chased back automatically.
 
 If you do 30 treatments a week, even a modest review response rate compounds because the request happens every time.
 
-### 4 — VIP Retention Engine
+### 4 — Client Reactivation Engine
 Runs monthly. Automatically sends:
 - **60 days after last visit:** Gentle rebook nudge
 - **90 days:** *"We miss you"* with 10% loyalty discount

@@ -90,7 +90,7 @@ Here's the full picture:
 ✅ **Booking Confirmation** — instant confirmation email the moment you confirm an appointment in your dashboard
 ✅ **Appointment Follow-Up Engine** — 48hr + 24hr pre-appointment reminders; no-show recovery emails same-day; post-appointment check-in the next morning; automated follow-up for inquiries who haven't booked
 ✅ **Review & Referral System** — review request sent 24hrs after every completed appointment; referral ask sent to returning clients on their 2nd+ visit
-✅ **VIP Retention Engine** — 60-day rebook, 90-day we miss you, 180-day win-back; monthly seasonal promotions to all active clients
+✅ **Client Reactivation Engine** — 60-day rebook, 90-day we miss you, 180-day win-back; monthly seasonal promotions to all active clients
 ✅ **Weekly Performance Report** — every Monday, you get a full breakdown of revenue, no-shows, at-risk clients, and review rate
 
 **Also includes:** Google Sheets CRM, live clinic dashboard with action buttons, self-hosted intake form (no 3rd-party accounts), full setup guide.
