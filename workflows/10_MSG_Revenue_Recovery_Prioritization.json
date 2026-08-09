@@ -1,0 +1,152 @@
+{
+  "name": "10 - MSG Revenue Recovery Prioritization Engine",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "30 7 * * 1"
+            }
+          ]
+        }
+      },
+      "id": "ms1000000-0000-0000-0000-000000000001",
+      "name": "Schedule - Monday 7:30am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Clients", "mode": "name" },
+        "filters": {},
+        "options": {}
+      },
+      "id": "ms1000000-0000-0000-0000-000000000002",
+      "name": "Get All Clients",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [220, -100],
+      "credentials": {
+        "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Appointments", "mode": "name" },
+        "filters": {},
+        "options": {}
+      },
+      "id": "ms1000000-0000-0000-0000-000000000003",
+      "name": "Get All Appointments",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [220, 120],
+      "credentials": {
+        "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const TZ = 'YOUR_CLINIC_TIMEZONE';\nconst now = new Date();\nconst nowIso = now.toISOString();\nconst weekOf = new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);\n\nfunction asDate(value) { if (!value) return null; const d = new Date(value); return Number.isNaN(d.getTime()) ? null : d; }\nfunction daysSince(value) { const d = asDate(value); if (!d) return null; return Math.floor((now - d) / 86400000); }\nfunction daysUntil(value) { const d = asDate(value); if (!d) return null; return Math.ceil((d - now) / 86400000); }\nfunction money(value) { const n = parseFloat(value || 0); return Number.isFinite(n) ? n : 0; }\nfunction priorityFromScore(score) { if (score >= 80) return 'High'; if (score >= 55) return 'Medium'; return 'Low'; }\nfunction dueDate(offsetDays) { const d = new Date(now); d.setDate(d.getDate() + offsetDays); return new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d); }\nfunction pushOpportunity(rows, payload) {\n  const score = Math.max(1, Math.min(100, Math.round(payload.score)));\n  rows.push({\n    generatedAt: nowIso,\n    weekOf,\n    clientEmail: payload.clientEmail || '',\n    clientName: payload.clientName || '',\n    phoneNumber: payload.phoneNumber || '',\n    opportunityType: payload.opportunityType,\n    priority: priorityFromScore(score),\n    score,\n    whyFlagged: payload.whyFlagged,\n    recommendedAction: payload.recommendedAction,\n    automationOwner: payload.automationOwner,\n    relatedWorkflow: payload.relatedWorkflow,\n    dueDate: payload.dueDate,\n    status: payload.status || 'Open',\n    sourceSignals: payload.sourceSignals,\n    estimatedValue: Math.round(payload.estimatedValue || 0),\n    lastActionAt: payload.lastActionAt || '',\n    notes: payload.notes || ''\n  });\n}\n\nconst clients = $('Get All Clients').all().map(i => i.json);\nconst appointments = $('Get All Appointments').all().map(i => i.json);\nconst apptsByEmail = new Map();\nfor (const appt of appointments) {\n  const email = String(appt['Client Email'] || '').toLowerCase().trim();\n  if (!email) continue;\n  if (!apptsByEmail.has(email)) apptsByEmail.set(email, []);\n  apptsByEmail.get(email).push(appt);\n}\n\nconst rows = [];\nfor (const client of clients) {\n  const email = String(client['Client Email'] || '').toLowerCase().trim();\n  if (!email) continue;\n  if (String(client['Opted Out'] || '').toLowerCase() === 'yes') continue;\n\n  const name = client['Client Name'] || 'Unknown client';\n  const phone = client['Phone Number'] || '';\n  const service = client['Service Interest'] || 'General Inquiry';\n  const status = client['Status'] || '';\n  const visits = parseInt(client['Total Visits'] || 0, 10) || 0;\n  const spend = money(client['Total Spend']);\n  const avgValue = spend > 0 && visits > 0 ? spend / visits : 350;\n  const followUps = parseInt(client['Follow-Up Count'] || 0, 10) || 0;\n  const createdDays = daysSince(client['Created Date']);\n  const lastVisitDays = daysSince(client['Last Visit Date']);\n  const clientAppts = apptsByEmail.get(email) || [];\n  const noShows = clientAppts.filter(a => a['Status'] === 'No-Show');\n  const cancelled = clientAppts.filter(a => a['Status'] === 'Cancelled');\n  const scheduledUpcoming = clientAppts.filter(a => a['Status'] === 'Scheduled' && daysUntil(a['Appointment Date']) !== null && daysUntil(a['Appointment Date']) >= 0);\n\n  if (status === 'New Inquiry' && createdDays !== null && createdDays >= 1 && followUps < 3) {\n    pushOpportunity(rows, {\n      clientEmail: email,\n      clientName: name,\n      phoneNumber: phone,\n      opportunityType: 'Unbooked Consultation',\n      score: 55 + Math.min(25, createdDays * 4) + (followUps === 0 ? 10 : 0),\n      whyFlagged: `${createdDays} day(s) since inquiry, ${followUps}/3 follow-ups sent`,\n      recommendedAction: 'Follow up with booking-focused consult message',\n      automationOwner: followUps < 3 ? 'Automated' : 'Staff Required',\n      relatedWorkflow: 'Workflow 2 - Appointment Follow-Up',\n      dueDate: dueDate(0),\n      sourceSignals: `Status=${status}; Service=${service}; Created=${client['Created Date'] || ''}; FollowUps=${followUps}`,\n      estimatedValue: avgValue,\n      lastActionAt: client['Last Follow-Up Date'] || '',\n      notes: 'High-speed inquiry follow-up is the fastest recovery lever.'\n    });\n  }\n\n  if (noShows.length > 0) {\n    const latestNoShow = noShows.map(a => asDate(a['Appointment Date'])).filter(Boolean).sort((a, b) => b - a)[0];\n    const noShowAge = latestNoShow ? Math.floor((now - latestNoShow) / 86400000) : null;\n    if (noShowAge !== null && noShowAge <= 30) {\n      pushOpportunity(rows, {\n        clientEmail: email,\n        clientName: name,\n        phoneNumber: phone,\n        opportunityType: 'No-Show Recovery',\n        score: 82 + Math.min(12, noShows.length * 4) - Math.min(20, noShowAge),\n        whyFlagged: `${noShows.length} no-show(s), latest ${noShowAge} day(s) ago`,\n        recommendedAction: 'Recover missed appointment and offer quick rebook window',\n        automationOwner: 'Automated',\n        relatedWorkflow: 'Workflow 2 - Appointment Follow-Up',\n        dueDate: dueDate(0),\n        sourceSignals: `LatestNoShowDays=${noShowAge}; Service=${service}; NoShowCount=${noShows.length}`,\n        estimatedValue: avgValue,\n        lastActionAt: client['Last Follow-Up Date'] || '',\n        notes: 'No-shows are paid demand already close to booking again.'\n      });\n    }\n  }\n\n  if (lastVisitDays !== null && lastVisitDays >= 60 && status !== 'New Inquiry') {\n    let bucket = '60-Day Rebook';\n    let baseScore = 65;\n    let action = 'Send warm rebook prompt based on previous treatment cycle';\n    if (lastVisitDays >= 180) { bucket = '180-Day Win-Back'; baseScore = 75; action = 'Send personal win-back note or owner-led check-in'; }\n    else if (lastVisitDays >= 90) { bucket = '90-Day Reactivation'; baseScore = 78; action = 'Send reactivation offer or personal return invitation'; }\n    pushOpportunity(rows, {\n      clientEmail: email,\n      clientName: name,\n      phoneNumber: phone,\n      opportunityType: bucket,\n      score: baseScore + Math.min(10, visits * 2) + Math.min(10, avgValue / 100),\n      whyFlagged: `${lastVisitDays} day(s) since last visit`,\n      recommendedAction: action,\n      automationOwner: 'Automated',\n      relatedWorkflow: 'Workflow 4 - Client Reactivation',\n      dueDate: dueDate(1),\n      sourceSignals: `LastVisitDays=${lastVisitDays}; Visits=${visits}; Spend=${spend}; Service=${service}`,\n      estimatedValue: avgValue,\n      lastActionAt: client['Last Promo Month'] || '',\n      notes: visits >= 3 || client['VIP Status'] === 'VIP' ? 'Treat as priority return client.' : 'Standard reactivation candidate.'\n    });\n  }\n\n  if (scheduledUpcoming.length > 0) {\n    const soonest = scheduledUpcoming.map(a => ({ row: a, days: daysUntil(a['Appointment Date']) })).sort((a, b) => a.days - b.days)[0];\n    if (soonest && soonest.days <= 3) {\n      pushOpportunity(rows, {\n        clientEmail: email,\n        clientName: name,\n        phoneNumber: phone,\n        opportunityType: 'Upcoming Appointment Protection',\n        score: 60 + (soonest.days <= 1 ? 18 : 8),\n        whyFlagged: `Appointment in ${soonest.days} day(s)`,\n        recommendedAction: 'Make sure reminders and prep instructions are sent',\n        automationOwner: 'Automated',\n        relatedWorkflow: 'Workflow 2 - Appointment Follow-Up',\n        dueDate: dueDate(0),\n        sourceSignals: `AppointmentDate=${soonest.row['Appointment Date']}; Service=${soonest.row['Service'] || service}`,\n        estimatedValue: money(soonest.row['Revenue']) || avgValue,\n        lastActionAt: client['Last Follow-Up Date'] || '',\n        notes: 'Protect booked revenue before it becomes a no-show.'\n      });\n    }\n  }\n\n  if (cancelled.length > 0) {\n    const latestCancelled = cancelled.map(a => asDate(a['Appointment Date'])).filter(Boolean).sort((a, b) => b - a)[0];\n    const cancelAge = latestCancelled ? Math.floor((now - latestCancelled) / 86400000) : null;\n    if (cancelAge !== null && cancelAge <= 21 && scheduledUpcoming.length === 0) {\n      pushOpportunity(rows, {\n        clientEmail: email,\n        clientName: name,\n        phoneNumber: phone,\n        opportunityType: 'Cancelled Consultation Recovery',\n        score: 72 - Math.min(18, cancelAge) + Math.min(10, visits * 2),\n        whyFlagged: `Cancelled ${cancelAge} day(s) ago and no new appointment booked`,\n        recommendedAction: 'Ask whether they want the next available consult slot',\n        automationOwner: 'Staff Required',\n        relatedWorkflow: 'Workflow 2 - Appointment Follow-Up',\n        dueDate: dueDate(0),\n        sourceSignals: `CancelledDays=${cancelAge}; Service=${service}`,\n        estimatedValue: avgValue,\n        lastActionAt: client['Last Follow-Up Date'] || '',\n        notes: 'Use a human tone if cancellation reason is unknown.'\n      });\n    }\n  }\n}\n\nrows.sort((a, b) => b.score - a.score);\nconst topRows = rows.slice(0, 25).map((row, index) => ({ json: { ...row, priorityRank: index + 1 } }));\nif (topRows.length === 0) {\n  return [{ json: { generatedAt: nowIso, weekOf, priorityRank: 0, clientEmail: 'system', clientName: 'No opportunities flagged', phoneNumber: '', opportunityType: 'No Action', priority: 'Low', score: 0, whyFlagged: 'No qualifying recovery opportunities found this week', recommendedAction: 'Keep monitoring', automationOwner: 'System', relatedWorkflow: 'Workflow 10 - Revenue Recovery Prioritization', dueDate: weekOf, status: 'Completed', sourceSignals: 'none', estimatedValue: 0, lastActionAt: '', notes: '' } }];\n}\nreturn topRows;"
+      },
+      "id": "ms1000000-0000-0000-0000-000000000004",
+      "name": "Score Recovery Opportunities",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 0]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Revenue Recovery List", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Generated At": "={{ $json.generatedAt }}",
+            "Week Of": "={{ $json.weekOf }}",
+            "Priority Rank": "={{ $json.priorityRank }}",
+            "Client Email": "={{ $json.clientEmail }}",
+            "Client Name": "={{ $json.clientName }}",
+            "Phone Number": "={{ $json.phoneNumber }}",
+            "Opportunity Type": "={{ $json.opportunityType }}",
+            "Priority": "={{ $json.priority }}",
+            "Score": "={{ $json.score }}",
+            "Why Flagged": "={{ $json.whyFlagged }}",
+            "Recommended Action": "={{ $json.recommendedAction }}",
+            "Automation Owner": "={{ $json.automationOwner }}",
+            "Related Workflow": "={{ $json.relatedWorkflow }}",
+            "Due Date": "={{ $json.dueDate }}",
+            "Status": "={{ $json.status }}",
+            "Source Signals": "={{ $json.sourceSignals }}",
+            "Estimated Value": "={{ $json.estimatedValue }}",
+            "Last Action At": "={{ $json.lastActionAt }}",
+            "Notes": "={{ $json.notes }}"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms1000000-0000-0000-0000-000000000005",
+      "name": "Append Recovery List Rows",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [740, 0],
+      "credentials": {
+        "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Activity Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $json.generatedAt }}",
+            "Client Email": "system",
+            "Action Type": "Revenue Recovery List",
+            "Details": "=Weekly recovery opportunity logged: #{{ $json.priorityRank }} {{ $json.opportunityType }} for {{ $json.clientName }}. Priority: {{ $json.priority }}. Score: {{ $json.score }}."
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms1000000-0000-0000-0000-000000000006",
+      "name": "Log Recovery Opportunity",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1000, 0],
+      "credentials": {
+        "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule - Monday 7:30am": {
+      "main": [[
+        { "node": "Get All Clients", "type": "main", "index": 0 },
+        { "node": "Get All Appointments", "type": "main", "index": 0 }
+      ]]
+    },
+    "Get All Clients": { "main": [[{ "node": "Score Recovery Opportunities", "type": "main", "index": 0 }]] },
+    "Get All Appointments": { "main": [[{ "node": "Score Recovery Opportunities", "type": "main", "index": 0 }]] },
+    "Score Recovery Opportunities": { "main": [[{ "node": "Append Recovery List Rows", "type": "main", "index": 0 }]] },
+    "Append Recovery List Rows": { "main": [[{ "node": "Log Recovery Opportunity", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "ms1000000-0000-0000-0000-000000000099",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "MSG-PRIORITY-010",
+  "tags": [{ "name": "MedSpa Growth Engine" }, { "name": "Production Ready" }]
+}

@@ -7,7 +7,7 @@
 | Day 0 | Sales handoff | Scope, price, promised outcomes, and exclusions captured. |
 | Day 1 | Intake + access | Google Workspace, n8n, review link, timezone, services, and owner email received. |
 | Day 2 | Sheet + Apps Script | Sheet tabs created, Apps Script installed, secret generated. |
-| Day 3 | Workflow import | 8 workflows configured/imported, credentials connected. |
+| Day 3 | Workflow import | Workflows 1-10 configured/imported, credentials connected. |
 | Day 4 | Dashboard setup | Dashboard account, settings, webhooks, API key, and launch checklist configured. |
 | Day 5 | QA | Intake, booking confirmation, mark complete, status update, and error handler tested. |
 | Day 6 | Client handoff | Walkthrough completed, backup exported, support rules explained. |
@@ -44,7 +44,7 @@
 - Install `setup/MedSpa_Engine.gs`.
 - Generate unique webhook secret.
 - Configure workflows with `setup/Workflow_Configurator.html`.
-- Import workflows 1-8.
+- Import workflows 1-10.
 - Connect Google Sheets and Gmail credentials.
 - Set Workflow 7 as the error handler.
 - Set dashboard API key, Sheet ID, webhook URLs, and secret.

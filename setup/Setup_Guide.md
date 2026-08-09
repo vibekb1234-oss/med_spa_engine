@@ -39,7 +39,7 @@ Before a real launch, review `../GTM_LAUNCH_GUARDRAILS.md` and `Pre_Launch_Check
 8. Back to your Sheet → **refresh the page** — the **MedSpa ⚡** menu appears
 9. Click **MedSpa ⚡ → Setup → ✅ Create All Tabs & Headers**
 
-All 3 tabs (Clients, Appointments, Activity Log) are created with correct headers (including the new `24hr Reminder Sent` and `Last Promo Month` columns), column widths, dropdown validation, and colour formatting.
+All 4 tabs (Clients, Appointments, Revenue Recovery List, Activity Log) are created with correct headers, column widths, dropdown validation, and colour formatting.
 
 **Get your Sheet ID** from the URL bar:
 ```
@@ -93,7 +93,7 @@ Open `setup/Workflow_Configurator.html` in Chrome. Fill in:
 | Webhook Secret | Step 4 (or click Generate) |
 | Clinic Timezone | IANA tz (`America/New_York`, `America/Los_Angeles`, etc.) |
 
-Drag in the JSON files from `workflows/` that you are deploying. Core client delivery uses Workflows 1-9. Calendly audit booking uses Workflows 18-20. GPT dashboard assistant mode uses Workflow 21. Click **Configure & Download** to generate import-ready files.
+Drag in the JSON files from `workflows/` that you are deploying. Core client delivery uses Workflows 1-10. Calendly audit booking uses Workflows 18-20. GPT dashboard assistant mode uses Workflow 21. Click **Configure & Download** to generate import-ready files.
 
 ---
 
@@ -112,10 +112,11 @@ Import the configured workflows you are deploying.
 8. **Workflow 8** (Status Update) — Active ON → copy webhook URL (ends in `/webhook/msg-status-update`). This is the workflow that lets the dashboard's kanban drag-drop and "bulk Mark VIP" actually persist back to the Sheet.
 
 9. **Workflow 9** (Reply Triage AI Classifier) - Active ON if Gmail reply monitoring is included. Requires Anthropic credential.
-10. **Workflow 18** (Calendly Revenue Leak Audit Scheduler) - Active ON if using Calendly audit bookings. Copy webhook URL into Calendly.
-11. **Workflow 19** (Calendly Reminder Dispatcher) - Active ON if using audit reminders. Requires Supabase env vars in n8n.
-12. **Workflow 20** (AI Audit Prep Agent) - Active ON if using GPT call prep. Requires `MEDSPA_OPENAI_API_KEY` in n8n.
-13. **Workflow 21** (Recovery Assistant Agent) - Active ON if using GPT dashboard assistant mode. Copy its webhook URL into dashboard Settings -> System -> AI agent webhook URL.
+10. **Workflow 10** (Revenue Recovery Prioritization) - Active ON. Runs Mondays 7:30am and writes the weekly `Revenue Recovery List`.
+11. **Workflow 18** (Calendly Revenue Leak Audit Scheduler) - Active ON if using Calendly audit bookings. Copy webhook URL into Calendly.
+12. **Workflow 19** (Calendly Reminder Dispatcher) - Active ON if using audit reminders. Requires Supabase env vars in n8n.
+13. **Workflow 20** (AI Audit Prep Agent) - Active ON if using GPT call prep. Requires `MEDSPA_OPENAI_API_KEY` in n8n.
+14. **Workflow 21** (Recovery Assistant Agent) - Active ON if using GPT dashboard assistant mode. Copy its webhook URL into dashboard Settings -> System -> AI agent webhook URL.
 
 For Workflows 20 and 21, keep the OpenAI API key in n8n environment variables only: `MEDSPA_OPENAI_API_KEY`. Optional: set `MEDSPA_OPENAI_MODEL` to override the default model.
 **Now go back to your Apps Script** and paste the Workflow 3 webhook URL into the `N8N_WEBHOOK_COMPLETE` constant. Also paste the webhook secret into `WEBHOOK_SECRET` if you haven't already. Save.
@@ -191,6 +192,7 @@ In the Appointments sheet, add a test row (Status: Scheduled). Click the row. **
 | You book a new appointment | Dashboard → Appointments → click **📧 Confirm** |
 | Appointment completed | Dashboard → Appointments → click **✅ Complete** |
 | Every morning at 9am (clinic tz) | Workflow 2 — reminders, no-show recovery, inquiry follow-ups |
+| Every Monday, 7:30am | Workflow 10 — Revenue Recovery List / next best opportunities |
 | Every month, 1st at 10am | Workflow 4 — client reactivation + seasonal promos |
 | Every Monday, 8am | Workflow 5 — weekly performance report email |
 | Any workflow fails | Workflow 7 emails the owner + logs to Activity Log |
@@ -208,7 +210,7 @@ In the Appointments sheet, add a test row (Status: Scheduled). Click the row. **
 | `YOUR_CLINIC_NAME` | Workflows 1–6 | Configurator |
 | `YOUR_GOOGLE_REVIEW_LINK` | Workflow 3 | Configurator |
 | `YOUR_WEBHOOK_SECRET` | Workflows 1, 3, 6, 8 | Configurator |
-| `YOUR_CLINIC_TIMEZONE` | Workflows 2, 4, 5 | Configurator |
+| `YOUR_CLINIC_TIMEZONE` | Workflows 2, 4, 5, 10 | Configurator |
 | `WEBHOOK_SECRET` | `MedSpa_Engine.gs` | You (paste value manually) |
 | `CLINIC_TIMEZONE` | `MedSpa_Engine.gs` | You (paste value manually) |
 | `N8N_WEBHOOK_COMPLETE` | `MedSpa_Engine.gs` | You (after Step 6) |

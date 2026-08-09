@@ -19,7 +19,7 @@ Use this as the master operating board. Keep one active owner per task and one c
 | Sales handoff complete | Backlog | Owner | Day 0 | Scope, price, pain, exclusions. |
 | Intake received | Backlog | Client/Owner | Day 1 | Access and clinic info. |
 | Sheet created | Backlog | Owner | Day 2 | Schema matches setup guide. |
-| Workflows imported | Backlog | Owner | Day 3 | All 8 workflows configured. |
+| Workflows imported | Backlog | Owner | Day 3 | Workflows 1-10 configured. |
 | Dashboard configured | Backlog | Owner | Day 4 | API key, Sheet ID, webhooks, secret. |
 | QA passed | Backlog | Owner | Day 5 | Full checklist done. |
 | Handoff completed | Backlog | Owner | Day 6 | Walkthrough and backup export. |

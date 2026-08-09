@@ -43,7 +43,7 @@ Operator creates:
 1. Configure Google Sheet tabs from `setup/Google_Sheets_Schema.md`.
 2. Install `setup/MedSpa_Engine.gs`.
 3. Generate unique webhook secret.
-4. Configure all 8 workflows through `setup/Workflow_Configurator.html`.
+4. Configure Workflows 1-10 through `setup/Workflow_Configurator.html`.
 5. Import workflows into n8n.
 6. Connect Google Sheets OAuth and Gmail OAuth.
 7. Set Workflow 7 as the error handler.

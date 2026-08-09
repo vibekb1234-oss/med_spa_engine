@@ -85,17 +85,18 @@ function setupMedSpaSheet() {
   const ui = SpreadsheetApp.getUi();
   const result = ui.alert(
     'Create All Tabs & Headers',
-    'This will create (or rebuild) 3 tabs:\n• Clients\n• Appointments\n• Activity Log\n\nAll headers, column widths, dropdowns, and colour formatting will be set automatically.\n\nContinue?',
+    'This will create (or rebuild) 4 tabs:\n• Clients\n• Appointments\n• Revenue Recovery List\n• Activity Log\n\nAll headers, column widths, dropdowns, and colour formatting will be set automatically.\n\nContinue?',
     ui.ButtonSet.YES_NO
   );
   if (result !== ui.Button.YES) return;
   try {
     _setupClientsSheet(ss);
     _setupAppointmentsSheet(ss);
+    _setupRevenueRecoveryListSheet(ss);
     _setupActivityLogSheet(ss);
     _deleteDefaultSheet(ss);
     ui.alert('✅ Done!',
-      'All 3 tabs are ready.\n\nNext:\n1. Copy the Sheet ID from the URL bar\n2. Paste it into your n8n workflows\n3. Paste it into the dashboard Settings tab',
+      'All 4 tabs are ready.\n\nNext:\n1. Copy the Sheet ID from the URL bar\n2. Paste it into your n8n workflows\n3. Paste it into the dashboard Settings tab',
       ui.ButtonSet.OK);
   } catch(e) {
     ui.alert('Error', e.message, ui.ButtonSet.OK);
@@ -188,6 +189,68 @@ function _setupAppointmentsSheet(ss) {
     rules.push(SpreadsheetApp.newConditionalFormatRule()
       .whenTextEqualTo(val).setBackground(bg).setFontColor(fg)
       .setRanges([sheet.getRange(2,7,1000,1)]).build());
+  });
+  sheet.setConditionalFormatRules(rules);
+}
+
+function _setupRevenueRecoveryListSheet(ss) {
+  let sheet = ss.getSheetByName('Revenue Recovery List');
+  if (sheet) sheet.clear(); else sheet = ss.insertSheet('Revenue Recovery List');
+
+  const headers = [
+    'Generated At','Week Of','Priority Rank','Client Email','Client Name','Phone Number',
+    'Opportunity Type','Priority','Score','Why Flagged','Recommended Action','Automation Owner',
+    'Related Workflow','Due Date','Status','Source Signals','Estimated Value','Last Action At','Notes'
+  ];
+  sheet.getRange(1,1,1,headers.length).setValues([headers])
+    .setFontWeight('bold').setBackground('#be185d').setFontColor('#ffffff').setFontSize(11);
+  sheet.setFrozenRows(1);
+
+  [180,110,100,220,160,130,190,110,80,300,300,140,220,110,130,360,120,150,260]
+    .forEach((w,i) => sheet.setColumnWidth(i+1, w));
+
+  sheet.getRange(2,7,1000,1).setDataValidation(
+    SpreadsheetApp.newDataValidation()
+      .requireValueInList(['Unbooked Consultation','No-Show Recovery','60-Day Rebook','90-Day Reactivation','180-Day Win-Back','Upcoming Appointment Protection','Cancelled Consultation Recovery','No Action'],true)
+      .setAllowInvalid(true).build()
+  );
+  sheet.getRange(2,8,1000,1).setDataValidation(
+    SpreadsheetApp.newDataValidation()
+      .requireValueInList(['High','Medium','Low'],true)
+      .setAllowInvalid(false).build()
+  );
+  sheet.getRange(2,12,1000,1).setDataValidation(
+    SpreadsheetApp.newDataValidation()
+      .requireValueInList(['Automated','Staff Required','System'],true)
+      .setAllowInvalid(false).build()
+  );
+  sheet.getRange(2,15,1000,1).setDataValidation(
+    SpreadsheetApp.newDataValidation()
+      .requireValueInList(['Open','In Progress','Automated','Staff Required','Completed','Snoozed'],true)
+      .setAllowInvalid(false).build()
+  );
+
+  const rules = sheet.getConditionalFormatRules();
+  [
+    ['High','#fee2e2','#991b1b'],
+    ['Medium','#fef3c7','#92400e'],
+    ['Low','#dcfce7','#166534']
+  ].forEach(([val,bg,fg]) => {
+    rules.push(SpreadsheetApp.newConditionalFormatRule()
+      .whenTextEqualTo(val).setBackground(bg).setFontColor(fg)
+      .setRanges([sheet.getRange(2,8,1000,1)]).build());
+  });
+  [
+    ['Open','#dbeafe','#1e40af'],
+    ['In Progress','#ede9fe','#5b21b6'],
+    ['Automated','#dcfce7','#166534'],
+    ['Staff Required','#fef3c7','#92400e'],
+    ['Completed','#e5e7eb','#374151'],
+    ['Snoozed','#f3f4f6','#6b7280']
+  ].forEach(([val,bg,fg]) => {
+    rules.push(SpreadsheetApp.newConditionalFormatRule()
+      .whenTextEqualTo(val).setBackground(bg).setFontColor(fg)
+      .setRanges([sheet.getRange(2,15,1000,1)]).build());
   });
   sheet.setConditionalFormatRules(rules);
 }

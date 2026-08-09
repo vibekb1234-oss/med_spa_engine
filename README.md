@@ -19,7 +19,7 @@ If you're taking MGE live for the first time, read these four docs in order:
 
 ## What It Does
 
-Handles every client touchpoint automatically: inquiry capture, booking confirmation, appointment reminders, no-show recovery, post-treatment follow-up, review generation, referral asks, VIP retention, and weekly performance reporting.
+Handles every client touchpoint automatically: inquiry capture, booking confirmation, appointment reminders, no-show recovery, post-treatment follow-up, review generation, referral asks, client reactivation, weekly prioritization, and weekly performance reporting.
 
 **The clinic owner's entire day-to-day is two actions:**
 1. Click **📧 Confirm** when a new appointment is added → client gets an instant booking confirmation
@@ -29,7 +29,7 @@ Everything else runs on its own.
 
 ---
 
-## The 8-Workflow Stack
+## The Client Workflow Stack
 
 | # | File | Trigger | What It Does |
 |---|------|---------|--------------|
@@ -41,8 +41,10 @@ Everything else runs on its own.
 | 6 | `6_MSG_Booking_Confirmation.json` | Webhook (dashboard button) | Sends booking confirmation email when clinic clicks Confirm in dashboard |
 | 7 | `7_MSG_Error_Handler.json` | Any workflow error | Emails the clinic owner + logs to Activity Log whenever any workflow fails |
 | 8 | `8_MSG_Status_Update.json` | Webhook (dashboard kanban + bulk action) | Persists kanban drag-drop and bulk Mark VIP actions back to the Clients sheet |
+| 9 | `9_MSG_Reply_Triage.json` | Gmail reply monitoring | AI classifies replies, suppresses opt-outs, tags hot leads, and flags complaints |
+| 10 | `10_MSG_Revenue_Recovery_Prioritization.json` | Every Monday 7:30am | Builds the weekly Revenue Recovery List: who deserves attention, why, urgency, and next action |
 
-**Security & reliability baked in:** all four webhooks (1, 3, 6, 8) require an `X-Webhook-Secret` header and reject unauthenticated calls. All date math is clinic-timezone-aware. Workflow 2 marks every send BEFORE firing, preventing duplicate reminder emails on re-runs. Workflow 7 catches errors from every other workflow and emails the owner.
+**Security & reliability baked in:** all client-facing write webhooks (1, 3, 6, 8, and 21 if enabled) require an `X-Webhook-Secret` header and reject unauthenticated calls. All date math is clinic-timezone-aware. Workflow 2 marks every send BEFORE firing, preventing duplicate reminder emails on re-runs. Workflow 7 catches errors from every other workflow and emails the owner.
 
 ---
 

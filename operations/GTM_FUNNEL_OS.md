@@ -31,7 +31,7 @@ Reviews, referrals, reminders, dashboard visibility, and reporting are supportin
 
 ## Primary Offer
 
-MedSpa Growth Engine installs a Lost Revenue Recovery System around the clinic's existing booking process: 8 workflows plus a dashboard that helps recover missed consults, no-shows, cold leads, lapsed VIP clients, reviews, referrals, and owner visibility.
+MedSpa Growth Engine installs a Lost Revenue Recovery System around the clinic's existing booking process: 10 client workflows plus a dashboard that helps recover missed consults, no-shows, cold leads, lapsed clients, reviews, referrals, owner visibility, and weekly opportunity prioritization.
 
 ## Funnel Assets
 

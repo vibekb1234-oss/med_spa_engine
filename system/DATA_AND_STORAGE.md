@@ -8,6 +8,7 @@ The system uses Google Sheets as the live clinic database. The dashboard keeps o
 |---|---|
 | `Clients` | Client CRM, lead status, service interest, contact info, VIP status, follow-up flags, spend/visit totals. |
 | `Appointments` | Scheduled/completed/no-show appointment rows, appointment revenue, reminders, completion flow. |
+| `Revenue Recovery List` | Weekly prioritized list of revenue recovery opportunities, why each client was flagged, recommended next action, owner, and status. |
 | `Activity Log` | Automation events, errors, email actions, workflow actions, audit trail. |
 
 Schema documentation:

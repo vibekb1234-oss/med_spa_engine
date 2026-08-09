@@ -16,7 +16,7 @@ Required before a real client launch:
 
 - Google Sheets API key is restricted.
 - Google OAuth credentials are connected in n8n.
-- All 8 workflows are configured and imported.
+- Workflows 1-10 are configured and imported.
 - Workflows 1, 3, 6, and 8 webhook URLs are saved in dashboard Settings.
 - Workflow 7 is selected as the error workflow for Workflows 1-6 and 8.
 - Demo data is cleared.
@@ -38,7 +38,7 @@ Required before a real client launch:
 | Frequency | Action |
 |---|---|
 | Daily | Check dashboard alerts and Activity Log errors. |
-| Weekly | Confirm Workflow 5 report sent and scan results. |
+| Weekly | Confirm Workflow 10 generated the Revenue Recovery List, then confirm Workflow 5 report sent and scan results. |
 | Monthly | Review client reactivation flow and seasonal promo copy. |
 | After setup changes | Export dashboard backup. |
 | Before sending traffic | Re-run system check and test intake form. |

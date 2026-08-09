@@ -14,7 +14,7 @@ Delivery,Client intake,Backlog,Owner/Client,P0,Per client,Setup fee paid,Google 
 Delivery,Create Google Sheet,Backlog,Owner,P0,Per client,Intake complete,Sheet schema created and owned by client workspace
 Delivery,Install Apps Script,Backlog,Owner,P0,Per client,Sheet ready,MedSpa Engine script installed and constants configured
 Delivery,Generate webhook secret,Backlog,Owner,P0,Per client,Setup started,Unique secret saved across workflow configurator Apps Script dashboard and intake URL
-Delivery,Configure workflows,Backlog,Owner,P0,Per client,Credentials available,All placeholders replaced for all 8 workflows
+Delivery,Configure workflows,Backlog,Owner,P0,Per client,Credentials available,All placeholders replaced for Workflows 1-10
 Delivery,Import workflows,Backlog,Owner,P0,Per client,Configured files downloaded,All workflows imported into n8n
 Delivery,Connect credentials,Backlog,Owner/Client,P0,Per client,n8n workflows imported,Google Sheets and Gmail OAuth connected
 Delivery,Wire error handler,Backlog,Owner,P0,Per client,Workflows imported,Workflow 7 assigned as error handler

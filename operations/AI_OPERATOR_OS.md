@@ -1,6 +1,6 @@
 # AI Operator OS — MedSpa Growth Engine
 
-The always-on operating layer for finding leads, closing them, delivering the install, and retaining clients. This is Bibek's Jarvis. It does not replace the product (the 8 workflows + dashboard) — it runs the *business* around the product.
+The always-on operating layer for finding leads, closing them, delivering the install, and retaining clients. This is Bibek's Jarvis. It does not replace the product (the 10 client workflows + dashboard) — it runs the *business* around the product.
 
 **Read this file first. Everything else in `operations/` is either a template it references, or an SOP for a specific phase.**
 
