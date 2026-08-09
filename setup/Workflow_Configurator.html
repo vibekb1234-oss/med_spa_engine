@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>MedSpa Growth Engine — Workflow Configurator</title>
+<title>MedSpa Growth Engine - Workflow Configurator</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -255,6 +255,9 @@
       line-height: 1.6;
     }
     .info-box strong { color: #94a3b8; }
+    .info-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+    .mini-note { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; color: #94a3b8; font-size: 12px; line-height: 1.55; }
+    .mini-note strong { display: block; color: #e2e8f0; margin-bottom: 4px; }
     .placeholder-tag {
       display: inline-block;
       background: #0f172a;
@@ -276,41 +279,39 @@
     }
     .warning strong { color: #fb923c; }
     @media (max-width: 540px) {
-      .two-col { grid-template-columns: 1fr; }
+      .two-col, .info-grid { grid-template-columns: 1fr; }
       .download-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-
   <div class="header">
     <div class="badge">MedSpa Growth Engine</div>
     <h1>Workflow Configurator</h1>
-    <p>Enter your 8 values below, load all 8 workflow files, and download them<br>ready to import into n8n — no manual find & replace needed.</p>
+    <p>Configure MedSpa workflow JSONs before importing them into n8n.<br>This replaces file placeholders only. Live credentials still need to be connected in n8n.</p>
   </div>
 
-  <!-- STEP 1: Enter values -->
   <div class="card">
     <h2><span class="step-num">1</span> Enter Your Configuration Values</h2>
-    <p class="card-desc">These 8 values will be substituted into all 8 workflow files automatically.</p>
+    <p class="card-desc">These values will be substituted into whichever workflow JSON files you load. Base, AI, and Calendly workflows can be configured in the same batch.</p>
 
     <div class="field-group">
-      <label class="field-label" for="sheet-id">Google Sheet ID <span>— from the URL of your sheet</span></label>
+      <label class="field-label" for="sheet-id">Google Sheet ID <span>- from the URL of your sheet</span></label>
       <input class="field-input" id="sheet-id" type="text" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms" autocomplete="off">
     </div>
 
     <div class="two-col">
       <div class="field-group">
-        <label class="field-label" for="gsheets-cred">Google Sheets Credential ID <span>— from n8n Settings → Credentials</span></label>
+        <label class="field-label" for="gsheets-cred">Google Sheets Credential ID <span>- from n8n Settings -> Credentials</span></label>
         <input class="field-input" id="gsheets-cred" type="text" placeholder="abc123" autocomplete="off">
       </div>
       <div class="field-group">
-        <label class="field-label" for="gmail-cred">Gmail Credential ID <span>— from n8n Settings → Credentials</span></label>
+        <label class="field-label" for="gmail-cred">Gmail Credential ID <span>- from n8n Settings -> Credentials</span></label>
         <input class="field-input" id="gmail-cred" type="text" placeholder="xyz789" autocomplete="off">
       </div>
       <div class="field-group">
-        <label class="field-label" for="anthropic-cred">Anthropic API Credential ID <span>— required only when importing W1/W4/W9 AI workflow files.</span></label>
+        <label class="field-label" for="anthropic-cred">Anthropic API Credential ID <span>- required only when importing W1/W4/W9 AI workflow files.</span></label>
         <input class="field-input" id="anthropic-cred" type="text" placeholder="ant456 (Header Auth cred with x-api-key)" autocomplete="off">
       </div>
     </div>
@@ -327,68 +328,66 @@
     </div>
 
     <div class="field-group">
-      <label class="field-label" for="review-link">Google Review Link <span>— from your Google Business Profile</span></label>
+      <label class="field-label" for="review-link">Google Review Link <span>- from your Google Business Profile</span></label>
       <input class="field-input" id="review-link" type="url" placeholder="https://g.page/r/XXXX/review" autocomplete="off">
     </div>
 
     <div class="two-col">
       <div class="field-group">
-        <label class="field-label" for="webhook-secret">Webhook Secret <span>— any random string, 24+ chars</span></label>
-        <input class="field-input" id="webhook-secret" type="text" placeholder="click Generate →" autocomplete="off">
-        <button type="button" id="gen-secret-btn" style="margin-top:6px;background:#334155;color:#e2e8f0;border:none;border-radius:6px;padding:6px 12px;font-size:12px;cursor:pointer;">🔐 Generate random secret</button>
+        <label class="field-label" for="webhook-secret">Webhook Secret <span>- any random string, 24+ chars</span></label>
+        <input class="field-input" id="webhook-secret" type="text" placeholder="click Generate" autocomplete="off">
+        <button type="button" id="gen-secret-btn" style="margin-top:6px;background:#334155;color:#e2e8f0;border:none;border-radius:6px;padding:6px 12px;font-size:12px;cursor:pointer;">Generate random secret</button>
       </div>
       <div class="field-group">
-        <label class="field-label" for="clinic-tz">Clinic Timezone <span>— IANA timezone, e.g. America/New_York</span></label>
+        <label class="field-label" for="clinic-tz">Clinic Timezone <span>- IANA timezone, e.g. America/New_York</span></label>
         <input class="field-input" id="clinic-tz" type="text" placeholder="America/New_York" autocomplete="off" value="America/New_York">
       </div>
     </div>
 
     <div class="info-box">
       <strong>Where is each value?</strong><br>
-      <strong>Sheet ID</strong> — the long string between <code>/d/</code> and <code>/edit</code> in your Google Sheet URL.<br>
-      <strong>Credential IDs</strong> — in n8n, go to Settings → Credentials → click each credential → the ID is in the URL.<br>
-      <strong>Review Link</strong> — in Google Business Profile → "Get more reviews" → copy the link.<br>
-      <strong>Webhook Secret</strong> — click Generate. Use the same value in the dashboard Settings and intake-form URL.<br>
-      <strong>Timezone</strong> — <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" style="color:#a78bfa;">IANA timezone list</a>. Examples: America/Los_Angeles, America/Chicago, Europe/London.
+      <strong>Sheet ID</strong> - the long string between <code>/d/</code> and <code>/edit</code> in your Google Sheet URL.<br>
+      <strong>Credential IDs</strong> - in n8n, go to Settings -> Credentials -> click each credential -> the ID is in the URL.<br>
+      <div class="info-grid">
+        <div class="mini-note"><strong>This page does</strong> Replace placeholders inside selected workflow JSON files so they import cleaner into n8n.</div>
+        <div class="mini-note"><strong>This page does not</strong> Connect Google OAuth, set Supabase/OpenAI env vars, create Calendly webhooks, or activate workflows inside n8n.</div>
+      </div>
+      <strong>Review Link</strong> - in Google Business Profile -> "Get more reviews" -> copy the link.<br>
+      <strong>Webhook Secret</strong> - click Generate. Use the same value in the dashboard Settings and intake-form URL.<br>
+      <strong>Timezone</strong> - <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" style="color:#a78bfa;">IANA timezone list</a>. Examples: America/Los_Angeles, America/Chicago, Europe/London.
     </div>
   </div>
 
-  <!-- STEP 2: Load files -->
   <div class="card">
     <h2><span class="step-num">2</span> Load Your Workflow Files</h2>
-    <p class="card-desc">Select all 8 workflow JSON files from the <strong>workflows/</strong> folder. You can select them all at once.</p>
+    <p class="card-desc">Select the workflow JSON files you want from the <strong>workflows/</strong> folder. You can select the full set at once, or only the workflows you are deploying.</p>
 
     <div class="file-drop" id="file-drop">
       <input type="file" id="file-input" accept=".json" multiple>
-      <div class="file-drop-icon">📂</div>
+      <div class="file-drop-icon">Folder</div>
       <p><strong>Click to select files</strong> or drag and drop</p>
-      <p style="margin-top:6px;font-size:12px;">Select all 8 files: 1_MSG_Lead_Inquiry_Intake.json through 8_MSG_Status_Update.json</p>
+      <p style="margin-top:6px;font-size:12px;">Base: W1-W8. AI: W9. Calendly: W18-W20. This tool works with any selected JSON files.</p>
     </div>
 
     <div class="file-list" id="file-list"></div>
   </div>
 
-  <!-- STEP 3: Generate -->
   <div class="card">
     <h2><span class="step-num">3</span> Generate & Download</h2>
     <p class="card-desc">Review the preview above, then generate your configured workflow files.</p>
-
-    <button class="process-btn" id="process-btn" disabled>Configure & Download All 8 Workflows →</button>
-
+    <button class="process-btn" id="process-btn" disabled>Configure & Download Selected Workflows</button>
     <div class="warning" id="validation-msg" style="display:none;"></div>
   </div>
 
-  <!-- Downloads -->
   <div class="downloads" id="downloads-section">
     <div class="success-banner">
-      <div class="icon">✅</div>
       <div>
         <h3>Workflows configured successfully!</h3>
-        <p>All 8 placeholders have been replaced in each file. Download them below and import into n8n in order (1 → 8). Activate Workflows 1, 3, 6, and 8 first to get their webhook URLs. Wire each of Workflows 1–6 + 8 to use Workflow 7 as their Error Workflow. <strong style="color:#fbbf24;">Save your Webhook Secret — you'll paste it into the dashboard Settings and the intake-form URL.</strong></p>
+        <p>Placeholders have been replaced in the selected files. Download them below and import into n8n. Activate webhook workflows after import so n8n generates production URLs. Calendly workflows also need Supabase env vars. W20 needs OpenAI env vars. <strong style="color:#fbbf24;">Save your Webhook Secret - you will paste it into the dashboard Settings and the intake-form URL.</strong></p>
       </div>
     </div>
     <div class="download-grid" id="download-grid"></div>
-    <button class="download-all" id="download-all-btn">⬇ Download All 8 Workflows</button>
+    <button class="download-all" id="download-all-btn">Download All Configured Workflows</button>
   </div>
 
 </div>
@@ -415,11 +414,13 @@
     '6_MSG_Booking_Confirmation':       { label: 'Workflow 6', desc: 'Booking confirmation email sent when appointment is booked', webhook: true },
     '7_MSG_Error_Handler':              { label: 'Workflow 7', desc: 'Catches errors from any other workflow and emails the clinic owner', webhook: false },
     '8_MSG_Status_Update':              { label: 'Workflow 8', desc: 'Persists kanban drag-drop + bulk Mark VIP from the dashboard', webhook: true },
-    '9_MSG_Reply_Triage':               { label: 'Workflow 9', desc: 'AI reply classifier — auto-suppresses opt-outs, alerts on complaints, tags hot leads', webhook: false, ai: true },
+    '9_MSG_Reply_Triage':               { label: 'Workflow 9', desc: 'AI reply classifier - auto-suppresses opt-outs, alerts on complaints, tags hot leads', webhook: false, ai: true },
+    '18_Calendly_Revenue_Leak_Audit_Reminders': { label: 'Workflow 18', desc: 'Creates and schedules Revenue Leak Audit confirmation/reminder tasks', webhook: true },
+    '19_Calendly_Revenue_Leak_Audit_Reminder_Dispatcher': { label: 'Workflow 19', desc: 'Sends due Revenue Leak Audit reminders and marks them as sent', webhook: false },
     '20_Calendly_Revenue_Leak_Audit_AI_Prep_Agent': { label: 'Workflow 20', desc: 'Optional GPT audit prep brief for booked Revenue Leak Audits', webhook: false, ai: true }
   };
 
-  let loadedFiles = {};  // filename → file content string
+  let loadedFiles = {};  // filename -> file content string
 
   // File input
   const fileInput = document.getElementById('file-input');
@@ -463,9 +464,9 @@
       const item = document.createElement('div');
       item.className = 'file-item';
       item.innerHTML = `
-        <div class="file-status ${hasSome ? 'ok' : 'warn'}">${hasSome ? '✓' : '?'}</div>
+        <div class="file-status ${hasSome ? 'ok' : 'warn'}">${hasSome ? 'OK' : '?'}</div>
         <div class="file-name">${filename}</div>
-        <div class="file-placeholders">${hasSome ? foundPlaceholders.length + ' placeholder' + (foundPlaceholders.length > 1 ? 's' : '') + ' found' : 'No placeholders — may already be configured'}</div>
+        <div class="file-placeholders">${hasSome ? foundPlaceholders.length + ' placeholder' + (foundPlaceholders.length > 1 ? 's' : '') + ' found' : 'No placeholders - may already be configured'}</div>
       `;
       list.appendChild(item);
     }
@@ -474,7 +475,7 @@
   }
 
   // Live update field styling
-  const FIELD_IDS = ['sheet-id','gsheets-cred','gmail-cred','clinic-email','clinic-name','review-link','webhook-secret','clinic-tz'];
+  const FIELD_IDS = ['sheet-id','gsheets-cred','gmail-cred','anthropic-cred','clinic-email','clinic-name','review-link','webhook-secret','clinic-tz'];
   FIELD_IDS.forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -525,7 +526,11 @@
   function updateButtonState() {
     const { missing, noFiles } = validate();
     const btn = document.getElementById('process-btn');
+    const count = Object.keys(loadedFiles).length;
     btn.disabled = missing.length > 0 || noFiles;
+    btn.textContent = count > 0
+      ? `Configure & Download ${count} Selected Workflow${count === 1 ? '' : 's'}`
+      : 'Configure & Download Selected Workflows';
   }
 
   document.getElementById('process-btn').addEventListener('click', () => {
@@ -547,7 +552,7 @@
     processFiles();
   });
 
-  let configuredFiles = {};  // filename → configured content
+  let configuredFiles = {};  // filename -> configured content
 
   function processFiles() {
     const vals = getValues();
@@ -558,7 +563,7 @@
     for (const [filename, content] of Object.entries(loadedFiles)) {
       let configured = content;
       for (const [placeholder, value] of Object.entries(vals)) {
-        // Global replace — all occurrences
+        // Global replace - all occurrences
         configured = configured.split(placeholder).join(value);
       }
       configuredFiles[filename] = configured;
@@ -579,13 +584,15 @@
       item.className = 'download-item';
       item.innerHTML = `
         <div class="wf-name">${meta.label}</div>
-        <div class="wf-desc">${meta.desc}${meta.webhook ? '<br><strong style="color:#fbbf24;">⚠ Copy webhook URL after activating</strong>' : ''}</div>
-        <a class="download-btn" href="${url}" download="${filename}">⬇ Download</a>
+        <div class="wf-desc">${meta.desc}${meta.webhook ? '<br><strong style="color:#fbbf24;">Copy webhook URL after activating</strong>' : ''}</div>
+        <a class="download-btn" href="${url}" download="${filename}">Download</a>
       `;
       grid.appendChild(item);
     }
 
     const section = document.getElementById('downloads-section');
+    const allBtn = document.getElementById('download-all-btn');
+    allBtn.textContent = `Download All ${sortedFiles.length} Configured Workflow${sortedFiles.length === 1 ? '' : 's'}`;
     section.classList.add('visible');
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
