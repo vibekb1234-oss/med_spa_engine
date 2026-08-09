@@ -78,7 +78,7 @@ https://docs.google.com/spreadsheets/d/THIS_IS_YOUR_SHEET_ID/edit
 
 ---
 
-## Step 5 — Configure & Download All 8 Workflows
+## Step 5 - Configure & Download Workflow Files
 
 Open `setup/Workflow_Configurator.html` in Chrome. Fill in:
 
@@ -93,13 +93,13 @@ Open `setup/Workflow_Configurator.html` in Chrome. Fill in:
 | Webhook Secret | Step 4 (or click Generate) |
 | Clinic Timezone | IANA tz (`America/New_York`, `America/Los_Angeles`, etc.) |
 
-Drag in all **8** JSON files from `workflows/` (the configurator accepts all at once). Click **Configure & Download** — you get 8 pre-filled files ready to import.
+Drag in the JSON files from `workflows/` that you are deploying. Core client delivery uses Workflows 1-9. Calendly audit booking uses Workflows 18-20. GPT dashboard assistant mode uses Workflow 21. Click **Configure & Download** to generate import-ready files.
 
 ---
 
-## Step 6 — Import, Wire, and Activate Workflows in n8n
+## Step 6 - Import, Wire, and Activate Workflows in n8n
 
-Import all 8 configured workflows in order.
+Import the configured workflows you are deploying.
 
 1. **Workflow 1** (Lead Intake) — Active ON → copy webhook URL (ends in `/webhook/msg-lead-intake`)
 2. **Workflow 2** (Follow-Up Engine) — Active ON (runs daily 9am)
@@ -111,6 +111,13 @@ Import all 8 configured workflows in order.
    - Open **each** of Workflows 1–6 + 8 → click the gear icon (workflow settings) → **Error workflow** dropdown → select **7 — MSG Error Handler**. This tells n8n to email the clinic owner (and log to the Activity Log) any time a workflow fails.
 8. **Workflow 8** (Status Update) — Active ON → copy webhook URL (ends in `/webhook/msg-status-update`). This is the workflow that lets the dashboard's kanban drag-drop and "bulk Mark VIP" actually persist back to the Sheet.
 
+9. **Workflow 9** (Reply Triage AI Classifier) - Active ON if Gmail reply monitoring is included. Requires Anthropic credential.
+10. **Workflow 18** (Calendly Revenue Leak Audit Scheduler) - Active ON if using Calendly audit bookings. Copy webhook URL into Calendly.
+11. **Workflow 19** (Calendly Reminder Dispatcher) - Active ON if using audit reminders. Requires Supabase env vars in n8n.
+12. **Workflow 20** (AI Audit Prep Agent) - Active ON if using GPT call prep. Requires `MEDSPA_OPENAI_API_KEY` in n8n.
+13. **Workflow 21** (Recovery Assistant Agent) - Active ON if using GPT dashboard assistant mode. Copy its webhook URL into dashboard Settings -> System -> AI agent webhook URL.
+
+For Workflows 20 and 21, keep the OpenAI API key in n8n environment variables only: `MEDSPA_OPENAI_API_KEY`. Optional: set `MEDSPA_OPENAI_MODEL` to override the default model.
 **Now go back to your Apps Script** and paste the Workflow 3 webhook URL into the `N8N_WEBHOOK_COMPLETE` constant. Also paste the webhook secret into `WEBHOOK_SECRET` if you haven't already. Save.
 
 ---

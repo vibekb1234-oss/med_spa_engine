@@ -160,7 +160,7 @@ MedSpa Growth Engine/
 
 | Tool | Role | Cost |
 |------|------|------|
-| n8n cloud | Automation backbone — runs all 8 workflows | ~$20/month |
+| n8n cloud | Automation backbone - runs client workflows, Calendly audit workflows, and the GPT assistant agent | ~$20/month |
 | Gmail (OAuth2) | All client + owner email communication | Free |
 | Google Sheets | Client CRM + appointment tracker + activity log | Free |
 | `dashboard/index.html` | Clinic owner's daily interface | Free (self-hosted) |
@@ -176,9 +176,9 @@ This is a **done-for-you** system. You set it up for the client — they never t
 
 1. Create a Google Sheet for the client → paste `MedSpa_Engine.gs` → run setup
 2. Create client's n8n account → add Google Sheets OAuth2 + Gmail OAuth2 credentials
-3. Open `setup/Workflow_Configurator.html` → enter the setup values → download all 8 configured workflows → import to n8n
-4. Activate all 8 workflows → copy Workflow 1, 3, 6, and 8 webhook URLs
-5. Open `dashboard/index.html` in Chrome → first-run setup creates the admin → Settings → System → enter API key, Sheet ID, webhook secret, and the 4 webhook URLs
+3. Open `setup/Workflow_Configurator.html` -> enter the setup values -> configure the workflow JSON files you are deploying -> import them to n8n
+4. Activate the core workflows -> copy Workflow 1, 3, 6, 8, and optional Workflow 21 webhook URLs
+5. Open `dashboard/index.html` in Chrome -> first-run setup creates the admin -> Settings -> System -> enter API key, Sheet ID, webhook secret, webhook URLs, and optional Workflow 21 AI agent URL
 6. Send `Client_Handoff_Email.html` to the client — they're live
 
 **The one step requiring the client's presence:** authorizing Gmail OAuth2 and Google Sheets OAuth2 in n8n (requires their Google login). Do this on a 10-minute screen share.

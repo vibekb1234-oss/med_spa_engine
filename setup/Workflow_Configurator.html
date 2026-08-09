@@ -366,7 +366,7 @@
       <input type="file" id="file-input" accept=".json" multiple>
       <div class="file-drop-icon">Folder</div>
       <p><strong>Click to select files</strong> or drag and drop</p>
-      <p style="margin-top:6px;font-size:12px;">Base: W1-W8. AI: W9. Calendly: W18-W20. This tool works with any selected JSON files.</p>
+      <p style="margin-top:6px;font-size:12px;">Base: W1-W8. AI: W9. Calendly: W18-W20. Dashboard assistant: W21. This tool works with any selected JSON files.</p>
     </div>
 
     <div class="file-list" id="file-list"></div>
@@ -383,7 +383,7 @@
     <div class="success-banner">
       <div>
         <h3>Workflows configured successfully!</h3>
-        <p>Placeholders have been replaced in the selected files. Download them below and import into n8n. Activate webhook workflows after import so n8n generates production URLs. Calendly workflows also need Supabase env vars. W20 needs OpenAI env vars. <strong style="color:#fbbf24;">Save your Webhook Secret - you will paste it into the dashboard Settings and the intake-form URL.</strong></p>
+        <p>Placeholders have been replaced in the selected files. Download them below and import into n8n. Activate webhook workflows after import so n8n generates production URLs. Calendly workflows need Supabase env vars. W20 and W21 need OpenAI env vars. <strong style="color:#fbbf24;">Save your Webhook Secret - you will paste it into the dashboard Settings and the intake-form URL.</strong></p>
       </div>
     </div>
     <div class="download-grid" id="download-grid"></div>
@@ -417,7 +417,8 @@
     '9_MSG_Reply_Triage':               { label: 'Workflow 9', desc: 'AI reply classifier - auto-suppresses opt-outs, alerts on complaints, tags hot leads', webhook: false, ai: true },
     '18_Calendly_Revenue_Leak_Audit_Reminders': { label: 'Workflow 18', desc: 'Creates and schedules Revenue Leak Audit confirmation/reminder tasks', webhook: true },
     '19_Calendly_Revenue_Leak_Audit_Reminder_Dispatcher': { label: 'Workflow 19', desc: 'Sends due Revenue Leak Audit reminders and marks them as sent', webhook: false },
-    '20_Calendly_Revenue_Leak_Audit_AI_Prep_Agent': { label: 'Workflow 20', desc: 'Optional GPT audit prep brief for booked Revenue Leak Audits', webhook: false, ai: true }
+    '20_Calendly_Revenue_Leak_Audit_AI_Prep_Agent': { label: 'Workflow 20', desc: 'Optional GPT audit prep brief for booked Revenue Leak Audits', webhook: false, ai: true },
+    '21_MSG_Recovery_Assistant_Agent': { label: 'Workflow 21', desc: 'GPT-backed dashboard Recovery Assistant for reasoning and safe action suggestions', webhook: true, ai: true }
   };
 
   let loadedFiles = {};  // filename -> file content string

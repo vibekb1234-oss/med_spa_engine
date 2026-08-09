@@ -1,0 +1,142 @@
+{
+  "name": "21 - MSG Recovery Assistant Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "msg-recovery-assistant",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "assistant-webhook",
+      "name": "Dashboard Assistant Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-860, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst headers = input.headers || {};\nconst secret = headers['x-webhook-secret'] || headers['X-Webhook-Secret'] || '';\nif (secret !== 'YOUR_WEBHOOK_SECRET') {\n  throw new Error('Unauthorized: invalid or missing X-Webhook-Secret header');\n}\nconst body = input.body || input;\nconst question = String(body.question || '').trim().slice(0, 1200);\nif (!question) throw new Error('Missing assistant question');\nconst allowedActions = Array.isArray(body.allowedActions) ? body.allowedActions : [];\nconst safe = {\n  question,\n  currentPage: body.currentPage || 'overview',\n  clinicName: body.clinicName || 'Clinic',\n  activeClients: Number(body.activeClients || 0),\n  newInquiries: Number(body.newInquiries || 0),\n  staleInquiries: Number(body.staleInquiries || 0),\n  awaitingReply: Number(body.awaitingReply || 0),\n  atRiskClients: Number(body.atRiskClients || 0),\n  lapsedClients: Number(body.lapsedClients || 0),\n  vipClients: Number(body.vipClients || 0),\n  noShowRate30d: Number(body.noShowRate30d || 0),\n  appointmentsNext48h: Number(body.appointmentsNext48h || 0),\n  recoveryPulse7d: body.recoveryPulse7d || {},\n  openAssistantTasks: Array.isArray(body.openAssistantTasks) ? body.openAssistantTasks.slice(0, 10) : [],\n  launchGaps: Array.isArray(body.launchGaps) ? body.launchGaps.slice(0, 12) : [],\n  allowedActions\n};\nreturn [{ json: safe }];"
+      },
+      "id": "validate-context",
+      "name": "Validate + Pack Dashboard Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-600, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/responses",
+        "authentication": "none",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $env.MEDSPA_OPENAI_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"{{ $env.MEDSPA_OPENAI_MODEL || 'gpt-5-mini' }}\",\n  \"store\": false,\n  \"input\": \"You are Recovery Assistant, the GPT-powered operator inside MedSpa Growth Engine. Help medspa owners understand what to do next, where revenue is leaking, and how to use the dashboard/workflows. Be concise, practical, calm, and specific. Do not claim fake proof, guaranteed revenue, medical advice, legal advice, or direct system access you do not have. You may recommend safe actions using only allowed action types. Never expose secrets or ask for API keys. Return ONLY JSON, no markdown.\\n\\nSystem knowledge:\\n- Workflow 1 captures inquiries, scores them, emails service info, alerts clinic, logs activity.\\n- Workflow 2 runs daily appointment reminders, no-show recovery, inquiry follow-up, and post-appointment check-ins.\\n- Workflow 3 sends review and referral asks after completed appointments.\\n- Workflow 4 runs monthly lapsed/VIP retention.\\n- Workflow 5 sends weekly owner reports.\\n- Workflow 6 sends booking confirmations.\\n- Workflow 7 handles workflow errors.\\n- Workflow 8 writes dashboard status/VIP changes back to Sheets.\\n- Workflow 9 triages replies with AI.\\n- Workflows 18-20 handle Calendly audit reminders and AI call prep.\\n\\nDashboard context JSON:\\n{{ JSON.stringify($json).replace(/\\\"/g, '\\\\\\\"') }}\\n\\nReturn this exact shape: {\\n  \\\"answer\\\": \\\"plain-English answer, 2-6 sentences unless the user asks for detail\\\",\\n  \\\"reasoning_summary\\\": \\\"one short sentence explaining why this is the recommendation\\\",\\n  \\\"priority\\\": \\\"low | medium | high\\\",\\n  \\\"actions\\\": [\\n    { \\\"label\\\": \\\"Open settings\\\", \\\"type\\\": \\\"navigate\\\", \\\"args\\\": { \\\"route\\\": \\\"settings\\\" }, \\\"requiresConfirmation\\\": false }\\n  ],\\n  \\\"follow_up_question\\\": \\\"optional short question or empty string\\\"\\n}\\nAllowed action types only: navigate, open_client, mark_vip_after_confirmation, send_booking_confirmation_after_confirmation, draft_message, check_launch_readiness, create_task. Return max 3 actions. For write actions, set requiresConfirmation true.\"\n}",
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "gpt-assistant",
+      "name": "GPT Recovery Assistant",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-340, 0],
+      "continueOnFail": true,
+      "notes": "Uses OpenAI Responses API with store=false. Put MEDSPA_OPENAI_API_KEY and optional MEDSPA_OPENAI_MODEL in n8n environment variables, not in the dashboard."
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json || {};\nlet text = raw.output_text || raw.output?.[0]?.content?.[0]?.text || raw.content?.[0]?.text || '';\nlet parsed = null;\ntry { parsed = JSON.parse(text); } catch (e) { parsed = null; }\nconst fallback = {\n  answer: 'I could not get a clean GPT response, but the dashboard assistant can still help with built-in actions like launch readiness, recovery pulse, tasks, client lookup, and navigation.',\n  reasoning_summary: 'The AI response was unavailable or invalid.',\n  priority: 'medium',\n  actions: [],\n  follow_up_question: 'Do you want me to check launch readiness or recovery pulse instead?'\n};\nconst allowedTypes = new Set(['navigate','open_client','mark_vip_after_confirmation','send_booking_confirmation_after_confirmation','draft_message','check_launch_readiness','create_task']);\nconst out = parsed && typeof parsed.answer === 'string' ? parsed : fallback;\nout.answer = String(out.answer || fallback.answer).slice(0, 1800);\nout.reasoning_summary = String(out.reasoning_summary || '').slice(0, 300);\nout.priority = ['low','medium','high'].includes(out.priority) ? out.priority : 'medium';\nout.follow_up_question = String(out.follow_up_question || '').slice(0, 300);\nout.actions = Array.isArray(out.actions) ? out.actions.filter(a => a && allowedTypes.has(a.type)).slice(0, 3).map(a => ({\n  label: String(a.label || a.type).slice(0, 60),\n  type: a.type,\n  args: a.args && typeof a.args === 'object' ? a.args : {},\n  requiresConfirmation: !!a.requiresConfirmation\n})) : [];\nreturn [{ json: out }];"
+      },
+      "id": "validate-assistant-json",
+      "name": "Validate Assistant JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-80, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-assistant",
+      "name": "Respond to Dashboard",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [180, 0]
+    }
+  ],
+  "connections": {
+    "Dashboard Assistant Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate + Pack Dashboard Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate + Pack Dashboard Context": {
+      "main": [
+        [
+          {
+            "node": "GPT Recovery Assistant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GPT Recovery Assistant": {
+      "main": [
+        [
+          {
+            "node": "Validate Assistant JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Assistant JSON": {
+      "main": [
+        [
+          {
+            "node": "Respond to Dashboard",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "YOUR_CLINIC_TIMEZONE"
+  },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "medspa-recovery-assistant-agent-v1",
+  "meta": {
+    "description": "GPT-backed Recovery Assistant workflow for the dashboard. Receives dashboard context, reasons over the MedSpa operating system, and returns safe answers plus optional action suggestions."
+  },
+  "tags": ["medspa", "assistant", "gpt", "dashboard"]
+}

@@ -26,8 +26,9 @@ Keep this simple. Do not launch a clinic until every item below is checked.
 - Google Sheets API key is restricted to the dashboard URL/referrer and Google Sheets API only.
 - Unique webhook secret generated for this clinic.
 - n8n Gmail OAuth and Google Sheets OAuth connected.
-- All 8 workflows imported and activated.
-- Error workflow configured for Workflows 1-6 and 8.
+- Core workflows imported and activated: Workflows 1-9 for client delivery, plus Workflows 18-21 if using Calendly audit reminders and the GPT dashboard assistant.
+- Error workflow configured for Workflows 1-6, 8, 9, 18, 19, 20, and 21 where supported.
+- Workflow 21 AI agent webhook URL saved in dashboard Settings if using GPT assistant mode.
 - Dashboard settings saved.
 - Dashboard backup exported.
 
@@ -47,4 +48,3 @@ Keep this simple. Do not launch a clinic until every item below is checked.
 - Monitor the first 7 days daily.
 - Review all outbound copy with the clinic before activating retention/promotional sends.
 - Any custom booking-system integration, SMS, ads, website edits, or new workflow is separate scope.
-
