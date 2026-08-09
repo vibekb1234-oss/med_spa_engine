@@ -12,17 +12,23 @@
       "name": "Dashboard Assistant Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [-860, 0]
+      "position": [
+        -860,
+        0
+      ]
     },
     {
       "parameters": {
-        "jsCode": "const input = $input.first().json;\nconst headers = input.headers || {};\nconst secret = headers['x-webhook-secret'] || headers['X-Webhook-Secret'] || '';\nif (secret !== 'YOUR_WEBHOOK_SECRET') {\n  throw new Error('Unauthorized: invalid or missing X-Webhook-Secret header');\n}\nconst body = input.body || input;\nconst question = String(body.question || '').trim().slice(0, 1200);\nif (!question) throw new Error('Missing assistant question');\nconst allowedActions = Array.isArray(body.allowedActions) ? body.allowedActions : [];\nconst safe = {\n  question,\n  currentPage: body.currentPage || 'overview',\n  clinicName: body.clinicName || 'Clinic',\n  activeClients: Number(body.activeClients || 0),\n  newInquiries: Number(body.newInquiries || 0),\n  staleInquiries: Number(body.staleInquiries || 0),\n  awaitingReply: Number(body.awaitingReply || 0),\n  atRiskClients: Number(body.atRiskClients || 0),\n  lapsedClients: Number(body.lapsedClients || 0),\n  vipClients: Number(body.vipClients || 0),\n  noShowRate30d: Number(body.noShowRate30d || 0),\n  appointmentsNext48h: Number(body.appointmentsNext48h || 0),\n  recoveryPulse7d: body.recoveryPulse7d || {},\n  openAssistantTasks: Array.isArray(body.openAssistantTasks) ? body.openAssistantTasks.slice(0, 10) : [],\n  launchGaps: Array.isArray(body.launchGaps) ? body.launchGaps.slice(0, 12) : [],\n  allowedActions\n};\nreturn [{ json: safe }];"
+        "jsCode": "const input = $input.first().json;\nconst headers = input.headers || {};\nconst secret = headers['x-webhook-secret'] || headers['X-Webhook-Secret'] || '';\nif (secret !== 'YOUR_WEBHOOK_SECRET') {\n  throw new Error('Unauthorized: invalid or missing X-Webhook-Secret header');\n}\nconst body = input.body || input;\nconst question = String(body.question || '').trim().slice(0, 1200);\nif (!question) throw new Error('Missing assistant question');\nconst allowedActions = Array.isArray(body.allowedActions) ? body.allowedActions : [];\nconst safe = {\n  system: 'MedSpa Growth Engine',\n  assistantWorkflow: '21_MSG_Recovery_Assistant_Agent',\n  assistantMode: 'gpt_reasoning_with_safe_dashboard_actions',\n  question,\n  currentPage: body.currentPage || 'overview',\n  clinicName: body.clinicName || 'Clinic',\n  activeClients: Number(body.activeClients || 0),\n  newInquiries: Number(body.newInquiries || 0),\n  staleInquiries: Number(body.staleInquiries || 0),\n  awaitingReply: Number(body.awaitingReply || 0),\n  atRiskClients: Number(body.atRiskClients || 0),\n  lapsedClients: Number(body.lapsedClients || 0),\n  vipClients: Number(body.vipClients || 0),\n  noShowRate30d: Number(body.noShowRate30d || 0),\n  appointmentsNext48h: Number(body.appointmentsNext48h || 0),\n  recoveryPulse7d: body.recoveryPulse7d || {},\n  openAssistantTasks: Array.isArray(body.openAssistantTasks) ? body.openAssistantTasks.slice(0, 10) : [],\n  launchGaps: Array.isArray(body.launchGaps) ? body.launchGaps.slice(0, 12) : [],\n  allowedActions,\n  actionSafetyRules: {\n    readOnlyByDefault: true,\n    writeActionsRequireDashboardConfirmation: true,\n    neverExposeSecrets: true,\n    noMedicalOrRevenueGuarantees: true\n  }\n};\nreturn [{ json: safe }];"
       },
       "id": "validate-context",
       "name": "Validate + Pack Dashboard Context",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [-600, 0]
+      "position": [
+        -600,
+        0
+      ]
     },
     {
       "parameters": {
@@ -44,7 +50,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"model\": \"{{ $env.MEDSPA_OPENAI_MODEL || 'gpt-5-mini' }}\",\n  \"store\": false,\n  \"input\": \"You are Recovery Assistant, the GPT-powered operator inside MedSpa Growth Engine. Help medspa owners understand what to do next, where revenue is leaking, and how to use the dashboard/workflows. Be concise, practical, calm, and specific. Do not claim fake proof, guaranteed revenue, medical advice, legal advice, or direct system access you do not have. You may recommend safe actions using only allowed action types. Never expose secrets or ask for API keys. Return ONLY JSON, no markdown.\\n\\nSystem knowledge:\\n- Workflow 1 captures inquiries, scores them, emails service info, alerts clinic, logs activity.\\n- Workflow 2 runs daily appointment reminders, no-show recovery, inquiry follow-up, and post-appointment check-ins.\\n- Workflow 3 sends review and referral asks after completed appointments.\\n- Workflow 4 runs monthly lapsed/VIP retention.\\n- Workflow 5 sends weekly owner reports.\\n- Workflow 6 sends booking confirmations.\\n- Workflow 7 handles workflow errors.\\n- Workflow 8 writes dashboard status/VIP changes back to Sheets.\\n- Workflow 9 triages replies with AI.\\n- Workflows 18-20 handle Calendly audit reminders and AI call prep.\\n\\nDashboard context JSON:\\n{{ JSON.stringify($json).replace(/\\\"/g, '\\\\\\\"') }}\\n\\nReturn this exact shape: {\\n  \\\"answer\\\": \\\"plain-English answer, 2-6 sentences unless the user asks for detail\\\",\\n  \\\"reasoning_summary\\\": \\\"one short sentence explaining why this is the recommendation\\\",\\n  \\\"priority\\\": \\\"low | medium | high\\\",\\n  \\\"actions\\\": [\\n    { \\\"label\\\": \\\"Open settings\\\", \\\"type\\\": \\\"navigate\\\", \\\"args\\\": { \\\"route\\\": \\\"settings\\\" }, \\\"requiresConfirmation\\\": false }\\n  ],\\n  \\\"follow_up_question\\\": \\\"optional short question or empty string\\\"\\n}\\nAllowed action types only: navigate, open_client, mark_vip_after_confirmation, send_booking_confirmation_after_confirmation, draft_message, check_launch_readiness, create_task. Return max 3 actions. For write actions, set requiresConfirmation true.\"\n}",
+        "jsonBody": "={\n  \"model\": \"{{ $env.MEDSPA_OPENAI_MODEL || 'gpt-5-mini' }}\",\n  \"store\": false,\n  \"input\": \"You are Recovery Assistant, the GPT-powered operator inside MedSpa Growth Engine. You live inside the medspa owner dashboard. Your job is to help the owner understand what to do next, find revenue leaks, explain workflow behavior, create useful task suggestions, and recommend safe dashboard actions. Be concise, practical, calm, premium, and specific. Do not claim fake proof, guaranteed revenue, medical advice, legal advice, or direct system access you do not have. Never expose secrets, ask for API keys, or tell the user to paste private data into chat. Return ONLY JSON, no markdown.\\n\\nFull workflow map you know:\\n- Workflow 1: Lead Inquiry Intake. Captures inquiries, validates webhook secret, scores/personalizes with AI, writes Clients, emails lead, alerts clinic, logs activity.\\n- Workflow 2: Appointment Follow-Up Engine. Daily reminders, inquiry follow-up, no-show recovery, post-appointment check-ins, duplicate-send flags, activity logs.\\n- Workflow 3: Review & Referral System. Appointment-complete webhook, waits 24h, requests review, asks referral for returning clients, updates Clients, logs activity.\\n- Workflow 4: VIP Retention Engine. Monthly segmentation for 60-day rebook, 90-day lapsed, 180-day win-back, seasonal promo, AI personalization, logs actions.\\n- Workflow 5: Weekly Performance Report. Monday owner report with KPIs, no-shows, pending inquiries, reviews, at-risk/lapsed clients, logs report sent.\\n- Workflow 6: Booking Confirmation. Dashboard/booking webhook sends branded confirmation and logs it.\\n- Workflow 7: Error Handler. Central n8n error trigger, emails owner and logs workflow failures.\\n- Workflow 8: Status Update. Secure dashboard writeback for status/VIP changes and kanban persistence.\\n- Workflow 9: Reply Triage. Gmail trigger, parses replies, AI classifies hot/complaint/unsubscribe/etc, updates Clients, logs, alerts owner.\\n- Workflow 18: Calendly Audit Scheduler. Receives Calendly audit bookings/cancellations, stores booking in Supabase, schedules reminder rows.\\n- Workflow 19: Calendly Reminder Dispatcher. Polls due reminders, emails reminders, marks sent/skipped/failed in Supabase.\\n- Workflow 20: AI Audit Prep Agent. Uses GPT to generate structured call briefs for booked Revenue Leak Audits.\\n- Workflow 21: Recovery Assistant Agent. This workflow. Receives dashboard context, reasons with GPT, returns safe answers and optional dashboard action suggestions.\\n\\nAction rules:\\n- You may suggest navigate, open_client, draft_message, create_task, or check_launch_readiness directly.\\n- For writes such as mark_vip_after_confirmation or send_booking_confirmation_after_confirmation, set requiresConfirmation true.\\n- If the dashboard context is missing what you need, say exactly what is missing and suggest opening Settings or the relevant page.\\n- Prioritize missed consults, no-shows, lapsed/VIP clients, launch gaps, and reply urgency.\\n\\nDashboard context JSON:\\n{{ JSON.stringify($json).replace(/\\\"/g, '\\\\\\\"') }}\\n\\nReturn this exact JSON shape: {\\n  \\\"answer\\\": \\\"plain-English answer, 2-6 sentences unless the user asks for detail\\\",\\n  \\\"reasoning_summary\\\": \\\"one short sentence explaining why this is the recommendation\\\",\\n  \\\"priority\\\": \\\"low | medium | high\\\",\\n  \\\"actions\\\": [\\n    { \\\"label\\\": \\\"Open settings\\\", \\\"type\\\": \\\"navigate\\\", \\\"args\\\": { \\\"route\\\": \\\"settings\\\" }, \\\"requiresConfirmation\\\": false }\\n  ],\\n  \\\"follow_up_question\\\": \\\"optional short question or empty string\\\"\\n}\\nAllowed action types only: navigate, open_client, mark_vip_after_confirmation, send_booking_confirmation_after_confirmation, draft_message, check_launch_readiness, create_task. Return max 3 actions.\"\n}",
         "options": {
           "timeout": 20000
         }
@@ -53,19 +59,25 @@
       "name": "GPT Recovery Assistant",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-340, 0],
+      "position": [
+        -340,
+        0
+      ],
       "continueOnFail": true,
-      "notes": "Uses OpenAI Responses API with store=false. Put MEDSPA_OPENAI_API_KEY and optional MEDSPA_OPENAI_MODEL in n8n environment variables, not in the dashboard."
+      "notes": "Uses OpenAI Responses API with store=false. MEDSPA_OPENAI_API_KEY must live in n8n env vars. Returns dashboard-safe JSON only; write actions must be confirmed in the dashboard."
     },
     {
       "parameters": {
-        "jsCode": "const raw = $input.first().json || {};\nlet text = raw.output_text || raw.output?.[0]?.content?.[0]?.text || raw.content?.[0]?.text || '';\nlet parsed = null;\ntry { parsed = JSON.parse(text); } catch (e) { parsed = null; }\nconst fallback = {\n  answer: 'I could not get a clean GPT response, but the dashboard assistant can still help with built-in actions like launch readiness, recovery pulse, tasks, client lookup, and navigation.',\n  reasoning_summary: 'The AI response was unavailable or invalid.',\n  priority: 'medium',\n  actions: [],\n  follow_up_question: 'Do you want me to check launch readiness or recovery pulse instead?'\n};\nconst allowedTypes = new Set(['navigate','open_client','mark_vip_after_confirmation','send_booking_confirmation_after_confirmation','draft_message','check_launch_readiness','create_task']);\nconst out = parsed && typeof parsed.answer === 'string' ? parsed : fallback;\nout.answer = String(out.answer || fallback.answer).slice(0, 1800);\nout.reasoning_summary = String(out.reasoning_summary || '').slice(0, 300);\nout.priority = ['low','medium','high'].includes(out.priority) ? out.priority : 'medium';\nout.follow_up_question = String(out.follow_up_question || '').slice(0, 300);\nout.actions = Array.isArray(out.actions) ? out.actions.filter(a => a && allowedTypes.has(a.type)).slice(0, 3).map(a => ({\n  label: String(a.label || a.type).slice(0, 60),\n  type: a.type,\n  args: a.args && typeof a.args === 'object' ? a.args : {},\n  requiresConfirmation: !!a.requiresConfirmation\n})) : [];\nreturn [{ json: out }];"
+        "jsCode": "const raw = $input.first().json || {};\nlet text = raw.output_text || raw.output?.[0]?.content?.[0]?.text || raw.content?.[0]?.text || '';\nlet parsed = null;\ntry { parsed = JSON.parse(text); } catch (e) { parsed = null; }\nconst fallback = {\n  answer: 'I could not get a clean GPT response, but the dashboard assistant can still help with built-in actions like launch readiness, recovery pulse, tasks, client lookup, and navigation.',\n  reasoning_summary: 'The AI response was unavailable or invalid.',\n  priority: 'medium',\n  actions: [],\n  follow_up_question: 'Do you want me to check launch readiness or recovery pulse instead?'\n};\nconst allowedTypes = new Set(['navigate','open_client','mark_vip_after_confirmation','send_booking_confirmation_after_confirmation','draft_message','check_launch_readiness','create_task']);\nconst out = parsed && typeof parsed.answer === 'string' ? parsed : fallback;\nout.answer = String(out.answer || fallback.answer).slice(0, 1800);\nout.reasoning_summary = String(out.reasoning_summary || '').slice(0, 300);\nout.priority = ['low','medium','high'].includes(out.priority) ? out.priority : 'medium';\nout.follow_up_question = String(out.follow_up_question || '').slice(0, 300);\nout.actions = Array.isArray(out.actions) ? out.actions.filter(a => a && allowedTypes.has(a.type)).slice(0, 3).map(a => {\n  const type = a.type;\n  return {\n    label: String(a.label || type).slice(0, 60),\n    type,\n    args: a.args && typeof a.args === 'object' ? a.args : {},\n    requiresConfirmation: ['mark_vip_after_confirmation','send_booking_confirmation_after_confirmation'].includes(type) ? true : !!a.requiresConfirmation\n  };\n}) : [];\nreturn [{ json: out }];"
       },
       "id": "validate-assistant-json",
       "name": "Validate Assistant JSON",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [-80, 0]
+      "position": [
+        -80,
+        0
+      ]
     },
     {
       "parameters": {
@@ -79,7 +91,10 @@
       "name": "Respond to Dashboard",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [180, 0]
+      "position": [
+        180,
+        0
+      ]
     }
   ],
   "connections": {
@@ -134,9 +149,19 @@
   },
   "staticData": null,
   "pinData": {},
-  "versionId": "medspa-recovery-assistant-agent-v1",
+  "versionId": "medspa-recovery-assistant-agent-v2",
   "meta": {
-    "description": "GPT-backed Recovery Assistant workflow for the dashboard. Receives dashboard context, reasons over the MedSpa operating system, and returns safe answers plus optional action suggestions."
+    "description": "GPT-backed in-dashboard Recovery Assistant. Receives sanitized dashboard context, reasons over the full MedSpa workflow map, and returns safe answers plus confirmable action suggestions.",
+    "requires": [
+      "MEDSPA_OPENAI_API_KEY",
+      "optional MEDSPA_OPENAI_MODEL",
+      "YOUR_WEBHOOK_SECRET"
+    ]
   },
-  "tags": ["medspa", "assistant", "gpt", "dashboard"]
+  "tags": [
+    "medspa",
+    "assistant",
+    "gpt",
+    "dashboard"
+  ]
 }
