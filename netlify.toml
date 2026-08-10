@@ -38,6 +38,12 @@
   force = true
 
 [[redirects]]
+  from = "/ops/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/workflows/*"
   to = "/landing/index.html"
   status = 404
@@ -69,6 +75,18 @@
 
 [[redirects]]
   from = "/Skills/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/leads/*"
+  to = "/landing/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/scraper/*"
   to = "/landing/index.html"
   status = 404
   force = true

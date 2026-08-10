@@ -1,2 +1,99 @@
+# ============================================================
+# MedSpa Growth Engine — .gitignore
+# Blocks everything that should never be public.
+# Public = landing/, booking/, onboarding/, legal/, assets/,
+# dashboard/index.html, netlify.toml, vercel.json.
+# EVERYTHING ELSE stays local by default.
+# ============================================================
+
+# System noise
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+node_modules/
 .vercel
-.env*
+.next
+.cache
+
+# Env + secrets — never commit
+.env
+.env.*
+credentials.json
+service-account*.json
+*.pem
+*.key
+bitwarden-export*.csv
+*.csv.enc
+
+# Sensitive folders — prospect data + internal playbooks
+leads/
+outputs/
+operations/
+ops/
+personas/
+scraper/
+_stress/
+test_data/_stress/
+test_data/personas/
+dashboard/legacy/
+
+# Workflow source + Apps Scripts — contain webhook URLs once configured
+workflows/
+setup/MedSpa_Engine.gs
+setup/Sheet_Backup.gs
+setup/Sheet_Schema_Migration.md
+setup/Workflow_Configurator.html
+setup/Client_Intake_Form.html
+setup/Client_Onboarding_Form.md
+setup/Client_Handoff_Email.html
+setup/Setup_Guide.md
+setup/Pre_Launch_Checklist.md
+
+# Test data + validators — internal only
+test_data/
+
+# Client SOPs — delivered per-clinic via secure channel, never public
+client_sops/
+
+# Skills / third-party libraries dumped into the folder
+Skills/
+
+# Deploy staging + temp
+MGE_DEPLOY_STAGING/
+.codex-build/
+tmp/
+*.backup
+*.zip
+
+# Operator-only docs at project root
+SESSION_HANDOFF.md
+CODEX_HANDOFF_LIVE_PUSH.md
+GEMINI_PROMPT_SHEETS_MIGRATION.md
+DEPLOYMENT_MANUAL.md
+DEPLOYMENT_GUIDE.md
+DEPLOYMENT_MANUAL_ADDENDUM_AI.md
+BUSINESS_OPS_BACKLOG.md
+TIER_FEATURE_MAP.md
+SECURITY_GUIDE.md
+ARCHITECTURE.md
+LAUNCH_CHECKLIST.md
+LAUNCH_READINESS_REPORT.md
+MANAGED_OS_PACKAGE.md
+GTM_LAUNCH_GUARDRAILS.md
+PUSH_TO_LIVE.md
+FINAL_GAP_CHECK.md
+CHANGELOG.md
+README.md
+
+# Stray READMEs in subfolders — operator notes
+landing/README.md
+booking/README.md
+onboarding/README.md
+legal/README.md
+assets/README.md
+design/
+
+# Ignore any file explicitly marked private
+*.private
+private/

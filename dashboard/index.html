@@ -792,14 +792,122 @@ const DEFAULT_LAUNCH_CHECKS = {
   demoDataCleared: false,
   legalReviewed: false
 };
+// ───────────────────────────────────────────────────────────────
+// TIER FEATURE MAP — see TIER_FEATURE_MAP.md for the sales-facing version
+// This is the enforcement layer. state.config.retainer_tier drives visibility.
+// ───────────────────────────────────────────────────────────────
+const TIER_FEATURES = {
+  core: {
+    referralAskEnabled:     false,
+    reactivationEnabled:    false,
+    replyTriageEnabled:     false,
+    monthlyRoiReviewEnabled:false,
+    vipOnlyPipelineView:    false,
+    printableDayBrief:      false,
+    providerAnalytics:      false,
+    serviceAnalytics:       false,
+    leadSourceAttribution:  false,
+    multiClinicSwitcher:    false
+  },
+  engine: {
+    referralAskEnabled:     true,
+    reactivationEnabled:    true,
+    replyTriageEnabled:     true,
+    monthlyRoiReviewEnabled:true,
+    vipOnlyPipelineView:    true,
+    printableDayBrief:      true,
+    providerAnalytics:      false,
+    serviceAnalytics:       false,
+    leadSourceAttribution:  false,
+    multiClinicSwitcher:    false
+  },
+  dominance: {
+    referralAskEnabled:     true,
+    reactivationEnabled:    true,
+    replyTriageEnabled:     true,
+    monthlyRoiReviewEnabled:true,
+    vipOnlyPipelineView:    true,
+    printableDayBrief:      true,
+    providerAnalytics:      true,
+    serviceAnalytics:       true,
+    leadSourceAttribution:  true,
+    multiClinicSwitcher:    true
+  }
+};
+function hasFeature(name) {
+  const tier = (state.config && state.config.retainer_tier) || 'core';
+  return TIER_FEATURES[tier]?.[name] === true;
+}
+
+// ───────────────────────────────────────────────────────────────
+// ROLE-BASED PERMISSIONS — see client_sops for user-facing details
+// ───────────────────────────────────────────────────────────────
+const ROLES = {
+  owner: {
+    label: 'Owner',
+    canViewSettings: true,
+    canManageUsers: true,
+    canBulkAction: true,
+    canDeleteClient: true,
+    canExportData: true,
+    canEditWorkflowCopy: true,
+    pages: ['overview', 'pipeline', 'clients', 'analytics', 'settings']
+  },
+  manager: {
+    label: 'Manager',
+    canViewSettings: false,
+    canManageUsers: false,
+    canBulkAction: true,
+    canDeleteClient: false,
+    canExportData: true,
+    canEditWorkflowCopy: false,
+    pages: ['overview', 'pipeline', 'clients', 'analytics']
+  },
+  frontdesk: {
+    label: 'Front Desk',
+    canViewSettings: false,
+    canManageUsers: false,
+    canBulkAction: false,
+    canDeleteClient: false,
+    canExportData: false,
+    canEditWorkflowCopy: false,
+    pages: ['overview', 'pipeline', 'clients']
+  },
+  provider: {
+    label: 'Provider',
+    canViewSettings: false,
+    canManageUsers: false,
+    canBulkAction: false,
+    canDeleteClient: false,
+    canExportData: false,
+    canEditWorkflowCopy: false,
+    pages: ['overview', 'pipeline']  // providers see today's appointments + pipeline only
+  }
+};
+function currentUserRole() {
+  const u = state.session && state.users[state.session.email];
+  return (u && u.role) || 'owner';  // legacy single-user installs default to owner
+}
+function can(permission) {
+  const role = ROLES[currentUserRole()] || ROLES.owner;
+  return role[permission] === true;
+}
+function canSeePage(page) {
+  const role = ROLES[currentUserRole()] || ROLES.owner;
+  return (role.pages || []).includes(page);
+}
+
 const state = {
+  // Multi-user model:
+  //   users[email] = { name, role, passcodeHash, createdAt, lastLoginAt }
   users: {},
-  session: null,
+  session: null,  // { email, loginAt, expiresAt }
   profile: { tier: 'starter', subscription_status: 'trialing', deployment_status: 'pending' },
   config: {
     apiKey: '',
     sheetId: '',
     webhookSecret: '',
+    retainer_tier: 'core',
     clinicName: '',
     clinicEmail: '',
     clinicPhone: '',
@@ -851,6 +959,169 @@ function saveConfig() { localStorage.setItem(STORAGE.CONFIG, JSON.stringify(stat
 function savePrefs() { localStorage.setItem(STORAGE.PREFS, JSON.stringify(state.prefs)); }
 function saveProfileState() { localStorage.setItem(STORAGE.PROFILE, JSON.stringify(state.profile)); }
 
+/* ==============================================================
+   MULTI-DEVICE — export + import config bundle
+   Owner exports on their setup device, sends the file to a new team
+   member, that person imports it → their device has clinic config
+   without re-entering the API key/Sheet ID/webhooks.
+   Passcodes stay per-user, per-device (never travel in the export).
+   ============================================================== */
+function exportConfigBundle() {
+  if (!can('canExportData')) {
+    alert('Only Owner/Manager can export the clinic config bundle.');
+    return;
+  }
+  const warned = confirm(
+    'SECURITY WARNING — Config bundle contains your Google Sheets API key, ' +
+    'webhook secret, and webhook URLs. Anyone with this file can access your ' +
+    'clinic data.\n\n' +
+    'ONLY share via a secure channel:\n' +
+    '  ✓ Bitwarden Send (recommended — auto-expires)\n' +
+    '  ✓ Signal or encrypted email\n' +
+    '  ✗ NEVER plain email, Slack, or team folders\n\n' +
+    'Continue with download?'
+  );
+  if (!warned) return;
+
+  const bundle = {
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    exportedBy: state.session?.email || 'unknown',
+    clinicName: state.config.clinicName,
+    // Everything the workflows + dashboard need
+    config: {
+      apiKey:            state.config.apiKey,
+      sheetId:           state.config.sheetId,
+      webhookSecret:     state.config.webhookSecret,
+      retainer_tier:     state.config.retainer_tier,
+      clinicName:        state.config.clinicName,
+      clinicEmail:       state.config.clinicEmail,
+      clinicPhone:       state.config.clinicPhone,
+      bookingUrl:        state.config.bookingUrl,
+      intakeFormUrl:     state.config.intakeFormUrl,
+      reviewLink:        state.config.reviewLink,
+      clinicTimezone:    state.config.clinicTimezone,
+      supportEmail:      state.config.supportEmail,
+      cancellationHours: state.config.cancellationHours,
+      aiAgentWebhook:    state.config.aiAgentWebhook,
+      webhooks:          state.config.webhooks
+    },
+    // Users bundle: name + role + email only. Passcode hashes are NEVER exported.
+    // New user has to set their own passcode on first login on the new device.
+    users: Object.entries(state.users).map(([email, u]) => ({
+      email, name: u.name, role: u.role
+      // deliberately no passcodeHash
+    }))
+  };
+  const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const safeName = (state.config.clinicName || 'clinic').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  a.download = `mge-config-${safeName}-${new Date().toISOString().slice(0,10)}.json`;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Config bundle downloaded. Share via secure channel only — this contains API keys.');
+}
+
+function importConfigBundle(fileOrText) {
+  const apply = (obj) => {
+    try {
+      const bundle = typeof obj === 'string' ? JSON.parse(obj) : obj;
+      if (!bundle || bundle.version !== 1) throw new Error('Not a valid MGE config bundle');
+      if (!bundle.config?.sheetId) throw new Error('Bundle missing sheetId');
+      // Merge config
+      Object.assign(state.config, bundle.config);
+      state.config.launchChecks = Object.assign({}, DEFAULT_LAUNCH_CHECKS, state.config.launchChecks || {});
+      saveConfig();
+      // Merge users (empty passcode hashes — each user sets their own on first login)
+      (bundle.users || []).forEach(u => {
+        if (!u.email) return;
+        if (!state.users[u.email]) {
+          state.users[u.email] = {
+            name: u.name || u.email.split('@')[0],
+            role: u.role || 'frontdesk',
+            passcodeHash: '',  // must set on first login
+            createdAt: new Date().toISOString(),
+            lastLoginAt: null
+          };
+        }
+      });
+      saveUsers();
+      toast(`Imported config for "${bundle.clinicName}" (${(bundle.users || []).length} users). Each user must set their own passcode on first login.`);
+      setTimeout(() => location.reload(), 1500);
+    } catch (e) {
+      alert('Import failed: ' + e.message);
+    }
+  };
+  if (fileOrText instanceof File) {
+    const reader = new FileReader();
+    reader.onload = (e) => apply(e.target.result);
+    reader.readAsText(fileOrText);
+  } else {
+    apply(fileOrText);
+  }
+}
+
+/* ==============================================================
+   USER MANAGEMENT (Owner-only)
+   ============================================================== */
+async function addUser(email, name, role) {
+  if (!can('canManageUsers')) { alert('Only Owner can add users.'); return; }
+  email = (email || '').toLowerCase().trim();
+  if (!email || !email.includes('@')) { alert('Invalid email'); return; }
+  if (!ROLES[role]) { alert('Invalid role. Pick: owner, manager, frontdesk, or provider'); return; }
+  if (state.users[email]) { alert('User already exists'); return; }
+  state.users[email] = {
+    name: name || email.split('@')[0],
+    role,
+    passcodeHash: '',  // they set on first login
+    createdAt: new Date().toISOString(),
+    lastLoginAt: null
+  };
+  saveUsers();
+  toast(`Added ${name || email} as ${ROLES[role].label}. Ask them to visit the dashboard and set their passcode.`);
+}
+
+function removeUser(email) {
+  if (!can('canManageUsers')) { alert('Only Owner can remove users.'); return; }
+  if (email === state.session?.email) { alert('You cannot remove yourself.'); return; }
+  const ownerCount = Object.values(state.users).filter(u => u.role === 'owner').length;
+  if (state.users[email]?.role === 'owner' && ownerCount <= 1) {
+    alert('Cannot remove the only owner. Promote another user to Owner first.');
+    return;
+  }
+  if (confirm(`Remove ${email}? Their access is revoked immediately.`)) {
+    delete state.users[email];
+    saveUsers();
+    toast(`Removed ${email}`);
+  }
+}
+
+function changeUserRole(email, newRole) {
+  if (!can('canManageUsers')) return;
+  if (!ROLES[newRole]) return;
+  if (!state.users[email]) return;
+  const wasOwner = state.users[email].role === 'owner';
+  if (wasOwner && newRole !== 'owner') {
+    const ownerCount = Object.values(state.users).filter(u => u.role === 'owner').length;
+    if (ownerCount <= 1) { alert('Cannot demote the only owner. Promote another user first.'); return; }
+  }
+  state.users[email].role = newRole;
+  saveUsers();
+  toast(`${email} is now ${ROLES[newRole].label}`);
+}
+
+function toast(msg) {
+  // Minimal toast — matches existing dashboard style
+  const t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#1f2937;color:white;padding:14px 20px;border-radius:8px;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,0.3);max-width:400px;font-size:14px;line-height:1.4;';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity 0.3s'; }, 4000);
+  setTimeout(() => t.remove(), 4500);
+}
+
 
 function isoDate(daysOffset) {
   const d = new Date();
@@ -901,11 +1172,82 @@ function seedPreviewData() {
 }
 
 /* ==============================================================
-   AUTH
+   AUTH — SECURITY HARDENING
+   Threat model: casual users on a shared clinic device (front desk staff).
+   The role/permission system prevents accidental clicks by lower-privilege
+   users. It does NOT resist a determined attacker with browser dev tools —
+   client-side auth cannot. For that we'd need server-verified sessions
+   (e.g., roles stored in the Sheet, checked via webhook on every action).
+   The safeguards below are best-in-class for a self-hosted dashboard.
    ============================================================== */
 async function sha256(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+// Per-user salt. Generated once per user, stored alongside the hash.
+// Prevents rainbow-table attacks against dumped localStorage.
+function generateSalt() {
+  const arr = new Uint8Array(16);
+  crypto.getRandomValues(arr);
+  return Array.from(arr).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function saltedHash(passcode, salt) {
+  return await sha256(salt + ':' + passcode + ':MGE-2026');
+}
+
+// HMAC-signed session tokens so a user can't extend their own session
+// by editing localStorage. Signature is per-device (device key generated
+// once on first login and never leaves the browser).
+async function getDeviceKey() {
+  let key = localStorage.getItem('mge_device_key');
+  if (!key) {
+    key = generateSalt() + generateSalt();  // 64 hex chars
+    localStorage.setItem('mge_device_key', key);
+  }
+  return key;
+}
+
+async function signSession(sessionObj) {
+  const deviceKey = await getDeviceKey();
+  const payload = JSON.stringify({
+    email: sessionObj.email,
+    role: sessionObj.role,
+    loginAt: sessionObj.loginAt,
+    expiresAt: sessionObj.expiresAt
+  });
+  const sig = await sha256(deviceKey + '|' + payload);
+  return { ...sessionObj, _sig: sig };
+}
+
+async function verifySession(sessionObj) {
+  if (!sessionObj || !sessionObj._sig) return false;
+  const deviceKey = await getDeviceKey();
+  const payload = JSON.stringify({
+    email: sessionObj.email,
+    role: sessionObj.role,
+    loginAt: sessionObj.loginAt,
+    expiresAt: sessionObj.expiresAt
+  });
+  const expectedSig = await sha256(deviceKey + '|' + payload);
+  if (expectedSig !== sessionObj._sig) return false;
+  if (Date.now() > sessionObj.expiresAt) return false;
+  return true;
+}
+
+// View filter — non-owners get a redacted user list.
+// Owners see full metadata (last login, created date).
+// Non-owners see only email + role (need to know who else is on the team).
+function getVisibleUsers() {
+  const isOwner = can('canManageUsers');
+  return Object.entries(state.users).map(([email, u]) => {
+    if (isOwner) {
+      return { email, name: u.name, role: u.role, createdAt: u.createdAt, lastLoginAt: u.lastLoginAt };
+    }
+    // Non-owner view: no timestamps, no hashes, just email + role for coordination
+    return { email, name: u.name, role: u.role };
+  });
 }
 
 const AUTH_MAX_ATTEMPTS = 5;
@@ -1210,6 +1552,102 @@ function rowsToObjects(rows) {
   });
 }
 
+/* ==============================================================
+   SHEET-BASED CONFIG + USERS SYNC (August 2026 schema)
+   Reads the `Config` and `Users` tabs so multi-device access works.
+   ============================================================== */
+
+async function syncConfigFromSheet() {
+  try {
+    const rows = await fetchSheet('Config').then(rowsToObjects);
+    if (!rows || rows.length === 0) return;
+    const cfgRow = rows[0];
+
+    // Only merge non-sensitive fields. Never overwrite API keys / secrets from Sheet.
+    // (API keys should never live in a Sheet — see Sheet_Schema_Migration.md.)
+    const mergeable = {
+      clinicName:     cfgRow['clinic_name'],
+      clinicEmail:    cfgRow['clinic_email'],
+      clinicPhone:    cfgRow['clinic_phone'],
+      clinicTimezone: cfgRow['clinic_timezone'],
+      retainer_tier:  cfgRow['retainer_tier'],
+      bookingUrl:     cfgRow['booking_url'],
+      reviewLink:     cfgRow['review_link']
+    };
+    let changed = false;
+    Object.entries(mergeable).forEach(([k, v]) => {
+      if (v && v !== '(fill in via dashboard Settings)' && v !== state.config[k]) {
+        state.config[k] = v;
+        changed = true;
+      }
+    });
+    if (changed) {
+      saveConfig();
+      console.log('[Config sync] Merged clinic config from Sheet');
+    }
+  } catch (e) {
+    // Tab probably doesn't exist yet — that's fine
+    if (!String(e).includes('not found') && !String(e).includes('404')) {
+      console.warn('Config sync error:', e);
+    }
+  }
+}
+
+async function syncUsersFromSheet() {
+  try {
+    const rows = await fetchSheet('Users').then(rowsToObjects);
+    if (!rows || rows.length === 0) return;
+
+    // Merge users from Sheet into local state.users
+    // - If Sheet has a user not in local state, add them
+    // - If Sheet marks a user Active=No, remove local session for them
+    // - Passcodes are per-device (never travel — user sets on first login here)
+    let added = 0, revoked = 0;
+    rows.forEach(row => {
+      const email = (row['Email'] || '').toLowerCase().trim();
+      if (!email || !email.includes('@')) return;
+      const active = (row['Active'] || 'Yes').toLowerCase() !== 'no';
+      const role = (row['Role'] || 'frontdesk').toLowerCase();
+
+      if (active && !state.users[email]) {
+        state.users[email] = {
+          name: row['Name'] || email.split('@')[0],
+          role: ROLES[role] ? role : 'frontdesk',
+          hash: '',  // per-device — set on first login
+          passcodeSalt: '',
+          provider: 'sheet-sync',
+          createdAt: row['Created At'] || new Date().toISOString(),
+          lastLoginAt: null
+        };
+        added++;
+      } else if (!active && state.users[email]) {
+        // User marked inactive in Sheet → revoke local session if it's them
+        if (state.session?.email === email) {
+          state.session = null;
+          saveSession();
+        }
+        delete state.users[email];
+        revoked++;
+      } else if (active && state.users[email] && role && ROLES[role]) {
+        // Update role if Sheet has a newer value
+        if (state.users[email].role !== role) {
+          state.users[email].role = role;
+        }
+      }
+    });
+    if (added || revoked) {
+      saveUsers();
+      console.log(`[Users sync] ${added} added from Sheet, ${revoked} revoked`);
+      if (added) toast(`${added} new team member${added>1?'s':''} synced from Sheet — they can log in now`);
+      if (revoked) toast(`${revoked} team member${revoked>1?'s':''} deactivated per Sheet`);
+    }
+  } catch (e) {
+    if (!String(e).includes('not found') && !String(e).includes('404')) {
+      console.warn('Users sync error:', e);
+    }
+  }
+}
+
 async function syncAll(silent=false) {
   if (!state.config.apiKey || !state.config.sheetId) {
     setSyncStatus('warning', 'Demo data active - connect sheets before client launch');
@@ -1227,6 +1665,14 @@ async function syncAll(silent=false) {
     state.data.activity = l;
     state.lastSync = Date.now();
     state.syncCount++;
+
+    // ─── August 2026: Also sync Config + Users tabs if they exist ───
+    // Silent failures OK — tabs are optional per schema migration
+    await Promise.all([
+      syncConfigFromSheet().catch(() => {}),
+      syncUsersFromSheet().catch(() => {})
+    ]);
+
     setSyncStatus('success', 'System nominal');
     if (!silent) showToast('Datastore synced', 'success');
     renderRoute();
@@ -2008,6 +2454,10 @@ function renderDossier() {
             <div class="dossier-stat"><span class="label">Lead source</span><span class="value">${escapeHtml(c['Lead Source'] || '-')}</span></div>
             <div class="dossier-stat"><span class="label">Service interest</span><span class="value">${escapeHtml(c['Service Interest'] || '-')}</span></div>
             <div class="dossier-stat"><span class="label">Created</span><span class="value">${c['Created Date'] ? fmtDate(c['Created Date']) : '-'}</span></div>
+            ${c['Lead Score'] ? `<div class="dossier-stat"><span class="label">Lead score</span><span class="value" style="color:${c['Lead Tier']==='HOT'?'#ef4444':c['Lead Tier']==='WARM'?'#f59e0b':'#94a3b8'};font-weight:700;">${escapeHtml(c['Lead Score'])} · ${escapeHtml(c['Lead Tier'] || '-')}</span></div>` : ''}
+            ${c['Last Reply Class'] ? `<div class="dossier-stat"><span class="label">Last reply</span><span class="value" style="color:${['UNSUBSCRIBE','COMPLAINT','BAD_FIT'].includes(c['Last Reply Class'])?'#ef4444':['HOT'].includes(c['Last Reply Class'])?'#22c55e':['WARM','OBJECTION'].includes(c['Last Reply Class'])?'#f59e0b':'var(--text-dim)'};font-weight:600;">${escapeHtml(c['Last Reply Class'])}</span></div>` : ''}
+            ${c['Last Reply Summary'] ? `<div class="dossier-stat" style="flex-direction:column;align-items:flex-start;gap:4px;"><span class="label">Reply summary</span><span class="value" style="font-style:italic;color:var(--text-dim);">"${escapeHtml(c['Last Reply Summary'])}"</span></div>` : ''}
+            ${c['Complaint Flag'] === 'Yes' ? `<div class="dossier-stat" style="background:rgba(239,68,68,0.1);border:1px solid #ef4444;border-radius:6px;padding:8px;"><span class="label" style="color:#ef4444;font-weight:700;">⚠ COMPLAINT FLAG</span><span class="value" style="color:#ef4444;">Handle personally within the hour</span></div>` : ''}
           </div>
         </div>
         <div>

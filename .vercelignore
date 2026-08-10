@@ -3,6 +3,8 @@
 
 # Operator-only root docs
 README.md
+CODEX_HANDOFF_LIVE_PUSH.md
+GEMINI_PROMPT_SHEETS_MIGRATION.md
 LAUNCH_CHECKLIST.md
 LAUNCH_READINESS_REPORT.md
 ARCHITECTURE.md
@@ -11,6 +13,10 @@ GTM_LAUNCH_GUARDRAILS.md
 DEPLOYMENT_GUIDE.md
 DEPLOYMENT_MANUAL.md
 SECURITY_GUIDE.md
+SESSION_HANDOFF.md
+PUSH_TO_LIVE.md
+FINAL_GAP_CHECK.md
+CHANGELOG.md
 System_Description.html
 MASTER_email_campaign.xlsx
 
@@ -21,13 +27,20 @@ launch/
 leads/
 scraper/
 operations/
+ops/
+personas/
+_stress/
 prompts/
 setup/
 system/
 workflows/
 Skills/
 outputs/
+test_data/
+client_sops/
+MGE_DEPLOY_STAGING/
 swarm-output/
+.codex-build/
 
 # Keep dashboard app, but never deploy legacy prompt/archive files
 dashboard/legacy/
