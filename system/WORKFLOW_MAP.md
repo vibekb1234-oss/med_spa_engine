@@ -15,6 +15,7 @@ The backend is intentionally light: Google Sheets + Gmail + n8n. There is no Saa
 | 7 | `workflows/7_MSG_Error_Handler.json` | n8n error workflow | Failure alerts and Activity Log error rows | Must be selected as error workflow for 1-6 and 8 |
 | 8 | `workflows/8_MSG_Status_Update.json` | Webhook: `/webhook/msg-status-update` | Dashboard writes for status updates and bulk VIP actions | Status update URL in Settings |
 | 10 | `workflows/10_MSG_Revenue_Recovery_Prioritization.json` | Weekly schedule | Weekly Revenue Recovery List: scans clients/appointments, scores opportunities, ranks next actions | `Revenue Recovery List` tab |
+| 22 | `workflows/22_MSG_Gmail_Inbox_AI_Label_Router.json` | Gmail inbox trigger | Internal Gmail AI label routing, owner alerts, Activity Log routing records | Agency Gmail labels + `Activity Log` |
 
 ## Webhook Secret
 
@@ -39,5 +40,5 @@ X-Webhook-Secret
 - Workflow 7 must stay wired as the error workflow. Otherwise failures become silent and the dashboard looks healthier than the system really is.
 - Workflows 1-9 are the client-facing Revenue Recovery engine.
 - Workflow 10 is the prioritization layer that turns raw clients and appointments into a weekly action list.
-- Workflows 18-21 are internal sales, audit, and assistant infrastructure.
+- Workflows 18-22 are internal sales, audit, inbox, and assistant infrastructure.
 

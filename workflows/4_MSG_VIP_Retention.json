@@ -36,6 +36,50 @@
     },
     {
       "parameters": {
+        "resource": "sheet",
+        "operation": "read",
+        "authentication": "oAuth2",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Config", "mode": "name" },
+        "options": { "returnFirstMatch": true }
+      },
+      "id": "ms4000000-0000-0000-0000-00000000000c",
+      "name": "Read Config (quiet period)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [ 340, -180 ],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } },
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Check the import_quiet_until field from Config tab.\n// If today is before that date, skip the entire W4 execution to prevent\n// blasting freshly-imported lapsed clients before the clinic reviews the templates.\nconst config = $input.first()?.json || {};\nconst quietUntil = config.import_quiet_until || '';\nconst dateSeason = $('Calculate Dates + Season').first().json;\n\nlet quietActive = false;\nlet quietUntilStr = '';\nif (quietUntil) {\n  try {\n    const quietDate = new Date(quietUntil);\n    const now = new Date();\n    if (!isNaN(quietDate.getTime()) && now < quietDate) {\n      quietActive = true;\n      quietUntilStr = quietUntil;\n    }\n  } catch(e) { /* Ignore parse errors, no quiet period */ }\n}\n\nreturn [{\n  json: {\n    ...dateSeason,\n    quietPeriodActive: quietActive,\n    quietUntil: quietUntilStr\n  }\n}];"
+      },
+      "id": "ms4000000-0000-0000-0000-00000000000d",
+      "name": "Check Quiet Period",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [ 560, -180 ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "typeValidation": "loose" },
+          "conditions": [
+            { "id": "quiet-check", "leftValue": "={{ $json.quietPeriodActive }}", "rightValue": true, "operator": { "type": "boolean", "operation": "notEqual" } }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "ms4000000-0000-0000-0000-00000000000e",
+      "name": "Not in Quiet Period?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [ 780, -180 ]
+    },
+    {
+      "parameters": {
         "operation": "read",
         "documentId": {
           "__rl": true,
@@ -447,11 +491,45 @@
       "main": [
         [
           {
-            "node": "Get All Clients",
+            "node": "Read Config (quiet period)",
             "type": "main",
             "index": 0
           }
         ]
+      ]
+    },
+    "Read Config (quiet period)": {
+      "main": [
+        [
+          {
+            "node": "Check Quiet Period",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Quiet Period": {
+      "main": [
+        [
+          {
+            "node": "Not in Quiet Period?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Not in Quiet Period?": {
+      "main": [
+        [
+          {
+            "node": "Get All Clients",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
       ]
     },
     "Get All Clients": {

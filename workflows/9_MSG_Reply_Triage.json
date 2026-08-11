@@ -3,11 +3,14 @@
   "nodes": [
     {
       "parameters": {
+        "authentication": "oAuth2",
+        "event": "messageReceived",
         "pollTimes": { "item": [{ "mode": "everyMinute" }] },
         "simple": false,
         "filters": {
           "labelIds": ["INBOX"],
-          "receivedAfter": "={{ $now.minus({minutes: 5}).toISO() }}"
+          "readStatus": "unread",
+          "q": "-from:me newer_than:7d"
         },
         "options": {
           "downloadAttachments": false
@@ -32,7 +35,9 @@
     },
     {
       "parameters": {
+        "resource": "sheet",
         "operation": "read",
+        "authentication": "oAuth2",
         "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
         "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
         "filtersUI": {
@@ -46,6 +51,7 @@
       "typeVersion": 4.5,
       "position": [440, 0],
       "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } },
+      "alwaysOutputData": true,
       "continueOnFail": true
     },
     {
@@ -102,7 +108,9 @@
     },
     {
       "parameters": {
+        "resource": "sheet",
         "operation": "appendOrUpdate",
+        "authentication": "oAuth2",
         "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
         "sheetName":  { "__rl": true, "value": "Clients", "mode": "name" },
         "columns": {
@@ -129,7 +137,9 @@
     },
     {
       "parameters": {
+        "resource": "sheet",
         "operation": "append",
+        "authentication": "oAuth2",
         "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
         "sheetName":  { "__rl": true, "value": "Activity Log", "mode": "name" },
         "columns": {
@@ -153,6 +163,40 @@
     },
     {
       "parameters": {
+        "resource": "sheet",
+        "operation": "append",
+        "authentication": "oAuth2",
+        "documentId": { "__rl": true, "value": "YOUR_MEDSPA_SHEET_ID", "mode": "id" },
+        "sheetName":  { "__rl": true, "value": "Reply Triage", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":         "={{ $json.receivedAt }}",
+            "Client Email":      "={{ $json.senderEmail }}",
+            "Client Name":       "={{ $json.clientName }}",
+            "Raw Reply Summary": "={{ $json.summary }}",
+            "Classification":    "={{ $json.replyClass }}",
+            "Sentiment":         "={{ ['HOT','REFERRAL'].includes($json.replyClass) ? 'positive' : ['UNSUBSCRIBE','COMPLAINT','BAD_FIT'].includes($json.replyClass) ? 'negative' : ['OBJECTION','NOT_NOW'].includes($json.replyClass) ? 'neutral' : 'neutral' }}",
+            "Requested Action":  "={{ $json.replyClass === 'HOT' ? 'Book appointment' : $json.replyClass === 'WARM' ? 'Send more info' : $json.replyClass === 'OBJECTION' ? 'Address objection' : $json.replyClass === 'UNSUBSCRIBE' ? 'Remove from list' : $json.replyClass === 'COMPLAINT' ? 'Escalate to owner' : $json.replyClass === 'REFERRAL' ? 'Follow up on referral' : 'Review manually' }}",
+            "Suggested Response":"={{ $json.suggestedResponse }}",
+            "Owner Needed":      "={{ $json.needsOwner ? 'Yes' : 'No' }}",
+            "Status":            "={{ $json.needsOwner ? 'Pending owner action' : 'Auto-handled' }}",
+            "Source Message ID": "={{ $json.messageId }}",
+            "Notes":             "=confidence: {{ $json.confidence }} · urgency: {{ $json.urgencyMinutes }}min"
+          },
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "ms9000000-0000-0000-0000-00000000000b",
+      "name": "Write to Reply Triage Tab",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1320, -280],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_GSHEETS_CREDENTIAL_ID", "name": "Google Sheets account" } }
+    },
+    {
+      "parameters": {
         "conditions": {
           "options": { "caseSensitive": false, "typeValidation": "loose" },
           "conditions": [
@@ -169,10 +213,14 @@
     },
     {
       "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "authentication": "oAuth2",
         "sendTo": "YOUR_CLINIC_EMAIL@gmail.com",
         "subject": "={{ $json.replyClass === 'COMPLAINT' ? '🚨 URGENT COMPLAINT' : ($json.replyClass === 'HOT' ? '🔥 HOT REPLY' : ($json.replyClass === 'UNSUBSCRIBE' ? '🚫 Unsubscribe' : '⚠ Reply needs attention')) }}: {{ $json.clientName }}",
         "message": "=<!DOCTYPE html><html><body style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;\">\n<div style=\"background:{{ $json.replyClass === 'COMPLAINT' ? '#dc2626' : ($json.replyClass === 'HOT' ? '#ea580c' : '#4b5563') }};color:white;padding:20px;border-radius:8px 8px 0 0;\">\n  <h2 style=\"margin:0;\">{{ $json.replyClass === 'COMPLAINT' ? '🚨 URGENT COMPLAINT' : ($json.replyClass === 'HOT' ? '🔥 HOT REPLY — Move fast' : ($json.replyClass === 'UNSUBSCRIBE' ? '🚫 Client opted out' : '⚠ Reply needs your attention')) }}</h2>\n  <p style=\"margin:8px 0 0;opacity:0.9;font-size:13px;\">From {{ $json.clientName }} · {{ $json.replyClass }} · confidence {{ $json.confidence }} · respond within {{ $json.urgencyMinutes }} min</p>\n</div>\n<div style=\"background:#f8fafc;padding:20px;border:1px solid #e2e8f0;border-radius:0 0 8px 8px;\">\n  <div style=\"background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 16px;margin-bottom:16px;border-radius:4px;\">\n    <strong style=\"color:#92400e;\">🤖 AI Summary:</strong><br/>{{ $json.summary }}\n  </div>\n  <div style=\"background:white;border:1px solid #e5e7eb;padding:16px;border-radius:8px;margin-bottom:16px;\">\n    <div style=\"font-size:12px;color:#6b7280;margin-bottom:8px;\">FROM {{ $json.senderEmail }}</div>\n    <div style=\"font-weight:600;margin-bottom:8px;\">{{ $json.subject }}</div>\n    <div style=\"color:#374151;font-size:14px;line-height:1.5;white-space:pre-wrap;\">{{ $json.body }}</div>\n  </div>\n  <div style=\"background:#dbeafe;border-left:4px solid #2563eb;padding:14px 16px;border-radius:4px;\">\n    <strong style=\"color:#1e40af;\">💡 Suggested response:</strong><br/>{{ $json.suggestedResponse }}\n  </div>\n  {{ $json.isUnsubscribe ? '<p style=\"color:#dc2626;font-weight:bold;margin-top:12px;\">✓ Client already marked Opted Out — no further marketing will be sent.</p>' : '' }}\n  {{ $json.isComplaint ? '<p style=\"color:#dc2626;font-weight:bold;margin-top:12px;\">⚠ Complaint Flag set on client row. Handle personally within the hour.</p>' : '' }}\n</div>\n</body></html>",
-        "options": {}
+        "emailType": "html",
+        "options": { "appendAttribution": false }
       },
       "id": "ms9000000-0000-0000-0000-00000000000a",
       "name": "Alert Owner",
@@ -194,6 +242,7 @@
         [
           { "node": "Update Client Row", "type": "main", "index": 0 },
           { "node": "Log Reply",         "type": "main", "index": 0 },
+          { "node": "Write to Reply Triage Tab", "type": "main", "index": 0 },
           { "node": "Needs Owner Attention?", "type": "main", "index": 0 }
         ],
         []
